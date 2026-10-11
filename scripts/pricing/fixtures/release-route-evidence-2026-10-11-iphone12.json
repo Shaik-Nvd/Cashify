@@ -1,0 +1,25 @@
+{
+  "version": "release-route-evidence/shoaeb-iphone12-2026-10-11",
+  "rows": [
+    {
+      "brand": "Apple",
+      "model": "Apple iPhone 12",
+      "storage": "256 GB",
+      "source": "VERIFIED_COLLECTOR_TRACE",
+      "status": "OK",
+      "observedAt": "2026-10-11T11:07:04.904Z",
+      "evidenceSha256": "8541259cd7a85e64c8df665231deb8592c5634398f1f245c5cd10207e8a519d6",
+      "baselineGetUpto": 18630,
+      "observationId": "shoaeb-iphone12-2026-10-11:T001-C1-20261011-r1",
+      "semantics": {
+        "warrantyMode": "NOT_ASKED",
+        "billMode": "NOT_ASKED",
+        "ageMode": "NOT_ASKED"
+      },
+      "boxMode": "ASKED",
+      "chargerMode": "NOT_ASKED",
+      "sPenMode": "NOT_ASKED",
+      "eSimMode": "NOT_ASKED"
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "readAt": "2026-10-10T20:18:15.201Z",
+  "source": "read-only production snapshot scratch/six-iphone-fallback-audit/production-inputs.json",
+  "references": [
+    {
+      "deviceKey": "apple|apple iphone 12 pro max|512gb",
+      "brand": "Apple",
+      "model": "Apple iPhone 12 Pro Max",
+      "storage": "512GB",
+      "currentPrice": 27180,
+      "source": "cashify",
+      "status": "FRESH",
+      "matchConfidence": "EXACT",
+      "lastVerifiedAt": "2026-10-04T08:47:31.034Z",
+      "consecutiveFailures": 0,
+      "updatedAt": "2026-10-04T08:47:31.034Z",
+      "matchEvidence": "url via dictionary; device name \"Apple iPhone 12 Pro Max\" and variant \"6 GB/512 GB\" both verified on https://www.cashify.in/sell-old-mobile-phone/used-apple-iphone-12-pro-max-6-gb-512-gb (storage matches (512gb); catalog omits RAM and Cashify offers exactly one configuration at this storage (6 GB/512 GB)); price text \"₹27,180\""
+    },
+    {
+      "deviceKey": "apple|apple iphone 12 pro max|128gb",
+      "brand": "Apple",
+      "model": "Apple iPhone 12 Pro Max",
+      "storage": "128GB",
+      "currentPrice": 24830,
+      "source": "cashify",
+      "status": "FRESH",
+      "matchConfidence": "EXACT",
+      "lastVerifiedAt": "2026-10-04T08:44:18.177Z",
+      "consecutiveFailures": 0,
+      "updatedAt": "2026-10-04T08:44:18.177Z",
+      "matchEvidence": "url via dictionary; device name \"Apple iPhone 12 Pro Max\" and variant \"6 GB/128 GB\" both verified on https://www.cashify.in/sell-old-mobile-phone/used-apple-iphone-12-pro-max-6-gb-128-gb (storage matches (128gb); catalog omits RAM and Cashify offers exactly one configuration at this storage (6 GB/128 GB)); price text \"₹24,830\""
+    },
+    {
+      "deviceKey": "apple|apple iphone 12 pro max|256gb",
+      "brand": "Apple",
+      "model": "Apple iPhone 12 Pro Max",
+      "storage": "256GB",
+      "currentPrice": 26110,
+      "source": "cashify",
+      "status": "FRESH",
+      "matchConfidence": "EXACT",
+      "lastVerifiedAt": "2026-10-04T08:47:29.375Z",
+      "consecutiveFailures": 0,
+      "updatedAt": "2026-10-04T08:47:29.375Z",
+      "matchEvidence": "url via dictionary; device name \"Apple iPhone 12 Pro Max\" and variant \"6 GB/256 GB\" both verified on https://www.cashify.in/sell-old-mobile-phone/used-apple-iphone-12-pro-max-6-gb-256-gb (storage matches (256gb); catalog omits RAM and Cashify offers exactly one configuration at this storage (6 GB/256 GB)); price text \"₹26,110\""
+    },
+    {
+      "deviceKey": "apple|apple iphone 13|128gb",
+      "brand": "Apple",
+      "model": "Apple iPhone 13",
+      "storage": "128GB",
+      "currentPrice": 24760,
+      "source": "cashify",
+      "status": "FRESH",
+      "matchConfidence": "EXACT",
+      "lastVerifiedAt": "2026-10-04T08:44:22.266Z",
+      "consecutiveFailures": 0,
+      "updatedAt": "2026-10-04T08:44:22.266Z",
+      "matchEvidence": "url via dictionary; device name \"Apple iPhone 13\" and variant \"4 GB/128 GB\" both verified on https://www.cashify.in/sell-old-mobile-phone/used-apple-iphone-13-4-gb-128-gb (storage matches (128gb); catalog omits RAM and Cashify offers exactly one configuration at this storage (4 GB/128 GB)); price text \"₹24,760\""
+    },
+    {
+      "deviceKey": "apple|apple iphone 14|128gb",
+      "brand": "Apple",
+      "model": "Apple iPhone 14",
+      "storage": "128GB",
+      "currentPrice": 27780,
+      "source": "cashify",
+      "status": "FRESH",
+      "matchConfidence": "EXACT",
+      "lastVerifiedAt": "2026-10-04T08:44:36.182Z",
+      "consecutiveFailures": 0,
+      "updatedAt": "2026-10-04T08:44:36.182Z",
+      "matchEvidence": "url via dictionary; device name \"Apple iPhone 14\" and variant \"6 GB/128 GB\" both verified on https://www.cashify.in/sell-old-mobile-phone/used-apple-iphone-14-6-gb-128-gb (storage matches (128gb); catalog omits RAM and Cashify offers exactly one configuration at this storage (6 GB/128 GB)); price text \"₹27,780\""
+    },
+    {
+      "deviceKey": "apple|apple iphone 15|128gb",
+      "brand": "Apple",
+      "model": "Apple iPhone 15",
+      "storage": "128GB",
+      "currentPrice": 42220,
+      "source": "cashify",
+      "status": "FRESH",
+      "matchConfidence": "EXACT",
+      "lastVerifiedAt": "2026-10-04T08:44:48.275Z",
+      "consecutiveFailures": 0,
+      "updatedAt": "2026-10-04T08:44:48.275Z",
+      "matchEvidence": "url via dictionary; device name \"Apple iPhone 15\" and variant \"6 GB/128 GB\" both verified on https://www.cashify.in/sell-old-mobile-phone/used-apple-iphone-15-6-gb-128-gb (storage matches (128gb); catalog omits RAM and Cashify offers exactly one configuration at this storage (6 GB/128 GB)); price text \"₹42,220\""
+    }
+  ],
+  "profiles": [
+    {
+      "modelKey": "apple|apple iphone 12 pro max",
+      "warrantyMode": "NOT_ASKED",
+      "billMode": "NOT_ASKED",
+      "ageMode": "NOT_ASKED",
+      "status": "OK",
+      "observedAt": "2026-09-24T15:02:55.925Z"
+    },
+    {
+      "modelKey": "apple|apple iphone 14",
+      "warrantyMode": "NOT_ASKED",
+      "billMode": "NOT_ASKED",
+      "ageMode": "NOT_ASKED",
+      "status": "OK",
+      "observedAt": "2026-09-24T15:02:56.16Z"
+    },
+    {
+      "modelKey": "apple|apple iphone 15",
+      "warrantyMode": "ASKED",
+      "billMode": "ASKED",
+      "ageMode": "NOT_ASKED",
+      "status": "OK",
+      "observedAt": "2026-09-24T15:03:06.208Z"
+    },
+    {
+      "modelKey": "apple|apple iphone 13",
+      "warrantyMode": "NOT_ASKED",
+      "billMode": "NOT_ASKED",
+      "ageMode": "NOT_ASKED",
+      "status": "OK",
+      "observedAt": "2026-09-24T15:03:04.606Z"
+    }
+  ]
+}

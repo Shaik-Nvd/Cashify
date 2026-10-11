@@ -1,0 +1,125 @@
+{
+  "version": "release-route-evidence/claude-iphone-2026-10-10",
+  "rows": [
+    {
+      "brand": "Apple",
+      "model": "Apple iPhone 15",
+      "storage": "128 GB",
+      "source": "VERIFIED_COLLECTOR_TRACE",
+      "status": "OK",
+      "observedAt": "2026-10-10T18:27:01.643Z",
+      "evidenceSha256": "33e2ff3c77040559bd1b12656eda7d3a86a5dd89c31e07d61a7731119d0480fc",
+      "baselineGetUpto": 42220,
+      "observationId": "claude-iphone-2026-10-10:i15-128-clean",
+      "semantics": {
+        "warrantyMode": "ASKED",
+        "billMode": "ASKED",
+        "ageMode": "NOT_ASKED"
+      },
+      "boxMode": "ASKED",
+      "chargerMode": "NOT_ASKED",
+      "sPenMode": "NOT_ASKED",
+      "eSimMode": "NOT_ASKED"
+    },
+    {
+      "brand": "Apple",
+      "model": "Apple iPhone 12 Pro Max",
+      "storage": "128 GB",
+      "source": "VERIFIED_COLLECTOR_TRACE",
+      "status": "OK",
+      "observedAt": "2026-10-10T18:43:54.670Z",
+      "evidenceSha256": "4cae5574385932e1564a792a6de4dd9a9c9e8597af75877359da0c034c38ce8a",
+      "baselineGetUpto": 24460,
+      "observationId": "claude-iphone-2026-10-10:i12pm128-clean",
+      "semantics": {
+        "warrantyMode": "NOT_ASKED",
+        "billMode": "NOT_ASKED",
+        "ageMode": "NOT_ASKED"
+      },
+      "boxMode": "ASKED",
+      "chargerMode": "NOT_ASKED",
+      "sPenMode": "NOT_ASKED",
+      "eSimMode": "NOT_ASKED"
+    },
+    {
+      "brand": "Apple",
+      "model": "Apple iPhone 12 Pro Max",
+      "storage": "256 GB",
+      "source": "VERIFIED_COLLECTOR_TRACE",
+      "status": "OK",
+      "observedAt": "2026-10-10T18:44:53.157Z",
+      "evidenceSha256": "798a1e9a19f7122049b7b710f22c14d19ae02f5f8e093aec2d06900f2e09b2b1",
+      "baselineGetUpto": 25680,
+      "observationId": "claude-iphone-2026-10-10:i12pm256-clean",
+      "semantics": {
+        "warrantyMode": "NOT_ASKED",
+        "billMode": "NOT_ASKED",
+        "ageMode": "NOT_ASKED"
+      },
+      "boxMode": "ASKED",
+      "chargerMode": "NOT_ASKED",
+      "sPenMode": "NOT_ASKED",
+      "eSimMode": "NOT_ASKED"
+    },
+    {
+      "brand": "Apple",
+      "model": "Apple iPhone 12 Pro Max",
+      "storage": "512 GB",
+      "source": "VERIFIED_COLLECTOR_TRACE",
+      "status": "OK",
+      "observedAt": "2026-10-10T18:45:52.945Z",
+      "evidenceSha256": "b6c28ff950ba27bfdc5175b7969ad1a2ed303e05d813be0bfc56233bd9ab8c37",
+      "baselineGetUpto": 26910,
+      "observationId": "claude-iphone-2026-10-10:i12pm512-clean",
+      "semantics": {
+        "warrantyMode": "NOT_ASKED",
+        "billMode": "NOT_ASKED",
+        "ageMode": "NOT_ASKED"
+      },
+      "boxMode": "ASKED",
+      "chargerMode": "NOT_ASKED",
+      "sPenMode": "NOT_ASKED",
+      "eSimMode": "NOT_ASKED"
+    },
+    {
+      "brand": "Apple",
+      "model": "Apple iPhone 14",
+      "storage": "128 GB",
+      "source": "VERIFIED_COLLECTOR_TRACE",
+      "status": "OK",
+      "observedAt": "2026-10-10T18:46:53.118Z",
+      "evidenceSha256": "10e089d7652b0055be461d7a661c09a323913b36c32b3e0528f2ed6330514ce7",
+      "baselineGetUpto": 27780,
+      "observationId": "claude-iphone-2026-10-10:i14-128-clean",
+      "semantics": {
+        "warrantyMode": "NOT_ASKED",
+        "billMode": "NOT_ASKED",
+        "ageMode": "NOT_ASKED"
+      },
+      "boxMode": "ASKED",
+      "chargerMode": "NOT_ASKED",
+      "sPenMode": "NOT_ASKED",
+      "eSimMode": "NOT_ASKED"
+    },
+    {
+      "brand": "Apple",
+      "model": "Apple iPhone 13",
+      "storage": "128 GB",
+      "source": "VERIFIED_COLLECTOR_TRACE",
+      "status": "OK",
+      "observedAt": "2026-10-10T18:47:52.776Z",
+      "evidenceSha256": "df8b742dbacf22380e171942299243e640b7d45a52c336781c646447c6468a1e",
+      "baselineGetUpto": 24760,
+      "observationId": "claude-iphone-2026-10-10:i13-128-clean",
+      "semantics": {
+        "warrantyMode": "NOT_ASKED",
+        "billMode": "NOT_ASKED",
+        "ageMode": "NOT_ASKED"
+      },
+      "boxMode": "ASKED",
+      "chargerMode": "NOT_ASKED",
+      "sPenMode": "NOT_ASKED",
+      "eSimMode": "NOT_ASKED"
+    }
+  ]
+}

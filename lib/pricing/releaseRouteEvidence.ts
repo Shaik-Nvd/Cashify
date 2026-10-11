@@ -11,9 +11,12 @@ const row = z.object({
   semantics: z.object({ warrantyMode: mode, billMode: mode, ageMode: mode }),
   boxMode: mode, chargerMode: mode, sPenMode: mode, eSimMode: mode,
 });
+/** `file` may name several manifests separated by commas; identities must stay unique across all of them. */
 export function loadReleaseRouteEvidence(file?: string): readonly WorkbookRouteEvidence[] {
   if (!file) return [];
-  const parsed = z.object({ version: z.string().min(1), rows: z.array(row) }).parse(JSON.parse(fs.readFileSync(file, 'utf8')));
+  const manifest = z.object({ version: z.string().min(1), rows: z.array(row) });
+  const parsed = { rows: file.split(',').map(f => f.trim()).filter(Boolean)
+    .flatMap(f => manifest.parse(JSON.parse(fs.readFileSync(f, 'utf8'))).rows) };
   const keys = parsed.rows.map(r => `${r.brand}|${r.model}|${r.storage.replace(/\s+/g, '').toLowerCase()}`);
   if (new Set(keys).size !== keys.length) throw new Error('Duplicate release route evidence identity');
   return parsed.rows;

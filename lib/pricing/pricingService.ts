@@ -4,6 +4,7 @@ import type { ReferencePriceRepository } from '../referencePricing/store';
 import type { ReferencePriceRecord } from '../referencePricing/types';
 import { deviceKey } from '../referencePricing/types';
 import { CatalogDevice, findCatalogDevice } from './catalog';
+import { reviewedAppleDispatchStorage } from './appleVariantDispatch';
 import { parseDiagnostics } from './diagnostics';
 import {
   BaseSource,
@@ -223,6 +224,7 @@ export function createPricingService(deps: PricingServiceDeps) {
     }
 
     const legacyQuestionnaire = { ...questionnaire };
+    const dispatchStorage = reviewedAppleDispatchStorage(device);
     let quotePricingVersion = pricingVersion;
     const route = releaseCandidate ? deps.releaseRouteEvidence?.find(r => r.brand === device.brand && r.model === device.model && workbookStorageIdentity(r.storage) === workbookStorageIdentity(device.storage)) : undefined;
     if (route && questionnaire.source === 'profile' && questionnaire.status === 'OK' &&
@@ -239,7 +241,7 @@ export function createPricingService(deps: PricingServiceDeps) {
       // The quote page passes the brand/model exactly as selected; pricing
       // with the catalog's own strings keeps the engine's model matching
       // identical for both.
-      result = priceDevice(device.brand, device.model, base.cashifyGetUptoReference, diagnostics, hybrid ? legacyQuestionnaire : questionnaire);
+      result = priceDevice(device.brand, device.model, base.cashifyGetUptoReference, diagnostics, hybrid ? legacyQuestionnaire : questionnaire, dispatchStorage);
       const exact = hybrid && deps.exactFinalQuoteIndex ? deps.exactFinalQuoteIndex.find({ device, diagnostics,
         reference: base.cashifyGetUptoReference, referenceVerifiedAt: base.referenceLastVerifiedAt, questionnaire, route, now: at,
         referenceExact: base.source === 'reference_repository' && base.referenceStatus === 'fresh' && base.referenceSource === 'cashify' && !reference.degraded &&
@@ -314,7 +316,7 @@ export function createPricingService(deps: PricingServiceDeps) {
               return { ok: false, code: 'MANUAL_INSPECTION_REQUIRED', message: 'Missing accessory deductions are not verified for this route',
                 context: { questionnaire, startingPrice: computeFhoneifyGetUpto(base.cashifyGetUptoReference), pricingVersion } };
             }
-            const withoutBox = (d: typeof diagnostics) => priceDevice(device.brand, device.model, base.cashifyGetUptoReference, withoutBoxBonus(d), questionnaire);
+            const withoutBox = (d: typeof diagnostics) => priceDevice(device.brand, device.model, base.cashifyGetUptoReference, withoutBoxBonus(d), questionnaire, dispatchStorage);
             const cleanEngine = withoutBox(cleanAccessoryBaselineDiagnostics(diagnostics));
             const conditionEngine = withoutBox(diagnostics);
             const measuredClean = Math.round((base.cashifyGetUptoReference - 20) / 10) * 10;

@@ -1,0 +1,242 @@
+{
+  "version": "reported-iphone12-profiles/1",
+  "packageSha256": "a3f64e67d65bfba76330a08b0c1e36eac270d0b79353d7df21fe64467aceeb5f",
+  "runtimeEligible": false,
+  "limitations": [
+    "No selected answers visible in final cards",
+    "No verified coupon ON or net payout",
+    "No full URLs or verified route/capture fingerprints",
+    "No current production check by coordinator",
+    "Unknown defaults must not be fabricated"
+  ],
+  "reference": {
+    "id": "0c7099c7-1718-498e-b5f7-e1e12d0585a9",
+    "deviceKey": "apple|apple iphone 12|256gb",
+    "brand": "Apple",
+    "model": "Apple iPhone 12",
+    "storage": "256GB",
+    "source": "cashify",
+    "sourceUrl": "https://www.cashify.in/sell-old-mobile-phone/used-apple-iphone-12-4-gb-256-gb",
+    "currentPrice": 18630,
+    "matchConfidence": "EXACT",
+    "matchEvidence": "url via dictionary; device name \"Apple iPhone 12\" and variant \"4 GB/256 GB\" both verified on https://www.cashify.in/sell-old-mobile-phone/used-apple-iphone-12-4-gb-256-gb (storage matches (256gb); catalog omits RAM and Cashify offers exactly one configuration at this storage (4 GB/256 GB)); price text \"₹18,630\"",
+    "status": "FRESH",
+    "lastVerifiedAt": "2026-10-11T09:17:25.613Z",
+    "lastAttemptedAt": "2026-10-11T09:17:25.613Z",
+    "lastFailureAt": null,
+    "lastFailureError": null,
+    "consecutiveFailures": 0,
+    "createdAt": "2026-09-15T18:31:53.559Z",
+    "updatedAt": "2026-10-11T09:17:25.613Z"
+  },
+  "profile": {
+    "id": "fe617849-30d6-435f-b108-b10dbaec8601",
+    "modelKey": "apple|apple iphone 12",
+    "brand": "Apple",
+    "model": "Apple iPhone 12",
+    "warrantyMode": "NOT_ASKED",
+    "billMode": "NOT_ASKED",
+    "ageMode": "NOT_ASKED",
+    "questionLabels": [
+      "Tell us more about your device?",
+      "Are you able to make and receive calls?",
+      "Is your device's touch screen working properly?",
+      "Is your phone's screen original?"
+    ],
+    "status": "OK",
+    "statusDetail": null,
+    "sourceUrl": "https://www.cashify.in/sell-old-mobile-phone/used-apple-iphone-12",
+    "variantsChecked": 2,
+    "parserVersion": "cashify-questionnaire/1",
+    "observedAt": "2026-09-24T15:02:48.603Z",
+    "createdAt": "2026-09-24T15:02:55.347Z",
+    "updatedAt": "2026-09-24T15:02:55.347Z"
+  },
+  "checkedAt": "2026-10-11T10:36:39.135Z",
+  "cases": [
+    {
+      "id": "T001-C1",
+      "evidenceId": "E036",
+      "selling": 11340,
+      "sourceGetUpto": 18630,
+      "sourceUnknown": {
+        "warranty": null,
+        "bill": null,
+        "age": null,
+        "otherAnswers": "unknown",
+        "routeLineage": "unknown"
+      },
+      "screenshot": {
+        "file": "sources/WhatsApp Image 2026-10-10 at 9.17.54 PM.jpeg",
+        "sha256": "c62205b46ddedb246d322b8c2be2d56f6ae0ebbf11d0a8da5346713133d3e603"
+      },
+      "controlledDiagnostics": {
+        "calls": true,
+        "touch": true,
+        "defects": [
+          "screen_scratch"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "screenCondition": "More than 2 scratches on screen",
+        "originalScreen": true,
+        "hardware": [
+          "face"
+        ],
+        "accessories": [
+          "box"
+        ]
+      },
+      "baselineGross": 17311,
+      "reportedDisplayed": 17212
+    },
+    {
+      "id": "T001-C2",
+      "evidenceId": "E035",
+      "selling": 13280,
+      "sourceGetUpto": 18630,
+      "sourceUnknown": {
+        "warranty": null,
+        "bill": null,
+        "age": null,
+        "otherAnswers": "unknown",
+        "routeLineage": "unknown"
+      },
+      "screenshot": {
+        "file": "sources/WhatsApp Image 2026-10-10 at 11.30.42 PM.jpeg",
+        "sha256": "bdc0ec90be81eced79f732bc0bccade08f52978a2f75accccc5964fe898074fc"
+      },
+      "controlledDiagnostics": {
+        "calls": true,
+        "touch": true,
+        "defects": [
+          "screen_scratch"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "screenCondition": "1-2 scratches on screen",
+        "originalScreen": false,
+        "hardware": [],
+        "accessories": [
+          "box"
+        ]
+      },
+      "baselineGross": 11799,
+      "reportedDisplayed": 11700
+    },
+    {
+      "id": "T001-C3",
+      "evidenceId": "E033",
+      "selling": 15780,
+      "sourceGetUpto": 18630,
+      "sourceUnknown": {
+        "warranty": null,
+        "bill": null,
+        "age": null,
+        "otherAnswers": "unknown",
+        "routeLineage": "unknown"
+      },
+      "screenshot": {
+        "file": "sources/2gug.jpeg",
+        "sha256": "2182aa9fb2a3445c922dcba496d03abcc1523bba7e860ae9ce33aa799982b3bd"
+      },
+      "controlledDiagnostics": {
+        "calls": true,
+        "touch": true,
+        "defects": [
+          "screen_scratch"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "screenCondition": "1-2 scratches on screen",
+        "originalScreen": true,
+        "hardware": [
+          "battery_service"
+        ],
+        "accessories": [
+          "box"
+        ]
+      },
+      "baselineGross": 18438,
+      "reportedDisplayed": 18339
+    },
+    {
+      "id": "T001-C4",
+      "evidenceId": "E034",
+      "selling": 15400,
+      "sourceGetUpto": 18630,
+      "sourceUnknown": {
+        "warranty": null,
+        "bill": null,
+        "age": null,
+        "otherAnswers": "unknown",
+        "routeLineage": "unknown"
+      },
+      "screenshot": {
+        "file": "sources/WhatsApp Image 2026-10-10 at 11.30.42 PM_.jpeg",
+        "sha256": "3f2486545fe37b8c25fa24cfecb0aedc9cebacea0dd4a2a6bafb58d630e0829e"
+      },
+      "controlledDiagnostics": {
+        "calls": true,
+        "touch": true,
+        "defects": [
+          "screen_scratch"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "screenCondition": "More than 2 scratches on screen",
+        "originalScreen": true,
+        "hardware": [],
+        "accessories": []
+      },
+      "baselineGross": 17706,
+      "reportedDisplayed": 17607
+    }
+  ],
+  "siblingReferences": [
+    {
+      "id": "692aedb5-bfe2-476f-95c6-93423da831cc",
+      "deviceKey": "apple|apple iphone 12|128gb",
+      "brand": "Apple",
+      "model": "Apple iPhone 12",
+      "storage": "128GB",
+      "source": "cashify",
+      "sourceUrl": "https://www.cashify.in/sell-old-mobile-phone/used-apple-iphone-12-4-gb-128-gb",
+      "currentPrice": 17420,
+      "matchConfidence": "EXACT",
+      "matchEvidence": "url via dictionary; device name \"Apple iPhone 12\" and variant \"4 GB/128 GB\" both verified on https://www.cashify.in/sell-old-mobile-phone/used-apple-iphone-12-4-gb-128-gb (storage matches (128gb); catalog omits RAM and Cashify offers exactly one configuration at this storage (4 GB/128 GB)); price text \"₹17,420\"",
+      "status": "FRESH",
+      "lastVerifiedAt": "2026-10-11T09:14:35.337Z",
+      "lastAttemptedAt": "2026-10-11T09:14:35.337Z",
+      "lastFailureAt": null,
+      "lastFailureError": null,
+      "consecutiveFailures": 0,
+      "createdAt": "2026-09-15T18:30:03.550Z",
+      "updatedAt": "2026-10-11T09:14:35.337Z"
+    },
+    {
+      "id": "a72c70e1-abfa-4008-be04-ef4ede3fbef0",
+      "deviceKey": "apple|apple iphone 12|64gb",
+      "brand": "Apple",
+      "model": "Apple iPhone 12",
+      "storage": "64GB",
+      "source": "cashify",
+      "sourceUrl": "https://www.cashify.in/sell-old-mobile-phone/used-apple-iphone-12-4-gb-64-gb",
+      "currentPrice": 16490,
+      "matchConfidence": "EXACT",
+      "matchEvidence": "url via dictionary; device name \"Apple iPhone 12\" and variant \"4 GB/64 GB\" both verified on https://www.cashify.in/sell-old-mobile-phone/used-apple-iphone-12-4-gb-64-gb (storage matches (64gb); catalog omits RAM and Cashify offers exactly one configuration at this storage (4 GB/64 GB)); price text \"₹16,490\"",
+      "status": "FRESH",
+      "lastVerifiedAt": "2026-10-11T09:17:24.279Z",
+      "lastAttemptedAt": "2026-10-11T09:17:24.279Z",
+      "lastFailureAt": null,
+      "lastFailureError": null,
+      "consecutiveFailures": 0,
+      "createdAt": "2026-09-15T18:31:51.872Z",
+      "updatedAt": "2026-10-11T09:17:24.279Z"
+    }
+  ]
+}

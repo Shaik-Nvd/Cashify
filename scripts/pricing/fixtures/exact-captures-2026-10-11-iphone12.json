@@ -1,0 +1,70 @@
+{
+  "version": "exact-final-quote-evidence/1",
+  "source": "shoaeb-iphone12-2026-10-11",
+  "diagnosticsMapping": {
+    "collectorParent": "broken_screen",
+    "publicUiParent": "screen_scratch",
+    "reason": "Same selected Broken/scratch parent and recorded heavy-scratch detail; raw trace preserved"
+  },
+  "excludedJobIds": [
+    "T001-C2-20261011-r1"
+  ],
+  "notAttemptedJobIds": [
+    "T001-C3-20261011-r1",
+    "T001-C4-20261011-r1"
+  ],
+  "rows": [
+    {
+      "id": "shoaeb-iphone12-2026-10-11:T001-C1-20261011-r1",
+      "brand": "Apple",
+      "model": "Apple iPhone 12",
+      "storage": "256GB",
+      "getUpto": 18630,
+      "sellingPrice": 11340,
+      "observedAt": "2026-10-11T11:07:04.904Z",
+      "screenshotSha256": "8541259cd7a85e64c8df665231deb8592c5634398f1f245c5cd10207e8a519d6",
+      "route": {
+        "warranty": "NOT_ASKED",
+        "validBill": "NOT_ASKED",
+        "mobileAge": "NOT_ASKED",
+        "eSim": "NOT_ASKED",
+        "box": "ASKED",
+        "charger": "NOT_ASKED",
+        "sPen": "NOT_ASKED"
+      },
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [
+          "screen_scratch"
+        ],
+        "hardware": [
+          "face"
+        ],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": "More than 2 scratches on screen",
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "provenance": {
+        "screenshotVerified": true,
+        "planMatched": true,
+        "routeComplete": true,
+        "source": "shoaeb-iphone12-2026-10-11",
+        "role": "COMBINED_CONDITION_PROFILE"
+      }
+    }
+  ]
+}

@@ -1146,7 +1146,7 @@ export function calculateFhoneifyPrice(
   // otherwise reward answering "no warranty".
   const hasValidBill = diagnostics.validBill === true || (diagnostics.accessories || []).includes("bill");
   if (!hasValidBill && diagnostics.warranty !== false) {
-    const asOutOfWarranty = routeBrandCalculator(brand, model, cashifyGetUptoReference, { ...diagnostics, warranty: false, mobileAge: "above11" }, semantics);
+    const asOutOfWarranty = routeBrandCalculator(brand, model, cashifyGetUptoReference, { ...diagnostics, warranty: false, mobileAge: "above11" }, semantics, storageVariant);
     if (asOutOfWarranty.cashifyConditionEquivalent > asAnswered.cashifyConditionEquivalent) return asOutOfWarranty;
   }
   return asAnswered;

@@ -153,13 +153,14 @@ export function priceDevice(
   model: string,
   reference: CashifyGetUptoReference,
   diagnostics: DiagnosticsType,
-  semantics: QuestionnaireSemantics = UNKNOWN_QUESTIONNAIRE
+  semantics: QuestionnaireSemantics = UNKNOWN_QUESTIONNAIRE,
+  storageVariant?: string
 ): PricingResult {
   if (!isPositivePrice(reference)) {
     throw new PricingInvariantError('Cashify Get Upto reference must be a positive finite number', { brand, model, reference });
   }
 
-  const result = calculateFhoneifyPrice(brand, model, reference, diagnostics, semantics);
+  const result = calculateFhoneifyPrice(brand, model, reference, diagnostics, semantics, storageVariant);
   const { cashifyConditionEquivalent, fhoneifyPrice } = result;
   const ceiling = maxPlausiblePrice(reference);
   const details = { brand, model, reference, cashifyConditionEquivalent, fhoneifyPrice, ceiling };

@@ -1,0 +1,641 @@
+{
+  "version": "exact-final-quote-evidence/1",
+  "rows": [
+    {
+      "id": "claude-iphone-2026-10-10:i15-128-clean",
+      "brand": "Apple",
+      "model": "Apple iPhone 15",
+      "storage": "128GB",
+      "getUpto": 42220,
+      "sellingPrice": 34190,
+      "observedAt": "2026-10-10T18:27:01.643Z",
+      "screenshotSha256": "33e2ff3c77040559bd1b12656eda7d3a86a5dd89c31e07d61a7731119d0480fc",
+      "route": {
+        "warranty": "ASKED",
+        "validBill": "ASKED",
+        "mobileAge": "NOT_ASKED",
+        "eSim": "NOT_ASKED",
+        "box": "ASKED",
+        "charger": "NOT_ASKED",
+        "sPen": "NOT_ASKED"
+      },
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [],
+        "hardware": [],
+        "accessories": [
+          "box"
+        ],
+        "warranty": false,
+        "validBill": false,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "provenance": {
+        "screenshotVerified": true,
+        "planMatched": true,
+        "routeComplete": true,
+        "source": "claude-iphone-2026-10-10",
+        "role": "CLEAN_CONTROL"
+      }
+    },
+    {
+      "id": "claude-iphone-2026-10-10:i15-128-clean-r1",
+      "brand": "Apple",
+      "model": "Apple iPhone 15",
+      "storage": "128GB",
+      "getUpto": 42220,
+      "sellingPrice": 34190,
+      "observedAt": "2026-10-10T18:38:13.870Z",
+      "screenshotSha256": "33e2ff3c77040559bd1b12656eda7d3a86a5dd89c31e07d61a7731119d0480fc",
+      "route": {
+        "warranty": "ASKED",
+        "validBill": "ASKED",
+        "mobileAge": "NOT_ASKED",
+        "eSim": "NOT_ASKED",
+        "box": "ASKED",
+        "charger": "NOT_ASKED",
+        "sPen": "NOT_ASKED"
+      },
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [],
+        "hardware": [],
+        "accessories": [
+          "box"
+        ],
+        "warranty": false,
+        "validBill": false,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "provenance": {
+        "screenshotVerified": true,
+        "planMatched": true,
+        "routeComplete": true,
+        "source": "claude-iphone-2026-10-10",
+        "role": "CLEAN_CONTROL"
+      }
+    },
+    {
+      "id": "claude-iphone-2026-10-10:i15-128-faceid-r1",
+      "brand": "Apple",
+      "model": "Apple iPhone 15",
+      "storage": "128GB",
+      "getUpto": 42220,
+      "sellingPrice": 25310,
+      "observedAt": "2026-10-10T18:38:41.893Z",
+      "screenshotSha256": "eae18bcd0628df57da4e13dfc7c21862a0bb32beb1bb7cd70b2f4a4d8febc4a3",
+      "route": {
+        "warranty": "ASKED",
+        "validBill": "ASKED",
+        "mobileAge": "NOT_ASKED",
+        "eSim": "NOT_ASKED",
+        "box": "ASKED",
+        "charger": "NOT_ASKED",
+        "sPen": "NOT_ASKED"
+      },
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [],
+        "hardware": [
+          "face"
+        ],
+        "accessories": [
+          "box"
+        ],
+        "warranty": false,
+        "validBill": false,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "provenance": {
+        "screenshotVerified": true,
+        "planMatched": true,
+        "routeComplete": true,
+        "source": "claude-iphone-2026-10-10",
+        "role": "ISOLATED_FAULT"
+      }
+    },
+    {
+      "id": "claude-iphone-2026-10-10:i12pm128-clean",
+      "brand": "Apple",
+      "model": "Apple iPhone 12 Pro Max",
+      "storage": "128GB",
+      "getUpto": 24460,
+      "sellingPrice": 24440,
+      "observedAt": "2026-10-10T18:43:54.670Z",
+      "screenshotSha256": "4cae5574385932e1564a792a6de4dd9a9c9e8597af75877359da0c034c38ce8a",
+      "route": {
+        "warranty": "NOT_ASKED",
+        "validBill": "NOT_ASKED",
+        "mobileAge": "NOT_ASKED",
+        "eSim": "NOT_ASKED",
+        "box": "ASKED",
+        "charger": "NOT_ASKED",
+        "sPen": "NOT_ASKED"
+      },
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [],
+        "hardware": [],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "provenance": {
+        "screenshotVerified": true,
+        "planMatched": true,
+        "routeComplete": true,
+        "source": "claude-iphone-2026-10-10",
+        "role": "CLEAN_CONTROL"
+      }
+    },
+    {
+      "id": "claude-iphone-2026-10-10:i12pm128-faceid",
+      "brand": "Apple",
+      "model": "Apple iPhone 12 Pro Max",
+      "storage": "128GB",
+      "getUpto": 24460,
+      "sellingPrice": 18020,
+      "observedAt": "2026-10-10T18:44:23.152Z",
+      "screenshotSha256": "8fd14b4dcd68d8c5781e229c4d30426c2455f44c97f9dd64e53c4c1144688186",
+      "route": {
+        "warranty": "NOT_ASKED",
+        "validBill": "NOT_ASKED",
+        "mobileAge": "NOT_ASKED",
+        "eSim": "NOT_ASKED",
+        "box": "ASKED",
+        "charger": "NOT_ASKED",
+        "sPen": "NOT_ASKED"
+      },
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [],
+        "hardware": [
+          "face"
+        ],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "provenance": {
+        "screenshotVerified": true,
+        "planMatched": true,
+        "routeComplete": true,
+        "source": "claude-iphone-2026-10-10",
+        "role": "ISOLATED_FAULT"
+      }
+    },
+    {
+      "id": "claude-iphone-2026-10-10:i12pm256-clean",
+      "brand": "Apple",
+      "model": "Apple iPhone 12 Pro Max",
+      "storage": "256GB",
+      "getUpto": 25680,
+      "sellingPrice": 25660,
+      "observedAt": "2026-10-10T18:44:53.157Z",
+      "screenshotSha256": "798a1e9a19f7122049b7b710f22c14d19ae02f5f8e093aec2d06900f2e09b2b1",
+      "route": {
+        "warranty": "NOT_ASKED",
+        "validBill": "NOT_ASKED",
+        "mobileAge": "NOT_ASKED",
+        "eSim": "NOT_ASKED",
+        "box": "ASKED",
+        "charger": "NOT_ASKED",
+        "sPen": "NOT_ASKED"
+      },
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [],
+        "hardware": [],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "provenance": {
+        "screenshotVerified": true,
+        "planMatched": true,
+        "routeComplete": true,
+        "source": "claude-iphone-2026-10-10",
+        "role": "CLEAN_CONTROL"
+      }
+    },
+    {
+      "id": "claude-iphone-2026-10-10:i12pm256-faceid",
+      "brand": "Apple",
+      "model": "Apple iPhone 12 Pro Max",
+      "storage": "256GB",
+      "getUpto": 25680,
+      "sellingPrice": 18940,
+      "observedAt": "2026-10-10T18:45:22.735Z",
+      "screenshotSha256": "f8dda13704150c50b4cece38345e0d48c1203590488a99b7698354ba1b3c3554",
+      "route": {
+        "warranty": "NOT_ASKED",
+        "validBill": "NOT_ASKED",
+        "mobileAge": "NOT_ASKED",
+        "eSim": "NOT_ASKED",
+        "box": "ASKED",
+        "charger": "NOT_ASKED",
+        "sPen": "NOT_ASKED"
+      },
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [],
+        "hardware": [
+          "face"
+        ],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "provenance": {
+        "screenshotVerified": true,
+        "planMatched": true,
+        "routeComplete": true,
+        "source": "claude-iphone-2026-10-10",
+        "role": "ISOLATED_FAULT"
+      }
+    },
+    {
+      "id": "claude-iphone-2026-10-10:i12pm512-clean",
+      "brand": "Apple",
+      "model": "Apple iPhone 12 Pro Max",
+      "storage": "512GB",
+      "getUpto": 26910,
+      "sellingPrice": 26890,
+      "observedAt": "2026-10-10T18:45:52.945Z",
+      "screenshotSha256": "b6c28ff950ba27bfdc5175b7969ad1a2ed303e05d813be0bfc56233bd9ab8c37",
+      "route": {
+        "warranty": "NOT_ASKED",
+        "validBill": "NOT_ASKED",
+        "mobileAge": "NOT_ASKED",
+        "eSim": "NOT_ASKED",
+        "box": "ASKED",
+        "charger": "NOT_ASKED",
+        "sPen": "NOT_ASKED"
+      },
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [],
+        "hardware": [],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "provenance": {
+        "screenshotVerified": true,
+        "planMatched": true,
+        "routeComplete": true,
+        "source": "claude-iphone-2026-10-10",
+        "role": "CLEAN_CONTROL"
+      }
+    },
+    {
+      "id": "claude-iphone-2026-10-10:i12pm512-faceid",
+      "brand": "Apple",
+      "model": "Apple iPhone 12 Pro Max",
+      "storage": "512GB",
+      "getUpto": 26910,
+      "sellingPrice": 19870,
+      "observedAt": "2026-10-10T18:46:22.092Z",
+      "screenshotSha256": "9377c11dae139b3fe7b53eb436c95ae6a0b4c5db20aba4a31c59545c3a7aedcc",
+      "route": {
+        "warranty": "NOT_ASKED",
+        "validBill": "NOT_ASKED",
+        "mobileAge": "NOT_ASKED",
+        "eSim": "NOT_ASKED",
+        "box": "ASKED",
+        "charger": "NOT_ASKED",
+        "sPen": "NOT_ASKED"
+      },
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [],
+        "hardware": [
+          "face"
+        ],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "provenance": {
+        "screenshotVerified": true,
+        "planMatched": true,
+        "routeComplete": true,
+        "source": "claude-iphone-2026-10-10",
+        "role": "ISOLATED_FAULT"
+      }
+    },
+    {
+      "id": "claude-iphone-2026-10-10:i14-128-clean",
+      "brand": "Apple",
+      "model": "Apple iPhone 14",
+      "storage": "128GB",
+      "getUpto": 27780,
+      "sellingPrice": 27760,
+      "observedAt": "2026-10-10T18:46:53.118Z",
+      "screenshotSha256": "10e089d7652b0055be461d7a661c09a323913b36c32b3e0528f2ed6330514ce7",
+      "route": {
+        "warranty": "NOT_ASKED",
+        "validBill": "NOT_ASKED",
+        "mobileAge": "NOT_ASKED",
+        "eSim": "NOT_ASKED",
+        "box": "ASKED",
+        "charger": "NOT_ASKED",
+        "sPen": "NOT_ASKED"
+      },
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [],
+        "hardware": [],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "provenance": {
+        "screenshotVerified": true,
+        "planMatched": true,
+        "routeComplete": true,
+        "source": "claude-iphone-2026-10-10",
+        "role": "CLEAN_CONTROL"
+      }
+    },
+    {
+      "id": "claude-iphone-2026-10-10:i14-128-faceid",
+      "brand": "Apple",
+      "model": "Apple iPhone 14",
+      "storage": "128GB",
+      "getUpto": 27780,
+      "sellingPrice": 20520,
+      "observedAt": "2026-10-10T18:47:22.699Z",
+      "screenshotSha256": "84a4ff4efc88425a475d041f3d05b6ef25dc068ecdb5cc9b858c7037cbfb8e8a",
+      "route": {
+        "warranty": "NOT_ASKED",
+        "validBill": "NOT_ASKED",
+        "mobileAge": "NOT_ASKED",
+        "eSim": "NOT_ASKED",
+        "box": "ASKED",
+        "charger": "NOT_ASKED",
+        "sPen": "NOT_ASKED"
+      },
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [],
+        "hardware": [
+          "face"
+        ],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "provenance": {
+        "screenshotVerified": true,
+        "planMatched": true,
+        "routeComplete": true,
+        "source": "claude-iphone-2026-10-10",
+        "role": "ISOLATED_FAULT"
+      }
+    },
+    {
+      "id": "claude-iphone-2026-10-10:i13-128-clean",
+      "brand": "Apple",
+      "model": "Apple iPhone 13",
+      "storage": "128GB",
+      "getUpto": 24760,
+      "sellingPrice": 24480,
+      "observedAt": "2026-10-10T18:47:52.776Z",
+      "screenshotSha256": "df8b742dbacf22380e171942299243e640b7d45a52c336781c646447c6468a1e",
+      "route": {
+        "warranty": "NOT_ASKED",
+        "validBill": "NOT_ASKED",
+        "mobileAge": "NOT_ASKED",
+        "eSim": "NOT_ASKED",
+        "box": "ASKED",
+        "charger": "NOT_ASKED",
+        "sPen": "NOT_ASKED"
+      },
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [],
+        "hardware": [],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "provenance": {
+        "screenshotVerified": true,
+        "planMatched": true,
+        "routeComplete": true,
+        "source": "claude-iphone-2026-10-10",
+        "role": "CLEAN_CONTROL"
+      }
+    },
+    {
+      "id": "claude-iphone-2026-10-10:i13-128-faceid",
+      "brand": "Apple",
+      "model": "Apple iPhone 13",
+      "storage": "128GB",
+      "getUpto": 24760,
+      "sellingPrice": 18090,
+      "observedAt": "2026-10-10T18:48:22.176Z",
+      "screenshotSha256": "d3bc9fe43fa6bedd513f103c3d52802df938ce14f4091582082afdea2c4b9269",
+      "route": {
+        "warranty": "NOT_ASKED",
+        "validBill": "NOT_ASKED",
+        "mobileAge": "NOT_ASKED",
+        "eSim": "NOT_ASKED",
+        "box": "ASKED",
+        "charger": "NOT_ASKED",
+        "sPen": "NOT_ASKED"
+      },
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [],
+        "hardware": [
+          "face"
+        ],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "provenance": {
+        "screenshotVerified": true,
+        "planMatched": true,
+        "routeComplete": true,
+        "source": "claude-iphone-2026-10-10",
+        "role": "ISOLATED_FAULT"
+      }
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 import crypto from 'crypto';
 import { loadExactFinalQuoteFile } from '../../../lib/pricing/exactFinalQuoteFile';
-import { existingExactFinalQuoteIndex } from '../../../scripts/pricing/exact-final-quote-evidence';
+import { existingExactFinalQuoteEvidence, existingExactFinalQuoteIndex } from '../../../scripts/pricing/exact-final-quote-evidence';
 import config from '../../config';
 import logger from '../../lib/logger';
 import { createPricingService, HYBRID_PRICING_VERSION, RELEASE_CANDIDATE_PRICING_VERSION } from '../../../lib/pricing/pricingService';
@@ -39,8 +39,14 @@ function releaseRouteEvidence() {
     logger.info({ routes: rows.length }, 'Release route evidence loaded');
     return rows;
   } catch (err: any) {
-    logger.error({ err: err?.message }, 'Release route evidence unreadable; corrections disabled, configured fallback policy applies');
-    return [];
+    logger.error({ err: err?.message }, 'Release route overlay unreadable; trying committed evidence');
+    try {
+      const committed = resolvePricingReleaseConfig({}, process.cwd());
+      return loadReleaseRouteEvidence(committed.routeEvidenceFile ?? undefined);
+    } catch {
+      logger.error({}, 'Committed route evidence unreadable; configured fallback policy applies');
+      return [];
+    }
   }
 }
 
@@ -49,8 +55,8 @@ const routes = releaseRouteEvidence();
 function exactFinalQuoteIndex() {
   const enabled = process.env.ENABLE_EXACT_FINAL_QUOTE_CACHE === undefined ? pricingRelease.exactFinalQuoteCache === true : process.env.ENABLE_EXACT_FINAL_QUOTE_CACHE === 'true';
   if(pricingRelease.mode !== 'hybrid' || !enabled) return undefined;
-  try { return process.env.EXACT_FINAL_QUOTE_EVIDENCE_FILE ? loadExactFinalQuoteFile(process.env.EXACT_FINAL_QUOTE_EVIDENCE_FILE) : existingExactFinalQuoteIndex(); }
-  catch(err:any) { logger.error({err:err?.message},'Exact final-quote manifest unreadable; hybrid fallback retained');return undefined; }
+  try { return process.env.EXACT_FINAL_QUOTE_EVIDENCE_FILE ? loadExactFinalQuoteFile(process.env.EXACT_FINAL_QUOTE_EVIDENCE_FILE, existingExactFinalQuoteEvidence()) : existingExactFinalQuoteIndex(); }
+  catch(err:any) { logger.error({err:err?.message},'Exact final-quote overlay unreadable; packaged evidence retained');return existingExactFinalQuoteIndex(); }
 }
 const exactIndex = exactFinalQuoteIndex();
 const exactPolicy = (process.env.EXACT_FINAL_QUOTE_OFFER_POLICY ?? pricingRelease.exactFinalQuoteOfferPolicy) === 'bounded-net' ? 'bounded-net' as const : 'existing-uplift' as const;

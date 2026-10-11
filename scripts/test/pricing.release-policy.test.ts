@@ -124,13 +124,13 @@ async function main() {
     assert.equal(resolvePricingReleaseConfig({ PRICING_RELEASE_CANDIDATE: 'off' }, dir).mode, 'legacy');         // host rollback beats the file
     write({ releaseCandidate: false, routeEvidenceFile: 'r.json' });
     const envOn = resolvePricingReleaseConfig({ PRICING_RELEASE_CANDIDATE: 'on', PRICING_RELEASE_ROUTE_EVIDENCE_FILE: 'other.json' }, dir);
-    assert.equal(envOn.mode, 'release-candidate'); assert.equal(envOn.source, 'env'); assert.equal(envOn.routeEvidenceFile, path.resolve(dir, 'other.json'));
+    assert.equal(envOn.mode, 'release-candidate'); assert.equal(envOn.source, 'env'); assert.equal(envOn.routeEvidenceFile, [path.resolve(dir, 'r.json'), path.resolve(dir, 'other.json')].join(','));
     assert.equal(resolvePricingReleaseConfig({ PRICING_RELEASE_CANDIDATE: 'maybe' }, dir).mode, 'legacy');      // unknown env value -> file (off)
     fs.rmSync(dir, { recursive: true, force: true });
   });
   await check('the committed config parses and names an existing route evidence file', () => {
     const c = JSON.parse(fs.readFileSync(PRICING_RELEASE_CONFIG_FILE, 'utf8'));
-    assert.equal(typeof c.releaseCandidate, 'boolean'); assert(fs.existsSync(c.routeEvidenceFile)); assert.equal(loadReleaseRouteEvidence(c.routeEvidenceFile).length, 44);
+    assert.equal(typeof c.releaseCandidate, 'boolean'); assert(c.routeEvidenceFile.split(',').every((file: string) => fs.existsSync(file))); assert.equal(loadReleaseRouteEvidence(c.routeEvidenceFile).length, 51);
   });
   console.log(`PASS release launch policy ${checks} checks`);
 }

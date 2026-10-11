@@ -30,7 +30,7 @@ export interface PricingReleaseConfig {
 }
 
 export function resolvePricingReleaseConfig(env: Record<string, string | undefined> = process.env, root = process.cwd()): PricingReleaseConfig {
-  const resolve = (p: string | undefined | null) => (p ? path.resolve(root, p) : null);
+  const resolve = (p: string | undefined | null) => (p ? [...new Set(p.split(',').map(file => file.trim()).filter(Boolean).map(file => path.resolve(root, file)))].join(',') : null);
   const envSwitch = env.PRICING_RELEASE_CANDIDATE?.trim().toLowerCase();
   let file: z.infer<typeof fileSchema> | null = null;
   let error: string | undefined;
@@ -39,7 +39,8 @@ export function resolvePricingReleaseConfig(env: Record<string, string | undefin
   } catch (err: any) {
     error = `${PRICING_RELEASE_CONFIG_FILE}: ${err?.code === 'ENOENT' ? 'missing' : 'invalid'}`;
   }
-  const evidence = resolve(env.PRICING_RELEASE_ROUTE_EVIDENCE_FILE || file?.routeEvidenceFile);
+  // An override can add route manifests, never discard the committed ones.
+  const evidence = resolve([file?.routeEvidenceFile, env.PRICING_RELEASE_ROUTE_EVIDENCE_FILE].filter(Boolean).join(','));
   if (envSwitch === 'hybrid') return { mode: 'hybrid', routeEvidenceFile: evidence, source: 'env', error,
     ...(file?.exactFinalQuoteCache !== undefined ? { exactFinalQuoteCache: file.exactFinalQuoteCache } : {}),
     ...(file?.exactFinalQuoteOfferPolicy ? { exactFinalQuoteOfferPolicy: file.exactFinalQuoteOfferPolicy } : {}) };

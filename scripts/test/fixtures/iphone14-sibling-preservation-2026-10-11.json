@@ -1,0 +1,1992 @@
+{
+  "base": "0dc2845ad07162cdf82190190f0cd9b449f4c9c3",
+  "source": "previous frozen fallback matrix actual main service results",
+  "cases": [
+    {
+      "storage": "256GB",
+      "condition": "clean",
+      "reference": 28430,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [],
+        "hardware": [],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 28430,
+        "quote": 30136,
+        "couponOff": 30037,
+        "couponOn": 30336,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "256GB",
+      "condition": "face",
+      "reference": 28430,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [],
+        "hardware": [
+          "face"
+        ],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 24165,
+        "quote": 25615,
+        "couponOff": 25516,
+        "couponOn": 25815,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "256GB",
+      "condition": "battery_health",
+      "reference": 28430,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [],
+        "hardware": [
+          "battery_health"
+        ],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 27488,
+        "quote": 29137,
+        "couponOff": 29038,
+        "couponOn": 29337,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "256GB",
+      "condition": "battery_service",
+      "reference": 28430,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [],
+        "hardware": [
+          "battery_service"
+        ],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 25339,
+        "quote": 26859,
+        "couponOff": 26760,
+        "couponOn": 27059,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "256GB",
+      "condition": "charging",
+      "reference": 28430,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [],
+        "hardware": [
+          "charging"
+        ],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 28430,
+        "quote": 30136,
+        "couponOff": 30037,
+        "couponOn": 30336,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "256GB",
+      "condition": "speaker",
+      "reference": 28430,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [],
+        "hardware": [
+          "speaker"
+        ],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 28430,
+        "quote": 30136,
+        "couponOff": 30037,
+        "couponOn": 30336,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "256GB",
+      "condition": "camera",
+      "reference": 28430,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [],
+        "hardware": [
+          "back_camera"
+        ],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 28430,
+        "quote": 30136,
+        "couponOff": 30037,
+        "couponOn": 30336,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "256GB",
+      "condition": "screen_minor",
+      "reference": 28430,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [
+          "screen_scratch"
+        ],
+        "hardware": [],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": "1-2 scratches on screen",
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 24165,
+        "quote": 25615,
+        "couponOff": 25516,
+        "couponOn": 25815,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "256GB",
+      "condition": "screen_heavy",
+      "reference": 28430,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [
+          "screen_scratch"
+        ],
+        "hardware": [],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": "More than 2 scratches on screen",
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 19901,
+        "quote": 21095,
+        "couponOff": 20996,
+        "couponOn": 21295,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "256GB",
+      "condition": "glass_cracked",
+      "reference": 28430,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [
+          "screen_scratch"
+        ],
+        "hardware": [],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": "Screen cracked/ glass broken",
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 24165,
+        "quote": 25615,
+        "couponOff": 25516,
+        "couponOn": 25815,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "256GB",
+      "condition": "screen_spots",
+      "reference": 28430,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [
+          "screen_spot"
+        ],
+        "hardware": [],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": "1-2 minor spots on screen",
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 28430,
+        "quote": 30136,
+        "couponOff": 30037,
+        "couponOn": 30336,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "256GB",
+      "condition": "screen_lines",
+      "reference": 28430,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [
+          "screen_spot"
+        ],
+        "hardware": [],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": "Visible line(s) on display",
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 28430,
+        "quote": 30136,
+        "couponOff": 30037,
+        "couponOn": 30336,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "256GB",
+      "condition": "screen_discoloration",
+      "reference": 28430,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [
+          "screen_spot"
+        ],
+        "hardware": [],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": "Major Discoloration",
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 28430,
+        "quote": 30136,
+        "couponOff": 30037,
+        "couponOn": 30336,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "256GB",
+      "condition": "body_heavy",
+      "reference": 28430,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [
+          "body_scratch"
+        ],
+        "hardware": [],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": "More than 2 scratches",
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 28430,
+        "quote": 30136,
+        "couponOff": 30037,
+        "couponOn": 30336,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "256GB",
+      "condition": "body_dents",
+      "reference": 28430,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [
+          "body_scratch"
+        ],
+        "hardware": [],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": "Major dent(s) or more than 2",
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 28430,
+        "quote": 30136,
+        "couponOff": 30037,
+        "couponOn": 30336,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "256GB",
+      "condition": "body_panel",
+      "reference": 28430,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [
+          "panel_missing"
+        ],
+        "hardware": [],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": "Cracked/ broken side or back panel",
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 28430,
+        "quote": 30136,
+        "couponOff": 30037,
+        "couponOn": 30336,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "256GB",
+      "condition": "body_bent",
+      "reference": 28430,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [
+          "panel_missing"
+        ],
+        "hardware": [],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": "Bent/ curved panel"
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 28430,
+        "quote": 30136,
+        "couponOff": 30037,
+        "couponOn": 30336,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "256GB",
+      "condition": "no_box",
+      "reference": 28430,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [],
+        "hardware": [],
+        "accessories": [],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 27008,
+        "quote": 28628,
+        "couponOff": 28529,
+        "couponOn": 28828,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "256GB",
+      "condition": "calls_no",
+      "reference": 28430,
+      "diagnostics": {
+        "calls": false,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [],
+        "hardware": [],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 12793,
+        "quote": 13561,
+        "couponOff": 13462,
+        "couponOn": 13761,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "256GB",
+      "condition": "touch_no",
+      "reference": 28430,
+      "diagnostics": {
+        "calls": true,
+        "touch": false,
+        "originalScreen": true,
+        "defects": [],
+        "hardware": [],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 21322,
+        "quote": 22601,
+        "couponOff": 22502,
+        "couponOn": 22801,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "256GB",
+      "condition": "original_screen_no",
+      "reference": 28430,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": false,
+        "defects": [],
+        "hardware": [],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 8529,
+        "quote": 9041,
+        "couponOff": 8942,
+        "couponOn": 9241,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "256GB",
+      "condition": "face_plus_battery",
+      "reference": 28430,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [],
+        "hardware": [
+          "face",
+          "battery_service"
+        ],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 21074,
+        "quote": 22338,
+        "couponOff": 22239,
+        "couponOn": 22538,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "256GB",
+      "condition": "face_no_box",
+      "reference": 28430,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [],
+        "hardware": [
+          "face"
+        ],
+        "accessories": [],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 22743,
+        "quote": 24108,
+        "couponOff": 24009,
+        "couponOn": 24308,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "256GB",
+      "condition": "face_screen_heavy",
+      "reference": 28430,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [
+          "screen_scratch"
+        ],
+        "hardware": [
+          "face"
+        ],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": "More than 2 scratches on screen",
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 15636,
+        "quote": 16574,
+        "couponOff": 16475,
+        "couponOn": 16774,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "256GB",
+      "condition": "unknown_fault",
+      "reference": 28430,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [],
+        "hardware": [
+          "made_up_fault"
+        ],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": false,
+        "code": "MANUAL_INSPECTION_REQUIRED",
+        "message": "We need to inspect this phone before we can quote a price"
+      }
+    },
+    {
+      "storage": "256GB",
+      "condition": "conflicting_display",
+      "reference": 28430,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [
+          "screen_scratch"
+        ],
+        "hardware": [],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": "No scratches on screen",
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": false,
+        "code": "MANUAL_INSPECTION_REQUIRED",
+        "message": "We need to inspect this phone before we can quote a price"
+      }
+    },
+    {
+      "storage": "512GB",
+      "condition": "clean",
+      "reference": 28840,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [],
+        "hardware": [],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 28840,
+        "quote": 30570,
+        "couponOff": 30471,
+        "couponOn": 30770,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "512GB",
+      "condition": "face",
+      "reference": 28840,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [],
+        "hardware": [
+          "face"
+        ],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 24514,
+        "quote": 25985,
+        "couponOff": 25886,
+        "couponOn": 26185,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "512GB",
+      "condition": "battery_health",
+      "reference": 28840,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [],
+        "hardware": [
+          "battery_health"
+        ],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 27885,
+        "quote": 29558,
+        "couponOff": 29459,
+        "couponOn": 29758,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "512GB",
+      "condition": "battery_service",
+      "reference": 28840,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [],
+        "hardware": [
+          "battery_service"
+        ],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 25705,
+        "quote": 27247,
+        "couponOff": 27148,
+        "couponOn": 27447,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "512GB",
+      "condition": "charging",
+      "reference": 28840,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [],
+        "hardware": [
+          "charging"
+        ],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 28840,
+        "quote": 30570,
+        "couponOff": 30471,
+        "couponOn": 30770,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "512GB",
+      "condition": "speaker",
+      "reference": 28840,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [],
+        "hardware": [
+          "speaker"
+        ],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 28840,
+        "quote": 30570,
+        "couponOff": 30471,
+        "couponOn": 30770,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "512GB",
+      "condition": "camera",
+      "reference": 28840,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [],
+        "hardware": [
+          "back_camera"
+        ],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 28840,
+        "quote": 30570,
+        "couponOff": 30471,
+        "couponOn": 30770,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "512GB",
+      "condition": "screen_minor",
+      "reference": 28840,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [
+          "screen_scratch"
+        ],
+        "hardware": [],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": "1-2 scratches on screen",
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 24514,
+        "quote": 25985,
+        "couponOff": 25886,
+        "couponOn": 26185,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "512GB",
+      "condition": "screen_heavy",
+      "reference": 28840,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [
+          "screen_scratch"
+        ],
+        "hardware": [],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": "More than 2 scratches on screen",
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 20188,
+        "quote": 21399,
+        "couponOff": 21300,
+        "couponOn": 21599,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "512GB",
+      "condition": "glass_cracked",
+      "reference": 28840,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [
+          "screen_scratch"
+        ],
+        "hardware": [],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": "Screen cracked/ glass broken",
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 24514,
+        "quote": 25985,
+        "couponOff": 25886,
+        "couponOn": 26185,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "512GB",
+      "condition": "screen_spots",
+      "reference": 28840,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [
+          "screen_spot"
+        ],
+        "hardware": [],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": "1-2 minor spots on screen",
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 28840,
+        "quote": 30570,
+        "couponOff": 30471,
+        "couponOn": 30770,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "512GB",
+      "condition": "screen_lines",
+      "reference": 28840,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [
+          "screen_spot"
+        ],
+        "hardware": [],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": "Visible line(s) on display",
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 28840,
+        "quote": 30570,
+        "couponOff": 30471,
+        "couponOn": 30770,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "512GB",
+      "condition": "screen_discoloration",
+      "reference": 28840,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [
+          "screen_spot"
+        ],
+        "hardware": [],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": "Major Discoloration",
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 28840,
+        "quote": 30570,
+        "couponOff": 30471,
+        "couponOn": 30770,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "512GB",
+      "condition": "body_heavy",
+      "reference": 28840,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [
+          "body_scratch"
+        ],
+        "hardware": [],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": "More than 2 scratches",
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 28840,
+        "quote": 30570,
+        "couponOff": 30471,
+        "couponOn": 30770,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "512GB",
+      "condition": "body_dents",
+      "reference": 28840,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [
+          "body_scratch"
+        ],
+        "hardware": [],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": "Major dent(s) or more than 2",
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 28840,
+        "quote": 30570,
+        "couponOff": 30471,
+        "couponOn": 30770,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "512GB",
+      "condition": "body_panel",
+      "reference": 28840,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [
+          "panel_missing"
+        ],
+        "hardware": [],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": "Cracked/ broken side or back panel",
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 28840,
+        "quote": 30570,
+        "couponOff": 30471,
+        "couponOn": 30770,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "512GB",
+      "condition": "body_bent",
+      "reference": 28840,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [
+          "panel_missing"
+        ],
+        "hardware": [],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": "Bent/ curved panel"
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 28840,
+        "quote": 30570,
+        "couponOff": 30471,
+        "couponOn": 30770,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "512GB",
+      "condition": "no_box",
+      "reference": 28840,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [],
+        "hardware": [],
+        "accessories": [],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 27398,
+        "quote": 29042,
+        "couponOff": 28943,
+        "couponOn": 29242,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "512GB",
+      "condition": "calls_no",
+      "reference": 28840,
+      "diagnostics": {
+        "calls": false,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [],
+        "hardware": [],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 12978,
+        "quote": 13757,
+        "couponOff": 13658,
+        "couponOn": 13957,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "512GB",
+      "condition": "touch_no",
+      "reference": 28840,
+      "diagnostics": {
+        "calls": true,
+        "touch": false,
+        "originalScreen": true,
+        "defects": [],
+        "hardware": [],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 21630,
+        "quote": 22928,
+        "couponOff": 22829,
+        "couponOn": 23128,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "512GB",
+      "condition": "original_screen_no",
+      "reference": 28840,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": false,
+        "defects": [],
+        "hardware": [],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 8652,
+        "quote": 9171,
+        "couponOff": 9072,
+        "couponOn": 9371,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "512GB",
+      "condition": "face_plus_battery",
+      "reference": 28840,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [],
+        "hardware": [
+          "face",
+          "battery_service"
+        ],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 21379,
+        "quote": 22662,
+        "couponOff": 22563,
+        "couponOn": 22862,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "512GB",
+      "condition": "face_no_box",
+      "reference": 28840,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [],
+        "hardware": [
+          "face"
+        ],
+        "accessories": [],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 23072,
+        "quote": 24456,
+        "couponOff": 24357,
+        "couponOn": 24656,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "512GB",
+      "condition": "face_screen_heavy",
+      "reference": 28840,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [
+          "screen_scratch"
+        ],
+        "hardware": [
+          "face"
+        ],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": "More than 2 scratches on screen",
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": true,
+        "equivalent": 15862,
+        "quote": 16814,
+        "couponOff": 16715,
+        "couponOn": 17014,
+        "exactHit": false,
+        "version": "fhoneify-pricing/2026-09-25-internal-consistency+rc-hybrid-v1-2026-10-04+legacy-fallback",
+        "correction": "LEGACY"
+      }
+    },
+    {
+      "storage": "512GB",
+      "condition": "unknown_fault",
+      "reference": 28840,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [],
+        "hardware": [
+          "made_up_fault"
+        ],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": null,
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": false,
+        "code": "MANUAL_INSPECTION_REQUIRED",
+        "message": "We need to inspect this phone before we can quote a price"
+      }
+    },
+    {
+      "storage": "512GB",
+      "condition": "conflicting_display",
+      "reference": 28840,
+      "diagnostics": {
+        "calls": true,
+        "touch": true,
+        "originalScreen": true,
+        "defects": [
+          "screen_scratch"
+        ],
+        "hardware": [],
+        "accessories": [
+          "box"
+        ],
+        "warranty": null,
+        "validBill": null,
+        "mobileAge": null,
+        "eSim": null,
+        "screenCondition": "No scratches on screen",
+        "screenSpots": null,
+        "screenLines": null,
+        "screenDiscoloration": null,
+        "bodyScratches": null,
+        "bodyDents": null,
+        "bodyPanel": null,
+        "bodyBent": null
+      },
+      "expected": {
+        "ok": false,
+        "code": "MANUAL_INSPECTION_REQUIRED",
+        "message": "We need to inspect this phone before we can quote a price"
+      }
+    }
+  ]
+}

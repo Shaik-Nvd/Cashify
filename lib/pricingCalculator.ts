@@ -741,6 +741,93 @@ export function calculateApplePrice(model: string, reference: CashifyGetUptoRefe
   }
   // --- END SPECIALIZED ALGORITHM ---
 
+  // --- SPECIALIZED ALGORITHM FOR APPLE iPHONE XR (64 GB / 128 GB / 256 GB) ---
+  const isIPhoneXR = Boolean(
+    lowerModel === "apple iphone xr" ||
+    lowerModel === "iphone xr" ||
+    (lowerModel as string) === "Apple iPhone XR" ||
+    lowerModel.includes("iphone xr")
+  );
+
+  const isXRStorage = Boolean(
+    !storageVariant ||
+    storageVariant.includes("64") ||
+    storageVariant.includes("128") ||
+    storageVariant.includes("256") ||
+    lowerModel.includes("64") ||
+    lowerModel.includes("128") ||
+    lowerModel.includes("256") ||
+    (reference >= 7500 && reference <= 13000)
+  );
+
+  if (isIPhoneXR && isXRStorage) {
+    let price = reference;
+
+    // Derived precise absolute deductions for iPhone XR (256GB) based on Cashify scaling:
+    // Base Reference (Cashify Get Upto) = 11,030
+    const pFace = 2420 / 11030;
+    const pBattService = 1980 / 11030;
+    const pBattHealth = 840 / 11030;
+    const pScratch2 = 1760 / 11030;
+    const pNotOriginalScreen = 3000 / 11030;
+
+    // Hardware
+    const hasFaceProblem = diagnostics.hardware.includes('face') || diagnostics.hardware.includes('face_sensor');
+    if (hasFaceProblem) {
+      price -= Math.round(reference * pFace);
+    }
+
+    const hasBatteryService = diagnostics.hardware.includes('battery_service');
+    const hasBatteryHealth = diagnostics.hardware.includes('battery_health');
+    if (hasBatteryService) {
+      price -= Math.round(reference * pBattService);
+    } else if (hasBatteryHealth) {
+      price -= Math.round(reference * pBattHealth);
+    }
+
+    // Screen defects
+    const moreThan2Scratches = diagnostics.screenCondition?.includes('More than 2 scratches');
+    const hasScreenDefect = diagnostics.defects.includes('screen_scratch') || diagnostics.defects.includes('broken_scratch') || Boolean(moreThan2Scratches);
+
+    if (hasScreenDefect) {
+      if (moreThan2Scratches) {
+        price -= Math.round(reference * pScratch2);
+      } else {
+        price -= Math.round(reference * (pScratch2 * 0.5));
+      }
+    }
+
+    // Original Screen
+    if (diagnostics.originalScreen === false) {
+      price -= Math.round(reference * pNotOriginalScreen);
+    }
+
+    // Accessories
+    const hasBox = diagnostics.box === true || (diagnostics.accessories || []).includes("box");
+    // Charger provides 0 bonus in this tier as verified by Cashify quote combinations (Combo 1 vs Combo 5).
+    // Box deduction:
+    // When Box is missing:
+    // - If battery in service, box value is 100.
+    // - In other states (battery 80-85%), box value is 400.
+    if (!hasBox) {
+      const boxPenalty = hasBatteryService ? (100 / 11030) : (400 / 11030);
+      price -= Math.round(reference * boxPenalty);
+    }
+
+    // Major functional constraints
+    if (diagnostics.calls === false) price -= Math.round(reference * 0.55);
+    if (diagnostics.touch === false) price -= Math.round(reference * 0.25);
+
+    // Other hardware issues
+    const otherHardware = diagnostics.hardware.filter(h => h !== 'face' && h !== 'face_sensor' && h !== 'battery_service' && h !== 'battery_health');
+    if (otherHardware.length > 0) {
+      price -= Math.round(reference * 0.10 * otherHardware.length);
+    }
+
+    return finalizeConditionQuote(reference, Math.max(price, 0));
+  }
+  // --- END SPECIALIZED ALGORITHM ---
+
   const isPro = lowerModel.includes("pro");
   const isProMax = lowerModel.includes("pro max");
   const isPlus = lowerModel.includes("plus");

@@ -227,255 +227,348 @@ export async function generateLeadPdf(req: AuthenticatedRequest, res: Response) 
     <html>
       <head>
         <meta charset="utf-8" />
-        <title>Fhoneify Inspection Report - ${lead.brand} ${lead.model}</title>
+        <title>Fhoneify Inspection Report - ${deviceDisplayName}</title>
         <style>
-          * { box-sizing: border-box; }
+          @page {
+            size: A4 portrait;
+            margin: 9mm 12mm;
+          }
+          * { box-sizing: border-box; margin: 0; padding: 0; }
           body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            color: #1e293b;
-            background-color: #ffffff;
-            margin: 0;
-            padding: 32px 36px;
-            line-height: 1.6;
+            color: #0f172a;
+            background: #ffffff;
+            line-height: 1.4;
+            font-size: 13px;
           }
-          
-          .admin-header {
+
+          .report-wrap {
             display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 16px;
-            margin-bottom: 24px;
-          }
-          .brand-logo {
-            font-size: 24px;
-            font-weight: 800;
-            color: #0f172a;
-            letter-spacing: -0.5px;
-          }
-          .brand-logo span { color: #d97706; }
-          .report-badge {
-            font-size: 12px;
-            text-transform: uppercase;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            background: #f1f5f9;
-            color: #475569;
-            padding: 4px 10px;
-            border-radius: 6px;
-            display: inline-block;
-            margin-top: 4px;
-          }
-          .customer-meta {
-            text-align: right;
-            font-size: 13px;
-            color: #475569;
-            line-height: 1.5;
-          }
-          .customer-meta strong { color: #0f172a; }
-
-          .lead-card {
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            border-radius: 10px;
-            padding: 14px 18px;
-            margin-bottom: 24px;
-            font-size: 13px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px 16px;
-          }
-          .lead-card div strong { color: #334155; }
-
-          .get-upto-box {
-            background: #fffbeb;
-            border: 1.5px solid #fef3c7;
-            border-left: 4px solid #d97706;
-            border-radius: 8px;
-            padding: 16px 20px;
-            margin-bottom: 24px;
-          }
-          .device-name {
-            font-size: 20px;
-            font-weight: 800;
-            color: #0f172a;
-            margin-bottom: 6px;
-          }
-          .price-subtitle {
-            font-size: 13px;
-            font-weight: 600;
-            color: #b45309;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 2px;
-          }
-          .upto-price {
-            font-size: 26px;
-            font-weight: 800;
-            color: #d97706;
+            flex-direction: column;
+            gap: 10px;
           }
 
-          .question-group {
-            margin-bottom: 20px;
-          }
-          .q-title {
-            font-size: 14px;
-            font-weight: 700;
-            color: #1e293b;
-            margin-bottom: 4px;
-          }
-          .q-answer {
-            font-size: 15px;
-            font-weight: 600;
-            color: #0f172a;
-          }
-          .q-answer.yes { color: #059669; }
-          .q-answer.no { color: #dc2626; }
-
-          .numbered-list {
-            margin-top: 6px;
-          }
-          .numbered-item {
-            font-size: 14px;
-            font-weight: 600;
-            color: #b91c1c;
-            background: #fef2f2;
-            border: 1px solid #fee2e2;
-            padding: 6px 12px;
-            border-radius: 6px;
-            margin-bottom: 6px;
-            display: block;
-          }
-
-          .accessory-table {
-            margin-top: 6px;
-          }
-          .accessory-row {
+          /* Top Header */
+          .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 420px;
-            padding: 6px 0;
-            border-bottom: 1px dashed #e2e8f0;
-            font-size: 14px;
+            padding-bottom: 10px;
+            border-bottom: 1.5px solid #e2e8f0;
           }
-          .acc-name { color: #334155; font-weight: 600; }
-          .acc-val { font-weight: 700; padding: 2px 8px; border-radius: 4px; }
-          .acc-val.yes { background: #ecfdf5; color: #047857; }
-          .acc-val.no { background: #fef2f2; color: #b91c1c; }
+          .brand-title {
+            font-size: 24px;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            color: #0f172a;
+          }
+          .brand-title span { color: #d97706; }
+          .doc-badge {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            color: #475569;
+            padding: 3px 8px;
+            border-radius: 4px;
+            margin-top: 3px;
+          }
 
-          .final-box {
-            background: #f0fdf4;
-            border: 1.5px solid #dcfce7;
-            border-left: 4px solid #16a34a;
+          .customer-pill-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
             border-radius: 8px;
-            padding: 18px 20px;
-            margin-top: 28px;
+            padding: 8px 14px;
+            font-size: 12px;
+            text-align: right;
+            color: #475569;
+            line-height: 1.45;
           }
-          .final-label {
-            font-size: 13px;
+          .customer-pill-box strong { color: #0f172a; }
+
+          /* Meta Row */
+          .meta-strip {
+            display: flex;
+            justify-content: space-between;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 6px 12px;
+            font-size: 11px;
+            color: #64748b;
+          }
+          .meta-strip strong { color: #334155; }
+
+          /* Get Upto Banner */
+          .upto-banner {
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+            border: 1px solid #fde68a;
+            border-left: 5px solid #d97706;
+            border-radius: 8px;
+            padding: 12px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          }
+          .banner-info .sub-tag {
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            color: #b45309;
+          }
+          .banner-info .model-name {
+            font-size: 18px;
+            font-weight: 800;
+            color: #1e293b;
+            margin-top: 2px;
+          }
+          .banner-price {
+            text-align: right;
+          }
+          .banner-price .label {
+            font-size: 11px;
             font-weight: 700;
-            color: #15803d;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            color: #92400e;
+          }
+          .banner-price .amount {
+            font-size: 26px;
+            font-weight: 900;
+            color: #d97706;
+            line-height: 1.1;
+          }
+
+          /* Section Cards */
+          .section-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            background: #ffffff;
+            overflow: hidden;
+            page-break-inside: avoid;
+          }
+          .section-header {
+            background: #f8fafc;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 6px 14px;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: #475569;
+          }
+          .section-body {
+            padding: 8px 14px;
+          }
+
+          /* Q&A Rows */
+          .qa-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 0;
+            border-bottom: 1px dashed #f1f5f9;
+          }
+          .qa-row:last-child { border-bottom: none; }
+          .qa-title {
+            font-size: 12.5px;
+            font-weight: 600;
+            color: #1e293b;
+          }
+          .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.3px;
+          }
+          .pill-yes { background: #ecfdf5; color: #047857; border: 1px solid #a7f3d0; }
+          .pill-no { background: #fef2f2; color: #b91c1c; border: 1px solid #fecaca; }
+          .pill-none { background: #f8fafc; color: #64748b; border: 1px solid #cbd5e1; }
+
+          /* Defects tags */
+          .defect-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: #fef2f2;
+            color: #991b1b;
+            border: 1px solid #fecaca;
+            border-radius: 6px;
+            padding: 4px 10px;
+            font-size: 11.5px;
+            font-weight: 700;
+            margin-right: 6px;
             margin-bottom: 4px;
           }
-          .final-price {
-            font-size: 28px;
+
+          /* Final Valuation Box */
+          .final-box {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border: 1px solid #bbf7d0;
+            border-left: 5px solid #16a34a;
+            border-radius: 8px;
+            padding: 12px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2px;
+            page-break-inside: avoid;
+          }
+          .final-left .final-badge {
+            display: inline-block;
+            font-size: 10px;
             font-weight: 800;
-            color: #16a34a;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            background: #dcfce7;
+            color: #15803d;
+            border: 1px solid #86efac;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-bottom: 2px;
+          }
+          .final-left .final-model {
+            font-size: 17px;
+            font-weight: 800;
+            color: #0f172a;
+          }
+          .final-price-wrap {
+            text-align: right;
+          }
+          .final-price-wrap .final-title {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #166534;
+          }
+          .final-price-wrap .final-num {
+            font-size: 30px;
+            font-weight: 900;
+            color: #15803d;
+            line-height: 1.1;
           }
         </style>
       </head>
       <body>
-        <div class="admin-header">
-          <div>
-            <div class="brand-logo">FHONE<span>IFY</span></div>
-            <div class="report-badge">Lead Inspection Report</div>
+        <div class="report-wrap">
+          <!-- Header -->
+          <div class="header">
+            <div>
+              <div class="brand-title">FHONE<span>IFY</span></div>
+              <div class="doc-badge">Official Lead Inspection Report</div>
+            </div>
+            <div class="customer-pill-box">
+              <div><strong>Customer:</strong> ${lead.name || 'Unknown'}</div>
+              <div><strong>Phone:</strong> ${lead.phone}</div>
+              <div><strong>Pickup:</strong> ${lead.pickupDate || 'Pending'} ${lead.pickupTime ? 'at ' + lead.pickupTime : ''}</div>
+            </div>
           </div>
-          <div class="customer-meta">
-            <div><strong>Customer:</strong> ${lead.name || 'Unknown'}</div>
-            <div><strong>Phone:</strong> ${lead.phone}</div>
-            <div><strong>Pickup:</strong> ${lead.pickupDate || 'Pending'} ${lead.pickupTime ? 'at ' + lead.pickupTime : ''}</div>
+
+          <!-- Meta -->
+          <div class="meta-strip">
+            <div><strong>Address:</strong> ${[lead.address, lead.city].filter(Boolean).join(', ') || 'N/A'}${lead.pincode ? ' - ' + lead.pincode : ''}</div>
+            <div><strong>Lead ID:</strong> #${lead.id.slice(0, 8)} &nbsp;|&nbsp; <strong>Date:</strong> ${new Date().toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' })}</div>
           </div>
-        </div>
 
-        ${lead.address || lead.city ? `
-        <div class="lead-card">
-          <div><strong>Address:</strong> ${lead.address || 'N/A'}</div>
-          <div><strong>City & PIN:</strong> ${[lead.city, lead.pincode].filter(Boolean).join(', ') || 'N/A'}</div>
-          <div><strong>Lead ID:</strong> #${lead.id.slice(0, 8)}</div>
-          <div><strong>Generated:</strong> ${new Date().toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' })}</div>
-        </div>
-        ` : ''}
-
-        <div class="get-upto-box">
-          <div class="device-name">Sell Old ${deviceDisplayName} (${lead.storage})</div>
-          <div class="price-subtitle">Fhoneify's Get Upto :</div>
-          <div class="upto-price">${getUptoFormatted}</div>
-        </div>
-
-        <div class="question-group">
-          <div class="q-title">Are you able to make and receive calls?</div>
-          <div class="q-answer ${answers.calls === false ? 'no' : 'yes'}">${answers.calls === false ? 'No' : 'Yes'}</div>
-        </div>
-
-        <div class="question-group">
-          <div class="q-title">Is your device's touch screen working properly?</div>
-          <div class="q-answer ${answers.touch === false ? 'no' : 'yes'}">${answers.touch === false ? 'No' : 'Yes'}</div>
-        </div>
-
-        <div class="question-group">
-          <div class="q-title">Is your phone's screen original?</div>
-          <div class="q-answer ${answers.originalScreen === false ? 'no' : 'yes'}">${answers.originalScreen === false ? 'No' : 'Yes'}</div>
-        </div>
-
-        <div class="question-group">
-          <div class="q-title">Select screen/body defects that are applicable!</div>
-          ${defectLines.length > 0 ? `
-            <div class="numbered-list">
-              ${defectLines.map(d => `<div class="numbered-item">${d}</div>`).join('')}
+          <!-- Get Upto -->
+          <div class="upto-banner">
+            <div class="banner-info">
+              <div class="sub-tag">Device Quotation Evaluation</div>
+              <div class="model-name">Sell Old ${deviceDisplayName} (${lead.storage})</div>
             </div>
-          ` : `
-            <div class="q-answer">Broken/scratch on device screen : NONE</div>
-          `}
-        </div>
-
-        <div class="question-group">
-          <div class="q-title">Functional or Physical Problems :</div>
-          ${hardwareItems.length > 0 ? `
-            <div class="numbered-list">
-              ${hardwareItems.map((item, idx) => `<div class="numbered-item">${idx + 1}) ${item}</div>`).join('')}
+            <div class="banner-price">
+              <div class="label">Fhoneify's Get Upto</div>
+              <div class="amount">${getUptoFormatted}</div>
             </div>
-          ` : `
-            <div class="q-answer yes">NONE</div>
-          `}
-        </div>
-
-        <div class="question-group">
-          <div class="q-title">Do you have the following?</div>
-          <div class="accessory-table">
-            <div class="accessory-row">
-              <span class="acc-name">Original Box with same IMEI :</span>
-              <span class="acc-val ${hasBox ? 'yes' : 'no'}">${hasBox ? 'YES' : 'NO'}</span>
-            </div>
-            <div class="accessory-row">
-              <span class="acc-name">Original Charger of Device :</span>
-              <span class="acc-val ${hasCharger ? 'yes' : 'no'}">${hasCharger ? 'YES' : 'NO'}</span>
-            </div>
-            ${answers.validBill !== undefined && answers.validBill !== null ? `
-            <div class="accessory-row">
-              <span class="acc-name">Valid Bill Invoice :</span>
-              <span class="acc-val ${hasBill ? 'yes' : 'no'}">${hasBill ? 'YES' : 'NO'}</span>
-            </div>
-            ` : ''}
           </div>
-        </div>
 
-        <div class="final-box">
-          <div class="device-name">${deviceDisplayName} (${lead.storage})</div>
-          <div class="final-label">Fhoneify's Estimated value :</div>
-          <div class="final-price">₹${Math.round(lead.quotedPrice).toLocaleString('en-IN')}</div>
+          <!-- Card 1: Core Condition Checks -->
+          <div class="section-card">
+            <div class="section-header">Basic Device Functionality Checks</div>
+            <div class="section-body">
+              <div class="qa-row">
+                <span class="qa-title">Are you able to make and receive calls?</span>
+                <span class="pill ${answers.calls === false ? 'pill-no' : 'pill-yes'}">${answers.calls === false ? '✕ NO' : '✓ YES'}</span>
+              </div>
+              <div class="qa-row">
+                <span class="qa-title">Is your device's touch screen working properly?</span>
+                <span class="pill ${answers.touch === false ? 'pill-no' : 'pill-yes'}">${answers.touch === false ? '✕ NO' : '✓ YES'}</span>
+              </div>
+              <div class="qa-row">
+                <span class="qa-title">Is your phone's screen original?</span>
+                <span class="pill ${answers.originalScreen === false ? 'pill-no' : 'pill-yes'}">${answers.originalScreen === false ? '✕ NO' : '✓ YES'}</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Defects & Hardware -->
+          <div class="section-card">
+            <div class="section-header">Physical Defects & Functional Conditions</div>
+            <div class="section-body">
+              <div class="qa-row">
+                <span class="qa-title">Screen / Body Physical Defects</span>
+                ${defectLines.length > 0 ? `
+                  <div style="display: flex; flex-wrap: wrap; justify-content: flex-end;">
+                    ${defectLines.map(d => `<span class="defect-tag">⚠ ${d}</span>`).join('')}
+                  </div>
+                ` : `
+                  <span class="pill pill-none">NONE REPORTED</span>
+                `}
+              </div>
+              <div class="qa-row" style="align-items: flex-start; padding-top: 6px;">
+                <span class="qa-title" style="margin-top: 3px;">Reported Hardware Issues</span>
+                <div style="display: flex; flex-wrap: wrap; justify-content: flex-end; max-width: 60%;">
+                  ${hardwareItems.length > 0 ? `
+                    ${hardwareItems.map((item, idx) => `<span class="defect-tag">⚠ ${idx + 1}) ${item}</span>`).join('')}
+                  ` : `
+                    <span class="pill pill-yes">✓ ALL FUNCTIONAL</span>
+                  `}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Accessories -->
+          <div class="section-card">
+            <div class="section-header">Original Accessories & Purchase Invoice</div>
+            <div class="section-body">
+              <div class="qa-row">
+                <span class="qa-title">Original Box with same IMEI</span>
+                <span class="pill ${hasBox ? 'pill-yes' : 'pill-no'}">${hasBox ? '✓ YES' : '✕ NO'}</span>
+              </div>
+              <div class="qa-row">
+                <span class="qa-title">Original Charger of Device</span>
+                <span class="pill ${hasCharger ? 'pill-yes' : 'pill-no'}">${hasCharger ? '✓ YES' : '✕ NO'}</span>
+              </div>
+              ${answers.validBill !== undefined && answers.validBill !== null ? `
+              <div class="qa-row">
+                <span class="qa-title">Valid Bill / Invoice Available</span>
+                <span class="pill ${hasBill ? 'pill-yes' : 'pill-no'}">${hasBill ? '✓ YES' : '✕ NO'}</span>
+              </div>
+              ` : ''}
+            </div>
+          </div>
+
+          <!-- Final Evaluated Payout -->
+          <div class="final-box">
+            <div class="final-left">
+              <div class="final-badge">Verified Valuation Offer</div>
+              <div class="final-model">${deviceDisplayName} (${lead.storage})</div>
+            </div>
+            <div class="final-price-wrap">
+              <div class="final-title">Fhoneify's Estimated Value</div>
+              <div class="final-num">₹${Math.round(lead.quotedPrice).toLocaleString('en-IN')}</div>
+            </div>
+          </div>
         </div>
       </body>
     </html>

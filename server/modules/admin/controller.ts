@@ -2,6 +2,7 @@ import { Response } from 'express';
 import * as adminService from './service';
 import logger from '../../lib/logger';
 import { AuthenticatedRequest } from '../../middleware/auth';
+import { resolveReference, computeFhoneifyGetUpto } from '../../../lib/pricing/engine';
 
 export function getAnalytics(req: AuthenticatedRequest, res: Response) {
   try {
@@ -124,189 +125,357 @@ export async function generateLeadPdf(req: AuthenticatedRequest, res: Response) 
     }
 
     const answers: any = lead.answers || {};
-    
-    const getVal = (v: any) => {
-      if (v === true) return 'Yes';
-      if (v === false) return 'No';
-      if (v === null || v === undefined) return 'N/A';
-      return String(v);
+
+    const deviceDisplayName = lead.model.toLowerCase().startsWith(lead.brand.toLowerCase())
+      ? lead.model
+      : `${lead.brand} ${lead.model}`;
+
+    // 1. Resolve Fhoneify Get Upto
+    let getUptoFormatted = 'N/A';
+    try {
+      const ref = resolveReference({
+        device: {
+          model: lead.model,
+          storage: lead.storage,
+          basePrice: 0,
+        },
+      });
+      if (ref && ref.cashifyGetUptoReference) {
+        const upto = computeFhoneifyGetUpto(ref.cashifyGetUptoReference);
+        getUptoFormatted = `₹${upto.toLocaleString('en-IN')}`;
+      }
+    } catch {
+      if (lead.quotedPrice) {
+        getUptoFormatted = `₹${Math.round(lead.quotedPrice * 1.15).toLocaleString('en-IN')}`;
+      }
+    }
+
+    // 2. Map Functional/Hardware Problems
+    const hardwareMap: Record<string, string> = {
+      face: 'Face Sensor Not Working',
+      face_sensor: 'Face Sensor Not Working',
+      battery_service: 'Battery in Service (Health is less than 80%)',
+      battery_health: 'Battery Health 80-85%',
+      back_camera: 'Back Camera not working',
+      front_camera: 'Front Camera not working',
+      charging: 'Charging Jack / Port not working',
+      speaker: 'Speaker not working',
+      audio_receiver: 'Receiver / Earpiece not working',
+      receiver: 'Receiver / Earpiece not working',
+      microphone: 'Microphone (Mic) not working',
+      mic: 'Microphone (Mic) not working',
+      proximity: 'Proximity Sensor not working',
+      proximity_sensor: 'Proximity Sensor not working',
+      wifi: 'Wi-Fi not working',
+      bluetooth: 'Bluetooth not working',
+      volume: 'Volume buttons not working',
+      power: 'Power button not working',
+      silent: 'Vibration / Silent switch not working',
+      vibrator: 'Vibration / Silent switch not working',
+      fingerprint: 'Fingerprint Scanner not working',
+      camera_glass: 'Camera Glass broken',
+      s_pen: 'S-Pen missing / not working',
+      hinge: 'Hinge defect',
     };
 
+    const hardwareItems: string[] = (answers.hardware || []).map((h: string) => {
+      const key = String(h || '').toLowerCase().trim();
+      return hardwareMap[key] || h;
+    });
+
+    // 3. Screen / Body Defects (Only selected items)
+    const defectLines: string[] = [];
+    const screenCondition = answers.screenCondition ? String(answers.screenCondition).trim() : '';
+    const defectsList = answers.defects || [];
+    const hasScreenScratch = defectsList.includes('broken_scratch') || defectsList.includes('screen_scratch') || (screenCondition && screenCondition.toLowerCase() !== 'none');
+
+    if (screenCondition && screenCondition.toLowerCase() !== 'none' && screenCondition.toLowerCase() !== 'n/a') {
+      defectLines.push(`Broken/scratch on device screen : ${screenCondition}`);
+    } else if (hasScreenScratch) {
+      defectLines.push(`Broken/scratch on device screen : Broken/scratch on device screen`);
+    }
+
+    if (answers.screenSpots && String(answers.screenSpots).toLowerCase() !== 'none' && String(answers.screenSpots).toLowerCase() !== 'n/a') {
+      defectLines.push(`Screen Spots : ${answers.screenSpots}`);
+    }
+    if (answers.screenLines && String(answers.screenLines).toLowerCase() !== 'none' && String(answers.screenLines).toLowerCase() !== 'n/a') {
+      defectLines.push(`Screen Lines : ${answers.screenLines}`);
+    }
+    if (answers.screenDiscoloration && String(answers.screenDiscoloration).toLowerCase() !== 'none' && String(answers.screenDiscoloration).toLowerCase() !== 'n/a') {
+      defectLines.push(`Screen Discoloration : ${answers.screenDiscoloration}`);
+    }
+    if (answers.bodyScratches && String(answers.bodyScratches).toLowerCase() !== 'none' && String(answers.bodyScratches).toLowerCase() !== 'n/a') {
+      defectLines.push(`Body Scratches : ${answers.bodyScratches}`);
+    }
+    if (answers.bodyDents && String(answers.bodyDents).toLowerCase() !== 'none' && String(answers.bodyDents).toLowerCase() !== 'n/a') {
+      defectLines.push(`Body Dents : ${answers.bodyDents}`);
+    }
+    if (answers.bodyPanel && String(answers.bodyPanel).toLowerCase() !== 'none' && String(answers.bodyPanel).toLowerCase() !== 'n/a') {
+      defectLines.push(`Body Panel : ${answers.bodyPanel}`);
+    }
+    if (answers.bodyBent && String(answers.bodyBent).toLowerCase() !== 'none' && String(answers.bodyBent).toLowerCase() !== 'n/a') {
+      defectLines.push(`Body Bent / Loose : ${answers.bodyBent}`);
+    }
+
+    // 4. Accessories
+    const hasBox = answers.box === true || (answers.accessories || []).includes('box');
+    const hasCharger = answers.charger === true || (answers.accessories || []).includes('charger');
+    const hasBill = answers.validBill === true || (answers.accessories || []).includes('bill');
+
     const htmlContent = `
+    <!DOCTYPE html>
     <html>
       <head>
+        <meta charset="utf-8" />
+        <title>Fhoneify Inspection Report - ${lead.brand} ${lead.model}</title>
         <style>
-          body { font-family: Arial, sans-serif; color: #1a202c; padding: 20px; }
-          h2 { text-align: center; color: #000; margin-bottom: 5px; }
-          .subtitle { text-align: center; font-size: 14px; margin-bottom: 20px; color: #4a5568; }
-          .details { margin-bottom: 20px; font-size: 14px; line-height: 1.5; }
-          
-          .matrix-container {
-            border: 1px solid #cbd5e0;
-            border-radius: 4px;
-            overflow: hidden;
-            margin-bottom: 30px;
-          }
-          
-          .matrix-header {
-            background-color: #e2e8f0;
-            padding: 12px 15px;
-            font-weight: bold;
-            font-size: 16px;
-            color: #2d3748;
-            border-bottom: 1px solid #cbd5e0;
-          }
-          
-          .section-title {
-            padding: 12px 15px;
-            font-weight: bold;
-            font-size: 15px;
-            color: #1a202c;
-            border-bottom: 1px solid #cbd5e0;
-            background-color: #f7fafc;
-          }
-          
-          .grid-table {
-            width: 100%;
-            border-collapse: collapse;
-          }
-          
-          .grid-table td {
-            padding: 10px 15px;
-            border-bottom: 1px solid #e2e8f0;
-            border-right: 1px solid #e2e8f0;
-            font-size: 13px;
-          }
-          
-          .grid-table td:last-child {
-            border-right: none;
-          }
-          
-          .label {
-            color: #4a5568;
-            font-weight: 600;
-            width: 25%;
-          }
-          
-          .value {
-            color: #2b6cb0;
-            font-weight: 500;
-            width: 25%;
-          }
-          
-          .defects-list {
-            padding: 15px;
-            font-size: 13px;
-            color: #2b6cb0;
-          }
-          .defects-list ul {
+          * { box-sizing: border-box; }
+          body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #1e293b;
+            background-color: #ffffff;
             margin: 0;
-            padding-left: 20px;
+            padding: 32px 36px;
+            line-height: 1.6;
           }
           
-          .final-output {
-            margin-top: 30px;
-            padding: 15px;
-            background-color: #f0fff4;
-            border: 1px solid #c6f6d5;
-            border-radius: 4px;
+          .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 16px;
+            margin-bottom: 24px;
+          }
+          .brand-logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: #0f172a;
+            letter-spacing: -0.5px;
+          }
+          .brand-logo span { color: #d97706; }
+          .report-badge {
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            background: #f1f5f9;
+            color: #475569;
+            padding: 4px 10px;
+            border-radius: 6px;
+            display: inline-block;
+            margin-top: 4px;
+          }
+          .customer-meta {
+            text-align: right;
+            font-size: 13px;
+            color: #475569;
+            line-height: 1.5;
+          }
+          .customer-meta strong { color: #0f172a; }
+
+          .lead-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 14px 18px;
+            margin-bottom: 24px;
+            font-size: 13px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px 16px;
+          }
+          .lead-card div strong { color: #334155; }
+
+          .get-upto-box {
+            background: #fffbeb;
+            border: 1.5px solid #fef3c7;
+            border-left: 4px solid #d97706;
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin-bottom: 24px;
+          }
+          .device-name {
+            font-size: 20px;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 6px;
+          }
+          .price-subtitle {
+            font-size: 13px;
+            font-weight: 600;
+            color: #b45309;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 2px;
+          }
+          .upto-price {
+            font-size: 26px;
+            font-weight: 800;
+            color: #d97706;
+          }
+
+          .question-group {
+            margin-bottom: 20px;
+          }
+          .q-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 4px;
+          }
+          .q-answer {
+            font-size: 15px;
+            font-weight: 600;
+            color: #0f172a;
+          }
+          .q-answer.yes { color: #059669; }
+          .q-answer.no { color: #dc2626; }
+
+          .numbered-list {
+            margin-top: 6px;
+          }
+          .numbered-item {
+            font-size: 14px;
+            font-weight: 600;
+            color: #b91c1c;
+            background: #fef2f2;
+            border: 1px solid #fee2e2;
+            padding: 6px 12px;
+            border-radius: 6px;
+            margin-bottom: 6px;
+            display: block;
+          }
+
+          .accessory-table {
+            margin-top: 6px;
+          }
+          .accessory-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 420px;
+            padding: 6px 0;
+            border-bottom: 1px dashed #e2e8f0;
+            font-size: 14px;
+          }
+          .acc-name { color: #334155; font-weight: 600; }
+          .acc-val { font-weight: 700; padding: 2px 8px; border-radius: 4px; }
+          .acc-val.yes { background: #ecfdf5; color: #047857; }
+          .acc-val.no { background: #fef2f2; color: #b91c1c; }
+
+          .final-box {
+            background: #f0fdf4;
+            border: 1.5px solid #dcfce7;
+            border-left: 4px solid #16a34a;
+            border-radius: 8px;
+            padding: 18px 20px;
+            margin-top: 28px;
+          }
+          .final-label {
+            font-size: 13px;
+            font-weight: 700;
+            color: #15803d;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
           }
           .final-price {
-            font-size: 18px;
-            font-weight: bold;
-            color: #2f855a;
+            font-size: 28px;
+            font-weight: 800;
+            color: #16a34a;
           }
         </style>
       </head>
       <body>
-        <h2>Fhoneify Comprehensive Accuracy Verification Report</h2>
-        <div class="subtitle">Generated on ${new Date().toLocaleDateString()}</div>
-        
-        <div class="details">
-          <strong>Target Variant Identity:</strong> ${lead.brand} ${lead.model} (${lead.storage})<br/>
-          <strong>Customer Name:</strong> ${lead.name || 'N/A'}<br/>
-          <strong>Phone:</strong> ${lead.phone}<br/>
-          <strong>Pickup Scheduled:</strong> ${lead.pickupDate || 'N/A'} at ${lead.pickupTime || 'N/A'}
+        <div class="admin-header">
+          <div>
+            <div class="brand-logo">FHONE<span>IFY</span></div>
+            <div class="report-badge">Lead Inspection Report</div>
+          </div>
+          <div class="customer-meta">
+            <div><strong>Customer:</strong> ${lead.name || 'Unknown'}</div>
+            <div><strong>Phone:</strong> ${lead.phone}</div>
+            <div><strong>Pickup:</strong> ${lead.pickupDate || 'Pending'} ${lead.pickupTime ? 'at ' + lead.pickupTime : ''}</div>
+          </div>
         </div>
-        
-        <div class="matrix-container">
-          <div class="matrix-header">Diagnostic Details & Selection Matrix</div>
-          
-          <div class="section-title">Stage 1: Basic Device Condition</div>
-          <table class="grid-table">
-            <tr>
-              <td class="label">Calls Functional:</td>
-              <td class="value">${getVal(answers.calls)}</td>
-              <td class="label">Screen Original:</td>
-              <td class="value">${getVal(answers.originalScreen)}</td>
-            </tr>
-            <tr>
-              <td class="label">Touch Screen Working:</td>
-              <td class="value">${getVal(answers.touch)}</td>
-              <td class="label">Under Warranty:</td>
-              <td class="value">${getVal(answers.warranty)}</td>
-            </tr>
-            <tr>
-              <td class="label">Has GST Bill Invoice:</td>
-              <td class="value">${getVal(answers.validBill)}</td>
-              <td class="label">Stated Device Age:</td>
-              <td class="value">${getVal(answers.mobileAge)}</td>
-            </tr>
-          </table>
 
-          <div class="section-title">Stage 2: Hardware & Screen Integrity</div>
-          <table class="grid-table">
-            <tr>
-              <td class="label">Screen Condition:</td>
-              <td class="value">${getVal(answers.screenCondition)}</td>
-              <td class="label">Screen Spots:</td>
-              <td class="value">${getVal(answers.screenSpots)}</td>
-            </tr>
-            <tr>
-              <td class="label">Screen Lines:</td>
-              <td class="value">${getVal(answers.screenLines)}</td>
-              <td class="label">Discoloration:</td>
-              <td class="value">${getVal(answers.screenDiscoloration)}</td>
-            </tr>
-          </table>
-
-          <div class="section-title">Stage 3: Body & Panel Condition</div>
-          <table class="grid-table">
-            <tr>
-              <td class="label">Body Scratches:</td>
-              <td class="value">${getVal(answers.bodyScratches)}</td>
-              <td class="label">Body Dents:</td>
-              <td class="value">${getVal(answers.bodyDents)}</td>
-            </tr>
-            <tr>
-              <td class="label">Panel Condition:</td>
-              <td class="value">${getVal(answers.bodyPanel)}</td>
-              <td class="label">Bent/Loose:</td>
-              <td class="value">${getVal(answers.bodyBent)}</td>
-            </tr>
-          </table>
-          
-          <div class="section-title">Stage 4: Other Defects & Accessories</div>
-          <table class="grid-table">
-            <tr>
-              <td class="label" style="width: 25%;">Hardware Issues:</td>
-              <td class="value" colspan="3">${(answers.hardware || []).length > 0 ? (answers.hardware || []).join(', ') : 'None reported'}</td>
-            </tr>
-            <tr>
-              <td class="label" style="width: 25%;">General Defects:</td>
-              <td class="value" colspan="3">${(answers.defects || []).length > 0 ? (answers.defects || []).join(', ') : 'None reported'}</td>
-            </tr>
-            <tr>
-              <td class="label" style="width: 25%;">Accessories Included:</td>
-              <td class="value" colspan="3">${(answers.accessories || []).length > 0 ? (answers.accessories || []).join(', ') : 'None reported'}</td>
-            </tr>
-          </table>
+        ${lead.address || lead.city ? `
+        <div class="lead-card">
+          <div><strong>Address:</strong> ${lead.address || 'N/A'}</div>
+          <div><strong>City & PIN:</strong> ${[lead.city, lead.pincode].filter(Boolean).join(', ') || 'N/A'}</div>
+          <div><strong>Lead ID:</strong> #${lead.id.slice(0, 8)}</div>
+          <div><strong>Generated:</strong> ${new Date().toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' })}</div>
         </div>
-        
-        <div class="final-output">
-          <div><strong>Final Evaluated Output:</strong></div>
-          <div style="margin-top: 5px;">${lead.brand} ${lead.model} (${lead.storage})</div>
-          <div class="final-price">Selling Price Match Value: Rs. ${lead.quotedPrice}</div>
+        ` : ''}
+
+        <div class="get-upto-box">
+          <div class="device-name">Sell Old ${deviceDisplayName} (${lead.storage})</div>
+          <div class="price-subtitle">Fhoneify's Get Upto :</div>
+          <div class="upto-price">${getUptoFormatted}</div>
+        </div>
+
+        <div class="question-group">
+          <div class="q-title">Are you able to make and receive calls?</div>
+          <div class="q-answer ${answers.calls === false ? 'no' : 'yes'}">${answers.calls === false ? 'No' : 'Yes'}</div>
+        </div>
+
+        <div class="question-group">
+          <div class="q-title">Is your device's touch screen working properly?</div>
+          <div class="q-answer ${answers.touch === false ? 'no' : 'yes'}">${answers.touch === false ? 'No' : 'Yes'}</div>
+        </div>
+
+        <div class="question-group">
+          <div class="q-title">Is your phone's screen original?</div>
+          <div class="q-answer ${answers.originalScreen === false ? 'no' : 'yes'}">${answers.originalScreen === false ? 'No' : 'Yes'}</div>
+        </div>
+
+        <div class="question-group">
+          <div class="q-title">Select screen/body defects that are applicable!</div>
+          ${defectLines.length > 0 ? `
+            <div class="numbered-list">
+              ${defectLines.map(d => `<div class="numbered-item">${d}</div>`).join('')}
+            </div>
+          ` : `
+            <div class="q-answer">Broken/scratch on device screen : NONE</div>
+          `}
+        </div>
+
+        <div class="question-group">
+          <div class="q-title">Functional or Physical Problems :</div>
+          ${hardwareItems.length > 0 ? `
+            <div class="numbered-list">
+              ${hardwareItems.map((item, idx) => `<div class="numbered-item">${idx + 1}) ${item}</div>`).join('')}
+            </div>
+          ` : `
+            <div class="q-answer yes">NONE</div>
+          `}
+        </div>
+
+        <div class="question-group">
+          <div class="q-title">Do you have the following?</div>
+          <div class="accessory-table">
+            <div class="accessory-row">
+              <span class="acc-name">Original Box with same IMEI :</span>
+              <span class="acc-val ${hasBox ? 'yes' : 'no'}">${hasBox ? 'YES' : 'NO'}</span>
+            </div>
+            <div class="accessory-row">
+              <span class="acc-name">Original Charger of Device :</span>
+              <span class="acc-val ${hasCharger ? 'yes' : 'no'}">${hasCharger ? 'YES' : 'NO'}</span>
+            </div>
+            ${answers.validBill !== undefined && answers.validBill !== null ? `
+            <div class="accessory-row">
+              <span class="acc-name">Valid Bill Invoice :</span>
+              <span class="acc-val ${hasBill ? 'yes' : 'no'}">${hasBill ? 'YES' : 'NO'}</span>
+            </div>
+            ` : ''}
+          </div>
+        </div>
+
+        <div class="final-box">
+          <div class="device-name">${deviceDisplayName} (${lead.storage})</div>
+          <div class="final-label">Fhoneify's Estimated value :</div>
+          <div class="final-price">₹${Math.round(lead.quotedPrice).toLocaleString('en-IN')}</div>
         </div>
       </body>
     </html>

@@ -653,21 +653,30 @@ export function calculateApplePrice(model: string, reference: CashifyGetUptoRefe
   }
   // --- END SPECIALIZED ALGORITHM ---
 
-  // --- SPECIALIZED ALGORITHM FOR APPLE iPHONE X (3 GB/256 GB) ---
-  const isX_256GB = Boolean(
-    (storageVariant && storageVariant.includes("256")) ||
-    (storageVariant && storageVariant.toLowerCase().includes("256")) ||
-    lowerModel.includes("256") ||
-    (reference >= 9500 && reference <= 10500)
+  // --- SPECIALIZED ALGORITHM FOR APPLE iPHONE X (64 GB / 128 GB / 256 GB) ---
+  const isIPhoneX = Boolean(
+    lowerModel === "apple iphone x" ||
+    lowerModel === "iphone x" ||
+    (lowerModel as string) === "Apple iPhone X" ||
+    (lowerModel.includes("iphone x") && !lowerModel.includes("xr") && !lowerModel.includes("xs"))
   );
 
-  if (
-    ((lowerModel === "Apple iPhone X" || lowerModel === "apple iphone x" || lowerModel === "iphone x" || lowerModel.includes("iphone x")) && isX_256GB)
-  ) {
+  const isXStorage = Boolean(
+    !storageVariant ||
+    storageVariant.includes("64") ||
+    storageVariant.includes("128") ||
+    storageVariant.includes("256") ||
+    lowerModel.includes("64") ||
+    lowerModel.includes("128") ||
+    lowerModel.includes("256") ||
+    (reference >= 7000 && reference <= 12000)
+  );
+
+  if (isIPhoneX && isXStorage) {
     let price = reference;
 
-    // Derived precise absolute deductions for iPhone X (256GB) based on Cashify scaling:
-    // Base Reference (Cashify Get Upto) = 10,020
+    // Derived precise absolute deductions for iPhone X scaled to Cashify reference:
+    // Base Reference (Cashify Get Upto for 256GB) = 10,020
     const pFace = 2250 / 10020;
     const pBattService = 1400 / 10020;
     const pBattHealth = 700 / 10020;

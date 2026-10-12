@@ -10,6 +10,9 @@ const reviewedIdentities = new Set([
   'apple|apple iphone 12 pro max|512gb',
   'apple|apple iphone 14|128gb',
   'apple|apple iphone 13|128gb',
+  'apple|apple iphone x|64gb',
+  'apple|apple iphone x|128gb',
+  'apple|apple iphone x|256gb',
 ]);
 
 export function reviewedAppleDispatchStorage(device: { brand: string; model: string; storage: string }): string | undefined {

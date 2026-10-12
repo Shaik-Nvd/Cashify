@@ -441,46 +441,89 @@ export function calculateApplePrice(model: string, reference: CashifyGetUptoRefe
 
   const lowerModel = String(model || "").toLowerCase().trim();
 
-  // --- SPECIALIZED ALGORITHM FOR iPHONE 14 (6 GB/128 GB) ---
-  const is14_128GB = storageVariant 
-    ? storageVariant.toLowerCase().includes("128") 
-    : (reference >= 26000 && reference < 29000); // Base price around 27780
+  // --- SPECIALIZED ALGORITHM FOR iPHONE 14 (128 GB / 256 GB / 512 GB) ---
+  const isIPhone14 = Boolean(
+    lowerModel === "iphone 14" ||
+    lowerModel === "apple iphone 14" ||
+    (lowerModel as string) === "Apple iPhone 14" ||
+    (lowerModel.includes("iphone 14") && !lowerModel.includes("pro") && !lowerModel.includes("plus"))
+  );
 
-  if ((lowerModel === "iphone 14" || lowerModel === "apple iphone 14") && is14_128GB) {
+  const is14_128GB = Boolean(
+    (storageVariant && storageVariant.includes("128")) ||
+    (storageVariant && storageVariant.toLowerCase().includes("128")) ||
+    lowerModel.includes("128") ||
+    (!storageVariant && reference >= 26000 && reference < 28000)
+  );
+
+  const is14Storage = Boolean(
+    (storageVariant && (storageVariant.includes("128") || storageVariant.includes("256") || storageVariant.includes("512"))) ||
+    lowerModel.includes("128") ||
+    lowerModel.includes("256") ||
+    lowerModel.includes("512") ||
+    (!storageVariant && reference >= 26000 && reference <= 32000)
+  );
+
+  if (isIPhone14 && is14Storage) {
     let price = reference;
-    
-    // Exact deductions based on the provided combinations
-    const pBattHealth = 920 / 27780;
-    const pBattService = 3020 / 27780;
-    
-    // Hardware (Battery)
-    if (diagnostics.hardware.includes('battery_service')) {
+
+    // Derived precise absolute deductions for iPhone 14 scaled from Cashify references:
+    const pFace = 7380 / 28840;
+    const pBattService = is14_128GB ? (3020 / 27780) : (3140 / 28840);
+    const pBattHealth = is14_128GB ? (920 / 27780) : (1040 / 28840);
+    const pScratch2 = 5300 / 28840;
+    const pNotOriginalScreen = 9000 / 28840;
+    const pBox = 1200 / 28840;
+
+    // Hardware
+    const hasFaceProblem = (diagnostics.hardware || []).includes('face') || (diagnostics.hardware || []).includes('face_sensor');
+    if (hasFaceProblem) {
+      price -= Math.round(reference * pFace);
+    }
+
+    const hasBatteryService = (diagnostics.hardware || []).includes('battery_service');
+    const hasBatteryHealth = (diagnostics.hardware || []).includes('battery_health');
+    if (hasBatteryService) {
       price -= Math.round(reference * pBattService);
-    } else if (diagnostics.hardware.includes('battery_health')) {
+    } else if (hasBatteryHealth) {
       price -= Math.round(reference * pBattHealth);
     }
-    
-    // Fallbacks for unprovided values in the prompt (using standard realistic constraints so it doesn't break if other options are chosen)
-    if (diagnostics.hardware.includes('face') || diagnostics.hardware.includes('face_sensor')) {
-      price -= Math.round(reference * 0.15); // Standard fallback for Face ID
-    }
 
+    // Screen defects
     const moreThan2Scratches = diagnostics.screenCondition?.includes('More than 2 scratches');
-    const hasScreenDefect = diagnostics.defects.includes('screen_scratch') || diagnostics.defects.includes('broken_scratch') || moreThan2Scratches;
+    const hasScreenDefect = (diagnostics.defects || []).includes('screen_scratch') || (diagnostics.defects || []).includes('broken_scratch') || Boolean(moreThan2Scratches);
+
     if (hasScreenDefect) {
-      price -= Math.round(reference * (moreThan2Scratches ? 0.30 : 0.15));
+      if (moreThan2Scratches) {
+        price -= Math.round(reference * pScratch2);
+      } else {
+        price -= Math.round(reference * (pScratch2 * 0.5));
+      }
     }
 
-    const hasBox = diagnostics.box === true || (diagnostics.accessories || []).includes("box");
-    if (!hasBox) {
-      price -= Math.round(reference * 0.05); // Standard fallback missing box penalty
+    // Original Screen
+    if (diagnostics.originalScreen === false) {
+      price -= Math.round(reference * pNotOriginalScreen);
     }
-    
+
+    // Accessories
+    const hasBox = diagnostics.box === true || (diagnostics.accessories || []).includes("box");
+    // Charger provides 0 bonus in this tier as verified by Cashify quote baseline
+    // Box deduction:
+    if (!hasBox) {
+      price -= Math.round(reference * pBox);
+    }
+
     // Major functional constraints
     if (diagnostics.calls === false) price -= Math.round(reference * 0.55);
     if (diagnostics.touch === false) price -= Math.round(reference * 0.25);
-    if (diagnostics.originalScreen === false) price -= Math.round(reference * 0.70);
-    
+
+    // Other hardware issues
+    const otherHardware = (diagnostics.hardware || []).filter(h => h !== 'face' && h !== 'face_sensor' && h !== 'battery_service' && h !== 'battery_health');
+    if (otherHardware.length > 0) {
+      price -= Math.round(reference * 0.10 * otherHardware.length);
+    }
+
     return finalizeConditionQuote(reference, Math.max(price, 0));
   }
   // --- END SPECIALIZED ALGORITHM ---

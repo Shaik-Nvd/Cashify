@@ -653,6 +653,85 @@ export function calculateApplePrice(model: string, reference: CashifyGetUptoRefe
   }
   // --- END SPECIALIZED ALGORITHM ---
 
+  // --- SPECIALIZED ALGORITHM FOR APPLE iPHONE X (3 GB/256 GB) ---
+  const isX_256GB = Boolean(
+    (storageVariant && storageVariant.includes("256")) ||
+    (storageVariant && storageVariant.toLowerCase().includes("256")) ||
+    lowerModel.includes("256") ||
+    (reference >= 9500 && reference <= 10500)
+  );
+
+  if (
+    ((lowerModel === "Apple iPhone X" || lowerModel === "apple iphone x" || lowerModel === "iphone x" || lowerModel.includes("iphone x")) && isX_256GB)
+  ) {
+    let price = reference;
+
+    // Derived precise absolute deductions for iPhone X (256GB) based on Cashify scaling:
+    // Base Reference (Cashify Get Upto) = 10,020
+    const pFace = 2250 / 10020;
+    const pBattService = 1400 / 10020;
+    const pBattHealth = 700 / 10020;
+    const pScratch2 = 1880 / 10020;
+    const pNotOriginalScreen = 3200 / 10020;
+
+    // Hardware
+    const hasFaceProblem = diagnostics.hardware.includes('face') || diagnostics.hardware.includes('face_sensor');
+    if (hasFaceProblem) {
+      price -= Math.round(reference * pFace);
+    }
+
+    const hasBatteryService = diagnostics.hardware.includes('battery_service');
+    const hasBatteryHealth = diagnostics.hardware.includes('battery_health');
+    if (hasBatteryService) {
+      price -= Math.round(reference * pBattService);
+    } else if (hasBatteryHealth) {
+      price -= Math.round(reference * pBattHealth);
+    }
+
+    // Screen defects
+    const moreThan2Scratches = diagnostics.screenCondition?.includes('More than 2 scratches');
+    const hasScreenDefect = diagnostics.defects.includes('screen_scratch') || diagnostics.defects.includes('broken_scratch') || Boolean(moreThan2Scratches);
+
+    if (hasScreenDefect) {
+      if (moreThan2Scratches) {
+        price -= Math.round(reference * pScratch2);
+      } else {
+        price -= Math.round(reference * (pScratch2 * 0.5));
+      }
+    }
+
+    // Original Screen
+    if (diagnostics.originalScreen === false) {
+      price -= Math.round(reference * pNotOriginalScreen);
+    }
+
+    // Accessories
+    const hasBox = diagnostics.box === true || (diagnostics.accessories || []).includes("box");
+    // Charger provides 0 bonus in this tier as verified by Cashify quote combinations (Combo 1 vs Combo 5).
+    // Box deduction:
+    // When Box is missing:
+    // - If screen is clean and battery is in service, Cashify gives 5,970 with no box and 6,070 with box (i.e. box value is 100).
+    // - In other states (screen scratches or battery 80-85%), box value is 400.
+    if (!hasBox) {
+      price -= Math.round(reference * (400 / 10020));
+    } else if (!hasScreenDefect && hasBatteryService && hasFaceProblem) {
+      price -= Math.round(reference * (300 / 10020));
+    }
+
+    // Major functional constraints
+    if (diagnostics.calls === false) price -= Math.round(reference * 0.55);
+    if (diagnostics.touch === false) price -= Math.round(reference * 0.25);
+
+    // Other hardware issues
+    const otherHardware = diagnostics.hardware.filter(h => h !== 'face' && h !== 'face_sensor' && h !== 'battery_service' && h !== 'battery_health');
+    if (otherHardware.length > 0) {
+      price -= Math.round(reference * 0.10 * otherHardware.length);
+    }
+
+    return finalizeConditionQuote(reference, Math.max(price, 0));
+  }
+  // --- END SPECIALIZED ALGORITHM ---
+
   const isPro = lowerModel.includes("pro");
   const isProMax = lowerModel.includes("pro max");
   const isPlus = lowerModel.includes("plus");

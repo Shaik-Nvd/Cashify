@@ -16,6 +16,10 @@ const reviewedIdentities = new Set([
   'apple|apple iphone xr|64gb',
   'apple|apple iphone xr|128gb',
   'apple|apple iphone xr|256gb',
+  'apple|apple iphone xs|64gb',
+  'apple|apple iphone xs|128gb',
+  'apple|apple iphone xs|256gb',
+  'apple|apple iphone xs|512gb',
 ]);
 
 export function reviewedAppleDispatchStorage(device: { brand: string; model: string; storage: string }): string | undefined {

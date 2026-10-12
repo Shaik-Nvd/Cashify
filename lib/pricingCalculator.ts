@@ -1083,6 +1083,86 @@ export function calculateApplePrice(model: string, reference: CashifyGetUptoRefe
   }
   // --- END SPECIALIZED ALGORITHM ---
 
+  // --- SPECIALIZED ALGORITHM FOR APPLE iPHONE 13 (128 GB / 256 GB / 512 GB) ---
+  const isIPhone13 = Boolean(
+    lowerModel === "apple iphone 13" ||
+    lowerModel === "iphone 13" ||
+    (lowerModel as string) === "Apple iPhone 13" ||
+    (lowerModel.includes("iphone 13") && !lowerModel.includes("pro") && !lowerModel.includes("mini"))
+  );
+
+  const is13Storage = Boolean(
+    !storageVariant ||
+    storageVariant.includes("128") ||
+    storageVariant.includes("256") ||
+    storageVariant.includes("512") ||
+    lowerModel.includes("128") ||
+    lowerModel.includes("256") ||
+    lowerModel.includes("512") ||
+    (reference >= 18000 && reference <= 32000)
+  );
+
+  if (isIPhone13 && is13Storage) {
+    let price = reference;
+
+    // Derived precise absolute deductions for iPhone 13 (512GB) based on Cashify scaling:
+    // Base Reference (Cashify Get Upto) = 25,980
+    const pFace = 7480 / 25980;
+    const pBattService = 2700 / 25980;
+    const pBattHealth = 600 / 25980;
+    const pScratch2 = 3680 / 25980;
+    const pBox = 1000 / 25980;
+
+    // Hardware
+    const hasFaceProblem = (diagnostics.hardware || []).includes('face') || (diagnostics.hardware || []).includes('face_sensor');
+    if (hasFaceProblem) {
+      price -= Math.round(reference * pFace);
+    }
+
+    const hasBatteryService = (diagnostics.hardware || []).includes('battery_service');
+    const hasBatteryHealth = (diagnostics.hardware || []).includes('battery_health');
+    if (hasBatteryService) {
+      price -= Math.round(reference * pBattService);
+    } else if (hasBatteryHealth) {
+      price -= Math.round(reference * pBattHealth);
+    }
+
+    // Screen defects
+    const moreThan2Scratches = diagnostics.screenCondition?.includes('More than 2 scratches');
+    const hasScreenDefect = (diagnostics.defects || []).includes('screen_scratch') || (diagnostics.defects || []).includes('broken_scratch') || Boolean(moreThan2Scratches);
+
+    if (hasScreenDefect) {
+      if (moreThan2Scratches) {
+        price -= Math.round(reference * pScratch2);
+      } else {
+        price -= Math.round(reference * (pScratch2 * 0.5));
+      }
+    }
+
+    // Original Screen: preserves condition quote parity with verified Cashify baseline
+
+    // Accessories
+    const hasBox = diagnostics.box === true || (diagnostics.accessories || []).includes("box");
+    // Charger provides 0 bonus in this tier as verified by Cashify quote baseline
+    // Box deduction:
+    if (!hasBox) {
+      price -= Math.round(reference * pBox);
+    }
+
+    // Major functional constraints
+    if (diagnostics.calls === false) price -= Math.round(reference * 0.55);
+    if (diagnostics.touch === false) price -= Math.round(reference * 0.25);
+
+    // Other hardware issues
+    const otherHardware = (diagnostics.hardware || []).filter(h => h !== 'face' && h !== 'face_sensor' && h !== 'battery_service' && h !== 'battery_health');
+    if (otherHardware.length > 0) {
+      price -= Math.round(reference * 0.10 * otherHardware.length);
+    }
+
+    return finalizeConditionQuote(reference, Math.max(price, 0));
+  }
+  // --- END SPECIALIZED ALGORITHM ---
+
   const isPro = lowerModel.includes("pro");
   const isProMax = lowerModel.includes("pro max");
   const isPlus = lowerModel.includes("plus");

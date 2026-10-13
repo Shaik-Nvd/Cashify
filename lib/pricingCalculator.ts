@@ -1206,6 +1206,119 @@ export function calculateApplePrice(model: string, reference: CashifyGetUptoRefe
   }
   // --- END SPECIALIZED ALGORITHM ---
 
+  // --- SPECIALIZED ALGORITHM FOR APPLE iPHONE 15 (128 GB / 256 GB / 512 GB) ---
+  const isIPhone15 = Boolean(
+    lowerModel === "apple iphone 15" ||
+    lowerModel === "iphone 15" ||
+    (lowerModel as string) === "Apple iPhone 15" ||
+    (model && model.trim().toLowerCase().startsWith("apple iphone 15")) ||
+    (lowerModel.includes("iphone 15") && !lowerModel.includes("pro") && !lowerModel.includes("plus"))
+  );
+
+  const is15Storage = Boolean(
+    (storageVariant && (storageVariant.includes("128") || storageVariant.includes("256") || storageVariant.includes("512"))) ||
+    lowerModel.includes("128") ||
+    lowerModel.includes("256") ||
+    lowerModel.includes("512") ||
+    (model && (model.includes("128") || model.includes("256") || model.includes("512"))) ||
+    (!storageVariant && reference >= 35000 && reference <= 52000)
+  );
+
+  if (isIPhone15 && is15Storage) {
+    let price = reference;
+
+    // Derived precise absolute deductions for iPhone 15 (512GB) based on Cashify scaling:
+    // Base Reference (Cashify Get Upto) = 46,550
+    const pFace = 9410 / 46550;
+    const pBattService = 3860 / 46550;
+    const pBattHealth = 1480 / 46550;
+    const pScratch2 = 6170 / 46550;
+    const pNotOriginalScreen = 10500 / 46550;
+    const pBoxInWarranty = 1950 / 46550;
+    const pBoxOutOfWarranty = 1300 / 46550;
+
+    const age = String(diagnostics.mobileAge || "").toLowerCase();
+    const hasValidBill = diagnostics.validBill === true || (diagnostics.accessories || []).includes("bill");
+    const isOutOfWarranty = diagnostics.warranty === false ||
+      (diagnostics.warranty === true && !hasValidBill && diagnostics.validBill === false) ||
+      age.includes("above 11") ||
+      age.includes("above11") ||
+      age.includes(">11");
+
+    // Age / Warranty deduction
+    if (isOutOfWarranty) {
+      price -= Math.round(reference * (9750 / 46550));
+    } else {
+      if (age.includes("below 3") || age.includes("below3") || age.includes("0-3")) {
+        // Below 3 months: 0 age deduction
+      } else if ((age.includes("3") && age.includes("6")) || age.includes("3to6")) {
+        price -= Math.round(reference * (3160 / 46550));
+      } else if ((age.includes("6") && age.includes("11")) || age.includes("6to11")) {
+        price -= Math.round(reference * (4570 / 46550));
+      } else {
+        // Default in-warranty if age unspecified
+        price -= Math.round(reference * (4570 / 46550));
+      }
+    }
+
+    // Hardware
+    const hasFaceProblem = (diagnostics.hardware || []).includes('face') || (diagnostics.hardware || []).includes('face_sensor');
+    if (hasFaceProblem) {
+      price -= Math.round(reference * pFace);
+    }
+
+    const hasBatteryService = (diagnostics.hardware || []).includes('battery_service');
+    const hasBatteryHealth = (diagnostics.hardware || []).includes('battery_health');
+    if (hasBatteryService) {
+      price -= Math.round(reference * pBattService);
+    } else if (hasBatteryHealth) {
+      price -= Math.round(reference * pBattHealth);
+    }
+
+    // Screen defects
+    const moreThan2Scratches = diagnostics.screenCondition?.includes('More than 2 scratches') ||
+      diagnostics.screenCondition?.includes('more than 2');
+    const hasScreenDefect = (diagnostics.defects || []).includes('screen_scratch') ||
+      (diagnostics.defects || []).includes('broken_scratch') ||
+      Boolean(moreThan2Scratches);
+
+    if (hasScreenDefect) {
+      if (moreThan2Scratches) {
+        price -= Math.round(reference * pScratch2);
+      } else {
+        price -= Math.round(reference * (pScratch2 * 0.5));
+      }
+    }
+
+    // Original Screen
+    if (diagnostics.originalScreen === false) {
+      price -= Math.round(reference * pNotOriginalScreen);
+    }
+
+    // Accessories
+    const hasBox = diagnostics.box === true || (diagnostics.accessories || []).includes("box");
+    const hasCharger = diagnostics.charger === true || (diagnostics.accessories || []).includes("charger");
+    const hasAccessories = hasBox || hasCharger;
+
+    if (!hasAccessories) {
+      const boxPenalty = isOutOfWarranty ? pBoxOutOfWarranty : pBoxInWarranty;
+      price -= Math.round(reference * boxPenalty);
+    }
+
+    // Major functional constraints
+    if (diagnostics.calls === false) price -= Math.round(reference * 0.55);
+    if (diagnostics.touch === false) price -= Math.round(reference * 0.25);
+
+    // Other hardware issues
+    const otherHardware = (diagnostics.hardware || []).filter(h => h !== 'face' && h !== 'face_sensor' && h !== 'battery_service' && h !== 'battery_health');
+    if (otherHardware.length > 0) {
+      price -= Math.round(reference * 0.10 * otherHardware.length);
+    }
+
+    return finalizeConditionQuote(reference, Math.max(price, 0));
+  }
+  // --- END SPECIALIZED ALGORITHM ---
+
   const isPro = lowerModel.includes("pro");
   const isProMax = lowerModel.includes("pro max");
   const isPlus = lowerModel.includes("plus");

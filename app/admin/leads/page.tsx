@@ -3,10 +3,11 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-const LEAD_STATUSES = ['pending', 'processing', 'email sent', 'follow-up 1', 'follow-up 2', 'follow-up 3', 'converted', 'lost'];
+const LEAD_STATUSES = ['price checked', 'pending', 'processing', 'email sent', 'follow-up 1', 'follow-up 2', 'follow-up 3', 'converted', 'lost'];
 
 const getStatusStyles = (status: string) => {
   switch (status.toLowerCase()) {
+    case 'price checked': return 'bg-purple-500/20 text-purple-400 border-purple-500/30';
     case 'converted': return 'bg-success/20 text-success border-success/30';
     case 'lost': return 'bg-danger/20 text-danger border-danger/30';
     case 'pending': return 'bg-warning/20 text-warning border-warning/30';

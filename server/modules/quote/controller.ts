@@ -157,6 +157,37 @@ export async function priceQuote(req: Request, res: Response) {
         reference: internal.cashifyGetUptoReference, questionnaire: outcome.questionnaire, rule: internal.releaseCandidate, accessoryBasis: internal.accessoryBasis, routeEvidenceSha256: internal.routeEvidenceSha256 },
       'Authoritative quote issued'
     );
+
+    // If an authenticated user checked the valuation price, automatically generate a lead tagged with 'price checked'
+    const authUser = (req as any).user;
+    if (authUser && authUser.phone && authUser.phone !== 'restored-session') {
+      try {
+        await quoteService.createLead({
+          userId: authUser.id,
+          phone: authUser.phone,
+          name: authUser.name || 'Valuation User',
+          brand: body.data.brand,
+          model: body.data.model,
+          storage: body.data.storage,
+          quotedPrice: outcome.fhoneifyPrice,
+          status: 'price checked',
+          answers: {
+            diagnostics: body.data.diagnostics,
+            pricingAudit: {
+              fhoneifyPrice: outcome.fhoneifyPrice,
+              startingPrice: outcome.startingPrice,
+              pricingVersion: outcome.pricingVersion,
+              diagnosticsHash: internal.diagnosticsHash,
+              checkedAt: new Date().toISOString(),
+            },
+          },
+        });
+        logger.info({ userId: authUser.id, phone: authUser.phone, model: body.data.model }, 'Valuation lead auto-generated for authenticated user');
+      } catch (leadErr: any) {
+        logger.error({ err: leadErr.message }, 'Failed to auto-generate valuation lead for price quote');
+      }
+    }
+
     return res.json({ success: true, data: publicQuote });
   } catch (err: any) {
     logger.error({ err: err.message }, 'Error in priceQuote controller');

@@ -108,7 +108,7 @@ export interface Lead {
   address?: string;
   pincode?: string;
   city?: string;
-  status: 'pending' | 'contacted' | 'completed';
+  status: string;
   createdAt: string;
 }
 

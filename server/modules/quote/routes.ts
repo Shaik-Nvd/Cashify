@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import rateLimit from 'express-rate-limit';
+import { optionalAuth } from '../../middleware/auth';
 import * as ctrl from './controller';
 
 const router = Router();
@@ -27,7 +28,7 @@ const marketPriceLimiter = limiter(envLimit('QUOTE_MARKET_PRICE_RATE_LIMIT', 10)
 
 router.get('/devices', ctrl.listDevices);
 router.post('/', pricingLimiter, ctrl.createQuote);
-router.post('/price', pricingLimiter, ctrl.priceQuote);
+router.post('/price', pricingLimiter, optionalAuth, ctrl.priceQuote);
 router.post('/get-upto', pricingLimiter, ctrl.getUptoBatch);
 router.post('/cashify-price', marketPriceLimiter, ctrl.getCashifyPrice);
 router.post('/leads', leadLimiter, ctrl.createLead);

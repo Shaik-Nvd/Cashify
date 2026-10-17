@@ -85,3 +85,46 @@ export function requireAdmin(req: AuthenticatedRequest, res: Response, next: Nex
   }
   next();
 }
+
+/**
+ * optionalAuth — attaches req.user if a valid Bearer token is present, never 401s.
+ */
+export async function optionalAuth(req: AuthenticatedRequest, res: Response, next: NextFunction) {
+  try {
+    const authHeader = req.headers.authorization;
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+      return next();
+    }
+
+    const token = authHeader.split(' ')[1];
+    if (!token) return next();
+
+    const isBlacklisted = await redis.get(`blacklist:${token}`);
+    if (isBlacklisted) return next();
+
+    const decoded = jwt.verify(token, config.JWT_SECRET, { algorithms: ['HS256'] }) as {
+      userId: string;
+      role: string;
+      tokenType?: string;
+    };
+
+    if (decoded.tokenType === 'refresh') return next();
+
+    let user = users.find((u) => u.id === decoded.userId);
+    if (!user) {
+      user = {
+        id: decoded.userId,
+        phone: 'restored-session',
+        role: 'buyer',
+        email: null,
+      };
+      users.push(user);
+    }
+
+    req.user = user;
+    next();
+  } catch {
+    next();
+  }
+}
+

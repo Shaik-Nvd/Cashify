@@ -168,7 +168,7 @@ export function getQuoteById(quoteId: string): Quote | null {
   return quotes.get(quoteId) || null;
 }
 
-export async function createLead(data: { userId?: string; name?: string; phone: string; brand: string; model: string; storage: string; quotedPrice: number; pickupDate?: string; pickupTime?: string; address?: string; pincode?: string; city?: string; answers?: any }) {
+export async function createLead(data: { userId?: string; name?: string; phone: string; brand: string; model: string; storage: string; quotedPrice: number; pickupDate?: string; pickupTime?: string; address?: string; pincode?: string; city?: string; answers?: any; status?: string }) {
   const lead = await prisma.lead.create({
     data: {
       userId: data.userId || null,
@@ -183,9 +183,10 @@ export async function createLead(data: { userId?: string; name?: string; phone: 
       address: data.address || null,
       pincode: data.pincode || null,
       city: data.city || null,
-      status: 'pending',
+      status: data.status || 'pending',
       answers: data.answers || null,
     }
   });
   return lead;
 }
+

@@ -1429,6 +1429,122 @@ export function calculateApplePrice(model: string, reference: CashifyGetUptoRefe
   }
   // --- END SPECIALIZED ALGORITHM ---
 
+  // --- SPECIALIZED ALGORITHM FOR APPLE iPHONE 15 PRO MAX (8 GB/512 GB) ---
+  const isIPhone15ProMax = Boolean(
+    lowerModel === "apple iphone 15 pro max" ||
+    lowerModel === "iphone 15 pro max" ||
+    (lowerModel as string) === "Apple iPhone 15 Pro Max" ||
+    (model && model.trim().toLowerCase().startsWith("apple iphone 15 pro max")) ||
+    lowerModel.includes("iphone 15 pro max")
+  );
+
+  const is15ProMax_512 = Boolean(
+    (storageVariant && storageVariant.includes("512")) ||
+    lowerModel.includes("512") ||
+    (model && model.includes("512"))
+  );
+
+  if (isIPhone15ProMax && is15ProMax_512) {
+    let price = reference;
+
+    // Derived precise absolute deductions for iPhone 15 Pro Max (512GB) based on Cashify scaling:
+    // Base Reference (Cashify Get Upto) = 72,480
+    const pFace = 15100 / 72480;
+    const pBattService = 4000 / 72480;
+    const pBattHealth = 1200 / 72480;
+    const pScratch2 = 6770 / 72480;
+    const pScratch1 = 2900 / 72480;
+    const pNotOriginalScreen = 11500 / 72480;
+    const pBoxInWarranty = 1950 / 72480;
+    const pBoxOutOfWarranty = 1300 / 72480;
+
+    const age = String(diagnostics.mobileAge || "").toLowerCase();
+    const hasValidBill = diagnostics.validBill === true || (diagnostics.accessories || []).includes("bill");
+    const isOutOfWarranty = diagnostics.warranty === false ||
+      (diagnostics.warranty === true && !hasValidBill && diagnostics.validBill === false) ||
+      age.includes("above 11") ||
+      age.includes("above11") ||
+      age.includes(">11");
+
+    // Age / Warranty deduction
+    if (isOutOfWarranty) {
+      price -= Math.round(reference * (13650 / 72480));
+    } else {
+      if (age.includes("below 3") || age.includes("below3") || age.includes("0-3")) {
+        price -= Math.round(reference * (20 / 72480));
+      } else if ((age.includes("3") && age.includes("6")) || age.includes("3to6")) {
+        price -= Math.round(reference * (3080 / 72480));
+      } else if ((age.includes("6") && age.includes("11")) || age.includes("6to11")) {
+        price -= Math.round(reference * (5350 / 72480));
+      } else {
+        // Default in-warranty if age unspecified
+        price -= Math.round(reference * (5350 / 72480));
+      }
+    }
+
+    // Hardware
+    const hasFaceProblem = (diagnostics.hardware || []).includes('face') || (diagnostics.hardware || []).includes('face_sensor');
+    if (hasFaceProblem) {
+      price -= Math.round(reference * pFace);
+    }
+
+    const hasBatteryService = (diagnostics.hardware || []).includes('battery_service');
+    const hasBatteryHealth = (diagnostics.hardware || []).includes('battery_health');
+    if (hasBatteryService) {
+      price -= Math.round(reference * pBattService);
+    } else if (hasBatteryHealth) {
+      price -= Math.round(reference * pBattHealth);
+    }
+
+    // Screen defects
+    const moreThan2Scratches = diagnostics.screenCondition?.includes('More than 2 scratches') ||
+      diagnostics.screenCondition?.includes('more than 2');
+    const scratches1to2 = diagnostics.screenCondition?.includes('1-2 scratches') ||
+      diagnostics.screenCondition?.includes('1-2');
+    const hasScreenDefect = (diagnostics.defects || []).includes('screen_scratch') ||
+      (diagnostics.defects || []).includes('broken_scratch') ||
+      Boolean(moreThan2Scratches) ||
+      Boolean(scratches1to2);
+
+    if (hasScreenDefect) {
+      if (moreThan2Scratches) {
+        price -= Math.round(reference * pScratch2);
+      } else if (scratches1to2) {
+        price -= Math.round(reference * pScratch1);
+      } else {
+        price -= Math.round(reference * (pScratch2 * 0.5));
+      }
+    }
+
+    // Original Screen
+    if (diagnostics.originalScreen === false) {
+      price -= Math.round(reference * pNotOriginalScreen);
+    }
+
+    // Accessories
+    const hasBox = diagnostics.box === true || (diagnostics.accessories || []).includes("box");
+    const hasCharger = diagnostics.charger === true || (diagnostics.accessories || []).includes("charger");
+    const hasAccessories = hasBox || hasCharger;
+
+    if (!hasAccessories) {
+      const boxPenalty = isOutOfWarranty ? pBoxOutOfWarranty : pBoxInWarranty;
+      price -= Math.round(reference * boxPenalty);
+    }
+
+    // Major functional constraints
+    if (diagnostics.calls === false) price -= Math.round(reference * 0.55);
+    if (diagnostics.touch === false) price -= Math.round(reference * 0.25);
+
+    // Other hardware issues
+    const otherHardware = (diagnostics.hardware || []).filter(h => h !== 'face' && h !== 'face_sensor' && h !== 'battery_service' && h !== 'battery_health');
+    if (otherHardware.length > 0) {
+      price -= Math.round(reference * 0.10 * otherHardware.length);
+    }
+
+    return finalizeConditionQuote(reference, Math.max(price, 0));
+  }
+  // --- END SPECIALIZED ALGORITHM ---
+
   // --- SPECIALIZED ALGORITHM FOR APPLE iPHONE 16 (8 GB/512 GB) ---
   const isIPhone16 = Boolean(
     lowerModel === "apple iphone 16" ||

@@ -1702,10 +1702,12 @@ export function calculateApplePrice(model: string, reference: CashifyGetUptoRefe
     // Derived precise absolute deductions for iPhone 16 (512GB) based on Cashify scaling:
     // Base Reference (Cashify Get Upto) = 55,150
     const pFace = 11490 / 55150;
-    const pBattService = 4020 / 55150;
-    const pBattHealth = 1220 / 55150;
+    const pBattService = 4000 / 55150;
+    const pBattHealth = 1200 / 55150;
     const pScratch2 = 7640 / 55150;
+    const pScratch1 = 3270 / 55150;
     const pNotOriginalScreen = 13000 / 55150;
+    const pSpeaker = 2500 / 55150;
     const pBoxInWarranty = 2250 / 55150;
     const pBoxOutOfWarranty = 1500 / 55150;
 
@@ -1719,17 +1721,17 @@ export function calculateApplePrice(model: string, reference: CashifyGetUptoRefe
 
     // Age / Warranty deduction
     if (isOutOfWarranty) {
-      price -= Math.round(reference * (10370 / 55150));
+      price -= Math.round(reference * (10390 / 55150));
     } else {
       if (age.includes("below 3") || age.includes("below3") || age.includes("0-3")) {
-        // Below 3 months: 0 age deduction
+        price -= Math.round(reference * (20 / 55150));
       } else if ((age.includes("3") && age.includes("6")) || age.includes("3to6")) {
-        price -= Math.round(reference * (2320 / 55150));
+        price -= Math.round(reference * (2340 / 55150));
       } else if ((age.includes("6") && age.includes("11")) || age.includes("6to11")) {
-        price -= Math.round(reference * (4050 / 55150));
+        price -= Math.round(reference * (4070 / 55150));
       } else {
         // Default in-warranty if age unspecified
-        price -= Math.round(reference * (4050 / 55150));
+        price -= Math.round(reference * (4070 / 55150));
       }
     }
 
@@ -1747,16 +1749,26 @@ export function calculateApplePrice(model: string, reference: CashifyGetUptoRefe
       price -= Math.round(reference * pBattHealth);
     }
 
+    const hasSpeakerProblem = (diagnostics.hardware || []).includes('speaker') || (diagnostics.hardware || []).includes('speaker_faulty');
+    if (hasSpeakerProblem) {
+      price -= Math.round(reference * pSpeaker);
+    }
+
     // Screen defects
     const moreThan2Scratches = diagnostics.screenCondition?.includes('More than 2 scratches') ||
       diagnostics.screenCondition?.includes('more than 2');
+    const scratches1to2 = diagnostics.screenCondition?.includes('1-2 scratches') ||
+      diagnostics.screenCondition?.includes('1-2');
     const hasScreenDefect = (diagnostics.defects || []).includes('screen_scratch') ||
       (diagnostics.defects || []).includes('broken_scratch') ||
-      Boolean(moreThan2Scratches);
+      Boolean(moreThan2Scratches) ||
+      Boolean(scratches1to2);
 
     if (hasScreenDefect) {
       if (moreThan2Scratches) {
         price -= Math.round(reference * pScratch2);
+      } else if (scratches1to2) {
+        price -= Math.round(reference * pScratch1);
       } else {
         price -= Math.round(reference * (pScratch2 * 0.5));
       }
@@ -1782,7 +1794,11 @@ export function calculateApplePrice(model: string, reference: CashifyGetUptoRefe
     if (diagnostics.touch === false) price -= Math.round(reference * 0.25);
 
     // Other hardware issues
-    const otherHardware = (diagnostics.hardware || []).filter(h => h !== 'face' && h !== 'face_sensor' && h !== 'battery_service' && h !== 'battery_health');
+    const otherHardware = (diagnostics.hardware || []).filter(h =>
+      h !== 'face' && h !== 'face_sensor' &&
+      h !== 'battery_service' && h !== 'battery_health' &&
+      h !== 'speaker' && h !== 'speaker_faulty'
+    );
     if (otherHardware.length > 0) {
       price -= Math.round(reference * 0.10 * otherHardware.length);
     }

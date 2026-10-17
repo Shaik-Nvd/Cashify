@@ -165,9 +165,11 @@ export async function priceQuote(req: Request, res: Response) {
         await quoteService.createLead({
           userId: authUser.id,
           phone: authUser.phone,
-          name: authUser.name || 'Valuation User',
+          name: authUser.name || (authUser.role === 'admin' ? 'Administrator' : `User (${authUser.phone})`),
           brand: body.data.brand,
-          model: body.data.model,
+          model: body.data.model.toLowerCase().startsWith(body.data.brand.toLowerCase())
+            ? body.data.model.slice(body.data.brand.length).trim()
+            : body.data.model,
           storage: body.data.storage,
           quotedPrice: outcome.fhoneifyPrice,
           status: 'price checked',

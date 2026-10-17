@@ -243,9 +243,9 @@ import { SEED_DEVICES } from './seed_devices';
 export { SEED_DEVICES };
 
 export const users: User[] = [
-  { id: 'u-buyer',  phone: '9876543210', role: 'buyer',  email: 'buyer@test.com', referralCode: 'REFBUYER' },
-  { id: 'u-seller', phone: '9988776655', role: 'seller', email: 'seller@test.com', referralCode: 'REFSELLER' },
-  { id: 'u-admin',  phone: '9000000000', role: 'admin',  email: 'admin@phoneify.com', referralCode: 'REFADMIN' },
+  { id: 'u-buyer',  phone: '9876543210', role: 'buyer',  name: 'Buyer User', email: 'buyer@test.com', referralCode: 'REFBUYER' },
+  { id: 'u-seller', phone: '9988776655', role: 'seller', name: 'Seller User', email: 'seller@test.com', referralCode: 'REFSELLER' },
+  { id: 'u-admin',  phone: '9000000000', role: 'admin',  name: 'Administrator', email: 'admin@phoneify.com', referralCode: 'REFADMIN' },
 ];
 
 export const coupons: Coupon[] = [

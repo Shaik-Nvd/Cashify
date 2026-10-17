@@ -22,6 +22,15 @@ export default function AdminLeadsPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [updatingId, setUpdatingId] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState<'scheduled' | 'priceChecked' | 'all'>('scheduled');
+
+  const scheduledLeads = leads.filter(l => l.status !== 'price checked');
+  const priceCheckedLeads = leads.filter(l => l.status === 'price checked');
+  const filteredLeads = activeTab === 'scheduled' 
+    ? scheduledLeads 
+    : activeTab === 'priceChecked' 
+    ? priceCheckedLeads 
+    : leads;
 
   const handleStatusChange = async (leadId: string, newStatus: string) => {
     const token = localStorage.getItem('accessToken');
@@ -52,33 +61,38 @@ export default function AdminLeadsPage() {
   };
 
   const downloadCSV = () => {
-    if (leads.length === 0) {
+    const listToExport = filteredLeads;
+    if (listToExport.length === 0) {
       alert('No leads to export');
       return;
     }
     const headers = ['Date', 'Name', 'Phone', 'Brand', 'Model', 'Storage', 'Quote', 'Customer Saw', 'Pickup Date', 'Pickup Time', 'Address', 'City', 'Pincode', 'Status'];
-    const rows = leads.map(l => [
-      new Date(l.createdAt).toLocaleDateString(),
-      `"${l.name || ''}"`,
-      l.phone,
-      l.brand,
-      l.model,
-      l.storage,
-      l.quotedPrice,
-      l.answers?.pricing?.customerPayout?.payout ?? '',
-      l.pickupDate || '',
-      l.pickupTime || '',
-      `"${l.address || ''}"`,
-      `"${l.city || ''}"`,
-      l.pincode || '',
-      l.status
-    ]);
+    const rows = listToExport.map(l => {
+      const isBrandInModel = l.model && l.brand && l.model.toLowerCase().startsWith(l.brand.toLowerCase());
+      const displayName = isBrandInModel ? l.model : `${l.brand} ${l.model}`;
+      return [
+        new Date(l.createdAt).toLocaleDateString(),
+        `"${l.name || ''}"`,
+        l.phone,
+        l.brand,
+        `"${displayName}"`,
+        l.storage,
+        l.quotedPrice,
+        l.answers?.pricing?.customerPayout?.payout ?? '',
+        l.pickupDate || '',
+        l.pickupTime || '',
+        `"${l.address || ''}"`,
+        `"${l.city || ''}"`,
+        l.pincode || '',
+        l.status
+      ];
+    });
     const csvContent = [headers.join(','), ...rows.map(e => e.join(','))].join('\n');
     const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
     const link = document.createElement('a');
     const url = URL.createObjectURL(blob);
     link.setAttribute('href', url);
-    link.setAttribute('download', `leads_export_${new Date().toISOString().split('T')[0]}.csv`);
+    link.setAttribute('download', `leads_${activeTab}_export_${new Date().toISOString().split('T')[0]}.csv`);
     link.style.visibility = 'hidden';
     document.body.appendChild(link);
     link.click();
@@ -176,15 +190,99 @@ export default function AdminLeadsPage() {
           </div>
         )}
 
+        {/* Category Tabs */}
+        <div className="flex flex-wrap items-center gap-3">
+          <button
+            onClick={() => setActiveTab('scheduled')}
+            className={`flex items-center gap-2.5 px-6 py-3 rounded-2xl font-semibold text-sm transition-all duration-300 border ${
+              activeTab === 'scheduled'
+                ? 'bg-success/15 text-success border-success/40 shadow-[0_0_20px_rgba(34,197,94,0.15)]'
+                : 'bg-surface/40 text-muted border-white/5 hover:border-white/10 hover:text-foreground'
+            }`}
+          >
+            <svg className="w-5 h-5 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+            </svg>
+            <span>Scheduled Pickup Leads</span>
+            <span className={`text-xs px-2 py-0.5 rounded-full font-bold ${
+              activeTab === 'scheduled' ? 'bg-success/20 text-success' : 'bg-surface-elevated text-muted'
+            }`}>
+              {scheduledLeads.length}
+            </span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('priceChecked')}
+            className={`flex items-center gap-2.5 px-6 py-3 rounded-2xl font-semibold text-sm transition-all duration-300 border ${
+              activeTab === 'priceChecked'
+                ? 'bg-purple-500/15 text-purple-400 border-purple-500/40 shadow-[0_0_20px_rgba(168,85,247,0.15)]'
+                : 'bg-surface/40 text-muted border-white/5 hover:border-white/10 hover:text-foreground'
+            }`}
+          >
+            <svg className="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+            </svg>
+            <span>Price Evaluated / Checked</span>
+            <span className={`text-xs px-2 py-0.5 rounded-full font-bold ${
+              activeTab === 'priceChecked' ? 'bg-purple-500/20 text-purple-400' : 'bg-surface-elevated text-muted'
+            }`}>
+              {priceCheckedLeads.length}
+            </span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('all')}
+            className={`flex items-center gap-2 px-5 py-3 rounded-2xl font-semibold text-sm transition-all duration-300 border ${
+              activeTab === 'all'
+                ? 'bg-blue-500/15 text-blue-400 border-blue-500/40 shadow-[0_0_20px_rgba(59,130,246,0.15)]'
+                : 'bg-surface/40 text-muted border-white/5 hover:border-white/10 hover:text-foreground'
+            }`}
+          >
+            <span>All Leads</span>
+            <span className={`text-xs px-2 py-0.5 rounded-full font-bold ${
+              activeTab === 'all' ? 'bg-blue-500/20 text-blue-400' : 'bg-surface-elevated text-muted'
+            }`}>
+              {leads.length}
+            </span>
+          </button>
+        </div>
+
         {/* CRM Pipeline Leads Section */}
         <div className="rounded-3xl bg-surface/30 backdrop-blur-sm border border-white/5 shadow-xl overflow-hidden flex flex-col">
           <div className="p-6 border-b border-white/5 flex justify-between items-center bg-gradient-to-r from-surface-elevated/50 to-transparent">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-success/10 flex items-center justify-center">
-                <svg className="w-5 h-5 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+              <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
+                activeTab === 'priceChecked' ? 'bg-purple-500/10' : 'bg-success/10'
+              }`}>
+                {activeTab === 'priceChecked' ? (
+                  <svg className="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                  </svg>
+                ) : (
+                  <svg className="w-5 h-5 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                  </svg>
+                )}
               </div>
-              <h2 className="text-xl font-bold text-foreground tracking-wide">Active Leads <span className="ml-2 text-sm font-medium px-2.5 py-0.5 rounded-full bg-success/20 text-success">{leads.length}</span></h2>
+              <h2 className="text-xl font-bold text-foreground tracking-wide">
+                {activeTab === 'scheduled' ? 'Scheduled Pickup Leads' : activeTab === 'priceChecked' ? 'Price Evaluated Leads' : 'All Leads'}
+                <span className={`ml-2 text-sm font-medium px-2.5 py-0.5 rounded-full ${
+                  activeTab === 'priceChecked' ? 'bg-purple-500/20 text-purple-400' : 'bg-success/20 text-success'
+                }`}>
+                  {filteredLeads.length}
+                </span>
+              </h2>
             </div>
+            {activeTab === 'priceChecked' && (
+              <span className="text-xs font-semibold px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/30">
+                Logged-In Valuation Checks
+              </span>
+            )}
+            {activeTab === 'scheduled' && (
+              <span className="text-xs font-semibold px-3 py-1 rounded-full bg-success/10 text-success border border-success/30">
+                Customer Booked Pickups
+              </span>
+            )}
           </div>
           
           <div className="overflow-x-auto">
@@ -200,7 +298,10 @@ export default function AdminLeadsPage() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-white/5">
-                {leads.map(l => (
+                {filteredLeads.map(l => {
+                  const isBrandInModel = l.model && l.brand && l.model.toLowerCase().startsWith(l.brand.toLowerCase());
+                  const displayName = isBrandInModel ? l.model : `${l.brand} ${l.model}`;
+                  return (
                   <tr key={l.id} className="hover:bg-surface-elevated/40 transition-colors duration-200 group">
                     <td className="px-6 py-5 text-sm text-muted">
                       {new Date(l.createdAt).toLocaleDateString(undefined, { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })}
@@ -217,7 +318,7 @@ export default function AdminLeadsPage() {
                           <svg className="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
                         </div>
                         <div className="flex flex-col">
-                          <span className="text-sm font-medium text-foreground">{l.brand} {l.model}</span>
+                          <span className="text-sm font-medium text-foreground">{displayName}</span>
                           <span className="text-xs text-muted mt-0.5">{l.storage}</span>
                         </div>
                       </div>
@@ -244,7 +345,9 @@ export default function AdminLeadsPage() {
                           )}
                         </div>
                       ) : (
-                        <span className="text-muted italic">Pending</span>
+                        <span className="text-muted italic">
+                          {l.status === 'price checked' ? 'Not Scheduled' : 'Pending'}
+                        </span>
                       )}
                     </td>
                     <td className="px-6 py-5">
@@ -301,16 +404,21 @@ export default function AdminLeadsPage() {
                       </div>
                     </td>
                   </tr>
-                ))}
-                {leads.length === 0 && (
+                );
+                })}
+                {filteredLeads.length === 0 && (
                   <tr>
                     <td colSpan={6} className="px-6 py-16 text-center">
                       <div className="flex flex-col items-center justify-center">
                         <div className="w-16 h-16 rounded-full bg-surface-elevated flex items-center justify-center mb-4">
                           <svg className="w-8 h-8 text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"></path></svg>
                         </div>
-                        <p className="text-muted text-lg font-medium">Your CRM is empty</p>
-                        <p className="text-muted/60 text-sm mt-1">No leads have come in yet. Waiting for new opportunities.</p>
+                        <p className="text-muted text-lg font-medium">
+                          {activeTab === 'scheduled' ? 'No scheduled leads' : activeTab === 'priceChecked' ? 'No valuation price checks yet' : 'Your CRM is empty'}
+                        </p>
+                        <p className="text-muted/60 text-sm mt-1">
+                          {activeTab === 'scheduled' ? 'Booked pickup appointments will appear here.' : activeTab === 'priceChecked' ? 'Valuation calculations performed by logged-in users will appear here.' : 'No leads recorded yet.'}
+                        </p>
                       </div>
                     </td>
                   </tr>

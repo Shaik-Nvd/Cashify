@@ -697,6 +697,19 @@ export function calculateApplePrice(model: string, reference: CashifyGetUptoRefe
   // --- END SPECIALIZED ALGORITHM ---
 
   // --- SPECIALIZED ALGORITHM FOR APPLE iPHONE X (64 GB / 128 GB / 256 GB) ---
+  // --- SPECIALIZED ALGORITHM FOR APPLE iPHONE X (3 GB/256 GB) ---
+  const isX_256GB = Boolean(
+    (storageVariant && storageVariant.includes("256")) ||
+    (storageVariant && storageVariant.toLowerCase().includes("256")) ||
+    lowerModel.includes("256") ||
+    (model && model.includes("256")) ||
+    (reference >= 9500 && reference <= 10500)
+  );
+
+  const isIPhoneX_256 = Boolean(
+    ((lowerModel === "Apple iPhone iPhone X " || (lowerModel as string) === "Apple iPhone 16 PLUS" || lowerModel === "apple iphone x" || lowerModel === "iphone x" || (lowerModel as string) === "Apple iPhone X" || (lowerModel.includes("iphone x") && !lowerModel.includes("xr") && !lowerModel.includes("xs"))) && isX_256GB)
+  );
+
   const isIPhoneX = Boolean(
     lowerModel === "apple iphone x" ||
     lowerModel === "iphone x" ||
@@ -715,11 +728,111 @@ export function calculateApplePrice(model: string, reference: CashifyGetUptoRefe
     (reference >= 7000 && reference <= 12000)
   );
 
-  if (isIPhoneX && isXStorage) {
+  if (isIPhoneX_256) {
     let price = reference;
 
-    // Derived precise absolute deductions for iPhone X scaled to Cashify reference:
-    // Base Reference (Cashify Get Upto for 256GB) = 10,020
+    // Derived precise absolute deductions for iPhone X (256GB) based on Cashify scaling:
+    // Base Reference (Cashify Get Upto) = 10,020
+    const pBase = 300 / 10020;
+    const pFace = 2630 / 10020;
+    const pBattService = 1000 / 10020;
+    const pBattHealth = 300 / 10020;
+    const pScratch2 = 1880 / 10020;
+    const pScratch1 = 800 / 10020;
+    const pNotOriginalScreen = 3200 / 10020;
+    const pBox = 100 / 10020;
+
+    // Baseline deduction
+    price -= Math.round(reference * pBase);
+
+    // Hardware
+    const hasFaceProblem = (diagnostics.hardware || []).includes('face') || (diagnostics.hardware || []).includes('face_sensor');
+    if (hasFaceProblem) {
+      price -= Math.round(reference * pFace);
+    }
+
+    const hasBatteryService = (diagnostics.hardware || []).includes('battery_service');
+    const hasBatteryHealth = (diagnostics.hardware || []).includes('battery_health');
+    if (hasBatteryService) {
+      price -= Math.round(reference * pBattService);
+    } else if (hasBatteryHealth) {
+      price -= Math.round(reference * pBattHealth);
+    }
+
+    // Individual hardware deductions
+    if ((diagnostics.hardware || []).includes('speaker') || (diagnostics.hardware || []).includes('speaker_faulty')) {
+      price -= Math.round(reference * (200 / 10020));
+    }
+    if ((diagnostics.hardware || []).includes('front_camera')) {
+      price -= Math.round(reference * (1000 / 10020));
+    }
+    if ((diagnostics.hardware || []).includes('back_camera')) {
+      price -= Math.round(reference * (1600 / 10020));
+    }
+    if ((diagnostics.hardware || []).includes('charging')) {
+      price -= Math.round(reference * (1000 / 10020));
+    }
+    if ((diagnostics.hardware || []).includes('microphone') || (diagnostics.hardware || []).includes('mic')) {
+      price -= Math.round(reference * (400 / 10020));
+    }
+    if ((diagnostics.hardware || []).includes('wifi')) {
+      price -= Math.round(reference * (2420 / 10020));
+    }
+    if ((diagnostics.hardware || []).includes('bluetooth')) {
+      price -= Math.round(reference * (1520 / 10020));
+    }
+
+    // Screen defects
+    const moreThan2Scratches = diagnostics.screenCondition?.includes('More than 2 scratches') ||
+      diagnostics.screenCondition?.includes('more than 2');
+    const scratches1to2 = diagnostics.screenCondition?.includes('1-2 scratches') ||
+      diagnostics.screenCondition?.includes('1-2');
+    const hasScreenDefect = (diagnostics.defects || []).includes('screen_scratch') ||
+      (diagnostics.defects || []).includes('broken_scratch') ||
+      Boolean(moreThan2Scratches) ||
+      Boolean(scratches1to2);
+
+    if (hasScreenDefect) {
+      if (moreThan2Scratches) {
+        price -= Math.round(reference * pScratch2);
+      } else if (scratches1to2) {
+        price -= Math.round(reference * pScratch1);
+      } else {
+        price -= Math.round(reference * (pScratch2 * 0.5));
+      }
+    }
+
+    // Original Screen
+    if (diagnostics.originalScreen === false) {
+      price -= Math.round(reference * pNotOriginalScreen);
+    }
+
+    // Accessories
+    const hasBox = diagnostics.box === true || (diagnostics.accessories || []).includes("box");
+    if (!hasBox) {
+      price -= Math.round(reference * pBox);
+    }
+
+    // Major functional constraints
+    if (diagnostics.calls === false) price -= Math.round(reference * 0.55);
+    if (diagnostics.touch === false) price -= Math.round(reference * 0.25);
+
+    // Other hardware issues
+    const handledHardware = new Set([
+      'face', 'face_sensor', 'battery_service', 'battery_health',
+      'speaker', 'speaker_faulty', 'front_camera', 'back_camera',
+      'charging', 'microphone', 'mic', 'wifi', 'bluetooth'
+    ]);
+    const otherHardware = (diagnostics.hardware || []).filter(h => !handledHardware.has(h));
+    if (otherHardware.length > 0) {
+      price -= Math.round(reference * 0.10 * otherHardware.length);
+    }
+
+    return finalizeConditionQuote(reference, Math.max(price, 0));
+  } else if (isIPhoneX && isXStorage) {
+    let price = reference;
+
+    // Derived precise absolute deductions for other iPhone X variants:
     const pFace = 2250 / 10020;
     const pBattService = 1400 / 10020;
     const pBattHealth = 700 / 10020;
@@ -759,11 +872,6 @@ export function calculateApplePrice(model: string, reference: CashifyGetUptoRefe
 
     // Accessories
     const hasBox = diagnostics.box === true || (diagnostics.accessories || []).includes("box");
-    // Charger provides 0 bonus in this tier as verified by Cashify quote combinations (Combo 1 vs Combo 5).
-    // Box deduction:
-    // When Box is missing:
-    // - If screen is clean and battery is in service, Cashify gives 5,970 with no box and 6,070 with box (i.e. box value is 100).
-    // - In other states (screen scratches or battery 80-85%), box value is 400.
     if (!hasBox) {
       price -= Math.round(reference * (400 / 10020));
     } else if (!hasScreenDefect && hasBatteryService && hasFaceProblem) {

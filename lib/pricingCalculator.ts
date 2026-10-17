@@ -1455,6 +1455,7 @@ export function calculateApplePrice(model: string, reference: CashifyGetUptoRefe
     const pScratch2 = 6770 / 72480;
     const pScratch1 = 2900 / 72480;
     const pNotOriginalScreen = 11500 / 72480;
+    const pSpeaker = 2400 / 72480;
     const pBoxInWarranty = 1950 / 72480;
     const pBoxOutOfWarranty = 1300 / 72480;
 
@@ -1494,6 +1495,11 @@ export function calculateApplePrice(model: string, reference: CashifyGetUptoRefe
       price -= Math.round(reference * pBattService);
     } else if (hasBatteryHealth) {
       price -= Math.round(reference * pBattHealth);
+    }
+
+    const hasSpeakerProblem = (diagnostics.hardware || []).includes('speaker') || (diagnostics.hardware || []).includes('speaker_faulty');
+    if (hasSpeakerProblem) {
+      price -= Math.round(reference * pSpeaker);
     }
 
     // Screen defects
@@ -1536,7 +1542,11 @@ export function calculateApplePrice(model: string, reference: CashifyGetUptoRefe
     if (diagnostics.touch === false) price -= Math.round(reference * 0.25);
 
     // Other hardware issues
-    const otherHardware = (diagnostics.hardware || []).filter(h => h !== 'face' && h !== 'face_sensor' && h !== 'battery_service' && h !== 'battery_health');
+    const otherHardware = (diagnostics.hardware || []).filter(h =>
+      h !== 'face' && h !== 'face_sensor' &&
+      h !== 'battery_service' && h !== 'battery_health' &&
+      h !== 'speaker' && h !== 'speaker_faulty'
+    );
     if (otherHardware.length > 0) {
       price -= Math.round(reference * 0.10 * otherHardware.length);
     }

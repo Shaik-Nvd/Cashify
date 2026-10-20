@@ -105,6 +105,31 @@ export async function updateLeadStatus(req: AuthenticatedRequest, res: Response)
   }
 }
 
+export async function deleteLead(req: AuthenticatedRequest, res: Response) {
+  try {
+    const { id } = req.params;
+    await adminService.deleteLead(id);
+    return res.json({ success: true, message: 'Lead deleted successfully' });
+  } catch (err: any) {
+    logger.error({ err: err.message }, 'Error in deleteLead controller');
+    return res.status(500).json({ success: false, error: 'Failed to delete lead' });
+  }
+}
+
+export async function deleteLeadsBatch(req: AuthenticatedRequest, res: Response) {
+  try {
+    const { ids } = req.body;
+    if (!Array.isArray(ids) || ids.length === 0) {
+      return res.status(400).json({ success: false, error: 'ids array is required' });
+    }
+    const result = await adminService.deleteLeadsBatch(ids);
+    return res.json({ success: true, count: result.count, message: `${result.count} leads deleted successfully` });
+  } catch (err: any) {
+    logger.error({ err: err.message }, 'Error in deleteLeadsBatch controller');
+    return res.status(500).json({ success: false, error: 'Failed to delete leads' });
+  }
+}
+
 import { chromium } from 'playwright';
 
 let browserInstance: any = null;

@@ -23,6 +23,8 @@ export default function AdminLeadsPage() {
   const [error, setError] = useState('');
   const [updatingId, setUpdatingId] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<'scheduled' | 'priceChecked' | 'all'>('scheduled');
+  const [selectedLeadIds, setSelectedLeadIds] = useState<string[]>([]);
+  const [deleting, setDeleting] = useState(false);
 
   const scheduledLeads = leads.filter(l => l.status !== 'price checked');
   const priceCheckedLeads = leads.filter(l => l.status === 'price checked');
@@ -31,6 +33,84 @@ export default function AdminLeadsPage() {
     : activeTab === 'priceChecked' 
     ? priceCheckedLeads 
     : leads;
+
+  // Clear selections when switching tabs
+  const handleTabChange = (tab: 'scheduled' | 'priceChecked' | 'all') => {
+    setActiveTab(tab);
+    setSelectedLeadIds([]);
+  };
+
+  const toggleSelectAll = () => {
+    if (selectedLeadIds.length === filteredLeads.length) {
+      setSelectedLeadIds([]);
+    } else {
+      setSelectedLeadIds(filteredLeads.map(l => l.id));
+    }
+  };
+
+  const toggleSelectLead = (id: string) => {
+    setSelectedLeadIds(prev => 
+      prev.includes(id) ? prev.filter(item => item !== id) : [...prev, id]
+    );
+  };
+
+  const handleDeleteSingle = async (leadId: string) => {
+    if (!confirm('Are you sure you want to delete this lead?')) return;
+    const token = localStorage.getItem('accessToken');
+    if (!token) return;
+
+    setDeleting(true);
+    try {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+      const res = await fetch(`${apiUrl}/api/admin/leads/${leadId}`, {
+        method: 'DELETE',
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+      const data = await res.json();
+      if (data.success) {
+        setLeads(prev => prev.filter(l => l.id !== leadId));
+        setSelectedLeadIds(prev => prev.filter(id => id !== leadId));
+      } else {
+        alert('Failed to delete lead: ' + (data.error || 'Server error'));
+      }
+    } catch (err: any) {
+      alert('Error deleting lead: ' + err.message);
+    } finally {
+      setDeleting(false);
+    }
+  };
+
+  const handleDeleteBatch = async () => {
+    if (selectedLeadIds.length === 0) return;
+    if (!confirm(`Are you sure you want to delete ${selectedLeadIds.length} selected lead(s)? This action cannot be undone.`)) return;
+
+    const token = localStorage.getItem('accessToken');
+    if (!token) return;
+
+    setDeleting(true);
+    try {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+      const res = await fetch(`${apiUrl}/api/admin/leads/batch`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ ids: selectedLeadIds })
+      });
+      const data = await res.json();
+      if (data.success) {
+        setLeads(prev => prev.filter(l => !selectedLeadIds.includes(l.id)));
+        setSelectedLeadIds([]);
+      } else {
+        alert('Failed to delete leads: ' + (data.error || 'Server error'));
+      }
+    } catch (err: any) {
+      alert('Error deleting leads: ' + err.message);
+    } finally {
+      setDeleting(false);
+    }
+  };
 
   const handleStatusChange = async (leadId: string, newStatus: string) => {
     const token = localStorage.getItem('accessToken');
@@ -193,7 +273,7 @@ export default function AdminLeadsPage() {
         {/* Category Tabs */}
         <div className="flex flex-wrap items-center gap-3">
           <button
-            onClick={() => setActiveTab('scheduled')}
+            onClick={() => handleTabChange('scheduled')}
             className={`flex items-center gap-2.5 px-6 py-3 rounded-2xl font-semibold text-sm transition-all duration-300 border ${
               activeTab === 'scheduled'
                 ? 'bg-success/15 text-success border-success/40 shadow-[0_0_20px_rgba(34,197,94,0.15)]'
@@ -212,7 +292,7 @@ export default function AdminLeadsPage() {
           </button>
 
           <button
-            onClick={() => setActiveTab('priceChecked')}
+            onClick={() => handleTabChange('priceChecked')}
             className={`flex items-center gap-2.5 px-6 py-3 rounded-2xl font-semibold text-sm transition-all duration-300 border ${
               activeTab === 'priceChecked'
                 ? 'bg-purple-500/15 text-purple-400 border-purple-500/40 shadow-[0_0_20px_rgba(168,85,247,0.15)]'
@@ -231,7 +311,7 @@ export default function AdminLeadsPage() {
           </button>
 
           <button
-            onClick={() => setActiveTab('all')}
+            onClick={() => handleTabChange('all')}
             className={`flex items-center gap-2 px-5 py-3 rounded-2xl font-semibold text-sm transition-all duration-300 border ${
               activeTab === 'all'
                 ? 'bg-blue-500/15 text-blue-400 border-blue-500/40 shadow-[0_0_20px_rgba(59,130,246,0.15)]'
@@ -249,7 +329,7 @@ export default function AdminLeadsPage() {
 
         {/* CRM Pipeline Leads Section */}
         <div className="rounded-3xl bg-surface/30 backdrop-blur-sm border border-white/5 shadow-xl overflow-hidden flex flex-col">
-          <div className="p-6 border-b border-white/5 flex justify-between items-center bg-gradient-to-r from-surface-elevated/50 to-transparent">
+          <div className="p-6 border-b border-white/5 flex flex-wrap justify-between items-center gap-4 bg-gradient-to-r from-surface-elevated/50 to-transparent">
             <div className="flex items-center gap-3">
               <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
                 activeTab === 'priceChecked' ? 'bg-purple-500/10' : 'bg-success/10'
@@ -273,37 +353,71 @@ export default function AdminLeadsPage() {
                 </span>
               </h2>
             </div>
-            {activeTab === 'priceChecked' && (
-              <span className="text-xs font-semibold px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/30">
-                Logged-In Valuation Checks
-              </span>
-            )}
-            {activeTab === 'scheduled' && (
-              <span className="text-xs font-semibold px-3 py-1 rounded-full bg-success/10 text-success border border-success/30">
-                Customer Booked Pickups
-              </span>
-            )}
+            
+            <div className="flex items-center gap-3">
+              {selectedLeadIds.length > 0 && (
+                <button
+                  disabled={deleting}
+                  onClick={handleDeleteBatch}
+                  className="flex items-center gap-2 px-4 py-2 rounded-xl bg-danger/20 text-danger border border-danger/40 hover:bg-danger/30 transition-all font-semibold text-xs shadow-lg animate-fadeIn"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                  </svg>
+                  <span>Delete Selected ({selectedLeadIds.length})</span>
+                </button>
+              )}
+              {activeTab === 'priceChecked' && (
+                <span className="text-xs font-semibold px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/30">
+                  Logged-In Valuation Checks
+                </span>
+              )}
+              {activeTab === 'scheduled' && (
+                <span className="text-xs font-semibold px-3 py-1 rounded-full bg-success/10 text-success border border-success/30">
+                  Customer Booked Pickups
+                </span>
+              )}
+            </div>
           </div>
           
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse whitespace-nowrap">
               <thead>
                 <tr className="bg-surface/50 text-xs uppercase tracking-wider text-muted font-semibold">
-                  <th className="px-6 py-4 rounded-tl-lg">Date Received</th>
+                  <th className="px-4 py-4 w-10 text-center">
+                    <input
+                      type="checkbox"
+                      checked={filteredLeads.length > 0 && selectedLeadIds.length === filteredLeads.length}
+                      onChange={toggleSelectAll}
+                      className="w-4 h-4 rounded border-white/20 bg-surface text-danger focus:ring-danger/50 cursor-pointer accent-red-500"
+                      title="Select all leads in current view"
+                    />
+                  </th>
+                  <th className="px-5 py-4">Date Received</th>
                   <th className="px-6 py-4">Customer</th>
                   <th className="px-6 py-4">Device</th>
                   <th className="px-6 py-4">Quote</th>
                   <th className="px-6 py-4">Pickup Details</th>
                   <th className="px-6 py-4">Pipeline Status</th>
+                  <th className="px-6 py-4 text-right">Actions</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-white/5">
                 {filteredLeads.map(l => {
                   const isBrandInModel = l.model && l.brand && l.model.toLowerCase().startsWith(l.brand.toLowerCase());
                   const displayName = isBrandInModel ? l.model : `${l.brand} ${l.model}`;
+                  const isSelected = selectedLeadIds.includes(l.id);
                   return (
-                  <tr key={l.id} className="hover:bg-surface-elevated/40 transition-colors duration-200 group">
-                    <td className="px-6 py-5 text-sm text-muted">
+                  <tr key={l.id} className={`transition-colors duration-200 group ${isSelected ? 'bg-danger/5 hover:bg-danger/10' : 'hover:bg-surface-elevated/40'}`}>
+                    <td className="px-4 py-5 text-center">
+                      <input
+                        type="checkbox"
+                        checked={isSelected}
+                        onChange={() => toggleSelectLead(l.id)}
+                        className="w-4 h-4 rounded border-white/20 bg-surface text-danger focus:ring-danger/50 cursor-pointer accent-red-500"
+                      />
+                    </td>
+                    <td className="px-5 py-5 text-sm text-muted">
                       {new Date(l.createdAt).toLocaleDateString(undefined, { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })}
                     </td>
                     <td className="px-6 py-5">
@@ -373,7 +487,10 @@ export default function AdminLeadsPage() {
                             )}
                           </div>
                         </div>
-                        
+                      </div>
+                    </td>
+                    <td className="px-6 py-5 text-right">
+                      <div className="flex items-center justify-end gap-2">
                         {/* Download PDF Button */}
                         <button
                           onClick={() => {
@@ -401,6 +518,18 @@ export default function AdminLeadsPage() {
                         >
                           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                         </button>
+
+                        {/* Delete Single Lead Button */}
+                        <button
+                          disabled={deleting}
+                          onClick={() => handleDeleteSingle(l.id)}
+                          className="p-2 rounded-lg bg-danger/10 text-danger hover:bg-danger/20 transition-colors"
+                          title="Delete this lead"
+                        >
+                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                          </svg>
+                        </button>
                       </div>
                     </td>
                   </tr>
@@ -408,7 +537,7 @@ export default function AdminLeadsPage() {
                 })}
                 {filteredLeads.length === 0 && (
                   <tr>
-                    <td colSpan={6} className="px-6 py-16 text-center">
+                    <td colSpan={8} className="px-6 py-16 text-center">
                       <div className="flex flex-col items-center justify-center">
                         <div className="w-16 h-16 rounded-full bg-surface-elevated flex items-center justify-center mb-4">
                           <svg className="w-8 h-8 text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"></path></svg>

@@ -113,3 +113,17 @@ export async function updateLeadStatus(id: string, status: string) {
 
   return lead;
 }
+
+export async function deleteLead(id: string) {
+  return await prisma.lead.delete({
+    where: { id }
+  });
+}
+
+export async function deleteLeadsBatch(ids: string[]) {
+  return await prisma.lead.deleteMany({
+    where: {
+      id: { in: ids }
+    }
+  });
+}

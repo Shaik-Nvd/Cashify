@@ -14,6 +14,8 @@ router.get('/orders', ctrl.getOrders);
 router.get('/fraud', ctrl.getFraudListings);
 router.get('/users', ctrl.getUsers);
 router.get('/leads', ctrl.getLeads);
+router.delete('/leads/batch', ctrl.deleteLeadsBatch);
+router.delete('/leads/:id', ctrl.deleteLead);
 router.patch('/leads/:id/status', ctrl.updateLeadStatus);
 router.get('/leads/:id/pdf', ctrl.generateLeadPdf);
 router.patch('/listings/:id/approve', ctrl.approveListing);

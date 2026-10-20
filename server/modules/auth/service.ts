@@ -54,7 +54,7 @@ export async function generateTokensForUser(phone: string, usedReferralCode?: st
   }
 
   const accessToken = jwt.sign(
-    { userId: user.id, role: user.role },
+    { userId: user.id, role: user.role, phone: user.phone },
     config.JWT_SECRET,
     tokenOptions(config.JWT_EXPIRY)
   );
@@ -103,7 +103,7 @@ export async function refreshTokens(oldRefreshToken: string) {
 
     // Create new tokens
     const accessToken = jwt.sign(
-      { userId: user.id, role: user.role },
+      { userId: user.id, role: user.role, phone: user.phone },
       config.JWT_SECRET,
       tokenOptions(config.JWT_EXPIRY)
     );
@@ -179,7 +179,7 @@ export async function adminLoginWithPassword(username: string, password: string)
     }
 
     const accessToken = jwt.sign(
-      { userId: user.id, role: user.role },
+      { userId: user.id, role: user.role, phone: user.phone },
       config.JWT_SECRET,
       tokenOptions(config.JWT_EXPIRY)
     );

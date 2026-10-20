@@ -33,6 +33,7 @@ export async function requireAuth(req: AuthenticatedRequest, res: Response, next
     const decoded = jwt.verify(token, config.JWT_SECRET, { algorithms: ['HS256'] }) as {
       userId: string;
       role: string;
+      phone?: string;
       tokenType?: string;
     };
 
@@ -62,7 +63,7 @@ export async function requireAuth(req: AuthenticatedRequest, res: Response, next
       // (see PRODUCTION_READINESS_AUDIT.md P0-8 / P1-1).
       user = {
         id: decoded.userId,
-        phone: 'restored-session', // Phone is not stored in JWT, so we mock it
+        phone: decoded.phone || 'restored-session', // Phone restored from verified JWT
         role: 'buyer',
         email: null,
       };
@@ -105,6 +106,7 @@ export async function optionalAuth(req: AuthenticatedRequest, res: Response, nex
     const decoded = jwt.verify(token, config.JWT_SECRET, { algorithms: ['HS256'] }) as {
       userId: string;
       role: string;
+      phone?: string;
       tokenType?: string;
     };
 
@@ -114,7 +116,7 @@ export async function optionalAuth(req: AuthenticatedRequest, res: Response, nex
     if (!user) {
       user = {
         id: decoded.userId,
-        phone: 'restored-session',
+        phone: decoded.phone || 'restored-session',
         role: 'buyer',
         email: null,
       };

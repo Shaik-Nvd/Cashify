@@ -1948,108 +1948,147 @@ export function calculateApplePrice(model: string, reference: CashifyGetUptoRefe
   if (isIPhone18ProMax && is18ProMax_2TB) {
     let price = reference;
 
-    // Derived precise absolute deductions for iPhone 18 Pro Max (2 TB) based on Cashify scaling:
-    // Base Reference (Cashify Get Upto) = 1,65,000
-    const pFace = 33000 / 165000;
-    const pBattService = 4200 / 165000;
-    const pBattHealth = 1260 / 165000;
-    const pScratch2 = 8820 / 165000;
-    const pScratch1 = 3780 / 165000;
-    const pNotOriginalScreen = 15000 / 165000;
-    const pSpeaker = 2500 / 165000;
-    const pBoxInWarranty = 2250 / 165000;
-    const pBoxOutOfWarranty = 1500 / 165000;
-
-    const age = String(diagnostics.mobileAge || "").toLowerCase();
-    const hasValidBill = diagnostics.validBill === true || (diagnostics.accessories || []).includes("bill");
-    const isOutOfWarranty = diagnostics.warranty === false ||
-      (diagnostics.warranty === true && !hasValidBill && diagnostics.validBill === false) ||
-      age.includes("above 11") ||
-      age.includes("above11") ||
-      age.includes(">11");
-
-    // Age / Warranty deduction
-    if (isOutOfWarranty) {
-      price -= Math.round(reference * (40040 / 165000));
-    } else {
-      if (age.includes("below 3") || age.includes("below3") || age.includes("0-3")) {
-        price -= 0;
-      } else if ((age.includes("3") && age.includes("6")) || age.includes("3to6")) {
-        price -= Math.round(reference * (18440 / 165000));
-      } else if ((age.includes("6") && age.includes("11")) || age.includes("6to11")) {
-        price -= Math.round(reference * (23070 / 165000));
-      } else {
-        // Default in-warranty if age unspecified
-        price -= Math.round(reference * (23070 / 165000));
-      }
+    // 1. Basic Device Condition
+    if (diagnostics.calls === false) {
+      // Calling issue drops iPhone 18 Pro Max directly to scrap value (₹1,180 with ₹20 validation fee = ₹1,200 base)
+      return finalizeConditionQuote(reference, 1180);
     }
 
-    // Hardware
-    const hasFaceProblem = (diagnostics.hardware || []).includes('face') || (diagnostics.hardware || []).includes('face_sensor');
-    if (hasFaceProblem) {
-      price -= Math.round(reference * pFace);
+    if (diagnostics.touch === false) {
+      // Live Cashify deduction: ₹70,040 (Selling: ₹94,940)
+      price -= 70040;
     }
 
-    const hasBatteryService = (diagnostics.hardware || []).includes('battery_service');
-    const hasBatteryHealth = (diagnostics.hardware || []).includes('battery_health');
-    if (hasBatteryService) {
-      price -= Math.round(reference * pBattService);
-    } else if (hasBatteryHealth) {
-      price -= Math.round(reference * pBattHealth);
-    }
-
-    const hasSpeakerProblem = (diagnostics.hardware || []).includes('speaker') || (diagnostics.hardware || []).includes('speaker_faulty');
-    if (hasSpeakerProblem) {
-      price -= Math.round(reference * pSpeaker);
-    }
-
-    // Screen defects
-    const moreThan2Scratches = diagnostics.screenCondition?.includes('More than 2 scratches') ||
-      diagnostics.screenCondition?.includes('more than 2');
-    const scratches1to2 = diagnostics.screenCondition?.includes('1-2 scratches') ||
-      diagnostics.screenCondition?.includes('1-2');
-    const hasScreenDefect = (diagnostics.defects || []).includes('screen_scratch') ||
-      (diagnostics.defects || []).includes('broken_scratch') ||
-      Boolean(moreThan2Scratches) ||
-      Boolean(scratches1to2);
-
-    if (hasScreenDefect) {
-      if (moreThan2Scratches) {
-        price -= Math.round(reference * pScratch2);
-      } else if (scratches1to2) {
-        price -= Math.round(reference * pScratch1);
-      } else {
-        price -= Math.round(reference * (pScratch2 * 0.5));
-      }
-    }
-
-    // Original Screen
     if (diagnostics.originalScreen === false) {
-      price -= Math.round(reference * pNotOriginalScreen);
+      // Live Cashify deduction: ₹55,040 (Selling: ₹109,940)
+      price -= 55040;
     }
 
-    // Accessories
+    // 2. Age / Warranty deduction
+    // Note: Cashify skips age question for touch failure, non-original screen, broken glass, panel damage, or bent panel
+    const hasScreenBreakage = diagnostics.screenCondition?.toLowerCase().includes("cracked") ||
+      diagnostics.screenCondition?.toLowerCase().includes("glass broken");
+    const hasPanelBreakage = (diagnostics.bodyPanel && !diagnostics.bodyPanel.toLowerCase().includes("no defect")) ||
+      (diagnostics.bodyBent && diagnostics.bodyBent.toLowerCase().includes("bent") && !diagnostics.bodyBent.toLowerCase().includes("not bent"));
+    const ageStepSkipped = diagnostics.touch === false || diagnostics.originalScreen === false || hasScreenBreakage || hasPanelBreakage;
+
+    if (!ageStepSkipped) {
+      const age = String(diagnostics.mobileAge || "").toLowerCase();
+      const hasValidBill = diagnostics.validBill === true || (diagnostics.accessories || []).includes("bill");
+      const isOutOfWarranty = diagnostics.warranty === false ||
+        (diagnostics.warranty === true && !hasValidBill && diagnostics.validBill === false) ||
+        age.includes("above 11") ||
+        age.includes("above11") ||
+        age.includes(">11");
+
+      if (isOutOfWarranty) {
+        price -= 40040;
+      } else {
+        if (age.includes("below 3") || age.includes("below3") || age.includes("0-3")) {
+          price -= 0;
+        } else if ((age.includes("3") && age.includes("6")) || age.includes("3to6")) {
+          price -= 18440;
+        } else if ((age.includes("6") && age.includes("11")) || age.includes("6to11")) {
+          price -= 23070;
+        }
+      }
+    }
+
+    // 3. Physical Screen Defects
+    const sc = (diagnostics.screenCondition || "").toLowerCase();
+    if (sc.includes("cracked") || sc.includes("broken")) {
+      price -= 57890;
+    } else if (sc.includes("chipped") || sc.includes("outside display")) {
+      price -= 12600;
+    } else if (sc.includes("more than 2")) {
+      price -= 8820;
+    } else if (sc.includes("1-2") || sc.includes("1 to 2")) {
+      price -= 3780;
+    }
+
+    // 4. Display Spots
+    const spots = (diagnostics.screenSpots || "").toLowerCase();
+    if (spots.includes("large") || spots.includes("heavy")) {
+      price -= 25500;
+    } else if (spots.includes("3 or more")) {
+      price -= 18000;
+    } else if (spots.includes("1-2") || spots.includes("1 to 2") || spots.includes("minor")) {
+      if (!spots.includes("no spots")) price -= 6000;
+    }
+
+    // 5. Display Lines
+    const lines = (diagnostics.screenLines || "").toLowerCase();
+    if (lines.includes("visible line")) {
+      price -= 25500;
+    } else if (lines.includes("faded")) {
+      price -= 15000;
+    }
+
+    // 6. Display Discoloration
+    const disco = (diagnostics.screenDiscoloration || "").toLowerCase();
+    if (disco.includes("major")) {
+      price -= 16500;
+    } else if (disco.includes("minor")) {
+      price -= 6000;
+    }
+
+    // 7. Body Scratches
+    const bs = (diagnostics.bodyScratches || "").toLowerCase();
+    if (bs.includes("more than 2")) {
+      price -= 19800;
+    } else if (bs.includes("1-2") || bs.includes("1 to 2")) {
+      price -= 10720;
+    }
+
+    // 8. Body Dents
+    const bd = (diagnostics.bodyDents || "").toLowerCase();
+    if (bd.includes("major") || bd.includes("more than 2")) {
+      price -= 26400;
+    } else if (bd.includes("1-2") || bd.includes("1 to 2") || bd.includes("minor")) {
+      if (!bd.includes("no dents")) price -= 19800;
+    }
+
+    // 9. Side/Back Panel Condition & Bent/Loose Screen
+    const bp = (diagnostics.bodyPanel || "").toLowerCase();
+    if (bp.includes("cracked") || bp.includes("broken") || bp.includes("missing")) {
+      price -= 62090;
+    }
+
+    const bb = (diagnostics.bodyBent || "").toLowerCase();
+    if (bb.includes("bent") && !bb.includes("not bent")) {
+      price -= 62090;
+    } else if (bb.includes("loose") || bb.includes("gap")) {
+      price -= 37950;
+    }
+
+    // 10. Functional & Hardware Faults
+    const hw = diagnostics.hardware || [];
+    const hasHw = (key: string) => hw.includes(key);
+
+    if (hasHw('wifi')) price -= 49500;
+    if (hasHw('bluetooth')) price -= 49500;
+    if (hasHw('face') || hasHw('face_sensor')) price -= 33000;
+    if (hasHw('back_camera') || hasHw('camera_back')) price -= 6500;
+    if (hasHw('proximity')) price -= 4950;
+    if (hasHw('battery_service')) price -= 4200;
+    if (hasHw('camera_glass')) price -= 3800;
+    if (hasHw('front_camera') || hasHw('camera_front')) price -= 3500;
+    if (hasHw('speaker') || hasHw('speaker_faulty')) price -= 2500;
+    if (hasHw('charging')) price -= 2500;
+    if (hasHw('audio_receiver')) price -= 2500;
+    if (hasHw('silent')) price -= 1500;
+    if (hasHw('battery_health')) price -= 1260;
+    if (hasHw('volume')) price -= 1000;
+    if (hasHw('power')) price -= 1000;
+    if (hasHw('microphone')) price -= 1000;
+    if (hasHw('vibrator')) price -= 1000;
+    // Note: 'fingerprint' / 'finger touch' has ₹0 deduction on iPhone 18 Pro Max
+
+    // 11. Accessories
     const hasBox = diagnostics.box === true || (diagnostics.accessories || []).includes("box");
     const hasCharger = diagnostics.charger === true || (diagnostics.accessories || []).includes("charger");
-    const hasAccessories = hasBox || hasCharger;
-
-    if (!hasAccessories) {
-      const boxPenalty = isOutOfWarranty ? pBoxOutOfWarranty : pBoxInWarranty;
-      price -= Math.round(reference * boxPenalty);
-    }
-
-    // Major functional constraints
-    if (diagnostics.calls === false) price -= Math.round(reference * 0.55);
-    if (diagnostics.touch === false) price -= Math.round(reference * 0.25);
-
-    // Other hardware issues
-    const otherHardware = (diagnostics.hardware || []).filter(h =>
-      h !== 'face' && h !== 'face_sensor' &&
-      h !== 'battery_service' && h !== 'battery_health' &&
-      h !== 'speaker' && h !== 'speaker_faulty'
-    );
-    if (otherHardware.length > 0) {
-      price -= Math.round(reference * 0.10 * otherHardware.length);
+    if (!hasBox && !hasCharger) {
+      price -= 2250;
     }
 
     return finalizeConditionQuote(reference, Math.max(price, 0));

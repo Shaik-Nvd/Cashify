@@ -1965,9 +1965,9 @@ export function calculateApplePrice(model: string, reference: CashifyGetUptoRefe
     }
 
     // 2. Age / Warranty deduction
-    // Note: Cashify skips age question for touch failure, non-original screen, broken glass, panel damage, or bent panel
-    const hasScreenBreakage = diagnostics.screenCondition?.toLowerCase().includes("cracked") ||
-      diagnostics.screenCondition?.toLowerCase().includes("glass broken");
+    // Note: Cashify skips age question for touch failure, non-original screen, screen cracked/glass broken, panel damage, or bent panel
+    const hasScreenBreakage = diagnostics.screenCondition?.toLowerCase().includes("glass broken") ||
+      (diagnostics.screenCondition?.toLowerCase().includes("screen cracked") && !diagnostics.screenCondition?.toLowerCase().includes("outside display"));
     const hasPanelBreakage = (diagnostics.bodyPanel && !diagnostics.bodyPanel.toLowerCase().includes("no defect")) ||
       (diagnostics.bodyBent && diagnostics.bodyBent.toLowerCase().includes("bent") && !diagnostics.bodyBent.toLowerCase().includes("not bent"));
     const ageStepSkipped = diagnostics.touch === false || diagnostics.originalScreen === false || hasScreenBreakage || hasPanelBreakage;
@@ -1996,10 +1996,10 @@ export function calculateApplePrice(model: string, reference: CashifyGetUptoRefe
 
     // 3. Physical Screen Defects
     const sc = (diagnostics.screenCondition || "").toLowerCase();
-    if (sc.includes("cracked") || sc.includes("broken")) {
-      price -= 57890;
-    } else if (sc.includes("chipped") || sc.includes("outside display")) {
+    if (sc.includes("chipped") || sc.includes("outside display")) {
       price -= 12600;
+    } else if (sc.includes("cracked") || sc.includes("broken")) {
+      price -= 57890;
     } else if (sc.includes("more than 2")) {
       price -= 8820;
     } else if (sc.includes("1-2") || sc.includes("1 to 2")) {

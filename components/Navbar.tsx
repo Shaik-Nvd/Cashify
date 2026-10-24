@@ -209,10 +209,15 @@ export default function Navbar() {
           <span aria-hidden="true" className="mx-1 h-6 w-px bg-border" />
           {showAuth ? (
             <div className="flex items-center gap-3">
-              <div className="flex flex-col items-end leading-tight">
-                <span className="max-w-[10rem] truncate text-[0.8rem] font-semibold text-foreground">{user.name || user.phone}</span>
-                <span className="text-[0.7rem] text-muted">{user.role === 'admin' ? 'Administrator' : 'Customer'}</span>
-              </div>
+              <Link
+                href="/profile"
+                className="flex flex-col items-end leading-tight text-right no-underline group"
+              >
+                <span className="max-w-[10rem] truncate text-[0.8rem] font-semibold text-foreground group-hover:text-gold transition-colors">
+                  {user.name || user.phone}
+                </span>
+                <span className="text-[0.7rem] text-muted">My Pickups & Profile</span>
+              </Link>
               {user.role === 'admin' && (
                 <Link href="/admin" className="text-sm font-semibold text-gold no-underline hover:text-gold-hover">
                   Admin
@@ -323,7 +328,14 @@ export default function Navbar() {
           <div className="mt-5 flex flex-col gap-3">
             {showAuth ? (
               <>
-                <span className="font-medium text-foreground">{user.name || user.phone}</span>
+                <Link
+                  href="/profile"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="font-medium text-foreground hover:text-gold no-underline flex items-center justify-between"
+                >
+                  <span>{user.name || user.phone}</span>
+                  <span className="text-xs text-gold">My Pickups &rarr;</span>
+                </Link>
                 {user.role === 'admin' && (
                   <Link href="/admin" onClick={() => setIsMobileMenuOpen(false)} className="font-semibold text-gold no-underline">
                     Admin Panel

@@ -285,3 +285,19 @@ export async function getCashifyPrice(req: Request, res: Response) {
     return res.status(500).json({ success: false, error: err.message || 'Internal server error' });
   }
 }
+
+export async function getCustomerPickups(req: Request, res: Response) {
+  try {
+    const user = (req as any).user;
+    if (!user || (!user.id && !user.phone)) {
+      return res.status(401).json({ success: false, error: 'Unauthorized' });
+    }
+
+    const pickups = await quoteService.getCustomerPickups(user.id, user.phone);
+    return res.json({ success: true, data: pickups });
+  } catch (err: any) {
+    logger.error({ err: err.message }, 'Error in getCustomerPickups controller');
+    return res.status(500).json({ success: false, error: 'Internal server error' });
+  }
+}
+

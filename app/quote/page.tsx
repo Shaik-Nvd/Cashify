@@ -3226,8 +3226,7 @@ export default function QuotePage() {
               });
               { const store = getSessionStore(); if (store) clearQuoteSession(store); }
 
-              alert("Scheduled for Pickup! Our executive will contact you shortly.");
-              router.push('/');
+              router.push('/profile?scheduled=true');
             } catch (err: any) {
               console.error("Failed to schedule pickup", err);
               if (err?.response?.data?.code === 'MANUAL_INSPECTION_REQUIRED') {

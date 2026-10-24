@@ -190,3 +190,34 @@ export async function createLead(data: { userId?: string; name?: string; phone: 
   return lead;
 }
 
+export async function getCustomerPickups(userId?: string, phone?: string) {
+  const orConditions: any[] = [];
+  if (userId) {
+    orConditions.push({ userId });
+  }
+  if (phone) {
+    const cleanPhone = phone.replace(/\D/g, '');
+    const suffix10 = cleanPhone.slice(-10);
+    orConditions.push({ phone });
+    if (suffix10 && suffix10.length === 10) {
+      orConditions.push({ phone: { contains: suffix10 } });
+    }
+  }
+
+  if (orConditions.length === 0) {
+    return [];
+  }
+
+  const leads = await prisma.lead.findMany({
+    where: {
+      OR: orConditions,
+    },
+    orderBy: {
+      createdAt: 'desc',
+    },
+  });
+
+  return leads;
+}
+
+

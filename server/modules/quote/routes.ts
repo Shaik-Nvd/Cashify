@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import rateLimit from 'express-rate-limit';
-import { optionalAuth } from '../../middleware/auth';
+import { optionalAuth, requireAuth } from '../../middleware/auth';
 import * as ctrl from './controller';
 
 const router = Router();
@@ -32,6 +32,7 @@ router.post('/price', pricingLimiter, optionalAuth, ctrl.priceQuote);
 router.post('/get-upto', pricingLimiter, ctrl.getUptoBatch);
 router.post('/cashify-price', marketPriceLimiter, ctrl.getCashifyPrice);
 router.post('/leads', leadLimiter, ctrl.createLead);
+router.get('/my-pickups', requireAuth, ctrl.getCustomerPickups);
 router.get('/:id', ctrl.getQuote);
 
 export default router;

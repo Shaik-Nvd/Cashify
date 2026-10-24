@@ -490,7 +490,7 @@ export default function AdminLeadsPage() {
                       </div>
                     </td>
                     <td className="px-6 py-5 text-right">
-                      <div className="flex items-center justify-end gap-2">
+                      <div className="flex items-center justify-end gap-3.5">
                         {/* Download PDF Button */}
                         <button
                           onClick={() => {
@@ -513,7 +513,7 @@ export default function AdminLeadsPage() {
                             })
                             .catch(err => alert('Failed to download PDF'));
                           }}
-                          className="p-2 rounded-lg bg-blue-500/10 text-blue-400 hover:bg-blue-500/20 transition-colors"
+                          className="p-2.5 rounded-lg bg-blue-500/10 text-blue-400 hover:bg-blue-500/20 hover:scale-105 active:scale-95 transition-all"
                           title="Download Questionnaire PDF"
                         >
                           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
@@ -523,7 +523,7 @@ export default function AdminLeadsPage() {
                         <button
                           disabled={deleting}
                           onClick={() => handleDeleteSingle(l.id)}
-                          className="p-2 rounded-lg bg-danger/10 text-danger hover:bg-danger/20 transition-colors"
+                          className="p-2.5 rounded-lg bg-danger/10 text-danger hover:bg-danger/20 hover:scale-105 active:scale-95 transition-all"
                           title="Delete this lead"
                         >
                           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -34,6 +34,8 @@ const reviewedIdentities = new Set([
   'apple|apple iphone 12|256gb',
   'apple|apple iphone 13|256gb',
   'apple|apple iphone 13|512gb',
+  'apple|apple iphone 18 pro max|12gb/2tb',
+  'apple|apple iphone 18 pro max|2tb',
 ]);
 
 /** Existing specialized rules substantiated by the team's same-device transcripts.

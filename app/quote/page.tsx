@@ -2833,7 +2833,9 @@ export default function QuotePage() {
             {step === 9 && (
               <div className="card p-6 md:p-12 rounded-lg border border-border bg-surface text-foreground">
                 <h2 style={{ textAlign: 'center', fontSize: '1.25rem', fontWeight: 600, marginBottom: '0.5rem' }}>What is your mobile age?</h2>
-                <p style={{ textAlign: 'center', color: 'var(--muted)', fontSize: '0.85rem', marginBottom: '3rem' }}>Please select the age of your device from the purchase date.</p>
+                <p style={{ textAlign: 'center', color: 'var(--muted)', fontSize: '0.85rem', marginBottom: '3rem' }}>
+                  {diagnostics.warranty === true ? "(Because you chose your device is under brand's warranty)" : "Please select the age of your device from the purchase date."}
+                </p>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem', marginBottom: '3rem' }}>
                   {[
                     { id: 'below3', label: 'Below 3 months', sub: 'Valid bill mandatory' },

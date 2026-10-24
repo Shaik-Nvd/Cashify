@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { useHydratedAuth } from '@/lib/useHydratedAuth';
@@ -65,7 +65,7 @@ function getStageProgress(status: string) {
   return { stepIndex: 0, isCancelled: false, label: 'Pickup Scheduled' };
 }
 
-export default function ProfilePage() {
+function ProfileContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const justScheduled = searchParams?.get('scheduled') === 'true';
@@ -325,5 +325,13 @@ export default function ProfilePage() {
       </section>
 
     </div>
+  );
+}
+
+export default function ProfilePage() {
+  return (
+    <Suspense fallback={<div className="container p-8 text-center text-muted">Loading profile...</div>}>
+      <ProfileContent />
+    </Suspense>
   );
 }

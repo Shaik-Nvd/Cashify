@@ -3011,7 +3011,7 @@ export default function QuotePage() {
             </div>
           </div>
           
-          {!appliedCoupon && (
+          {!appliedCoupon && (activeFinalQuote?.couponHeadroom ?? 299) > 0 && (
             <div style={{ 
               position: 'relative',
               padding: '1px',
@@ -3036,7 +3036,7 @@ export default function QuotePage() {
                 
                 {isFirstTimeUser && generatedCoupon ? (
                   <p style={{ color: 'var(--muted)', fontSize: '0.95rem', margin: 0, lineHeight: 1.5 }}>
-                    Unlock your first-time user bonus! Use code <strong style={{ color: 'var(--gold)', backgroundColor: 'rgba(255,215,0,0.1)', padding: '0.3rem 0.6rem', borderRadius: '6px', border: '1px solid rgba(255,215,0,0.3)', letterSpacing: '1px' }}>{generatedCoupon}</strong> for an extra ₹299 on your selling price.
+                    Unlock your first-time user bonus! Use code <strong style={{ color: 'var(--gold)', backgroundColor: 'rgba(255,215,0,0.1)', padding: '0.3rem 0.6rem', borderRadius: '6px', border: '1px solid rgba(255,215,0,0.3)', letterSpacing: '1px' }}>{generatedCoupon}</strong> for an extra {formatCurrency(activeFinalQuote?.couponHeadroom ?? 299)} on your selling price.
                   </p>
                 ) : (
                   <p style={{ color: 'var(--muted)', fontSize: '0.85rem', margin: 0, lineHeight: 1.4 }}>

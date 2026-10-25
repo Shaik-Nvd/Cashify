@@ -375,6 +375,8 @@ export function createPricingService(deps: PricingServiceDeps) {
         // not push this corrected fallback beyond its estimated Selling+2000.
         // This remains an estimate, never promoted to screenshot-verified evidence.
         result = { ...result, fhoneifyPrice: boundedCompetitiveOffer(base.cashifyGetUptoReference, result.cashifyConditionEquivalent) };
+        // The reviewed 512GB transcript formulas return headline Selling prices, not base prices.
+        equivalentBasis = 'selling';
         quotePricingVersion += '+apple512-oow-router-v1';
       }
       // Get Upto: the reference plus the uplift, nothing else.
@@ -423,7 +425,7 @@ export function createPricingService(deps: PricingServiceDeps) {
     const iat = Math.floor(at.getTime() / 1000);
     const exp = iat + deps.tokenTtlSeconds;
     const quoteToken = signQuoteToken(
-      { v: QUOTE_TOKEN_VERSION, dk: key, dh: diagnosticsHash, p: result.fhoneifyPrice, pv: quotePricingVersion, iat, exp },
+      { v: QUOTE_TOKEN_VERSION, dk: key, dh: diagnosticsHash, p: result.fhoneifyPrice, ch: ceiling.couponHeadroom, pv: quotePricingVersion, iat, exp },
       deps.signingSecret
     );
 
@@ -506,6 +508,7 @@ export function createPricingService(deps: PricingServiceDeps) {
 
     let tokenRejectedReason: string | null = null;
     let tokenPrice: number | null = null;
+    let tokenCouponHeadroom: number | null = null;
     let tokenIssuedAt: string | null = null;
     let tokenPricingVersion: string | null = null;
 
@@ -513,7 +516,7 @@ export function createPricingService(deps: PricingServiceDeps) {
       const verification = verifyQuoteToken(input.quoteToken, deps.signingSecret, Math.floor(now().getTime() / 1000));
       if (!verification.ok) {
         tokenRejectedReason = verification.reason;
-      } else if (verification.payload.pv !== activePricingVersion && (releaseCandidate || verification.payload.pv.includes('+rc-'))) {
+      } else if (verification.payload.pv !== activePricingVersion) {
         tokenRejectedReason = 'pricing_version_changed';
       } else if (!current.ok && current.code === 'INVALID_DIAGNOSTICS') {
         tokenRejectedReason = 'invalid_diagnostics';
@@ -525,6 +528,7 @@ export function createPricingService(deps: PricingServiceDeps) {
         else if (!parsed.ok || verification.payload.dh !== canonicalDiagnosticsHash(parsed.value)) tokenRejectedReason = 'diagnostics_mismatch';
         else {
           tokenPrice = verification.payload.p;
+          tokenCouponHeadroom = verification.payload.ch ?? null;
           tokenIssuedAt = new Date(verification.payload.iat * 1000).toISOString();
           tokenPricingVersion = verification.payload.pv;
         }
@@ -536,11 +540,11 @@ export function createPricingService(deps: PricingServiceDeps) {
     const price = tokenPrice ?? (current as AuthoritativeQuote).fhoneifyPrice;
     const parsed = parseDiagnostics(input.diagnostics);
     if (!parsed.ok) return { ok: false, code: 'INVALID_DIAGNOSTICS', message: parsed.error };
-    // The coupon bonus a lead may carry: what still fits under the ceiling for THIS price (a signed price can be older than
-    // the current quote). Without a current quote nothing is known, so no coupon bonus is granted.
-    const couponHeadroom = current.ok
+    // Honor the complete accepted offer for its token lifetime, including the coupon.
+    // Older tokens without a signed allowance use the current conservative headroom.
+    const couponHeadroom = tokenCouponHeadroom ?? (current.ok
       ? Math.max(0, Math.min(current.couponHeadroom, current.internal.payoutCeiling.maxCustomerPayout - customerPayout(price, false).payout))
-      : 0;
+      : 0);
 
     const audit: LeadPricingAudit = {
       priceSource: tokenPrice !== null ? 'quote_token' : 'recomputed',

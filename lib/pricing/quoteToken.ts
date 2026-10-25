@@ -24,6 +24,8 @@ export interface QuoteTokenPayload {
   dh: string;
   /** locked customer price, whole rupees */
   p: number;
+  /** Coupon allowance locked with this offer; optional for pre-ceiling tokens. */
+  ch?: number;
   /** PRICING_ENGINE_VERSION */
   pv: string;
   iat: number;
@@ -87,6 +89,7 @@ export function verifyQuoteToken(token: string, secret: string, nowSeconds: numb
     !payload.pv ||
     !Number.isInteger(payload.p) ||
     payload.p <= 0 ||
+    (payload.ch !== undefined && (!Number.isInteger(payload.ch) || payload.ch < 0 || payload.ch > 299)) ||
     !Number.isInteger(payload.iat) ||
     payload.iat < 0 ||
     !Number.isInteger(payload.exp) ||

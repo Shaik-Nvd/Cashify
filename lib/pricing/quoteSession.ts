@@ -67,6 +67,7 @@ export const sameDevice = (a: QuoteSessionDevice, b: QuoteSessionDevice) =>
 /** Whether a freshly revalidated quote still represents the displayed offer. */
 export function sameAcceptedQuote(a: SignedQuote, b: SignedQuote, now = new Date()): boolean {
   return sameDevice(a.device, b.device) && a.price === b.price && a.getUpto === b.getUpto &&
+    (a.couponHeadroom ?? 299) === (b.couponHeadroom ?? 299) &&
     Date.parse(a.expiresAt) > now.getTime() && typeof a.pricingVersion === 'string' && a.pricingVersion === b.pricingVersion;
 }
 

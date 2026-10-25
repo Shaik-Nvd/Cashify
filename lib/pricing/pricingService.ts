@@ -147,7 +147,7 @@ export interface LeadPricingAudit {
   releaseCandidate?: ReleaseCandidateOutcome | null;
   routeEvidenceSha256?: string | null;
   exactFinalQuote?: { evidenceIds: string[]; fingerprint: string; observedAt: string; policy: string } | null;
-  payoutCeiling?: { maxCustomerPayout: number; cashifyPayoutEquivalent: number; quoteBeforeCeiling: number; reduced: boolean; couponHeadroom: number } | null;
+  payoutCeiling?: { maxCustomerPayout: number; cashifyPayoutEquivalent: number; quoteBeforeCeiling: number; reduced: boolean; couponHeadroom: number; signedPriceWithinCurrentCeiling: boolean } | null;
 }
 
 export interface VerifiedLeadPrice {
@@ -398,6 +398,12 @@ export function createPricingService(deps: PricingServiceDeps) {
       quote: result.fhoneifyPrice,
       cashifyHeadlineEquivalent: equivalentBasis === 'selling' ? result.cashifyConditionEquivalent : headlineFromBase(result.cashifyConditionEquivalent),
     });
+    if (ceiling.status === 'inspection') {
+      // The limit cannot be met by any quote: never show or sign a price that breaks it.
+      deps.logger.info({ deviceKey: key, reason: ceiling.inspectionReason, before: ceiling.quoteBeforeCeiling, pricingVersion }, 'Payout ceiling cannot be satisfied: manual inspection required');
+      return { ok: false, code: 'MANUAL_INSPECTION_REQUIRED', message: 'We need to inspect this phone before we can quote a price',
+        context: { questionnaire, startingPrice: computeFhoneifyGetUpto(base.cashifyGetUptoReference), pricingVersion } };
+    }
     if (ceiling.reduced) deps.logger.info({ deviceKey: key, before: ceiling.quoteBeforeCeiling, after: ceiling.quote, maxCustomerPayout: ceiling.maxCustomerPayout }, 'Payout ceiling lowered the quote');
     result = { ...result, fhoneifyPrice: ceiling.quote };
 
@@ -562,6 +568,8 @@ export function createPricingService(deps: PricingServiceDeps) {
       payoutCeiling: current.ok ? {
         maxCustomerPayout: current.internal.payoutCeiling.maxCustomerPayout, cashifyPayoutEquivalent: current.internal.payoutCeiling.cashifyPayoutEquivalent,
         quoteBeforeCeiling: current.internal.payoutCeiling.quoteBeforeCeiling, reduced: current.internal.payoutCeiling.reduced, couponHeadroom,
+        // A signed price can be older than the current estimate: it is kept (the customer was shown it), but flagged when today's limit is lower.
+        signedPriceWithinCurrentCeiling: customerPayout(price, false).payout <= current.internal.payoutCeiling.maxCustomerPayout,
       } : null,
     };
 

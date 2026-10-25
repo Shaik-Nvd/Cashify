@@ -9,7 +9,7 @@ import assert from 'node:assert/strict';
 import { applyCompetitorUplift, DiagnosticsType } from '../../lib/pricingCalculator';
 import { PERFECT_CONDITION_DIAGNOSTICS } from '../../lib/pricing/engine';
 import { createPricingService } from '../../lib/pricing/pricingService';
-import { buildLeadAnswers, customerPayout, FIRST_TIME_COUPON_BONUS } from '../../lib/pricing/payout';
+import { buildLeadAnswers, customerPayout, DISPLAY_DEDUCTION_EXEMPT_PRICE, FIRST_TIME_COUPON_BONUS } from '../../lib/pricing/payout';
 import {
   applyPayoutCeiling, cashifyPayout, cashifyProcessingFee, headlineFromBase, maxPayoutForCashifyPayout, PAYOUT_CEILING_POLICY,
 } from '../../lib/pricing/payoutCeiling';
@@ -176,6 +176,56 @@ async function run() {
     assert.equal(lead.pricing.customerPayout.payout, customerPayout(q.fhoneifyPrice, true, q.couponHeadroom).payout);
     assert.ok(lead.pricing.customerPayout.payout <= q.internal.payoutCeiling.maxCustomerPayout);
     assert.ok(v.audit.payoutCeiling && v.audit.payoutCeiling.maxCustomerPayout === q.internal.payoutCeiling.maxCustomerPayout);
+  });
+
+  await test('property: every result either satisfies its calculated limit (with and without the coupon) or is inspection-required', () => {
+    // Deterministic pseudo-random grid plus the awkward values around the fee exemption, fee tiers and the 2,000 cap.
+    let seed = 12345; const rnd = () => (seed = (seed * 1103515245 + 12345) & 0x7fffffff) / 0x7fffffff;
+    const quotes = [0, 1, 98, 99, 100, 1100, 1199, 1200, 1201, 1248, 1296, 2880, 2929, 4090, 5760, 25000, 25001, 99999, 200000];
+    const headlines = [-5, 0, 1, 50, 99, 100, 1100, 1180, 1199, 1200, 1299, 2880, 4190, 25000, 25001, 100000, 164980, 500000];
+    for (let i = 0; i < 4000; i++) { quotes.push(Math.floor(rnd() * 220000)); headlines.push(Math.floor(rnd() * 220000)); }
+    let ok = 0, inspection = 0;
+    for (const q of quotes) for (const h of headlines.slice(0, 60).concat(headlines.slice(-60))) {
+      const c = applyPayoutCeiling({ quote: q, cashifyHeadlineEquivalent: h });
+      if (c.status === 'inspection') {
+        assert.equal(c.quote, 0, 'an inspection result carries no price');
+        assert.ok(c.inspectionReason, 'an inspection result says why');
+        inspection++;
+        continue;
+      }
+      const max = maxPayoutForCashifyPayout(cashifyPayout(h));
+      assert.ok(c.quote >= 99 && c.quote <= q, `quote ${q} headline ${h} -> ${c.quote}`);
+      assert.ok(customerPayout(c.quote, false).payout <= max, `no coupon: quote ${q} headline ${h} -> ${c.quote}`);
+      assert.ok(customerPayout(c.quote, true, c.couponHeadroom).payout <= max, `coupon: quote ${q} headline ${h}`);
+      assert.equal(c.maxCustomerPayout, max);
+      // maximal: one rupee more would break the limit (unless the input was already below it)
+      if (c.quote < q) assert.ok(customerPayout(c.quote + 1, false).payout > max || c.quote + 1 === DISPLAY_DEDUCTION_EXEMPT_PRICE, `not maximal: ${q} ${h} -> ${c.quote}`);
+      ok++;
+    }
+    assert.ok(ok > 10000 && inspection > 100, `ok ${ok}, inspection ${inspection}`);
+  });
+
+  await test('non-finite, non-positive and too-small inputs are inspection-required, never a number', () => {
+    for (const [quote, h] of [[NaN, 10000], [10000, NaN], [Infinity, 10000], [10000, 0], [10000, -1], [50, 10000]] as [number, number][]) {
+      const c = applyPayoutCeiling({ quote, cashifyHeadlineEquivalent: h });
+      assert.equal(c.status, 'inspection', `${quote}/${h}`);
+      assert.equal(c.quote, 0);
+    }
+  });
+
+  await test('a very small matched price still yields a quote that satisfies the limit, or inspection', () => {
+    const c = applyPayoutCeiling({ quote: 10000, cashifyHeadlineEquivalent: 90 });
+    assert.equal(c.status, 'ok');
+    assert.ok(customerPayout(c.quote, false).payout <= c.maxCustomerPayout && c.quote < 10000);
+  });
+
+  await test('the INR 1,200 fee exemption cannot be used to slip past the ceiling', () => {
+    // headline 1,180 -> Cashify payout 1,131 -> max 1,131 + 90 = 1,221: a 1,200 quote pays 1,200 (<= 1,221) so it stays
+    assert.equal(applyPayoutCeiling({ quote: 1200, cashifyHeadlineEquivalent: 1180 }).quote, 1200);
+    // headline 1,100 -> payout 1,051 -> max 1,134: a 1,200 quote would pay 1,200 (> max) and must come down
+    const c = applyPayoutCeiling({ quote: 1200, cashifyHeadlineEquivalent: 1100 });
+    assert.equal(c.status, 'ok');
+    assert.ok(customerPayout(c.quote, false).payout <= 1134 && c.quote < 1200);
   });
 
   console.log(`\n${passed} passed, ${failed} failed`);

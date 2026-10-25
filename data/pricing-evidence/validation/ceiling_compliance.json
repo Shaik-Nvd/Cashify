@@ -1,733 +1,5619 @@
 {
- "note": "held-out predictions only; breach = payout above Cashify payout + min(8%, INR 2,000) measured against the REAL Cashify payout",
+ "note": "held-out predictions only. estimated = against the engine's own Cashify-equivalent (enforced by code); observed = against the payout Cashify actually paid in the source record (the business rule). Satisfying the first does not imply the second.",
  "protocols": {
   "p1": {
-   "shippedScope / inspections": {
-    "quotes": 430,
-    "breaches": 0,
-    "breachPct": 0,
-    "over100": 0,
-    "over1000": 0,
-    "over1pctOfCashifyPayout": 0,
-    "over3pctOfCashifyPayout": 0,
-    "medianExtraPct": 0,
-    "p95ExtraPct": 0,
-    "worstBreach": null
-   },
-   "existingAsShipped / no coupon": {
-    "quotes": 2233,
-    "breaches": 1050,
-    "breachPct": 47.02,
-    "over100": 797,
-    "over1000": 682,
-    "over1pctOfCashifyPayout": 724,
-    "over3pctOfCashifyPayout": 673,
-    "medianExtraPct": 2.16,
-    "p95ExtraPct": 131.66,
-    "worstBreach": {
-     "over": 62249,
-     "source": "Cashify_iPhone18_Pro_Pricing.zip::all_variants_pricing_data.json::W01",
-     "model": "iPhone 18 Pro",
-     "storage": "2TB",
-     "answers": "F05,F08,F17,WARRANTY_NO",
-     "payout": 101110,
-     "trueCashifyPayout": 36861,
-     "allowed": 38861
+   "scenarios": {
+    "existingAsShipped / no coupon": {
+     "quotes": 2233,
+     "priced": 2233,
+     "inspection": 0,
+     "inspectionPct": 0,
+     "servedByExistingEngine": 0,
+     "estimated": {
+      "breaches": 1335,
+      "breachPct": 59.79
+     },
+     "observed": {
+      "breaches": 1050,
+      "breachPct": 47.02,
+      "over100": 797,
+      "over1000": 682,
+      "over1pctOfCashifyPayout": 724,
+      "over3pctOfCashifyPayout": 673,
+      "medianExtraPct": 2.16,
+      "p95ExtraPct": 131.66,
+      "p99ExtraPct": 219.42,
+      "maxExtraPct": 301.73,
+      "medianExcessRupees": 5650,
+      "p95ExcessRupees": 28990,
+      "maxExcessRupees": 62249
+     }
+    },
+    "existingAsShipped / coupon claimed": {
+     "quotes": 2233,
+     "priced": 2233,
+     "inspection": 0,
+     "inspectionPct": 0,
+     "servedByExistingEngine": 0,
+     "estimated": {
+      "breaches": 1688,
+      "breachPct": 75.59
+     },
+     "observed": {
+      "breaches": 1149,
+      "breachPct": 51.46,
+      "over100": 1116,
+      "over1000": 712,
+      "over1pctOfCashifyPayout": 796,
+      "over3pctOfCashifyPayout": 736,
+      "medianExtraPct": 2.65,
+      "p95ExtraPct": 134.4,
+      "p99ExtraPct": 222.66,
+      "maxExtraPct": 312.54,
+      "medianExcessRupees": 4941,
+      "p95ExcessRupees": 28156,
+      "maxExcessRupees": 62548
+     }
+    },
+    "existingCeiling / no coupon": {
+     "quotes": 2233,
+     "priced": 2219,
+     "inspection": 14,
+     "inspectionPct": 0.63,
+     "servedByExistingEngine": 0,
+     "estimated": {
+      "breaches": 0,
+      "breachPct": 0
+     },
+     "observed": {
+      "breaches": 820,
+      "breachPct": 36.95,
+      "over100": 796,
+      "over1000": 682,
+      "over1pctOfCashifyPayout": 723,
+      "over3pctOfCashifyPayout": 671,
+      "medianExtraPct": 2.19,
+      "p95ExtraPct": 131.69,
+      "p99ExtraPct": 219.42,
+      "maxExtraPct": 301.73,
+      "medianExcessRupees": 10365,
+      "p95ExcessRupees": 29775,
+      "maxExcessRupees": 62229
+     }
+    },
+    "existingCeiling / coupon claimed": {
+     "quotes": 2233,
+     "priced": 2219,
+     "inspection": 14,
+     "inspectionPct": 0.63,
+     "servedByExistingEngine": 0,
+     "estimated": {
+      "breaches": 0,
+      "breachPct": 0
+     },
+     "observed": {
+      "breaches": 848,
+      "breachPct": 38.22,
+      "over100": 805,
+      "over1000": 687,
+      "over1pctOfCashifyPayout": 737,
+      "over3pctOfCashifyPayout": 677,
+      "medianExtraPct": 2.28,
+      "p95ExtraPct": 134.49,
+      "p99ExtraPct": 222.66,
+      "maxExtraPct": 305.07,
+      "medianExcessRupees": 9834,
+      "p95ExcessRupees": 29664,
+      "maxExcessRupees": 62229
+     }
+    },
+    "evidenceCeiling / no coupon": {
+     "quotes": 2233,
+     "priced": 2173,
+     "inspection": 60,
+     "inspectionPct": 2.69,
+     "servedByExistingEngine": 0,
+     "estimated": {
+      "breaches": 0,
+      "breachPct": 0
+     },
+     "observed": {
+      "breaches": 401,
+      "breachPct": 18.45,
+      "over100": 258,
+      "over1000": 82,
+      "over1pctOfCashifyPayout": 139,
+      "over3pctOfCashifyPayout": 91,
+      "medianExtraPct": 3.52,
+      "p95ExtraPct": 7.57,
+      "p99ExtraPct": 33.09,
+      "maxExtraPct": 121.91,
+      "medianExcessRupees": 210,
+      "p95ExcessRupees": 5409,
+      "maxExcessRupees": 16100
+     }
+    },
+    "evidenceCeiling / coupon claimed": {
+     "quotes": 2233,
+     "priced": 2173,
+     "inspection": 60,
+     "inspectionPct": 2.69,
+     "servedByExistingEngine": 0,
+     "estimated": {
+      "breaches": 0,
+      "breachPct": 0
+     },
+     "observed": {
+      "breaches": 469,
+      "breachPct": 21.58,
+      "over100": 280,
+      "over1000": 82,
+      "over1pctOfCashifyPayout": 149,
+      "over3pctOfCashifyPayout": 95,
+      "medianExtraPct": 3.6,
+      "p95ExtraPct": 8.71,
+      "p99ExtraPct": 34.59,
+      "maxExtraPct": 124.56,
+      "medianExcessRupees": 162,
+      "p95ExcessRupees": 5292,
+      "maxExcessRupees": 16100
+     }
+    },
+    "shippedScope / no coupon": {
+     "quotes": 2233,
+     "priced": 1802,
+     "inspection": 431,
+     "inspectionPct": 19.3,
+     "servedByExistingEngine": 148,
+     "estimated": {
+      "breaches": 0,
+      "breachPct": 0
+     },
+     "observed": {
+      "breaches": 286,
+      "breachPct": 15.87,
+      "over100": 154,
+      "over1000": 56,
+      "over1pctOfCashifyPayout": 71,
+      "over3pctOfCashifyPayout": 54,
+      "medianExtraPct": 3.14,
+      "p95ExtraPct": 6.53,
+      "p99ExtraPct": 58.74,
+      "maxExtraPct": 183.42,
+      "medianExcessRupees": 134,
+      "p95ExcessRupees": 9816,
+      "maxExcessRupees": 19790
+     }
+    },
+    "shippedScope / coupon claimed": {
+     "quotes": 2233,
+     "priced": 1802,
+     "inspection": 431,
+     "inspectionPct": 19.3,
+     "servedByExistingEngine": 148,
+     "estimated": {
+      "breaches": 0,
+      "breachPct": 0
+     },
+     "observed": {
+      "breaches": 335,
+      "breachPct": 18.59,
+      "over100": 166,
+      "over1000": 57,
+      "over1pctOfCashifyPayout": 77,
+      "over3pctOfCashifyPayout": 55,
+      "medianExtraPct": 3.16,
+      "p95ExtraPct": 7.97,
+      "p99ExtraPct": 61.39,
+      "maxExtraPct": 184.89,
+      "medianExcessRupees": 100,
+      "p95ExcessRupees": 9268,
+      "maxExcessRupees": 19955
+     }
     }
    },
-   "existingAsShipped / coupon claimed": {
-    "quotes": 2233,
-    "breaches": 1149,
-    "breachPct": 51.46,
-    "over100": 1116,
-    "over1000": 712,
-    "over1pctOfCashifyPayout": 796,
-    "over3pctOfCashifyPayout": 736,
-    "medianExtraPct": 2.65,
-    "p95ExtraPct": 134.4,
-    "worstBreach": {
-     "over": 62548,
-     "source": "Cashify_iPhone18_Pro_Pricing.zip::all_variants_pricing_data.json::W01",
-     "model": "iPhone 18 Pro",
-     "storage": "2TB",
-     "answers": "F05,F08,F17,WARRANTY_NO",
-     "payout": 101409,
-     "trueCashifyPayout": 36861,
-     "allowed": 38861
-    }
-   },
-   "existingWithCeiling / no coupon": {
-    "quotes": 2233,
-    "breaches": 820,
-    "breachPct": 36.72,
-    "over100": 796,
-    "over1000": 682,
-    "over1pctOfCashifyPayout": 723,
-    "over3pctOfCashifyPayout": 671,
-    "medianExtraPct": 2.14,
-    "p95ExtraPct": 131.66,
-    "worstBreach": {
-     "over": 62229,
-     "source": "Cashify_iPhone18_Pro_Pricing.zip::all_variants_pricing_data.json::W01",
-     "model": "iPhone 18 Pro",
-     "storage": "2TB",
-     "answers": "F05,F08,F17,WARRANTY_NO",
-     "payout": 101090,
-     "trueCashifyPayout": 36861,
-     "allowed": 38861
-    }
-   },
-   "existingWithCeiling / coupon claimed": {
-    "quotes": 2233,
-    "breaches": 848,
-    "breachPct": 37.98,
-    "over100": 805,
-    "over1000": 687,
-    "over1pctOfCashifyPayout": 737,
-    "over3pctOfCashifyPayout": 677,
-    "medianExtraPct": 2.26,
-    "p95ExtraPct": 134.4,
-    "worstBreach": {
-     "over": 62229,
-     "source": "Cashify_iPhone18_Pro_Pricing.zip::all_variants_pricing_data.json::W01",
-     "model": "iPhone 18 Pro",
-     "storage": "2TB",
-     "answers": "F05,F08,F17,WARRANTY_NO",
-     "payout": 101090,
-     "trueCashifyPayout": 36861,
-     "allowed": 38861
-    }
-   },
-   "evidenceWithCeiling / no coupon": {
-    "quotes": 2173,
-    "breaches": 401,
-    "breachPct": 18.45,
-    "over100": 258,
-    "over1000": 82,
-    "over1pctOfCashifyPayout": 139,
-    "over3pctOfCashifyPayout": 91,
-    "medianExtraPct": 3.52,
-    "p95ExtraPct": 7.57,
-    "worstBreach": {
-     "over": 16100,
-     "source": "Cashify_iPhone17_Pro_Max_Pricing.zip::pricing_data.json::M17",
-     "model": "iPhone 17 Pro Max",
-     "storage": "2TB",
-     "answers": "Q02,F08",
-     "payout": 56261,
-     "trueCashifyPayout": 38161,
-     "allowed": 40161
-    }
-   },
-   "evidenceWithCeiling / coupon claimed": {
-    "quotes": 2173,
-    "breaches": 469,
-    "breachPct": 21.58,
-    "over100": 280,
-    "over1000": 82,
-    "over1pctOfCashifyPayout": 149,
-    "over3pctOfCashifyPayout": 95,
-    "medianExtraPct": 3.6,
-    "p95ExtraPct": 8.71,
-    "worstBreach": {
-     "over": 16100,
-     "source": "Cashify_iPhone17_Pro_Max_Pricing.zip::pricing_data.json::M17",
-     "model": "iPhone 17 Pro Max",
-     "storage": "2TB",
-     "answers": "Q02,F08",
-     "payout": 56261,
-     "trueCashifyPayout": 38161,
-     "allowed": 40161
-    }
-   },
-   "shippedScope / no coupon": {
-    "quotes": 1803,
-    "breaches": 286,
-    "breachPct": 15.86,
-    "over100": 154,
-    "over1000": 56,
-    "over1pctOfCashifyPayout": 71,
-    "over3pctOfCashifyPayout": 54,
-    "medianExtraPct": 3.14,
-    "p95ExtraPct": 6.53,
-    "worstBreach": {
-     "over": 19790,
-     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M16",
+   "worstShipped": [
+    {
+     "excessRupees": 19790,
+     "excessPctOfCashifyPayout": 175.43,
      "model": "iPhone 15",
      "storage": "512GB",
-     "answers": "Q02,F05",
-     "payout": 31973,
-     "trueCashifyPayout": 11281,
-     "allowed": 12183
-    }
-   },
-   "shippedScope / coupon claimed": {
-    "quotes": 1803,
-    "breaches": 335,
-    "breachPct": 18.58,
-    "over100": 166,
-    "over1000": 57,
-    "over1pctOfCashifyPayout": 77,
-    "over3pctOfCashifyPayout": 55,
-    "medianExtraPct": 3.16,
-    "p95ExtraPct": 7.97,
-    "worstBreach": {
-     "over": 19955,
+     "date": "2026-10-24",
      "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M16",
+     "answers": [
+      "Q02",
+      "F05"
+     ],
+     "confidence": "inferred",
+     "getUpto": 46550,
+     "observedBase": 11400,
+     "observedSelling": 11380,
+     "observedPayout": 11281,
+     "engineEquivalent": 30257,
+     "engineErrorVsObservedBase": 18857,
+     "customerPayout": 31973,
+     "allowedPayout": 12183,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       9820,
+       "measured",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:screen",
+       10395,
+       "measured",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:wifi",
+       9649,
+       "measured",
+       [
+        "F05"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 18445,
+     "excessPctOfCashifyPayout": 167.06,
+     "model": "iPhone 15",
+     "storage": "256GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M16",
+     "answers": [
+      "Q02",
+      "F05"
+     ],
+     "confidence": "inferred",
+     "getUpto": 44220,
+     "observedBase": 11160,
+     "observedSelling": 11140,
+     "observedPayout": 11041,
+     "engineEquivalent": 28743,
+     "engineErrorVsObservedBase": 17583,
+     "customerPayout": 30369,
+     "allowedPayout": 11924,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       8300,
+       "measured",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:screen",
+       10395,
+       "measured",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:wifi",
+       9167,
+       "measured",
+       [
+        "F05"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 17607,
+     "excessPctOfCashifyPayout": 167.03,
+     "model": "iPhone 15",
+     "storage": "128GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M16",
+     "answers": [
+      "Q02",
+      "F05"
+     ],
+     "confidence": "inferred",
+     "getUpto": 42220,
+     "observedBase": 10660,
+     "observedSelling": 10640,
+     "observedPayout": 10541,
+     "engineEquivalent": 27443,
+     "engineErrorVsObservedBase": 16783,
+     "customerPayout": 28991,
+     "allowedPayout": 11384,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       8010,
+       "measured",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:screen",
+       10395,
+       "measured",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:wifi",
+       8752,
+       "measured",
+       [
+        "F05"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 17037,
+     "excessPctOfCashifyPayout": 116.6,
      "model": "iPhone 15",
      "storage": "512GB",
-     "answers": "Q02,F05",
-     "payout": 32138,
-     "trueCashifyPayout": 11281,
-     "allowed": 12183
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M18",
+     "answers": [
+      "Q02",
+      "F17"
+     ],
+     "confidence": "inferred",
+     "getUpto": 46550,
+     "observedBase": 14730,
+     "observedSelling": 14710,
+     "observedPayout": 14611,
+     "engineEquivalent": 31052,
+     "engineErrorVsObservedBase": 16322,
+     "customerPayout": 32816,
+     "allowedPayout": 15779,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       9820,
+       "measured",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:screen",
+       21316,
+       "measured",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:batt",
+       3593,
+       "measured",
+       [
+        "F17"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 15724,
+     "excessPctOfCashifyPayout": 109.95,
+     "model": "iPhone 15",
+     "storage": "256GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M18",
+     "answers": [
+      "Q02",
+      "F17"
+     ],
+     "confidence": "inferred",
+     "getUpto": 44220,
+     "observedBase": 14420,
+     "observedSelling": 14400,
+     "observedPayout": 14301,
+     "engineEquivalent": 29498,
+     "engineErrorVsObservedBase": 15078,
+     "customerPayout": 31169,
+     "allowedPayout": 15445,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       8300,
+       "measured",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:screen",
+       21316,
+       "measured",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:batt",
+       3593,
+       "measured",
+       [
+        "F17"
+       ]
+      ],
+      [
+       "floor",
+       -143,
+       "measured",
+       []
+      ]
+     ]
+    },
+    {
+     "excessRupees": 15023,
+     "excessPctOfCashifyPayout": 110.13,
+     "model": "iPhone 15",
+     "storage": "128GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M18",
+     "answers": [
+      "Q02",
+      "F17"
+     ],
+     "confidence": "inferred",
+     "getUpto": 42220,
+     "observedBase": 13760,
+     "observedSelling": 13740,
+     "observedPayout": 13641,
+     "engineEquivalent": 28164,
+     "engineErrorVsObservedBase": 14404,
+     "customerPayout": 29755,
+     "allowedPayout": 14732,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       8010,
+       "measured",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:screen",
+       21316,
+       "measured",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:batt",
+       3593,
+       "measured",
+       [
+        "F17"
+       ]
+      ],
+      [
+       "floor",
+       -1322,
+       "measured",
+       []
+      ]
+     ]
+    },
+    {
+     "excessRupees": 14750,
+     "excessPctOfCashifyPayout": 130.75,
+     "model": "iPhone 15",
+     "storage": "512GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M17",
+     "answers": [
+      "Q02",
+      "F08"
+     ],
+     "confidence": "inferred",
+     "getUpto": 46550,
+     "observedBase": 11400,
+     "observedSelling": 11380,
+     "observedPayout": 11281,
+     "engineEquivalent": 25502,
+     "engineErrorVsObservedBase": 14102,
+     "customerPayout": 26933,
+     "allowedPayout": 12183,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       9820,
+       "measured",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:screen",
+       7608,
+       "measured",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:face",
+       5411,
+       "measured",
+       [
+        "F08"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 13657,
+     "excessPctOfCashifyPayout": 123.69,
+     "model": "iPhone 15",
+     "storage": "256GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M17",
+     "answers": [
+      "Q02",
+      "F08"
+     ],
+     "confidence": "inferred",
+     "getUpto": 44220,
+     "observedBase": 11160,
+     "observedSelling": 11140,
+     "observedPayout": 11041,
+     "engineEquivalent": 24226,
+     "engineErrorVsObservedBase": 13066,
+     "customerPayout": 25581,
+     "allowedPayout": 11924,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       8300,
+       "measured",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:screen",
+       7608,
+       "measured",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:face",
+       5140,
+       "measured",
+       [
+        "F08"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 13067,
+     "excessPctOfCashifyPayout": 62.64,
+     "model": "iPhone 15",
+     "storage": "512GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M14",
+     "answers": [
+      "P01",
+      "S01"
+     ],
+     "confidence": "measured",
+     "getUpto": 46550,
+     "observedBase": 20980,
+     "observedSelling": 20960,
+     "observedPayout": 20861,
+     "engineEquivalent": 33715,
+     "engineErrorVsObservedBase": 12735,
+     "customerPayout": 35596,
+     "allowedPayout": 22529,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       9820,
+       "measured",
+       [
+        "P01",
+        "S01"
+       ]
+      ],
+      [
+       "class:screen",
+       21471,
+       "measured",
+       [
+        "S01"
+       ]
+      ],
+      [
+       "class:body",
+       2779,
+       "measured",
+       [
+        "P01"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 13035,
+     "excessPctOfCashifyPayout": 123.66,
+     "model": "iPhone 15",
+     "storage": "128GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M17",
+     "answers": [
+      "Q02",
+      "F08"
+     ],
+     "confidence": "inferred",
+     "getUpto": 42220,
+     "observedBase": 10660,
+     "observedSelling": 10640,
+     "observedPayout": 10541,
+     "engineEquivalent": 23130,
+     "engineErrorVsObservedBase": 12470,
+     "customerPayout": 24419,
+     "allowedPayout": 11384,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       8010,
+       "measured",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:screen",
+       7608,
+       "measured",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:face",
+       4908,
+       "measured",
+       [
+        "F08"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 12496,
+     "excessPctOfCashifyPayout": 68.09,
+     "model": "iPhone 15",
+     "storage": "128GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M14",
+     "answers": [
+      "P01",
+      "S01"
+     ],
+     "confidence": "measured",
+     "getUpto": 42220,
+     "observedBase": 18470,
+     "observedSelling": 18450,
+     "observedPayout": 18351,
+     "engineEquivalent": 30579,
+     "engineErrorVsObservedBase": 12109,
+     "customerPayout": 32315,
+     "allowedPayout": 19819,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       8010,
+       "measured",
+       [
+        "P01",
+        "S01"
+       ]
+      ],
+      [
+       "class:screen",
+       21471,
+       "measured",
+       [
+        "S01"
+       ]
+      ],
+      [
+       "class:body",
+       2779,
+       "measured",
+       [
+        "P01"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 12195,
+     "excessPctOfCashifyPayout": 60.82,
+     "model": "iPhone 15",
+     "storage": "256GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M14",
+     "answers": [
+      "P01",
+      "S01"
+     ],
+     "confidence": "measured",
+     "getUpto": 44220,
+     "observedBase": 20170,
+     "observedSelling": 20150,
+     "observedPayout": 20051,
+     "engineEquivalent": 32027,
+     "engineErrorVsObservedBase": 11857,
+     "customerPayout": 33850,
+     "allowedPayout": 21655,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       8300,
+       "measured",
+       [
+        "P01",
+        "S01"
+       ]
+      ],
+      [
+       "class:screen",
+       21471,
+       "measured",
+       [
+        "S01"
+       ]
+      ],
+      [
+       "class:body",
+       2779,
+       "measured",
+       [
+        "P01"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 10093,
+     "excessPctOfCashifyPayout": 48.41,
+     "model": "iPhone 15",
+     "storage": "256GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M03",
+     "answers": [
+      "F05",
+      "F08"
+     ],
+     "confidence": "measured",
+     "getUpto": 44220,
+     "observedBase": 20970,
+     "observedSelling": 20950,
+     "observedPayout": 20851,
+     "engineEquivalent": 30859,
+     "engineErrorVsObservedBase": 9889,
+     "customerPayout": 32612,
+     "allowedPayout": 22519,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "class:wifi",
+       9167,
+       "measured",
+       [
+        "F05"
+       ]
+      ],
+      [
+       "class:face",
+       8788,
+       "measured",
+       [
+        "F08"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 9840,
+     "excessPctOfCashifyPayout": 43.38,
+     "model": "iPhone 15",
+     "storage": "512GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M03",
+     "answers": [
+      "F05",
+      "F08"
+     ],
+     "confidence": "measured",
+     "getUpto": 46550,
+     "observedBase": 22800,
+     "observedSelling": 22780,
+     "observedPayout": 22681,
+     "engineEquivalent": 32485,
+     "engineErrorVsObservedBase": 9685,
+     "customerPayout": 34335,
+     "allowedPayout": 24495,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "class:wifi",
+       9649,
+       "measured",
+       [
+        "F05"
+       ]
+      ],
+      [
+       "class:face",
+       9251,
+       "measured",
+       [
+        "F08"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 9816,
+     "excessPctOfCashifyPayout": 87.01,
+     "model": "iPhone 15",
+     "storage": "512GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M19",
+     "answers": [
+      "Q02",
+      "F05",
+      "F08"
+     ],
+     "confidence": null,
+     "getUpto": 46550,
+     "observedBase": 11400,
+     "observedSelling": 11380,
+     "observedPayout": 11281,
+     "engineEquivalent": 20847,
+     "engineErrorVsObservedBase": 9447,
+     "customerPayout": 21999,
+     "allowedPayout": 12183,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       9820,
+       "measured",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:screen",
+       16285,
+       "measured",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:wifi",
+       12547,
+       "measured",
+       [
+        "F05"
+       ]
+      ],
+      [
+       "class:face",
+       9785,
+       "measured",
+       [
+        "F08"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 9639,
+     "excessPctOfCashifyPayout": 48.43,
+     "model": "iPhone 15",
+     "storage": "128GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M03",
+     "answers": [
+      "F05",
+      "F08"
+     ],
+     "confidence": "measured",
+     "getUpto": 42220,
+     "observedBase": 20020,
+     "observedSelling": 20000,
+     "observedPayout": 19901,
+     "engineEquivalent": 29463,
+     "engineErrorVsObservedBase": 9443,
+     "customerPayout": 31132,
+     "allowedPayout": 21493,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "class:wifi",
+       8752,
+       "measured",
+       [
+        "F05"
+       ]
+      ],
+      [
+       "class:face",
+       8390,
+       "measured",
+       [
+        "F08"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 9067,
+     "excessPctOfCashifyPayout": 37.39,
+     "model": "iPhone 15",
+     "storage": "128GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M08",
+     "answers": [
+      "D01",
+      "D04",
+      "D06"
+     ],
+     "confidence": "measured",
+     "getUpto": 42220,
+     "observedBase": 24370,
+     "observedSelling": 24350,
+     "observedPayout": 24251,
+     "engineEquivalent": 33377,
+     "engineErrorVsObservedBase": 9007,
+     "customerPayout": 35258,
+     "allowedPayout": 26191,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "class:screen",
+       18248,
+       "measured",
+       [
+        "D01",
+        "D04",
+        "D06"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 8969,
+     "excessPctOfCashifyPayout": 81.23,
+     "model": "iPhone 15",
+     "storage": "256GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M19",
+     "answers": [
+      "Q02",
+      "F05",
+      "F08"
+     ],
+     "confidence": null,
+     "getUpto": 44220,
+     "observedBase": 11160,
+     "observedSelling": 11140,
+     "observedPayout": 11041,
+     "engineEquivalent": 19804,
+     "engineErrorVsObservedBase": 8644,
+     "customerPayout": 20893,
+     "allowedPayout": 11924,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       8300,
+       "measured",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:screen",
+       16285,
+       "measured",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:wifi",
+       11919,
+       "measured",
+       [
+        "F05"
+       ]
+      ],
+      [
+       "class:face",
+       9295,
+       "measured",
+       [
+        "F08"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 8588,
+     "excessPctOfCashifyPayout": 32.71,
+     "model": "iPhone 15",
+     "storage": "256GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M08",
+     "answers": [
+      "D01",
+      "D04",
+      "D06"
+     ],
+     "confidence": "measured",
+     "getUpto": 44220,
+     "observedBase": 26370,
+     "observedSelling": 26350,
+     "observedPayout": 26251,
+     "engineEquivalent": 34958,
+     "engineErrorVsObservedBase": 8588,
+     "customerPayout": 36839,
+     "allowedPayout": 28251,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "class:screen",
+       18248,
+       "measured",
+       [
+        "D01",
+        "D04",
+        "D06"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 8559,
+     "excessPctOfCashifyPayout": 81.2,
+     "model": "iPhone 15",
+     "storage": "128GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M19",
+     "answers": [
+      "Q02",
+      "F05",
+      "F08"
+     ],
+     "confidence": null,
+     "getUpto": 42220,
+     "observedBase": 10660,
+     "observedSelling": 10640,
+     "observedPayout": 10541,
+     "engineEquivalent": 18908,
+     "engineErrorVsObservedBase": 8248,
+     "customerPayout": 19943,
+     "allowedPayout": 11384,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       8010,
+       "measured",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:screen",
+       16285,
+       "measured",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:wifi",
+       11380,
+       "measured",
+       [
+        "F05"
+       ]
+      ],
+      [
+       "class:face",
+       8874,
+       "measured",
+       [
+        "F08"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 8100,
+     "excessPctOfCashifyPayout": 28.34,
+     "model": "iPhone 15",
+     "storage": "512GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M08",
+     "answers": [
+      "D01",
+      "D04",
+      "D06"
+     ],
+     "confidence": "measured",
+     "getUpto": 46550,
+     "observedBase": 28700,
+     "observedSelling": 28680,
+     "observedPayout": 28581,
+     "engineEquivalent": 36800,
+     "engineErrorVsObservedBase": 8100,
+     "customerPayout": 38681,
+     "allowedPayout": 30581,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "class:screen",
+       18248,
+       "measured",
+       [
+        "D01",
+        "D04",
+        "D06"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 7726,
+     "excessPctOfCashifyPayout": 68.49,
+     "model": "iPhone 15",
+     "storage": "512GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::W01",
+     "answers": [
+      "F05",
+      "F08",
+      "F17",
+      "WARRANTY_NO"
+     ],
+     "confidence": "inferred",
+     "getUpto": 46550,
+     "observedBase": 11400,
+     "observedSelling": 11380,
+     "observedPayout": 11281,
+     "engineEquivalent": 18875,
+     "engineErrorVsObservedBase": 7475,
+     "customerPayout": 19909,
+     "allowedPayout": 12183,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       9820,
+       "measured",
+       [
+        "warranty=No"
+       ]
+      ],
+      [
+       "class:wifi",
+       12547,
+       "measured",
+       [
+        "F05"
+       ]
+      ],
+      [
+       "class:face",
+       9785,
+       "measured",
+       [
+        "F08"
+       ]
+      ],
+      [
+       "class:batt",
+       3755,
+       "measured",
+       [
+        "F17"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 7500,
+     "excessPctOfCashifyPayout": 12.13,
+     "model": "iPhone 18 Pro Max",
+     "storage": "2TB",
+     "date": "2026-10-23",
+     "source": "iPhone 18 Pro Max.zip::all_variants_pricing_data.json::M17",
+     "answers": [
+      "Q02",
+      "F08"
+     ],
+     "confidence": "inferred",
+     "getUpto": 165000,
+     "observedBase": 61960,
+     "observedSelling": 61940,
+     "observedPayout": 61841,
+     "engineEquivalent": 69460,
+     "engineErrorVsObservedBase": 7500,
+     "customerPayout": 71341,
+     "allowedPayout": 63841,
+     "usedExistingEngine": false,
+     "breakdown": [
+      [
+       "age",
+       40041,
+       "measured",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:screen",
+       23535,
+       "measured",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:face",
+       31964,
+       "measured",
+       [
+        "F08"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 7380,
+     "excessPctOfCashifyPayout": 14.56,
+     "model": "iPhone 18 Pro Max",
+     "storage": "1TB",
+     "date": "2026-10-23",
+     "source": "iPhone 18 Pro Max.zip::all_variants_pricing_data.json::M17",
+     "answers": [
+      "Q02",
+      "F08"
+     ],
+     "confidence": "inferred",
+     "getUpto": 145000,
+     "observedBase": 50820,
+     "observedSelling": 50800,
+     "observedPayout": 50701,
+     "engineEquivalent": 58200,
+     "engineErrorVsObservedBase": 7380,
+     "customerPayout": 60081,
+     "allowedPayout": 52701,
+     "usedExistingEngine": false,
+     "breakdown": [
+      [
+       "age",
+       35180,
+       "measured",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:screen",
+       23535,
+       "measured",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:face",
+       28090,
+       "measured",
+       [
+        "F08"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 7320,
+     "excessPctOfCashifyPayout": 15.83,
+     "model": "iPhone 18 Pro Max",
+     "storage": "512GB",
+     "date": "2026-10-23",
+     "source": "iPhone 18 Pro Max.zip::all_variants_pricing_data.json::M17",
+     "answers": [
+      "Q02",
+      "F08"
+     ],
+     "confidence": "inferred",
+     "getUpto": 137000,
+     "observedBase": 46360,
+     "observedSelling": 46340,
+     "observedPayout": 46241,
+     "engineEquivalent": 53680,
+     "engineErrorVsObservedBase": 7320,
+     "customerPayout": 55561,
+     "allowedPayout": 48241,
+     "usedExistingEngine": false,
+     "breakdown": [
+      [
+       "age",
+       33240,
+       "measured",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:screen",
+       23535,
+       "measured",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:face",
+       26540,
+       "measured",
+       [
+        "F08"
+       ]
+      ]
+     ]
     }
-   }
+   ]
   },
   "p2": {
-   "shippedScope / inspections": {
-    "quotes": 410,
-    "breaches": 0,
-    "breachPct": 0,
-    "over100": 0,
-    "over1000": 0,
-    "over1pctOfCashifyPayout": 0,
-    "over3pctOfCashifyPayout": 0,
-    "medianExtraPct": 0,
-    "p95ExtraPct": 0,
-    "worstBreach": null
-   },
-   "existingAsShipped / no coupon": {
-    "quotes": 2182,
-    "breaches": 1028,
-    "breachPct": 47.11,
-    "over100": 797,
-    "over1000": 682,
-    "over1pctOfCashifyPayout": 724,
-    "over3pctOfCashifyPayout": 673,
-    "medianExtraPct": 2.15,
-    "p95ExtraPct": 132.69,
-    "worstBreach": {
-     "over": 62249,
-     "source": "Cashify_iPhone18_Pro_Pricing.zip::all_variants_pricing_data.json::W01",
-     "model": "iPhone 18 Pro",
-     "storage": "2TB",
-     "answers": "F05,F08,F17,WARRANTY_NO",
-     "payout": 101110,
-     "trueCashifyPayout": 36861,
-     "allowed": 38861
+   "scenarios": {
+    "existingAsShipped / no coupon": {
+     "quotes": 2182,
+     "priced": 2182,
+     "inspection": 0,
+     "inspectionPct": 0,
+     "servedByExistingEngine": 0,
+     "estimated": {
+      "breaches": 1306,
+      "breachPct": 59.85
+     },
+     "observed": {
+      "breaches": 1028,
+      "breachPct": 47.11,
+      "over100": 797,
+      "over1000": 682,
+      "over1pctOfCashifyPayout": 724,
+      "over3pctOfCashifyPayout": 673,
+      "medianExtraPct": 2.15,
+      "p95ExtraPct": 132.69,
+      "p99ExtraPct": 220.71,
+      "maxExtraPct": 301.73,
+      "medianExcessRupees": 5853,
+      "p95ExcessRupees": 29030,
+      "maxExcessRupees": 62249
+     }
+    },
+    "existingAsShipped / coupon claimed": {
+     "quotes": 2182,
+     "priced": 2182,
+     "inspection": 0,
+     "inspectionPct": 0,
+     "servedByExistingEngine": 0,
+     "estimated": {
+      "breaches": 1646,
+      "breachPct": 75.44
+     },
+     "observed": {
+      "breaches": 1122,
+      "breachPct": 51.42,
+      "over100": 1090,
+      "over1000": 712,
+      "over1pctOfCashifyPayout": 770,
+      "over3pctOfCashifyPayout": 710,
+      "medianExtraPct": 2.65,
+      "p95ExtraPct": 135.54,
+      "p99ExtraPct": 223.73,
+      "maxExtraPct": 312.54,
+      "medianExcessRupees": 5200,
+      "p95ExcessRupees": 28551,
+      "maxExcessRupees": 62548
+     }
+    },
+    "existingCeiling / no coupon": {
+     "quotes": 2182,
+     "priced": 2168,
+     "inspection": 14,
+     "inspectionPct": 0.64,
+     "servedByExistingEngine": 0,
+     "estimated": {
+      "breaches": 0,
+      "breachPct": 0
+     },
+     "observed": {
+      "breaches": 820,
+      "breachPct": 37.82,
+      "over100": 796,
+      "over1000": 682,
+      "over1pctOfCashifyPayout": 723,
+      "over3pctOfCashifyPayout": 671,
+      "medianExtraPct": 2.18,
+      "p95ExtraPct": 132.77,
+      "p99ExtraPct": 220.71,
+      "maxExtraPct": 301.73,
+      "medianExcessRupees": 10365,
+      "p95ExcessRupees": 29775,
+      "maxExcessRupees": 62229
+     }
+    },
+    "existingCeiling / coupon claimed": {
+     "quotes": 2182,
+     "priced": 2168,
+     "inspection": 14,
+     "inspectionPct": 0.64,
+     "servedByExistingEngine": 0,
+     "estimated": {
+      "breaches": 0,
+      "breachPct": 0
+     },
+     "observed": {
+      "breaches": 848,
+      "breachPct": 39.11,
+      "over100": 805,
+      "over1000": 687,
+      "over1pctOfCashifyPayout": 737,
+      "over3pctOfCashifyPayout": 677,
+      "medianExtraPct": 2.28,
+      "p95ExtraPct": 135.74,
+      "p99ExtraPct": 223.73,
+      "maxExtraPct": 305.07,
+      "medianExcessRupees": 9834,
+      "p95ExcessRupees": 29664,
+      "maxExcessRupees": 62229
+     }
+    },
+    "evidenceCeiling / no coupon": {
+     "quotes": 2182,
+     "priced": 2137,
+     "inspection": 45,
+     "inspectionPct": 2.06,
+     "servedByExistingEngine": 0,
+     "estimated": {
+      "breaches": 0,
+      "breachPct": 0
+     },
+     "observed": {
+      "breaches": 293,
+      "breachPct": 13.71,
+      "over100": 105,
+      "over1000": 40,
+      "over1pctOfCashifyPayout": 47,
+      "over3pctOfCashifyPayout": 45,
+      "medianExtraPct": 3.52,
+      "p95ExtraPct": 6.25,
+      "p99ExtraPct": 16.34,
+      "maxExtraPct": 72.57,
+      "medianExcessRupees": 30,
+      "p95ExcessRupees": 2531,
+      "maxExcessRupees": 9435
+     }
+    },
+    "evidenceCeiling / coupon claimed": {
+     "quotes": 2182,
+     "priced": 2137,
+     "inspection": 45,
+     "inspectionPct": 2.06,
+     "servedByExistingEngine": 0,
+     "estimated": {
+      "breaches": 0,
+      "breachPct": 0
+     },
+     "observed": {
+      "breaches": 367,
+      "breachPct": 17.17,
+      "over100": 116,
+      "over1000": 44,
+      "over1pctOfCashifyPayout": 55,
+      "over3pctOfCashifyPayout": 46,
+      "medianExtraPct": 3.63,
+      "p95ExtraPct": 7.92,
+      "p99ExtraPct": 17.91,
+      "maxExtraPct": 74.62,
+      "medianExcessRupees": 30,
+      "p95ExcessRupees": 2506,
+      "maxExcessRupees": 9734
+     }
+    },
+    "shippedScope / no coupon": {
+     "quotes": 2182,
+     "priced": 1771,
+     "inspection": 411,
+     "inspectionPct": 18.84,
+     "servedByExistingEngine": 97,
+     "estimated": {
+      "breaches": 0,
+      "breachPct": 0
+     },
+     "observed": {
+      "breaches": 271,
+      "breachPct": 15.3,
+      "over100": 97,
+      "over1000": 36,
+      "over1pctOfCashifyPayout": 38,
+      "over3pctOfCashifyPayout": 38,
+      "medianExtraPct": 3.18,
+      "p95ExtraPct": 6.2,
+      "p99ExtraPct": 68.82,
+      "maxExtraPct": 183.42,
+      "medianExcessRupees": 30,
+      "p95ExcessRupees": 9840,
+      "maxExcessRupees": 19790
+     }
+    },
+    "shippedScope / coupon claimed": {
+     "quotes": 2182,
+     "priced": 1771,
+     "inspection": 411,
+     "inspectionPct": 18.84,
+     "servedByExistingEngine": 97,
+     "estimated": {
+      "breaches": 0,
+      "breachPct": 0
+     },
+     "observed": {
+      "breaches": 323,
+      "breachPct": 18.24,
+      "over100": 105,
+      "over1000": 37,
+      "over1pctOfCashifyPayout": 43,
+      "over3pctOfCashifyPayout": 38,
+      "medianExtraPct": 3.19,
+      "p95ExtraPct": 7.51,
+      "p99ExtraPct": 69.11,
+      "maxExtraPct": 184.89,
+      "medianExcessRupees": 30,
+      "p95ExcessRupees": 9268,
+      "maxExcessRupees": 19955
+     }
     }
    },
-   "existingAsShipped / coupon claimed": {
-    "quotes": 2182,
-    "breaches": 1122,
-    "breachPct": 51.42,
-    "over100": 1090,
-    "over1000": 712,
-    "over1pctOfCashifyPayout": 770,
-    "over3pctOfCashifyPayout": 710,
-    "medianExtraPct": 2.65,
-    "p95ExtraPct": 135.54,
-    "worstBreach": {
-     "over": 62548,
-     "source": "Cashify_iPhone18_Pro_Pricing.zip::all_variants_pricing_data.json::W01",
-     "model": "iPhone 18 Pro",
-     "storage": "2TB",
-     "answers": "F05,F08,F17,WARRANTY_NO",
-     "payout": 101409,
-     "trueCashifyPayout": 36861,
-     "allowed": 38861
-    }
-   },
-   "existingWithCeiling / no coupon": {
-    "quotes": 2182,
-    "breaches": 820,
-    "breachPct": 37.58,
-    "over100": 796,
-    "over1000": 682,
-    "over1pctOfCashifyPayout": 723,
-    "over3pctOfCashifyPayout": 671,
-    "medianExtraPct": 2.13,
-    "p95ExtraPct": 132.69,
-    "worstBreach": {
-     "over": 62229,
-     "source": "Cashify_iPhone18_Pro_Pricing.zip::all_variants_pricing_data.json::W01",
-     "model": "iPhone 18 Pro",
-     "storage": "2TB",
-     "answers": "F05,F08,F17,WARRANTY_NO",
-     "payout": 101090,
-     "trueCashifyPayout": 36861,
-     "allowed": 38861
-    }
-   },
-   "existingWithCeiling / coupon claimed": {
-    "quotes": 2182,
-    "breaches": 848,
-    "breachPct": 38.86,
-    "over100": 805,
-    "over1000": 687,
-    "over1pctOfCashifyPayout": 737,
-    "over3pctOfCashifyPayout": 677,
-    "medianExtraPct": 2.25,
-    "p95ExtraPct": 135.54,
-    "worstBreach": {
-     "over": 62229,
-     "source": "Cashify_iPhone18_Pro_Pricing.zip::all_variants_pricing_data.json::W01",
-     "model": "iPhone 18 Pro",
-     "storage": "2TB",
-     "answers": "F05,F08,F17,WARRANTY_NO",
-     "payout": 101090,
-     "trueCashifyPayout": 36861,
-     "allowed": 38861
-    }
-   },
-   "evidenceWithCeiling / no coupon": {
-    "quotes": 2137,
-    "breaches": 293,
-    "breachPct": 13.71,
-    "over100": 105,
-    "over1000": 40,
-    "over1pctOfCashifyPayout": 47,
-    "over3pctOfCashifyPayout": 45,
-    "medianExtraPct": 3.52,
-    "p95ExtraPct": 6.25,
-    "worstBreach": {
-     "over": 9435,
-     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M18",
+   "worstShipped": [
+    {
+     "excessRupees": 19790,
+     "excessPctOfCashifyPayout": 175.43,
      "model": "iPhone 15",
      "storage": "512GB",
-     "answers": "Q02,F17",
-     "payout": 25214,
-     "trueCashifyPayout": 14611,
-     "allowed": 15779
-    }
-   },
-   "evidenceWithCeiling / coupon claimed": {
-    "quotes": 2137,
-    "breaches": 367,
-    "breachPct": 17.17,
-    "over100": 116,
-    "over1000": 44,
-    "over1pctOfCashifyPayout": 55,
-    "over3pctOfCashifyPayout": 46,
-    "medianExtraPct": 3.63,
-    "p95ExtraPct": 7.92,
-    "worstBreach": {
-     "over": 9734,
-     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M18",
-     "model": "iPhone 15",
-     "storage": "512GB",
-     "answers": "Q02,F17",
-     "payout": 25513,
-     "trueCashifyPayout": 14611,
-     "allowed": 15779
-    }
-   },
-   "shippedScope / no coupon": {
-    "quotes": 1772,
-    "breaches": 271,
-    "breachPct": 15.29,
-    "over100": 97,
-    "over1000": 36,
-    "over1pctOfCashifyPayout": 38,
-    "over3pctOfCashifyPayout": 38,
-    "medianExtraPct": 3.18,
-    "p95ExtraPct": 6.2,
-    "worstBreach": {
-     "over": 19790,
+     "date": "2026-10-24",
      "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M16",
+     "answers": [
+      "Q02",
+      "F05"
+     ],
+     "confidence": "inferred",
+     "getUpto": 46550,
+     "observedBase": 11400,
+     "observedSelling": 11380,
+     "observedPayout": 11281,
+     "engineEquivalent": 30257,
+     "engineErrorVsObservedBase": 18857,
+     "customerPayout": 31973,
+     "allowedPayout": 12183,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       8638,
+       "inferred",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:screen",
+       10831,
+       "measured",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:wifi",
+       11722,
+       "measured",
+       [
+        "F05"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 18445,
+     "excessPctOfCashifyPayout": 167.06,
      "model": "iPhone 15",
-     "storage": "512GB",
-     "answers": "Q02,F05",
-     "payout": 31973,
-     "trueCashifyPayout": 11281,
-     "allowed": 12183
-    }
-   },
-   "shippedScope / coupon claimed": {
-    "quotes": 1772,
-    "breaches": 323,
-    "breachPct": 18.23,
-    "over100": 105,
-    "over1000": 37,
-    "over1pctOfCashifyPayout": 43,
-    "over3pctOfCashifyPayout": 38,
-    "medianExtraPct": 3.19,
-    "p95ExtraPct": 7.51,
-    "worstBreach": {
-     "over": 19955,
+     "storage": "256GB",
+     "date": "2026-10-24",
      "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M16",
+     "answers": [
+      "Q02",
+      "F05"
+     ],
+     "confidence": "inferred",
+     "getUpto": 44220,
+     "observedBase": 11160,
+     "observedSelling": 11140,
+     "observedPayout": 11041,
+     "engineEquivalent": 28743,
+     "engineErrorVsObservedBase": 17583,
+     "customerPayout": 30369,
+     "allowedPayout": 11924,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       8799,
+       "inferred",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:screen",
+       10698,
+       "measured",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:wifi",
+       10554,
+       "measured",
+       [
+        "F05"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 17607,
+     "excessPctOfCashifyPayout": 167.03,
+     "model": "iPhone 15",
+     "storage": "128GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M16",
+     "answers": [
+      "Q02",
+      "F05"
+     ],
+     "confidence": "inferred",
+     "getUpto": 42220,
+     "observedBase": 10660,
+     "observedSelling": 10640,
+     "observedPayout": 10541,
+     "engineEquivalent": 27443,
+     "engineErrorVsObservedBase": 16783,
+     "customerPayout": 28991,
+     "allowedPayout": 11384,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       8238,
+       "inferred",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:screen",
+       19973,
+       "measured",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:wifi",
+       12642,
+       "measured",
+       [
+        "F05"
+       ]
+      ],
+      [
+       "floor",
+       -9184,
+       "measured",
+       []
+      ]
+     ]
+    },
+    {
+     "excessRupees": 17037,
+     "excessPctOfCashifyPayout": 116.6,
      "model": "iPhone 15",
      "storage": "512GB",
-     "answers": "Q02,F05",
-     "payout": 32138,
-     "trueCashifyPayout": 11281,
-     "allowed": 12183
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M18",
+     "answers": [
+      "Q02",
+      "F17"
+     ],
+     "confidence": "inferred",
+     "getUpto": 46550,
+     "observedBase": 14730,
+     "observedSelling": 14710,
+     "observedPayout": 14611,
+     "engineEquivalent": 31052,
+     "engineErrorVsObservedBase": 16322,
+     "customerPayout": 32816,
+     "allowedPayout": 15779,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       8638,
+       "inferred",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:screen",
+       10831,
+       "measured",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:batt",
+       3198,
+       "measured",
+       [
+        "F17"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 15724,
+     "excessPctOfCashifyPayout": 109.95,
+     "model": "iPhone 15",
+     "storage": "256GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M18",
+     "answers": [
+      "Q02",
+      "F17"
+     ],
+     "confidence": "inferred",
+     "getUpto": 44220,
+     "observedBase": 14420,
+     "observedSelling": 14400,
+     "observedPayout": 14301,
+     "engineEquivalent": 29498,
+     "engineErrorVsObservedBase": 15078,
+     "customerPayout": 31169,
+     "allowedPayout": 15445,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       8799,
+       "inferred",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:screen",
+       10698,
+       "measured",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:batt",
+       3713,
+       "measured",
+       [
+        "F17"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 15023,
+     "excessPctOfCashifyPayout": 110.13,
+     "model": "iPhone 15",
+     "storage": "128GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M18",
+     "answers": [
+      "Q02",
+      "F17"
+     ],
+     "confidence": "inferred",
+     "getUpto": 42220,
+     "observedBase": 13760,
+     "observedSelling": 13740,
+     "observedPayout": 13641,
+     "engineEquivalent": 28164,
+     "engineErrorVsObservedBase": 14404,
+     "customerPayout": 29755,
+     "allowedPayout": 14732,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       8238,
+       "inferred",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:screen",
+       19973,
+       "measured",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:batt",
+       2600,
+       "measured",
+       [
+        "F17"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 14750,
+     "excessPctOfCashifyPayout": 130.75,
+     "model": "iPhone 15",
+     "storage": "512GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M17",
+     "answers": [
+      "Q02",
+      "F08"
+     ],
+     "confidence": "inferred",
+     "getUpto": 46550,
+     "observedBase": 11400,
+     "observedSelling": 11380,
+     "observedPayout": 11281,
+     "engineEquivalent": 25502,
+     "engineErrorVsObservedBase": 14102,
+     "customerPayout": 26933,
+     "allowedPayout": 12183,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       8638,
+       "inferred",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:screen",
+       10831,
+       "measured",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:face",
+       8758,
+       "measured",
+       [
+        "F08"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 13657,
+     "excessPctOfCashifyPayout": 123.69,
+     "model": "iPhone 15",
+     "storage": "256GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M17",
+     "answers": [
+      "Q02",
+      "F08"
+     ],
+     "confidence": "inferred",
+     "getUpto": 44220,
+     "observedBase": 11160,
+     "observedSelling": 11140,
+     "observedPayout": 11041,
+     "engineEquivalent": 24226,
+     "engineErrorVsObservedBase": 13066,
+     "customerPayout": 25581,
+     "allowedPayout": 11924,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       8799,
+       "inferred",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:screen",
+       10698,
+       "measured",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:face",
+       8730,
+       "measured",
+       [
+        "F08"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 13067,
+     "excessPctOfCashifyPayout": 62.64,
+     "model": "iPhone 15",
+     "storage": "512GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M14",
+     "answers": [
+      "P01",
+      "S01"
+     ],
+     "confidence": "inferred",
+     "getUpto": 46550,
+     "observedBase": 20980,
+     "observedSelling": 20960,
+     "observedPayout": 20861,
+     "engineEquivalent": 33715,
+     "engineErrorVsObservedBase": 12735,
+     "customerPayout": 35596,
+     "allowedPayout": 22529,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       8638,
+       "inferred",
+       [
+        "P01",
+        "S01"
+       ]
+      ],
+      [
+       "class:screen",
+       12752,
+       "measured",
+       [
+        "S01"
+       ]
+      ],
+      [
+       "class:body",
+       2993,
+       "measured",
+       [
+        "P01"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 13035,
+     "excessPctOfCashifyPayout": 123.66,
+     "model": "iPhone 15",
+     "storage": "128GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M17",
+     "answers": [
+      "Q02",
+      "F08"
+     ],
+     "confidence": "inferred",
+     "getUpto": 42220,
+     "observedBase": 10660,
+     "observedSelling": 10640,
+     "observedPayout": 10541,
+     "engineEquivalent": 23130,
+     "engineErrorVsObservedBase": 12470,
+     "customerPayout": 24419,
+     "allowedPayout": 11384,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       8238,
+       "inferred",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:screen",
+       19973,
+       "measured",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:face",
+       9446,
+       "measured",
+       [
+        "F08"
+       ]
+      ],
+      [
+       "floor",
+       -5989,
+       "measured",
+       []
+      ]
+     ]
+    },
+    {
+     "excessRupees": 12496,
+     "excessPctOfCashifyPayout": 68.09,
+     "model": "iPhone 15",
+     "storage": "128GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M14",
+     "answers": [
+      "P01",
+      "S01"
+     ],
+     "confidence": "inferred",
+     "getUpto": 42220,
+     "observedBase": 18470,
+     "observedSelling": 18450,
+     "observedPayout": 18351,
+     "engineEquivalent": 30579,
+     "engineErrorVsObservedBase": 12109,
+     "customerPayout": 32315,
+     "allowedPayout": 19819,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       8238,
+       "inferred",
+       [
+        "P01",
+        "S01"
+       ]
+      ],
+      [
+       "class:screen",
+       12296,
+       "measured",
+       [
+        "S01"
+       ]
+      ],
+      [
+       "class:body",
+       3454,
+       "measured",
+       [
+        "P01"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 12195,
+     "excessPctOfCashifyPayout": 60.82,
+     "model": "iPhone 15",
+     "storage": "256GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M14",
+     "answers": [
+      "P01",
+      "S01"
+     ],
+     "confidence": "inferred",
+     "getUpto": 44220,
+     "observedBase": 20170,
+     "observedSelling": 20150,
+     "observedPayout": 20051,
+     "engineEquivalent": 32027,
+     "engineErrorVsObservedBase": 11857,
+     "customerPayout": 33850,
+     "allowedPayout": 21655,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       8799,
+       "inferred",
+       [
+        "P01",
+        "S01"
+       ]
+      ],
+      [
+       "class:screen",
+       17106,
+       "measured",
+       [
+        "S01"
+       ]
+      ],
+      [
+       "class:body",
+       2892,
+       "measured",
+       [
+        "P01"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 10093,
+     "excessPctOfCashifyPayout": 48.41,
+     "model": "iPhone 15",
+     "storage": "256GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M03",
+     "answers": [
+      "F05",
+      "F08"
+     ],
+     "confidence": "measured",
+     "getUpto": 44220,
+     "observedBase": 20970,
+     "observedSelling": 20950,
+     "observedPayout": 20851,
+     "engineEquivalent": 30859,
+     "engineErrorVsObservedBase": 9889,
+     "customerPayout": 32612,
+     "allowedPayout": 22519,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "class:wifi",
+       10554,
+       "measured",
+       [
+        "F05"
+       ]
+      ],
+      [
+       "class:face",
+       8730,
+       "measured",
+       [
+        "F08"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 9840,
+     "excessPctOfCashifyPayout": 43.38,
+     "model": "iPhone 15",
+     "storage": "512GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M03",
+     "answers": [
+      "F05",
+      "F08"
+     ],
+     "confidence": "measured",
+     "getUpto": 46550,
+     "observedBase": 22800,
+     "observedSelling": 22780,
+     "observedPayout": 22681,
+     "engineEquivalent": 32485,
+     "engineErrorVsObservedBase": 9685,
+     "customerPayout": 34335,
+     "allowedPayout": 24495,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "class:wifi",
+       11722,
+       "measured",
+       [
+        "F05"
+       ]
+      ],
+      [
+       "class:face",
+       8758,
+       "measured",
+       [
+        "F08"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 9816,
+     "excessPctOfCashifyPayout": 87.01,
+     "model": "iPhone 15",
+     "storage": "512GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M19",
+     "answers": [
+      "Q02",
+      "F05",
+      "F08"
+     ],
+     "confidence": "inferred",
+     "getUpto": 46550,
+     "observedBase": 11400,
+     "observedSelling": 11380,
+     "observedPayout": 11281,
+     "engineEquivalent": 20847,
+     "engineErrorVsObservedBase": 9447,
+     "customerPayout": 21999,
+     "allowedPayout": 12183,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       8638,
+       "inferred",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:screen",
+       10831,
+       "measured",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:wifi",
+       11722,
+       "measured",
+       [
+        "F05"
+       ]
+      ],
+      [
+       "class:face",
+       8758,
+       "measured",
+       [
+        "F08"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 9639,
+     "excessPctOfCashifyPayout": 48.43,
+     "model": "iPhone 15",
+     "storage": "128GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M03",
+     "answers": [
+      "F05",
+      "F08"
+     ],
+     "confidence": "measured",
+     "getUpto": 42220,
+     "observedBase": 20020,
+     "observedSelling": 20000,
+     "observedPayout": 19901,
+     "engineEquivalent": 29463,
+     "engineErrorVsObservedBase": 9443,
+     "customerPayout": 31132,
+     "allowedPayout": 21493,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "class:wifi",
+       12642,
+       "measured",
+       [
+        "F05"
+       ]
+      ],
+      [
+       "class:face",
+       9446,
+       "measured",
+       [
+        "F08"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 9067,
+     "excessPctOfCashifyPayout": 37.39,
+     "model": "iPhone 15",
+     "storage": "128GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M08",
+     "answers": [
+      "D01",
+      "D04",
+      "D06"
+     ],
+     "confidence": "measured",
+     "getUpto": 42220,
+     "observedBase": 24370,
+     "observedSelling": 24350,
+     "observedPayout": 24251,
+     "engineEquivalent": 33377,
+     "engineErrorVsObservedBase": 9007,
+     "customerPayout": 35258,
+     "allowedPayout": 26191,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "class:screen",
+       17652,
+       "measured",
+       [
+        "D01",
+        "D04",
+        "D06"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 8969,
+     "excessPctOfCashifyPayout": 81.23,
+     "model": "iPhone 15",
+     "storage": "256GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M19",
+     "answers": [
+      "Q02",
+      "F05",
+      "F08"
+     ],
+     "confidence": "inferred",
+     "getUpto": 44220,
+     "observedBase": 11160,
+     "observedSelling": 11140,
+     "observedPayout": 11041,
+     "engineEquivalent": 19804,
+     "engineErrorVsObservedBase": 8644,
+     "customerPayout": 20893,
+     "allowedPayout": 11924,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       8799,
+       "inferred",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:screen",
+       10698,
+       "measured",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:wifi",
+       10554,
+       "measured",
+       [
+        "F05"
+       ]
+      ],
+      [
+       "class:face",
+       8730,
+       "measured",
+       [
+        "F08"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 8588,
+     "excessPctOfCashifyPayout": 32.71,
+     "model": "iPhone 15",
+     "storage": "256GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M08",
+     "answers": [
+      "D01",
+      "D04",
+      "D06"
+     ],
+     "confidence": "measured",
+     "getUpto": 44220,
+     "observedBase": 26370,
+     "observedSelling": 26350,
+     "observedPayout": 26251,
+     "engineEquivalent": 34958,
+     "engineErrorVsObservedBase": 8588,
+     "customerPayout": 36839,
+     "allowedPayout": 28251,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "class:screen",
+       17882,
+       "measured",
+       [
+        "D01",
+        "D04",
+        "D06"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 8559,
+     "excessPctOfCashifyPayout": 81.2,
+     "model": "iPhone 15",
+     "storage": "128GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M19",
+     "answers": [
+      "Q02",
+      "F05",
+      "F08"
+     ],
+     "confidence": "inferred",
+     "getUpto": 42220,
+     "observedBase": 10660,
+     "observedSelling": 10640,
+     "observedPayout": 10541,
+     "engineEquivalent": 18908,
+     "engineErrorVsObservedBase": 8248,
+     "customerPayout": 19943,
+     "allowedPayout": 11384,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       8238,
+       "inferred",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:screen",
+       19973,
+       "measured",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:wifi",
+       12642,
+       "measured",
+       [
+        "F05"
+       ]
+      ],
+      [
+       "class:face",
+       9446,
+       "measured",
+       [
+        "F08"
+       ]
+      ],
+      [
+       "floor",
+       -18631,
+       "measured",
+       []
+      ]
+     ]
+    },
+    {
+     "excessRupees": 8100,
+     "excessPctOfCashifyPayout": 28.34,
+     "model": "iPhone 15",
+     "storage": "512GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M08",
+     "answers": [
+      "D01",
+      "D04",
+      "D06"
+     ],
+     "confidence": "measured",
+     "getUpto": 46550,
+     "observedBase": 28700,
+     "observedSelling": 28680,
+     "observedPayout": 28581,
+     "engineEquivalent": 36800,
+     "engineErrorVsObservedBase": 8100,
+     "customerPayout": 38681,
+     "allowedPayout": 30581,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "class:screen",
+       17850,
+       "measured",
+       [
+        "D01",
+        "D04",
+        "D06"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 7726,
+     "excessPctOfCashifyPayout": 68.49,
+     "model": "iPhone 15",
+     "storage": "512GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::W01",
+     "answers": [
+      "F05",
+      "F08",
+      "F17",
+      "WARRANTY_NO"
+     ],
+     "confidence": "inferred",
+     "getUpto": 46550,
+     "observedBase": 11400,
+     "observedSelling": 11380,
+     "observedPayout": 11281,
+     "engineEquivalent": 18875,
+     "engineErrorVsObservedBase": 7475,
+     "customerPayout": 19909,
+     "allowedPayout": 12183,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       8638,
+       "inferred",
+       [
+        "warranty=No"
+       ]
+      ],
+      [
+       "class:wifi",
+       11722,
+       "measured",
+       [
+        "F05"
+       ]
+      ],
+      [
+       "class:face",
+       8758,
+       "measured",
+       [
+        "F08"
+       ]
+      ],
+      [
+       "class:batt",
+       3198,
+       "measured",
+       [
+        "F17"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 6983,
+     "excessPctOfCashifyPayout": 63.25,
+     "model": "iPhone 15",
+     "storage": "256GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::W01",
+     "answers": [
+      "F05",
+      "F08",
+      "F17",
+      "WARRANTY_NO"
+     ],
+     "confidence": "inferred",
+     "getUpto": 44220,
+     "observedBase": 11160,
+     "observedSelling": 11140,
+     "observedPayout": 11041,
+     "engineEquivalent": 17930,
+     "engineErrorVsObservedBase": 6770,
+     "customerPayout": 18907,
+     "allowedPayout": 11924,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       8799,
+       "inferred",
+       [
+        "warranty=No"
+       ]
+      ],
+      [
+       "class:wifi",
+       10554,
+       "measured",
+       [
+        "F05"
+       ]
+      ],
+      [
+       "class:face",
+       8730,
+       "measured",
+       [
+        "F08"
+       ]
+      ],
+      [
+       "class:batt",
+       3713,
+       "measured",
+       [
+        "F17"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 6663,
+     "excessPctOfCashifyPayout": 63.21,
+     "model": "iPhone 15",
+     "storage": "128GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::W01",
+     "answers": [
+      "F05",
+      "F08",
+      "F17",
+      "WARRANTY_NO"
+     ],
+     "confidence": "inferred",
+     "getUpto": 42220,
+     "observedBase": 10660,
+     "observedSelling": 10640,
+     "observedPayout": 10541,
+     "engineEquivalent": 17119,
+     "engineErrorVsObservedBase": 6459,
+     "customerPayout": 18047,
+     "allowedPayout": 11384,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       8238,
+       "inferred",
+       [
+        "warranty=No"
+       ]
+      ],
+      [
+       "class:wifi",
+       12642,
+       "measured",
+       [
+        "F05"
+       ]
+      ],
+      [
+       "class:face",
+       9446,
+       "measured",
+       [
+        "F08"
+       ]
+      ],
+      [
+       "class:batt",
+       2600,
+       "measured",
+       [
+        "F17"
+       ]
+      ],
+      [
+       "floor",
+       -1258,
+       "measured",
+       []
+      ]
+     ]
+    },
+    {
+     "excessRupees": 5724,
+     "excessPctOfCashifyPayout": 50.74,
+     "model": "iPhone 15",
+     "storage": "512GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M15",
+     "answers": [
+      "Q02",
+      "F05",
+      "F08",
+      "F17"
+     ],
+     "confidence": "inferred",
+     "getUpto": 46550,
+     "observedBase": 11400,
+     "observedSelling": 11380,
+     "observedPayout": 11281,
+     "engineEquivalent": 16987,
+     "engineErrorVsObservedBase": 5587,
+     "customerPayout": 17907,
+     "allowedPayout": 12183,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       8638,
+       "inferred",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:screen",
+       10831,
+       "measured",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:wifi",
+       11722,
+       "measured",
+       [
+        "F05"
+       ]
+      ],
+      [
+       "class:face",
+       8758,
+       "measured",
+       [
+        "F08"
+       ]
+      ],
+      [
+       "class:batt",
+       3198,
+       "measured",
+       [
+        "F17"
+       ]
+      ]
+     ]
     }
-   }
+   ]
   },
   "p3": {
-   "shippedScope / inspections": {
-    "quotes": 339,
-    "breaches": 0,
-    "breachPct": 0,
-    "over100": 0,
-    "over1000": 0,
-    "over1pctOfCashifyPayout": 0,
-    "over3pctOfCashifyPayout": 0,
-    "medianExtraPct": 0,
-    "p95ExtraPct": 0,
-    "worstBreach": null
-   },
-   "existingAsShipped / no coupon": {
-    "quotes": 1157,
-    "breaches": 535,
-    "breachPct": 46.24,
-    "over100": 364,
-    "over1000": 337,
-    "over1pctOfCashifyPayout": 348,
-    "over3pctOfCashifyPayout": 332,
-    "medianExtraPct": 1.26,
-    "p95ExtraPct": 155.47,
-    "worstBreach": {
-     "over": 62249,
-     "source": "Cashify_iPhone18_Pro_Pricing.zip::all_variants_pricing_data.json::W01",
-     "model": "iPhone 18 Pro",
-     "storage": "2TB",
-     "answers": "F05,F08,F17,WARRANTY_NO",
-     "payout": 101110,
-     "trueCashifyPayout": 36861,
-     "allowed": 38861
+   "scenarios": {
+    "existingAsShipped / no coupon": {
+     "quotes": 1157,
+     "priced": 1157,
+     "inspection": 0,
+     "inspectionPct": 0,
+     "servedByExistingEngine": 0,
+     "estimated": {
+      "breaches": 701,
+      "breachPct": 60.59
+     },
+     "observed": {
+      "breaches": 535,
+      "breachPct": 46.24,
+      "over100": 364,
+      "over1000": 337,
+      "over1pctOfCashifyPayout": 348,
+      "over3pctOfCashifyPayout": 332,
+      "medianExtraPct": 1.26,
+      "p95ExtraPct": 155.47,
+      "p99ExtraPct": 220.71,
+      "maxExtraPct": 300.9,
+      "medianExcessRupees": 5650,
+      "p95ExcessRupees": 27465,
+      "maxExcessRupees": 62249
+     }
+    },
+    "existingAsShipped / coupon claimed": {
+     "quotes": 1157,
+     "priced": 1157,
+     "inspection": 0,
+     "inspectionPct": 0,
+     "servedByExistingEngine": 0,
+     "estimated": {
+      "breaches": 891,
+      "breachPct": 77.01
+     },
+     "observed": {
+      "breaches": 577,
+      "breachPct": 49.87,
+      "over100": 570,
+      "over1000": 346,
+      "over1pctOfCashifyPayout": 361,
+      "over3pctOfCashifyPayout": 351,
+      "medianExtraPct": 1.49,
+      "p95ExtraPct": 157.51,
+      "p99ExtraPct": 223.73,
+      "maxExtraPct": 303.52,
+      "medianExcessRupees": 5129,
+      "p95ExcessRupees": 27299,
+      "maxExcessRupees": 62548
+     }
+    },
+    "existingCeiling / no coupon": {
+     "quotes": 1157,
+     "priced": 1148,
+     "inspection": 9,
+     "inspectionPct": 0.78,
+     "servedByExistingEngine": 0,
+     "estimated": {
+      "breaches": 0,
+      "breachPct": 0
+     },
+     "observed": {
+      "breaches": 367,
+      "breachPct": 31.97,
+      "over100": 364,
+      "over1000": 337,
+      "over1pctOfCashifyPayout": 348,
+      "over3pctOfCashifyPayout": 332,
+      "medianExtraPct": 1.26,
+      "p95ExtraPct": 155.47,
+      "p99ExtraPct": 220.71,
+      "maxExtraPct": 300.9,
+      "medianExcessRupees": 10778,
+      "p95ExcessRupees": 30011,
+      "maxExcessRupees": 62229
+     }
+    },
+    "existingCeiling / coupon claimed": {
+     "quotes": 1157,
+     "priced": 1148,
+     "inspection": 9,
+     "inspectionPct": 0.78,
+     "servedByExistingEngine": 0,
+     "estimated": {
+      "breaches": 0,
+      "breachPct": 0
+     },
+     "observed": {
+      "breaches": 372,
+      "breachPct": 32.4,
+      "over100": 365,
+      "over1000": 337,
+      "over1pctOfCashifyPayout": 351,
+      "over3pctOfCashifyPayout": 333,
+      "medianExtraPct": 1.27,
+      "p95ExtraPct": 157.51,
+      "p99ExtraPct": 223.73,
+      "maxExtraPct": 302.83,
+      "medianExcessRupees": 10852,
+      "p95ExcessRupees": 30129,
+      "maxExcessRupees": 62229
+     }
+    },
+    "evidenceCeiling / no coupon": {
+     "quotes": 1157,
+     "priced": 1057,
+     "inspection": 100,
+     "inspectionPct": 8.64,
+     "servedByExistingEngine": 0,
+     "estimated": {
+      "breaches": 0,
+      "breachPct": 0
+     },
+     "observed": {
+      "breaches": 109,
+      "breachPct": 10.31,
+      "over100": 59,
+      "over1000": 0,
+      "over1pctOfCashifyPayout": 31,
+      "over3pctOfCashifyPayout": 4,
+      "medianExtraPct": 2.19,
+      "p95ExtraPct": 6.55,
+      "p99ExtraPct": 9.6,
+      "maxExtraPct": 13.57,
+      "medianExcessRupees": 130,
+      "p95ExcessRupees": 750,
+      "maxExcessRupees": 862
+     }
+    },
+    "evidenceCeiling / coupon claimed": {
+     "quotes": 1157,
+     "priced": 1057,
+     "inspection": 100,
+     "inspectionPct": 8.64,
+     "servedByExistingEngine": 0,
+     "estimated": {
+      "breaches": 0,
+      "breachPct": 0
+     },
+     "observed": {
+      "breaches": 144,
+      "breachPct": 13.62,
+      "over100": 81,
+      "over1000": 0,
+      "over1pctOfCashifyPayout": 56,
+      "over3pctOfCashifyPayout": 9,
+      "medianExtraPct": 2.2,
+      "p95ExtraPct": 7.7,
+      "p99ExtraPct": 11,
+      "maxExtraPct": 15.32,
+      "medianExcessRupees": 130,
+      "p95ExcessRupees": 820,
+      "maxExcessRupees": 880
+     }
+    },
+    "shippedScope / no coupon": {
+     "quotes": 1157,
+     "priced": 782,
+     "inspection": 375,
+     "inspectionPct": 32.41,
+     "servedByExistingEngine": 0,
+     "estimated": {
+      "breaches": 0,
+      "breachPct": 0
+     },
+     "observed": {
+      "breaches": 48,
+      "breachPct": 6.14,
+      "over100": 24,
+      "over1000": 0,
+      "over1pctOfCashifyPayout": 15,
+      "over3pctOfCashifyPayout": 1,
+      "medianExtraPct": 1.94,
+      "p95ExtraPct": 5.3,
+      "p99ExtraPct": 8.07,
+      "maxExtraPct": 11.01,
+      "medianExcessRupees": 80,
+      "p95ExcessRupees": 800,
+      "maxExcessRupees": 840
+     }
+    },
+    "shippedScope / coupon claimed": {
+     "quotes": 1157,
+     "priced": 782,
+     "inspection": 375,
+     "inspectionPct": 32.41,
+     "servedByExistingEngine": 0,
+     "estimated": {
+      "breaches": 0,
+      "breachPct": 0
+     },
+     "observed": {
+      "breaches": 73,
+      "breachPct": 9.34,
+      "over100": 33,
+      "over1000": 0,
+      "over1pctOfCashifyPayout": 24,
+      "over3pctOfCashifyPayout": 6,
+      "medianExtraPct": 1.95,
+      "p95ExtraPct": 6.11,
+      "p99ExtraPct": 9.45,
+      "maxExtraPct": 13.68,
+      "medianExcessRupees": 80,
+      "p95ExcessRupees": 820,
+      "maxExcessRupees": 840
+     }
     }
    },
-   "existingAsShipped / coupon claimed": {
-    "quotes": 1157,
-    "breaches": 577,
-    "breachPct": 49.87,
-    "over100": 570,
-    "over1000": 346,
-    "over1pctOfCashifyPayout": 361,
-    "over3pctOfCashifyPayout": 351,
-    "medianExtraPct": 1.49,
-    "p95ExtraPct": 157.51,
-    "worstBreach": {
-     "over": 62548,
-     "source": "Cashify_iPhone18_Pro_Pricing.zip::all_variants_pricing_data.json::W01",
-     "model": "iPhone 18 Pro",
-     "storage": "2TB",
-     "answers": "F05,F08,F17,WARRANTY_NO",
-     "payout": 101409,
-     "trueCashifyPayout": 36861,
-     "allowed": 38861
-    }
-   },
-   "existingWithCeiling / no coupon": {
-    "quotes": 1157,
-    "breaches": 367,
-    "breachPct": 31.72,
-    "over100": 364,
-    "over1000": 337,
-    "over1pctOfCashifyPayout": 348,
-    "over3pctOfCashifyPayout": 332,
-    "medianExtraPct": 1.25,
-    "p95ExtraPct": 155.47,
-    "worstBreach": {
-     "over": 62229,
-     "source": "Cashify_iPhone18_Pro_Pricing.zip::all_variants_pricing_data.json::W01",
-     "model": "iPhone 18 Pro",
-     "storage": "2TB",
-     "answers": "F05,F08,F17,WARRANTY_NO",
-     "payout": 101090,
-     "trueCashifyPayout": 36861,
-     "allowed": 38861
-    }
-   },
-   "existingWithCeiling / coupon claimed": {
-    "quotes": 1157,
-    "breaches": 372,
-    "breachPct": 32.15,
-    "over100": 365,
-    "over1000": 337,
-    "over1pctOfCashifyPayout": 351,
-    "over3pctOfCashifyPayout": 333,
-    "medianExtraPct": 1.27,
-    "p95ExtraPct": 157.51,
-    "worstBreach": {
-     "over": 62229,
-     "source": "Cashify_iPhone18_Pro_Pricing.zip::all_variants_pricing_data.json::W01",
-     "model": "iPhone 18 Pro",
-     "storage": "2TB",
-     "answers": "F05,F08,F17,WARRANTY_NO",
-     "payout": 101090,
-     "trueCashifyPayout": 36861,
-     "allowed": 38861
-    }
-   },
-   "evidenceWithCeiling / no coupon": {
-    "quotes": 1057,
-    "breaches": 109,
-    "breachPct": 10.31,
-    "over100": 59,
-    "over1000": 0,
-    "over1pctOfCashifyPayout": 31,
-    "over3pctOfCashifyPayout": 4,
-    "medianExtraPct": 2.19,
-    "p95ExtraPct": 6.55,
-    "worstBreach": {
-     "over": 862,
-     "source": "Cashify_iPhone15Pro_Full_Checklist.zip::Full_Checklist_Data.json::M01",
-     "model": "iPhone 15 Pro",
+   "worstShipped": [
+    {
+     "excessRupees": 840,
+     "excessPctOfCashifyPayout": 1.35,
+     "model": "iPhone 16 Pro Max",
      "storage": "1TB",
-     "answers": "F05,F14",
-     "payout": 50923,
-     "trueCashifyPayout": 48061,
-     "allowed": 50061
-    }
-   },
-   "evidenceWithCeiling / coupon claimed": {
-    "quotes": 1057,
-    "breaches": 144,
-    "breachPct": 13.62,
-    "over100": 81,
-    "over1000": 0,
-    "over1pctOfCashifyPayout": 56,
-    "over3pctOfCashifyPayout": 9,
-    "medianExtraPct": 2.2,
-    "p95ExtraPct": 7.7,
-    "worstBreach": {
-     "over": 880,
-     "source": "Cashify_iPhone15Pro_Full_Checklist.zip::Full_Checklist_Data.json::M01",
-     "model": "iPhone 15 Pro",
-     "storage": "1TB",
-     "answers": "F05,F14",
-     "payout": 50941,
-     "trueCashifyPayout": 48061,
-     "allowed": 50061
-    }
-   },
-   "shippedScope / no coupon": {
-    "quotes": 818,
-    "breaches": 52,
-    "breachPct": 6.36,
-    "over100": 27,
-    "over1000": 0,
-    "over1pctOfCashifyPayout": 15,
-    "over3pctOfCashifyPayout": 1,
-    "medianExtraPct": 2.03,
-    "p95ExtraPct": 5.97,
-    "worstBreach": {
-     "over": 840,
+     "date": "2026-10-24",
      "source": "Cashify_iPhone16ProMax_All_90_Cases.zip::Full_Checklist_Data.json::M01",
+     "answers": [
+      "F05",
+      "F14"
+     ],
+     "confidence": "inferred",
+     "getUpto": 90400,
+     "observedBase": 62440,
+     "observedSelling": 62420,
+     "observedPayout": 62321,
+     "engineEquivalent": 63280,
+     "engineErrorVsObservedBase": 840,
+     "customerPayout": 65161,
+     "allowedPayout": 64321,
+     "usedExistingEngine": false,
+     "breakdown": [
+      [
+       "class:wifi",
+       27120,
+       "inferred",
+       [
+        "F05",
+        "F14"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 820,
+     "excessPctOfCashifyPayout": 1.35,
+     "model": "iPhone 16 Pro Max",
+     "storage": "512GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone16ProMax_All_90_Cases.zip::Full_Checklist_Data.json::M01",
+     "answers": [
+      "F05",
+      "F14"
+     ],
+     "confidence": "inferred",
+     "getUpto": 88270,
+     "observedBase": 60970,
+     "observedSelling": 60950,
+     "observedPayout": 60851,
+     "engineEquivalent": 61790,
+     "engineErrorVsObservedBase": 820,
+     "customerPayout": 63671,
+     "allowedPayout": 62851,
+     "usedExistingEngine": false,
+     "breakdown": [
+      [
+       "class:wifi",
+       26481,
+       "inferred",
+       [
+        "F05",
+        "F14"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 800,
+     "excessPctOfCashifyPayout": 1.34,
+     "model": "iPhone 16 Pro Max",
+     "storage": "256GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone16ProMax_All_90_Cases.zip::Full_Checklist_Data.json::M01",
+     "answers": [
+      "F05",
+      "F14"
+     ],
+     "confidence": "inferred",
+     "getUpto": 86430,
+     "observedBase": 59700,
+     "observedSelling": 59680,
+     "observedPayout": 59581,
+     "engineEquivalent": 60500,
+     "engineErrorVsObservedBase": 800,
+     "customerPayout": 62381,
+     "allowedPayout": 61581,
+     "usedExistingEngine": false,
+     "breakdown": [
+      [
+       "class:wifi",
+       25929,
+       "inferred",
+       [
+        "F05",
+        "F14"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 646,
+     "excessPctOfCashifyPayout": 1.48,
      "model": "iPhone 16 Pro Max",
      "storage": "1TB",
-     "answers": "F05,F14",
-     "payout": 65161,
-     "trueCashifyPayout": 62321,
-     "allowed": 64321
-    }
-   },
-   "shippedScope / coupon claimed": {
-    "quotes": 818,
-    "breaches": 80,
-    "breachPct": 9.78,
-    "over100": 36,
-    "over1000": 0,
-    "over1pctOfCashifyPayout": 24,
-    "over3pctOfCashifyPayout": 6,
-    "medianExtraPct": 2.07,
-    "p95ExtraPct": 6.5,
-    "worstBreach": {
-     "over": 840,
+     "date": "2026-10-24",
      "source": "Cashify_iPhone16ProMax_All_90_Cases.zip::Full_Checklist_Data.json::M03",
+     "answers": [
+      "F05",
+      "F08"
+     ],
+     "confidence": "inferred",
+     "getUpto": 90400,
+     "observedBase": 43800,
+     "observedSelling": 43780,
+     "observedPayout": 43681,
+     "engineEquivalent": 44640,
+     "engineErrorVsObservedBase": 840,
+     "customerPayout": 46327,
+     "allowedPayout": 45681,
+     "usedExistingEngine": false,
+     "breakdown": [
+      [
+       "class:wifi",
+       27120,
+       "inferred",
+       [
+        "F05"
+       ]
+      ],
+      [
+       "class:face",
+       18639,
+       "measured",
+       [
+        "F08"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 646,
+     "excessPctOfCashifyPayout": 1.48,
      "model": "iPhone 16 Pro Max",
      "storage": "1TB",
-     "answers": "F05,F08",
-     "payout": 46521,
-     "trueCashifyPayout": 43681,
-     "allowed": 45681
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone16ProMax_All_90_Cases.zip::Full_Checklist_Data.json::M06",
+     "answers": [
+      "F05",
+      "F08",
+      "F14"
+     ],
+     "confidence": "inferred",
+     "getUpto": 90400,
+     "observedBase": 43800,
+     "observedSelling": 43780,
+     "observedPayout": 43681,
+     "engineEquivalent": 44640,
+     "engineErrorVsObservedBase": 840,
+     "customerPayout": 46327,
+     "allowedPayout": 45681,
+     "usedExistingEngine": false,
+     "breakdown": [
+      [
+       "class:wifi",
+       27120,
+       "inferred",
+       [
+        "F05",
+        "F14"
+       ]
+      ],
+      [
+       "class:face",
+       18639,
+       "measured",
+       [
+        "F08"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 584,
+     "excessPctOfCashifyPayout": 1.37,
+     "model": "iPhone 16 Pro Max",
+     "storage": "512GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone16ProMax_All_90_Cases.zip::Full_Checklist_Data.json::M03",
+     "answers": [
+      "F05",
+      "F08"
+     ],
+     "confidence": "inferred",
+     "getUpto": 88270,
+     "observedBase": 42770,
+     "observedSelling": 42750,
+     "observedPayout": 42651,
+     "engineEquivalent": 43590,
+     "engineErrorVsObservedBase": 820,
+     "customerPayout": 45235,
+     "allowedPayout": 44651,
+     "usedExistingEngine": false,
+     "breakdown": [
+      [
+       "class:wifi",
+       26481,
+       "inferred",
+       [
+        "F05"
+       ]
+      ],
+      [
+       "class:face",
+       18200,
+       "measured",
+       [
+        "F08"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 584,
+     "excessPctOfCashifyPayout": 1.37,
+     "model": "iPhone 16 Pro Max",
+     "storage": "512GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone16ProMax_All_90_Cases.zip::Full_Checklist_Data.json::M06",
+     "answers": [
+      "F05",
+      "F08",
+      "F14"
+     ],
+     "confidence": "inferred",
+     "getUpto": 88270,
+     "observedBase": 42770,
+     "observedSelling": 42750,
+     "observedPayout": 42651,
+     "engineEquivalent": 43590,
+     "engineErrorVsObservedBase": 820,
+     "customerPayout": 45235,
+     "allowedPayout": 44651,
+     "usedExistingEngine": false,
+     "breakdown": [
+      [
+       "class:wifi",
+       26481,
+       "inferred",
+       [
+        "F05",
+        "F14"
+       ]
+      ],
+      [
+       "class:face",
+       18200,
+       "measured",
+       [
+        "F08"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 527,
+     "excessPctOfCashifyPayout": 1.26,
+     "model": "iPhone 16 Pro Max",
+     "storage": "256GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone16ProMax_All_90_Cases.zip::Full_Checklist_Data.json::M03",
+     "answers": [
+      "F05",
+      "F08"
+     ],
+     "confidence": "inferred",
+     "getUpto": 86430,
+     "observedBase": 41880,
+     "observedSelling": 41860,
+     "observedPayout": 41761,
+     "engineEquivalent": 42680,
+     "engineErrorVsObservedBase": 800,
+     "customerPayout": 44288,
+     "allowedPayout": 43761,
+     "usedExistingEngine": false,
+     "breakdown": [
+      [
+       "class:wifi",
+       25929,
+       "inferred",
+       [
+        "F05"
+       ]
+      ],
+      [
+       "class:face",
+       17820,
+       "measured",
+       [
+        "F08"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 527,
+     "excessPctOfCashifyPayout": 1.26,
+     "model": "iPhone 16 Pro Max",
+     "storage": "256GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone16ProMax_All_90_Cases.zip::Full_Checklist_Data.json::M06",
+     "answers": [
+      "F05",
+      "F08",
+      "F14"
+     ],
+     "confidence": "inferred",
+     "getUpto": 86430,
+     "observedBase": 41880,
+     "observedSelling": 41860,
+     "observedPayout": 41761,
+     "engineEquivalent": 42680,
+     "engineErrorVsObservedBase": 800,
+     "customerPayout": 44288,
+     "allowedPayout": 43761,
+     "usedExistingEngine": false,
+     "breakdown": [
+      [
+       "class:wifi",
+       25929,
+       "inferred",
+       [
+        "F05",
+        "F14"
+       ]
+      ],
+      [
+       "class:face",
+       17820,
+       "measured",
+       [
+        "F08"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 337,
+     "excessPctOfCashifyPayout": 3.01,
+     "model": "iPhone 16",
+     "storage": "128GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone16_Full_Checklist.zip::Full_Checklist_Data.json::W01",
+     "answers": [
+      "F05",
+      "F08",
+      "F17",
+      "WARRANTY_NO"
+     ],
+     "confidence": "inferred",
+     "getUpto": 52800,
+     "observedBase": 11300,
+     "observedSelling": 11280,
+     "observedPayout": 11181,
+     "engineEquivalent": 12030,
+     "engineErrorVsObservedBase": 730,
+     "customerPayout": 12412,
+     "allowedPayout": 12075,
+     "usedExistingEngine": false,
+     "breakdown": [
+      [
+       "age",
+       9927,
+       "inferred",
+       [
+        "warranty=No"
+       ]
+      ],
+      [
+       "class:wifi",
+       15840,
+       "inferred",
+       [
+        "F05"
+       ]
+      ],
+      [
+       "class:face",
+       11001,
+       "measured",
+       [
+        "F08"
+       ]
+      ],
+      [
+       "class:batt",
+       4000,
+       "measured",
+       [
+        "F17"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 316,
+     "excessPctOfCashifyPayout": 0.81,
+     "model": "iPhone 16 Plus",
+     "storage": "512GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone16Plus_Full_Checklist (1).zip::Full_Checklist_Data.json::M01",
+     "answers": [
+      "F05",
+      "F14"
+     ],
+     "confidence": "inferred",
+     "getUpto": 56640,
+     "observedBase": 38940,
+     "observedSelling": 38920,
+     "observedPayout": 38821,
+     "engineEquivalent": 39650,
+     "engineErrorVsObservedBase": 710,
+     "customerPayout": 41137,
+     "allowedPayout": 40821,
+     "usedExistingEngine": false,
+     "breakdown": [
+      [
+       "class:wifi",
+       16992,
+       "inferred",
+       [
+        "F05",
+        "F14"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 302,
+     "excessPctOfCashifyPayout": 2.56,
+     "model": "iPhone 16 Plus",
+     "storage": "128GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone16Plus_Full_Checklist (1).zip::Full_Checklist_Data.json::W01",
+     "answers": [
+      "F05",
+      "F08",
+      "F17",
+      "WARRANTY_NO"
+     ],
+     "confidence": "inferred",
+     "getUpto": 55200,
+     "observedBase": 11930,
+     "observedSelling": 11910,
+     "observedPayout": 11811,
+     "engineEquivalent": 12650,
+     "engineErrorVsObservedBase": 720,
+     "customerPayout": 13057,
+     "allowedPayout": 12755,
+     "usedExistingEngine": false,
+     "breakdown": [
+      [
+       "age",
+       10487,
+       "inferred",
+       [
+        "warranty=No"
+       ]
+      ],
+      [
+       "class:wifi",
+       16560,
+       "inferred",
+       [
+        "F05"
+       ]
+      ],
+      [
+       "class:face",
+       11500,
+       "measured",
+       [
+        "F08"
+       ]
+      ],
+      [
+       "class:batt",
+       4000,
+       "measured",
+       [
+        "F17"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 285,
+     "excessPctOfCashifyPayout": 2.38,
+     "model": "iPhone 16 Plus",
+     "storage": "256GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone16Plus_Full_Checklist (1).zip::Full_Checklist_Data.json::W01",
+     "answers": [
+      "F05",
+      "F08",
+      "F17",
+      "WARRANTY_NO"
+     ],
+     "confidence": "inferred",
+     "getUpto": 55680,
+     "observedBase": 12090,
+     "observedSelling": 12070,
+     "observedPayout": 11971,
+     "engineEquivalent": 12800,
+     "engineErrorVsObservedBase": 710,
+     "customerPayout": 13213,
+     "allowedPayout": 12928,
+     "usedExistingEngine": false,
+     "breakdown": [
+      [
+       "age",
+       10579,
+       "inferred",
+       [
+        "warranty=No"
+       ]
+      ],
+      [
+       "class:wifi",
+       16704,
+       "inferred",
+       [
+        "F05"
+       ]
+      ],
+      [
+       "class:face",
+       11600,
+       "measured",
+       [
+        "F08"
+       ]
+      ],
+      [
+       "class:batt",
+       4000,
+       "measured",
+       [
+        "F17"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 279,
+     "excessPctOfCashifyPayout": 0.73,
+     "model": "iPhone 16",
+     "storage": "512GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone16_Full_Checklist.zip::Full_Checklist_Data.json::M01",
+     "answers": [
+      "F05",
+      "F14"
+     ],
+     "confidence": "inferred",
+     "getUpto": 55680,
+     "observedBase": 38280,
+     "observedSelling": 38260,
+     "observedPayout": 38161,
+     "engineEquivalent": 38980,
+     "engineErrorVsObservedBase": 700,
+     "customerPayout": 40440,
+     "allowedPayout": 40161,
+     "usedExistingEngine": false,
+     "breakdown": [
+      [
+       "class:wifi",
+       16704,
+       "inferred",
+       [
+        "F05",
+        "F14"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 279,
+     "excessPctOfCashifyPayout": 0.73,
+     "model": "iPhone 16 Plus",
+     "storage": "256GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone16Plus_Full_Checklist (1).zip::Full_Checklist_Data.json::M01",
+     "answers": [
+      "F05",
+      "F14"
+     ],
+     "confidence": "inferred",
+     "getUpto": 55680,
+     "observedBase": 38280,
+     "observedSelling": 38260,
+     "observedPayout": 38161,
+     "engineEquivalent": 38980,
+     "engineErrorVsObservedBase": 700,
+     "customerPayout": 40440,
+     "allowedPayout": 40161,
+     "usedExistingEngine": false,
+     "breakdown": [
+      [
+       "class:wifi",
+       16704,
+       "inferred",
+       [
+        "F05",
+        "F14"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 270,
+     "excessPctOfCashifyPayout": 2.29,
+     "model": "iPhone 16",
+     "storage": "256GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone16_Full_Checklist.zip::Full_Checklist_Data.json::W01",
+     "answers": [
+      "F05",
+      "F08",
+      "F17",
+      "WARRANTY_NO"
+     ],
+     "confidence": "inferred",
+     "getUpto": 54720,
+     "observedBase": 11920,
+     "observedSelling": 11900,
+     "observedPayout": 11801,
+     "engineEquivalent": 12610,
+     "engineErrorVsObservedBase": 690,
+     "customerPayout": 13015,
+     "allowedPayout": 12745,
+     "usedExistingEngine": false,
+     "breakdown": [
+      [
+       "age",
+       10289,
+       "inferred",
+       [
+        "warranty=No"
+       ]
+      ],
+      [
+       "class:wifi",
+       16416,
+       "inferred",
+       [
+        "F05"
+       ]
+      ],
+      [
+       "class:face",
+       11401,
+       "measured",
+       [
+        "F08"
+       ]
+      ],
+      [
+       "class:batt",
+       4000,
+       "measured",
+       [
+        "F17"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 256,
+     "excessPctOfCashifyPayout": 0.68,
+     "model": "iPhone 16 Plus",
+     "storage": "128GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone16Plus_Full_Checklist (1).zip::Full_Checklist_Data.json::M01",
+     "answers": [
+      "F05",
+      "F14"
+     ],
+     "confidence": "inferred",
+     "getUpto": 55200,
+     "observedBase": 37950,
+     "observedSelling": 37930,
+     "observedPayout": 37831,
+     "engineEquivalent": 38640,
+     "engineErrorVsObservedBase": 690,
+     "customerPayout": 40087,
+     "allowedPayout": 39831,
+     "usedExistingEngine": false,
+     "breakdown": [
+      [
+       "class:wifi",
+       16560,
+       "inferred",
+       [
+        "F05",
+        "F14"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 252,
+     "excessPctOfCashifyPayout": 2.05,
+     "model": "iPhone 16 Plus",
+     "storage": "512GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone16Plus_Full_Checklist (1).zip::Full_Checklist_Data.json::W01",
+     "answers": [
+      "F05",
+      "F08",
+      "F17",
+      "WARRANTY_NO"
+     ],
+     "confidence": "inferred",
+     "getUpto": 56640,
+     "observedBase": 12400,
+     "observedSelling": 12380,
+     "observedPayout": 12281,
+     "engineEquivalent": 13090,
+     "engineErrorVsObservedBase": 690,
+     "customerPayout": 13515,
+     "allowedPayout": 13263,
+     "usedExistingEngine": false,
+     "breakdown": [
+      [
+       "age",
+       10761,
+       "measured",
+       [
+        "warranty=No"
+       ]
+      ],
+      [
+       "class:wifi",
+       16992,
+       "inferred",
+       [
+        "F05"
+       ]
+      ],
+      [
+       "class:face",
+       11800,
+       "measured",
+       [
+        "F08"
+       ]
+      ],
+      [
+       "class:batt",
+       4000,
+       "measured",
+       [
+        "F17"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 248,
+     "excessPctOfCashifyPayout": 2.05,
+     "model": "iPhone 16",
+     "storage": "512GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone16_Full_Checklist.zip::Full_Checklist_Data.json::W01",
+     "answers": [
+      "F05",
+      "F08",
+      "F17",
+      "WARRANTY_NO"
+     ],
+     "confidence": "inferred",
+     "getUpto": 55680,
+     "observedBase": 12230,
+     "observedSelling": 12210,
+     "observedPayout": 12111,
+     "engineEquivalent": 12910,
+     "engineErrorVsObservedBase": 680,
+     "customerPayout": 13327,
+     "allowedPayout": 13079,
+     "usedExistingEngine": false,
+     "breakdown": [
+      [
+       "age",
+       10470,
+       "measured",
+       [
+        "warranty=No"
+       ]
+      ],
+      [
+       "class:wifi",
+       16704,
+       "inferred",
+       [
+        "F05"
+       ]
+      ],
+      [
+       "class:face",
+       11601,
+       "measured",
+       [
+        "F08"
+       ]
+      ],
+      [
+       "class:batt",
+       4000,
+       "measured",
+       [
+        "F17"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 232,
+     "excessPctOfCashifyPayout": 0.62,
+     "model": "iPhone 16",
+     "storage": "256GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone16_Full_Checklist.zip::Full_Checklist_Data.json::M01",
+     "answers": [
+      "F05",
+      "F14"
+     ],
+     "confidence": "inferred",
+     "getUpto": 54720,
+     "observedBase": 37620,
+     "observedSelling": 37600,
+     "observedPayout": 37501,
+     "engineEquivalent": 38300,
+     "engineErrorVsObservedBase": 680,
+     "customerPayout": 39733,
+     "allowedPayout": 39501,
+     "usedExistingEngine": false,
+     "breakdown": [
+      [
+       "class:wifi",
+       16416,
+       "inferred",
+       [
+        "F05",
+        "F14"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 158,
+     "excessPctOfCashifyPayout": 0.44,
+     "model": "iPhone 16",
+     "storage": "128GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone16_Full_Checklist.zip::Full_Checklist_Data.json::M01",
+     "answers": [
+      "F05",
+      "F14"
+     ],
+     "confidence": "inferred",
+     "getUpto": 52800,
+     "observedBase": 36300,
+     "observedSelling": 36280,
+     "observedPayout": 36181,
+     "engineEquivalent": 36960,
+     "engineErrorVsObservedBase": 660,
+     "customerPayout": 38339,
+     "allowedPayout": 38181,
+     "usedExistingEngine": false,
+     "breakdown": [
+      [
+       "class:wifi",
+       15840,
+       "inferred",
+       [
+        "F05",
+        "F14"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 130,
+     "excessPctOfCashifyPayout": 0.16,
+     "model": "iPhone 16 Pro Max",
+     "storage": "256GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone16ProMax_All_90_Cases.zip::Full_Checklist_Data.json::M10",
+     "answers": [
+      "C02",
+      "C04"
+     ],
+     "confidence": "inferred",
+     "getUpto": 86430,
+     "observedBase": 82800,
+     "observedSelling": 82780,
+     "observedPayout": 82681,
+     "engineEquivalent": 82930,
+     "engineErrorVsObservedBase": 130,
+     "customerPayout": 84811,
+     "allowedPayout": 84681,
+     "usedExistingEngine": false,
+     "breakdown": [
+      [
+       "class:body",
+       3500,
+       "inferred",
+       [
+        "C02",
+        "C04"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 130,
+     "excessPctOfCashifyPayout": 0.15,
+     "model": "iPhone 16 Pro Max",
+     "storage": "512GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone16ProMax_All_90_Cases.zip::Full_Checklist_Data.json::M10",
+     "answers": [
+      "C02",
+      "C04"
+     ],
+     "confidence": "inferred",
+     "getUpto": 88270,
+     "observedBase": 84640,
+     "observedSelling": 84620,
+     "observedPayout": 84521,
+     "engineEquivalent": 84770,
+     "engineErrorVsObservedBase": 130,
+     "customerPayout": 86651,
+     "allowedPayout": 86521,
+     "usedExistingEngine": false,
+     "breakdown": [
+      [
+       "class:body",
+       3500,
+       "inferred",
+       [
+        "C02",
+        "C04"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 130,
+     "excessPctOfCashifyPayout": 0.15,
+     "model": "iPhone 16 Pro Max",
+     "storage": "1TB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone16ProMax_All_90_Cases.zip::Full_Checklist_Data.json::M10",
+     "answers": [
+      "C02",
+      "C04"
+     ],
+     "confidence": "inferred",
+     "getUpto": 90400,
+     "observedBase": 86770,
+     "observedSelling": 86750,
+     "observedPayout": 86651,
+     "engineEquivalent": 86900,
+     "engineErrorVsObservedBase": 130,
+     "customerPayout": 88781,
+     "allowedPayout": 88651,
+     "usedExistingEngine": false,
+     "breakdown": [
+      [
+       "class:body",
+       3500,
+       "inferred",
+       [
+        "C02",
+        "C04"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 80,
+     "excessPctOfCashifyPayout": 0.16,
+     "model": "iPhone 16",
+     "storage": "128GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone16_Full_Checklist.zip::Full_Checklist_Data.json::A01",
+     "answers": [
+      "AGE:3 months - 6 months"
+     ],
+     "confidence": "inferred",
+     "getUpto": 52800,
+     "observedBase": 50500,
+     "observedSelling": 50480,
+     "observedPayout": 50381,
+     "engineEquivalent": 50580,
+     "engineErrorVsObservedBase": 80,
+     "customerPayout": 52461,
+     "allowedPayout": 52381,
+     "usedExistingEngine": false,
+     "breakdown": [
+      [
+       "age",
+       2216,
+       "inferred",
+       []
+      ]
+     ]
     }
-   }
+   ]
   },
   "p4": {
-   "shippedScope / inspections": {
-    "quotes": 868,
-    "breaches": 0,
-    "breachPct": 0,
-    "over100": 0,
-    "over1000": 0,
-    "over1pctOfCashifyPayout": 0,
-    "over3pctOfCashifyPayout": 0,
-    "medianExtraPct": 0,
-    "p95ExtraPct": 0,
-    "worstBreach": null
-   },
-   "existingAsShipped / no coupon": {
-    "quotes": 2233,
-    "breaches": 1050,
-    "breachPct": 47.02,
-    "over100": 797,
-    "over1000": 682,
-    "over1pctOfCashifyPayout": 724,
-    "over3pctOfCashifyPayout": 673,
-    "medianExtraPct": 2.16,
-    "p95ExtraPct": 131.66,
-    "worstBreach": {
-     "over": 62249,
-     "source": "Cashify_iPhone18_Pro_Pricing.zip::all_variants_pricing_data.json::W01",
-     "model": "iPhone 18 Pro",
-     "storage": "2TB",
-     "answers": "F05,F08,F17,WARRANTY_NO",
-     "payout": 101110,
-     "trueCashifyPayout": 36861,
-     "allowed": 38861
+   "scenarios": {
+    "existingAsShipped / no coupon": {
+     "quotes": 2233,
+     "priced": 2233,
+     "inspection": 0,
+     "inspectionPct": 0,
+     "servedByExistingEngine": 0,
+     "estimated": {
+      "breaches": 1335,
+      "breachPct": 59.79
+     },
+     "observed": {
+      "breaches": 1050,
+      "breachPct": 47.02,
+      "over100": 797,
+      "over1000": 682,
+      "over1pctOfCashifyPayout": 724,
+      "over3pctOfCashifyPayout": 673,
+      "medianExtraPct": 2.16,
+      "p95ExtraPct": 131.66,
+      "p99ExtraPct": 219.42,
+      "maxExtraPct": 301.73,
+      "medianExcessRupees": 5650,
+      "p95ExcessRupees": 28990,
+      "maxExcessRupees": 62249
+     }
+    },
+    "existingAsShipped / coupon claimed": {
+     "quotes": 2233,
+     "priced": 2233,
+     "inspection": 0,
+     "inspectionPct": 0,
+     "servedByExistingEngine": 0,
+     "estimated": {
+      "breaches": 1688,
+      "breachPct": 75.59
+     },
+     "observed": {
+      "breaches": 1149,
+      "breachPct": 51.46,
+      "over100": 1116,
+      "over1000": 712,
+      "over1pctOfCashifyPayout": 796,
+      "over3pctOfCashifyPayout": 736,
+      "medianExtraPct": 2.65,
+      "p95ExtraPct": 134.4,
+      "p99ExtraPct": 222.66,
+      "maxExtraPct": 312.54,
+      "medianExcessRupees": 4941,
+      "p95ExcessRupees": 28156,
+      "maxExcessRupees": 62548
+     }
+    },
+    "existingCeiling / no coupon": {
+     "quotes": 2233,
+     "priced": 2219,
+     "inspection": 14,
+     "inspectionPct": 0.63,
+     "servedByExistingEngine": 0,
+     "estimated": {
+      "breaches": 0,
+      "breachPct": 0
+     },
+     "observed": {
+      "breaches": 820,
+      "breachPct": 36.95,
+      "over100": 796,
+      "over1000": 682,
+      "over1pctOfCashifyPayout": 723,
+      "over3pctOfCashifyPayout": 671,
+      "medianExtraPct": 2.19,
+      "p95ExtraPct": 131.69,
+      "p99ExtraPct": 219.42,
+      "maxExtraPct": 301.73,
+      "medianExcessRupees": 10365,
+      "p95ExcessRupees": 29775,
+      "maxExcessRupees": 62229
+     }
+    },
+    "existingCeiling / coupon claimed": {
+     "quotes": 2233,
+     "priced": 2219,
+     "inspection": 14,
+     "inspectionPct": 0.63,
+     "servedByExistingEngine": 0,
+     "estimated": {
+      "breaches": 0,
+      "breachPct": 0
+     },
+     "observed": {
+      "breaches": 848,
+      "breachPct": 38.22,
+      "over100": 805,
+      "over1000": 687,
+      "over1pctOfCashifyPayout": 737,
+      "over3pctOfCashifyPayout": 677,
+      "medianExtraPct": 2.28,
+      "p95ExtraPct": 134.49,
+      "p99ExtraPct": 222.66,
+      "maxExtraPct": 305.07,
+      "medianExcessRupees": 9834,
+      "p95ExcessRupees": 29664,
+      "maxExcessRupees": 62229
+     }
+    },
+    "evidenceCeiling / no coupon": {
+     "quotes": 2233,
+     "priced": 2183,
+     "inspection": 50,
+     "inspectionPct": 2.24,
+     "servedByExistingEngine": 0,
+     "estimated": {
+      "breaches": 0,
+      "breachPct": 0
+     },
+     "observed": {
+      "breaches": 665,
+      "breachPct": 30.46,
+      "over100": 474,
+      "over1000": 144,
+      "over1pctOfCashifyPayout": 234,
+      "over3pctOfCashifyPayout": 103,
+      "medianExtraPct": 3.2,
+      "p95ExtraPct": 8.94,
+      "p99ExtraPct": 17.86,
+      "maxExtraPct": 45.87,
+      "medianExcessRupees": 310,
+      "p95ExcessRupees": 2078,
+      "maxExcessRupees": 7685
+     }
+    },
+    "evidenceCeiling / coupon claimed": {
+     "quotes": 2233,
+     "priced": 2183,
+     "inspection": 50,
+     "inspectionPct": 2.24,
+     "servedByExistingEngine": 0,
+     "estimated": {
+      "breaches": 0,
+      "breachPct": 0
+     },
+     "observed": {
+      "breaches": 737,
+      "breachPct": 33.76,
+      "over100": 499,
+      "over1000": 156,
+      "over1pctOfCashifyPayout": 241,
+      "over3pctOfCashifyPayout": 121,
+      "medianExtraPct": 3.37,
+      "p95ExtraPct": 9.53,
+      "p99ExtraPct": 19.85,
+      "maxExtraPct": 47.53,
+      "medianExcessRupees": 290,
+      "p95ExcessRupees": 2301,
+      "maxExcessRupees": 7984
+     }
+    },
+    "shippedScope / no coupon": {
+     "quotes": 2233,
+     "priced": 1364,
+     "inspection": 869,
+     "inspectionPct": 38.92,
+     "servedByExistingEngine": 148,
+     "estimated": {
+      "breaches": 0,
+      "breachPct": 0
+     },
+     "observed": {
+      "breaches": 403,
+      "breachPct": 29.55,
+      "over100": 258,
+      "over1000": 75,
+      "over1pctOfCashifyPayout": 101,
+      "over3pctOfCashifyPayout": 57,
+      "medianExtraPct": 2.47,
+      "p95ExtraPct": 8,
+      "p99ExtraPct": 76.09,
+      "maxExtraPct": 183.42,
+      "medianExcessRupees": 250,
+      "p95ExcessRupees": 8100,
+      "maxExcessRupees": 19790
+     }
+    },
+    "shippedScope / coupon claimed": {
+     "quotes": 2233,
+     "priced": 1364,
+     "inspection": 869,
+     "inspectionPct": 38.92,
+     "servedByExistingEngine": 148,
+     "estimated": {
+      "breaches": 0,
+      "breachPct": 0
+     },
+     "observed": {
+      "breaches": 425,
+      "breachPct": 31.16,
+      "over100": 262,
+      "over1000": 78,
+      "over1pctOfCashifyPayout": 102,
+      "over3pctOfCashifyPayout": 58,
+      "medianExtraPct": 2.61,
+      "p95ExtraPct": 8,
+      "p99ExtraPct": 76.88,
+      "maxExtraPct": 184.89,
+      "medianExcessRupees": 240,
+      "p95ExcessRupees": 8025,
+      "maxExcessRupees": 19955
+     }
     }
    },
-   "existingAsShipped / coupon claimed": {
-    "quotes": 2233,
-    "breaches": 1149,
-    "breachPct": 51.46,
-    "over100": 1116,
-    "over1000": 712,
-    "over1pctOfCashifyPayout": 796,
-    "over3pctOfCashifyPayout": 736,
-    "medianExtraPct": 2.65,
-    "p95ExtraPct": 134.4,
-    "worstBreach": {
-     "over": 62548,
-     "source": "Cashify_iPhone18_Pro_Pricing.zip::all_variants_pricing_data.json::W01",
-     "model": "iPhone 18 Pro",
-     "storage": "2TB",
-     "answers": "F05,F08,F17,WARRANTY_NO",
-     "payout": 101409,
-     "trueCashifyPayout": 36861,
-     "allowed": 38861
-    }
-   },
-   "existingWithCeiling / no coupon": {
-    "quotes": 2233,
-    "breaches": 820,
-    "breachPct": 36.72,
-    "over100": 796,
-    "over1000": 682,
-    "over1pctOfCashifyPayout": 723,
-    "over3pctOfCashifyPayout": 671,
-    "medianExtraPct": 2.14,
-    "p95ExtraPct": 131.66,
-    "worstBreach": {
-     "over": 62229,
-     "source": "Cashify_iPhone18_Pro_Pricing.zip::all_variants_pricing_data.json::W01",
-     "model": "iPhone 18 Pro",
-     "storage": "2TB",
-     "answers": "F05,F08,F17,WARRANTY_NO",
-     "payout": 101090,
-     "trueCashifyPayout": 36861,
-     "allowed": 38861
-    }
-   },
-   "existingWithCeiling / coupon claimed": {
-    "quotes": 2233,
-    "breaches": 848,
-    "breachPct": 37.98,
-    "over100": 805,
-    "over1000": 687,
-    "over1pctOfCashifyPayout": 737,
-    "over3pctOfCashifyPayout": 677,
-    "medianExtraPct": 2.26,
-    "p95ExtraPct": 134.4,
-    "worstBreach": {
-     "over": 62229,
-     "source": "Cashify_iPhone18_Pro_Pricing.zip::all_variants_pricing_data.json::W01",
-     "model": "iPhone 18 Pro",
-     "storage": "2TB",
-     "answers": "F05,F08,F17,WARRANTY_NO",
-     "payout": 101090,
-     "trueCashifyPayout": 36861,
-     "allowed": 38861
-    }
-   },
-   "evidenceWithCeiling / no coupon": {
-    "quotes": 2183,
-    "breaches": 665,
-    "breachPct": 30.46,
-    "over100": 474,
-    "over1000": 144,
-    "over1pctOfCashifyPayout": 234,
-    "over3pctOfCashifyPayout": 103,
-    "medianExtraPct": 3.2,
-    "p95ExtraPct": 8.94,
-    "worstBreach": {
-     "over": 7685,
-     "source": "Cashify_iPhone15Pro_Full_Checklist.zip::Full_Checklist_Data.json::M12",
-     "model": "iPhone 15 Pro",
-     "storage": "128GB",
-     "answers": "Q02,Q03,P01,P03,S01",
-     "payout": 33098,
-     "trueCashifyPayout": 23531,
-     "allowed": 25413
-    }
-   },
-   "evidenceWithCeiling / coupon claimed": {
-    "quotes": 2183,
-    "breaches": 737,
-    "breachPct": 33.76,
-    "over100": 499,
-    "over1000": 156,
-    "over1pctOfCashifyPayout": 241,
-    "over3pctOfCashifyPayout": 121,
-    "medianExtraPct": 3.37,
-    "p95ExtraPct": 9.53,
-    "worstBreach": {
-     "over": 7984,
-     "source": "Cashify_iPhone15Pro_Full_Checklist.zip::Full_Checklist_Data.json::M12",
-     "model": "iPhone 15 Pro",
-     "storage": "128GB",
-     "answers": "Q02,Q03,P01,P03,S01",
-     "payout": 33397,
-     "trueCashifyPayout": 23531,
-     "allowed": 25413
-    }
-   },
-   "shippedScope / no coupon": {
-    "quotes": 1365,
-    "breaches": 403,
-    "breachPct": 29.52,
-    "over100": 258,
-    "over1000": 75,
-    "over1pctOfCashifyPayout": 101,
-    "over3pctOfCashifyPayout": 57,
-    "medianExtraPct": 2.47,
-    "p95ExtraPct": 8,
-    "worstBreach": {
-     "over": 19790,
-     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M16",
+   "worstShipped": [
+    {
+     "excessRupees": 19790,
+     "excessPctOfCashifyPayout": 175.43,
      "model": "iPhone 15",
      "storage": "512GB",
-     "answers": "Q02,F05",
-     "payout": 31973,
-     "trueCashifyPayout": 11281,
-     "allowed": 12183
-    }
-   },
-   "shippedScope / coupon claimed": {
-    "quotes": 1365,
-    "breaches": 425,
-    "breachPct": 31.14,
-    "over100": 262,
-    "over1000": 78,
-    "over1pctOfCashifyPayout": 102,
-    "over3pctOfCashifyPayout": 58,
-    "medianExtraPct": 2.61,
-    "p95ExtraPct": 8,
-    "worstBreach": {
-     "over": 19955,
+     "date": "2026-10-24",
      "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M16",
+     "answers": [
+      "Q02",
+      "F05"
+     ],
+     "confidence": "inferred",
+     "getUpto": 46550,
+     "observedBase": 11400,
+     "observedSelling": 11380,
+     "observedPayout": 11281,
+     "engineEquivalent": 30257,
+     "engineErrorVsObservedBase": 18857,
+     "customerPayout": 31973,
+     "allowedPayout": 12183,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       9041,
+       "inferred",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:screen",
+       21872,
+       "inferred",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:wifi",
+       14465,
+       "inferred",
+       [
+        "F05"
+       ]
+      ],
+      [
+       "floor",
+       -11009,
+       "measured",
+       []
+      ]
+     ]
+    },
+    {
+     "excessRupees": 18445,
+     "excessPctOfCashifyPayout": 167.06,
+     "model": "iPhone 15",
+     "storage": "256GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M16",
+     "answers": [
+      "Q02",
+      "F05"
+     ],
+     "confidence": "inferred",
+     "getUpto": 44220,
+     "observedBase": 11160,
+     "observedSelling": 11140,
+     "observedPayout": 11041,
+     "engineEquivalent": 28743,
+     "engineErrorVsObservedBase": 17583,
+     "customerPayout": 30369,
+     "allowedPayout": 11924,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       8676,
+       "inferred",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:screen",
+       21872,
+       "inferred",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:wifi",
+       13741,
+       "inferred",
+       [
+        "F05"
+       ]
+      ],
+      [
+       "floor",
+       -11641,
+       "measured",
+       []
+      ]
+     ]
+    },
+    {
+     "excessRupees": 17607,
+     "excessPctOfCashifyPayout": 167.03,
+     "model": "iPhone 15",
+     "storage": "128GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M16",
+     "answers": [
+      "Q02",
+      "F05"
+     ],
+     "confidence": "inferred",
+     "getUpto": 42220,
+     "observedBase": 10660,
+     "observedSelling": 10640,
+     "observedPayout": 10541,
+     "engineEquivalent": 27443,
+     "engineErrorVsObservedBase": 16783,
+     "customerPayout": 28991,
+     "allowedPayout": 11384,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       8364,
+       "inferred",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:screen",
+       21872,
+       "inferred",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:wifi",
+       13120,
+       "inferred",
+       [
+        "F05"
+       ]
+      ],
+      [
+       "floor",
+       -12184,
+       "measured",
+       []
+      ]
+     ]
+    },
+    {
+     "excessRupees": 17037,
+     "excessPctOfCashifyPayout": 116.6,
      "model": "iPhone 15",
      "storage": "512GB",
-     "answers": "Q02,F05",
-     "payout": 32138,
-     "trueCashifyPayout": 11281,
-     "allowed": 12183
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M18",
+     "answers": [
+      "Q02",
+      "F17"
+     ],
+     "confidence": "inferred",
+     "getUpto": 46550,
+     "observedBase": 14730,
+     "observedSelling": 14710,
+     "observedPayout": 14611,
+     "engineEquivalent": 31052,
+     "engineErrorVsObservedBase": 16322,
+     "customerPayout": 32816,
+     "allowedPayout": 15779,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       9041,
+       "inferred",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:screen",
+       21872,
+       "inferred",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:batt",
+       3902,
+       "inferred",
+       [
+        "F17"
+       ]
+      ],
+      [
+       "floor",
+       -446,
+       "measured",
+       []
+      ]
+     ]
+    },
+    {
+     "excessRupees": 15724,
+     "excessPctOfCashifyPayout": 109.95,
+     "model": "iPhone 15",
+     "storage": "256GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M18",
+     "answers": [
+      "Q02",
+      "F17"
+     ],
+     "confidence": "inferred",
+     "getUpto": 44220,
+     "observedBase": 14420,
+     "observedSelling": 14400,
+     "observedPayout": 14301,
+     "engineEquivalent": 29498,
+     "engineErrorVsObservedBase": 15078,
+     "customerPayout": 31169,
+     "allowedPayout": 15445,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       8676,
+       "inferred",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:screen",
+       21872,
+       "inferred",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:batt",
+       3902,
+       "inferred",
+       [
+        "F17"
+       ]
+      ],
+      [
+       "floor",
+       -1803,
+       "measured",
+       []
+      ]
+     ]
+    },
+    {
+     "excessRupees": 15023,
+     "excessPctOfCashifyPayout": 110.13,
+     "model": "iPhone 15",
+     "storage": "128GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M18",
+     "answers": [
+      "Q02",
+      "F17"
+     ],
+     "confidence": "inferred",
+     "getUpto": 42220,
+     "observedBase": 13760,
+     "observedSelling": 13740,
+     "observedPayout": 13641,
+     "engineEquivalent": 28164,
+     "engineErrorVsObservedBase": 14404,
+     "customerPayout": 29755,
+     "allowedPayout": 14732,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       8364,
+       "inferred",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:screen",
+       21872,
+       "inferred",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:batt",
+       3902,
+       "inferred",
+       [
+        "F17"
+       ]
+      ],
+      [
+       "floor",
+       -2967,
+       "measured",
+       []
+      ]
+     ]
+    },
+    {
+     "excessRupees": 14750,
+     "excessPctOfCashifyPayout": 130.75,
+     "model": "iPhone 15",
+     "storage": "512GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M17",
+     "answers": [
+      "Q02",
+      "F08"
+     ],
+     "confidence": "inferred",
+     "getUpto": 46550,
+     "observedBase": 11400,
+     "observedSelling": 11380,
+     "observedPayout": 11281,
+     "engineEquivalent": 25502,
+     "engineErrorVsObservedBase": 14102,
+     "customerPayout": 26933,
+     "allowedPayout": 12183,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       9041,
+       "inferred",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:screen",
+       21872,
+       "inferred",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:face",
+       9716,
+       "inferred",
+       [
+        "F08"
+       ]
+      ],
+      [
+       "floor",
+       -6260,
+       "measured",
+       []
+      ]
+     ]
+    },
+    {
+     "excessRupees": 13657,
+     "excessPctOfCashifyPayout": 123.69,
+     "model": "iPhone 15",
+     "storage": "256GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M17",
+     "answers": [
+      "Q02",
+      "F08"
+     ],
+     "confidence": "inferred",
+     "getUpto": 44220,
+     "observedBase": 11160,
+     "observedSelling": 11140,
+     "observedPayout": 11041,
+     "engineEquivalent": 24226,
+     "engineErrorVsObservedBase": 13066,
+     "customerPayout": 25581,
+     "allowedPayout": 11924,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       8676,
+       "inferred",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:screen",
+       21872,
+       "inferred",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:face",
+       9230,
+       "inferred",
+       [
+        "F08"
+       ]
+      ],
+      [
+       "floor",
+       -7130,
+       "measured",
+       []
+      ]
+     ]
+    },
+    {
+     "excessRupees": 13067,
+     "excessPctOfCashifyPayout": 62.64,
+     "model": "iPhone 15",
+     "storage": "512GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M14",
+     "answers": [
+      "P01",
+      "S01"
+     ],
+     "confidence": "inferred",
+     "getUpto": 46550,
+     "observedBase": 20980,
+     "observedSelling": 20960,
+     "observedPayout": 20861,
+     "engineEquivalent": 33715,
+     "engineErrorVsObservedBase": 12735,
+     "customerPayout": 35596,
+     "allowedPayout": 22529,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       9041,
+       "inferred",
+       [
+        "P01",
+        "S01"
+       ]
+      ],
+      [
+       "class:screen",
+       13424,
+       "inferred",
+       [
+        "S01"
+       ]
+      ],
+      [
+       "class:body",
+       3341,
+       "inferred",
+       [
+        "P01"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 13035,
+     "excessPctOfCashifyPayout": 123.66,
+     "model": "iPhone 15",
+     "storage": "128GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M17",
+     "answers": [
+      "Q02",
+      "F08"
+     ],
+     "confidence": "inferred",
+     "getUpto": 42220,
+     "observedBase": 10660,
+     "observedSelling": 10640,
+     "observedPayout": 10541,
+     "engineEquivalent": 23130,
+     "engineErrorVsObservedBase": 12470,
+     "customerPayout": 24419,
+     "allowedPayout": 11384,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       8364,
+       "inferred",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:screen",
+       21872,
+       "inferred",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:face",
+       8812,
+       "inferred",
+       [
+        "F08"
+       ]
+      ],
+      [
+       "floor",
+       -7877,
+       "measured",
+       []
+      ]
+     ]
+    },
+    {
+     "excessRupees": 12496,
+     "excessPctOfCashifyPayout": 68.09,
+     "model": "iPhone 15",
+     "storage": "128GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M14",
+     "answers": [
+      "P01",
+      "S01"
+     ],
+     "confidence": "inferred",
+     "getUpto": 42220,
+     "observedBase": 18470,
+     "observedSelling": 18450,
+     "observedPayout": 18351,
+     "engineEquivalent": 30579,
+     "engineErrorVsObservedBase": 12109,
+     "customerPayout": 32315,
+     "allowedPayout": 19819,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       8364,
+       "inferred",
+       [
+        "P01",
+        "S01"
+       ]
+      ],
+      [
+       "class:screen",
+       13424,
+       "inferred",
+       [
+        "S01"
+       ]
+      ],
+      [
+       "class:body",
+       3341,
+       "inferred",
+       [
+        "P01"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 12195,
+     "excessPctOfCashifyPayout": 60.82,
+     "model": "iPhone 15",
+     "storage": "256GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M14",
+     "answers": [
+      "P01",
+      "S01"
+     ],
+     "confidence": "inferred",
+     "getUpto": 44220,
+     "observedBase": 20170,
+     "observedSelling": 20150,
+     "observedPayout": 20051,
+     "engineEquivalent": 32027,
+     "engineErrorVsObservedBase": 11857,
+     "customerPayout": 33850,
+     "allowedPayout": 21655,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       8676,
+       "inferred",
+       [
+        "P01",
+        "S01"
+       ]
+      ],
+      [
+       "class:screen",
+       13424,
+       "inferred",
+       [
+        "S01"
+       ]
+      ],
+      [
+       "class:body",
+       3341,
+       "inferred",
+       [
+        "P01"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 10093,
+     "excessPctOfCashifyPayout": 48.41,
+     "model": "iPhone 15",
+     "storage": "256GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M03",
+     "answers": [
+      "F05",
+      "F08"
+     ],
+     "confidence": "inferred",
+     "getUpto": 44220,
+     "observedBase": 20970,
+     "observedSelling": 20950,
+     "observedPayout": 20851,
+     "engineEquivalent": 30859,
+     "engineErrorVsObservedBase": 9889,
+     "customerPayout": 32612,
+     "allowedPayout": 22519,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "class:wifi",
+       13741,
+       "inferred",
+       [
+        "F05"
+       ]
+      ],
+      [
+       "class:face",
+       9230,
+       "inferred",
+       [
+        "F08"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 9840,
+     "excessPctOfCashifyPayout": 43.38,
+     "model": "iPhone 15",
+     "storage": "512GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M03",
+     "answers": [
+      "F05",
+      "F08"
+     ],
+     "confidence": "inferred",
+     "getUpto": 46550,
+     "observedBase": 22800,
+     "observedSelling": 22780,
+     "observedPayout": 22681,
+     "engineEquivalent": 32485,
+     "engineErrorVsObservedBase": 9685,
+     "customerPayout": 34335,
+     "allowedPayout": 24495,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "class:wifi",
+       14465,
+       "inferred",
+       [
+        "F05"
+       ]
+      ],
+      [
+       "class:face",
+       9716,
+       "inferred",
+       [
+        "F08"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 9816,
+     "excessPctOfCashifyPayout": 87.01,
+     "model": "iPhone 15",
+     "storage": "512GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M19",
+     "answers": [
+      "Q02",
+      "F05",
+      "F08"
+     ],
+     "confidence": "inferred",
+     "getUpto": 46550,
+     "observedBase": 11400,
+     "observedSelling": 11380,
+     "observedPayout": 11281,
+     "engineEquivalent": 20847,
+     "engineErrorVsObservedBase": 9447,
+     "customerPayout": 21999,
+     "allowedPayout": 12183,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       9041,
+       "inferred",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:screen",
+       21872,
+       "inferred",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:wifi",
+       14465,
+       "inferred",
+       [
+        "F05"
+       ]
+      ],
+      [
+       "class:face",
+       9716,
+       "inferred",
+       [
+        "F08"
+       ]
+      ],
+      [
+       "floor",
+       -20725,
+       "measured",
+       []
+      ]
+     ]
+    },
+    {
+     "excessRupees": 9639,
+     "excessPctOfCashifyPayout": 48.43,
+     "model": "iPhone 15",
+     "storage": "128GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M03",
+     "answers": [
+      "F05",
+      "F08"
+     ],
+     "confidence": "inferred",
+     "getUpto": 42220,
+     "observedBase": 20020,
+     "observedSelling": 20000,
+     "observedPayout": 19901,
+     "engineEquivalent": 29463,
+     "engineErrorVsObservedBase": 9443,
+     "customerPayout": 31132,
+     "allowedPayout": 21493,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "class:wifi",
+       13120,
+       "inferred",
+       [
+        "F05"
+       ]
+      ],
+      [
+       "class:face",
+       8812,
+       "inferred",
+       [
+        "F08"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 9067,
+     "excessPctOfCashifyPayout": 37.39,
+     "model": "iPhone 15",
+     "storage": "128GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M08",
+     "answers": [
+      "D01",
+      "D04",
+      "D06"
+     ],
+     "confidence": "inferred",
+     "getUpto": 42220,
+     "observedBase": 24370,
+     "observedSelling": 24350,
+     "observedPayout": 24251,
+     "engineEquivalent": 33377,
+     "engineErrorVsObservedBase": 9007,
+     "customerPayout": 35258,
+     "allowedPayout": 26191,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "class:screen",
+       19486,
+       "inferred",
+       [
+        "D01",
+        "D04",
+        "D06"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 8969,
+     "excessPctOfCashifyPayout": 81.23,
+     "model": "iPhone 15",
+     "storage": "256GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M19",
+     "answers": [
+      "Q02",
+      "F05",
+      "F08"
+     ],
+     "confidence": "inferred",
+     "getUpto": 44220,
+     "observedBase": 11160,
+     "observedSelling": 11140,
+     "observedPayout": 11041,
+     "engineEquivalent": 19804,
+     "engineErrorVsObservedBase": 8644,
+     "customerPayout": 20893,
+     "allowedPayout": 11924,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       8676,
+       "inferred",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:screen",
+       21872,
+       "inferred",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:wifi",
+       13741,
+       "inferred",
+       [
+        "F05"
+       ]
+      ],
+      [
+       "class:face",
+       9230,
+       "inferred",
+       [
+        "F08"
+       ]
+      ],
+      [
+       "floor",
+       -20871,
+       "measured",
+       []
+      ]
+     ]
+    },
+    {
+     "excessRupees": 8588,
+     "excessPctOfCashifyPayout": 32.71,
+     "model": "iPhone 15",
+     "storage": "256GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M08",
+     "answers": [
+      "D01",
+      "D04",
+      "D06"
+     ],
+     "confidence": "inferred",
+     "getUpto": 44220,
+     "observedBase": 26370,
+     "observedSelling": 26350,
+     "observedPayout": 26251,
+     "engineEquivalent": 34958,
+     "engineErrorVsObservedBase": 8588,
+     "customerPayout": 36839,
+     "allowedPayout": 28251,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "class:screen",
+       19486,
+       "inferred",
+       [
+        "D01",
+        "D04",
+        "D06"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 8559,
+     "excessPctOfCashifyPayout": 81.2,
+     "model": "iPhone 15",
+     "storage": "128GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M19",
+     "answers": [
+      "Q02",
+      "F05",
+      "F08"
+     ],
+     "confidence": "inferred",
+     "getUpto": 42220,
+     "observedBase": 10660,
+     "observedSelling": 10640,
+     "observedPayout": 10541,
+     "engineEquivalent": 18908,
+     "engineErrorVsObservedBase": 8248,
+     "customerPayout": 19943,
+     "allowedPayout": 11384,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       8364,
+       "inferred",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:screen",
+       21872,
+       "inferred",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:wifi",
+       13120,
+       "inferred",
+       [
+        "F05"
+       ]
+      ],
+      [
+       "class:face",
+       8812,
+       "inferred",
+       [
+        "F08"
+       ]
+      ],
+      [
+       "floor",
+       -20996,
+       "measured",
+       []
+      ]
+     ]
+    },
+    {
+     "excessRupees": 8100,
+     "excessPctOfCashifyPayout": 28.34,
+     "model": "iPhone 15",
+     "storage": "512GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M08",
+     "answers": [
+      "D01",
+      "D04",
+      "D06"
+     ],
+     "confidence": "inferred",
+     "getUpto": 46550,
+     "observedBase": 28700,
+     "observedSelling": 28680,
+     "observedPayout": 28581,
+     "engineEquivalent": 36800,
+     "engineErrorVsObservedBase": 8100,
+     "customerPayout": 38681,
+     "allowedPayout": 30581,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "class:screen",
+       19486,
+       "inferred",
+       [
+        "D01",
+        "D04",
+        "D06"
+       ]
+      ]
+     ]
+    },
+    {
+     "excessRupees": 7726,
+     "excessPctOfCashifyPayout": 68.49,
+     "model": "iPhone 15",
+     "storage": "512GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::W01",
+     "answers": [
+      "F05",
+      "F08",
+      "F17",
+      "WARRANTY_NO"
+     ],
+     "confidence": "inferred",
+     "getUpto": 46550,
+     "observedBase": 11400,
+     "observedSelling": 11380,
+     "observedPayout": 11281,
+     "engineEquivalent": 18875,
+     "engineErrorVsObservedBase": 7475,
+     "customerPayout": 19909,
+     "allowedPayout": 12183,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       9041,
+       "inferred",
+       [
+        "warranty=No"
+       ]
+      ],
+      [
+       "class:wifi",
+       14465,
+       "inferred",
+       [
+        "F05"
+       ]
+      ],
+      [
+       "class:face",
+       9716,
+       "inferred",
+       [
+        "F08"
+       ]
+      ],
+      [
+       "class:batt",
+       3902,
+       "inferred",
+       [
+        "F17"
+       ]
+      ],
+      [
+       "floor",
+       -2755,
+       "measured",
+       []
+      ]
+     ]
+    },
+    {
+     "excessRupees": 6983,
+     "excessPctOfCashifyPayout": 63.25,
+     "model": "iPhone 15",
+     "storage": "256GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::W01",
+     "answers": [
+      "F05",
+      "F08",
+      "F17",
+      "WARRANTY_NO"
+     ],
+     "confidence": "inferred",
+     "getUpto": 44220,
+     "observedBase": 11160,
+     "observedSelling": 11140,
+     "observedPayout": 11041,
+     "engineEquivalent": 17930,
+     "engineErrorVsObservedBase": 6770,
+     "customerPayout": 18907,
+     "allowedPayout": 11924,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       8676,
+       "inferred",
+       [
+        "warranty=No"
+       ]
+      ],
+      [
+       "class:wifi",
+       13741,
+       "inferred",
+       [
+        "F05"
+       ]
+      ],
+      [
+       "class:face",
+       9230,
+       "inferred",
+       [
+        "F08"
+       ]
+      ],
+      [
+       "class:batt",
+       3902,
+       "inferred",
+       [
+        "F17"
+       ]
+      ],
+      [
+       "floor",
+       -2901,
+       "measured",
+       []
+      ]
+     ]
+    },
+    {
+     "excessRupees": 6663,
+     "excessPctOfCashifyPayout": 63.21,
+     "model": "iPhone 15",
+     "storage": "128GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::W01",
+     "answers": [
+      "F05",
+      "F08",
+      "F17",
+      "WARRANTY_NO"
+     ],
+     "confidence": "inferred",
+     "getUpto": 42220,
+     "observedBase": 10660,
+     "observedSelling": 10640,
+     "observedPayout": 10541,
+     "engineEquivalent": 17119,
+     "engineErrorVsObservedBase": 6459,
+     "customerPayout": 18047,
+     "allowedPayout": 11384,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       8364,
+       "inferred",
+       [
+        "warranty=No"
+       ]
+      ],
+      [
+       "class:wifi",
+       13120,
+       "inferred",
+       [
+        "F05"
+       ]
+      ],
+      [
+       "class:face",
+       8812,
+       "inferred",
+       [
+        "F08"
+       ]
+      ],
+      [
+       "class:batt",
+       3902,
+       "inferred",
+       [
+        "F17"
+       ]
+      ],
+      [
+       "floor",
+       -3026,
+       "measured",
+       []
+      ]
+     ]
+    },
+    {
+     "excessRupees": 5724,
+     "excessPctOfCashifyPayout": 50.74,
+     "model": "iPhone 15",
+     "storage": "512GB",
+     "date": "2026-10-24",
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M15",
+     "answers": [
+      "Q02",
+      "F05",
+      "F08",
+      "F17"
+     ],
+     "confidence": "inferred",
+     "getUpto": 46550,
+     "observedBase": 11400,
+     "observedSelling": 11380,
+     "observedPayout": 11281,
+     "engineEquivalent": 16987,
+     "engineErrorVsObservedBase": 5587,
+     "customerPayout": 17907,
+     "allowedPayout": 12183,
+     "usedExistingEngine": true,
+     "breakdown": [
+      [
+       "age",
+       9041,
+       "inferred",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:screen",
+       21872,
+       "inferred",
+       [
+        "Q02"
+       ]
+      ],
+      [
+       "class:wifi",
+       14465,
+       "inferred",
+       [
+        "F05"
+       ]
+      ],
+      [
+       "class:face",
+       9716,
+       "inferred",
+       [
+        "F08"
+       ]
+      ],
+      [
+       "class:batt",
+       3902,
+       "inferred",
+       [
+        "F17"
+       ]
+      ],
+      [
+       "floor",
+       -24628,
+       "measured",
+       []
+      ]
+     ]
     }
-   }
+   ]
   }
  }
 }

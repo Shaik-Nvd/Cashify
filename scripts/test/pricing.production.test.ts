@@ -90,6 +90,8 @@ function diag(overrides: Partial<DiagnosticsType> = {}): DiagnosticsType {
   };
 }
 
+// A worn but still valuable phone: the Cashify-equivalent stays positive, so the payout ceiling can bound the quote.
+const WORN = diag({ defects: ['body_scratch'], bodyScratches: 'More than 2 scratches', warranty: false, validBill: false, mobileAge: 'above11' });
 const DAMAGED = diag({
   touch: false, originalScreen: false, warranty: false, validBill: false, accessories: [],
   defects: ['broken_screen', 'body_scratch', 'panel_missing'], bodyScratches: 'More than 2 scratches',
@@ -339,9 +341,9 @@ async function run() {
 
   await test('an inflated client price is never stored - the server recomputes and flags the mismatch', async () => {
     const { svc } = service();
-    const result = await svc.verifyLeadPrice({ ...identity, diagnostics: DAMAGED, clientQuotedPrice: 9_999_999 });
+    const result = await svc.verifyLeadPrice({ ...identity, diagnostics: WORN, clientQuotedPrice: 9_999_999 });
     assert.ok(result.ok);
-    assert.equal(result.price, (await svc.quote({ ...identity, diagnostics: DAMAGED }) as any).fhoneifyPrice);
+    assert.equal(result.price, (await svc.quote({ ...identity, diagnostics: WORN }) as any).fhoneifyPrice);
     assert.equal(result.audit.priceSource, 'recomputed');
     assert.equal(result.audit.clientPriceMismatch, true);
   });
@@ -361,11 +363,18 @@ async function run() {
     assert.ok(lead.audit.currentPrice! < quoted.fhoneifyPrice, 'audit should record the drifted current price');
   });
 
+  await test('a phone whose Cashify-equivalent is not positive cannot be bounded by the payout ceiling: inspection, never a price', async () => {
+    const { svc } = service();
+    const result = await svc.quote({ ...identity, diagnostics: DAMAGED });
+    assert.ok(!result.ok);
+    assert.equal((result as any).code, 'MANUAL_INSPECTION_REQUIRED');
+  });
+
   await test('a good-condition token cannot be reused for a damaged-condition lead', async () => {
     const { svc } = service();
     const quoted = await svc.quote({ ...identity, diagnostics: diag() });
     assert.ok(quoted.ok);
-    const lead = await svc.verifyLeadPrice({ ...identity, diagnostics: DAMAGED, quoteToken: quoted.quoteToken });
+    const lead = await svc.verifyLeadPrice({ ...identity, diagnostics: WORN, quoteToken: quoted.quoteToken });
     assert.ok(lead.ok);
     assert.equal(lead.audit.tokenRejectedReason, 'diagnostics_mismatch');
     assert.ok(lead.price < quoted.fhoneifyPrice);

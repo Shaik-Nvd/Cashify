@@ -49,45 +49,93 @@ Result (`lib/pricing/appleCashifyModel/scope.json`):
 - **measured-only** (unmeasured combinations go to inspection): iPhone 14, 14 Pro, 15 Plus, 15 Pro, 16 Pro, 16e, 17, 17 Pro Max, 17e.
 - **off** (existing engine unchanged): iPhone 15, 15 Pro Max, X. iPhone 12/13 and older are untouched.
 
-## 5. Payout ceiling (the owner's rule)
+## 5. The payout ceiling: what is guaranteed and what is not
 
-Rule implemented: payout ≤ matched Cashify payout + min(8%, ₹2,000). The uplift is applied once, then the ceiling is applied after fees, rounding and the ₹299 coupon (the coupon is clamped by remaining headroom). The ceiling only ever lowers a quote. Base price, headline selling price (base − ₹20) and payout (after Cashify's fee schedule) are kept distinct.
+**The rule.** Customer payout <= matched Cashify payout + min(8%, INR 2,000). The uplift is applied once; the ceiling comes after it and after the INR 99 fee, rounding and the INR 299 coupon (the coupon is clamped to the remaining headroom). Base price, headline selling price (base - 20) and payout (after Cashify's fee schedule) are kept distinct.
 
-Flow verified through the real service and HTTP layer: the server quote is authoritative, the signed token binds device and answers, the lead stores the exact quote, reload restores it, and the frontend displays the server number.
+**What the function now guarantees (`lib/pricing/payoutCeiling.ts`).** `applyPayoutCeiling` solves directly for the largest whole-rupee quote that is within the limit, instead of stepping down a bounded loop. It returns `status: 'ok'` with a quote that satisfies the limit, or `status: 'inspection'` with no price at all (non-finite input, no positive Cashify-equivalent, a quote below the INR 99 fee, or a limit no payable quote can meet). The pricing service turns `inspection` into `MANUAL_INSPECTION_REQUIRED`; it never signs or shows a number that breaks the limit. Tests: a 4,000-quote property sweep (every result is within its limit with and without the coupon and is maximal, or is an inspection result with a reason), the INR 1,200 fee-exemption edge, and non-finite inputs. A signed lead price older than the current estimate is kept (the customer saw it) but is flagged `signedPriceWithinCurrentCeiling` in the lead audit.
 
-**Important finding.** The ceiling is computed from the engine's own estimate of Cashify. Measured against the *true* Cashify payout on held-out quotes (`scripts/pricing-evidence/ceiling-compliance.ts`, `validation/ceiling_compliance.json`), shipped scope still exceeds the allowed maximum on a minority of quotes:
+**Behaviour change to approve (found by the existing production tests).** The old ceiling loop silently did the wrong thing when the Cashify-equivalent is zero, which is what the existing engine produces for any heavily damaged phone (it then quotes the INR 100 minimum bonus). No quote can sit within "Cashify payout + 8%" of a zero payout, so the ceiling now returns inspection-required instead of a INR 100 number. Measured over the whole catalog at catalog base prices (`scripts/pricing-evidence/ceiling-inspection-rate.ts`): a clean phone is never affected (0 of 2,144); a worn phone (body scratches, out of warranty) 29 of 2,144 (all measured-only iPhones, unmeasured combination, the policy of section 4); a non-working phone 29 of 2,144; a heavily damaged phone (broken screen, dents, missing panel, touch and three functional faults) **2,075 of 2,144 now go to inspection instead of an INR 100 quote**. Two production tests that asserted a valid quote for that profile now use a worn-but-valuable profile, and a new test asserts the inspection result for the damaged one. Keeping the old INR 100 quote would break the stated rule ("the ceiling must hold after minimum-price rules"), so I made the safe choice, but customers will notice.
 
-| scenario (no coupon) | p1 | p2 | p3 | p4 |
+**That guarantee is against the ESTIMATE only.** The limit is computed from the engine's own Cashify-equivalent. Whether the customer is within the limit of what Cashify actually pays depends on the estimate being right, which is a separate, measured question. `scripts/pricing-evidence/ceiling-compliance.ts` keeps the two apart (`data/pricing-evidence/validation/ceiling_compliance.json`). Share of held-out quotes within the limit, no coupon:
+
+| scenario | A. vs the engine's own estimate | B. vs the REAL Cashify payout (held-out p1 / p2 / p3 / p4) |
+|---|---|---|
+| existing engine as shipped (no ceiling) | 40% | 53% / 53% / 54% / 53% |
+| existing engine + ceiling | 100% | 63% / 62% / 68% / 63% |
+| evidence engine + ceiling, priced everywhere it can | 100% | 82% / 86% / 90% / 70% |
+| **as shipped (scope.json: evidence, inspection, existing elsewhere) + ceiling** | **100%** | **84% / 85% / 94% / 70%** |
+
+So this is not a hard Cashify ceiling: 6-30% of held-out quotes exceed the allowance measured against real Cashify payouts, and column B is not column A. Reasons, from the largest breaches inspected one by one (section 6):
+1. **Little or no slack.** For a Get Upto above about INR 33,000 the existing uplift is already the INR 2,000 cap, which is also the rule's cap; below that the 6% and 8% tiers leave 0-2% of slack. Any over-estimate of Cashify, even INR 20-110 from rounding or the INR 20 IMEI basis, becomes a breach. On iPhone 14 Pro all 28 first-round breaches are exactly this (excess INR 20-110).
+2. **Models still on the existing engine.** iPhone 15 is `off`; the existing engine ignores touch failure (and several other answers), so a touch-failure + Wi-Fi quote is INR 30,257 against Cashify's INR 11,400. 46 breaches, up to INR 19,790, none from the evidence engine.
+3. **Unseen condition shapes** (touch failure on 18 Pro Max, Wi-Fi + Face ID on 17 Pro Max): INR 5,000-7,500 over.
+
+**Margin analysis (nothing applied).** `margin-sweep.ts` prices from E x (1 - m). On rows the evidence model prices (`data/pricing-evidence/validation/margin_sweep.json`), breaches against real Cashify fall from 14.5% / 13.4% / 6.1% / 29.4% (p1-p4) at m = 0 to 1.9% / 0.0% / 1.9% / 5.1% at m = 1%, and to 1.0% / 0.0% / 0.5% / 1.7% at m = 2%, at a customer cost of about INR 620-1,600 (the median payout given up). Large-error shapes still breach by INR 1,000+ on p1 even at 5%. This is a business trade-off, not something I will choose: the limit becomes defensible only if customers are paid less, or if inspection absorbs the uncertain shapes.
+
+## 6. The largest breaches, individually
+
+`scripts/pricing-evidence/verify_breach_sources.py` re-reads the ZIPs in memory (the bundled `match_price.py` is never run) and checks the 80 largest breach records. Each one: present in the normalised data with the same figures, base = selling + 20, payout fee in Cashify's 49/69/99 schedule, the figure present in the archive's JSON, TXT and HTML, and no disagreeing duplicate measurement of the same configuration (`data/pricing-evidence/validation/breach_source_verification.json`).
+
+Result: **80 of 80 verified, 0 contradictions**; 79 are corroborated in every representation the archive ships, 1 (iPhone 18 Pro Max 2 TB, Q02 alone, INR 94,960) appears in JSON and TXT but not in that archive's HTML table, which does not list the single-defect set. The large breaches are real Cashify records, not data errors. They are scope and shape failures of our model: 36 of the 80 are iPhone 15 records, where the evidence model is disabled; the 18 Pro Max and 17 Pro Max ones are held-out shapes the model had not seen. A standing caveat: the iPhone 18 prices are suspiciously round, so that archive's authenticity is an open question.
+
+## 7. Frozen rules vs independent quotes
+
+The rules (`model.ts`, `template.json`, `calibration.json`, `scope.json`, `index.ts`) were hashed before scoring (`independent_validation.json` holds the SHA-256 values) and `scripts/pricing-evidence/validate-independent.ts` cannot change them.
+
+**Independent set available:** 40 earlier Apple observations from other test campaigns, dated 2-11 Oct 2026 (the fitted archives are 16-24 Oct): 13 screenshot-verified browser captures and 27 tester-reported workbook rows. The team-text transcripts are the same records as the ZIP TXT files, so they are excluded.
+
+| | cases | priced by the shipped scope | inspection | out of scope |
 |---|---:|---:|---:|---:|
-| existing engine as shipped | 47% | 47% | 46% | 47% |
-| existing engine + ceiling | 37% | 38% | 32% | 37% |
-| evidence engine + ceiling, as shipped scope | 16% | 15% | 6% | 30% |
+| all | 40 | 10 | 4 | 26 |
 
-Most remaining breaches are small (p1: 154 of 1,803 priced quotes exceed the allowance by more than ₹100, and 56 by more than ₹1,000). The guarantee therefore holds against our estimate of Cashify, not against Cashify's live payout. It cannot be fully guaranteed unless the estimate is exact. If you want the ceiling to be a hard guarantee, the safer lever is more inspection, or a safety margin on the estimate, and that is a business decision, not something I will pick.
+- **Screenshot-verified and priced (iPhone 14 128 GB): n = 2**, errors INR 0 and +20 (existing engine: INR 66 mean).
+- **Tester-reported and priced: n = 8.** iPhone 14 256 GB: INR 0 on both. iPhone 16 256 GB: 0 / +140 / +440. **iPhone 17 256 GB: +2,460 (clean, aged) and -2,630 (two defects). iPhone 17 Pro Max 512 GB: +2,530 (clean, aged).** Over all 10 priced rows: mean absolute error INR 822 vs the existing engine's 1,917; median relative error 0.1%, p90 5.3%, max 7.5%.
+- The iPhone 17-family aged clean baselines are over-estimated by 3-5% and were labelled `measured`. That is the clearest sign the age rule may not be stable over time (or that those tester rows saw different questions). It is 3 records and not conclusive.
 
-## 6. Verification
+**Fresh, new Cashify quotes could not be collected.** I tried to drive Cashify's quote flow in the browser. The questionnaire could be completed without a login, but the page froze at the last step (renderer unresponsive after the accessories "Continue", on two separate tabs), so no price was read. Going further would likely mean the site's sign-in; I will not enter credentials or create accounts. So the frozen-rule validation uses earlier independent data only (n = 10 priced) and must not be quoted as fresh-quote validation. The validator accepts new captures (`{"rows":[{id, model, storage, getUpto, sellingPrice, observedAt, diagnostics}]}`) without changing any rule: `npx tsx scripts/pricing-evidence/validate-independent.ts new.json`.
 
-- `tsc` clean for `tsconfig.next.json` and `tsconfig.server.json`.
-- Full pricing suite loop, database unreachable: 48 passed, 6 failed. The 6 failures (`generalization-properties`, `iphone12-captured-profile`, `questionnaire-metadata`, `scoped-storage`, `team-qa`, `team-text-wiring`) also fail on pristine `origin/main` (log: `data/pricing-evidence/baseline_suites_origin_main.log`). The seventh baseline failure, `test_iphone18pm_2tb`, now passes. No new failures.
-- Tests I edited to expect `MANUAL_INSPECTION_REQUIRED` for evidence-model iPhones on unmeasured combinations: `pricing.hybrid`, `pricing.team-workbook-service`, `pricing.get-upto`, plus the release/flow suites listed in `git status`. Please review these as policy changes, not just test fixes.
-- Not done: `next build` and a browser check of the quote page.
+## 8. Coverage and error limits
 
-## 7. Decisions needing your approval
+`docs/PRICING_EVIDENCE_COVERAGE.md` has the per-model table (generated by `coverage-limits.ts`). Pooled over the held-out rows of protocols 1 and 2 (4,415 quotes), under what `scope.json` serves:
+- **75.4%** of requests get an evidence-engine price, **5.5%** stay on the existing engine (iPhone 15, 15 Pro Max, X: no evidence model), **19.1%** go to inspection.
+- Estimate error on evidence-priced rows: median 0.0-0.2%, p90 0.0-2.6%, p95 up to 15.8% (15 Plus) and 8.4% (17 Pro Max), worst single rows up to 80% of the price on unseen shapes. These tails are why the measured/inferred split exists; on rows labelled `measured` the p95 is about 1%.
+- Against the real Cashify payout: **557 of 3,573 priced quotes (15.6%)** exceed the allowance; most by under INR 700, a minority far more (17 Pro Max INR 5,160 and 18 Pro Max INR 7,500 on unseen shapes; iPhone 15 INR 19,790 on the existing engine).
 
-1. **₹20 IMEI-fee basis.** Base = headline + ₹20 holds for 2,238 of 2,238 quotes; the ceiling uses the headline (base − 20). Confirm.
-2. **Get Upto is not capped**, only the final quote. Confirm this matches the documented Get Upto definition you want.
-3. **Coupon clamp.** The ₹299 first-time coupon is reduced when it would breach the ceiling. Accept the UX, or drop the coupon for those quotes.
-4. **Inferred-combination policy** per model: `inspect` (default here), `price`, or `legacy`. Inspection rate is the cost; see section 4 and the validation report.
-5. **Excluded models**: iPhone 15, 15 Pro Max and X stay on the existing engine until more quotes exist.
-6. **Warranty-void rule change** in the form, and the **extreme-fault inspection rule** (≥ 10 functional faults).
-7. **Catalog fixes** found along the way: RAM values, iPhone 18 storage spelling, stale base prices.
-8. **iPhone 18 round-price caveat**: those quotes show round numbers that may not be genuine Cashify output; treat them as lower-confidence until re-checked.
-9. **T5 subset floor and added T7** (section 4).
-10. **Tier selection (4/6/8%)** is unchanged and documented, no change proposed. Say if you want one.
-11. **Approve the 400-quote iPhone 12/13 collection plan** (`docs/next-quotes/iphone12_13_plan.csv`) and the gap list for existing models.
+Coverage limits, stated explicitly:
+- Only iPhones listed in `scope.json`, only the storage variants measured, only the questionnaire the quotes were collected with, dated 16-24 Oct 2026.
+- Measured-only models refuse any answer combination their own quotes did not contain: iPhone 15 Plus, 15 Pro, 16 Pro, 16e, 17, 17 Pro Max and 17e send 39-57% of held-out requests to inspection, iPhone 14 and 14 Pro 10-14%. That is the price of not guessing.
+- iPhone 12 and 13 are not modelled; the 400-quote plan is the route to cover them.
 
-## 8. Remaining uncertainty
+## 9. Build and browser verification
 
-- Calibration reflects Cashify quotes dated 16–24 Oct 2026; nothing shows the tables stay stable. Evidence expiry and a re-fit routine should follow the weekly Cashify refresh.
-- Touch-failure combinations and multi-fault stacks are thinly sampled on most models.
-- The ceiling guarantee depends on estimate quality (section 5).
+- `npx next build` succeeds (`data/pricing-evidence/next_build.log`). `tsc` is clean for the Next and server configs.
+- Local browser check with no database and no production data: the real Express API (`NODE_ENV=development`, throwaway secrets, file-backed reference store) and the built frontend, driven in Chrome. The server returned the signed quote (`POST /api/quote/price`, 200, `fhoneifyPrice` 29,047, `couponHeadroom` 299). The page showed INR 28,948 = server price - the INR 99 display fee, with no price computed in the browser, and a reload restored the same INR 28,948. A condition the evidence model refuses rendered the "Inspection required" page with the WhatsApp request link.
+- Not verified in the browser: lead creation and OTP login. Both need the database (the OTP store is Prisma-backed), which I did not touch; I seeded a locally signed test token instead of logging in. Lead creation is covered at the service layer by `pricing.apple-evidence-flow` (signed token binds device and answers, the lead keeps the exact quote and payout, headroom clamps the coupon).
+- The local API, as in production config, runs in `hybrid` release mode and reports `freshReleaseRoutes: 0` (its release-route evidence expired 15 Oct). That is pre-existing and unchanged by this work.
+
+## 10. Verification summary
+
+Final suite loop with the database unreachable: `data/pricing-evidence/suites_final.log`. The failures listed there also fail on pristine `origin/main` (`baseline_suites_origin_main.log`).
+
+## 11. Decisions needing your approval
+
+1. **Do you want a hard Cashify ceiling?** It cannot be given from an estimate. Options: (a) keep the ceiling against the estimate and publish the observed-compliance figures above; (b) price from E x (1 - m) with m taken from the margin sweep (1-2% removes most small breaches at about INR 620-1,600 per quote); (c) send uncertain shapes to inspection; (d) lower the uplift so there is slack. I would suggest (b) with m = 1-2% plus (c), but each changes customer prices, so this is yours to decide.
+2. **iPhone 15 and 15 Pro Max on the existing engine.** It ignores touch failure and similar answers (INR 17-20k over). Decide whether those answers go to inspection until an evidence model passes.
+3. **INR 20 IMEI-fee basis** in the ceiling, and that Get Upto is not capped (only the final quote).
+4. **Coupon clamp** UX (the INR 299 coupon is reduced to the remaining headroom).
+5. **Inferred-combination policy** per model (`inspect` today); the coverage table shows the inspection rate it costs.
+6. **Warranty-void form rule** and the **extreme-fault inspection** rule (>= 10 functional faults).
+7. **Catalog fixes** found on the way (RAM values, iPhone 18 storage spelling, stale base prices) and the **iPhone 18 round-price** authenticity question.
+8. **T5 subset floor and the added T7** thresholds.
+9. **Age law stability**: earlier independent iPhone 17-family aged baselines are 3-5% below the model's; collect fresh dated quotes before relying on `measured` labels there.
+10. **Approve the 400-quote iPhone 12/13 plan** and the gap list, and a small fresh in-scope set (iPhone 16, 17, 17 Pro Max, aged and clean) captured by a person, so the frozen rules can be tested on genuinely new quotes.
+11. **Heavily damaged phones: inspection instead of the INR 100 minimum quote** (section 5). Approve, or say how a zero Cashify-equivalent should be treated.
+12. Tier selection (4/6/8%) is unchanged; say if you want a change.
+
+## 12. Remaining uncertainty
+
+- Estimate error limits every claim about the real Cashify ceiling; the ceiling function does not remove it.
+- Calibration reflects 16-24 Oct 2026 Cashify tables; earlier independent rows suggest drift on the age rule.
+- Touch-failure, multi-fault and unseen-shape combinations remain thin on most models.
+- Frozen-rule validation on independent data is n = 10 priced rows from earlier campaigns; there is no fresh-quote validation yet.

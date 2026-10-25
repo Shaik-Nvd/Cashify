@@ -105,7 +105,7 @@ Wi-Fi and Bluetooth together deduct the same as either alone (≈30-31% of price
 
 ### R7. A floor applies only once the over-11-months state is forced
 
-Heavily damaged phones stop losing value at a plateau: several different shapes quote the same share of the price. The plateau is iPhone 15 Plus 26.3% of the reference, iPhone 15 Pro 26.0% of the reference, iPhone 16 17.7% of the reference, iPhone 16 Plus 17.7% of the reference, iPhone 16 Pro 17.5% of the reference, iPhone 16 Pro Max 17.5% of the reference and 8 more. It never appears in the younger states, which is why a phone with seventeen simultaneous functional faults is *not* floored (see R10; the engine sends those to inspection). The floor basis (reference vs aged price) is chosen per model by which explains that model's plateau. Status: **measured** where listed, otherwise no floor is applied (the safe direction).
+Heavily damaged phones stop losing value at a plateau: several different shapes quote the same share of the price. The plateau is iPhone 15 31.1% of the aged price, iPhone 15 Plus 26.3% of the reference, iPhone 15 Pro 26.0% of the reference, iPhone 15 Pro Max 26.0% of the reference, iPhone 16 17.7% of the reference, iPhone 16 Plus 17.7% of the reference and 10 more. It never appears in the younger states, which is why a phone with seventeen simultaneous functional faults is *not* floored (see R10; the engine sends those to inspection). The floor basis (reference vs aged price) is chosen per model by which explains that model's plateau. Status: **measured** where listed, otherwise no floor is applied (the safe direction).
 
 ### R8. Box, charger, eSIM
 
@@ -127,10 +127,10 @@ Class values are the deduction at weight 1 for that class (rupees if fixed, shar
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | iPhone 14 | 128GB, 256GB, 512GB | not asked | - | ₹1,209/2,250 | ₹15,288 / ₹17,850? / ₹30,000? / ₹8,994 | ₹3,500? / ₹4,500? | ₹4,541 | 39.0% / 26.0% | ENABLED |
 | iPhone 14 Pro | 128GB, 256GB, 512GB, 1TB | not asked | - | ₹1,212/2,250 | ₹16,980 / ₹17,850? / ₹30,000? / ₹9,992 | ₹3,500? / ₹4,500? | ₹6,771 | 38.8% / 25.8% | ENABLED |
-| iPhone 15 | 128GB, 256GB, 512GB | 128GB: 4.2/7.4/19.0; 256GB: 4.0/7.2/18.8; 512GB: 6.8/9.9/21.1 | - | ₹2,153/214 | ₹17,418 / ₹11,911 / ₹10,824 / ₹18,318 | ₹2,750 / ₹3,835 | ₹5,310 | 24.0% / 20.0% | existing engine |
+| iPhone 15 | 128GB, 256GB, 512GB | 128GB: 4.2/7.4/19.0; 256GB: 4.0/7.2/18.8; 512GB: 6.8/9.9/21.1 | 31.1% aged | ₹2,087/1,396 | ₹17,644 / ₹12,226 / ₹19,891 / ₹10,682 | ₹2,750 / ₹3,521 | ₹5,399 | 29.8% / 22.9% | ENABLED |
 | iPhone 15 Plus | 128GB, 256GB, 512GB | 128GB: 3.5/6.7/18.2; 256GB: 3.4/6.6/18.1; 512GB: 3.3/6.4/18.0 | 26.3% reference | ₹2,057/1,509 | ₹18,422 / ₹12,732 / ₹20,536 / ₹11,059 | ₹2,420 / ₹3,218 | ₹5,380 | 30.9% / 22.0% | ENABLED |
 | iPhone 15 Pro | 128GB, 256GB, 512GB, 1TB | 128GB: 4.4/7.5/19.0; 256GB: 4.3/7.4/18.8; 512GB: 4.1/7.2/18.7; 1TB: 4.0/7.2/18.6 | 26.0% reference | ₹1,974/1,359 | ₹19,486 / ₹14,116 / ₹23,208 / ₹11,512 | ₹3,300 / ₹3,464 | ₹6,390 | 31.2% / 20.9% | ENABLED |
-| iPhone 15 Pro Max | 512GB | 512GB: -/-/18.8 | - | ₹1,950/1,300 | ₹19,573 / ₹13,527? / ₹21,819? / ₹11,500 | ₹2,750? / ₹3,464? | ₹5,380? | 30.9%? / 20.8% | existing engine |
+| iPhone 15 Pro Max | 512GB | 512GB: -/-/18.8 | 26.0% reference | ₹1,950/1,300 | ₹19,573 / ₹13,562? / ₹22,066? / ₹11,500 | ₹2,750? / ₹3,464? | ₹5,399? | 30.9%? / 20.8% | ENABLED |
 | iPhone 16 | 128GB, 256GB, 512GB | 128GB: 4.4/7.5/18.9; 256GB: 4.2/7.4/18.8; 512GB: 4.2/7.3/18.8 | 17.7% reference | ₹2,254/1,570 | ₹22,061 / ₹15,751 / ₹26,148 / ₹12,954 | ₹2,750 / ₹2,969 | ₹8,554 | 31.2% / 20.9% | ENABLED |
 | iPhone 16 Plus | 128GB, 256GB, 512GB | 128GB: 4.5/7.6/19.1; 256GB: 4.4/7.6/19.0; 512GB: 4.4/7.5/19.0 | 17.7% reference | ₹2,254/1,568 | ₹22,915 / ₹16,301 / ₹27,120 / ₹13,453 | ₹2,970 / ₹3,275 | ₹8,719 | 31.2% / 20.8% | ENABLED |
 | iPhone 16 Pro | 128GB, 256GB, 512GB, 1TB | 128GB: 4.9/8.0/19.3; 256GB: 4.8/7.9/19.2; 512GB: 4.7/7.8/19.2; 1TB: 4.7/7.8/19.1 | 17.5% reference | ₹2,250/1,561 | ₹23,800 / ₹16,927 / ₹28,000 / ₹28,267 | ₹3,300 / ₹3,633 | ₹9,279 | 30.9% / 20.6% | ENABLED |

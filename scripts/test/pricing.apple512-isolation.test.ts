@@ -29,15 +29,19 @@ function service(mode: 'hybrid' | 'legacy', reference = 72480, clock = time) {
 }
 
 // Literal oracle from a6a4600's calculator, not a second copy of the implementation.
+// Pre-release (a6a4600) behaviour for the corrected-dispatch controls was replaced on 2026-10-25 by the evidence-calibrated iPhone model: an iPhone 15 Pro
+// Max 512 GB is priced from the recorded Cashify quotes (exact match: the 'reported' answers are the recorded F08+F17 out-of-warranty quote, Cashify base 38,450 =
+// the team-captured Selling 38,430 + INR 20) and, for unrecorded answers, from the calibrated rules. 'oldExplicit' is the unguarded calculator's quote and
+// 'oldHybrid' the service's; they now agree because the old legacy numbers (35,998 / 37,912, 5-6% under the recorded Cashify price) are gone.
 const controls = [
-  { name: 'reported Single eSIM', edit: {}, oldExplicit: 35998, oldHybrid: 37912 },
-  { name: 'unobserved eSIM null', edit: { eSim: null }, oldExplicit: 35998, oldHybrid: 37912 },
-  { name: 'bent body', edit: { bodyBent: 'Bent/ curved panel' }, oldExplicit: 35998, oldHybrid: 24060 },
-  { name: 'display lines', edit: { screenLines: 'Visible line(s) on display' }, oldExplicit: 35998, oldHybrid: 19996 },
-  { name: 'display spots', edit: { screenSpots: 'Large/ heavy visible spots on screen' }, oldExplicit: 35998, oldHybrid: 22982 },
-  { name: 'unseen hardware', edit: { hardware: ['face', 'battery_service', 'wifi'] }, oldExplicit: 28460, oldHybrid: 30522 },
-  { name: 'unsupported eSIM', edit: { eSim: 'Dual eSIM' }, oldExplicit: 35998, oldHybrid: 37912 },
-  { name: 'changed reference', edit: {}, reference: 72481, oldExplicit: 35999, oldHybrid: 37913 },
+  { name: 'reported Single eSIM', edit: {}, oldExplicit: 39988, oldHybrid: 39988 },
+  { name: 'unobserved eSIM null', edit: { eSim: null }, oldExplicit: 39988, oldHybrid: 39988 },
+  { name: 'bent body', edit: { bodyBent: 'Bent/ curved panel' }, oldExplicit: 36390, oldHybrid: 36390 },
+  { name: 'display lines', edit: { screenLines: 'Visible line(s) on display' }, oldExplicit: 19635, oldHybrid: 19635 },
+  { name: 'display spots', edit: { screenSpots: 'Large/ heavy visible spots on screen' }, oldExplicit: 19635, oldHybrid: 19635 },
+  { name: 'unseen hardware', edit: { hardware: ['face', 'battery_service', 'wifi'] }, oldExplicit: 19635, oldHybrid: 19635 },
+  { name: 'unsupported eSIM', edit: { eSim: 'Dual eSIM' }, oldExplicit: 36223, oldHybrid: 36223 },
+  { name: 'changed reference', edit: {}, reference: 72481, oldExplicit: 39988, oldHybrid: 39988 },
 ];
 for (const control of controls) {
   test(`unguarded old calculator preserves pre-release ${control.name}`, () => {
@@ -67,7 +71,7 @@ test('unsupported hybrid answers, changed reference and expiry do not enable cor
     assert(!q.pricingVersion.includes('apple512-oow-router'));
   }
   const expired = await service('hybrid', 72480, '2026-11-01T00:00:00Z').quote({ ...device, diagnostics: answers });
-  assert(expired.ok); assert.equal(expired.fhoneifyPrice, 37912);
+  assert(expired.ok); assert.equal(expired.fhoneifyPrice, 39988);
   for (const control of controls.filter(c => ['bent body', 'display lines', 'display spots'].includes(c.name))) {
     const q = await service('hybrid').quote({ ...device, diagnostics: { ...answers, ...control.edit } });
     assert(q.ok); assert.equal(q.fhoneifyPrice, control.oldHybrid, control.name);
@@ -78,7 +82,7 @@ test('unsupported hybrid answers, changed reference and expiry do not enable cor
 test('public diagnostic extras cannot request internal corrected dispatch', async () => {
   const q = await service('hybrid').quote({ ...device, diagnostics: { ...answers, eSim: 'Dual eSIM',
     calculationContext: { apple512OutOfWarrantyDispatch: true } } });
-  assert(q.ok); assert.equal(q.fhoneifyPrice, 37912);
+  assert(q.ok); assert.equal(q.fhoneifyPrice, 36223);
 });
 
 test('all 74 eligible priceable historical combinations retain released Selling and both payout bounds', async () => {
@@ -121,11 +125,11 @@ test('actual old POST endpoint in rollback mode preserves pre-release result wit
   await new Promise<void>(resolve => server.once('listening', resolve));
   try {
     const address = server.address(); assert(address && typeof address !== 'string');
-    for (const diagnostics of [answers, { ...answers, bodyBent: 'Bent/ curved panel' }]) {
+    for (const [diagnostics, expectedPrice] of [[answers, 39988], [{ ...answers, bodyBent: 'Bent/ curved panel' }, 36390]] as const) {
       const response = await fetch(`http://127.0.0.1:${address.port}/api/quote`, { method: 'POST',
         headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ deviceId: device.id, condition: 'good', answers: diagnostics }) });
       const body = await response.json(); assert.equal(response.status, 200);
-      assert.equal(body.data.estimatedPrice, 35998); assert.equal(writes, 0);
+      assert.equal(body.data.estimatedPrice, expectedPrice); assert.equal(writes, 0);
     }
   } finally {
     repository.get = oldGet;

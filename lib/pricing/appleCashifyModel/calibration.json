@@ -288,54 +288,57 @@
    "age": {
     "1": {
      "a": -1000,
-     "b": 0.08901589997086212,
+     "b": 0.08901589997083897,
      "support": "inferred",
      "n": 0
     },
     "2": {
      "a": -1000,
-     "b": 0.1181683203849739,
+     "b": 0.11816832038494995,
      "support": "inferred",
      "n": 0
     },
     "3": {
      "a": -1000,
-     "b": 0.22319711544199353,
+     "b": 0.22319711544213788,
      "support": "inferred",
      "n": 0
     }
    },
    "boxNo": {
-    "base": 2153.1793195143396,
-    "aged": 213.90237485006514,
+    "base": 2087.4558691182738,
+    "aged": 1396.3949962847973,
     "support": "measured"
    },
    "eSimDualPct": null,
-   "floor": null,
+   "floor": {
+    "basis": "aged",
+    "value": 0.31053
+   },
    "classes": {
     "display": {
      "kind": "fixed",
-     "value": 17418.251730978067,
+     "value": 17643.705497580715,
      "support": "measured",
      "n": 5
     },
     "cracked": {
      "kind": "fixed",
-     "value": 11911.104494303743,
+     "value": 12225.771835668089,
      "support": "measured",
      "n": 1
     },
     "touch": {
      "kind": "fixed",
-     "value": 10824.1176944113,
+     "value": 19891.226007768157,
      "support": "measured",
-     "n": 5
+     "n": 6
     },
     "orig": {
      "kind": "fixed",
-     "value": 18318.050233454745,
+     "value": 10682.08568439166,
      "support": "measured",
-     "n": 2
+     "n": 1
     },
     "body": {
      "kind": "fixed",
@@ -345,25 +348,25 @@
     },
     "panel": {
      "kind": "fixed",
-     "value": 3835.4753088762086,
+     "value": 3520.808030331991,
      "support": "measured",
      "n": 3
     },
     "cam": {
      "kind": "fixed",
-     "value": 5310.45297610046,
+     "value": 5398.570896899525,
      "support": "measured",
      "n": 3
     },
     "fminA": {
      "kind": "fixed",
-     "value": 5199.9480005200485,
+     "value": 5199.948000520049,
      "support": "measured",
      "n": 1
     },
     "fminB": {
      "kind": "fixed",
-     "value": 2850.0285002850032,
+     "value": 2850.0285002850023,
      "support": "measured",
      "n": 1
     },
@@ -375,19 +378,19 @@
     },
     "wifi": {
      "kind": "pct",
-     "value": 0.2401807867744708,
+     "value": 0.2983782723308703,
      "support": "measured",
      "n": 7
     },
     "face": {
      "kind": "pct",
-     "value": 0.1997148231961993,
+     "value": 0.22853057603971566,
      "support": "measured",
      "n": 18
     },
     "batt": {
      "kind": "fixed",
-     "value": 3440.296863854499,
+     "value": 2263.2330165228655,
      "support": "measured",
      "n": 18
     },
@@ -467,27 +470,27 @@
    },
    "age": {
     "1": {
-     "a": 1455.3346074846777,
-     "b": 0.002803046108531961,
+     "a": 1455.334607488451,
+     "b": 0.002803046108451803,
      "support": "inferred",
      "n": 0
     },
     "2": {
-     "a": 1474.2089717834851,
-     "b": 0.03405928470108326,
+     "a": 1474.2089717832685,
+     "b": 0.0340592847010882,
      "support": "inferred",
      "n": 0
     },
     "3": {
-     "a": 1408.6075130746467,
-     "b": 0.1510672900578354,
+     "a": 1408.6131586135584,
+     "b": 0.15106716687237096,
      "support": "inferred",
      "n": 0
     }
    },
    "boxNo": {
-    "base": 2057.1899924414543,
-    "aged": 1508.7672847300141,
+    "base": 2057.1899924425556,
+    "aged": 1508.7672847396625,
     "support": "measured"
    },
    "eSimDualPct": null,
@@ -498,25 +501,25 @@
    "classes": {
     "display": {
      "kind": "fixed",
-     "value": 18422.015363598774,
+     "value": 18422.015363599054,
      "support": "measured",
      "n": 7
     },
     "cracked": {
      "kind": "fixed",
-     "value": 12731.686421653254,
+     "value": 12731.686421653929,
      "support": "measured",
      "n": 1
     },
     "touch": {
      "kind": "fixed",
-     "value": 20536.463989754226,
+     "value": 20536.463989755943,
      "support": "measured",
      "n": 6
     },
     "orig": {
      "kind": "fixed",
-     "value": 11059.361246542852,
+     "value": 11059.361246534221,
      "support": "measured",
      "n": 1
     },
@@ -528,25 +531,25 @@
     },
     "panel": {
      "kind": "fixed",
-     "value": 3218.320911470938,
+     "value": 3218.320911470554,
      "support": "measured",
      "n": 3
     },
     "cam": {
      "kind": "fixed",
-     "value": 5379.852127499757,
+     "value": 5379.852127499809,
      "support": "measured",
      "n": 3
     },
     "fminA": {
      "kind": "fixed",
-     "value": 5379.410181736453,
+     "value": 5379.410181734857,
      "support": "measured",
      "n": 5
     },
     "fminB": {
      "kind": "fixed",
-     "value": 2850.0285002850032,
+     "value": 2850.028500285003,
      "support": "measured",
      "n": 1
     },
@@ -558,19 +561,19 @@
     },
     "wifi": {
      "kind": "pct",
-     "value": 0.3092445930126791,
+     "value": 0.30924459301268825,
      "support": "measured",
      "n": 7
     },
     "face": {
      "kind": "pct",
-     "value": 0.21961238508572758,
+     "value": 0.21961238508571418,
      "support": "measured",
      "n": 19
     },
     "batt": {
      "kind": "fixed",
-     "value": 2678.7657638575606,
+     "value": 2678.765763855469,
      "support": "measured",
      "n": 24
     },
@@ -655,27 +658,27 @@
    },
    "age": {
     "1": {
-     "a": 2097.7898093766507,
-     "b": 0.010449850693790612,
+     "a": 2097.7898093767003,
+     "b": 0.010449850693789566,
      "support": "inferred",
      "n": 0
     },
     "2": {
-     "a": 2097.851638066369,
-     "b": 0.04169892241157511,
+     "a": 2097.851638065925,
+     "b": 0.04169892241158159,
      "support": "inferred",
      "n": 0
     },
     "3": {
-     "a": 2099.2229026788887,
-     "b": 0.15626166741103537,
+     "a": 2099.2229088452336,
+     "b": 0.15626166731845678,
      "support": "inferred",
      "n": 0
     }
    },
    "boxNo": {
-    "base": 1973.697528153054,
-    "aged": 1359.0985869500055,
+    "base": 1973.6976068873917,
+    "aged": 1359.0994371104891,
     "support": "measured"
    },
    "eSimDualPct": 0.04997712766879997,
@@ -686,25 +689,25 @@
    "classes": {
     "display": {
      "kind": "fixed",
-     "value": 19486.385125527984,
+     "value": 19486.385115946312,
      "support": "measured",
      "n": 5
     },
     "cracked": {
      "kind": "fixed",
-     "value": 14115.650960894822,
+     "value": 14115.65096452329,
      "support": "measured",
      "n": 1
     },
     "touch": {
      "kind": "fixed",
-     "value": 23207.944527795215,
+     "value": 23207.94459676399,
      "support": "measured",
      "n": 6
     },
     "orig": {
      "kind": "fixed",
-     "value": 11512.103155080016,
+     "value": 11512.102431487572,
      "support": "measured",
      "n": 1
     },
@@ -716,19 +719,19 @@
     },
     "panel": {
      "kind": "fixed",
-     "value": 3464.317838927223,
+     "value": 3464.3178354217057,
      "support": "measured",
      "n": 3
     },
     "cam": {
      "kind": "fixed",
-     "value": 6390.198916680057,
+     "value": 6390.198921347971,
      "support": "measured",
      "n": 3
     },
     "fminA": {
      "kind": "fixed",
-     "value": 5399.946000539991,
+     "value": 5399.9460005399915,
      "support": "measured",
      "n": 1
     },
@@ -746,19 +749,19 @@
     },
     "wifi": {
      "kind": "pct",
-     "value": 0.31223993888269796,
+     "value": 0.3122399402828061,
      "support": "measured",
      "n": 7
     },
     "face": {
      "kind": "pct",
-     "value": 0.2087234250016588,
+     "value": 0.20872342291254153,
      "support": "measured",
      "n": 18
     },
     "batt": {
      "kind": "fixed",
-     "value": 3902.2000712170434,
+     "value": 3902.199977407281,
      "support": "measured",
      "n": 18
     },
@@ -841,53 +844,56 @@
    },
    "age": {
     "1": {
-     "a": 1455.1735657326567,
-     "b": 0.022140331884536443,
+     "a": 1455.1735657980375,
+     "b": 0.02214033187700764,
      "support": "inferred",
      "n": 2
     },
     "2": {
-     "a": 1473.6168214977733,
-     "b": 0.05320421849953942,
+     "a": 1473.616821500019,
+     "b": 0.05320421849955323,
      "support": "inferred",
      "n": 1
     },
     "3": {
-     "a": 1421.0396263326757,
-     "b": 0.16844589509992489,
+     "a": 1421.045149773364,
+     "b": 0.16844580602981957,
      "support": "inferred",
      "n": 0
     }
    },
    "boxNo": {
-    "base": 1949.9079032478685,
-    "aged": 1300.0524382550218,
+    "base": 1949.9079032500354,
+    "aged": 1300.0524382682602,
     "support": "measured"
    },
    "eSimDualPct": 0.04997712766880009,
-   "floor": null,
+   "floor": {
+    "basis": "reference",
+    "value": 0.26042
+   },
    "classes": {
     "display": {
      "kind": "fixed",
-     "value": 19572.784686403393,
+     "value": 19572.784686393778,
      "support": "measured",
      "n": 4
     },
     "cracked": {
      "kind": "fixed",
-     "value": 13526.99756692129,
+     "value": 13562.47981886786,
      "support": "inferred",
      "n": 0
     },
     "touch": {
      "kind": "fixed",
-     "value": 21819.31672061408,
+     "value": 22066.038441505418,
      "support": "inferred",
      "n": 0
     },
     "orig": {
      "kind": "fixed",
-     "value": 11499.942131478574,
+     "value": 11499.942131466456,
      "support": "measured",
      "n": 1
     },
@@ -899,25 +905,25 @@
     },
     "panel": {
      "kind": "fixed",
-     "value": 3464.31783892729,
+     "value": 3464.317835421404,
      "support": "inferred",
      "n": 0
     },
     "cam": {
      "kind": "fixed",
-     "value": 5379.852127494652,
+     "value": 5398.570896899648,
      "support": "inferred",
      "n": 0
     },
     "fminA": {
      "kind": "fixed",
-     "value": 5760.272196177296,
+     "value": 5760.272196155313,
      "support": "measured",
      "n": 4
     },
     "fminB": {
      "kind": "fixed",
-     "value": 2850.028500285003,
+     "value": 2850.0285002850032,
      "support": "inferred",
      "n": 0
     },
@@ -929,19 +935,19 @@
     },
     "wifi": {
      "kind": "pct",
-     "value": 0.30924459301165186,
+     "value": 0.309244593011663,
      "support": "inferred",
      "n": 0
     },
     "face": {
      "kind": "pct",
-     "value": 0.20833576908993884,
+     "value": 0.2083357690898738,
      "support": "measured",
      "n": 13
     },
     "batt": {
      "kind": "fixed",
-     "value": 3999.964483838943,
+     "value": 3999.964483840387,
      "support": "measured",
      "n": 20
     },

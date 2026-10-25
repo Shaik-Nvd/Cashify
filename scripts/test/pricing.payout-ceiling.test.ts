@@ -154,7 +154,7 @@ async function run() {
         const c = q.internal.payoutCeiling;
         assert.ok(customerPayout(q.fhoneifyPrice, false).payout <= c.maxCustomerPayout, `${model}: standard payout`);
         assert.ok(customerPayout(q.fhoneifyPrice, true, q.couponHeadroom).payout <= c.maxCustomerPayout, `${model}: coupon payout`);
-        assert.ok(q.pricingVersion.includes('+payout-ceiling-v1'), 'pricing version records the ceiling policy');
+        assert.ok(q.pricingVersion.includes('+payout-ceiling-v2'), 'pricing version records the ceiling policy');
         n++;
       }
     }
@@ -217,6 +217,27 @@ async function run() {
     const c = applyPayoutCeiling({ quote: 10000, cashifyHeadlineEquivalent: 90 });
     assert.equal(c.status, 'ok');
     assert.ok(customerPayout(c.quote, false).payout <= c.maxCustomerPayout && c.quote < 10000);
+  });
+
+  await test('large reductions: a quote far above its Cashify-equivalent is cut to the limit, never refused and never left above it', () => {
+    for (const [quote, equivalent] of [[50000, 10000], [165000, 100000], [20000, 1300], [9999999, 25000]] as [number, number][]) {
+      const c = applyPayoutCeiling({ quote, cashifyHeadlineEquivalent: headlineFromBase(equivalent) });
+      assert.equal(c.status, 'ok', `${quote}/${equivalent}`);
+      assert.ok(c.reduced && c.quote < quote);
+      const max = maxPayoutForCashifyPayout(cashifyPayout(headlineFromBase(equivalent)));
+      assert.equal(c.maxCustomerPayout, max);
+      assert.ok(customerPayout(c.quote, false).payout <= max && customerPayout(c.quote, true, c.couponHeadroom).payout <= max);
+      assert.ok(customerPayout(c.quote + 1, false).payout > max || c.quote + 1 === DISPLAY_DEDUCTION_EXEMPT_PRICE, 'the cut is no larger than needed');
+    }
+  });
+
+  await test('zero-value outcomes: a zero or negative Cashify-equivalent has no payout to bound, so it is inspection with a reason and no price', () => {
+    for (const equivalent of [0, -20, 20]) {
+      const c = applyPayoutCeiling({ quote: 100, cashifyHeadlineEquivalent: headlineFromBase(equivalent) });
+      assert.equal(c.status, 'inspection', String(equivalent));
+      assert.equal(c.quote, 0);
+      assert.ok(c.inspectionReason);
+    }
   });
 
   await test('the INR 1,200 fee exemption cannot be used to slip past the ceiling', () => {

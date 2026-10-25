@@ -58,7 +58,7 @@ for (const protocol of ['p1', 'p2', 'p3', 'p4']) {
     const observedPayout: number = r.observedPayout ?? r.observedSelling - cashifyProcessingFee(r.observedSelling);
     const observedMax = maxPayoutForCashifyPayout(observedPayout);
     const entry = SCOPE[r.model];
-    const inScope = !!entry?.enabled && entry.storagesGb.includes(gbOfLabel(r.storage));
+    const inScope = !!entry?.enabled;
     const existing: number | null = r.existing.kind === 'PRICE' ? r.existing.price : null;
     const evidence: number | null = r.proposed.kind === 'PRICE' ? r.proposed.price : null;
     // 'equivalent' is the Cashify-equivalent (base) the quote is built from; null means the request goes to inspection

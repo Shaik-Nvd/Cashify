@@ -26,7 +26,7 @@ for (const r of rows) {
   const a = (by[r.model] ??= { n: 0, evidence: 0, inspect: 0, existing: 0, rel: [], over: [], breaches: 0, excess: [], pricedForBreach: 0 });
   a.n++;
   const entry = SCOPE[r.model];
-  const inScope = !!entry?.enabled && entry.storagesGb.includes(gbOf(r.storage));
+  const inScope = !!entry?.enabled;
   const existing = r.existing.kind === 'PRICE' ? r.existing.price : null;
   let equivalent: number | null; let kind: 'evidence' | 'existing' | 'inspect';
   if (!inScope) { equivalent = existing; kind = 'existing'; }
@@ -60,7 +60,7 @@ let tot = { n: 0, evidence: 0, existing: 0, inspect: 0, breaches: 0, priced: 0 }
 for (const m of Object.keys(by).sort()) {
   const a = by[m]; const e = SCOPE[m];
   tot.n += a.n; tot.evidence += a.evidence; tot.existing += a.existing; tot.inspect += a.inspect; tot.breaches += a.breaches; tot.priced += a.pricedForBreach;
-  L.push(`| ${m} | ${e ? (e.enabled ? (e.inferredPolicy === 'price' ? 'all combinations' : e.inferredPolicy === 'inspect' ? 'measured-only' : 'measured + existing') : 'off') : 'not modelled'} | ${a.n} | ${pct(100 * a.evidence / a.n)} | ${pct(100 * a.existing / a.n)} | ${pct(100 * a.inspect / a.n)} | ${a.rel.length ? `${pct(q(a.rel, .5))} / ${pct(q(a.rel, .9))} / ${pct(q(a.rel, .95))} / ${pct(Math.max(...a.rel))}` : '-'} | ${pct(q(a.over, .95))} | ${a.pricedForBreach ? `${a.breaches}/${a.pricedForBreach} (${pct(100 * a.breaches / a.pricedForBreach)})` : '-'} | ${a.excess.length ? `${q(a.excess, .95)} / ${Math.max(...a.excess)}` : '-'} |`);
+  L.push(`| ${m} | ${e ? (e.enabled ? 'rules replace existing engine' : 'existing engine (rules not better)') : 'not modelled'} | ${a.n} | ${pct(100 * a.evidence / a.n)} | ${pct(100 * a.existing / a.n)} | ${pct(100 * a.inspect / a.n)} | ${a.rel.length ? `${pct(q(a.rel, .5))} / ${pct(q(a.rel, .9))} / ${pct(q(a.rel, .95))} / ${pct(Math.max(...a.rel))}` : '-'} | ${pct(q(a.over, .95))} | ${a.pricedForBreach ? `${a.breaches}/${a.pricedForBreach} (${pct(100 * a.breaches / a.pricedForBreach)})` : '-'} | ${a.excess.length ? `${q(a.excess, .95)} / ${Math.max(...a.excess)}` : '-'} |`);
 }
 L.push(`| **all** | | ${tot.n} | ${pct(100 * tot.evidence / tot.n)} | ${pct(100 * tot.existing / tot.n)} | ${pct(100 * tot.inspect / tot.n)} | | | ${tot.breaches}/${tot.priced} (${pct(100 * tot.breaches / tot.priced)}) | |`, '');
 L.push('Reading guide: a model with a high "existing engine" share is NOT covered by this work; its observed-ceiling result is the old engine\'s and is poor (it ignores touch failure and several other answers). A high "inspection" share is the price of refusing combinations the model has not seen.', '');

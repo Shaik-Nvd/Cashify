@@ -1,0 +1,24 @@
+{
+ "ambiguous": [],
+ "workbookOverruled": [
+  {
+   "model": "iPhone 15 Pro Max",
+   "storageGb": 512,
+   "key": "||||state3",
+   "getUpto": 72480,
+   "workbookBase": 57130,
+   "usedBase": 58850,
+   "source": "team-workbook-development-cases-2026-10-02::FM008_A",
+   "usedSource": "iPhone_15_Pro_Max_512GB_24_Test_Cases (1).zip::15"
+  }
+ ],
+ "priceAboveOwnGetUpto": [
+  {
+   "model": "iPhone 11 Pro Max",
+   "storageGb": 256,
+   "getUpto": 18740,
+   "base": 19480,
+   "source": "team-workbook-development-cases-2026-10-02::FM003_A"
+  }
+ ]
+}

@@ -70,10 +70,16 @@ for (const model of Object.keys(CAL.models).sort()) {
   const i = inferred.length ? judge(inferred, mine, 30, 5) : null;
   const t6 = declinedShare <= 0.15;
   const t5 = mine.length >= 100 && new Set(mine.map(r => r.deviations.join('|'))).size >= 10;
-  const measuredOk = !!m && m.failed.length === 0 && t6 && t5;
-  const inferredOk = !!i && i.failed.length === 0;
-  const mode = !measuredOk ? 'off' : inferredOk || !inferred.length ? 'all' : 'measured-only';
-  decisions[model] = { mode, enabled: mode !== 'off', declinedShare, T6: t6, measured: m, inferred: i, failedMeasured: [...(m ? m.failed : ['T5s']), ...(t5 ? [] : ['T5']), ...(t6 ? [] : ['T6'])], failedInferred: i ? i.failed : [], storagesGb: CAL.models[model].storagesGb,
+  // REPLACEMENT RULE (owner decision 2026-10-25): the evidence rules replace the existing engine for a model's unrecorded combinations
+  // whenever, on the SAME held-out rows, they are more accurate than the existing engine. Combinations are never sent to inspection for
+  // being unmeasured (inspection stays for Cashify no-offers and contradictory answers). T1-T7 are still reported, no longer a gate.
+  const pooled = priced.filter(r => r.existing.kind === 'PRICE');
+  const maeNew = pooled.length ? mean(pooled.map(r => Math.abs(r.proposed.price - r.observedBase))) : NaN;
+  const maeOld = pooled.length ? mean(pooled.map(r => Math.abs(r.existing.price - r.observedBase))) : NaN;
+  const measuredOk = Number.isFinite(maeNew) && Number.isFinite(maeOld) && maeNew < maeOld;
+  const inferredOk = true;
+  const mode = measuredOk ? 'all' : 'off';
+  decisions[model] = { mode, enabled: mode !== 'off', maeNew: Math.round(maeNew), maeOld: Math.round(maeOld), declinedShare, T6: t6, measured: m, inferred: i, failedMeasured: [...(m ? m.failed : ['T5s']), ...(t5 ? [] : ['T5']), ...(t6 ? [] : ['T6'])], failedInferred: i ? i.failed : [], storagesGb: CAL.models[model].storagesGb,
     heldOutQuotes: mine.length, shareMeasured: priced.length ? measured.length / priced.length : 0 };
 }
 
@@ -88,15 +94,14 @@ for (const [mname, d] of Object.entries<any>(decisions)) {
 }
 fs.writeFileSync(path.join(VAL, 'scope_decision.json'), JSON.stringify(decisions, null, 1) + '\n');
 if (process.argv.includes('--write')) {
-  const out: any = { version: 'scope/2026-10-25', models: {} };
+  const out: any = { version: 'scope/2026-10-25b', models: {} };
   for (const [mname, d] of Object.entries<any>(decisions)) {
     const a = d.measured?.metrics;
     out.models[mname] = {
-      enabled: d.enabled, inferredPolicy: d.mode === 'measured-only' ? 'inspect' : 'price', storagesGb: d.storagesGb,
+      enabled: d.enabled, inferredPolicy: 'price', storagesGb: d.storagesGb,
       reason: d.enabled
-        ? `held-out validated combinations (n=${a.quotes}): median error ${a.medianRelPct.toFixed(2)}%, p90 ${a.p90RelPct.toFixed(2)}%, p95 over-quote ${a.p95OverPct.toFixed(2)}%, worst over-quote ${a.worstOverPctOfReference.toFixed(1)}% of price, MAE ₹${a.maeEvidence} vs ₹${a.maeExisting} (existing engine)` +
-          (d.mode === 'measured-only' ? '; combinations never measured on this model go to manual inspection' : '')
-        : `kept on the existing engine: validated combinations failed ${d.failedMeasured.join(',')}` + (a ? ` (n=${a.quotes}, median ${a.medianRelPct.toFixed(2)}%, p90 ${a.p90RelPct.toFixed(2)}%, p95 over ${a.p95OverPct.toFixed(2)}%, worst over ${a.worstOverPctOfReference.toFixed(1)}%)` : ' (no validated quotes)'),
+        ? `replaces the existing engine for unrecorded combinations: held-out MAE ₹${d.maeNew} vs ₹${d.maeOld} (existing engine) on the same ${d.heldOutQuotes} quotes; recorded quotes are answered exactly`
+        : `unrecorded combinations stay on the existing engine: held-out MAE ₹${d.maeNew} for the rules vs ₹${d.maeOld} for the existing engine on the same quotes (recorded quotes are still answered exactly)`
     };
   }
   fs.writeFileSync(path.resolve(__dirname, '../../lib/pricing/appleCashifyModel/scope.json'), JSON.stringify(out, null, 1) + '\n');

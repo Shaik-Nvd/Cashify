@@ -33,7 +33,7 @@ for (const protocol of ['p1', 'p2', 'p3', 'p4']) {
     for (const r of rows) {
       const observedPayout: number = r.observedPayout ?? r.observedSelling - cashifyProcessingFee(r.observedSelling);
       const entry = SCOPE[r.model];
-      const inScope = !!entry?.enabled && entry.storagesGb.includes(gbOfLabel(r.storage));
+      const inScope = !!entry?.enabled;
       const existing = r.existing.kind === 'PRICE' ? r.existing.price : null;
       let equivalent: number | null; let fallback = false;
       if (!inScope) { equivalent = existing; fallback = true; }

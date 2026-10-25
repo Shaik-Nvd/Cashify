@@ -222,6 +222,8 @@ export interface Deduction {
   notes: string[];
   /** Number of condition codes (functional + physical) in the answers. */
   codeCount: number;
+  /** Number of functional-fault codes (F01-F18) among them: the floor only ever binds when there is at least one. */
+  faultCount: number;
   /** Reference minus the over-11-months deduction (what the floor is a fraction of), when the model has an age law. */
   agedPrice: number | null;
 }
@@ -334,7 +336,7 @@ export function deduct(profile: ModelProfile, reference: number, a: ParsedAnswer
     deduction += amount;
     breakdown.push({ rule: 'esim', label: 'Dual eSIM', amount, support: 'measured' });
   }
-  return { deduction, breakdown, confidence, state, notes, codeCount: a.codes.length, agedPrice };
+  return { deduction, breakdown, confidence, state, notes, codeCount: a.codes.length, faultCount: faultCodes.length, agedPrice };
 }
 
 export function evaluateAppleEvidence(profile: ModelProfile, reference: number, diagnostics: DiagnosticsType, storageGb?: number): EvidenceOutcome {
@@ -354,7 +356,7 @@ export function evaluateAppleEvidence(profile: ModelProfile, reference: number, 
   let price = reference - d.deduction;
   let floorApplied = false;
   const floorBase = profile.floor ? (profile.floor.basis === 'aged' ? d.agedPrice : reference) : null;
-  if (profile.floor && floorBase != null && d.state === 3 && d.codeCount > 0 && price < profile.floor.value * floorBase) {
+  if (profile.floor && floorBase != null && d.state === 3 && d.faultCount > 0 && price < profile.floor.value * floorBase) {
     const floor = profile.floor.value * floorBase;
     breakdown.push({ rule: 'floor', label: `Lowest quote once treated as over 11 months (${(profile.floor.value * 100).toFixed(2)}% of the ${profile.floor.basis === 'aged' ? 'aged price' : 'reference'})`, amount: price - floor, support: 'measured' });
     price = floor; floorApplied = true;

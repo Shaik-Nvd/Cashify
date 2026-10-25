@@ -28,6 +28,6 @@ export function isAppleEvidenceModel(model: string, storage?: string | null): bo
   const entry = SCOPE.models[evidenceModelKey(model)];
   if (!entry?.enabled) return false;
   if (storage === undefined) return true;
-  const gb = storageGbOf(storage);
-  return gb != null && entry.storagesGb.includes(gb);
+  // any capacity of an enabled model: storagesGb lists where quotes were collected, not where the rules apply (they are relative to each variant's reference)
+  return storageGbOf(storage) != null;
 }

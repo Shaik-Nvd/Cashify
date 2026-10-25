@@ -1,5 +1,6 @@
 import calibrationJson from './calibration.json';
-import { evaluateAppleEvidence, type Calibration, type EvidenceOutcome, type ModelProfile } from './model';
+import { evaluateAppleEvidence, roundTo10, type Calibration, type EvidenceOutcome, type ModelProfile } from './model';
+import { findExact } from './exact';
 import { SCOPE, evidenceModelKey, isAppleEvidenceModel, storageGbOf, type InferredPolicy } from './scope';
 import type { DiagnosticsType } from '../../pricingCalculator';
 import { InspectionRequiredError } from '../inspectionRequired';
@@ -29,24 +30,53 @@ export interface AppleEvidenceQuote {
   modelKey: string;
   storageGb: number;
   inferredPolicy: InferredPolicy;
+  /** 'exact': a recorded Cashify quote for this variant and these answers; 'model': computed by the calibrated rules. */
+  source: 'exact' | 'model';
 }
 
 /**
- * Cashify-equivalent price for an in-scope iPhone, or null when the existing engine should price it.
- * Throws InspectionRequiredError when Cashify itself declines this condition (or the combination is outside the evidence):
- * a made-up price would be worse than no instant price.
+ * Cashify-equivalent price for an iPhone, or null when the existing engine should price it (no recorded quote and no calibrated model).
+ * Order: (1) a recorded Cashify quote for this exact variant and answers, (2) the calibrated rules for the model.
+ * Throws InspectionRequiredError only when Cashify itself declined the condition (recorded no-offer), the combination is
+ * contradictory (cannot make calls plus other faults; more simultaneous faults than any Cashify quote shows) or the deductions leave nothing.
  */
 export function appleEvidenceQuote(model: string, storage: string | undefined | null, reference: number, diagnostics: DiagnosticsType): AppleEvidenceQuote | null {
-  const scope = appleEvidenceScope(model, storage);
-  if (!scope) return null;
-  const outcome = evaluateAppleEvidence(scope.profile, reference, diagnostics, scope.storageGb);
-  if (outcome.kind === 'UNSUPPORTED') return null; // an answer the model cannot read: leave it to the existing engine
-  if (outcome.kind === 'NO_OFFER') throw new InspectionRequiredError(`${evidenceModelKey(model)}: ${outcome.reason}`);
-  const inferredPolicy = SCOPE.models[evidenceModelKey(model)].inferredPolicy ?? 'inspect';
-  if (outcome.confidence === 'inferred') {
-    // A combination (or parameter) the model's own quotes do not vouch for: follow the model's validated policy.
-    if (inferredPolicy === 'legacy') return null;
-    if (inferredPolicy === 'inspect') throw new InspectionRequiredError(`${evidenceModelKey(model)}: ${outcome.notes[0] ?? 'condition not validated for this model'}`);
+  const modelKey = evidenceModelKey(model);
+  const gb = storageGbOf(storage);
+  if (gb == null || !(reference > 0)) return null;
+  const entry = SCOPE.models[modelKey];
+  const calibrated = CALIBRATION.models[modelKey] ?? null;
+  const profile = entry?.enabled ? calibrated : null;
+
+  // the recorded quote is keyed with the calibrated profile (which fixes how age/warranty answers reduce to Cashify's state) whether or not the rules are enabled
+  const hit = findExact(modelKey, gb, calibrated, diagnostics, reference);
+  if (hit) {
+    const [date, g0, recorded] = hit.entry;
+    if (recorded == null) throw new InspectionRequiredError(`${modelKey}: Cashify declined exactly this condition (recorded no-offer${date ? `, ${date}` : ''})`);
+    let price = recorded;
+    const notes = [`recorded Cashify quote${date ? ` of ${date}` : ''} for this variant and these answers (Get Upto then ${g0})`];
+    if (g0 !== reference) {
+      // carry the recorded amount to today's reference by the model's own movement between the two references (proportionally without a model)
+      const then = profile ? evaluateAppleEvidence(profile, g0, diagnostics, gb) : null;
+      const now = profile ? evaluateAppleEvidence(profile, reference, diagnostics, gb) : null;
+      price = then?.kind === 'PRICE' && now?.kind === 'PRICE' ? recorded + (now.price - then.price) : roundTo10(recorded * reference / g0);
+      notes.push(`reference moved from ${g0} to ${reference}: recorded amount carried to the current reference`);
+    }
+    if (!(price > 0)) throw new InspectionRequiredError(`${modelKey}: recorded quote leaves nothing at the current reference`);
+    return {
+      outcome: { kind: 'PRICE', price, reference, breakdown: [{ rule: 'exact', label: `Recorded Cashify quote${date ? ` (${date})` : ''}`, amount: reference - price, support: 'measured' }], confidence: 'measured', floorApplied: false, state: 0, notes },
+      modelKey, storageGb: gb, inferredPolicy: entry?.inferredPolicy ?? 'price', source: 'exact',
+    };
   }
-  return { outcome, modelKey: scope.profile.modelKey, storageGb: scope.storageGb, inferredPolicy };
+
+  if (!profile) return null;
+  const outcome = evaluateAppleEvidence(profile, reference, diagnostics, gb);
+  if (outcome.kind === 'UNSUPPORTED') return null; // an answer the model cannot read: leave it to the existing engine
+  if (outcome.kind === 'NO_OFFER') throw new InspectionRequiredError(`${modelKey}: ${outcome.reason}`);
+  const inferredPolicy = entry?.inferredPolicy ?? 'price';
+  if (outcome.confidence === 'inferred') {
+    if (inferredPolicy === 'legacy') return null;
+    if (inferredPolicy === 'inspect') throw new InspectionRequiredError(`${modelKey}: ${outcome.notes[0] ?? 'condition not validated for this model'}`);
+  }
+  return { outcome, modelKey: profile.modelKey, storageGb: gb, inferredPolicy, source: 'model' };
 }

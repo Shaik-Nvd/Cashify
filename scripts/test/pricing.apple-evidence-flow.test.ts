@@ -50,7 +50,7 @@ const catalogDeviceFor = (model: string, gb: number) => {
 
 const records = new Map<string, ReferencePriceRecord>();
 const fixtures: { model: string; gb: number; device: NonNullable<ReturnType<typeof catalogDeviceFor>>; reference: number }[] = [];
-for (const [model, e] of enabled.slice(0, 6)) {
+for (const [model, e] of enabled) {
   const gb = e.storagesGb[0];
   const device = catalogDeviceFor(model, gb);
   const reference = latestReference(model, gb);
@@ -174,6 +174,46 @@ async function run() {
     assert.equal(lead.answers.pricing.customerPayout.payout, customerPayout(q.fhoneifyPrice, true, q.couponHeadroom).payout);
     assert.ok(lead.answers.pricing.payoutCeiling.maxCustomerPayout >= lead.answers.pricing.customerPayout.payout);
     assert.equal(lead.answers.pricing.pricingVersion, q.pricingVersion);
+  });
+  await check('one payout everywhere: displayed = signed token = saved lead = restored session, for every enabled model, with and without the coupon', async () => {
+    const { verifyQuoteToken } = await import('../../lib/pricing/quoteToken');
+    for (const fx of fixtures) for (const d of [perfect, wifi]) {
+      const r = await post('/api/quote/price', req(d, fx));
+      if (r.status !== 200) continue;
+      const q = r.body.data;
+      const token = verifyQuoteToken(q.quoteToken, secret, Math.floor(at.getTime() / 1000));
+      assert.ok(token.ok, 'token verifies');
+      assert.equal((token as any).payload.p, q.fhoneifyPrice, `${fx.model}: signed price = displayed price`);
+      const displayedPlain = customerPayout(q.fhoneifyPrice, false).payout;
+      const displayedCoupon = customerPayout(q.fhoneifyPrice, true, q.couponHeadroom).payout;
+      const before = leads.length;
+      const res = await post('/api/quote/leads', leadBody(q, d, { couponApplied: false }, fx));
+      assert.equal(res.status, 200, JSON.stringify(res.body));
+      assert.equal(leads[before].answers.pricing.customerPayout.payout, displayedPlain, `${fx.model}: saved payout (no coupon)`);
+      const res2 = await post('/api/quote/leads', leadBody(q, d, { couponApplied: true }, fx));
+      assert.equal(res2.status, 200);
+      assert.equal(leads[before + 1].answers.pricing.customerPayout.payout, displayedCoupon, `${fx.model}: saved payout (coupon)`);
+      assert.equal(leads[before].quotedPrice, q.fhoneifyPrice); assert.equal(leads[before + 1].quotedPrice, q.fhoneifyPrice);
+      const signed: SignedQuote = { device: { brand: fx.device.brand, model: fx.device.model, storage: fx.device.storage }, price: q.fhoneifyPrice, getUpto: q.startingPrice,
+        token: q.quoteToken, expiresAt: q.expiresAt, diagnostics: d, pricingVersion: q.pricingVersion, couponHeadroom: q.couponHeadroom };
+      const store = new Map<string, string>();
+      const storage: KeyValueStorage = { getItem: k => store.get(k) ?? null, setItem: (k, v) => { store.set(k, v); }, removeItem: k => { store.delete(k); } };
+      saveQuoteSession(storage, { ...signed.device, starting: null, final: signed, answers: d, couponApplied: true });
+      const restored = loadQuoteSession(storage, signed.device, at)!.final!;
+      assert.equal(customerPayout(restored.price, true, restored.couponHeadroom).payout, displayedCoupon, `${fx.model}: restored payout`);
+    }
+  });
+  await check('production release mode (hybrid) returns the same evidence quote as the plain service for every enabled model', async () => {
+    const hybrid = createPricingService({ repository, signingSecret: secret, now: () => at, tokenTtlSeconds: 900, strictReferenceMode: true,
+      referenceLookupTimeoutMs: 100, snapshot: {}, pricingMode: 'hybrid', releaseRouteEvidence: [], logger: { info() {}, warn() {}, error() {} } });
+    let compared = 0;
+    for (const fx of fixtures) for (const d of [perfect, wifi, { ...perfect, warranty: false, mobileAge: 'above11' }]) {
+      const plain = await service.quote({ brand: fx.device.brand, model: fx.device.model, storage: fx.device.storage, diagnostics: d });
+      const prod = await hybrid.quote({ brand: fx.device.brand, model: fx.device.model, storage: fx.device.storage, diagnostics: d });
+      assert.equal(prod.ok, plain.ok, `${fx.model}`);
+      if (plain.ok && prod.ok) { assert.equal(prod.fhoneifyPrice, plain.fhoneifyPrice, `${fx.model} hybrid = plain`); compared++; }
+    }
+    assert.ok(compared >= fixtures.length, `compared ${compared}`);
   });
   await check('the token binds the exact answers and device: changed answers or another model are re-priced, never honoured', async () => {
     const q = (await post('/api/quote/price', req(wifi))).body.data;

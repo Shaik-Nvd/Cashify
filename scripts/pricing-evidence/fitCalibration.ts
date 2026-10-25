@@ -109,7 +109,8 @@ export function detectFloor(profile: ModelProfile, rows: { m: Measurement; ans: 
   for (const r of rows) {
     if (r.ans.codes.length === 0 || r.m.base == null) continue;
     const d = deduct(profile, r.ref, r.ans, r.storageGb);
-    if (!('deduction' in d) || d.state !== 3 || d.agedPrice == null) continue;
+    // the floor belongs to the functional-fault deductions: an aged phone with only screen/body damage can quote below it (iPhone 15 touch+screen+panel)
+    if (!('deduction' in d) || d.state !== 3 || d.agedPrice == null || d.faultCount === 0) continue;
     pts.push({ obs: r.m.base, ref: r.ref, aged: d.agedPrice, shape: r.m.deviations.join('|') });
   }
   const find = (basis: 'reference' | 'aged') => {
@@ -187,7 +188,7 @@ export function fitModel(modelKey: string, all: Measurement[], sem: ReturnType<t
     if (ans.codes.filter(c => c.startsWith('F')).length >= profile.extremeFaultCount) continue;
     fitRows.push({ m, ans, target: m.variant_get_upto - m.base!, ref: m.variant_get_upto, shape: m.deviations.join('|'), storageGb: m.storage_gb });
   }
-  const lambda = 0.01;
+  const lambda = Number(process.env.FIT_LAMBDA ?? 0.01);
   /** Damped Gauss-Newton over the `active` parameters on `useRows`, ridge towards `anchor`. Returns the Jacobian. */
   let lastSse = 0;
   const gaussNewton = (useRows: Row[], active: boolean[], anchor: number[], lam0: number, maxIter = 60): number[][] => {
@@ -289,10 +290,13 @@ export function fitModel(modelKey: string, all: Measurement[], sem: ReturnType<t
   // The floor is read off the aged price once the age law is known; floor-limited quotes carry no information about
   // the individual deductions, so they are excluded from the fit (and checked afterwards).
   profile.floor = profile.age ? detectFloor(profile, fitRows) : null;
+  // Cashify's minimum price is a property of the generation (about 17% of the reference from the iPhone 16 on): when this model's own quotes
+  // cannot show the plateau (too few floor-limited shapes in the data at hand), the siblings' floor applies rather than none.
+  if (!profile.floor && profile.age && prior?.floor) profile.floor = { ...prior.floor };
   if (profile.floor) {
     for (const r of fitRows) {
       const d = deduct(profile, r.ref, r.ans, r.storageGb);
-      if ('deduction' in d && d.state === 3 && d.agedPrice != null && r.ans.codes.length > 0 && r.m.base! <= profile.floor.value * (profile.floor.basis === 'aged' ? d.agedPrice : r.ref) * 1.003 + 10) r.atFloor = true;
+      if ('deduction' in d && d.state === 3 && d.agedPrice != null && d.faultCount > 0 && r.m.base! <= profile.floor.value * (profile.floor.basis === 'aged' ? d.agedPrice : r.ref) * 1.003 + 10) r.atFloor = true;
     }
   }
   // Stage 2: condition classes with age/box frozen at stage-1 values
@@ -374,6 +378,9 @@ function siblingPrior(models: ModelProfile[], family: string, selfKey: string, t
       if (have.length) out.age[st] = { ...out.age[st], a: median(have.map(h => h.a)), b: median(have.map(h => h.b)) };
     }
   }
+  // minimum price: siblings' plateau as a share of the reference (an aged-basis plateau is converted with that sibling's own age law)
+  const floors = sibs.filter(s => s.floor && s.age).map(s => s.floor!.basis === 'reference' ? s.floor!.value : s.floor!.value * (1 - s.age!['3'].b));
+  if (floors.length) out.floor = { basis: 'reference', value: median(floors) };
   const boxes = sibs.map(s => s.boxNo);
   out.boxNo = { base: median(boxes.map(b => b.base)), aged: median(boxes.map(b => b.aged)), support: 'inferred' };
   const es = sibs.map(s => s.eSimDualPct).filter((x): x is number => x != null);

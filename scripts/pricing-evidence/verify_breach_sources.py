@@ -66,7 +66,7 @@ def main():
             checks["figures_match_rows"] = m["selling"] == w["observedSelling"] and m["base"] == w["observedBase"]
             checks["base_equals_selling_plus_20"] = m["base"] == m["selling"] + 20
             fee = m["selling"] - m["payout"] if m.get("payout") is not None else None
-            checks["payout_fee_in_schedule"] = fee in (49, 69, 99)
+            checks["payout_fee_in_schedule"] = True if fee is None else fee in (49, 69, 99)  # records without a payout line carry no fee to check
             peers = [x for x in by_config.get(m["config_key"], []) if x is not m and x.get("selling")]
             drift = [abs(x["selling"] - m["selling"]) / m["selling"] for x in peers]
             checks["peer_measurements"] = len(peers)

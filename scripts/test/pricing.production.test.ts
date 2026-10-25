@@ -370,6 +370,25 @@ async function run() {
     assert.equal((result as any).code, 'MANUAL_INSPECTION_REQUIRED');
   });
 
+  // The ORIGINAL heavily damaged scenario (DAMAGED): the legacy engine's Cashify-equivalent for it is zero, which no payout can be bounded
+  // against ("Cashify payout + min(8%, 2,000)" of nothing). Its intended outcome is explicit: no instant price and no stored lead.
+  await test('DAMAGED (original case): an inflated client price is never stored - the heavily damaged phone has no instant quote, so nothing is stored at all', async () => {
+    const { svc } = service();
+    const result = await svc.verifyLeadPrice({ ...identity, diagnostics: DAMAGED, clientQuotedPrice: 9_999_999 });
+    assert.ok(!result.ok);
+    assert.equal((result as any).code, 'MANUAL_INSPECTION_REQUIRED');
+    assert.equal('price' in result, false, 'no price of any kind is returned for storage');
+  });
+
+  await test('DAMAGED (original case): a good-condition token cannot be reused for the damaged lead - the lead is refused, not re-priced', async () => {
+    const { svc } = service();
+    const quoted = await svc.quote({ ...identity, diagnostics: diag() });
+    assert.ok(quoted.ok);
+    const lead = await svc.verifyLeadPrice({ ...identity, diagnostics: DAMAGED, quoteToken: quoted.quoteToken });
+    assert.ok(!lead.ok);
+    assert.equal((lead as any).code, 'MANUAL_INSPECTION_REQUIRED');
+  });
+
   await test('a good-condition token cannot be reused for a damaged-condition lead', async () => {
     const { svc } = service();
     const quoted = await svc.quote({ ...identity, diagnostics: diag() });

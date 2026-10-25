@@ -1,65 +1,65 @@
 {
- "version": "scope/2026-10-25",
+ "version": "scope/2026-10-25b",
  "models": {
   "iPhone 14": {
    "enabled": true,
-   "inferredPolicy": "inspect",
+   "inferredPolicy": "price",
    "storagesGb": [
     128,
     256,
     512
    ],
-   "reason": "held-out validated combinations (n=129): median error 0.09%, p90 0.31%, p95 over-quote 0.20%, worst over-quote 0.2% of price, MAE ₹40 vs ₹586 (existing engine); combinations never measured on this model go to manual inspection"
+   "reason": "replaces the existing engine for unrecorded combinations: held-out MAE ₹83 vs ₹657 (existing engine) on the same 150 quotes; recorded quotes are answered exactly"
   },
   "iPhone 14 Pro": {
    "enabled": true,
-   "inferredPolicy": "inspect",
+   "inferredPolicy": "price",
    "storagesGb": [
     128,
     256,
     512,
     1024
    ],
-   "reason": "held-out validated combinations (n=180): median error 0.06%, p90 0.25%, p95 over-quote 0.21%, worst over-quote 0.5% of price, MAE ₹54 vs ₹2552 (existing engine); combinations never measured on this model go to manual inspection"
+   "reason": "replaces the existing engine for unrecorded combinations: held-out MAE ₹93 vs ₹2761 (existing engine) on the same 200 quotes; recorded quotes are answered exactly"
   },
   "iPhone 15": {
-   "enabled": false,
+   "enabled": true,
    "inferredPolicy": "price",
    "storagesGb": [
     128,
     256,
     512
    ],
-   "reason": "kept on the existing engine: validated combinations failed T2,T3,T7 (n=95, median 0.14%, p90 14.34%, p95 over 18.93%, worst over 12.0%)"
+   "reason": "replaces the existing engine for unrecorded combinations: held-out MAE ₹805 vs ₹4813 (existing engine) on the same 196 quotes; recorded quotes are answered exactly"
   },
   "iPhone 15 Plus": {
    "enabled": true,
-   "inferredPolicy": "inspect",
+   "inferredPolicy": "price",
    "storagesGb": [
     128,
     256,
     512
    ],
-   "reason": "held-out validated combinations (n=108): median error 0.05%, p90 2.60%, p95 over-quote 1.00%, worst over-quote 3.1% of price, MAE ₹522 vs ₹4912 (existing engine); combinations never measured on this model go to manual inspection"
+   "reason": "replaces the existing engine for unrecorded combinations: held-out MAE ₹560 vs ₹5194 (existing engine) on the same 214 quotes; recorded quotes are answered exactly"
   },
   "iPhone 15 Pro": {
    "enabled": true,
-   "inferredPolicy": "inspect",
+   "inferredPolicy": "price",
    "storagesGb": [
     128,
     256,
     512,
     1024
    ],
-   "reason": "held-out validated combinations (n=130): median error 0.00%, p90 0.67%, p95 over-quote 0.51%, worst over-quote 0.9% of price, MAE ₹349 vs ₹7698 (existing engine); combinations never measured on this model go to manual inspection"
+   "reason": "replaces the existing engine for unrecorded combinations: held-out MAE ₹322 vs ₹8375 (existing engine) on the same 264 quotes; recorded quotes are answered exactly"
   },
   "iPhone 15 Pro Max": {
-   "enabled": false,
+   "enabled": true,
    "inferredPolicy": "price",
    "storagesGb": [
     512
    ],
-   "reason": "kept on the existing engine: validated combinations failed T5s,T5 (n=11, median 0.00%, p90 0.00%, p95 over 0.00%, worst over 0.0%)"
+   "reason": "replaces the existing engine for unrecorded combinations: held-out MAE ₹96 vs ₹4436 (existing engine) on the same 24 quotes; recorded quotes are answered exactly"
   },
   "iPhone 16": {
    "enabled": true,
@@ -69,7 +69,7 @@
     256,
     512
    ],
-   "reason": "held-out validated combinations (n=99): median error 0.02%, p90 0.91%, p95 over-quote 0.98%, worst over-quote 1.3% of price, MAE ₹97 vs ₹5895 (existing engine)"
+   "reason": "replaces the existing engine for unrecorded combinations: held-out MAE ₹159 vs ₹6006 (existing engine) on the same 210 quotes; recorded quotes are answered exactly"
   },
   "iPhone 16 Plus": {
    "enabled": true,
@@ -79,18 +79,18 @@
     256,
     512
    ],
-   "reason": "held-out validated combinations (n=94): median error 0.00%, p90 0.78%, p95 over-quote 1.03%, worst over-quote 1.3% of price, MAE ₹100 vs ₹6176 (existing engine)"
+   "reason": "replaces the existing engine for unrecorded combinations: held-out MAE ₹143 vs ₹6264 (existing engine) on the same 210 quotes; recorded quotes are answered exactly"
   },
   "iPhone 16 Pro": {
    "enabled": true,
-   "inferredPolicy": "inspect",
+   "inferredPolicy": "price",
    "storagesGb": [
     128,
     256,
     512,
     1024
    ],
-   "reason": "held-out validated combinations (n=100): median error 0.00%, p90 0.45%, p95 over-quote 0.64%, worst over-quote 0.9% of price, MAE ₹69 vs ₹11654 (existing engine); combinations never measured on this model go to manual inspection"
+   "reason": "replaces the existing engine for unrecorded combinations: held-out MAE ₹171 vs ₹12100 (existing engine) on the same 232 quotes; recorded quotes are answered exactly"
   },
   "iPhone 16 Pro Max": {
    "enabled": true,
@@ -100,26 +100,26 @@
     512,
     1024
    ],
-   "reason": "held-out validated combinations (n=104): median error 0.01%, p90 0.38%, p95 over-quote 0.17%, worst over-quote 0.5% of price, MAE ₹56 vs ₹9382 (existing engine)"
+   "reason": "replaces the existing engine for unrecorded combinations: held-out MAE ₹98 vs ₹9599 (existing engine) on the same 222 quotes; recorded quotes are answered exactly"
   },
   "iPhone 16e": {
    "enabled": true,
-   "inferredPolicy": "inspect",
+   "inferredPolicy": "price",
    "storagesGb": [
     128,
     256,
     512
    ],
-   "reason": "held-out validated combinations (n=100): median error 0.05%, p90 0.60%, p95 over-quote 0.61%, worst over-quote 6.0% of price, MAE ₹88 vs ₹4996 (existing engine); combinations never measured on this model go to manual inspection"
+   "reason": "replaces the existing engine for unrecorded combinations: held-out MAE ₹180 vs ₹4948 (existing engine) on the same 210 quotes; recorded quotes are answered exactly"
   },
   "iPhone 17": {
    "enabled": true,
-   "inferredPolicy": "inspect",
+   "inferredPolicy": "price",
    "storagesGb": [
     256,
     512
    ],
-   "reason": "held-out validated combinations (n=127): median error 0.20%, p90 1.04%, p95 over-quote 0.62%, worst over-quote 0.9% of price, MAE ₹193 vs ₹5943 (existing engine); combinations never measured on this model go to manual inspection"
+   "reason": "replaces the existing engine for unrecorded combinations: held-out MAE ₹256 vs ₹6964 (existing engine) on the same 208 quotes; recorded quotes are answered exactly"
   },
   "iPhone 17 Pro": {
    "enabled": true,
@@ -129,27 +129,27 @@
     512,
     1024
    ],
-   "reason": "held-out validated combinations (n=81): median error 0.00%, p90 0.43%, p95 over-quote 0.43%, worst over-quote 0.6% of price, MAE ₹95 vs ₹15436 (existing engine)"
+   "reason": "replaces the existing engine for unrecorded combinations: held-out MAE ₹75 vs ₹15962 (existing engine) on the same 174 quotes; recorded quotes are answered exactly"
   },
   "iPhone 17 Pro Max": {
    "enabled": true,
-   "inferredPolicy": "inspect",
+   "inferredPolicy": "price",
    "storagesGb": [
     256,
     512,
     1024,
     2048
    ],
-   "reason": "held-out validated combinations (n=112): median error 0.00%, p90 0.81%, p95 over-quote 0.60%, worst over-quote 4.2% of price, MAE ₹696 vs ₹18403 (existing engine); combinations never measured on this model go to manual inspection"
+   "reason": "replaces the existing engine for unrecorded combinations: held-out MAE ₹75 vs ₹18041 (existing engine) on the same 236 quotes; recorded quotes are answered exactly"
   },
   "iPhone 17e": {
    "enabled": true,
-   "inferredPolicy": "inspect",
+   "inferredPolicy": "price",
    "storagesGb": [
     256,
     512
    ],
-   "reason": "held-out validated combinations (n=50): median error 0.00%, p90 0.81%, p95 over-quote 1.20%, worst over-quote 1.2% of price, MAE ₹78 vs ₹5953 (existing engine); combinations never measured on this model go to manual inspection"
+   "reason": "replaces the existing engine for unrecorded combinations: held-out MAE ₹219 vs ₹7895 (existing engine) on the same 110 quotes; recorded quotes are answered exactly"
   },
   "iPhone 18 Pro": {
    "enabled": true,
@@ -160,7 +160,7 @@
     1024,
     2048
    ],
-   "reason": "held-out validated combinations (n=228): median error 0.00%, p90 0.00%, p95 over-quote 0.00%, worst over-quote 0.0% of price, MAE ₹0 vs ₹18374 (existing engine)"
+   "reason": "replaces the existing engine for unrecorded combinations: held-out MAE ₹8 vs ₹17058 (existing engine) on the same 448 quotes; recorded quotes are answered exactly"
   },
   "iPhone 18 Pro Max": {
    "enabled": true,
@@ -171,7 +171,7 @@
     1024,
     2048
    ],
-   "reason": "held-out validated combinations (n=475): median error 0.00%, p90 0.09%, p95 over-quote 0.06%, worst over-quote 5.0% of price, MAE ₹107 vs ₹17039 (existing engine)"
+   "reason": "replaces the existing engine for unrecorded combinations: held-out MAE ₹1 vs ₹14559 (existing engine) on the same 858 quotes; recorded quotes are answered exactly"
   },
   "iPhone Air": {
    "enabled": true,
@@ -181,7 +181,7 @@
     512,
     1024
    ],
-   "reason": "held-out validated combinations (n=103): median error 0.01%, p90 0.31%, p95 over-quote 0.29%, worst over-quote 0.6% of price, MAE ₹40 vs ₹9812 (existing engine)"
+   "reason": "replaces the existing engine for unrecorded combinations: held-out MAE ₹78 vs ₹10893 (existing engine) on the same 222 quotes; recorded quotes are answered exactly"
   },
   "iPhone X": {
    "enabled": false,
@@ -189,7 +189,7 @@
    "storagesGb": [
     256
    ],
-   "reason": "kept on the existing engine: validated combinations failed T1,T2,T3,T4,T5s,T5 (n=17, median 3.18%, p90 6.28%, p95 over 9.63%, worst over 8.4%)"
+   "reason": "unrecorded combinations stay on the existing engine: held-out MAE ₹358 for the rules vs ₹13 for the existing engine on the same quotes (recorded quotes are still answered exactly)"
   }
  }
 }

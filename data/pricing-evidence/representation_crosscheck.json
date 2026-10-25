@@ -1,0 +1,130 @@
+{
+ "archives": [
+  {
+   "archive": "Cashify_iPhone15Plus_Full_Checklist.zip",
+   "html": {
+    "count_missing": 0,
+    "file": "Full_Checklist_Comparison.html",
+    "json_figures_missing_from_html": []
+   },
+   "html_figures_not_in_json": [],
+   "json": "Full_Checklist_Data.json",
+   "txt_mismatches": [],
+   "txt_table_rows_compared": 90
+  },
+  {
+   "archive": "Cashify_iPhone15Pro_Full_Checklist.zip",
+   "html": {
+    "count_missing": 0,
+    "file": "Full_Checklist_Comparison.html",
+    "json_figures_missing_from_html": []
+   },
+   "html_figures_not_in_json": [],
+   "json": "Full_Checklist_Data.json",
+   "txt_mismatches": [],
+   "txt_table_rows_compared": 120
+  },
+  {
+   "archive": "Cashify_iPhone15_Full_Checklist.zip",
+   "html": {
+    "count_missing": 0,
+    "file": "Full_Checklist_Comparison.html",
+    "json_figures_missing_from_html": []
+   },
+   "html_figures_not_in_json": [],
+   "json": "Full_Checklist_Data.json",
+   "txt_mismatches": [],
+   "txt_table_rows_compared": 90
+  },
+  {
+   "archive": "Cashify_iPhone16Plus_Full_Checklist (1).zip",
+   "html": {
+    "count_missing": 0,
+    "file": "Full_Checklist_Comparison.html",
+    "json_figures_missing_from_html": []
+   },
+   "html_figures_not_in_json": [],
+   "json": "Full_Checklist_Data.json",
+   "txt_mismatches": [],
+   "txt_table_rows_compared": 90
+  },
+  {
+   "archive": "Cashify_iPhone16Plus_Full_Checklist.zip",
+   "html": {
+    "count_missing": 0,
+    "file": "Full_Checklist_Comparison.html",
+    "json_figures_missing_from_html": []
+   },
+   "html_figures_not_in_json": [],
+   "json": "Full_Checklist_Data.json",
+   "txt_mismatches": [],
+   "txt_table_rows_compared": 90
+  },
+  {
+   "archive": "Cashify_iPhone16ProMax_All_90_Cases.zip",
+   "html": {
+    "count_missing": 0,
+    "file": "Full_Checklist_Comparison.html",
+    "json_figures_missing_from_html": []
+   },
+   "html_figures_not_in_json": [],
+   "json": "Full_Checklist_Data.json",
+   "txt_mismatches": [],
+   "txt_table_rows_compared": 90
+  },
+  {
+   "archive": "Cashify_iPhone16Pro_All_120_Cases.zip",
+   "html": {
+    "count_missing": 0,
+    "file": "All_120_Cases_Comparison.html",
+    "json_figures_missing_from_html": []
+   },
+   "html_figures_not_in_json": [],
+   "json": "All_120_Cases_Data.json",
+   "txt_mismatches": [],
+   "txt_table_rows_compared": 120
+  },
+  {
+   "archive": "Cashify_iPhone16_Full_Checklist.zip",
+   "html": {
+    "count_missing": 0,
+    "file": "Full_Checklist_Comparison.html",
+    "json_figures_missing_from_html": []
+   },
+   "html_figures_not_in_json": [],
+   "json": "Full_Checklist_Data.json",
+   "txt_mismatches": [],
+   "txt_table_rows_compared": 90
+  },
+  {
+   "archive": "Cashify_iPhone16e_All_90_Cases.zip",
+   "html": {
+    "count_missing": 0,
+    "file": "Full_Checklist_Comparison.html",
+    "json_figures_missing_from_html": []
+   },
+   "html_figures_not_in_json": [],
+   "json": "Full_Checklist_Data.json",
+   "txt_mismatches": [],
+   "txt_table_rows_compared": 90
+  },
+  {
+   "archive": "Cashify_iPhone17_All_90_Cases.zip",
+   "html": {
+    "count_missing": 0,
+    "file": "Full_Checklist_Comparison.html",
+    "json_figures_missing_from_html": []
+   },
+   "html_figures_not_in_json": [],
+   "json": "Full_Checklist_Data.json",
+   "txt_mismatches": [],
+   "txt_table_rows_compared": 90
+  }
+ ],
+ "summary": {
+  "archives_checked": 10,
+  "html_archives_with_missing_figures": 0,
+  "txt_mismatches": 0,
+  "txt_rows_compared": 960
+ }
+}

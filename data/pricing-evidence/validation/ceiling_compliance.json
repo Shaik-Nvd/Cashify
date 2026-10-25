@@ -1,0 +1,733 @@
+{
+ "note": "held-out predictions only; breach = payout above Cashify payout + min(8%, INR 2,000) measured against the REAL Cashify payout",
+ "protocols": {
+  "p1": {
+   "shippedScope / inspections": {
+    "quotes": 430,
+    "breaches": 0,
+    "breachPct": 0,
+    "over100": 0,
+    "over1000": 0,
+    "over1pctOfCashifyPayout": 0,
+    "over3pctOfCashifyPayout": 0,
+    "medianExtraPct": 0,
+    "p95ExtraPct": 0,
+    "worstBreach": null
+   },
+   "existingAsShipped / no coupon": {
+    "quotes": 2233,
+    "breaches": 1050,
+    "breachPct": 47.02,
+    "over100": 797,
+    "over1000": 682,
+    "over1pctOfCashifyPayout": 724,
+    "over3pctOfCashifyPayout": 673,
+    "medianExtraPct": 2.16,
+    "p95ExtraPct": 131.66,
+    "worstBreach": {
+     "over": 62249,
+     "source": "Cashify_iPhone18_Pro_Pricing.zip::all_variants_pricing_data.json::W01",
+     "model": "iPhone 18 Pro",
+     "storage": "2TB",
+     "answers": "F05,F08,F17,WARRANTY_NO",
+     "payout": 101110,
+     "trueCashifyPayout": 36861,
+     "allowed": 38861
+    }
+   },
+   "existingAsShipped / coupon claimed": {
+    "quotes": 2233,
+    "breaches": 1149,
+    "breachPct": 51.46,
+    "over100": 1116,
+    "over1000": 712,
+    "over1pctOfCashifyPayout": 796,
+    "over3pctOfCashifyPayout": 736,
+    "medianExtraPct": 2.65,
+    "p95ExtraPct": 134.4,
+    "worstBreach": {
+     "over": 62548,
+     "source": "Cashify_iPhone18_Pro_Pricing.zip::all_variants_pricing_data.json::W01",
+     "model": "iPhone 18 Pro",
+     "storage": "2TB",
+     "answers": "F05,F08,F17,WARRANTY_NO",
+     "payout": 101409,
+     "trueCashifyPayout": 36861,
+     "allowed": 38861
+    }
+   },
+   "existingWithCeiling / no coupon": {
+    "quotes": 2233,
+    "breaches": 820,
+    "breachPct": 36.72,
+    "over100": 796,
+    "over1000": 682,
+    "over1pctOfCashifyPayout": 723,
+    "over3pctOfCashifyPayout": 671,
+    "medianExtraPct": 2.14,
+    "p95ExtraPct": 131.66,
+    "worstBreach": {
+     "over": 62229,
+     "source": "Cashify_iPhone18_Pro_Pricing.zip::all_variants_pricing_data.json::W01",
+     "model": "iPhone 18 Pro",
+     "storage": "2TB",
+     "answers": "F05,F08,F17,WARRANTY_NO",
+     "payout": 101090,
+     "trueCashifyPayout": 36861,
+     "allowed": 38861
+    }
+   },
+   "existingWithCeiling / coupon claimed": {
+    "quotes": 2233,
+    "breaches": 848,
+    "breachPct": 37.98,
+    "over100": 805,
+    "over1000": 687,
+    "over1pctOfCashifyPayout": 737,
+    "over3pctOfCashifyPayout": 677,
+    "medianExtraPct": 2.26,
+    "p95ExtraPct": 134.4,
+    "worstBreach": {
+     "over": 62229,
+     "source": "Cashify_iPhone18_Pro_Pricing.zip::all_variants_pricing_data.json::W01",
+     "model": "iPhone 18 Pro",
+     "storage": "2TB",
+     "answers": "F05,F08,F17,WARRANTY_NO",
+     "payout": 101090,
+     "trueCashifyPayout": 36861,
+     "allowed": 38861
+    }
+   },
+   "evidenceWithCeiling / no coupon": {
+    "quotes": 2173,
+    "breaches": 401,
+    "breachPct": 18.45,
+    "over100": 258,
+    "over1000": 82,
+    "over1pctOfCashifyPayout": 139,
+    "over3pctOfCashifyPayout": 91,
+    "medianExtraPct": 3.52,
+    "p95ExtraPct": 7.57,
+    "worstBreach": {
+     "over": 16100,
+     "source": "Cashify_iPhone17_Pro_Max_Pricing.zip::pricing_data.json::M17",
+     "model": "iPhone 17 Pro Max",
+     "storage": "2TB",
+     "answers": "Q02,F08",
+     "payout": 56261,
+     "trueCashifyPayout": 38161,
+     "allowed": 40161
+    }
+   },
+   "evidenceWithCeiling / coupon claimed": {
+    "quotes": 2173,
+    "breaches": 469,
+    "breachPct": 21.58,
+    "over100": 280,
+    "over1000": 82,
+    "over1pctOfCashifyPayout": 149,
+    "over3pctOfCashifyPayout": 95,
+    "medianExtraPct": 3.6,
+    "p95ExtraPct": 8.71,
+    "worstBreach": {
+     "over": 16100,
+     "source": "Cashify_iPhone17_Pro_Max_Pricing.zip::pricing_data.json::M17",
+     "model": "iPhone 17 Pro Max",
+     "storage": "2TB",
+     "answers": "Q02,F08",
+     "payout": 56261,
+     "trueCashifyPayout": 38161,
+     "allowed": 40161
+    }
+   },
+   "shippedScope / no coupon": {
+    "quotes": 1803,
+    "breaches": 286,
+    "breachPct": 15.86,
+    "over100": 154,
+    "over1000": 56,
+    "over1pctOfCashifyPayout": 71,
+    "over3pctOfCashifyPayout": 54,
+    "medianExtraPct": 3.14,
+    "p95ExtraPct": 6.53,
+    "worstBreach": {
+     "over": 19790,
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M16",
+     "model": "iPhone 15",
+     "storage": "512GB",
+     "answers": "Q02,F05",
+     "payout": 31973,
+     "trueCashifyPayout": 11281,
+     "allowed": 12183
+    }
+   },
+   "shippedScope / coupon claimed": {
+    "quotes": 1803,
+    "breaches": 335,
+    "breachPct": 18.58,
+    "over100": 166,
+    "over1000": 57,
+    "over1pctOfCashifyPayout": 77,
+    "over3pctOfCashifyPayout": 55,
+    "medianExtraPct": 3.16,
+    "p95ExtraPct": 7.97,
+    "worstBreach": {
+     "over": 19955,
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M16",
+     "model": "iPhone 15",
+     "storage": "512GB",
+     "answers": "Q02,F05",
+     "payout": 32138,
+     "trueCashifyPayout": 11281,
+     "allowed": 12183
+    }
+   }
+  },
+  "p2": {
+   "shippedScope / inspections": {
+    "quotes": 410,
+    "breaches": 0,
+    "breachPct": 0,
+    "over100": 0,
+    "over1000": 0,
+    "over1pctOfCashifyPayout": 0,
+    "over3pctOfCashifyPayout": 0,
+    "medianExtraPct": 0,
+    "p95ExtraPct": 0,
+    "worstBreach": null
+   },
+   "existingAsShipped / no coupon": {
+    "quotes": 2182,
+    "breaches": 1028,
+    "breachPct": 47.11,
+    "over100": 797,
+    "over1000": 682,
+    "over1pctOfCashifyPayout": 724,
+    "over3pctOfCashifyPayout": 673,
+    "medianExtraPct": 2.15,
+    "p95ExtraPct": 132.69,
+    "worstBreach": {
+     "over": 62249,
+     "source": "Cashify_iPhone18_Pro_Pricing.zip::all_variants_pricing_data.json::W01",
+     "model": "iPhone 18 Pro",
+     "storage": "2TB",
+     "answers": "F05,F08,F17,WARRANTY_NO",
+     "payout": 101110,
+     "trueCashifyPayout": 36861,
+     "allowed": 38861
+    }
+   },
+   "existingAsShipped / coupon claimed": {
+    "quotes": 2182,
+    "breaches": 1122,
+    "breachPct": 51.42,
+    "over100": 1090,
+    "over1000": 712,
+    "over1pctOfCashifyPayout": 770,
+    "over3pctOfCashifyPayout": 710,
+    "medianExtraPct": 2.65,
+    "p95ExtraPct": 135.54,
+    "worstBreach": {
+     "over": 62548,
+     "source": "Cashify_iPhone18_Pro_Pricing.zip::all_variants_pricing_data.json::W01",
+     "model": "iPhone 18 Pro",
+     "storage": "2TB",
+     "answers": "F05,F08,F17,WARRANTY_NO",
+     "payout": 101409,
+     "trueCashifyPayout": 36861,
+     "allowed": 38861
+    }
+   },
+   "existingWithCeiling / no coupon": {
+    "quotes": 2182,
+    "breaches": 820,
+    "breachPct": 37.58,
+    "over100": 796,
+    "over1000": 682,
+    "over1pctOfCashifyPayout": 723,
+    "over3pctOfCashifyPayout": 671,
+    "medianExtraPct": 2.13,
+    "p95ExtraPct": 132.69,
+    "worstBreach": {
+     "over": 62229,
+     "source": "Cashify_iPhone18_Pro_Pricing.zip::all_variants_pricing_data.json::W01",
+     "model": "iPhone 18 Pro",
+     "storage": "2TB",
+     "answers": "F05,F08,F17,WARRANTY_NO",
+     "payout": 101090,
+     "trueCashifyPayout": 36861,
+     "allowed": 38861
+    }
+   },
+   "existingWithCeiling / coupon claimed": {
+    "quotes": 2182,
+    "breaches": 848,
+    "breachPct": 38.86,
+    "over100": 805,
+    "over1000": 687,
+    "over1pctOfCashifyPayout": 737,
+    "over3pctOfCashifyPayout": 677,
+    "medianExtraPct": 2.25,
+    "p95ExtraPct": 135.54,
+    "worstBreach": {
+     "over": 62229,
+     "source": "Cashify_iPhone18_Pro_Pricing.zip::all_variants_pricing_data.json::W01",
+     "model": "iPhone 18 Pro",
+     "storage": "2TB",
+     "answers": "F05,F08,F17,WARRANTY_NO",
+     "payout": 101090,
+     "trueCashifyPayout": 36861,
+     "allowed": 38861
+    }
+   },
+   "evidenceWithCeiling / no coupon": {
+    "quotes": 2137,
+    "breaches": 293,
+    "breachPct": 13.71,
+    "over100": 105,
+    "over1000": 40,
+    "over1pctOfCashifyPayout": 47,
+    "over3pctOfCashifyPayout": 45,
+    "medianExtraPct": 3.52,
+    "p95ExtraPct": 6.25,
+    "worstBreach": {
+     "over": 9435,
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M18",
+     "model": "iPhone 15",
+     "storage": "512GB",
+     "answers": "Q02,F17",
+     "payout": 25214,
+     "trueCashifyPayout": 14611,
+     "allowed": 15779
+    }
+   },
+   "evidenceWithCeiling / coupon claimed": {
+    "quotes": 2137,
+    "breaches": 367,
+    "breachPct": 17.17,
+    "over100": 116,
+    "over1000": 44,
+    "over1pctOfCashifyPayout": 55,
+    "over3pctOfCashifyPayout": 46,
+    "medianExtraPct": 3.63,
+    "p95ExtraPct": 7.92,
+    "worstBreach": {
+     "over": 9734,
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M18",
+     "model": "iPhone 15",
+     "storage": "512GB",
+     "answers": "Q02,F17",
+     "payout": 25513,
+     "trueCashifyPayout": 14611,
+     "allowed": 15779
+    }
+   },
+   "shippedScope / no coupon": {
+    "quotes": 1772,
+    "breaches": 271,
+    "breachPct": 15.29,
+    "over100": 97,
+    "over1000": 36,
+    "over1pctOfCashifyPayout": 38,
+    "over3pctOfCashifyPayout": 38,
+    "medianExtraPct": 3.18,
+    "p95ExtraPct": 6.2,
+    "worstBreach": {
+     "over": 19790,
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M16",
+     "model": "iPhone 15",
+     "storage": "512GB",
+     "answers": "Q02,F05",
+     "payout": 31973,
+     "trueCashifyPayout": 11281,
+     "allowed": 12183
+    }
+   },
+   "shippedScope / coupon claimed": {
+    "quotes": 1772,
+    "breaches": 323,
+    "breachPct": 18.23,
+    "over100": 105,
+    "over1000": 37,
+    "over1pctOfCashifyPayout": 43,
+    "over3pctOfCashifyPayout": 38,
+    "medianExtraPct": 3.19,
+    "p95ExtraPct": 7.51,
+    "worstBreach": {
+     "over": 19955,
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M16",
+     "model": "iPhone 15",
+     "storage": "512GB",
+     "answers": "Q02,F05",
+     "payout": 32138,
+     "trueCashifyPayout": 11281,
+     "allowed": 12183
+    }
+   }
+  },
+  "p3": {
+   "shippedScope / inspections": {
+    "quotes": 339,
+    "breaches": 0,
+    "breachPct": 0,
+    "over100": 0,
+    "over1000": 0,
+    "over1pctOfCashifyPayout": 0,
+    "over3pctOfCashifyPayout": 0,
+    "medianExtraPct": 0,
+    "p95ExtraPct": 0,
+    "worstBreach": null
+   },
+   "existingAsShipped / no coupon": {
+    "quotes": 1157,
+    "breaches": 535,
+    "breachPct": 46.24,
+    "over100": 364,
+    "over1000": 337,
+    "over1pctOfCashifyPayout": 348,
+    "over3pctOfCashifyPayout": 332,
+    "medianExtraPct": 1.26,
+    "p95ExtraPct": 155.47,
+    "worstBreach": {
+     "over": 62249,
+     "source": "Cashify_iPhone18_Pro_Pricing.zip::all_variants_pricing_data.json::W01",
+     "model": "iPhone 18 Pro",
+     "storage": "2TB",
+     "answers": "F05,F08,F17,WARRANTY_NO",
+     "payout": 101110,
+     "trueCashifyPayout": 36861,
+     "allowed": 38861
+    }
+   },
+   "existingAsShipped / coupon claimed": {
+    "quotes": 1157,
+    "breaches": 577,
+    "breachPct": 49.87,
+    "over100": 570,
+    "over1000": 346,
+    "over1pctOfCashifyPayout": 361,
+    "over3pctOfCashifyPayout": 351,
+    "medianExtraPct": 1.49,
+    "p95ExtraPct": 157.51,
+    "worstBreach": {
+     "over": 62548,
+     "source": "Cashify_iPhone18_Pro_Pricing.zip::all_variants_pricing_data.json::W01",
+     "model": "iPhone 18 Pro",
+     "storage": "2TB",
+     "answers": "F05,F08,F17,WARRANTY_NO",
+     "payout": 101409,
+     "trueCashifyPayout": 36861,
+     "allowed": 38861
+    }
+   },
+   "existingWithCeiling / no coupon": {
+    "quotes": 1157,
+    "breaches": 367,
+    "breachPct": 31.72,
+    "over100": 364,
+    "over1000": 337,
+    "over1pctOfCashifyPayout": 348,
+    "over3pctOfCashifyPayout": 332,
+    "medianExtraPct": 1.25,
+    "p95ExtraPct": 155.47,
+    "worstBreach": {
+     "over": 62229,
+     "source": "Cashify_iPhone18_Pro_Pricing.zip::all_variants_pricing_data.json::W01",
+     "model": "iPhone 18 Pro",
+     "storage": "2TB",
+     "answers": "F05,F08,F17,WARRANTY_NO",
+     "payout": 101090,
+     "trueCashifyPayout": 36861,
+     "allowed": 38861
+    }
+   },
+   "existingWithCeiling / coupon claimed": {
+    "quotes": 1157,
+    "breaches": 372,
+    "breachPct": 32.15,
+    "over100": 365,
+    "over1000": 337,
+    "over1pctOfCashifyPayout": 351,
+    "over3pctOfCashifyPayout": 333,
+    "medianExtraPct": 1.27,
+    "p95ExtraPct": 157.51,
+    "worstBreach": {
+     "over": 62229,
+     "source": "Cashify_iPhone18_Pro_Pricing.zip::all_variants_pricing_data.json::W01",
+     "model": "iPhone 18 Pro",
+     "storage": "2TB",
+     "answers": "F05,F08,F17,WARRANTY_NO",
+     "payout": 101090,
+     "trueCashifyPayout": 36861,
+     "allowed": 38861
+    }
+   },
+   "evidenceWithCeiling / no coupon": {
+    "quotes": 1057,
+    "breaches": 109,
+    "breachPct": 10.31,
+    "over100": 59,
+    "over1000": 0,
+    "over1pctOfCashifyPayout": 31,
+    "over3pctOfCashifyPayout": 4,
+    "medianExtraPct": 2.19,
+    "p95ExtraPct": 6.55,
+    "worstBreach": {
+     "over": 862,
+     "source": "Cashify_iPhone15Pro_Full_Checklist.zip::Full_Checklist_Data.json::M01",
+     "model": "iPhone 15 Pro",
+     "storage": "1TB",
+     "answers": "F05,F14",
+     "payout": 50923,
+     "trueCashifyPayout": 48061,
+     "allowed": 50061
+    }
+   },
+   "evidenceWithCeiling / coupon claimed": {
+    "quotes": 1057,
+    "breaches": 144,
+    "breachPct": 13.62,
+    "over100": 81,
+    "over1000": 0,
+    "over1pctOfCashifyPayout": 56,
+    "over3pctOfCashifyPayout": 9,
+    "medianExtraPct": 2.2,
+    "p95ExtraPct": 7.7,
+    "worstBreach": {
+     "over": 880,
+     "source": "Cashify_iPhone15Pro_Full_Checklist.zip::Full_Checklist_Data.json::M01",
+     "model": "iPhone 15 Pro",
+     "storage": "1TB",
+     "answers": "F05,F14",
+     "payout": 50941,
+     "trueCashifyPayout": 48061,
+     "allowed": 50061
+    }
+   },
+   "shippedScope / no coupon": {
+    "quotes": 818,
+    "breaches": 52,
+    "breachPct": 6.36,
+    "over100": 27,
+    "over1000": 0,
+    "over1pctOfCashifyPayout": 15,
+    "over3pctOfCashifyPayout": 1,
+    "medianExtraPct": 2.03,
+    "p95ExtraPct": 5.97,
+    "worstBreach": {
+     "over": 840,
+     "source": "Cashify_iPhone16ProMax_All_90_Cases.zip::Full_Checklist_Data.json::M01",
+     "model": "iPhone 16 Pro Max",
+     "storage": "1TB",
+     "answers": "F05,F14",
+     "payout": 65161,
+     "trueCashifyPayout": 62321,
+     "allowed": 64321
+    }
+   },
+   "shippedScope / coupon claimed": {
+    "quotes": 818,
+    "breaches": 80,
+    "breachPct": 9.78,
+    "over100": 36,
+    "over1000": 0,
+    "over1pctOfCashifyPayout": 24,
+    "over3pctOfCashifyPayout": 6,
+    "medianExtraPct": 2.07,
+    "p95ExtraPct": 6.5,
+    "worstBreach": {
+     "over": 840,
+     "source": "Cashify_iPhone16ProMax_All_90_Cases.zip::Full_Checklist_Data.json::M03",
+     "model": "iPhone 16 Pro Max",
+     "storage": "1TB",
+     "answers": "F05,F08",
+     "payout": 46521,
+     "trueCashifyPayout": 43681,
+     "allowed": 45681
+    }
+   }
+  },
+  "p4": {
+   "shippedScope / inspections": {
+    "quotes": 868,
+    "breaches": 0,
+    "breachPct": 0,
+    "over100": 0,
+    "over1000": 0,
+    "over1pctOfCashifyPayout": 0,
+    "over3pctOfCashifyPayout": 0,
+    "medianExtraPct": 0,
+    "p95ExtraPct": 0,
+    "worstBreach": null
+   },
+   "existingAsShipped / no coupon": {
+    "quotes": 2233,
+    "breaches": 1050,
+    "breachPct": 47.02,
+    "over100": 797,
+    "over1000": 682,
+    "over1pctOfCashifyPayout": 724,
+    "over3pctOfCashifyPayout": 673,
+    "medianExtraPct": 2.16,
+    "p95ExtraPct": 131.66,
+    "worstBreach": {
+     "over": 62249,
+     "source": "Cashify_iPhone18_Pro_Pricing.zip::all_variants_pricing_data.json::W01",
+     "model": "iPhone 18 Pro",
+     "storage": "2TB",
+     "answers": "F05,F08,F17,WARRANTY_NO",
+     "payout": 101110,
+     "trueCashifyPayout": 36861,
+     "allowed": 38861
+    }
+   },
+   "existingAsShipped / coupon claimed": {
+    "quotes": 2233,
+    "breaches": 1149,
+    "breachPct": 51.46,
+    "over100": 1116,
+    "over1000": 712,
+    "over1pctOfCashifyPayout": 796,
+    "over3pctOfCashifyPayout": 736,
+    "medianExtraPct": 2.65,
+    "p95ExtraPct": 134.4,
+    "worstBreach": {
+     "over": 62548,
+     "source": "Cashify_iPhone18_Pro_Pricing.zip::all_variants_pricing_data.json::W01",
+     "model": "iPhone 18 Pro",
+     "storage": "2TB",
+     "answers": "F05,F08,F17,WARRANTY_NO",
+     "payout": 101409,
+     "trueCashifyPayout": 36861,
+     "allowed": 38861
+    }
+   },
+   "existingWithCeiling / no coupon": {
+    "quotes": 2233,
+    "breaches": 820,
+    "breachPct": 36.72,
+    "over100": 796,
+    "over1000": 682,
+    "over1pctOfCashifyPayout": 723,
+    "over3pctOfCashifyPayout": 671,
+    "medianExtraPct": 2.14,
+    "p95ExtraPct": 131.66,
+    "worstBreach": {
+     "over": 62229,
+     "source": "Cashify_iPhone18_Pro_Pricing.zip::all_variants_pricing_data.json::W01",
+     "model": "iPhone 18 Pro",
+     "storage": "2TB",
+     "answers": "F05,F08,F17,WARRANTY_NO",
+     "payout": 101090,
+     "trueCashifyPayout": 36861,
+     "allowed": 38861
+    }
+   },
+   "existingWithCeiling / coupon claimed": {
+    "quotes": 2233,
+    "breaches": 848,
+    "breachPct": 37.98,
+    "over100": 805,
+    "over1000": 687,
+    "over1pctOfCashifyPayout": 737,
+    "over3pctOfCashifyPayout": 677,
+    "medianExtraPct": 2.26,
+    "p95ExtraPct": 134.4,
+    "worstBreach": {
+     "over": 62229,
+     "source": "Cashify_iPhone18_Pro_Pricing.zip::all_variants_pricing_data.json::W01",
+     "model": "iPhone 18 Pro",
+     "storage": "2TB",
+     "answers": "F05,F08,F17,WARRANTY_NO",
+     "payout": 101090,
+     "trueCashifyPayout": 36861,
+     "allowed": 38861
+    }
+   },
+   "evidenceWithCeiling / no coupon": {
+    "quotes": 2183,
+    "breaches": 665,
+    "breachPct": 30.46,
+    "over100": 474,
+    "over1000": 144,
+    "over1pctOfCashifyPayout": 234,
+    "over3pctOfCashifyPayout": 103,
+    "medianExtraPct": 3.2,
+    "p95ExtraPct": 8.94,
+    "worstBreach": {
+     "over": 7685,
+     "source": "Cashify_iPhone15Pro_Full_Checklist.zip::Full_Checklist_Data.json::M12",
+     "model": "iPhone 15 Pro",
+     "storage": "128GB",
+     "answers": "Q02,Q03,P01,P03,S01",
+     "payout": 33098,
+     "trueCashifyPayout": 23531,
+     "allowed": 25413
+    }
+   },
+   "evidenceWithCeiling / coupon claimed": {
+    "quotes": 2183,
+    "breaches": 737,
+    "breachPct": 33.76,
+    "over100": 499,
+    "over1000": 156,
+    "over1pctOfCashifyPayout": 241,
+    "over3pctOfCashifyPayout": 121,
+    "medianExtraPct": 3.37,
+    "p95ExtraPct": 9.53,
+    "worstBreach": {
+     "over": 7984,
+     "source": "Cashify_iPhone15Pro_Full_Checklist.zip::Full_Checklist_Data.json::M12",
+     "model": "iPhone 15 Pro",
+     "storage": "128GB",
+     "answers": "Q02,Q03,P01,P03,S01",
+     "payout": 33397,
+     "trueCashifyPayout": 23531,
+     "allowed": 25413
+    }
+   },
+   "shippedScope / no coupon": {
+    "quotes": 1365,
+    "breaches": 403,
+    "breachPct": 29.52,
+    "over100": 258,
+    "over1000": 75,
+    "over1pctOfCashifyPayout": 101,
+    "over3pctOfCashifyPayout": 57,
+    "medianExtraPct": 2.47,
+    "p95ExtraPct": 8,
+    "worstBreach": {
+     "over": 19790,
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M16",
+     "model": "iPhone 15",
+     "storage": "512GB",
+     "answers": "Q02,F05",
+     "payout": 31973,
+     "trueCashifyPayout": 11281,
+     "allowed": 12183
+    }
+   },
+   "shippedScope / coupon claimed": {
+    "quotes": 1365,
+    "breaches": 425,
+    "breachPct": 31.14,
+    "over100": 262,
+    "over1000": 78,
+    "over1pctOfCashifyPayout": 102,
+    "over3pctOfCashifyPayout": 58,
+    "medianExtraPct": 2.61,
+    "p95ExtraPct": 8,
+    "worstBreach": {
+     "over": 19955,
+     "source": "Cashify_iPhone15_Full_Checklist.zip::Full_Checklist_Data.json::M16",
+     "model": "iPhone 15",
+     "storage": "512GB",
+     "answers": "Q02,F05",
+     "payout": 32138,
+     "trueCashifyPayout": 11281,
+     "allowed": 12183
+    }
+   }
+  }
+ }
+}

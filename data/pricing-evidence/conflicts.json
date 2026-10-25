@@ -1,0 +1,100 @@
+[
+ {
+  "config_key": "iPhone 16|512|yes|yes|yes|no|yes|yes|not_asked|not_asked|not_shown|",
+  "measurements": [
+   {
+    "base": 44780,
+    "date": "2026-10-17",
+    "id": "67e048c70dda",
+    "outcome": "NUMERIC_QUOTE",
+    "selling": 44760,
+    "source": "iPhone_16_512GB_24_Test_Cases (1).zip::iPhone_16_8GB_512GB_24_Test_Cases.txt::15"
+   },
+   {
+    "base": 45230,
+    "date": "2026-10-24",
+    "id": "fdd3bb4d1b7a",
+    "outcome": "NUMERIC_QUOTE",
+    "selling": 45210,
+    "source": "Cashify_iPhone16_Full_Checklist.zip::Full_Checklist_Data.json::W00"
+   }
+  ],
+  "n_measurements": 2,
+  "outcomes": [
+   "NUMERIC_QUOTE"
+  ],
+  "same_day": false,
+  "selling_values": [
+   44760,
+   45210
+  ]
+ },
+ {
+  "config_key": "iPhone 16 Plus|512|yes|yes|yes|no|yes|yes|not_asked|not_asked|not_shown|",
+  "measurements": [
+   {
+    "base": 45490,
+    "date": "2026-10-17",
+    "id": "a70b4c29d763",
+    "outcome": "NUMERIC_QUOTE",
+    "selling": 45470,
+    "source": "iPhone_16_Plus_512GB_24_Test_Cases.zip::iPhone_16_Plus_512GB_24_Test_Cases.txt::15"
+   },
+   {
+    "base": 45900,
+    "date": "2026-10-24",
+    "id": "39a9c06e1bdc",
+    "outcome": "NUMERIC_QUOTE",
+    "selling": 45880,
+    "source": "Cashify_iPhone16Plus_Full_Checklist (1).zip::Full_Checklist_Data.json::W00"
+   }
+  ],
+  "n_measurements": 2,
+  "outcomes": [
+   "NUMERIC_QUOTE"
+  ],
+  "same_day": false,
+  "selling_values": [
+   45470,
+   45880
+  ]
+ },
+ {
+  "config_key": "iPhone 18 Pro|256|yes|yes|yes|yes|yes|yes|yes|not_asked|Below 3 months|",
+  "measurements": [
+   {
+    "base": 120000,
+    "date": "2026-10-17",
+    "id": "7cc72bcf5571",
+    "outcome": "NUMERIC_QUOTE",
+    "selling": 119980,
+    "source": "iPhone_18_Pro_256GB_25_Test_Cases.zip::iPhone_18_Pro_12GB_256GB_25_Test_Cases.txt::25"
+   },
+   {
+    "base": 121000,
+    "date": "2026-10-23",
+    "id": "fd99bf477ae5",
+    "outcome": "NUMERIC_QUOTE",
+    "selling": 120980,
+    "source": "Cashify_iPhone18_Pro_Pricing.zip::all_variants_pricing_data.json::LIVE_B00"
+   },
+   {
+    "base": 121000,
+    "date": "2026-10-23",
+    "id": "fbf8c6cc1179",
+    "outcome": "NUMERIC_QUOTE",
+    "selling": 120980,
+    "source": "Cashify_iPhone18_Pro_Pricing.zip::all_variants_pricing_data.json::LIVE_B99"
+   }
+  ],
+  "n_measurements": 3,
+  "outcomes": [
+   "NUMERIC_QUOTE"
+  ],
+  "same_day": true,
+  "selling_values": [
+   119980,
+   120980
+  ]
+ }
+]

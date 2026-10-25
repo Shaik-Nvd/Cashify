@@ -1,0 +1,20 @@
+﻿model,numeric_occurrences,independent_measurements,unique_configurations,no_offer_measurements,pending_untested
+iPhone Air,135,111,107,3,0
+iPhone X,48,27,27,0,0
+iPhone 14,75,75,75,0,0
+iPhone 14 Pro,100,100,100,0,0
+iPhone 15,99,99,94,5,0
+iPhone 15 Plus,131,107,103,4,0
+iPhone 15 Pro,146,132,126,4,0
+iPhone 15 Pro Max,48,24,24,0,0
+iPhone 16,129,105,101,6,17
+iPhone 16 Plus,186,105,101,6,0
+iPhone 16 Pro,116,116,112,4,0
+iPhone 16 Pro Max,111,111,107,3,0
+iPhone 16e,105,105,101,6,0
+iPhone 17,118,104,100,2,0
+iPhone 17 Pro,87,87,84,3,0
+iPhone 17 Pro Max,236,118,114,2,0
+iPhone 17e,110,55,53,3,0
+iPhone 18 Pro,348,224,216,0,0
+iPhone 18 Pro Max,598,429,413,0,604

@@ -1,3 +1,4 @@
+import { isAppleEvidenceModel } from '../../lib/pricing/appleCashifyModel/scope';
 /**
  * Get Upto semantics (2026-09-23).
  *
@@ -104,6 +105,8 @@ async function run() {
       const brand = LIVE.find((row) => row[1] === model)![0];
       for (const diagnostics of [PERFECT_CONDITION_DIAGNOSTICS, damaged]) {
         const q = await svc.quote({ brand, model, storage, diagnostics });
+        // Evidence-calibrated iPhones decline a damaged combination their own quotes never measured; that refusal is the designed policy.
+        if (!q.ok && q.code === 'MANUAL_INSPECTION_REQUIRED' && diagnostics === damaged && isAppleEvidenceModel(model, storage)) continue;
         assert.ok(q.ok, `${model}: ${!q.ok ? q.code : ''}`);
         if (q.ok) assert.equal(q.startingPrice, expectedGetUpto(reference), `${model}: startingPrice`);
       }

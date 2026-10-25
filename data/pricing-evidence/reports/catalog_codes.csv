@@ -1,0 +1,41 @@
+﻿code,name,group
+C01,More than 2 scratches on body,Body scratches
+C02,1-2 scratches on body,Body scratches
+C03,Major dent(s) or more than 2,Body dents
+C04,1-2 minor dents,Body dents
+D01,Large/ heavy visible spots on screen,Display spots
+D02,3 or more minor spots on screen,Display spots
+D03,1-2 minor spots on screen,Display spots
+D04,Visible line(s) on display,Display lines
+D05,Display faded along edges,Display lines
+D06,Major Discoloration,Display discoloration
+D07,Minor Discoloration,Display discoloration
+F01,Front Camera not working,Functional
+F02,Back Camera not working,Functional
+F03,Volume Button not working,Functional
+F04,Finger Touch not working,Functional
+F05,WiFi not working,Functional
+F06,Speaker Faulty,Functional
+F07,Silent Button not working,Functional
+F08,Face Sensor not working,Functional
+F09,Power Button not working,Functional
+F10,Charging Port not working,Functional
+F11,Audio Receiver not working,Functional
+F12,Camera Glass Broken,Functional
+F13,Microphone not working,Functional
+F14,Bluetooth not working,Functional
+F15,Vibrator is not working,Functional
+F16,Proximity Sensor not working,Functional
+F17,Battery in Service (Health is less than 80%),Functional
+F18,Battery Health 80-85%,Functional
+P01,Cracked/ broken side or back panel,Panel damage
+P02,Missing side or back panel,Panel damage
+P03,Bent/ curved panel,Bent/loose screen
+P04,Loose screen (Gap in screen and body),Bent/loose screen
+Q01,Unable to make/receive calls,Basic device condition
+Q02,Touch screen not working,Basic device condition
+Q03,Screen not original,Basic device condition
+S01,Screen cracked/ glass broken,Screen physical
+S02,Chipped/cracked outside display area,Screen physical
+S03,More than 2 scratches on screen,Screen physical
+S04,1-2 scratches on screen,Screen physical

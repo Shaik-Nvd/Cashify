@@ -1,0 +1,395 @@
+{
+ "cross_checks": [
+  {
+   "archive": "Cashify_iPhone18_Pro_Max_2TB_Test_Results_160_cases.zip",
+   "kind": "single_defect_table_rows",
+   "rows": 40
+  },
+  {
+   "json_rows": 45,
+   "kind": "single_rows_pair_zip_vs_uploaded_report_json",
+   "mismatches": [],
+   "rows": 40
+  },
+  {
+   "json_rows": 45,
+   "kind": "single_rows_45_zip_vs_uploaded_report_json",
+   "mismatches": [],
+   "rows": 40
+  }
+ ],
+ "per_archive": {
+  "Cashify_iPhone15Plus_Full_Checklist.zip": {
+   "by_outcome": {
+    "NOT_APPLICABLE": 9,
+    "NO_OFFER": 4,
+    "NUMERIC_QUOTE": 83
+   },
+   "records": 96
+  },
+  "Cashify_iPhone15Pro_Full_Checklist.zip": {
+   "by_outcome": {
+    "NOT_APPLICABLE": 8,
+    "NO_OFFER": 4,
+    "NUMERIC_QUOTE": 116
+   },
+   "records": 128
+  },
+  "Cashify_iPhone15_Full_Checklist.zip": {
+   "by_outcome": {
+    "NOT_APPLICABLE": 9,
+    "NO_OFFER": 5,
+    "NUMERIC_QUOTE": 82
+   },
+   "records": 96
+  },
+  "Cashify_iPhone16Plus_Full_Checklist (1).zip": {
+   "by_outcome": {
+    "NOT_APPLICABLE": 9,
+    "NO_OFFER": 6,
+    "NUMERIC_QUOTE": 81
+   },
+   "records": 96
+  },
+  "Cashify_iPhone16Plus_Full_Checklist.zip": {
+   "by_outcome": {
+    "NOT_APPLICABLE": 9,
+    "NO_OFFER": 6,
+    "NUMERIC_QUOTE": 81
+   },
+   "records": 96
+  },
+  "Cashify_iPhone16ProMax_All_90_Cases.zip": {
+   "by_outcome": {
+    "NOT_APPLICABLE": 6,
+    "NO_OFFER": 3,
+    "NUMERIC_QUOTE": 87
+   },
+   "records": 96
+  },
+  "Cashify_iPhone16Pro_All_120_Cases.zip": {
+   "by_outcome": {
+    "NO_OFFER": 4,
+    "NUMERIC_QUOTE": 116
+   },
+   "records": 120
+  },
+  "Cashify_iPhone16_Full_Checklist.zip": {
+   "by_outcome": {
+    "NOT_APPLICABLE": 9,
+    "NO_OFFER": 6,
+    "NUMERIC_QUOTE": 81
+   },
+   "records": 96
+  },
+  "Cashify_iPhone16e_All_90_Cases.zip": {
+   "by_outcome": {
+    "NOT_APPLICABLE": 9,
+    "NO_OFFER": 6,
+    "NUMERIC_QUOTE": 81
+   },
+   "records": 96
+  },
+  "Cashify_iPhone17_All_90_Cases.zip": {
+   "by_outcome": {
+    "NOT_APPLICABLE": 4,
+    "NO_OFFER": 2,
+    "NUMERIC_QUOTE": 88
+   },
+   "records": 94
+  },
+  "Cashify_iPhone17_Pro_Max_Pricing.zip": {
+   "by_outcome": {
+    "NOT_APPLICABLE": 8,
+    "NO_OFFER": 2,
+    "NUMERIC_QUOTE": 118
+   },
+   "records": 128
+  },
+  "Cashify_iPhone17e_Pricing.zip": {
+   "by_outcome": {
+    "NOT_APPLICABLE": 4,
+    "NO_OFFER": 3,
+    "NUMERIC_QUOTE": 55
+   },
+   "records": 62
+  },
+  "Cashify_iPhone18_Pro_Max_2TB_Test_Results_160_cases.zip": {
+   "by_outcome": {
+    "NUMERIC_QUOTE": 160,
+    "PENDING": 604
+   },
+   "records": 764
+  },
+  "Cashify_iPhone18_Pro_Pricing.zip": {
+   "by_outcome": {
+    "NUMERIC_QUOTE": 124
+   },
+   "records": 124
+  },
+  "iPhone 18 Pro Max.zip": {
+   "by_outcome": {
+    "NUMERIC_QUOTE": 169
+   },
+   "records": 169
+  },
+  "iPhone_14_128GB_25_Test_Cases.zip": {
+   "by_outcome": {
+    "NUMERIC_QUOTE": 25
+   },
+   "records": 25
+  },
+  "iPhone_14_256GB_25_Test_Cases.zip": {
+   "by_outcome": {
+    "NUMERIC_QUOTE": 25
+   },
+   "records": 25
+  },
+  "iPhone_14_512GB_25_Test_Cases.zip": {
+   "by_outcome": {
+    "NUMERIC_QUOTE": 25
+   },
+   "records": 25
+  },
+  "iPhone_14_Pro_128GB_25_Test_Cases.zip": {
+   "by_outcome": {
+    "NUMERIC_QUOTE": 25
+   },
+   "records": 25
+  },
+  "iPhone_14_Pro_1TB_25_Test_Cases.zip": {
+   "by_outcome": {
+    "NUMERIC_QUOTE": 25
+   },
+   "records": 25
+  },
+  "iPhone_14_Pro_256GB_25_Test_Cases.zip": {
+   "by_outcome": {
+    "NUMERIC_QUOTE": 25
+   },
+   "records": 25
+  },
+  "iPhone_14_Pro_512GB_25_Test_Cases.zip": {
+   "by_outcome": {
+    "NUMERIC_QUOTE": 25
+   },
+   "records": 25
+  },
+  "iPhone_15_512GB_17_Test_Cases.zip": {
+   "by_outcome": {
+    "NUMERIC_QUOTE": 17
+   },
+   "records": 17
+  },
+  "iPhone_15_Plus_512GB_24_Test_Cases (1).zip": {
+   "by_outcome": {
+    "NUMERIC_QUOTE": 24
+   },
+   "records": 24
+  },
+  "iPhone_15_Plus_512GB_24_Test_Cases.zip": {
+   "by_outcome": {
+    "NUMERIC_QUOTE": 24
+   },
+   "records": 24
+  },
+  "iPhone_15_Pro_512GB_14_Test_Cases.zip": {
+   "by_outcome": {
+    "NUMERIC_QUOTE": 14
+   },
+   "records": 14
+  },
+  "iPhone_15_Pro_512GB_17_Test_Cases.zip": {
+   "by_outcome": {
+    "NOT_APPLICABLE": 1,
+    "NUMERIC_QUOTE": 16
+   },
+   "records": 17
+  },
+  "iPhone_15_Pro_Max_512GB_24_Test_Cases (1).zip": {
+   "by_outcome": {
+    "NUMERIC_QUOTE": 24
+   },
+   "records": 24
+  },
+  "iPhone_15_Pro_Max_512GB_24_Test_Cases.zip": {
+   "by_outcome": {
+    "NUMERIC_QUOTE": 24
+   },
+   "records": 24
+  },
+  "iPhone_16_512GB_17_Test_Cases.zip": {
+   "by_outcome": {
+    "PENDING": 17
+   },
+   "records": 17
+  },
+  "iPhone_16_512GB_24_Test_Cases (1).zip": {
+   "by_outcome": {
+    "NUMERIC_QUOTE": 24
+   },
+   "records": 24
+  },
+  "iPhone_16_512GB_24_Test_Cases.zip": {
+   "by_outcome": {
+    "NUMERIC_QUOTE": 24
+   },
+   "records": 24
+  },
+  "iPhone_16_Plus_512GB_24_Test_Cases.zip": {
+   "by_outcome": {
+    "NUMERIC_QUOTE": 24
+   },
+   "records": 24
+  },
+  "iPhone_16_Pro_Max_512GB_24_Test_Cases.zip": {
+   "by_outcome": {
+    "NUMERIC_QUOTE": 24
+   },
+   "records": 24
+  },
+  "iPhone_16e_512GB_24_Test_Cases.zip": {
+   "by_outcome": {
+    "NUMERIC_QUOTE": 24
+   },
+   "records": 24
+  },
+  "iPhone_17_512GB_14_Test_Cases.zip": {
+   "by_outcome": {
+    "NUMERIC_QUOTE": 14
+   },
+   "records": 14
+  },
+  "iPhone_17_512GB_17_Test_Cases.zip": {
+   "by_outcome": {
+    "NOT_APPLICABLE": 1,
+    "NUMERIC_QUOTE": 16
+   },
+   "records": 17
+  },
+  "iPhone_17_Pro_90_Test_Cases.zip": {
+   "by_outcome": {
+    "NOT_APPLICABLE": 6,
+    "NO_OFFER": 3,
+    "NUMERIC_QUOTE": 87
+   },
+   "records": 96
+  },
+  "iPhone_17_Pro_Max_120_Test_Cases.zip": {
+   "by_outcome": {
+    "NOT_APPLICABLE": 8,
+    "NO_OFFER": 2,
+    "NUMERIC_QUOTE": 118
+   },
+   "records": 128
+  },
+  "iPhone_17e_58_Test_Cases.zip": {
+   "by_outcome": {
+    "NOT_APPLICABLE": 4,
+    "NO_OFFER": 3,
+    "NUMERIC_QUOTE": 55
+   },
+   "records": 62
+  },
+  "iPhone_18_Pro_124_Test_Cases.zip": {
+   "by_outcome": {
+    "NUMERIC_QUOTE": 124
+   },
+   "records": 124
+  },
+  "iPhone_18_Pro_1TB_25_Test_Cases.zip": {
+   "by_outcome": {
+    "NUMERIC_QUOTE": 25
+   },
+   "records": 25
+  },
+  "iPhone_18_Pro_256GB_25_Test_Cases.zip": {
+   "by_outcome": {
+    "NUMERIC_QUOTE": 25
+   },
+   "records": 25
+  },
+  "iPhone_18_Pro_2TB_25_Test_Cases.zip": {
+   "by_outcome": {
+    "NUMERIC_QUOTE": 25
+   },
+   "records": 25
+  },
+  "iPhone_18_Pro_512GB_25_Test_Cases.zip": {
+   "by_outcome": {
+    "NUMERIC_QUOTE": 25
+   },
+   "records": 25
+  },
+  "iPhone_18_Pro_Max_124_Test_Cases_45_Earlier_Records.zip": {
+   "by_outcome": {
+    "NUMERIC_QUOTE": 169
+   },
+   "records": 169
+  },
+  "iPhone_18_Pro_Max_1TB_25_Test_Cases.zip": {
+   "by_outcome": {
+    "NUMERIC_QUOTE": 25
+   },
+   "records": 25
+  },
+  "iPhone_18_Pro_Max_256GB_25_Test_Cases.zip": {
+   "by_outcome": {
+    "NUMERIC_QUOTE": 25
+   },
+   "records": 25
+  },
+  "iPhone_18_Pro_Max_2TB_25_Test_Cases.zip": {
+   "by_outcome": {
+    "NUMERIC_QUOTE": 25
+   },
+   "records": 25
+  },
+  "iPhone_18_Pro_Max_2TB_45_Single_Defect_and_Control_Test_Cases.zip": {
+   "by_outcome": {},
+   "records": 0
+  },
+  "iPhone_18_Pro_Max_2TB_764_Mixed_Test_Cases_160_Tested_604_Pending.zip": {
+   "by_outcome": {},
+   "records": 0
+  },
+  "iPhone_18_Pro_Max_512GB_25_Test_Cases.zip": {
+   "by_outcome": {
+    "NUMERIC_QUOTE": 25
+   },
+   "records": 25
+  },
+  "iPhone_Air_512GB_24_Test_Cases (1).zip": {
+   "by_outcome": {
+    "NUMERIC_QUOTE": 24
+   },
+   "records": 24
+  },
+  "iPhone_Air_512GB_24_Test_Cases.zip": {
+   "by_outcome": {
+    "NUMERIC_QUOTE": 24
+   },
+   "records": 24
+  },
+  "iPhone_Air_90_Test_Cases.zip": {
+   "by_outcome": {
+    "NOT_APPLICABLE": 6,
+    "NO_OFFER": 3,
+    "NUMERIC_QUOTE": 87
+   },
+   "records": 96
+  },
+  "iPhone_X_256GB_24_Test_Cases (1).zip": {
+   "by_outcome": {
+    "NUMERIC_QUOTE": 24
+   },
+   "records": 24
+  },
+  "iPhone_X_256GB_24_Test_Cases.zip": {
+   "by_outcome": {
+    "NUMERIC_QUOTE": 24
+   },
+   "records": 24
+  }
+ }
+}

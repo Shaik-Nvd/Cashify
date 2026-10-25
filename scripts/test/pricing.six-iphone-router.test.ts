@@ -110,7 +110,7 @@ async function main() {
         assert.equal(after.internal.cashifyConditionEquivalent, row.sellingPrice);
         assert(after.body.data.pricingVersion.endsWith(`+bounded-net+${fingerprint}`));
         for (const couponApplied of [false, true]) {
-          const payout = customerPayout(after.body.data.fhoneifyPrice, couponApplied);
+          const payout = customerPayout(after.body.data.fhoneifyPrice, couponApplied, after.body.data.couponHeadroom);
           assert(payout.payout > row.sellingPrice && payout.payout - row.sellingPrice <= 2000, row.id);
           const lead = await post('leads', { ...request(row), diagnostics: undefined, answers: row.diagnostics,
             phone: '0000000000', quotedPrice: after.body.data.fhoneifyPrice, quoteToken: after.body.data.quoteToken, couponApplied });
@@ -122,7 +122,7 @@ async function main() {
       }
       table.push({ id: row.id, selling: row.sellingPrice, beforeGross: before.body.data.fhoneifyPrice, beforeExact: !!before.internal?.exactFinalQuote,
         afterGross: after.body.data.fhoneifyPrice, standard: customerPayout(after.body.data.fhoneifyPrice, false).payout,
-        coupon: customerPayout(after.body.data.fhoneifyPrice, true).payout, exact: !!exact, evidenceIds: exact?.evidenceIds ?? [] });
+        coupon: customerPayout(after.body.data.fhoneifyPrice, true, after.body.data.couponHeadroom).payout, exact: !!exact, evidenceIds: exact?.evidenceIds ?? [] });
     }
     console.log(JSON.stringify({ capturedProfiles: unique.length, configuredRoutes: routes.length, referenceProposal: proposal.map((r: any) => ({ deviceKey: r.deviceKey, currentPrice: r.currentPrice, lastVerifiedAt: r.lastVerifiedAt })), table, exactFailures: failures }, null, 2));
     assert.deepEqual(failures, [], 'all 12 unique capture profiles select exact evidence through configured real router');

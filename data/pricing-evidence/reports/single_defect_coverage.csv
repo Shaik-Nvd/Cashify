@@ -1,0 +1,58 @@
+﻿model,storage,C01,C02,C03,C04,D01,D02,D03,D04,D05,D06,D07,F01,F02,F03,F04,F05,F06,F07,F08,F09,F10,F11,F12,F13,F14,F15,F16,F17,F18,P01,P02,P03,P04,Q01,Q02,Q03,S01,S02,S03,S04
+iPhone Air,256GB,,c,,c,c,,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,,c,c,,c,c,c,,,c
+iPhone Air,512GB,,c,,c,c,,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,,c,c,,c,c,c,,c,c
+iPhone Air,1TB,,c,,c,c,,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,,c,c,,c,c,c,,,c
+iPhone X,256GB,,,,,,,,,,,,c,c,,,c,c,,c,,c,,,c,c,,,c,c,,,,,,,c,,,c,c
+iPhone 14,128GB,,,,,,,,,,,,S,S,,,c,S,,S,,S,,,S,c,,,S,S,,,,,,,S,,,S,c
+iPhone 14,256GB,,,,,,,,,,,,S,S,,,c,S,,S,,S,,,S,c,,,S,S,,,,,,,S,,,S,c
+iPhone 14,512GB,,,,,,,,,,,,S,S,,,c,S,,S,,S,,,S,c,,,S,S,,,,,,,S,,,S,c
+iPhone 14 Pro,128GB,,,,,,,,,,,,S,S,,,c,c,,S,,S,,,S,c,,,S,S,,,,,,,S,,,S,c
+iPhone 14 Pro,256GB,,,,,,,,,,,,S,S,,,c,c,,S,,S,,,S,c,,,S,S,,,,,,,S,,,S,c
+iPhone 14 Pro,512GB,,,,,,,,,,,,S,S,,,c,c,,S,,S,,,S,c,,,S,S,,,,,,,S,,,S,c
+iPhone 14 Pro,1TB,,,,,,,,,,,,S,S,,,c,c,,S,,S,,,S,c,,,S,S,,,,,,,S,,,S,c
+iPhone 15,128GB,,c,,c,c,,c,c,c,c,c,c,c,c,,c,c,c,c,c,,c,c,c,c,c,,c,c,c,,c,c,,c,c,c,,,c
+iPhone 15,256GB,,c,,c,c,,c,c,c,c,c,c,c,c,,c,c,c,c,c,,c,c,c,c,c,,c,c,c,,c,c,,c,c,c,,,c
+iPhone 15,512GB,,c,,c,c,,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,,c,c,,c,c,c,,c,c
+iPhone 15 Plus,128GB,,c,,c,c,,c,c,c,c,c,c,c,c,,c,c,c,c,c,,c,c,c,c,c,,c,c,c,,c,c,,c,c,c,,,c
+iPhone 15 Plus,256GB,,c,,c,c,,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,,c,c,,c,c,c,,,c
+iPhone 15 Plus,512GB,,c,,c,c,,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,,c,c,,c,c,c,,c,c
+iPhone 15 Pro,128GB,,c,,c,c,,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,,c,c,,c,c,c,,,c
+iPhone 15 Pro,256GB,,c,,c,c,,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,,c,c,,c,c,c,,,c
+iPhone 15 Pro,512GB,,c,,c,c,,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,,c,c,,c,c,c,,c,c
+iPhone 15 Pro,1TB,,c,,c,c,,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,,c,c,,c,c,c,,,c
+iPhone 15 Pro Max,512GB,,,,,,,,,,,,,,,,,c,,c,,,,,,,,,c,c,,,,,,,c,,,c,c
+iPhone 16,128GB,,c,,c,c,,c,c,c,c,c,c,c,c,,c,c,c,c,c,,c,c,c,c,c,,c,c,c,,c,c,,c,c,c,,,c
+iPhone 16,256GB,,c,,c,c,,c,c,c,c,c,c,c,c,,c,c,c,c,c,,c,c,c,c,c,,c,c,c,,c,c,,c,c,c,,,c
+iPhone 16,512GB,,c,,c,c,,c,c,c,c,c,c,c,c,,c,c,c,c,c,,c,c,c,c,c,,c,c,c,,c,c,,c,c,c,,c,c
+iPhone 16 Plus,128GB,,c,,c,c,,c,c,c,c,c,c,c,c,,c,c,c,c,c,,c,c,c,c,c,,c,c,c,,c,c,,c,c,c,,,c
+iPhone 16 Plus,256GB,,c,,c,c,,c,c,c,c,c,c,c,c,,c,c,c,c,c,,c,c,c,c,c,,c,c,c,,c,c,,c,c,c,,,c
+iPhone 16 Plus,512GB,,c,,c,c,,c,c,c,c,c,c,c,c,,c,c,c,c,c,,c,c,c,c,c,,c,c,c,,c,c,,c,c,c,,c,c
+iPhone 16 Pro,128GB,,c,,c,c,,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,,c,c,,c,c,c,,,c
+iPhone 16 Pro,256GB,,c,,c,c,,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,,c,c,,c,c,c,,,c
+iPhone 16 Pro,512GB,,c,,c,c,,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,,c,c,,c,c,c,,,c
+iPhone 16 Pro,1TB,,c,,c,c,,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,,c,c,,c,c,c,,,c
+iPhone 16 Pro Max,256GB,,c,,c,c,,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,,c,c,,c,c,c,,,c
+iPhone 16 Pro Max,512GB,,c,,c,c,,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,,c,c,,c,c,c,,c,c
+iPhone 16 Pro Max,1TB,,c,,c,c,,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,,c,c,,c,c,c,,,c
+iPhone 16e,128GB,,c,,c,c,,c,c,c,c,c,c,c,c,,c,c,c,c,c,,c,c,c,c,c,,c,c,c,,c,c,,c,c,c,,,c
+iPhone 16e,256GB,,c,,c,c,,c,c,c,c,c,c,c,c,,c,c,c,c,c,,c,c,c,c,c,,c,c,c,,c,c,,c,c,c,,,c
+iPhone 16e,512GB,,c,,c,c,,c,c,c,c,c,c,c,c,,c,c,c,c,c,,c,c,c,c,c,,c,c,c,,c,c,,c,c,c,,c,c
+iPhone 17,256GB,,c,,c,c,,c,c,c,c,c,S,S,S,c,S,S,S,S,S,S,S,S,S,S,c,c,S,S,c,,c,c,,c,c,c,,,c
+iPhone 17,512GB,,c,,c,c,,c,c,c,c,c,S,S,S,c,S,S,S,S,S,S,S,S,S,S,c,c,S,S,c,,c,c,,c,c,c,,c,c
+iPhone 17 Pro,256GB,,c,,c,c,,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,,c,c,,c,c,c,,,c
+iPhone 17 Pro,512GB,,c,,c,c,,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,,c,c,,c,c,c,,,c
+iPhone 17 Pro,1TB,,c,,c,c,,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,,c,c,,c,c,c,,,c
+iPhone 17 Pro Max,256GB,,c,,c,c,,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,,c,c,,c,c,c,,,c
+iPhone 17 Pro Max,512GB,,c,,c,c,,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,,c,c,,c,c,c,,,c
+iPhone 17 Pro Max,1TB,,c,,c,c,,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,,c,c,c,c,c,c,,,c
+iPhone 17 Pro Max,2TB,,c,,c,c,,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,,c,c,c,c,c,c,,,c
+iPhone 17e,256GB,,c,,c,c,,c,c,c,c,c,c,c,c,,c,c,c,c,c,,c,c,c,c,c,,c,c,c,,c,c,,c,c,c,,,c
+iPhone 17e,512GB,,c,,c,c,,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,,c,c,,c,c,c,,,c
+iPhone 18 Pro,256GB,,c,,c,c,,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,,c,c,c,c,c,c,,c,c
+iPhone 18 Pro,512GB,,c,,c,c,,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,,c,c,c,c,c,c,,c,c
+iPhone 18 Pro,1TB,,c,,c,c,,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,,c,c,c,c,c,c,,c,c
+iPhone 18 Pro,2TB,,c,,c,c,,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,,c,c,c,c,c,c,,c,c
+iPhone 18 Pro Max,256GB,,c,,c,c,,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,,c,c,c,c,c,c,,c,c
+iPhone 18 Pro Max,512GB,,c,,c,c,,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,,c,c,c,c,c,c,,c,c
+iPhone 18 Pro Max,1TB,,c,,c,c,,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,,c,c,c,c,c,c,,c,c
+iPhone 18 Pro Max,2TB,S,S,S,S,S,S,S,S,S,S,S,S,S,S,S,S,S,S,S,S,S,S,S,S,S,S,S,S,S,S,S,S,S,S,S,S,S,S,S,S

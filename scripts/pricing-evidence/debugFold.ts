@@ -1,0 +1,22 @@
+import crypto from 'node:crypto';
+import { evaluateAppleEvidence, describeBreakdown } from '../../lib/pricing/appleCashifyModel/model';
+import { hasUnknownInput, loadMeasurements, modelSemantics, toDiagnostics } from './evidenceLib';
+import { fitCalibration, setFitOptions } from './fitCalibration';
+
+setFitOptions({ multistart: 3, coordSweeps: 80 });
+const model = process.argv[2];
+const shape = process.argv[3];
+const all = loadMeasurements();
+const usable = all.filter(m => !hasUnknownInput(m));
+const hash = (s: string) => parseInt(crypto.createHash('sha1').update(s).digest('hex').slice(0, 8), 16);
+const key = (m: { model_key: string; deviations: string[] }) => `${m.model_key}#${m.deviations.join('|')}`;
+const fold = hash(`${model}#${shape}`) % 5;
+const train = usable.filter(m => hash(key(m)) % 5 !== fold);
+console.log('fold', fold, 'train', train.length);
+const { calibration } = fitCalibration(train, 'debug', undefined, modelSemantics(all));
+const p = calibration.models[model];
+console.log(JSON.stringify({ floor: p.floor, age3: p.age?.['3'], classes: Object.fromEntries(Object.entries(p.classes).map(([k, v]) => [k, `${v!.kind}:${v!.value.toFixed(4)}:${v!.support}`])) }, null, 0));
+const m = usable.find(x => x.model_key === model && x.deviations.join('|') === shape)!;
+const o = evaluateAppleEvidence(p, m.variant_get_upto, toDiagnostics(m, 'none'), m.storage_gb);
+console.log(describeBreakdown(o).join('\n'));
+console.log('observed', m.base);

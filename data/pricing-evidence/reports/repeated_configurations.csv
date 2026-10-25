@@ -1,0 +1,64 @@
+﻿config,measurements,date:selling
+iPhone 15 Plus|128|yes|yes|yes|yes|yes|yes|not_asked|not_asked|Below 3 months|,2,2026-10-24:45340;2026-10-24:45340
+iPhone 15 Plus|256|yes|yes|yes|yes|yes|yes|not_asked|not_asked|Below 3 months|,2,2026-10-24:46580;2026-10-24:46580
+iPhone 15 Plus|512|yes|yes|yes|no|yes|yes|not_asked|not_asked|not_shown|,2,2026-10-17:39830;2026-10-24:39830
+iPhone 15 Plus|512|yes|yes|yes|yes|yes|yes|not_asked|not_asked|Below 3 months|,2,2026-10-24:48580;2026-10-24:48580
+iPhone 15 Pro|1024|yes|yes|yes|yes|yes|yes|not_asked|Single eSIM|Below 3 months|,2,2026-10-24:70060;2026-10-24:70060
+iPhone 15 Pro|128|yes|yes|yes|yes|yes|yes|not_asked|Single eSIM|Below 3 months|,2,2026-10-24:62380;2026-10-24:62380
+iPhone 15 Pro|256|yes|yes|yes|yes|yes|yes|not_asked|Single eSIM|Below 3 months|,2,2026-10-24:65260;2026-10-24:65260
+"iPhone 15 Pro|512|yes|yes|yes|no|yes|no|not_asked|Single eSIM|not_shown|F08,F17",2,2026-10-16:35890;2026-10-16:35890
+"iPhone 15 Pro|512|yes|yes|yes|no|yes|yes|not_asked|Single eSIM|not_shown|F08,F17",2,2026-10-16:37190;2026-10-16:37190
+iPhone 15 Pro|512|yes|yes|yes|yes|yes|yes|not_asked|Single eSIM|Below 3 months|,2,2026-10-24:68140;2026-10-24:68140
+iPhone 15|128|yes|yes|yes|yes|yes|yes|not_asked|not_asked|Below 3 months|,2,2026-10-24:42200;2026-10-24:42200
+iPhone 15|256|yes|yes|yes|yes|yes|yes|not_asked|not_asked|Below 3 months|,2,2026-10-24:44200;2026-10-24:44200
+"iPhone 15|512|yes|yes|yes|no|yes|no|not_asked|not_asked|not_shown|F08,F17",2,None:22230;None:22230
+"iPhone 15|512|yes|yes|yes|no|yes|yes|not_asked|not_asked|not_shown|F08,F17",2,None:23530;None:23530
+iPhone 15|512|yes|yes|yes|yes|yes|yes|not_asked|not_asked|Below 3 months|,2,2026-10-24:46530;2026-10-24:46530
+iPhone 16 Plus|128|yes|yes|yes|yes|yes|yes|not_asked|not_asked|Below 3 months|,2,2026-10-24:55180;2026-10-24:55180
+iPhone 16 Plus|256|yes|yes|yes|yes|yes|yes|not_asked|not_asked|Below 3 months|,2,2026-10-24:55660;2026-10-24:55660
+iPhone 16 Plus|512|yes|yes|yes|no|yes|yes|not_asked|not_asked|not_shown|,2,2026-10-17:45470;2026-10-24:45880
+iPhone 16 Plus|512|yes|yes|yes|yes|yes|yes|not_asked|not_asked|Below 3 months|,2,2026-10-24:56620;2026-10-24:56620
+iPhone 16 Pro Max|1024|yes|yes|yes|yes|yes|yes|not_asked|Single eSIM|Below 3 months|,2,2026-10-24:90380;2026-10-24:90380
+iPhone 16 Pro Max|256|yes|yes|yes|yes|yes|yes|not_asked|Single eSIM|Below 3 months|,2,2026-10-24:86410;2026-10-24:86410
+iPhone 16 Pro Max|512|yes|yes|yes|no|yes|yes|not_asked|Single eSIM|not_shown|,2,2026-10-17:71380;2026-10-24:71380
+iPhone 16 Pro Max|512|yes|yes|yes|yes|yes|yes|not_asked|Single eSIM|Below 3 months|,2,2026-10-24:88250;2026-10-24:88250
+iPhone 16 Pro|1024|yes|yes|yes|yes|yes|yes|not_asked|Single eSIM|Below 3 months|,2,2026-10-24:79340;2026-10-24:79340
+iPhone 16 Pro|128|yes|yes|yes|yes|yes|yes|not_asked|Single eSIM|Below 3 months|,2,2026-10-24:73890;2026-10-24:73890
+iPhone 16 Pro|256|yes|yes|yes|yes|yes|yes|not_asked|Single eSIM|Below 3 months|,2,2026-10-24:76650;2026-10-24:76650
+iPhone 16 Pro|512|yes|yes|yes|yes|yes|yes|not_asked|Single eSIM|Below 3 months|,2,2026-10-24:78570;2026-10-24:78570
+iPhone 16e|128|yes|yes|yes|yes|yes|yes|not_asked|not_asked|Below 3 months|,2,2026-10-24:37810;2026-10-24:37810
+iPhone 16e|256|yes|yes|yes|yes|yes|yes|not_asked|not_asked|Below 3 months|,2,2026-10-24:39260;2026-10-24:39260
+iPhone 16e|512|yes|yes|yes|no|yes|yes|not_asked|not_asked|not_shown|,2,2026-10-17:32650;2026-10-24:32650
+iPhone 16e|512|yes|yes|yes|yes|yes|yes|not_asked|not_asked|Below 3 months|,2,2026-10-24:41200;2026-10-24:41200
+iPhone 16|128|yes|yes|yes|yes|yes|yes|not_asked|not_asked|Below 3 months|,2,2026-10-24:52780;2026-10-24:52780
+iPhone 16|256|yes|yes|yes|yes|yes|yes|not_asked|not_asked|Below 3 months|,2,2026-10-24:54700;2026-10-24:54700
+iPhone 16|512|yes|yes|yes|no|yes|yes|not_asked|not_asked|not_shown|,2,2026-10-17:44760;2026-10-24:45210
+iPhone 16|512|yes|yes|yes|yes|yes|yes|not_asked|not_asked|Below 3 months|,2,2026-10-24:55660;2026-10-24:55660
+iPhone 17 Pro Max|1024|yes|yes|yes|yes|yes|yes|not_asked|Single eSIM|Below 3 months|,2,2026-10-23:118180;2026-10-23:118180
+iPhone 17 Pro Max|2048|yes|yes|yes|yes|yes|yes|not_asked|Single eSIM|Below 3 months|,2,2026-10-23:122480;2026-10-23:122480
+iPhone 17 Pro Max|256|yes|yes|yes|yes|yes|yes|not_asked|Single eSIM|Below 3 months|,2,2026-10-23:109480;2026-10-23:109480
+iPhone 17 Pro Max|512|yes|yes|yes|yes|yes|yes|not_asked|Single eSIM|Below 3 months|,2,2026-10-23:116480;2026-10-23:116480
+iPhone 17 Pro|1024|yes|yes|yes|yes|yes|yes|not_asked|Single eSIM|Below 3 months|,2,2026-10-23:108480;2026-10-23:108480
+iPhone 17 Pro|256|yes|yes|yes|yes|yes|yes|not_asked|Single eSIM|Below 3 months|,2,2026-10-23:102480;2026-10-23:102480
+iPhone 17 Pro|512|yes|yes|yes|yes|yes|yes|not_asked|Single eSIM|Below 3 months|,2,2026-10-23:107480;2026-10-23:107480
+iPhone 17e|256|yes|yes|yes|yes|yes|yes|not_asked|not_asked|Below 3 months|,2,2026-10-23:46480;2026-10-23:46480
+iPhone 17e|512|yes|yes|yes|yes|yes|yes|not_asked|not_asked|Below 3 months|,2,2026-10-23:53380;2026-10-23:53380
+iPhone 17|256|yes|yes|yes|yes|yes|yes|not_asked|Single eSIM|Below 3 months|,2,2026-10-24:65480;2026-10-24:65480
+"iPhone 17|512|yes|yes|yes|no|yes|no|not_asked|Single eSIM|not_shown|F08,F17",2,2026-10-16:32010;2026-10-16:32010
+"iPhone 17|512|yes|yes|yes|no|yes|yes|not_asked|Single eSIM|not_shown|F08,F17",2,2026-10-16:33510;2026-10-16:33510
+iPhone 17|512|yes|yes|yes|yes|yes|yes|not_asked|Single eSIM|Below 3 months|,2,2026-10-24:67680;2026-10-24:67680
+iPhone 18 Pro Max|1024|yes|yes|yes|yes|yes|yes|yes|not_asked|Below 3 months|,3,2026-10-17:144980;2026-10-23:144980;2026-10-23:144980
+iPhone 18 Pro Max|2048|yes|yes|yes|yes|yes|yes|yes|not_asked|Below 3 months|,8,2026-10-17:164980;2026-10-22:164980;2026-10-22:164980;2026-10-22:164980;2026-10-22:164980;2026-10-22:164980;2026-10-23:164980;2026-10-23:164980
+"iPhone 18 Pro Max|2048|yes|yes|yes|yes|yes|yes|yes|not_asked|Below 3 months|D03,S04",2,2026-10-22:158980;2026-10-23:158980
+"iPhone 18 Pro Max|2048|yes|yes|yes|yes|yes|yes|yes|not_asked|Below 3 months|F01,F02",2,2026-10-22:154980;2026-10-23:154980
+"iPhone 18 Pro Max|2048|yes|yes|yes|yes|yes|yes|yes|not_asked|not_shown|P01,S01",2,2026-10-22:85040;2026-10-23:85040
+iPhone 18 Pro Max|256|yes|yes|yes|yes|yes|yes|yes|not_asked|Below 3 months|,3,2026-10-17:129980;2026-10-23:129980;2026-10-23:129980
+iPhone 18 Pro Max|512|yes|yes|yes|yes|yes|yes|yes|not_asked|Below 3 months|,3,2026-10-17:136980;2026-10-23:136980;2026-10-23:136980
+iPhone 18 Pro|1024|yes|yes|yes|yes|yes|yes|yes|not_asked|Below 3 months|,3,2026-10-17:139980;2026-10-23:139980;2026-10-23:139980
+iPhone 18 Pro|2048|yes|yes|yes|yes|yes|yes|yes|not_asked|Below 3 months|,3,2026-10-17:159980;2026-10-23:159980;2026-10-23:159980
+iPhone 18 Pro|256|yes|yes|yes|yes|yes|yes|yes|not_asked|Below 3 months|,3,2026-10-17:119980;2026-10-23:120980;2026-10-23:120980
+iPhone 18 Pro|512|yes|yes|yes|yes|yes|yes|yes|not_asked|Below 3 months|,3,2026-10-17:126980;2026-10-23:126980;2026-10-23:126980
+iPhone Air|1024|yes|yes|yes|yes|yes|yes|not_asked|Single eSIM|Below 3 months|,2,2026-10-23:86980;2026-10-23:86980
+iPhone Air|256|yes|yes|yes|yes|yes|yes|not_asked|Single eSIM|Below 3 months|,2,2026-10-23:69980;2026-10-23:69980
+iPhone Air|512|yes|yes|yes|no|yes|yes|not_asked|Single eSIM|not_shown|,2,2026-10-17:56930;2026-10-23:56930
+iPhone Air|512|yes|yes|yes|yes|yes|yes|not_asked|Single eSIM|Below 3 months|,2,2026-10-23:75180;2026-10-23:75180

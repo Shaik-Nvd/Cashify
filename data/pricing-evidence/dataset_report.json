@@ -1,0 +1,1441 @@
+{
+ "audit_groups_numeric_measurements": {
+  "Air": 111,
+  "iPhone 14-18": 2096,
+  "iPhone X": 27
+ },
+ "audit_groups_numeric_occurrences": {
+  "Air": 135,
+  "iPhone 14-18": 2743,
+  "iPhone X": 48
+ },
+ "baseline_by_variant_date": {
+  "iPhone 14 128GB 2026-10-17": [
+   27760
+  ],
+  "iPhone 14 256GB 2026-10-17": [
+   28410
+  ],
+  "iPhone 14 512GB 2026-10-17": [
+   28820
+  ],
+  "iPhone 14 Pro 128GB 2026-10-22": [
+   42670
+  ],
+  "iPhone 14 Pro 1TB 2026-10-22": [
+   46890
+  ],
+  "iPhone 14 Pro 256GB 2026-10-22": [
+   44050
+  ],
+  "iPhone 14 Pro 512GB 2026-10-22": [
+   46080
+  ],
+  "iPhone 15 128GB 2026-10-24": [
+   42200
+  ],
+  "iPhone 15 256GB 2026-10-24": [
+   44200
+  ],
+  "iPhone 15 512GB 2026-10-24": [
+   46530
+  ],
+  "iPhone 15 Plus 128GB 2026-10-24": [
+   45340
+  ],
+  "iPhone 15 Plus 256GB 2026-10-24": [
+   46580
+  ],
+  "iPhone 15 Plus 512GB 2026-10-24": [
+   48580
+  ],
+  "iPhone 15 Pro 128GB 2026-10-24": [
+   62380
+  ],
+  "iPhone 15 Pro 1TB 2026-10-24": [
+   70060
+  ],
+  "iPhone 15 Pro 256GB 2026-10-24": [
+   65260
+  ],
+  "iPhone 15 Pro 512GB 2026-10-24": [
+   68140
+  ],
+  "iPhone 16 128GB 2026-10-24": [
+   52780
+  ],
+  "iPhone 16 256GB 2026-10-24": [
+   54700
+  ],
+  "iPhone 16 512GB 2026-10-24": [
+   55660
+  ],
+  "iPhone 16 Plus 128GB 2026-10-24": [
+   55180
+  ],
+  "iPhone 16 Plus 256GB 2026-10-24": [
+   55660
+  ],
+  "iPhone 16 Plus 512GB 2026-10-24": [
+   56620
+  ],
+  "iPhone 16 Pro 128GB 2026-10-24": [
+   73890
+  ],
+  "iPhone 16 Pro 1TB 2026-10-24": [
+   79340
+  ],
+  "iPhone 16 Pro 256GB 2026-10-24": [
+   76650
+  ],
+  "iPhone 16 Pro 512GB 2026-10-24": [
+   78570
+  ],
+  "iPhone 16 Pro Max 1TB 2026-10-24": [
+   90380
+  ],
+  "iPhone 16 Pro Max 256GB 2026-10-24": [
+   86410
+  ],
+  "iPhone 16 Pro Max 512GB 2026-10-24": [
+   88250
+  ],
+  "iPhone 16e 128GB 2026-10-24": [
+   37810
+  ],
+  "iPhone 16e 256GB 2026-10-24": [
+   39260
+  ],
+  "iPhone 16e 512GB 2026-10-24": [
+   41200
+  ],
+  "iPhone 17 256GB 2026-10-24": [
+   65480
+  ],
+  "iPhone 17 512GB 2026-10-24": [
+   67680
+  ],
+  "iPhone 17 Pro 1TB 2026-10-23": [
+   108480
+  ],
+  "iPhone 17 Pro 256GB 2026-10-23": [
+   102480
+  ],
+  "iPhone 17 Pro 512GB 2026-10-23": [
+   107480
+  ],
+  "iPhone 17 Pro Max 1TB 2026-10-23": [
+   118180
+  ],
+  "iPhone 17 Pro Max 256GB 2026-10-23": [
+   109480
+  ],
+  "iPhone 17 Pro Max 2TB 2026-10-23": [
+   122480
+  ],
+  "iPhone 17 Pro Max 512GB 2026-10-23": [
+   116480
+  ],
+  "iPhone 17e 256GB 2026-10-23": [
+   46480
+  ],
+  "iPhone 17e 512GB 2026-10-23": [
+   53380
+  ],
+  "iPhone 18 Pro 1TB 2026-10-17": [
+   139980
+  ],
+  "iPhone 18 Pro 1TB 2026-10-23": [
+   139980
+  ],
+  "iPhone 18 Pro 256GB 2026-10-17": [
+   119980
+  ],
+  "iPhone 18 Pro 256GB 2026-10-23": [
+   120980
+  ],
+  "iPhone 18 Pro 2TB 2026-10-17": [
+   159980
+  ],
+  "iPhone 18 Pro 2TB 2026-10-23": [
+   159980
+  ],
+  "iPhone 18 Pro 512GB 2026-10-17": [
+   126980
+  ],
+  "iPhone 18 Pro 512GB 2026-10-23": [
+   126980
+  ],
+  "iPhone 18 Pro Max 1TB 2026-10-17": [
+   144980
+  ],
+  "iPhone 18 Pro Max 1TB 2026-10-23": [
+   144980
+  ],
+  "iPhone 18 Pro Max 256GB 2026-10-17": [
+   129980
+  ],
+  "iPhone 18 Pro Max 256GB 2026-10-23": [
+   129980
+  ],
+  "iPhone 18 Pro Max 2TB 2026-10-17": [
+   164980
+  ],
+  "iPhone 18 Pro Max 2TB 2026-10-22": [
+   164980
+  ],
+  "iPhone 18 Pro Max 2TB 2026-10-23": [
+   164980
+  ],
+  "iPhone 18 Pro Max 512GB 2026-10-17": [
+   136980
+  ],
+  "iPhone 18 Pro Max 512GB 2026-10-23": [
+   136980
+  ],
+  "iPhone Air 1TB 2026-10-23": [
+   86980
+  ],
+  "iPhone Air 256GB 2026-10-23": [
+   69980
+  ],
+  "iPhone Air 512GB 2026-10-23": [
+   75180
+  ],
+  "iPhone X 256GB 2026-10-17": [
+   10000
+  ]
+ },
+ "configurations": {
+  "configs_with_multiple_measurements": 63,
+  "unique_numeric": 2158,
+  "unique_with_no_offer_only": 51
+ },
+ "conflicts": {
+  "configs_with_differing_outcome_or_price": 3,
+  "cross_date": 2,
+  "same_day": 1
+ },
+ "coverage_unique_configs": {
+  "iPhone 14 128GB": {
+   "accessory": 1,
+   "baseline": 1,
+   "combo_3plus": 1,
+   "combo_with_answers": 6,
+   "pair": 6,
+   "single_defect": 10
+  },
+  "iPhone 14 256GB": {
+   "accessory": 1,
+   "baseline": 1,
+   "combo_3plus": 1,
+   "combo_with_answers": 6,
+   "pair": 6,
+   "single_defect": 10
+  },
+  "iPhone 14 512GB": {
+   "accessory": 1,
+   "baseline": 1,
+   "combo_3plus": 1,
+   "combo_with_answers": 6,
+   "pair": 6,
+   "single_defect": 10
+  },
+  "iPhone 14 Pro 128GB": {
+   "accessory": 1,
+   "answers_only": 1,
+   "baseline": 1,
+   "combo_3plus": 1,
+   "combo_with_answers": 6,
+   "pair": 6,
+   "single_defect": 9
+  },
+  "iPhone 14 Pro 1TB": {
+   "accessory": 1,
+   "answers_only": 1,
+   "baseline": 1,
+   "combo_3plus": 1,
+   "combo_with_answers": 6,
+   "pair": 6,
+   "single_defect": 9
+  },
+  "iPhone 14 Pro 256GB": {
+   "accessory": 1,
+   "answers_only": 1,
+   "baseline": 1,
+   "combo_3plus": 1,
+   "combo_with_answers": 6,
+   "pair": 6,
+   "single_defect": 9
+  },
+  "iPhone 14 Pro 512GB": {
+   "accessory": 1,
+   "answers_only": 1,
+   "baseline": 1,
+   "combo_3plus": 1,
+   "combo_with_answers": 6,
+   "pair": 6,
+   "single_defect": 9
+  },
+  "iPhone 15 128GB": {
+   "accessory": 1,
+   "answers_only": 1,
+   "baseline": 1,
+   "combo_3plus": 9,
+   "combo_with_answers": 1,
+   "pair": 9,
+   "warranty_age": 4
+  },
+  "iPhone 15 256GB": {
+   "accessory": 1,
+   "answers_only": 1,
+   "baseline": 1,
+   "combo_3plus": 9,
+   "combo_with_answers": 1,
+   "pair": 9,
+   "warranty_age": 4
+  },
+  "iPhone 15 512GB": {
+   "accessory": 1,
+   "answers_only": 1,
+   "baseline": 1,
+   "combo_3plus": 10,
+   "combo_with_answers": 14,
+   "defect_plus_answers": 2,
+   "pair": 9,
+   "warranty_age": 4
+  },
+  "iPhone 15 Plus 128GB": {
+   "accessory": 1,
+   "answers_only": 1,
+   "baseline": 1,
+   "combo_3plus": 9,
+   "combo_with_answers": 1,
+   "pair": 9,
+   "warranty_age": 4
+  },
+  "iPhone 15 Plus 256GB": {
+   "accessory": 1,
+   "answers_only": 1,
+   "baseline": 1,
+   "combo_3plus": 10,
+   "combo_with_answers": 1,
+   "pair": 9,
+   "warranty_age": 4
+  },
+  "iPhone 15 Plus 512GB": {
+   "accessory": 1,
+   "answers_only": 2,
+   "baseline": 1,
+   "combo_3plus": 10,
+   "combo_with_answers": 18,
+   "defect_plus_answers": 5,
+   "pair": 9,
+   "warranty_age": 4
+  },
+  "iPhone 15 Pro 128GB": {
+   "accessory": 1,
+   "answers_only": 2,
+   "baseline": 1,
+   "combo_3plus": 10,
+   "combo_with_answers": 1,
+   "pair": 9,
+   "warranty_age": 4
+  },
+  "iPhone 15 Pro 1TB": {
+   "accessory": 1,
+   "answers_only": 2,
+   "baseline": 1,
+   "combo_3plus": 10,
+   "combo_with_answers": 1,
+   "pair": 9,
+   "warranty_age": 4
+  },
+  "iPhone 15 Pro 256GB": {
+   "accessory": 1,
+   "answers_only": 2,
+   "baseline": 1,
+   "combo_3plus": 10,
+   "combo_with_answers": 1,
+   "pair": 9,
+   "warranty_age": 4
+  },
+  "iPhone 15 Pro 512GB": {
+   "accessory": 1,
+   "answers_only": 2,
+   "baseline": 1,
+   "combo_3plus": 10,
+   "combo_with_answers": 13,
+   "defect_plus_answers": 2,
+   "pair": 9,
+   "warranty_age": 4
+  },
+  "iPhone 15 Pro Max 512GB": {
+   "answers_only": 1,
+   "combo_with_answers": 17,
+   "defect_plus_answers": 5,
+   "warranty_age": 1
+  },
+  "iPhone 16 128GB": {
+   "accessory": 1,
+   "answers_only": 1,
+   "baseline": 1,
+   "combo_3plus": 9,
+   "combo_with_answers": 1,
+   "pair": 9,
+   "warranty_age": 4
+  },
+  "iPhone 16 256GB": {
+   "accessory": 1,
+   "answers_only": 1,
+   "baseline": 1,
+   "combo_3plus": 9,
+   "combo_with_answers": 1,
+   "pair": 9,
+   "warranty_age": 4
+  },
+  "iPhone 16 512GB": {
+   "accessory": 1,
+   "answers_only": 2,
+   "baseline": 1,
+   "combo_3plus": 9,
+   "combo_with_answers": 18,
+   "defect_plus_answers": 5,
+   "pair": 9,
+   "warranty_age": 4
+  },
+  "iPhone 16 Plus 128GB": {
+   "accessory": 1,
+   "answers_only": 1,
+   "baseline": 1,
+   "combo_3plus": 9,
+   "combo_with_answers": 1,
+   "pair": 9,
+   "warranty_age": 4
+  },
+  "iPhone 16 Plus 256GB": {
+   "accessory": 1,
+   "answers_only": 1,
+   "baseline": 1,
+   "combo_3plus": 9,
+   "combo_with_answers": 1,
+   "pair": 9,
+   "warranty_age": 4
+  },
+  "iPhone 16 Plus 512GB": {
+   "accessory": 1,
+   "answers_only": 2,
+   "baseline": 1,
+   "combo_3plus": 9,
+   "combo_with_answers": 18,
+   "defect_plus_answers": 5,
+   "pair": 9,
+   "warranty_age": 4
+  },
+  "iPhone 16 Pro 128GB": {
+   "accessory": 1,
+   "answers_only": 2,
+   "baseline": 1,
+   "combo_3plus": 10,
+   "combo_with_answers": 1,
+   "pair": 9,
+   "warranty_age": 4
+  },
+  "iPhone 16 Pro 1TB": {
+   "accessory": 1,
+   "answers_only": 2,
+   "baseline": 1,
+   "combo_3plus": 10,
+   "combo_with_answers": 1,
+   "pair": 9,
+   "warranty_age": 4
+  },
+  "iPhone 16 Pro 256GB": {
+   "accessory": 1,
+   "answers_only": 2,
+   "baseline": 1,
+   "combo_3plus": 10,
+   "combo_with_answers": 1,
+   "pair": 9,
+   "warranty_age": 4
+  },
+  "iPhone 16 Pro 512GB": {
+   "accessory": 1,
+   "answers_only": 2,
+   "baseline": 1,
+   "combo_3plus": 10,
+   "combo_with_answers": 1,
+   "pair": 9,
+   "warranty_age": 4
+  },
+  "iPhone 16 Pro Max 1TB": {
+   "accessory": 1,
+   "answers_only": 2,
+   "baseline": 1,
+   "combo_3plus": 10,
+   "combo_with_answers": 1,
+   "pair": 9,
+   "warranty_age": 4
+  },
+  "iPhone 16 Pro Max 256GB": {
+   "accessory": 1,
+   "answers_only": 2,
+   "baseline": 1,
+   "combo_3plus": 10,
+   "combo_with_answers": 1,
+   "pair": 9,
+   "warranty_age": 4
+  },
+  "iPhone 16 Pro Max 512GB": {
+   "accessory": 1,
+   "answers_only": 3,
+   "baseline": 1,
+   "combo_3plus": 10,
+   "combo_with_answers": 18,
+   "defect_plus_answers": 5,
+   "pair": 9,
+   "warranty_age": 4
+  },
+  "iPhone 16e 128GB": {
+   "accessory": 1,
+   "answers_only": 1,
+   "baseline": 1,
+   "combo_3plus": 9,
+   "combo_with_answers": 1,
+   "pair": 9,
+   "warranty_age": 4
+  },
+  "iPhone 16e 256GB": {
+   "accessory": 1,
+   "answers_only": 1,
+   "baseline": 1,
+   "combo_3plus": 9,
+   "combo_with_answers": 1,
+   "pair": 9,
+   "warranty_age": 4
+  },
+  "iPhone 16e 512GB": {
+   "accessory": 1,
+   "answers_only": 2,
+   "baseline": 1,
+   "combo_3plus": 9,
+   "combo_with_answers": 18,
+   "defect_plus_answers": 5,
+   "pair": 9,
+   "warranty_age": 4
+  },
+  "iPhone 17 256GB": {
+   "accessory": 1,
+   "answers_only": 2,
+   "baseline": 1,
+   "combo_3plus": 10,
+   "combo_with_answers": 1,
+   "pair": 9,
+   "single_defect": 15,
+   "warranty_age": 4
+  },
+  "iPhone 17 512GB": {
+   "accessory": 1,
+   "answers_only": 2,
+   "baseline": 1,
+   "combo_3plus": 10,
+   "combo_with_answers": 13,
+   "defect_plus_answers": 2,
+   "pair": 9,
+   "single_defect": 15,
+   "warranty_age": 4
+  },
+  "iPhone 17 Pro 1TB": {
+   "accessory": 1,
+   "answers_only": 2,
+   "baseline": 1,
+   "combo_3plus": 10,
+   "combo_with_answers": 1,
+   "pair": 9,
+   "warranty_age": 4
+  },
+  "iPhone 17 Pro 256GB": {
+   "accessory": 1,
+   "answers_only": 2,
+   "baseline": 1,
+   "combo_3plus": 10,
+   "combo_with_answers": 1,
+   "pair": 9,
+   "warranty_age": 4
+  },
+  "iPhone 17 Pro 512GB": {
+   "accessory": 1,
+   "answers_only": 2,
+   "baseline": 1,
+   "combo_3plus": 10,
+   "combo_with_answers": 1,
+   "pair": 9,
+   "warranty_age": 4
+  },
+  "iPhone 17 Pro Max 1TB": {
+   "accessory": 1,
+   "answers_only": 2,
+   "baseline": 1,
+   "combo_3plus": 11,
+   "combo_with_answers": 1,
+   "pair": 9,
+   "warranty_age": 4
+  },
+  "iPhone 17 Pro Max 256GB": {
+   "accessory": 1,
+   "answers_only": 2,
+   "baseline": 1,
+   "combo_3plus": 10,
+   "combo_with_answers": 1,
+   "pair": 9,
+   "warranty_age": 4
+  },
+  "iPhone 17 Pro Max 2TB": {
+   "accessory": 1,
+   "answers_only": 2,
+   "baseline": 1,
+   "combo_3plus": 11,
+   "combo_with_answers": 1,
+   "pair": 9,
+   "warranty_age": 4
+  },
+  "iPhone 17 Pro Max 512GB": {
+   "accessory": 1,
+   "answers_only": 2,
+   "baseline": 1,
+   "combo_3plus": 10,
+   "combo_with_answers": 1,
+   "pair": 9,
+   "warranty_age": 4
+  },
+  "iPhone 17e 256GB": {
+   "accessory": 1,
+   "answers_only": 1,
+   "baseline": 1,
+   "combo_3plus": 9,
+   "combo_with_answers": 1,
+   "pair": 9,
+   "warranty_age": 4
+  },
+  "iPhone 17e 512GB": {
+   "accessory": 1,
+   "answers_only": 1,
+   "baseline": 1,
+   "combo_3plus": 10,
+   "combo_with_answers": 1,
+   "pair": 9,
+   "warranty_age": 4
+  },
+  "iPhone 18 Pro 1TB": {
+   "accessory": 3,
+   "answers_only": 3,
+   "baseline": 1,
+   "combo_3plus": 11,
+   "combo_with_answers": 18,
+   "defect_plus_answers": 5,
+   "pair": 9,
+   "warranty_age": 4
+  },
+  "iPhone 18 Pro 256GB": {
+   "accessory": 3,
+   "answers_only": 3,
+   "baseline": 1,
+   "combo_3plus": 11,
+   "combo_with_answers": 18,
+   "defect_plus_answers": 5,
+   "pair": 9,
+   "warranty_age": 4
+  },
+  "iPhone 18 Pro 2TB": {
+   "accessory": 3,
+   "answers_only": 3,
+   "baseline": 1,
+   "combo_3plus": 11,
+   "combo_with_answers": 18,
+   "defect_plus_answers": 5,
+   "pair": 9,
+   "warranty_age": 4
+  },
+  "iPhone 18 Pro 512GB": {
+   "accessory": 3,
+   "answers_only": 3,
+   "baseline": 1,
+   "combo_3plus": 11,
+   "combo_with_answers": 18,
+   "defect_plus_answers": 5,
+   "pair": 9,
+   "warranty_age": 4
+  },
+  "iPhone 18 Pro Max 1TB": {
+   "accessory": 3,
+   "answers_only": 3,
+   "baseline": 1,
+   "combo_3plus": 11,
+   "combo_with_answers": 18,
+   "defect_plus_answers": 5,
+   "pair": 9,
+   "warranty_age": 4
+  },
+  "iPhone 18 Pro Max 256GB": {
+   "accessory": 3,
+   "answers_only": 3,
+   "baseline": 1,
+   "combo_3plus": 11,
+   "combo_with_answers": 18,
+   "defect_plus_answers": 5,
+   "pair": 9,
+   "warranty_age": 4
+  },
+  "iPhone 18 Pro Max 2TB": {
+   "accessory": 3,
+   "answers_only": 3,
+   "baseline": 1,
+   "combo_3plus": 11,
+   "combo_with_answers": 18,
+   "defect_plus_answers": 5,
+   "pair": 166,
+   "single_defect": 40,
+   "warranty_age": 4
+  },
+  "iPhone 18 Pro Max 512GB": {
+   "accessory": 3,
+   "answers_only": 3,
+   "baseline": 1,
+   "combo_3plus": 11,
+   "combo_with_answers": 18,
+   "defect_plus_answers": 5,
+   "pair": 9,
+   "warranty_age": 4
+  },
+  "iPhone Air 1TB": {
+   "accessory": 1,
+   "answers_only": 2,
+   "baseline": 1,
+   "combo_3plus": 10,
+   "combo_with_answers": 1,
+   "pair": 9,
+   "warranty_age": 4
+  },
+  "iPhone Air 256GB": {
+   "accessory": 1,
+   "answers_only": 2,
+   "baseline": 1,
+   "combo_3plus": 10,
+   "combo_with_answers": 1,
+   "pair": 9,
+   "warranty_age": 4
+  },
+  "iPhone Air 512GB": {
+   "accessory": 1,
+   "answers_only": 3,
+   "baseline": 1,
+   "combo_3plus": 10,
+   "combo_with_answers": 18,
+   "defect_plus_answers": 5,
+   "pair": 9,
+   "warranty_age": 4
+  },
+  "iPhone X 256GB": {
+   "accessory": 2,
+   "baseline": 1,
+   "combo_with_answers": 14,
+   "defect_plus_answers": 10
+  }
+ },
+ "export_field_conflicts": 0,
+ "measurements": {
+  "no_offer": 51,
+  "numeric": 2234,
+  "total_numeric_or_no_offer": 2285
+ },
+ "no_offer_by_model": {
+  "iPhone 15": 5,
+  "iPhone 15 Plus": 4,
+  "iPhone 15 Pro": 4,
+  "iPhone 16": 6,
+  "iPhone 16 Plus": 6,
+  "iPhone 16 Pro": 4,
+  "iPhone 16 Pro Max": 3,
+  "iPhone 16e": 6,
+  "iPhone 17": 2,
+  "iPhone 17 Pro": 3,
+  "iPhone 17 Pro Max": 2,
+  "iPhone 17e": 3,
+  "iPhone Air": 3
+ },
+ "numeric_by_model_primary": {
+  "iPhone 14": 75,
+  "iPhone 14 Pro": 100,
+  "iPhone 15": 99,
+  "iPhone 15 Plus": 131,
+  "iPhone 15 Pro": 146,
+  "iPhone 15 Pro Max": 48,
+  "iPhone 16": 129,
+  "iPhone 16 Plus": 186,
+  "iPhone 16 Pro": 116,
+  "iPhone 16 Pro Max": 111,
+  "iPhone 16e": 105,
+  "iPhone 17": 118,
+  "iPhone 17 Pro": 87,
+  "iPhone 17 Pro Max": 236,
+  "iPhone 17e": 110,
+  "iPhone 18 Pro": 348,
+  "iPhone 18 Pro Max": 598,
+  "iPhone Air": 135,
+  "iPhone X": 48
+ },
+ "numeric_measurements_by_class": {
+  "accessory": 73,
+  "answers_only": 98,
+  "baseline": 117,
+  "combo_3plus": 484,
+  "combo_with_answers": 402,
+  "defect_plus_answers": 91,
+  "pair": 634,
+  "single_defect": 136,
+  "warranty_age": 199
+ },
+ "numeric_measurements_by_date": {
+  "2026-10-16": 37,
+  "2026-10-17": 465,
+  "2026-10-22": 305,
+  "2026-10-23": 595,
+  "2026-10-24": 815,
+  "unknown": 17
+ },
+ "numeric_measurements_by_date_basis": {
+  "case_observed_on": 3,
+  "file_observed_date": 815,
+  "header_case_list": 25,
+  "header_tested_day": 559,
+  "header_tested_range": 15,
+  "record_observed_at": 160,
+  "record_observed_date": 640,
+  "unknown": 17
+ },
+ "numeric_measurements_by_model": {
+  "iPhone 14": 75,
+  "iPhone 14 Pro": 100,
+  "iPhone 15": 99,
+  "iPhone 15 Plus": 107,
+  "iPhone 15 Pro": 132,
+  "iPhone 15 Pro Max": 24,
+  "iPhone 16": 105,
+  "iPhone 16 Plus": 105,
+  "iPhone 16 Pro": 116,
+  "iPhone 16 Pro Max": 111,
+  "iPhone 16e": 105,
+  "iPhone 17": 104,
+  "iPhone 17 Pro": 87,
+  "iPhone 17 Pro Max": 118,
+  "iPhone 17e": 55,
+  "iPhone 18 Pro": 224,
+  "iPhone 18 Pro Max": 429,
+  "iPhone Air": 111,
+  "iPhone X": 27
+ },
+ "numeric_measurements_by_variant": {
+  "iPhone 14 128GB": 25,
+  "iPhone 14 256GB": 25,
+  "iPhone 14 512GB": 25,
+  "iPhone 14 Pro 128GB": 25,
+  "iPhone 14 Pro 1TB": 25,
+  "iPhone 14 Pro 256GB": 25,
+  "iPhone 14 Pro 512GB": 25,
+  "iPhone 15 128GB": 27,
+  "iPhone 15 256GB": 27,
+  "iPhone 15 512GB": 45,
+  "iPhone 15 Plus 128GB": 27,
+  "iPhone 15 Plus 256GB": 28,
+  "iPhone 15 Plus 512GB": 52,
+  "iPhone 15 Pro 128GB": 29,
+  "iPhone 15 Pro 1TB": 29,
+  "iPhone 15 Pro 256GB": 29,
+  "iPhone 15 Pro 512GB": 45,
+  "iPhone 15 Pro Max 512GB": 24,
+  "iPhone 16 128GB": 27,
+  "iPhone 16 256GB": 27,
+  "iPhone 16 512GB": 51,
+  "iPhone 16 Plus 128GB": 27,
+  "iPhone 16 Plus 256GB": 27,
+  "iPhone 16 Plus 512GB": 51,
+  "iPhone 16 Pro 128GB": 29,
+  "iPhone 16 Pro 1TB": 29,
+  "iPhone 16 Pro 256GB": 29,
+  "iPhone 16 Pro 512GB": 29,
+  "iPhone 16 Pro Max 1TB": 29,
+  "iPhone 16 Pro Max 256GB": 29,
+  "iPhone 16 Pro Max 512GB": 53,
+  "iPhone 16e 128GB": 27,
+  "iPhone 16e 256GB": 27,
+  "iPhone 16e 512GB": 51,
+  "iPhone 17 256GB": 44,
+  "iPhone 17 512GB": 60,
+  "iPhone 17 Pro 1TB": 29,
+  "iPhone 17 Pro 256GB": 29,
+  "iPhone 17 Pro 512GB": 29,
+  "iPhone 17 Pro Max 1TB": 30,
+  "iPhone 17 Pro Max 256GB": 29,
+  "iPhone 17 Pro Max 2TB": 30,
+  "iPhone 17 Pro Max 512GB": 29,
+  "iPhone 17e 256GB": 27,
+  "iPhone 17e 512GB": 28,
+  "iPhone 18 Pro 1TB": 56,
+  "iPhone 18 Pro 256GB": 56,
+  "iPhone 18 Pro 2TB": 56,
+  "iPhone 18 Pro 512GB": 56,
+  "iPhone 18 Pro Max 1TB": 56,
+  "iPhone 18 Pro Max 256GB": 56,
+  "iPhone 18 Pro Max 2TB": 261,
+  "iPhone 18 Pro Max 512GB": 56,
+  "iPhone Air 1TB": 29,
+  "iPhone Air 256GB": 29,
+  "iPhone Air 512GB": 53,
+  "iPhone X 256GB": 27
+ },
+ "occurrences": {
+  "by_family": {
+   "case_txt": 783,
+   "checklist_json": 1014,
+   "pair_jsonl": 160,
+   "pair_plan": 604,
+   "variants_json": 1158
+  },
+  "by_outcome": {
+   "NOT_APPLICABLE": 110,
+   "NO_OFFER": 62,
+   "NUMERIC_QUOTE": 2926,
+   "PENDING": 621
+  },
+  "total": 3719
+ },
+ "pair_claims": {
+  "claimed_fullyApplied_true": 160,
+  "claimed_nonadditive": 36,
+  "observed_pairs": 160,
+  "pending_pairs": 604
+ },
+ "single_defect_codes_covered": {
+  "iPhone 14 128GB": [
+   "F01",
+   "F02",
+   "F06",
+   "F08",
+   "F10",
+   "F13",
+   "F17",
+   "F18",
+   "Q03",
+   "S03"
+  ],
+  "iPhone 14 256GB": [
+   "F01",
+   "F02",
+   "F06",
+   "F08",
+   "F10",
+   "F13",
+   "F17",
+   "F18",
+   "Q03",
+   "S03"
+  ],
+  "iPhone 14 512GB": [
+   "F01",
+   "F02",
+   "F06",
+   "F08",
+   "F10",
+   "F13",
+   "F17",
+   "F18",
+   "Q03",
+   "S03"
+  ],
+  "iPhone 14 Pro 128GB": [
+   "F01",
+   "F02",
+   "F08",
+   "F10",
+   "F13",
+   "F17",
+   "F18",
+   "Q03",
+   "S03"
+  ],
+  "iPhone 14 Pro 1TB": [
+   "F01",
+   "F02",
+   "F08",
+   "F10",
+   "F13",
+   "F17",
+   "F18",
+   "Q03",
+   "S03"
+  ],
+  "iPhone 14 Pro 256GB": [
+   "F01",
+   "F02",
+   "F08",
+   "F10",
+   "F13",
+   "F17",
+   "F18",
+   "Q03",
+   "S03"
+  ],
+  "iPhone 14 Pro 512GB": [
+   "F01",
+   "F02",
+   "F08",
+   "F10",
+   "F13",
+   "F17",
+   "F18",
+   "Q03",
+   "S03"
+  ],
+  "iPhone 17 256GB": [
+   "F01",
+   "F02",
+   "F03",
+   "F05",
+   "F06",
+   "F07",
+   "F08",
+   "F09",
+   "F10",
+   "F11",
+   "F12",
+   "F13",
+   "F14",
+   "F17",
+   "F18"
+  ],
+  "iPhone 17 512GB": [
+   "F01",
+   "F02",
+   "F03",
+   "F05",
+   "F06",
+   "F07",
+   "F08",
+   "F09",
+   "F10",
+   "F11",
+   "F12",
+   "F13",
+   "F14",
+   "F17",
+   "F18"
+  ],
+  "iPhone 18 Pro Max 2TB": [
+   "C01",
+   "C02",
+   "C03",
+   "C04",
+   "D01",
+   "D02",
+   "D03",
+   "D04",
+   "D05",
+   "D06",
+   "D07",
+   "F01",
+   "F02",
+   "F03",
+   "F04",
+   "F05",
+   "F06",
+   "F07",
+   "F08",
+   "F09",
+   "F10",
+   "F11",
+   "F12",
+   "F13",
+   "F14",
+   "F15",
+   "F16",
+   "F17",
+   "F18",
+   "P01",
+   "P02",
+   "P03",
+   "P04",
+   "Q01",
+   "Q02",
+   "Q03",
+   "S01",
+   "S02",
+   "S03",
+   "S04"
+  ]
+ },
+ "single_defect_codes_missing": {
+  "iPhone 14 128GB": [
+   "C01",
+   "C02",
+   "C03",
+   "C04",
+   "D01",
+   "D02",
+   "D03",
+   "D04",
+   "D05",
+   "D06",
+   "D07",
+   "F03",
+   "F04",
+   "F05",
+   "F07",
+   "F09",
+   "F11",
+   "F12",
+   "F14",
+   "F15",
+   "F16",
+   "P01",
+   "P02",
+   "P03",
+   "P04",
+   "Q01",
+   "Q02",
+   "S01",
+   "S02",
+   "S04"
+  ],
+  "iPhone 14 256GB": [
+   "C01",
+   "C02",
+   "C03",
+   "C04",
+   "D01",
+   "D02",
+   "D03",
+   "D04",
+   "D05",
+   "D06",
+   "D07",
+   "F03",
+   "F04",
+   "F05",
+   "F07",
+   "F09",
+   "F11",
+   "F12",
+   "F14",
+   "F15",
+   "F16",
+   "P01",
+   "P02",
+   "P03",
+   "P04",
+   "Q01",
+   "Q02",
+   "S01",
+   "S02",
+   "S04"
+  ],
+  "iPhone 14 512GB": [
+   "C01",
+   "C02",
+   "C03",
+   "C04",
+   "D01",
+   "D02",
+   "D03",
+   "D04",
+   "D05",
+   "D06",
+   "D07",
+   "F03",
+   "F04",
+   "F05",
+   "F07",
+   "F09",
+   "F11",
+   "F12",
+   "F14",
+   "F15",
+   "F16",
+   "P01",
+   "P02",
+   "P03",
+   "P04",
+   "Q01",
+   "Q02",
+   "S01",
+   "S02",
+   "S04"
+  ],
+  "iPhone 14 Pro 128GB": [
+   "C01",
+   "C02",
+   "C03",
+   "C04",
+   "D01",
+   "D02",
+   "D03",
+   "D04",
+   "D05",
+   "D06",
+   "D07",
+   "F03",
+   "F04",
+   "F05",
+   "F06",
+   "F07",
+   "F09",
+   "F11",
+   "F12",
+   "F14",
+   "F15",
+   "F16",
+   "P01",
+   "P02",
+   "P03",
+   "P04",
+   "Q01",
+   "Q02",
+   "S01",
+   "S02",
+   "S04"
+  ],
+  "iPhone 14 Pro 1TB": [
+   "C01",
+   "C02",
+   "C03",
+   "C04",
+   "D01",
+   "D02",
+   "D03",
+   "D04",
+   "D05",
+   "D06",
+   "D07",
+   "F03",
+   "F04",
+   "F05",
+   "F06",
+   "F07",
+   "F09",
+   "F11",
+   "F12",
+   "F14",
+   "F15",
+   "F16",
+   "P01",
+   "P02",
+   "P03",
+   "P04",
+   "Q01",
+   "Q02",
+   "S01",
+   "S02",
+   "S04"
+  ],
+  "iPhone 14 Pro 256GB": [
+   "C01",
+   "C02",
+   "C03",
+   "C04",
+   "D01",
+   "D02",
+   "D03",
+   "D04",
+   "D05",
+   "D06",
+   "D07",
+   "F03",
+   "F04",
+   "F05",
+   "F06",
+   "F07",
+   "F09",
+   "F11",
+   "F12",
+   "F14",
+   "F15",
+   "F16",
+   "P01",
+   "P02",
+   "P03",
+   "P04",
+   "Q01",
+   "Q02",
+   "S01",
+   "S02",
+   "S04"
+  ],
+  "iPhone 14 Pro 512GB": [
+   "C01",
+   "C02",
+   "C03",
+   "C04",
+   "D01",
+   "D02",
+   "D03",
+   "D04",
+   "D05",
+   "D06",
+   "D07",
+   "F03",
+   "F04",
+   "F05",
+   "F06",
+   "F07",
+   "F09",
+   "F11",
+   "F12",
+   "F14",
+   "F15",
+   "F16",
+   "P01",
+   "P02",
+   "P03",
+   "P04",
+   "Q01",
+   "Q02",
+   "S01",
+   "S02",
+   "S04"
+  ],
+  "iPhone 17 256GB": [
+   "C01",
+   "C02",
+   "C03",
+   "C04",
+   "D01",
+   "D02",
+   "D03",
+   "D04",
+   "D05",
+   "D06",
+   "D07",
+   "F04",
+   "F15",
+   "F16",
+   "P01",
+   "P02",
+   "P03",
+   "P04",
+   "Q01",
+   "Q02",
+   "Q03",
+   "S01",
+   "S02",
+   "S03",
+   "S04"
+  ],
+  "iPhone 17 512GB": [
+   "C01",
+   "C02",
+   "C03",
+   "C04",
+   "D01",
+   "D02",
+   "D03",
+   "D04",
+   "D05",
+   "D06",
+   "D07",
+   "F04",
+   "F15",
+   "F16",
+   "P01",
+   "P02",
+   "P03",
+   "P04",
+   "Q01",
+   "Q02",
+   "Q03",
+   "S01",
+   "S02",
+   "S03",
+   "S04"
+  ],
+  "iPhone 18 Pro Max 2TB": []
+ },
+ "unique_numeric_configs_by_model": {
+  "iPhone 14": 75,
+  "iPhone 14 Pro": 100,
+  "iPhone 15": 94,
+  "iPhone 15 Plus": 103,
+  "iPhone 15 Pro": 126,
+  "iPhone 15 Pro Max": 24,
+  "iPhone 16": 101,
+  "iPhone 16 Plus": 101,
+  "iPhone 16 Pro": 112,
+  "iPhone 16 Pro Max": 107,
+  "iPhone 16e": 101,
+  "iPhone 17": 100,
+  "iPhone 17 Pro": 84,
+  "iPhone 17 Pro Max": 114,
+  "iPhone 17e": 53,
+  "iPhone 18 Pro": 216,
+  "iPhone 18 Pro Max": 413,
+  "iPhone Air": 107,
+  "iPhone X": 27
+ },
+ "unique_numeric_configs_by_variant": {
+  "iPhone 14 128GB": 25,
+  "iPhone 14 256GB": 25,
+  "iPhone 14 512GB": 25,
+  "iPhone 14 Pro 128GB": 25,
+  "iPhone 14 Pro 1TB": 25,
+  "iPhone 14 Pro 256GB": 25,
+  "iPhone 14 Pro 512GB": 25,
+  "iPhone 15 128GB": 26,
+  "iPhone 15 256GB": 26,
+  "iPhone 15 512GB": 42,
+  "iPhone 15 Plus 128GB": 26,
+  "iPhone 15 Plus 256GB": 27,
+  "iPhone 15 Plus 512GB": 50,
+  "iPhone 15 Pro 128GB": 28,
+  "iPhone 15 Pro 1TB": 28,
+  "iPhone 15 Pro 256GB": 28,
+  "iPhone 15 Pro 512GB": 42,
+  "iPhone 15 Pro Max 512GB": 24,
+  "iPhone 16 128GB": 26,
+  "iPhone 16 256GB": 26,
+  "iPhone 16 512GB": 49,
+  "iPhone 16 Plus 128GB": 26,
+  "iPhone 16 Plus 256GB": 26,
+  "iPhone 16 Plus 512GB": 49,
+  "iPhone 16 Pro 128GB": 28,
+  "iPhone 16 Pro 1TB": 28,
+  "iPhone 16 Pro 256GB": 28,
+  "iPhone 16 Pro 512GB": 28,
+  "iPhone 16 Pro Max 1TB": 28,
+  "iPhone 16 Pro Max 256GB": 28,
+  "iPhone 16 Pro Max 512GB": 51,
+  "iPhone 16e 128GB": 26,
+  "iPhone 16e 256GB": 26,
+  "iPhone 16e 512GB": 49,
+  "iPhone 17 256GB": 43,
+  "iPhone 17 512GB": 57,
+  "iPhone 17 Pro 1TB": 28,
+  "iPhone 17 Pro 256GB": 28,
+  "iPhone 17 Pro 512GB": 28,
+  "iPhone 17 Pro Max 1TB": 29,
+  "iPhone 17 Pro Max 256GB": 28,
+  "iPhone 17 Pro Max 2TB": 29,
+  "iPhone 17 Pro Max 512GB": 28,
+  "iPhone 17e 256GB": 26,
+  "iPhone 17e 512GB": 27,
+  "iPhone 18 Pro 1TB": 54,
+  "iPhone 18 Pro 256GB": 54,
+  "iPhone 18 Pro 2TB": 54,
+  "iPhone 18 Pro 512GB": 54,
+  "iPhone 18 Pro Max 1TB": 54,
+  "iPhone 18 Pro Max 256GB": 54,
+  "iPhone 18 Pro Max 2TB": 251,
+  "iPhone 18 Pro Max 512GB": 54,
+  "iPhone Air 1TB": 28,
+  "iPhone Air 256GB": 28,
+  "iPhone Air 512GB": 51,
+  "iPhone X 256GB": 27
+ }
+}

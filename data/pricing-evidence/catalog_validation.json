@@ -1,0 +1,1521 @@
+[
+ {
+  "model": "iPhone 14",
+  "storage": "128GB",
+  "ramEvidenceGb": [
+   6
+  ],
+  "quotes": 25,
+  "archives": 1,
+  "catalog": [
+   {
+    "id": "apple_1026",
+    "model": "Apple iPhone 14",
+    "storage": "128GB",
+    "ram": "4GB",
+    "basePrice": 26730
+   }
+  ],
+  "status": "FLAGGED",
+  "issues": [
+   "RAM_MISMATCH: evidence 6 GB vs catalog \"4GB\" (128GB)"
+  ],
+  "cashifyGetUptoByDate": {
+   "2026-10-17": [
+    27780
+   ]
+  }
+ },
+ {
+  "model": "iPhone 14",
+  "storage": "256GB",
+  "ramEvidenceGb": [
+   6
+  ],
+  "quotes": 25,
+  "archives": 1,
+  "catalog": [
+   {
+    "id": "apple_2078",
+    "model": "Apple iPhone 14",
+    "storage": "256GB",
+    "ram": "4GB",
+    "basePrice": 28590
+   }
+  ],
+  "status": "FLAGGED",
+  "issues": [
+   "RAM_MISMATCH: evidence 6 GB vs catalog \"4GB\" (256GB)"
+  ],
+  "cashifyGetUptoByDate": {
+   "2026-10-17": [
+    28430
+   ]
+  }
+ },
+ {
+  "model": "iPhone 14",
+  "storage": "512GB",
+  "ramEvidenceGb": [
+   6
+  ],
+  "quotes": 25,
+  "archives": 1,
+  "catalog": [
+   {
+    "id": "apple_2079",
+    "model": "Apple iPhone 14",
+    "storage": "512GB",
+    "ram": "4GB",
+    "basePrice": 28750
+   }
+  ],
+  "status": "FLAGGED",
+  "issues": [
+   "RAM_MISMATCH: evidence 6 GB vs catalog \"4GB\" (512GB)"
+  ],
+  "cashifyGetUptoByDate": {
+   "2026-10-17": [
+    28840
+   ]
+  }
+ },
+ {
+  "model": "iPhone 14 Pro",
+  "storage": "128GB",
+  "ramEvidenceGb": [
+   6
+  ],
+  "quotes": 25,
+  "archives": 1,
+  "catalog": [
+   {
+    "id": "apple_1028",
+    "model": "Apple iPhone 14 Pro",
+    "storage": "128GB",
+    "ram": "4GB",
+    "basePrice": 41150
+   }
+  ],
+  "status": "FLAGGED",
+  "issues": [
+   "RAM_MISMATCH: evidence 6 GB vs catalog \"4GB\" (128GB)"
+  ],
+  "cashifyGetUptoByDate": {
+   "2026-10-22": [
+    42690
+   ]
+  }
+ },
+ {
+  "model": "iPhone 14 Pro",
+  "storage": "256GB",
+  "ramEvidenceGb": [
+   6
+  ],
+  "quotes": 25,
+  "archives": 1,
+  "catalog": [
+   {
+    "id": "apple_2084",
+    "model": "Apple iPhone 14 Pro",
+    "storage": "256GB",
+    "ram": "4GB",
+    "basePrice": 43580
+   }
+  ],
+  "status": "FLAGGED",
+  "issues": [
+   "RAM_MISMATCH: evidence 6 GB vs catalog \"4GB\" (256GB)"
+  ],
+  "cashifyGetUptoByDate": {
+   "2026-10-22": [
+    44070
+   ]
+  }
+ },
+ {
+  "model": "iPhone 14 Pro",
+  "storage": "512GB",
+  "ramEvidenceGb": [
+   6
+  ],
+  "quotes": 25,
+  "archives": 1,
+  "catalog": [
+   {
+    "id": "apple_2085",
+    "model": "Apple iPhone 14 Pro",
+    "storage": "512GB",
+    "ram": "4GB",
+    "basePrice": 45690
+   }
+  ],
+  "status": "FLAGGED",
+  "issues": [
+   "RAM_MISMATCH: evidence 6 GB vs catalog \"4GB\" (512GB)"
+  ],
+  "cashifyGetUptoByDate": {
+   "2026-10-22": [
+    46100
+   ]
+  }
+ },
+ {
+  "model": "iPhone 14 Pro",
+  "storage": "1TB",
+  "ramEvidenceGb": [
+   6
+  ],
+  "quotes": 25,
+  "archives": 1,
+  "catalog": [
+   {
+    "id": "apple_2086",
+    "model": "Apple iPhone 14 Pro",
+    "storage": "1TB",
+    "ram": "4GB",
+    "basePrice": 46580
+   }
+  ],
+  "status": "FLAGGED",
+  "issues": [
+   "RAM_MISMATCH: evidence 6 GB vs catalog \"4GB\" (1TB)"
+  ],
+  "cashifyGetUptoByDate": {
+   "2026-10-22": [
+    46910
+   ]
+  }
+ },
+ {
+  "model": "iPhone 15",
+  "storage": "128GB",
+  "ramEvidenceGb": [],
+  "quotes": 29,
+  "archives": 1,
+  "catalog": [
+   {
+    "id": "apple_1030",
+    "model": "Apple iPhone 15",
+    "storage": "128GB",
+    "ram": "4GB",
+    "basePrice": 38520
+   }
+  ],
+  "status": "FLAGGED",
+  "issues": [
+   "CATALOG_BASE_PRICE_FAR_FROM_CASHIFY: catalog 38520 vs Cashify Get Upto 42220"
+  ],
+  "cashifyGetUptoByDate": {
+   "2026-10-24": [
+    42220
+   ]
+  }
+ },
+ {
+  "model": "iPhone 15",
+  "storage": "256GB",
+  "ramEvidenceGb": [],
+  "quotes": 29,
+  "archives": 1,
+  "catalog": [
+   {
+    "id": "apple_2090",
+    "model": "Apple iPhone 15",
+    "storage": "256GB",
+    "ram": "4GB",
+    "basePrice": 43270
+   }
+  ],
+  "status": "OK",
+  "issues": [],
+  "cashifyGetUptoByDate": {
+   "2026-10-24": [
+    44220
+   ]
+  }
+ },
+ {
+  "model": "iPhone 15",
+  "storage": "512GB",
+  "ramEvidenceGb": [
+   6
+  ],
+  "quotes": 46,
+  "archives": 2,
+  "catalog": [
+   {
+    "id": "apple_2091",
+    "model": "Apple iPhone 15",
+    "storage": "512GB",
+    "ram": "4GB",
+    "basePrice": 45570
+   }
+  ],
+  "status": "FLAGGED",
+  "issues": [
+   "RAM_MISMATCH: evidence 6 GB vs catalog \"4GB\" (512GB)"
+  ],
+  "cashifyGetUptoByDate": {
+   "2026-10-24": [
+    46550
+   ],
+   "unknown": [
+    46550
+   ]
+  }
+ },
+ {
+  "model": "iPhone 15 Plus",
+  "storage": "128GB",
+  "ramEvidenceGb": [],
+  "quotes": 29,
+  "archives": 1,
+  "catalog": [
+   {
+    "id": "apple_1031",
+    "model": "Apple iPhone 15 Plus",
+    "storage": "128GB",
+    "ram": "4GB",
+    "basePrice": 44730
+   }
+  ],
+  "status": "OK",
+  "issues": [],
+  "cashifyGetUptoByDate": {
+   "2026-10-24": [
+    45360
+   ]
+  }
+ },
+ {
+  "model": "iPhone 15 Plus",
+  "storage": "256GB",
+  "ramEvidenceGb": [],
+  "quotes": 29,
+  "archives": 1,
+  "catalog": [
+   {
+    "id": "apple_2093",
+    "model": "Apple iPhone 15 Plus",
+    "storage": "256GB",
+    "ram": "4GB",
+    "basePrice": 48480
+   }
+  ],
+  "status": "OK",
+  "issues": [],
+  "cashifyGetUptoByDate": {
+   "2026-10-24": [
+    46600
+   ]
+  }
+ },
+ {
+  "model": "iPhone 15 Plus",
+  "storage": "512GB",
+  "ramEvidenceGb": [
+   6
+  ],
+  "quotes": 53,
+  "archives": 2,
+  "catalog": [
+   {
+    "id": "apple_2094",
+    "model": "Apple iPhone 15 Plus",
+    "storage": "512GB",
+    "ram": "4GB",
+    "basePrice": 49250
+   }
+  ],
+  "status": "FLAGGED",
+  "issues": [
+   "RAM_MISMATCH: evidence 6 GB vs catalog \"4GB\" (512GB)"
+  ],
+  "cashifyGetUptoByDate": {
+   "2026-10-17": [
+    48600
+   ],
+   "2026-10-24": [
+    48600
+   ]
+  }
+ },
+ {
+  "model": "iPhone 15 Pro",
+  "storage": "128GB",
+  "ramEvidenceGb": [],
+  "quotes": 30,
+  "archives": 1,
+  "catalog": [
+   {
+    "id": "apple_1032",
+    "model": "Apple iPhone 15 Pro",
+    "storage": "128GB",
+    "ram": "4GB",
+    "basePrice": 62600
+   }
+  ],
+  "status": "OK",
+  "issues": [],
+  "cashifyGetUptoByDate": {
+   "2026-10-24": [
+    62400
+   ]
+  }
+ },
+ {
+  "model": "iPhone 15 Pro",
+  "storage": "256GB",
+  "ramEvidenceGb": [],
+  "quotes": 30,
+  "archives": 1,
+  "catalog": [
+   {
+    "id": "apple_2096",
+    "model": "Apple iPhone 15 Pro",
+    "storage": "256GB",
+    "ram": "4GB",
+    "basePrice": 66790
+   }
+  ],
+  "status": "OK",
+  "issues": [],
+  "cashifyGetUptoByDate": {
+   "2026-10-24": [
+    65280
+   ]
+  }
+ },
+ {
+  "model": "iPhone 15 Pro",
+  "storage": "512GB",
+  "ramEvidenceGb": [
+   8
+  ],
+  "quotes": 46,
+  "archives": 3,
+  "catalog": [
+   {
+    "id": "apple_2097",
+    "model": "Apple iPhone 15 Pro",
+    "storage": "512GB",
+    "ram": "4GB",
+    "basePrice": 69030
+   }
+  ],
+  "status": "FLAGGED",
+  "issues": [
+   "RAM_MISMATCH: evidence 8 GB vs catalog \"4GB\" (512GB)"
+  ],
+  "cashifyGetUptoByDate": {
+   "2026-10-16": [
+    68160
+   ],
+   "2026-10-24": [
+    68160
+   ]
+  }
+ },
+ {
+  "model": "iPhone 15 Pro",
+  "storage": "1TB",
+  "ramEvidenceGb": [],
+  "quotes": 30,
+  "archives": 1,
+  "catalog": [
+   {
+    "id": "apple_2098",
+    "model": "Apple iPhone 15 Pro",
+    "storage": "1TB",
+    "ram": "4GB",
+    "basePrice": 70300
+   }
+  ],
+  "status": "OK",
+  "issues": [],
+  "cashifyGetUptoByDate": {
+   "2026-10-24": [
+    70080
+   ]
+  }
+ },
+ {
+  "model": "iPhone 15 Pro Max",
+  "storage": "512GB",
+  "ramEvidenceGb": [
+   8
+  ],
+  "quotes": 24,
+  "archives": 1,
+  "catalog": [
+   {
+    "id": "apple_2100",
+    "model": "Apple iPhone 15 Pro Max",
+    "storage": "512GB",
+    "ram": "4GB",
+    "basePrice": 75950
+   }
+  ],
+  "status": "FLAGGED",
+  "issues": [
+   "RAM_MISMATCH: evidence 8 GB vs catalog \"4GB\" (512GB)"
+  ],
+  "cashifyGetUptoByDate": {
+   "2026-10-17": [
+    72480
+   ]
+  }
+ },
+ {
+  "model": "iPhone 16",
+  "storage": "128GB",
+  "ramEvidenceGb": [],
+  "quotes": 29,
+  "archives": 1,
+  "catalog": [
+   {
+    "id": "apple_1034",
+    "model": "Apple iPhone 16",
+    "storage": "128GB",
+    "ram": "4GB",
+    "basePrice": 46550
+   }
+  ],
+  "status": "FLAGGED",
+  "issues": [
+   "CATALOG_BASE_PRICE_FAR_FROM_CASHIFY: catalog 46550 vs Cashify Get Upto 52800"
+  ],
+  "cashifyGetUptoByDate": {
+   "2026-10-24": [
+    52800
+   ]
+  }
+ },
+ {
+  "model": "iPhone 16",
+  "storage": "256GB",
+  "ramEvidenceGb": [],
+  "quotes": 29,
+  "archives": 1,
+  "catalog": [
+   {
+    "id": "apple_2102",
+    "model": "Apple iPhone 16",
+    "storage": "256GB",
+    "ram": "4GB",
+    "basePrice": 50960
+   }
+  ],
+  "status": "FLAGGED",
+  "issues": [
+   "CATALOG_BASE_PRICE_FAR_FROM_CASHIFY: catalog 50960 vs Cashify Get Upto 54720"
+  ],
+  "cashifyGetUptoByDate": {
+   "2026-10-24": [
+    54720
+   ]
+  }
+ },
+ {
+  "model": "iPhone 16",
+  "storage": "512GB",
+  "ramEvidenceGb": [
+   8
+  ],
+  "quotes": 53,
+  "archives": 2,
+  "catalog": [
+   {
+    "id": "apple_2103",
+    "model": "Apple iPhone 16",
+    "storage": "512GB",
+    "ram": "4GB",
+    "basePrice": 52470
+   }
+  ],
+  "status": "FLAGGED",
+  "issues": [
+   "RAM_MISMATCH: evidence 8 GB vs catalog \"4GB\" (512GB)",
+   "CATALOG_BASE_PRICE_FAR_FROM_CASHIFY: catalog 52470 vs Cashify Get Upto 55680"
+  ],
+  "cashifyGetUptoByDate": {
+   "2026-10-16": [
+    55150
+   ],
+   "2026-10-17": [
+    55150
+   ],
+   "2026-10-24": [
+    55680
+   ]
+  }
+ },
+ {
+  "model": "iPhone 16 Plus",
+  "storage": "128GB",
+  "ramEvidenceGb": [],
+  "quotes": 29,
+  "archives": 1,
+  "catalog": [
+   {
+    "id": "apple_1035",
+    "model": "Apple iPhone 16 Plus",
+    "storage": "128GB",
+    "ram": "4GB",
+    "basePrice": 52820
+   }
+  ],
+  "status": "OK",
+  "issues": [],
+  "cashifyGetUptoByDate": {
+   "2026-10-24": [
+    55200
+   ]
+  }
+ },
+ {
+  "model": "iPhone 16 Plus",
+  "storage": "256GB",
+  "ramEvidenceGb": [],
+  "quotes": 29,
+  "archives": 1,
+  "catalog": [
+   {
+    "id": "apple_2105",
+    "model": "Apple iPhone 16 Plus",
+    "storage": "256GB",
+    "ram": "4GB",
+    "basePrice": 53020
+   }
+  ],
+  "status": "OK",
+  "issues": [],
+  "cashifyGetUptoByDate": {
+   "2026-10-24": [
+    55680
+   ]
+  }
+ },
+ {
+  "model": "iPhone 16 Plus",
+  "storage": "512GB",
+  "ramEvidenceGb": [
+   8
+  ],
+  "quotes": 53,
+  "archives": 2,
+  "catalog": [
+   {
+    "id": "apple_2106",
+    "model": "Apple iPhone 16 Plus",
+    "storage": "512GB",
+    "ram": "4GB",
+    "basePrice": 55040
+   }
+  ],
+  "status": "FLAGGED",
+  "issues": [
+   "RAM_MISMATCH: evidence 8 GB vs catalog \"4GB\" (512GB)"
+  ],
+  "cashifyGetUptoByDate": {
+   "2026-10-17": [
+    56160
+   ],
+   "2026-10-24": [
+    56640
+   ]
+  }
+ },
+ {
+  "model": "iPhone 16 Pro",
+  "storage": "128GB",
+  "ramEvidenceGb": [],
+  "quotes": 30,
+  "archives": 1,
+  "catalog": [
+   {
+    "id": "apple_1036",
+    "model": "Apple iPhone 16 Pro",
+    "storage": "128GB",
+    "ram": "4GB",
+    "basePrice": 71900
+   }
+  ],
+  "status": "OK",
+  "issues": [],
+  "cashifyGetUptoByDate": {
+   "2026-10-24": [
+    73910
+   ]
+  }
+ },
+ {
+  "model": "iPhone 16 Pro",
+  "storage": "256GB",
+  "ramEvidenceGb": [],
+  "quotes": 30,
+  "archives": 1,
+  "catalog": [
+   {
+    "id": "apple_2108",
+    "model": "Apple iPhone 16 Pro",
+    "storage": "256GB",
+    "ram": "4GB",
+    "basePrice": 77000
+   }
+  ],
+  "status": "OK",
+  "issues": [],
+  "cashifyGetUptoByDate": {
+   "2026-10-24": [
+    76670
+   ]
+  }
+ },
+ {
+  "model": "iPhone 16 Pro",
+  "storage": "512GB",
+  "ramEvidenceGb": [],
+  "quotes": 30,
+  "archives": 1,
+  "catalog": [
+   {
+    "id": "apple_2109",
+    "model": "Apple iPhone 16 Pro",
+    "storage": "512GB",
+    "ram": "4GB",
+    "basePrice": 79000
+   }
+  ],
+  "status": "OK",
+  "issues": [],
+  "cashifyGetUptoByDate": {
+   "2026-10-24": [
+    78590
+   ]
+  }
+ },
+ {
+  "model": "iPhone 16 Pro",
+  "storage": "1TB",
+  "ramEvidenceGb": [],
+  "quotes": 30,
+  "archives": 1,
+  "catalog": [
+   {
+    "id": "apple_2110",
+    "model": "Apple iPhone 16 Pro",
+    "storage": "1TB",
+    "ram": "4GB",
+    "basePrice": 80500
+   }
+  ],
+  "status": "OK",
+  "issues": [],
+  "cashifyGetUptoByDate": {
+   "2026-10-24": [
+    79360
+   ]
+  }
+ },
+ {
+  "model": "iPhone 16 Pro Max",
+  "storage": "256GB",
+  "ramEvidenceGb": [],
+  "quotes": 30,
+  "archives": 1,
+  "catalog": [
+   {
+    "id": "apple_2111",
+    "model": "Apple iPhone 16 Pro Max",
+    "storage": "256GB",
+    "ram": "4GB",
+    "basePrice": 87300
+   }
+  ],
+  "status": "OK",
+  "issues": [],
+  "cashifyGetUptoByDate": {
+   "2026-10-24": [
+    86430
+   ]
+  }
+ },
+ {
+  "model": "iPhone 16 Pro Max",
+  "storage": "512GB",
+  "ramEvidenceGb": [
+   8
+  ],
+  "quotes": 54,
+  "archives": 2,
+  "catalog": [
+   {
+    "id": "apple_2112",
+    "model": "Apple iPhone 16 Pro Max",
+    "storage": "512GB",
+    "ram": "4GB",
+    "basePrice": 90300
+   }
+  ],
+  "status": "FLAGGED",
+  "issues": [
+   "RAM_MISMATCH: evidence 8 GB vs catalog \"4GB\" (512GB)"
+  ],
+  "cashifyGetUptoByDate": {
+   "2026-10-17": [
+    88270
+   ],
+   "2026-10-24": [
+    88270
+   ]
+  }
+ },
+ {
+  "model": "iPhone 16 Pro Max",
+  "storage": "1TB",
+  "ramEvidenceGb": [],
+  "quotes": 30,
+  "archives": 1,
+  "catalog": [
+   {
+    "id": "apple_2113",
+    "model": "Apple iPhone 16 Pro Max",
+    "storage": "1TB",
+    "ram": "4GB",
+    "basePrice": 93500
+   }
+  ],
+  "status": "OK",
+  "issues": [],
+  "cashifyGetUptoByDate": {
+   "2026-10-24": [
+    90400
+   ]
+  }
+ },
+ {
+  "model": "iPhone 16e",
+  "storage": "128GB",
+  "ramEvidenceGb": [],
+  "quotes": 29,
+  "archives": 1,
+  "catalog": [
+   {
+    "id": "apple_1038",
+    "model": "Apple iPhone 16e",
+    "storage": "128GB",
+    "ram": "4GB",
+    "basePrice": 36270
+   }
+  ],
+  "status": "OK",
+  "issues": [],
+  "cashifyGetUptoByDate": {
+   "2026-10-24": [
+    37830
+   ]
+  }
+ },
+ {
+  "model": "iPhone 16e",
+  "storage": "256GB",
+  "ramEvidenceGb": [],
+  "quotes": 29,
+  "archives": 1,
+  "catalog": [
+   {
+    "id": "apple_2114",
+    "model": "Apple iPhone 16e",
+    "storage": "256GB",
+    "ram": "4GB",
+    "basePrice": 39000
+   }
+  ],
+  "status": "OK",
+  "issues": [],
+  "cashifyGetUptoByDate": {
+   "2026-10-24": [
+    39280
+   ]
+  }
+ },
+ {
+  "model": "iPhone 16e",
+  "storage": "512GB",
+  "ramEvidenceGb": [
+   8
+  ],
+  "quotes": 53,
+  "archives": 2,
+  "catalog": [
+   {
+    "id": "apple_2115",
+    "model": "Apple iPhone 16e",
+    "storage": "512GB",
+    "ram": "4GB",
+    "basePrice": 41600
+   }
+  ],
+  "status": "FLAGGED",
+  "issues": [
+   "RAM_MISMATCH: evidence 8 GB vs catalog \"4GB\" (512GB)"
+  ],
+  "cashifyGetUptoByDate": {
+   "2026-10-17": [
+    41230
+   ],
+   "2026-10-24": [
+    41220
+   ]
+  }
+ },
+ {
+  "model": "iPhone 17",
+  "storage": "256GB",
+  "ramEvidenceGb": [],
+  "quotes": 45,
+  "archives": 1,
+  "catalog": [
+   {
+    "id": "apple_2117",
+    "model": "Apple iPhone 17",
+    "storage": "256GB",
+    "ram": "4GB",
+    "basePrice": 56500
+   }
+  ],
+  "status": "FLAGGED",
+  "issues": [
+   "CATALOG_BASE_PRICE_FAR_FROM_CASHIFY: catalog 56500 vs Cashify Get Upto 65500"
+  ],
+  "cashifyGetUptoByDate": {
+   "2026-10-24": [
+    65500
+   ]
+  }
+ },
+ {
+  "model": "iPhone 17",
+  "storage": "512GB",
+  "ramEvidenceGb": [
+   8
+  ],
+  "quotes": 61,
+  "archives": 3,
+  "catalog": [
+   {
+    "id": "apple_2118",
+    "model": "Apple iPhone 17",
+    "storage": "512GB",
+    "ram": "4GB",
+    "basePrice": 65000
+   }
+  ],
+  "status": "FLAGGED",
+  "issues": [
+   "RAM_MISMATCH: evidence 8 GB vs catalog \"4GB\" (512GB)"
+  ],
+  "cashifyGetUptoByDate": {
+   "2026-10-16": [
+    67700
+   ],
+   "2026-10-24": [
+    67700
+   ]
+  }
+ },
+ {
+  "model": "iPhone 17 Pro",
+  "storage": "256GB",
+  "ramEvidenceGb": [
+   12
+  ],
+  "quotes": 30,
+  "archives": 1,
+  "catalog": [
+   {
+    "id": "apple_2123",
+    "model": "Apple iPhone 17 Pro",
+    "storage": "256GB",
+    "ram": "4GB",
+    "basePrice": 102000
+   }
+  ],
+  "status": "FLAGGED",
+  "issues": [
+   "RAM_MISMATCH: evidence 12 GB vs catalog \"4GB\" (256GB)"
+  ],
+  "cashifyGetUptoByDate": {
+   "2026-10-23": [
+    102500
+   ]
+  }
+ },
+ {
+  "model": "iPhone 17 Pro",
+  "storage": "512GB",
+  "ramEvidenceGb": [
+   12
+  ],
+  "quotes": 30,
+  "archives": 1,
+  "catalog": [
+   {
+    "id": "apple_2124",
+    "model": "Apple iPhone 17 Pro",
+    "storage": "512GB",
+    "ram": "4GB",
+    "basePrice": 106500
+   }
+  ],
+  "status": "FLAGGED",
+  "issues": [
+   "RAM_MISMATCH: evidence 12 GB vs catalog \"4GB\" (512GB)"
+  ],
+  "cashifyGetUptoByDate": {
+   "2026-10-23": [
+    107500
+   ]
+  }
+ },
+ {
+  "model": "iPhone 17 Pro",
+  "storage": "1TB",
+  "ramEvidenceGb": [
+   12
+  ],
+  "quotes": 30,
+  "archives": 1,
+  "catalog": [
+   {
+    "id": "apple_2125",
+    "model": "Apple iPhone 17 Pro",
+    "storage": "1TB",
+    "ram": "4GB",
+    "basePrice": 111500
+   }
+  ],
+  "status": "FLAGGED",
+  "issues": [
+   "RAM_MISMATCH: evidence 12 GB vs catalog \"4GB\" (1TB)"
+  ],
+  "cashifyGetUptoByDate": {
+   "2026-10-23": [
+    108500
+   ]
+  }
+ },
+ {
+  "model": "iPhone 17 Pro Max",
+  "storage": "256GB",
+  "ramEvidenceGb": [
+   12
+  ],
+  "quotes": 30,
+  "archives": 1,
+  "catalog": [
+   {
+    "id": "apple_2126",
+    "model": "Apple iPhone 17 Pro Max",
+    "storage": "256GB",
+    "ram": "12GB",
+    "basePrice": 105000
+   }
+  ],
+  "status": "OK",
+  "issues": [],
+  "cashifyGetUptoByDate": {
+   "2026-10-23": [
+    109500
+   ]
+  }
+ },
+ {
+  "model": "iPhone 17 Pro Max",
+  "storage": "512GB",
+  "ramEvidenceGb": [
+   12
+  ],
+  "quotes": 30,
+  "archives": 1,
+  "catalog": [
+   {
+    "id": "apple_2127",
+    "model": "Apple iPhone 17 Pro Max",
+    "storage": "512GB",
+    "ram": "12GB",
+    "basePrice": 110000
+   }
+  ],
+  "status": "FLAGGED",
+  "issues": [
+   "CATALOG_BASE_PRICE_FAR_FROM_CASHIFY: catalog 110000 vs Cashify Get Upto 116500"
+  ],
+  "cashifyGetUptoByDate": {
+   "2026-10-23": [
+    116500
+   ]
+  }
+ },
+ {
+  "model": "iPhone 17 Pro Max",
+  "storage": "1TB",
+  "ramEvidenceGb": [
+   12
+  ],
+  "quotes": 30,
+  "archives": 1,
+  "catalog": [
+   {
+    "id": "apple_2128",
+    "model": "Apple iPhone 17 Pro Max",
+    "storage": "1TB",
+    "ram": "12GB",
+    "basePrice": 117000
+   }
+  ],
+  "status": "OK",
+  "issues": [],
+  "cashifyGetUptoByDate": {
+   "2026-10-23": [
+    118200
+   ]
+  }
+ },
+ {
+  "model": "iPhone 17 Pro Max",
+  "storage": "2TB",
+  "ramEvidenceGb": [
+   12
+  ],
+  "quotes": 30,
+  "archives": 1,
+  "catalog": [
+   {
+    "id": "apple_2128_2tb",
+    "model": "Apple iPhone 17 Pro Max",
+    "storage": "2TB",
+    "ram": "12GB",
+    "basePrice": 123000
+   }
+  ],
+  "status": "OK",
+  "issues": [],
+  "cashifyGetUptoByDate": {
+   "2026-10-23": [
+    122500
+   ]
+  }
+ },
+ {
+  "model": "iPhone 17e",
+  "storage": "256GB",
+  "ramEvidenceGb": [
+   8
+  ],
+  "quotes": 29,
+  "archives": 1,
+  "catalog": [
+   {
+    "id": "apple_2129",
+    "model": "Apple iPhone 17e",
+    "storage": "256GB",
+    "ram": "4GB",
+    "basePrice": 45200
+   }
+  ],
+  "status": "FLAGGED",
+  "issues": [
+   "RAM_MISMATCH: evidence 8 GB vs catalog \"4GB\" (256GB)"
+  ],
+  "cashifyGetUptoByDate": {
+   "2026-10-23": [
+    46500
+   ]
+  }
+ },
+ {
+  "model": "iPhone 17e",
+  "storage": "512GB",
+  "ramEvidenceGb": [
+   8
+  ],
+  "quotes": 29,
+  "archives": 1,
+  "catalog": [
+   {
+    "id": "apple_2130",
+    "model": "Apple iPhone 17e",
+    "storage": "512GB",
+    "ram": "4GB",
+    "basePrice": 53200
+   }
+  ],
+  "status": "FLAGGED",
+  "issues": [
+   "RAM_MISMATCH: evidence 8 GB vs catalog \"4GB\" (512GB)"
+  ],
+  "cashifyGetUptoByDate": {
+   "2026-10-23": [
+    53400
+   ]
+  }
+ },
+ {
+  "model": "iPhone 18 Pro",
+  "storage": "256GB",
+  "ramEvidenceGb": [
+   12
+  ],
+  "quotes": 56,
+  "archives": 2,
+  "catalog": [
+   {
+    "id": "apple_18pro_256",
+    "model": "Apple iPhone 18 Pro",
+    "storage": "12 GB/256 GB",
+    "ram": "12 GB",
+    "basePrice": 120000
+   }
+  ],
+  "status": "FLAGGED",
+  "issues": [
+   "STORAGE_SPELLING_DIFFERS: catalog \"12 GB/256 GB\" vs evidence \"256GB\""
+  ],
+  "cashifyGetUptoByDate": {
+   "2026-10-17": [
+    120000
+   ],
+   "2026-10-23": [
+    121000
+   ]
+  }
+ },
+ {
+  "model": "iPhone 18 Pro",
+  "storage": "512GB",
+  "ramEvidenceGb": [
+   12
+  ],
+  "quotes": 56,
+  "archives": 2,
+  "catalog": [
+   {
+    "id": "apple_18pro_512",
+    "model": "Apple iPhone 18 Pro",
+    "storage": "12 GB/512 GB",
+    "ram": "12 GB",
+    "basePrice": 127000
+   }
+  ],
+  "status": "FLAGGED",
+  "issues": [
+   "STORAGE_SPELLING_DIFFERS: catalog \"12 GB/512 GB\" vs evidence \"512GB\""
+  ],
+  "cashifyGetUptoByDate": {
+   "2026-10-17": [
+    127000
+   ],
+   "2026-10-23": [
+    127000
+   ]
+  }
+ },
+ {
+  "model": "iPhone 18 Pro",
+  "storage": "1TB",
+  "ramEvidenceGb": [
+   12
+  ],
+  "quotes": 56,
+  "archives": 2,
+  "catalog": [
+   {
+    "id": "apple_18pro_1tb",
+    "model": "Apple iPhone 18 Pro",
+    "storage": "12 GB/1 TB",
+    "ram": "12 GB",
+    "basePrice": 140000
+   }
+  ],
+  "status": "FLAGGED",
+  "issues": [
+   "STORAGE_SPELLING_DIFFERS: catalog \"12 GB/1 TB\" vs evidence \"1TB\""
+  ],
+  "cashifyGetUptoByDate": {
+   "2026-10-17": [
+    140000
+   ],
+   "2026-10-23": [
+    140000
+   ]
+  }
+ },
+ {
+  "model": "iPhone 18 Pro",
+  "storage": "2TB",
+  "ramEvidenceGb": [
+   12
+  ],
+  "quotes": 56,
+  "archives": 2,
+  "catalog": [
+   {
+    "id": "apple_18pro_2tb",
+    "model": "Apple iPhone 18 Pro",
+    "storage": "12 GB/2 TB",
+    "ram": "12 GB",
+    "basePrice": 160000
+   }
+  ],
+  "status": "FLAGGED",
+  "issues": [
+   "STORAGE_SPELLING_DIFFERS: catalog \"12 GB/2 TB\" vs evidence \"2TB\""
+  ],
+  "cashifyGetUptoByDate": {
+   "2026-10-17": [
+    160000
+   ],
+   "2026-10-23": [
+    160000
+   ]
+  }
+ },
+ {
+  "model": "iPhone 18 Pro Max",
+  "storage": "256GB",
+  "ramEvidenceGb": [
+   12
+  ],
+  "quotes": 56,
+  "archives": 2,
+  "catalog": [
+   {
+    "id": "apple_18pm_256",
+    "model": "Apple iPhone 18 Pro Max",
+    "storage": "12 GB/256 GB",
+    "ram": "12 GB",
+    "basePrice": 130000
+   }
+  ],
+  "status": "FLAGGED",
+  "issues": [
+   "STORAGE_SPELLING_DIFFERS: catalog \"12 GB/256 GB\" vs evidence \"256GB\""
+  ],
+  "cashifyGetUptoByDate": {
+   "2026-10-17": [
+    130000
+   ],
+   "2026-10-23": [
+    130000
+   ]
+  }
+ },
+ {
+  "model": "iPhone 18 Pro Max",
+  "storage": "512GB",
+  "ramEvidenceGb": [
+   12
+  ],
+  "quotes": 56,
+  "archives": 2,
+  "catalog": [
+   {
+    "id": "apple_18pm_512",
+    "model": "Apple iPhone 18 Pro Max",
+    "storage": "12 GB/512 GB",
+    "ram": "12 GB",
+    "basePrice": 137000
+   }
+  ],
+  "status": "FLAGGED",
+  "issues": [
+   "STORAGE_SPELLING_DIFFERS: catalog \"12 GB/512 GB\" vs evidence \"512GB\""
+  ],
+  "cashifyGetUptoByDate": {
+   "2026-10-17": [
+    137000
+   ],
+   "2026-10-23": [
+    137000
+   ]
+  }
+ },
+ {
+  "model": "iPhone 18 Pro Max",
+  "storage": "1TB",
+  "ramEvidenceGb": [
+   12
+  ],
+  "quotes": 56,
+  "archives": 2,
+  "catalog": [
+   {
+    "id": "apple_18pm_1tb",
+    "model": "Apple iPhone 18 Pro Max",
+    "storage": "12 GB/1 TB",
+    "ram": "12 GB",
+    "basePrice": 145000
+   }
+  ],
+  "status": "FLAGGED",
+  "issues": [
+   "STORAGE_SPELLING_DIFFERS: catalog \"12 GB/1 TB\" vs evidence \"1TB\""
+  ],
+  "cashifyGetUptoByDate": {
+   "2026-10-17": [
+    145000
+   ],
+   "2026-10-23": [
+    145000
+   ]
+  }
+ },
+ {
+  "model": "iPhone 18 Pro Max",
+  "storage": "2TB",
+  "ramEvidenceGb": [
+   12
+  ],
+  "quotes": 261,
+  "archives": 3,
+  "catalog": [
+   {
+    "id": "apple_18pm_2tb",
+    "model": "Apple iPhone 18 Pro Max",
+    "storage": "12 GB/2 TB",
+    "ram": "12 GB",
+    "basePrice": 165000
+   }
+  ],
+  "status": "FLAGGED",
+  "issues": [
+   "STORAGE_SPELLING_DIFFERS: catalog \"12 GB/2 TB\" vs evidence \"2TB\""
+  ],
+  "cashifyGetUptoByDate": {
+   "2026-10-17": [
+    165000
+   ],
+   "2026-10-22": [
+    165000
+   ],
+   "2026-10-23": [
+    165000
+   ]
+  }
+ },
+ {
+  "model": "iPhone Air",
+  "storage": "256GB",
+  "ramEvidenceGb": [
+   12
+  ],
+  "quotes": 30,
+  "archives": 1,
+  "catalog": [
+   {
+    "id": "apple_2120",
+    "model": "Apple iPhone Air",
+    "storage": "256GB",
+    "ram": "4GB",
+    "basePrice": 68000
+   }
+  ],
+  "status": "FLAGGED",
+  "issues": [
+   "RAM_MISMATCH: evidence 12 GB vs catalog \"4GB\" (256GB)"
+  ],
+  "cashifyGetUptoByDate": {
+   "2026-10-23": [
+    70000
+   ]
+  }
+ },
+ {
+  "model": "iPhone Air",
+  "storage": "512GB",
+  "ramEvidenceGb": [
+   12
+  ],
+  "quotes": 54,
+  "archives": 2,
+  "catalog": [
+   {
+    "id": "apple_2121",
+    "model": "Apple iPhone Air",
+    "storage": "512GB",
+    "ram": "4GB",
+    "basePrice": 77000
+   }
+  ],
+  "status": "FLAGGED",
+  "issues": [
+   "RAM_MISMATCH: evidence 12 GB vs catalog \"4GB\" (512GB)"
+  ],
+  "cashifyGetUptoByDate": {
+   "2026-10-17": [
+    75200
+   ],
+   "2026-10-23": [
+    75200
+   ]
+  }
+ },
+ {
+  "model": "iPhone Air",
+  "storage": "1TB",
+  "ramEvidenceGb": [
+   12
+  ],
+  "quotes": 30,
+  "archives": 1,
+  "catalog": [
+   {
+    "id": "apple_2122",
+    "model": "Apple iPhone Air",
+    "storage": "1TB",
+    "ram": "4GB",
+    "basePrice": 87000
+   }
+  ],
+  "status": "FLAGGED",
+  "issues": [
+   "RAM_MISMATCH: evidence 12 GB vs catalog \"4GB\" (1TB)"
+  ],
+  "cashifyGetUptoByDate": {
+   "2026-10-23": [
+    87000
+   ]
+  }
+ },
+ {
+  "model": "iPhone X",
+  "storage": "256GB",
+  "ramEvidenceGb": [
+   3
+  ],
+  "quotes": 27,
+  "archives": 2,
+  "catalog": [
+   {
+    "id": "apple_2028",
+    "model": "Apple iPhone X",
+    "storage": "256GB",
+    "ram": "4GB",
+    "basePrice": 10240
+   }
+  ],
+  "status": "FLAGGED",
+  "issues": [
+   "RAM_MISMATCH: evidence 3 GB vs catalog \"4GB\" (256GB)"
+  ],
+  "cashifyGetUptoByDate": {
+   "2026-10-17": [
+    10020
+   ]
+  }
+ }
+]

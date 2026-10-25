@@ -1,0 +1,8 @@
+﻿config,kind,date,selling,base,outcome,source
+iPhone 16|512|yes|yes|yes|no|yes|yes|not_asked|not_asked|not_shown|,across-dates,2026-10-17,44760,44780,NUMERIC_QUOTE,iPhone_16_512GB_24_Test_Cases (1).zip::iPhone_16_8GB_512GB_24_Test_Cases.txt::15
+iPhone 16|512|yes|yes|yes|no|yes|yes|not_asked|not_asked|not_shown|,across-dates,2026-10-24,45210,45230,NUMERIC_QUOTE,Cashify_iPhone16_Full_Checklist.zip::Full_Checklist_Data.json::W00
+iPhone 16 Plus|512|yes|yes|yes|no|yes|yes|not_asked|not_asked|not_shown|,across-dates,2026-10-17,45470,45490,NUMERIC_QUOTE,iPhone_16_Plus_512GB_24_Test_Cases.zip::iPhone_16_Plus_512GB_24_Test_Cases.txt::15
+iPhone 16 Plus|512|yes|yes|yes|no|yes|yes|not_asked|not_asked|not_shown|,across-dates,2026-10-24,45880,45900,NUMERIC_QUOTE,Cashify_iPhone16Plus_Full_Checklist (1).zip::Full_Checklist_Data.json::W00
+iPhone 18 Pro|256|yes|yes|yes|yes|yes|yes|yes|not_asked|Below 3 months|,same-day,2026-10-17,119980,120000,NUMERIC_QUOTE,iPhone_18_Pro_256GB_25_Test_Cases.zip::iPhone_18_Pro_12GB_256GB_25_Test_Cases.txt::25
+iPhone 18 Pro|256|yes|yes|yes|yes|yes|yes|yes|not_asked|Below 3 months|,same-day,2026-10-23,120980,121000,NUMERIC_QUOTE,Cashify_iPhone18_Pro_Pricing.zip::all_variants_pricing_data.json::LIVE_B00
+iPhone 18 Pro|256|yes|yes|yes|yes|yes|yes|yes|not_asked|Below 3 months|,same-day,2026-10-23,120980,121000,NUMERIC_QUOTE,Cashify_iPhone18_Pro_Pricing.zip::all_variants_pricing_data.json::LIVE_B99

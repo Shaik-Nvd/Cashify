@@ -92,7 +92,7 @@ async function pageRequestsQuote(svc: ReturnType<typeof setup>['svc'], diag: unk
   const q = await svc.quote({ ...DEVICE, diagnostics: diag });
   if (!q.ok) throw new Error(q.code);
   const { internal, ok, ...publicResponse } = q; // exactly what the controller sends
-  return { device: { ...DEVICE }, price: publicResponse.fhoneifyPrice, getUpto: publicResponse.startingPrice, token: publicResponse.quoteToken, expiresAt: publicResponse.expiresAt, diagnostics: diag };
+  return { device: { ...DEVICE }, price: publicResponse.fhoneifyPrice, getUpto: publicResponse.startingPrice, token: publicResponse.quoteToken, expiresAt: publicResponse.expiresAt, diagnostics: diag, couponHeadroom: publicResponse.couponHeadroom };
 }
 
 /** The lead endpoint: verify, then store what createLead stores. */
@@ -142,7 +142,10 @@ async function run() {
     const { svc } = setup();
     const shown = await pageRequestsQuote(svc, ANSWERS);
     const lead = await submitLead(svc, shown, true);
-    assert.equal(lead.answers.pricing.customerPayout.payout, shown.price - 99 + 299);
+    // the coupon bonus is clamped to what still fits under the owner's payout ceiling (lib/pricing/payoutCeiling.ts)
+    assert.ok(typeof shown.couponHeadroom === 'number' && shown.couponHeadroom >= 0 && shown.couponHeadroom <= 299);
+    assert.equal(lead.answers.pricing.customerPayout.payout, shown.price - 99 + shown.couponHeadroom);
+    assert.equal(lead.answers.pricing.customerPayout.payout, customerPayout(shown.price, true, shown.couponHeadroom).payout, 'screen and stored lead use one function');
     assert.equal(lead.answers.pricing.couponClaimed, true);
     assert.equal(lead.quotedPrice, shown.price, 'the engine price column is not altered by the coupon');
   });

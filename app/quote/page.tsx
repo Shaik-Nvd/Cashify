@@ -1048,7 +1048,9 @@ export default function QuotePage() {
         ...(isQuestionMode(q.boxMode) ? { boxMode: q.boxMode } : {}), ...(isQuestionMode(q.chargerMode) ? { chargerMode: q.chargerMode } : {}),
         ...(isQuestionMode(q.sPenMode) ? { sPenMode: q.sPenMode } : {}), ...(isQuestionMode(q.eSimMode) ? { eSimMode: q.eSimMode } : {}) }
       : UNKNOWN_QUESTIONNAIRE;
-    return { device: { brand, model, storage }, price: d.fhoneifyPrice, getUpto: d.startingPrice, token: d.quoteToken, expiresAt: d.expiresAt, diagnostics: diag, questionnaire, pricingVersion: d.pricingVersion };
+    return { device: { brand, model, storage }, price: d.fhoneifyPrice, getUpto: d.startingPrice, token: d.quoteToken, expiresAt: d.expiresAt, diagnostics: diag, questionnaire, pricingVersion: d.pricingVersion,
+      // How much of the first-time coupon fits under the payout ceiling; absent from older servers (then the full bonus applies).
+      ...(typeof d.couponHeadroom === 'number' && Number.isFinite(d.couponHeadroom) ? { couponHeadroom: d.couponHeadroom } : {}) };
   };
 
   const describePricingError = (err: any) =>
@@ -2769,7 +2771,7 @@ export default function QuotePage() {
                     // Check the concrete fields this UI sends. The previous
                     // legacy-id check could never see lines, discoloration or
                     // bent-panel answers.
-                    const hasWarrantyVoidingDefects = warrantyVoidedByDiagnostics(diagnostics);
+                    const hasWarrantyVoidingDefects = warrantyVoidedByDiagnostics(diagnostics, { model: selectedModel, storage: selectedStorage });
 
                     // Even if validBill is false, Cashify still asks for the mobile age and applies an age deduction
                     // in addition to the missing bill deduction.
@@ -2983,7 +2985,7 @@ export default function QuotePage() {
               <h2 style={{ fontSize: '1.25rem', fontWeight: 600, marginBottom: '0.25rem' }}>{getDisplayModelName(selectedBrand, selectedModel)} ({selectedStorage})</h2>
               <p style={{ color: 'var(--muted)', fontSize: '0.85rem', marginBottom: '0.5rem' }}>Estimated value :</p>
               <p style={{ fontSize: '2rem', fontWeight: 700, color: 'var(--gold)', lineHeight: 1 }}>
-                {formatCurrency(customerPayout(finalPrice, appliedCoupon).payout)}
+                {formatCurrency(customerPayout(finalPrice, appliedCoupon, activeFinalQuote?.couponHeadroom).payout)}
               </p>
               <button 
                 onClick={() => {

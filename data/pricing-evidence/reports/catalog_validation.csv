@@ -1,0 +1,58 @@
+﻿model,storage,status,issues
+iPhone 14,128GB,FLAGGED,"RAM_MISMATCH: evidence 6 GB vs catalog ""4GB"" (128GB)"
+iPhone 14,256GB,FLAGGED,"RAM_MISMATCH: evidence 6 GB vs catalog ""4GB"" (256GB)"
+iPhone 14,512GB,FLAGGED,"RAM_MISMATCH: evidence 6 GB vs catalog ""4GB"" (512GB)"
+iPhone 14 Pro,128GB,FLAGGED,"RAM_MISMATCH: evidence 6 GB vs catalog ""4GB"" (128GB)"
+iPhone 14 Pro,256GB,FLAGGED,"RAM_MISMATCH: evidence 6 GB vs catalog ""4GB"" (256GB)"
+iPhone 14 Pro,512GB,FLAGGED,"RAM_MISMATCH: evidence 6 GB vs catalog ""4GB"" (512GB)"
+iPhone 14 Pro,1TB,FLAGGED,"RAM_MISMATCH: evidence 6 GB vs catalog ""4GB"" (1TB)"
+iPhone 15,128GB,FLAGGED,CATALOG_BASE_PRICE_FAR_FROM_CASHIFY: catalog 38520 vs Cashify Get Upto 42220
+iPhone 15,256GB,OK,
+iPhone 15,512GB,FLAGGED,"RAM_MISMATCH: evidence 6 GB vs catalog ""4GB"" (512GB)"
+iPhone 15 Plus,128GB,OK,
+iPhone 15 Plus,256GB,OK,
+iPhone 15 Plus,512GB,FLAGGED,"RAM_MISMATCH: evidence 6 GB vs catalog ""4GB"" (512GB)"
+iPhone 15 Pro,128GB,OK,
+iPhone 15 Pro,256GB,OK,
+iPhone 15 Pro,512GB,FLAGGED,"RAM_MISMATCH: evidence 8 GB vs catalog ""4GB"" (512GB)"
+iPhone 15 Pro,1TB,OK,
+iPhone 15 Pro Max,512GB,FLAGGED,"RAM_MISMATCH: evidence 8 GB vs catalog ""4GB"" (512GB)"
+iPhone 16,128GB,FLAGGED,CATALOG_BASE_PRICE_FAR_FROM_CASHIFY: catalog 46550 vs Cashify Get Upto 52800
+iPhone 16,256GB,FLAGGED,CATALOG_BASE_PRICE_FAR_FROM_CASHIFY: catalog 50960 vs Cashify Get Upto 54720
+iPhone 16,512GB,FLAGGED,"RAM_MISMATCH: evidence 8 GB vs catalog ""4GB"" (512GB) | CATALOG_BASE_PRICE_FAR_FROM_CASHIFY: catalog 52470 vs Cashify Get Upto 55680"
+iPhone 16 Plus,128GB,OK,
+iPhone 16 Plus,256GB,OK,
+iPhone 16 Plus,512GB,FLAGGED,"RAM_MISMATCH: evidence 8 GB vs catalog ""4GB"" (512GB)"
+iPhone 16 Pro,128GB,OK,
+iPhone 16 Pro,256GB,OK,
+iPhone 16 Pro,512GB,OK,
+iPhone 16 Pro,1TB,OK,
+iPhone 16 Pro Max,256GB,OK,
+iPhone 16 Pro Max,512GB,FLAGGED,"RAM_MISMATCH: evidence 8 GB vs catalog ""4GB"" (512GB)"
+iPhone 16 Pro Max,1TB,OK,
+iPhone 16e,128GB,OK,
+iPhone 16e,256GB,OK,
+iPhone 16e,512GB,FLAGGED,"RAM_MISMATCH: evidence 8 GB vs catalog ""4GB"" (512GB)"
+iPhone 17,256GB,FLAGGED,CATALOG_BASE_PRICE_FAR_FROM_CASHIFY: catalog 56500 vs Cashify Get Upto 65500
+iPhone 17,512GB,FLAGGED,"RAM_MISMATCH: evidence 8 GB vs catalog ""4GB"" (512GB)"
+iPhone 17 Pro,256GB,FLAGGED,"RAM_MISMATCH: evidence 12 GB vs catalog ""4GB"" (256GB)"
+iPhone 17 Pro,512GB,FLAGGED,"RAM_MISMATCH: evidence 12 GB vs catalog ""4GB"" (512GB)"
+iPhone 17 Pro,1TB,FLAGGED,"RAM_MISMATCH: evidence 12 GB vs catalog ""4GB"" (1TB)"
+iPhone 17 Pro Max,256GB,OK,
+iPhone 17 Pro Max,512GB,FLAGGED,CATALOG_BASE_PRICE_FAR_FROM_CASHIFY: catalog 110000 vs Cashify Get Upto 116500
+iPhone 17 Pro Max,1TB,OK,
+iPhone 17 Pro Max,2TB,OK,
+iPhone 17e,256GB,FLAGGED,"RAM_MISMATCH: evidence 8 GB vs catalog ""4GB"" (256GB)"
+iPhone 17e,512GB,FLAGGED,"RAM_MISMATCH: evidence 8 GB vs catalog ""4GB"" (512GB)"
+iPhone 18 Pro,256GB,FLAGGED,"STORAGE_SPELLING_DIFFERS: catalog ""12 GB/256 GB"" vs evidence ""256GB"""
+iPhone 18 Pro,512GB,FLAGGED,"STORAGE_SPELLING_DIFFERS: catalog ""12 GB/512 GB"" vs evidence ""512GB"""
+iPhone 18 Pro,1TB,FLAGGED,"STORAGE_SPELLING_DIFFERS: catalog ""12 GB/1 TB"" vs evidence ""1TB"""
+iPhone 18 Pro,2TB,FLAGGED,"STORAGE_SPELLING_DIFFERS: catalog ""12 GB/2 TB"" vs evidence ""2TB"""
+iPhone 18 Pro Max,256GB,FLAGGED,"STORAGE_SPELLING_DIFFERS: catalog ""12 GB/256 GB"" vs evidence ""256GB"""
+iPhone 18 Pro Max,512GB,FLAGGED,"STORAGE_SPELLING_DIFFERS: catalog ""12 GB/512 GB"" vs evidence ""512GB"""
+iPhone 18 Pro Max,1TB,FLAGGED,"STORAGE_SPELLING_DIFFERS: catalog ""12 GB/1 TB"" vs evidence ""1TB"""
+iPhone 18 Pro Max,2TB,FLAGGED,"STORAGE_SPELLING_DIFFERS: catalog ""12 GB/2 TB"" vs evidence ""2TB"""
+iPhone Air,256GB,FLAGGED,"RAM_MISMATCH: evidence 12 GB vs catalog ""4GB"" (256GB)"
+iPhone Air,512GB,FLAGGED,"RAM_MISMATCH: evidence 12 GB vs catalog ""4GB"" (512GB)"
+iPhone Air,1TB,FLAGGED,"RAM_MISMATCH: evidence 12 GB vs catalog ""4GB"" (1TB)"
+iPhone X,256GB,FLAGGED,"RAM_MISMATCH: evidence 3 GB vs catalog ""4GB"" (256GB)"

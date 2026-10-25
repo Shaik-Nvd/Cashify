@@ -1,0 +1,1966 @@
+{
+ "archive_hash_duplicates": [
+  [
+   "Cashify_iPhone16Plus_Full_Checklist (1).zip",
+   "Cashify_iPhone16Plus_Full_Checklist.zip"
+  ]
+ ],
+ "archives": [
+  {
+   "archive": "Cashify_iPhone15Plus_Full_Checklist.zip",
+   "declared_coverage": {
+    "accounted_for": 90,
+    "checklist_entries": 90,
+    "declined_quotes": 4,
+    "not_applicable": 3,
+    "numeric_quotes": 83,
+    "pending": 0,
+    "status": "COMPLETE"
+   },
+   "members": [
+    {
+     "member": "Full_Checklist_Comparison.html",
+     "role": "alternative_representation_hash_only",
+     "sha256": "59ca0c5efafcc5d0aec380fb95d1613695291acc359d87e55e86869239f74a14",
+     "size": 66550
+    },
+    {
+     "member": "Full_Checklist_Data.json",
+     "role": "ignored",
+     "sha256": "50c7194b1afb02ce0a0dd0987055d7a84835753614ece814eb84c7e836adbcfd",
+     "size": 51589
+    },
+    {
+     "member": "Full_Checklist_Report.txt",
+     "role": "ignored",
+     "sha256": "0b54b3f66e9fe0e18dc73567bdc8a3871f63a433d9a2b75bc4cad0a1295d7e4a",
+     "size": 40047
+    }
+   ],
+   "primary": "Full_Checklist_Data.json",
+   "sha256": "99352dcce6bff74df34ca6dea942ebf072061fe62a183899786beb201a2cac27",
+   "size": 14329
+  },
+  {
+   "archive": "Cashify_iPhone15Pro_Full_Checklist.zip",
+   "declared_coverage": {
+    "accounted_for": 120,
+    "checklist_entries": 120,
+    "declined_quotes": 4,
+    "not_applicable": 0,
+    "numeric_quotes": 116,
+    "pending": 0,
+    "status": "COMPLETE"
+   },
+   "members": [
+    {
+     "member": "Full_Checklist_Comparison.html",
+     "role": "alternative_representation_hash_only",
+     "sha256": "8dfaeca049c4c1ce3e7d744baeb82607206d5faba730c2f54a9d8962bb6e12db",
+     "size": 88651
+    },
+    {
+     "member": "Full_Checklist_Data.json",
+     "role": "ignored",
+     "sha256": "36c8e2a5941de2d605fdd86c1b5277ec99907cd77e3f9efcc5e28e3cec939e04",
+     "size": 64846
+    },
+    {
+     "member": "Full_Checklist_Report.txt",
+     "role": "ignored",
+     "sha256": "ce571b2b95c0905c0edd818bb656b4f2b7f6ae6c635ecb46fccb9a0e75feb1fd",
+     "size": 52251
+    }
+   ],
+   "primary": "Full_Checklist_Data.json",
+   "sha256": "3c9448420f9b1fae81325ec834fa195e585b0370d0b0d9664187168a2f85c99e",
+   "size": 16066
+  },
+  {
+   "archive": "Cashify_iPhone15_Full_Checklist.zip",
+   "declared_coverage": {
+    "accounted_for": 90,
+    "checklist_entries": 90,
+    "declined_quotes": 5,
+    "not_applicable": 3,
+    "numeric_quotes": 82,
+    "pending": 0,
+    "status": "COMPLETE"
+   },
+   "members": [
+    {
+     "member": "Full_Checklist_Comparison.html",
+     "role": "alternative_representation_hash_only",
+     "sha256": "3d6d5b9ff0cff6ededceaf61b24d4fab111bf68e769da4b70952127cf55a4f7a",
+     "size": 66497
+    },
+    {
+     "member": "Full_Checklist_Data.json",
+     "role": "ignored",
+     "sha256": "26653defbf7f02c2f0d2fb8c8a414da025dbbcefaf8f00c60199d70414b49155",
+     "size": 51540
+    },
+    {
+     "member": "Full_Checklist_Report.txt",
+     "role": "ignored",
+     "sha256": "8cf939d96d1167799e21620636d7e80844ed531c6d6f4d8d9dfb9f4ef1e8d06c",
+     "size": 39999
+    }
+   ],
+   "primary": "Full_Checklist_Data.json",
+   "sha256": "ba440a0addb5a8549a84e706c91a9912a86748a4c4b0ecbcaee06a51773e91e8",
+   "size": 14145
+  },
+  {
+   "archive": "Cashify_iPhone16Plus_Full_Checklist (1).zip",
+   "declared_coverage": {
+    "accounted_for": 90,
+    "checklist_entries": 90,
+    "declined_quotes": 6,
+    "not_applicable": 3,
+    "numeric_quotes": 81,
+    "pending": 0,
+    "status": "COMPLETE"
+   },
+   "members": [
+    {
+     "member": "Full_Checklist_Comparison.html",
+     "role": "alternative_representation_hash_only",
+     "sha256": "2116f8978d97435e37bd5e8471a7f70d53d089969b7ddff60ccaa89cbb5842ef",
+     "size": 66222
+    },
+    {
+     "member": "Full_Checklist_Data.json",
+     "role": "ignored",
+     "sha256": "2475216be8797bbbff7da95c800f60b52a00660e280e576c44cc3efb999ef728",
+     "size": 51218
+    },
+    {
+     "member": "Full_Checklist_Report.txt",
+     "role": "ignored",
+     "sha256": "d2cdc75c20fa3bdfab6f5d496655568435e386d441d3c0af45bde67b095450b3",
+     "size": 39751
+    }
+   ],
+   "primary": "Full_Checklist_Data.json",
+   "sha256": "647786fa56edcfdeb09874ad6a5862a0900b18bee4a9504dbbea896b82a0414d",
+   "size": 14092
+  },
+  {
+   "archive": "Cashify_iPhone16Plus_Full_Checklist.zip",
+   "declared_coverage": {
+    "accounted_for": 90,
+    "checklist_entries": 90,
+    "declined_quotes": 6,
+    "not_applicable": 3,
+    "numeric_quotes": 81,
+    "pending": 0,
+    "status": "COMPLETE"
+   },
+   "members": [
+    {
+     "member": "Full_Checklist_Comparison.html",
+     "role": "alternative_representation_hash_only",
+     "sha256": "2116f8978d97435e37bd5e8471a7f70d53d089969b7ddff60ccaa89cbb5842ef",
+     "size": 66222
+    },
+    {
+     "member": "Full_Checklist_Data.json",
+     "role": "ignored",
+     "sha256": "2475216be8797bbbff7da95c800f60b52a00660e280e576c44cc3efb999ef728",
+     "size": 51218
+    },
+    {
+     "member": "Full_Checklist_Report.txt",
+     "role": "ignored",
+     "sha256": "d2cdc75c20fa3bdfab6f5d496655568435e386d441d3c0af45bde67b095450b3",
+     "size": 39751
+    }
+   ],
+   "primary": "Full_Checklist_Data.json",
+   "sha256": "647786fa56edcfdeb09874ad6a5862a0900b18bee4a9504dbbea896b82a0414d",
+   "size": 14092
+  },
+  {
+   "archive": "Cashify_iPhone16ProMax_All_90_Cases.zip",
+   "declared_coverage": {
+    "accounted_for": 90,
+    "checklist_entries": 90,
+    "declined_quotes": 3,
+    "not_applicable": 0,
+    "numeric_quotes": 87,
+    "pending": 0,
+    "status": "COMPLETE"
+   },
+   "members": [
+    {
+     "member": "Full_Checklist_Comparison.html",
+     "role": "alternative_representation_hash_only",
+     "sha256": "d072458eace780e9b49da1f6a7ea940d8b9217ecc87c112700463eede2da4058",
+     "size": 67613
+    },
+    {
+     "member": "Full_Checklist_Data.json",
+     "role": "ignored",
+     "sha256": "d4fa0dd25644668c98e4893c82da67fa0aa1975c7d7bb7a55d9444c1a6e6f4f6",
+     "size": 52102
+    },
+    {
+     "member": "Full_Checklist_Report.txt",
+     "role": "ignored",
+     "sha256": "8a5255939255e85c163b8e9d48142ef4067af6614a272247c432c1e6a0e21a8c",
+     "size": 40297
+    }
+   ],
+   "primary": "Full_Checklist_Data.json",
+   "sha256": "a21c931227990ee62957ce45684fc8370ebd3956faabe28fe3ac471f61448c44",
+   "size": 14640
+  },
+  {
+   "archive": "Cashify_iPhone16Pro_All_120_Cases.zip",
+   "declared_coverage": {
+    "charger_checks_not_applicable": 8,
+    "completed_live_outcomes": 120,
+    "declined_quotes": 4,
+    "numeric_quotes": 116,
+    "planned_live_outcomes": 120,
+    "unverified": 0
+   },
+   "members": [
+    {
+     "member": "All_120_Cases_Comparison.html",
+     "role": "alternative_representation_hash_only",
+     "sha256": "caa95805cb0b24a689166434e1f2e7a7fbf0f2c0d818b6781995e6dbe649c012",
+     "size": 88922
+    },
+    {
+     "member": "All_120_Cases_Data.json",
+     "role": "ignored",
+     "sha256": "c1c53b9f33387dfeeb9375263c09f731ea1384c8d1b7c244122eee9f54b4b447",
+     "size": 64920
+    },
+    {
+     "member": "All_120_Cases_Report.txt",
+     "role": "ignored",
+     "sha256": "def1ad02d9c8ea03d35084f4ea7a3567779dee20584fb005ab2a7c2e319f7aac",
+     "size": 52194
+    }
+   ],
+   "primary": "All_120_Cases_Data.json",
+   "sha256": "526d897024550d6fb8c316a7775441890210a97ed529a0558521fc5c900d59e9",
+   "size": 16264
+  },
+  {
+   "archive": "Cashify_iPhone16_Full_Checklist.zip",
+   "declared_coverage": {
+    "accounted_for": 90,
+    "checklist_entries": 90,
+    "declined_quotes": 6,
+    "not_applicable": 3,
+    "numeric_quotes": 81,
+    "pending": 0,
+    "status": "COMPLETE"
+   },
+   "members": [
+    {
+     "member": "Full_Checklist_Comparison.html",
+     "role": "alternative_representation_hash_only",
+     "sha256": "8a4ed8f5f28e1cb44ecfb1fc401aa2695a565aefe64aa0d91947db6d1be74e1a",
+     "size": 66207
+    },
+    {
+     "member": "Full_Checklist_Data.json",
+     "role": "ignored",
+     "sha256": "fb1a11e3dbb16435b31a8131fb35bfbbe6642eb5a1bc8a459a241a35177d7df7",
+     "size": 51301
+    },
+    {
+     "member": "Full_Checklist_Report.txt",
+     "role": "ignored",
+     "sha256": "2785c87dbfaa2d8576a7c789b8c7d3f23d96a760d7c562e4d154923ee91871c8",
+     "size": 39745
+    }
+   ],
+   "primary": "Full_Checklist_Data.json",
+   "sha256": "e0d1bfa6f36647bfd913e598d61e303f8b53435a5d3ab1d050365fa635d05368",
+   "size": 13952
+  },
+  {
+   "archive": "Cashify_iPhone16e_All_90_Cases.zip",
+   "declared_coverage": {
+    "accounted_for": 90,
+    "checklist_entries": 90,
+    "declined_quotes": 6,
+    "not_applicable": 3,
+    "numeric_quotes": 81,
+    "pending": 0,
+    "status": "COMPLETE"
+   },
+   "members": [
+    {
+     "member": "Full_Checklist_Comparison.html",
+     "role": "alternative_representation_hash_only",
+     "sha256": "bccc2cb4a9e028ceecf0fa5c5b1ec91745a79898d7f3b426bb117497c3761a9b",
+     "size": 66287
+    },
+    {
+     "member": "Full_Checklist_Data.json",
+     "role": "ignored",
+     "sha256": "2b941cfcef9d319738d0cbad85f3c580be32547bb87edcc6780a156bd5917902",
+     "size": 51368
+    },
+    {
+     "member": "Full_Checklist_Report.txt",
+     "role": "ignored",
+     "sha256": "ec96b8b462bfdd7de6cadda077d2deed087ffff4251bfee978f9c107629a89b6",
+     "size": 39788
+    }
+   ],
+   "primary": "Full_Checklist_Data.json",
+   "sha256": "9fd134a67f28721777bf70ab5e3660272e06c543e76d772b8e37d9d6a3753b15",
+   "size": 14052
+  },
+  {
+   "archive": "Cashify_iPhone17_All_90_Cases.zip",
+   "declared_coverage": {
+    "accounted_for": 90,
+    "checklist_entries": 90,
+    "declined_quotes": 2,
+    "not_applicable": 0,
+    "numeric_quotes": 88,
+    "pending": 0,
+    "status": "COMPLETE"
+   },
+   "members": [
+    {
+     "member": "Full_Checklist_Comparison.html",
+     "role": "alternative_representation_hash_only",
+     "sha256": "ee9d30a3381d78583bf33c3b333e1abd1bacda36861bd067ab5b5b4eb6eda52f",
+     "size": 67260
+    },
+    {
+     "member": "Full_Checklist_Data.json",
+     "role": "ignored",
+     "sha256": "6ad3f3364a4d16476a8edbed1fba2e5375001fe106cd4ec58cd604ee7028256c",
+     "size": 54838
+    },
+    {
+     "member": "Full_Checklist_Report.txt",
+     "role": "ignored",
+     "sha256": "10d712f0e00e3fc0c30b66c9cdc4d8707e7f54c28a0758863041382f0d44cc6e",
+     "size": 40928
+    }
+   ],
+   "primary": "Full_Checklist_Data.json",
+   "sha256": "3d8bb5b99570f5db81fa4490da26e26f29c3e8c4c45136eeddce286e89a37160",
+   "size": 15161
+  },
+  {
+   "archive": "Cashify_iPhone17_Pro_Max_Pricing.zip",
+   "declared_coverage": "32-case checklist per variant: 30 live outcomes and 2 charger cases not applicable. Four variants: 118 numeric quotes, 2 no-offer outcomes and 8 not-applicable entries. Single eSIM for standard cases; Dual eSIM only for the flawless E01 baseline. Not exhaustive.",
+   "members": [
+    {
+     "member": "All_Variants_Comparison.html",
+     "role": "alternative_representation_hash_only",
+     "sha256": "731b7afd59a7f412139cf8be418cb371f189eed19629d1d8635d220a5bf3c4d9",
+     "size": 47540
+    },
+    {
+     "member": "All_Variants_Report.txt",
+     "role": "ignored",
+     "sha256": "6dc7eb4fe7da3d2a5ac0f13508256211639c9a2c82208fb65dfa9aab9c53c7f7",
+     "size": 20489
+    },
+    {
+     "member": "match_price.py",
+     "role": "not_executed_hash_only",
+     "sha256": "ab5c6cd7bf2152dddf192ff7c9bd202a5c89cf4e75d616357ec6d7194bd9ffd5",
+     "size": 2944
+    },
+    {
+     "member": "pricing_data.json",
+     "role": "ignored",
+     "sha256": "8c4a8d74e66ecd9fdeebe00d2455065111cecbebc6f3e1c413f6811e964bebfb",
+     "size": 71374
+    }
+   ],
+   "primary": "pricing_data.json",
+   "sha256": "f1486e994e4071e779b3d13a1351f10daec30f3e04eaa8e960ca30e3a692025b",
+   "size": 18795
+  },
+  {
+   "archive": "Cashify_iPhone17e_Pricing.zip",
+   "declared_coverage": "31-case checklist assessed for each storage variant: 29 live quote checks and 2 charger cases not applicable. Across both variants: 55 numeric quotes, 3 no-offer outcomes and 4 not-applicable entries. Not exhaustive.",
+   "members": [
+    {
+     "member": "All_Variants_Comparison.html",
+     "role": "alternative_representation_hash_only",
+     "sha256": "7daa4fa886943e4336b2fc851a3bd011db13d6616158b8964e6c469b83b3393c",
+     "size": 26535
+    },
+    {
+     "member": "All_Variants_Report.txt",
+     "role": "ignored",
+     "sha256": "05d458079f7f626ea77810c59b66b37efd8735d60f4860f07f8bf1fdc3fbd9f2",
+     "size": 15713
+    },
+    {
+     "member": "match_price.py",
+     "role": "not_executed_hash_only",
+     "sha256": "3502456ac61836a9a3b425997fca8b50ce650354c95e29e573785059d049b078",
+     "size": 2688
+    },
+    {
+     "member": "pricing_data.json",
+     "role": "ignored",
+     "sha256": "fcf9144312356761c8f2e0533cf20207788798d62bd33e17151e84303c88795a",
+     "size": 35037
+    }
+   ],
+   "primary": "pricing_data.json",
+   "sha256": "5bf2c24fcd8ae9d99c27af140998e6c36ea3438901a3fec7f22bac93c0366e2a",
+   "size": 13683
+  },
+  {
+   "archive": "Cashify_iPhone18_Pro_Max_2TB_Test_Results_160_cases.zip",
+   "members": [
+    {
+     "member": "Pair_Matrix.csv",
+     "role": "ignored",
+     "sha256": "0733aeeba8433c0e420889746323ce64aeff92d9a97c2c3d361ab085076fd5f5",
+     "size": 67577
+    },
+    {
+     "member": "Pair_Report.txt",
+     "role": "ignored",
+     "sha256": "39c7c144938cc737cd6fefd1d7927e35a4d180350c7e77c0b9792f1e0c75c882",
+     "size": 201759
+    },
+    {
+     "member": "Pair_Test_Plan.json",
+     "role": "ignored",
+     "sha256": "7bfde59c69c36a07fb580574dfb396111d00d94775de03358b2bc1c0e14c5992",
+     "size": 498695
+    },
+    {
+     "member": "README.txt",
+     "role": "ignored",
+     "sha256": "b1295885a75f503e185d4b2526306ede43e9beb93801d7b842273a9b46ac6de9",
+     "size": 875
+    },
+    {
+     "member": "Single_Defect_Deductions.txt",
+     "role": "ignored",
+     "sha256": "5c98cfa3c5d9f52c157f90ee43e4d8121947ec7ddb55ac012f9a11c021aec0a9",
+     "size": 75188
+    },
+    {
+     "member": "Verified_Pair_Results.jsonl",
+     "role": "ignored",
+     "sha256": "261ba28f813ce73d90ca3ba62d21697424f90d89bfe74ce9327521b99c6f7eb7",
+     "size": 118874
+    }
+   ],
+   "primary": "Verified_Pair_Results.jsonl + Pair_Test_Plan.json",
+   "sha256": "5b3e59ab197071cb0689b233a4a23aca09cbed3edb59f0b7448f671ea9629b25",
+   "size": 52773
+  },
+  {
+   "archive": "Cashify_iPhone18_Pro_Pricing.zip",
+   "declared_coverage": "31 observed quote cases per variant, including 20 named mixed-defect cases. Not exhaustive; untested combinations have no known price. All 124 quotes were newly observed for iPhone 18 Pro.",
+   "members": [
+    {
+     "member": "All_Variants_Comparison.html",
+     "role": "alternative_representation_hash_only",
+     "sha256": "7c445281af7e0e976f2d09cae2cc1a0d8e6bec5d90b842b0b6ec29ab8d9729bc",
+     "size": 28968
+    },
+    {
+     "member": "All_Variants_Report.txt",
+     "role": "ignored",
+     "sha256": "3a7743258ac81a956bbfab2aa9cac8d0bde4eabef40c7e2358fd3574acabe5c1",
+     "size": 16967
+    },
+    {
+     "member": "all_variants_pricing_data.json",
+     "role": "ignored",
+     "sha256": "bc79872600ca475dcc8b48a2fae40b94ce080e3f91fe93d3f0f2952dda750b15",
+     "size": 63140
+    },
+    {
+     "member": "match_price.py",
+     "role": "not_executed_hash_only",
+     "sha256": "165e377f21ec0463a98a96a50a8a7e78e175758ba81d4f8fd5077fa4bd0a2b30",
+     "size": 2565
+    }
+   ],
+   "primary": "all_variants_pricing_data.json",
+   "sha256": "c49250db6c2c19e189aeac4dc03063b1f5eed4a3cab5c8494bb24e3e8aa2e99b",
+   "size": 14942
+  },
+  {
+   "archive": "iPhone 18 Pro Max.zip",
+   "declared_coverage": "Partial: 31 comparable observations per variant, including 20 mixed-defect cases. Additional uploaded single-defect observations apply to 2 TB only. No exhaustive or current-live-price guarantee.",
+   "members": [
+    {
+     "member": "All_Variants_Comparison.html",
+     "role": "alternative_representation_hash_only",
+     "sha256": "0518d09b6b8804b6d5029c7b15a0c060dd8104e8674dfdafd10185d28d869067",
+     "size": 29372
+    },
+    {
+     "member": "All_Variants_Report.txt",
+     "role": "ignored",
+     "sha256": "01b59b97fad529b44d48fd41777eeec3fe605076cf94274d74751801ba3edfb5",
+     "size": 17338
+    },
+    {
+     "member": "all_variants_pricing_data.json",
+     "role": "ignored",
+     "sha256": "9783299318102b3697e1bb3e77c5555f10351e33d651f719c22e3904cd996304",
+     "size": 85383
+    },
+    {
+     "member": "match_price.py",
+     "role": "not_executed_hash_only",
+     "sha256": "165e377f21ec0463a98a96a50a8a7e78e175758ba81d4f8fd5077fa4bd0a2b30",
+     "size": 2565
+    },
+    {
+     "member": "original_single_defect_report.txt",
+     "role": "ignored",
+     "sha256": "5c98cfa3c5d9f52c157f90ee43e4d8121947ec7ddb55ac012f9a11c021aec0a9",
+     "size": 75188
+    }
+   ],
+   "primary": "all_variants_pricing_data.json",
+   "sha256": "349a3f5fa12033ff748157332330bcce80955b37b6d52c5ba92d6660b6da9ea1",
+   "size": 21215
+  },
+  {
+   "archive": "iPhone_14_128GB_25_Test_Cases.zip",
+   "header": {
+    "date_end": "2026-10-17",
+    "date_prec": "day",
+    "date_start": "2026-10-17",
+    "get_upto": 27780,
+    "label": "APPLE IPHONE 14 (6 GB/128 GB)",
+    "model_scope": null,
+    "tested_line": "17 October 2026",
+    "url": "https://www.cashify.in/sell-old-mobile-phone/used-apple-iphone-14-6-gb-128-gb"
+   },
+   "members": [
+    {
+     "member": "README.txt",
+     "role": "ignored",
+     "sha256": "6c9cf10af354cd3ef87ef70495a3e1ae76e5a25b57314d487085e5f3bdd19eea",
+     "size": 295
+    },
+    {
+     "member": "iPhone_14_6GB_128GB_25_Test_Cases.txt",
+     "role": "ignored",
+     "sha256": "5372457f3160f965e1a7a542e2f7ea616e80e33778580c5d7f8ac005329e24da",
+     "size": 29382
+    }
+   ],
+   "primary": "iPhone_14_6GB_128GB_25_Test_Cases.txt",
+   "sha256": "9127b6d495601e7e844d718673390f87975d891c4bd97939d43475800f67525d",
+   "size": 2844
+  },
+  {
+   "archive": "iPhone_14_256GB_25_Test_Cases.zip",
+   "header": {
+    "date_end": "2026-10-17",
+    "date_prec": "day",
+    "date_start": "2026-10-17",
+    "get_upto": 28430,
+    "label": "APPLE IPHONE 14 (6 GB/256 GB)",
+    "model_scope": null,
+    "tested_line": "17 October 2026",
+    "url": "https://www.cashify.in/sell-old-mobile-phone/used-apple-iphone-14-6-gb-256-gb"
+   },
+   "members": [
+    {
+     "member": "README.txt",
+     "role": "ignored",
+     "sha256": "3a5c5007daae59318a7a3eef0601b95c56c081951c21c18458fcea5b6131e4b9",
+     "size": 295
+    },
+    {
+     "member": "iPhone_14_6GB_256GB_25_Test_Cases.txt",
+     "role": "ignored",
+     "sha256": "257db81280a5ec353c9b1b02a4bcadfa41f465c686339a4fda931cb22d73bb3b",
+     "size": 29382
+    }
+   ],
+   "primary": "iPhone_14_6GB_256GB_25_Test_Cases.txt",
+   "sha256": "3a2030b4416cca641d75ae638c30d062b28eed29a7b146ab6c93c8b8a1221b4b",
+   "size": 2836
+  },
+  {
+   "archive": "iPhone_14_512GB_25_Test_Cases.zip",
+   "header": {
+    "date_end": "2026-10-17",
+    "date_prec": "day",
+    "date_start": "2026-10-17",
+    "get_upto": 28840,
+    "label": "APPLE IPHONE 14 (6 GB/512 GB)",
+    "model_scope": null,
+    "tested_line": "17 October 2026",
+    "url": "https://www.cashify.in/sell-old-mobile-phone/used-apple-iphone-14-6-gb-512-gb"
+   },
+   "members": [
+    {
+     "member": "README.txt",
+     "role": "ignored",
+     "sha256": "47262896c4ca87523584557ff71f1fafd39c8c47685278b4c736cb2e3110a910",
+     "size": 295
+    },
+    {
+     "member": "iPhone_14_6GB_512GB_25_Test_Cases.txt",
+     "role": "ignored",
+     "sha256": "b1bf6d6012332f6b251df95660b901450e978b7289bbd53e04048e886b2447b2",
+     "size": 29382
+    }
+   ],
+   "primary": "iPhone_14_6GB_512GB_25_Test_Cases.txt",
+   "sha256": "59358f058efb44c386a2280630e64bc2af801a70fa8dc4f88eb61ee1ec54c6d9",
+   "size": 2828
+  },
+  {
+   "archive": "iPhone_14_Pro_128GB_25_Test_Cases.zip",
+   "header": {
+    "date_end": "2026-10-22",
+    "date_prec": "day",
+    "date_start": "2026-10-22",
+    "get_upto": 42690,
+    "label": "APPLE IPHONE 14 PRO (6 GB/128 GB)",
+    "model_scope": null,
+    "tested_line": "22 October 2026",
+    "url": "https://www.cashify.in/sell-old-mobile-phone/used-apple-iphone-14-pro-6-gb-128-gb"
+   },
+   "members": [
+    {
+     "member": "README.txt",
+     "role": "ignored",
+     "sha256": "9113c0b25a64979981a92cba29e40a708e276de62a3f2ecf3586784b5c3a9466",
+     "size": 299
+    },
+    {
+     "member": "iPhone_14_Pro_6GB_128GB_25_Test_Cases.txt",
+     "role": "ignored",
+     "sha256": "5768a4f942a9c2bdb2059b8845b1d0123f7c233ad5c28a1285df4d73c642fb79",
+     "size": 30220
+    }
+   ],
+   "primary": "iPhone_14_Pro_6GB_128GB_25_Test_Cases.txt",
+   "sha256": "9948b2fb9273e60d774d03b60bb176b6b8233b07577e450051b61da1e98d80b3",
+   "size": 2967
+  },
+  {
+   "archive": "iPhone_14_Pro_1TB_25_Test_Cases.zip",
+   "header": {
+    "date_end": "2026-10-22",
+    "date_prec": "day",
+    "date_start": "2026-10-22",
+    "get_upto": 46910,
+    "label": "APPLE IPHONE 14 PRO (6 GB/1 TB)",
+    "model_scope": null,
+    "tested_line": "22 October 2026",
+    "url": "https://www.cashify.in/sell-old-mobile-phone/used-apple-iphone-14-pro-6-gb-1-tb"
+   },
+   "members": [
+    {
+     "member": "README.txt",
+     "role": "ignored",
+     "sha256": "62f0012148322ae11e851815b712c27b0bbb68e669e2637e0b7ba69802ca4148",
+     "size": 297
+    },
+    {
+     "member": "iPhone_14_Pro_6GB_1TB_25_Test_Cases.txt",
+     "role": "ignored",
+     "sha256": "907fd3aff3fc6b35a5bcfec17afe97474c8a673cdc2b26ff2b9c81e5493eb3df",
+     "size": 30164
+    }
+   ],
+   "primary": "iPhone_14_Pro_6GB_1TB_25_Test_Cases.txt",
+   "sha256": "59d7e1446d3780cb578168a9de50bd62ef21dad28ed88e04385158ef3bb10252",
+   "size": 2949
+  },
+  {
+   "archive": "iPhone_14_Pro_256GB_25_Test_Cases.zip",
+   "header": {
+    "date_end": "2026-10-22",
+    "date_prec": "day",
+    "date_start": "2026-10-22",
+    "get_upto": 44070,
+    "label": "APPLE IPHONE 14 PRO (6 GB/256 GB)",
+    "model_scope": null,
+    "tested_line": "22 October 2026",
+    "url": "https://www.cashify.in/sell-old-mobile-phone/used-apple-iphone-14-pro-6-gb-256-gb"
+   },
+   "members": [
+    {
+     "member": "README.txt",
+     "role": "ignored",
+     "sha256": "7cd9b1e37b0962ec01057bafac415cf6a6385184a8c73d236449ad1a236ef5b8",
+     "size": 299
+    },
+    {
+     "member": "iPhone_14_Pro_6GB_256GB_25_Test_Cases.txt",
+     "role": "ignored",
+     "sha256": "0b514869c7dab515164a024ccf9e6c26379917991a11666acc35f5b2564ec34a",
+     "size": 30220
+    }
+   ],
+   "primary": "iPhone_14_Pro_6GB_256GB_25_Test_Cases.txt",
+   "sha256": "1440d42c0690c47aba4bb50e57ffc17840d05ba3841a68f213ceb622ef7aaf56",
+   "size": 2958
+  },
+  {
+   "archive": "iPhone_14_Pro_512GB_25_Test_Cases.zip",
+   "header": {
+    "date_end": "2026-10-22",
+    "date_prec": "day",
+    "date_start": "2026-10-22",
+    "get_upto": 46100,
+    "label": "APPLE IPHONE 14 PRO (6 GB/512 GB)",
+    "model_scope": null,
+    "tested_line": "22 October 2026",
+    "url": "https://www.cashify.in/sell-old-mobile-phone/used-apple-iphone-14-pro-6-gb-512-gb"
+   },
+   "members": [
+    {
+     "member": "README.txt",
+     "role": "ignored",
+     "sha256": "12a436fe1a7114d20af62eb849c391cf42b8f561fe4583d818fa147c6654b6e9",
+     "size": 299
+    },
+    {
+     "member": "iPhone_14_Pro_6GB_512GB_25_Test_Cases.txt",
+     "role": "ignored",
+     "sha256": "99902532c306906d5f3d4396015ce923cc7c97d44b9469606ab4a71bd92fb559",
+     "size": 30220
+    }
+   ],
+   "primary": "iPhone_14_Pro_6GB_512GB_25_Test_Cases.txt",
+   "sha256": "70f85789e495b4181e755f8691aa0b0a2b2cde89c1edd3ff4553c6fc6c419f95",
+   "size": 2972
+  },
+  {
+   "archive": "iPhone_15_512GB_17_Test_Cases.zip",
+   "header": {
+    "date_end": null,
+    "date_prec": "unknown",
+    "date_start": null,
+    "get_upto": null,
+    "label": "Apple iPhone 15 (6 GB/512 GB)",
+    "model_scope": null,
+    "url": null
+   },
+   "members": [
+    {
+     "member": "iPhone_15_512GB_17_Test_Cases.txt",
+     "role": "ignored",
+     "sha256": "fb4f59e08102ca4b2c470eb00caf55d2ce647df37283e9f6c9674b42d593764e",
+     "size": 14740
+    }
+   ],
+   "primary": "iPhone_15_512GB_17_Test_Cases.txt",
+   "sha256": "748a0512084604e0da13ea6965e81c4a0497abae9fdab4826258306497fac750",
+   "size": 1290
+  },
+  {
+   "archive": "iPhone_15_Plus_512GB_24_Test_Cases (1).zip",
+   "header": {
+    "date_end": "2026-10-17",
+    "date_prec": "day",
+    "date_start": "2026-10-17",
+    "get_upto": 48600,
+    "label": "APPLE IPHONE 15 PLUS (6 GB/512 GB)",
+    "model_scope": null,
+    "tested_line": "17 October 2026",
+    "url": null
+   },
+   "members": [
+    {
+     "member": "README.txt",
+     "role": "ignored",
+     "sha256": "09bacb279517f3fd2f66a4b0626c3d89f140a70398c235e9960bfc7122bf7606",
+     "size": 300
+    },
+    {
+     "member": "iPhone_15_Plus_6GB_512GB_24_Test_Cases.txt",
+     "role": "ignored",
+     "sha256": "92d98b9898ffa85209a9741141efe69a6b02576c04d0826c9b87cfc215ee65dc",
+     "size": 24496
+    }
+   ],
+   "primary": "iPhone_15_Plus_6GB_512GB_24_Test_Cases.txt",
+   "sha256": "b65ce67d25a3ede8d227febed909ac95e607bb3cd53328760a394cdb03c7db4f",
+   "size": 2623
+  },
+  {
+   "archive": "iPhone_15_Plus_512GB_24_Test_Cases.zip",
+   "header": {
+    "date_end": "2026-10-17",
+    "date_prec": "day",
+    "date_start": "2026-10-17",
+    "get_upto": 48600,
+    "label": "iPhone 15 Plus",
+    "model_scope": null,
+    "tested_line": "17 October 2026",
+    "url": null
+   },
+   "members": [
+    {
+     "member": "iPhone_15_Plus_512GB_24_Test_Cases.txt",
+     "role": "ignored",
+     "sha256": "4251ff82e16d0dee5007cb82a06ab7156a8838afb1b45e944163a3bbc6397298",
+     "size": 24291
+    }
+   ],
+   "primary": "iPhone_15_Plus_512GB_24_Test_Cases.txt",
+   "sha256": "d855c8ef18975adfbc10631915e6a03628940ae55ffa155a6796c30a66a22f4e",
+   "size": 2203
+  },
+  {
+   "archive": "iPhone_15_Pro_512GB_14_Test_Cases.zip",
+   "header": {
+    "date_end": "2026-10-17",
+    "date_prec": "range",
+    "date_start": "2026-10-16",
+    "get_upto": 68160,
+    "label": "iPhone 15 Pro",
+    "model_scope": "Apple iPhone 15 Pro (8 GB/512 GB) only.",
+    "tested_line": "16–17 October 2026 (cases 1–6 on 16 October; remaining cases on 17 October)",
+    "url": "https://www.cashify.in/sell-old-mobile-phone/used-apple-iphone-15-pro-8-gb-512-gb"
+   },
+   "members": [
+    {
+     "member": "iPhone_15_Pro_512GB_14_Test_Cases.txt",
+     "role": "ignored",
+     "sha256": "15b0f78a1885332fe0cf5654d16fd7389b3d7f26e539292441031d20be2d9fae",
+     "size": 16420
+    }
+   ],
+   "primary": "iPhone_15_Pro_512GB_14_Test_Cases.txt",
+   "sha256": "12edfe8f4ee1da6d6b1efee78cafc37fb3f33e332ede0e74d35ecac724ffc569",
+   "size": 2161
+  },
+  {
+   "archive": "iPhone_15_Pro_512GB_17_Test_Cases.zip",
+   "header": {
+    "date_end": "2026-10-17",
+    "date_prec": "range",
+    "date_start": "2026-10-16",
+    "get_upto": 68160,
+    "label": "APPLE IPHONE 15 PRO (8 GB/512 GB)",
+    "model_scope": "Apple iPhone 15 Pro (8 GB/512 GB) only.",
+    "tested_line": "16–17 October 2026 (cases 1–6 on 16 October; remaining cases on 17 October)",
+    "url": "https://www.cashify.in/sell-old-mobile-phone/used-apple-iphone-15-pro-8-gb-512-gb"
+   },
+   "members": [
+    {
+     "member": "README.txt",
+     "role": "ignored",
+     "sha256": "b846f99a1a3988261e9c0c04f43b835208193596677838a4c1b07ed692a8630c",
+     "size": 299
+    },
+    {
+     "member": "iPhone_15_Pro_8GB_512GB_17_Test_Cases.txt",
+     "role": "ignored",
+     "sha256": "20fcf8e804a78688426802447493b066eafae026d58f906172805480031c53ed",
+     "size": 19918
+    }
+   ],
+   "primary": "iPhone_15_Pro_8GB_512GB_17_Test_Cases.txt",
+   "sha256": "14b01a9d198309566765a2b89cc4c5438dc8bf850016a0a131b69ef583aa54c5",
+   "size": 2785
+  },
+  {
+   "archive": "iPhone_15_Pro_Max_512GB_24_Test_Cases (1).zip",
+   "header": {
+    "date_end": "2026-10-17",
+    "date_prec": "day",
+    "date_start": "2026-10-17",
+    "get_upto": 72480,
+    "label": "APPLE IPHONE 15 PRO MAX (8 GB/512 GB)",
+    "model_scope": null,
+    "tested_line": "17 October 2026",
+    "url": null
+   },
+   "members": [
+    {
+     "member": "README.txt",
+     "role": "ignored",
+     "sha256": "343273b258bf213c442255e581806174f7dfb417353500acdad4a6a1d056a79e",
+     "size": 303
+    },
+    {
+     "member": "iPhone_15_Pro_Max_8GB_512GB_24_Test_Cases.txt",
+     "role": "ignored",
+     "sha256": "56d90e6bb7eae97f3e6b603a212cc4e817e511c5e36089ea0963ff51275ca2d2",
+     "size": 25880
+    }
+   ],
+   "primary": "iPhone_15_Pro_Max_8GB_512GB_24_Test_Cases.txt",
+   "sha256": "39ec200381ba7ff1a99fd3a8bca1f7c4944a2207054e701f0a529aeb6b48403c",
+   "size": 2678
+  },
+  {
+   "archive": "iPhone_15_Pro_Max_512GB_24_Test_Cases.zip",
+   "header": {
+    "date_end": "2026-10-17",
+    "date_prec": "day",
+    "date_start": "2026-10-17",
+    "get_upto": 72480,
+    "label": "iPhone 15 Pro Max",
+    "model_scope": null,
+    "tested_line": "17 October 2026",
+    "url": null
+   },
+   "members": [
+    {
+     "member": "iPhone_15_Pro_Max_512GB_24_Test_Cases.txt",
+     "role": "ignored",
+     "sha256": "1dad79f43a119f37d2ef5f10a4678a34f46f99f1e4cc80580799812213ae95bd",
+     "size": 25675
+    }
+   ],
+   "primary": "iPhone_15_Pro_Max_512GB_24_Test_Cases.txt",
+   "sha256": "dabaa09a6c3bab179336aed9fa3ff603438db1c14a172b822440cd89005c3c68",
+   "size": 2257
+  },
+  {
+   "archive": "iPhone_16_512GB_17_Test_Cases.zip",
+   "header": {
+    "date_end": null,
+    "date_prec": "unknown",
+    "date_start": null,
+    "get_upto": null,
+    "label": "Apple iPhone 16 (8 GB/512 GB)",
+    "model_scope": null,
+    "url": null
+   },
+   "members": [
+    {
+     "member": "iPhone_16_512GB_17_Test_Cases.txt",
+     "role": "ignored",
+     "sha256": "dd4d9b1f0235d51e4d0f7d862aaa4160e62d719f0b53ccb9071e34d23ae23596",
+     "size": 15141
+    }
+   ],
+   "primary": "iPhone_16_512GB_17_Test_Cases.txt",
+   "sha256": "bfd43bcb867f86e27bc086fec13f3431b502475c7280167c12842873f7c40723",
+   "size": 1260
+  },
+  {
+   "archive": "iPhone_16_512GB_24_Test_Cases (1).zip",
+   "header": {
+    "date_end": "2026-10-17",
+    "date_prec": "range",
+    "date_start": "2026-10-16",
+    "get_upto": 55150,
+    "label": "APPLE IPHONE 16 (8 GB/512 GB)",
+    "model_scope": null,
+    "tested_line": "16–17 October 2026",
+    "url": null
+   },
+   "members": [
+    {
+     "member": "README.txt",
+     "role": "ignored",
+     "sha256": "d9ef993cac98c9b1e813646d0ba22d67c478054c3a92ad012074793b4c8197f3",
+     "size": 295
+    },
+    {
+     "member": "iPhone_16_8GB_512GB_24_Test_Cases.txt",
+     "role": "ignored",
+     "sha256": "2f54d66287de7e74e27008890afc543eb0e0472362cac899cb166641d73cb6b1",
+     "size": 24489
+    }
+   ],
+   "primary": "iPhone_16_8GB_512GB_24_Test_Cases.txt",
+   "sha256": "139ebdc2d1532c432f1ce333702f62c11b21e0546faa55151e84fb43449b1fc4",
+   "size": 2630
+  },
+  {
+   "archive": "iPhone_16_512GB_24_Test_Cases.zip",
+   "header": {
+    "date_end": "2026-10-17",
+    "date_prec": "range",
+    "date_start": "2026-10-16",
+    "get_upto": 55150,
+    "label": "iPhone 16",
+    "model_scope": null,
+    "tested_line": "16–17 October 2026",
+    "url": null
+   },
+   "members": [
+    {
+     "member": "iPhone_16_512GB_24_Test_Cases.txt",
+     "role": "ignored",
+     "sha256": "ac3791a6df3c8053627d36b24f7668322be1dfb1718c95538efa62bca4a351bf",
+     "size": 24284
+    }
+   ],
+   "primary": "iPhone_16_512GB_24_Test_Cases.txt",
+   "sha256": "40dfa4239e1b9f0850e0d527d47eea53f7277eabe747068443aa463dcb60fe52",
+   "size": 2216
+  },
+  {
+   "archive": "iPhone_16_Plus_512GB_24_Test_Cases.zip",
+   "header": {
+    "date_end": "2026-10-17",
+    "date_prec": "day",
+    "date_start": "2026-10-17",
+    "get_upto": 56160,
+    "label": "iPhone 16 Plus",
+    "model_scope": null,
+    "tested_line": "17 October 2026",
+    "url": null
+   },
+   "members": [
+    {
+     "member": "iPhone_16_Plus_512GB_24_Test_Cases.txt",
+     "role": "ignored",
+     "sha256": "e46ddc4ce06de65fb0677e4a490785c59081e8c4df45d503f696485711824e64",
+     "size": 24291
+    }
+   ],
+   "primary": "iPhone_16_Plus_512GB_24_Test_Cases.txt",
+   "sha256": "c9a87e63295e640924b559060a4e14e1596985096b0be2eeed396af10e604f36",
+   "size": 2188
+  },
+  {
+   "archive": "iPhone_16_Pro_Max_512GB_24_Test_Cases.zip",
+   "header": {
+    "date_end": "2026-10-17",
+    "date_prec": "day",
+    "date_start": "2026-10-17",
+    "get_upto": 88270,
+    "label": "iPhone 16 Pro Max",
+    "model_scope": null,
+    "tested_line": "17 October 2026",
+    "url": null
+   },
+   "members": [
+    {
+     "member": "iPhone_16_Pro_Max_512GB_24_Test_Cases.txt",
+     "role": "ignored",
+     "sha256": "b3e98434750cd6bf3029011d864f97595a128847d0e3b19da1f7201fc7e79355",
+     "size": 25675
+    }
+   ],
+   "primary": "iPhone_16_Pro_Max_512GB_24_Test_Cases.txt",
+   "sha256": "522d522b0fb42c6e70b2dd21b354dea72ff70fffd82e4d98ed7448d694c4aaef",
+   "size": 2280
+  },
+  {
+   "archive": "iPhone_16e_512GB_24_Test_Cases.zip",
+   "header": {
+    "date_end": "2026-10-17",
+    "date_prec": "day",
+    "date_start": "2026-10-17",
+    "get_upto": 41230,
+    "label": "iPhone 16e",
+    "model_scope": null,
+    "tested_line": "17 October 2026",
+    "url": null
+   },
+   "members": [
+    {
+     "member": "iPhone_16e_512GB_24_Test_Cases.txt",
+     "role": "ignored",
+     "sha256": "7bcdb91bd7f83c2938424163e4338ca119d4d3b713ec1ff36d48dc0f41da8adb",
+     "size": 24184
+    }
+   ],
+   "primary": "iPhone_16e_512GB_24_Test_Cases.txt",
+   "sha256": "eb3b0b3b8417f04498e8b98dea00f5c15c2f4b681ee8e560e650036837e98c81",
+   "size": 2141
+  },
+  {
+   "archive": "iPhone_17_512GB_14_Test_Cases.zip",
+   "header": {
+    "date_end": "2026-10-16",
+    "date_prec": "day",
+    "date_start": "2026-10-16",
+    "get_upto": 67700,
+    "label": "iPhone 17",
+    "model_scope": "Apple iPhone 17 (8 GB/512 GB) only.",
+    "tested_line": "16 October 2026",
+    "url": "https://www.cashify.in/sell-old-mobile-phone/used-apple-iphone-17-8-gb-512-gb"
+   },
+   "members": [
+    {
+     "member": "iPhone_17_512GB_14_Test_Cases.txt",
+     "role": "ignored",
+     "sha256": "2b9e511e5a13178d0bfbd8a3001b150fb0e484c2bdeafaaab7256e2bfc97ff10",
+     "size": 16284
+    }
+   ],
+   "primary": "iPhone_17_512GB_14_Test_Cases.txt",
+   "sha256": "2c03972ea88cfefecaf41487948bfb2e4a4c4dfb05a23ea4ae8b16e4605ad91e",
+   "size": 2133
+  },
+  {
+   "archive": "iPhone_17_512GB_17_Test_Cases.zip",
+   "header": {
+    "date_end": "2026-10-16",
+    "date_prec": "day",
+    "date_start": "2026-10-16",
+    "get_upto": 67700,
+    "label": "APPLE IPHONE 17 (8 GB/512 GB)",
+    "model_scope": "Apple iPhone 17 (8 GB/512 GB) only.",
+    "tested_line": "16 October 2026",
+    "url": "https://www.cashify.in/sell-old-mobile-phone/used-apple-iphone-17-8-gb-512-gb"
+   },
+   "members": [
+    {
+     "member": "README.txt",
+     "role": "ignored",
+     "sha256": "0a25f0e44162e934b5dece7bb0da4b6dc86577cea085a83fc62754b5ff6e1a4c",
+     "size": 295
+    },
+    {
+     "member": "iPhone_17_8GB_512GB_17_Test_Cases.txt",
+     "role": "ignored",
+     "sha256": "85d66abee50017a7aaba1b32e0f1eb2a51c115ee9ba77facfd9195c16952f752",
+     "size": 19766
+    }
+   ],
+   "primary": "iPhone_17_8GB_512GB_17_Test_Cases.txt",
+   "sha256": "e9d1869e234e53dd1714282f6085b6a80255ee359fb13bc562e6755abbc8f4cb",
+   "size": 2743
+  },
+  {
+   "archive": "iPhone_17_Pro_90_Test_Cases.zip",
+   "declared_coverage": "32-case checklist per variant: 30 live outcomes and 2 charger cases not applicable. Three variants: 87 numeric quotes, 3 no-offer outcomes and 6 not-applicable entries. Single eSIM for standard cases; Dual eSIM only for the flawless E01 baseline. Not exhaustive.",
+   "members": [
+    {
+     "member": "All_Variants_Comparison.html",
+     "role": "alternative_representation_hash_only",
+     "sha256": "e3fa464ed0be80334cc632a4af83aa60016985f5941730f66add11c69e62faf5",
+     "size": 42231
+    },
+    {
+     "member": "All_Variants_Report.txt",
+     "role": "ignored",
+     "sha256": "37b29535bd57ac23db7323ef883a2e15eb29c949dfb48fa025b9431a60896e8a",
+     "size": 19278
+    },
+    {
+     "member": "TEST_CASE_COUNTS.txt",
+     "role": "ignored",
+     "sha256": "bfa33d7c5b8f6cd2d1dca7b4c37b1004b207d57de5c7e10b8a61847f7066b8b7",
+     "size": 670
+    },
+    {
+     "member": "match_price.py",
+     "role": "not_executed_hash_only",
+     "sha256": "b3339e942950c1167a11be5f6d069617d1dce25f8b5711d20efa0ae8a1b40ad4",
+     "size": 2929
+    },
+    {
+     "member": "pricing_data.json",
+     "role": "ignored",
+     "sha256": "0f04c7605a5ed7a52bd2d51283464a8bbfa3ab7bd1aa6235250a80adbd1c68c0",
+     "size": 54719
+    },
+    {
+     "member": "test_case_counts.json",
+     "role": "ignored",
+     "sha256": "66097ecdb25c0cff263f1b9417bb16cf6f5e9c604ec3000dd150aac0f576c023",
+     "size": 338
+    }
+   ],
+   "primary": "pricing_data.json",
+   "sha256": "7de9d6b8ab5d77c843c64a7f8f3d5f720753ed217077a182f836405823a19236",
+   "size": 17737
+  },
+  {
+   "archive": "iPhone_17_Pro_Max_120_Test_Cases.zip",
+   "declared_coverage": "32-case checklist per variant: 30 live outcomes and 2 charger cases not applicable. Four variants: 118 numeric quotes, 2 no-offer outcomes and 8 not-applicable entries. Single eSIM for standard cases; Dual eSIM only for the flawless E01 baseline. Not exhaustive.",
+   "members": [
+    {
+     "member": "All_Variants_Comparison.html",
+     "role": "alternative_representation_hash_only",
+     "sha256": "731b7afd59a7f412139cf8be418cb371f189eed19629d1d8635d220a5bf3c4d9",
+     "size": 47540
+    },
+    {
+     "member": "All_Variants_Report.txt",
+     "role": "ignored",
+     "sha256": "6dc7eb4fe7da3d2a5ac0f13508256211639c9a2c82208fb65dfa9aab9c53c7f7",
+     "size": 20489
+    },
+    {
+     "member": "TEST_CASE_COUNTS.txt",
+     "role": "ignored",
+     "sha256": "dfca4c39c30e913c26d8f610309e9725cc17948a9de9abd08c4f534cf0533236",
+     "size": 686
+    },
+    {
+     "member": "match_price.py",
+     "role": "not_executed_hash_only",
+     "sha256": "ab5c6cd7bf2152dddf192ff7c9bd202a5c89cf4e75d616357ec6d7194bd9ffd5",
+     "size": 2944
+    },
+    {
+     "member": "pricing_data.json",
+     "role": "ignored",
+     "sha256": "8c4a8d74e66ecd9fdeebe00d2455065111cecbebc6f3e1c413f6811e964bebfb",
+     "size": 71374
+    },
+    {
+     "member": "test_case_counts.json",
+     "role": "ignored",
+     "sha256": "30fdce151794bfc9f2a42de69c2cadc6742b761b7c628881800b5e591e62a645",
+     "size": 361
+    }
+   ],
+   "primary": "pricing_data.json",
+   "sha256": "8518ba40e05cad1bc00656700c8ecd1c03ca2d3fb849421b366deed50f90f78f",
+   "size": 19649
+  },
+  {
+   "archive": "iPhone_17e_58_Test_Cases.zip",
+   "declared_coverage": "31-case checklist assessed for each storage variant: 29 live quote checks and 2 charger cases not applicable. Across both variants: 55 numeric quotes, 3 no-offer outcomes and 4 not-applicable entries. Not exhaustive.",
+   "members": [
+    {
+     "member": "All_Variants_Comparison.html",
+     "role": "alternative_representation_hash_only",
+     "sha256": "7daa4fa886943e4336b2fc851a3bd011db13d6616158b8964e6c469b83b3393c",
+     "size": 26535
+    },
+    {
+     "member": "All_Variants_Report.txt",
+     "role": "ignored",
+     "sha256": "05d458079f7f626ea77810c59b66b37efd8735d60f4860f07f8bf1fdc3fbd9f2",
+     "size": 15713
+    },
+    {
+     "member": "TEST_CASE_COUNTS.txt",
+     "role": "ignored",
+     "sha256": "f5de5950d931bba0ff2ae933da03b379e22b4f608b3a67d13a1416a92edbe2ac",
+     "size": 658
+    },
+    {
+     "member": "match_price.py",
+     "role": "not_executed_hash_only",
+     "sha256": "3502456ac61836a9a3b425997fca8b50ce650354c95e29e573785059d049b078",
+     "size": 2688
+    },
+    {
+     "member": "pricing_data.json",
+     "role": "ignored",
+     "sha256": "fcf9144312356761c8f2e0533cf20207788798d62bd33e17151e84303c88795a",
+     "size": 35037
+    },
+    {
+     "member": "test_case_counts.json",
+     "role": "ignored",
+     "sha256": "ea3fb68834ec81ebef2a31f0cf9340fde78ec656875d0733a0bc6b4bcdd27269",
+     "size": 319
+    }
+   ],
+   "primary": "pricing_data.json",
+   "sha256": "fc176cb50282b86c0f788632771e9fbde7f1a3faa72712d92c8a499a3142784a",
+   "size": 14510
+  },
+  {
+   "archive": "iPhone_18_Pro_124_Test_Cases.zip",
+   "declared_coverage": "31 observed quote cases per variant, including 20 named mixed-defect cases. Not exhaustive; untested combinations have no known price. All 124 quotes were newly observed for iPhone 18 Pro.",
+   "members": [
+    {
+     "member": "All_Variants_Comparison.html",
+     "role": "alternative_representation_hash_only",
+     "sha256": "7c445281af7e0e976f2d09cae2cc1a0d8e6bec5d90b842b0b6ec29ab8d9729bc",
+     "size": 28968
+    },
+    {
+     "member": "All_Variants_Report.txt",
+     "role": "ignored",
+     "sha256": "3a7743258ac81a956bbfab2aa9cac8d0bde4eabef40c7e2358fd3574acabe5c1",
+     "size": 16967
+    },
+    {
+     "member": "TEST_CASE_COUNTS.txt",
+     "role": "ignored",
+     "sha256": "b36001c69db70cf8ee4172de3b5292881386aa0c71d6253adaea2f8e174bda9a",
+     "size": 682
+    },
+    {
+     "member": "all_variants_pricing_data.json",
+     "role": "ignored",
+     "sha256": "bc79872600ca475dcc8b48a2fae40b94ce080e3f91fe93d3f0f2952dda750b15",
+     "size": 63140
+    },
+    {
+     "member": "match_price.py",
+     "role": "not_executed_hash_only",
+     "sha256": "165e377f21ec0463a98a96a50a8a7e78e175758ba81d4f8fd5077fa4bd0a2b30",
+     "size": 2565
+    },
+    {
+     "member": "test_case_counts.json",
+     "role": "ignored",
+     "sha256": "6b04c1ee0bdb18afb32a8022dea7a01c1e7b8793cce901440a7d26b2801ee873",
+     "size": 357
+    }
+   ],
+   "primary": "all_variants_pricing_data.json",
+   "sha256": "141b3927fad13eae625f1eb91aec3e31ba9fb8333d1dfd814ee6df87c09b2cba",
+   "size": 15775
+  },
+  {
+   "archive": "iPhone_18_Pro_1TB_25_Test_Cases.zip",
+   "header": {
+    "date_end": "2026-10-17",
+    "date_prec": "day",
+    "date_start": "2026-10-17",
+    "get_upto": 140000,
+    "label": "APPLE IPHONE 18 PRO (12 GB/1 TB)",
+    "model_scope": null,
+    "tested_line": "17 October 2026",
+    "url": "https://www.cashify.in/sell-old-mobile-phone/used-apple-iphone-18-pro-12-gb-1-tb"
+   },
+   "members": [
+    {
+     "member": "README.txt",
+     "role": "ignored",
+     "sha256": "940b142cd2810a1ee536d99925dd24a4848011e3bbe71fe5a141ef2845c6954c",
+     "size": 298
+    },
+    {
+     "member": "iPhone_18_Pro_12GB_1TB_25_Test_Cases.txt",
+     "role": "ignored",
+     "sha256": "bdf3c98759432ef81c0103f4336c79e0021041a7e1674d29a93eef4f9dc66498",
+     "size": 29711
+    }
+   ],
+   "primary": "iPhone_18_Pro_12GB_1TB_25_Test_Cases.txt",
+   "sha256": "4d7a293e8323e4b910b9ab352b5ccc7627eb402d67783f34cd0edb681ec71f13",
+   "size": 3004
+  },
+  {
+   "archive": "iPhone_18_Pro_256GB_25_Test_Cases.zip",
+   "header": {
+    "date_end": "2026-10-17",
+    "date_prec": "day",
+    "date_start": "2026-10-17",
+    "get_upto": 120000,
+    "label": "APPLE IPHONE 18 PRO (12 GB/256 GB)",
+    "model_scope": null,
+    "tested_line": "17 October 2026",
+    "url": "https://www.cashify.in/sell-old-mobile-phone/used-apple-iphone-18-pro-12-gb-256-gb"
+   },
+   "members": [
+    {
+     "member": "README.txt",
+     "role": "ignored",
+     "sha256": "2f564f9e2e7095690bb47b25c93f9e81d360574769c50ff3996414893f10b281",
+     "size": 300
+    },
+    {
+     "member": "iPhone_18_Pro_12GB_256GB_25_Test_Cases.txt",
+     "role": "ignored",
+     "sha256": "66f400dfd5c13cbd96d17bc809014814db12395e26f83e19153087dcc7145b8e",
+     "size": 29677
+    }
+   ],
+   "primary": "iPhone_18_Pro_12GB_256GB_25_Test_Cases.txt",
+   "sha256": "14ce7278ceb5de4fe3df69804fa0263f07a4b90b57d6d382ea01ca4a5b6d68ce",
+   "size": 3003
+  },
+  {
+   "archive": "iPhone_18_Pro_2TB_25_Test_Cases.zip",
+   "header": {
+    "date_end": "2026-10-17",
+    "date_prec": "day",
+    "date_start": "2026-10-17",
+    "get_upto": 160000,
+    "label": "APPLE IPHONE 18 PRO (12 GB/2 TB)",
+    "model_scope": null,
+    "tested_line": "17 October 2026",
+    "url": "https://www.cashify.in/sell-old-mobile-phone/used-apple-iphone-18-pro-12-gb-2-tb"
+   },
+   "members": [
+    {
+     "member": "README.txt",
+     "role": "ignored",
+     "sha256": "804e84bc650a115618304e6a56e6693094e5d8eaac51af7ba86fd3012b313ef2",
+     "size": 298
+    },
+    {
+     "member": "iPhone_18_Pro_12GB_2TB_25_Test_Cases.txt",
+     "role": "ignored",
+     "sha256": "ab2305e23c6022e487ddad53b14425d0d1c99aab0b98b23c1429e73889d8dc42",
+     "size": 29771
+    }
+   ],
+   "primary": "iPhone_18_Pro_12GB_2TB_25_Test_Cases.txt",
+   "sha256": "cb028ea2636d04a7a9369602acba4f9bea114aebcee3a732cc293f2b4ccb72e8",
+   "size": 2990
+  },
+  {
+   "archive": "iPhone_18_Pro_512GB_25_Test_Cases.zip",
+   "header": {
+    "date_end": "2026-10-17",
+    "date_prec": "day",
+    "date_start": "2026-10-17",
+    "get_upto": 127000,
+    "label": "APPLE IPHONE 18 PRO (12 GB/512 GB)",
+    "model_scope": null,
+    "tested_line": "17 October 2026",
+    "url": "https://www.cashify.in/sell-old-mobile-phone/used-apple-iphone-18-pro-12-gb-512-gb"
+   },
+   "members": [
+    {
+     "member": "README.txt",
+     "role": "ignored",
+     "sha256": "e7cb9775a5885708de7b458e732594e67137ed42938d0a5a2cb8bb8cfff12f3b",
+     "size": 300
+    },
+    {
+     "member": "iPhone_18_Pro_12GB_512GB_25_Test_Cases.txt",
+     "role": "ignored",
+     "sha256": "fea188df84d2d31aa63ea9bdefea1e77f2fd7c8a23853ec26e9916f7de59ecea",
+     "size": 29677
+    }
+   ],
+   "primary": "iPhone_18_Pro_12GB_512GB_25_Test_Cases.txt",
+   "sha256": "41150f54feae165f6db7510c3ea5e5de549f0c8a93f759210924549a82408f92",
+   "size": 3018
+  },
+  {
+   "archive": "iPhone_18_Pro_Max_124_Test_Cases_45_Earlier_Records.zip",
+   "declared_coverage": "Partial: 31 comparable observations per variant, including 20 mixed-defect cases. Additional uploaded single-defect observations apply to 2 TB only. No exhaustive or current-live-price guarantee.",
+   "members": [
+    {
+     "member": "All_Variants_Comparison.html",
+     "role": "alternative_representation_hash_only",
+     "sha256": "0518d09b6b8804b6d5029c7b15a0c060dd8104e8674dfdafd10185d28d869067",
+     "size": 29372
+    },
+    {
+     "member": "All_Variants_Report.txt",
+     "role": "ignored",
+     "sha256": "01b59b97fad529b44d48fd41777eeec3fe605076cf94274d74751801ba3edfb5",
+     "size": 17338
+    },
+    {
+     "member": "TEST_CASE_COUNTS.txt",
+     "role": "ignored",
+     "sha256": "9563358511f405bf92786f03a82fc63f7c2f0f485e54eccb54718065927f2337",
+     "size": 687
+    },
+    {
+     "member": "all_variants_pricing_data.json",
+     "role": "ignored",
+     "sha256": "9783299318102b3697e1bb3e77c5555f10351e33d651f719c22e3904cd996304",
+     "size": 85383
+    },
+    {
+     "member": "match_price.py",
+     "role": "not_executed_hash_only",
+     "sha256": "165e377f21ec0463a98a96a50a8a7e78e175758ba81d4f8fd5077fa4bd0a2b30",
+     "size": 2565
+    },
+    {
+     "member": "original_single_defect_report.txt",
+     "role": "ignored",
+     "sha256": "5c98cfa3c5d9f52c157f90ee43e4d8121947ec7ddb55ac012f9a11c021aec0a9",
+     "size": 75188
+    },
+    {
+     "member": "test_case_counts.json",
+     "role": "ignored",
+     "sha256": "e1366d9b944f6456819c125fc04e65b0656bd40c51db37c59fe73c1f35a3a662",
+     "size": 362
+    }
+   ],
+   "primary": "all_variants_pricing_data.json",
+   "sha256": "5fcb9c3957967c3beddd29e517465ce78332ae221595d40e8eb2b3c4790b8b0e",
+   "size": 22067
+  },
+  {
+   "archive": "iPhone_18_Pro_Max_1TB_25_Test_Cases.zip",
+   "header": {
+    "date_end": "2026-10-17",
+    "date_prec": "day",
+    "date_start": "2026-10-17",
+    "get_upto": 145000,
+    "label": "APPLE IPHONE 18 PRO MAX (12 GB/1 TB)",
+    "model_scope": null,
+    "tested_line": "17 October 2026",
+    "url": "https://www.cashify.in/sell-old-mobile-phone/used-apple-iphone-18-pro-max-12-gb-1-tb"
+   },
+   "members": [
+    {
+     "member": "README.txt",
+     "role": "ignored",
+     "sha256": "1cd8c02ab818da4ccd1637132defe30525809265e7cde023319cf2d6d4a6fea1",
+     "size": 302
+    },
+    {
+     "member": "iPhone_18_Pro_Max_12GB_1TB_25_Test_Cases.txt",
+     "role": "ignored",
+     "sha256": "6e8fb6741acff10ca95b37a2b7e5adbe6e6e3c1984b3c811791d39cb4b8d717e",
+     "size": 30229
+    }
+   ],
+   "primary": "iPhone_18_Pro_Max_12GB_1TB_25_Test_Cases.txt",
+   "sha256": "9afd71c4ddb08a3ce1e540b57382768b3886995f48dbf61d46b411101728e656",
+   "size": 3082
+  },
+  {
+   "archive": "iPhone_18_Pro_Max_256GB_25_Test_Cases.zip",
+   "header": {
+    "date_end": "2026-10-17",
+    "date_prec": "day",
+    "date_start": "2026-10-17",
+    "get_upto": 130000,
+    "label": "APPLE IPHONE 18 PRO MAX (12 GB/256 GB)",
+    "model_scope": null,
+    "tested_line": "17 October 2026",
+    "url": "https://www.cashify.in/sell-old-mobile-phone/used-apple-iphone-18-pro-max-12-gb-256-gb"
+   },
+   "members": [
+    {
+     "member": "README.txt",
+     "role": "ignored",
+     "sha256": "eb025df08b81edfa7ae9b0cbe665aaee9e8adbd010d56c182e5778d1a8ed33e7",
+     "size": 304
+    },
+    {
+     "member": "iPhone_18_Pro_Max_12GB_256GB_25_Test_Cases.txt",
+     "role": "ignored",
+     "sha256": "e81e99aaeb66c29ffa9df4549ff21161390665122f1ef20b6d1703192f57c622",
+     "size": 30165
+    }
+   ],
+   "primary": "iPhone_18_Pro_Max_12GB_256GB_25_Test_Cases.txt",
+   "sha256": "0898e163d35e37f27fb195a2db6bb669565ed88573de5b5f1b85f45dea614e61",
+   "size": 3092
+  },
+  {
+   "archive": "iPhone_18_Pro_Max_2TB_25_Test_Cases.zip",
+   "header": {
+    "date_end": "2026-10-17",
+    "date_prec": "day",
+    "date_start": "2026-10-17",
+    "get_upto": 165000,
+    "label": "APPLE IPHONE 18 PRO MAX (12 GB/2 TB)",
+    "model_scope": null,
+    "tested_line": "17 October 2026",
+    "url": "https://www.cashify.in/sell-old-mobile-phone/used-apple-iphone-18-pro-max-12-gb-2-tb"
+   },
+   "members": [
+    {
+     "member": "README.txt",
+     "role": "ignored",
+     "sha256": "daa8b5ef9a61828f9b2c17f936d47c17f2b65eff4cd3facd25d4d92bef5261c7",
+     "size": 302
+    },
+    {
+     "member": "iPhone_18_Pro_Max_12GB_2TB_25_Test_Cases.txt",
+     "role": "ignored",
+     "sha256": "ea8c9ff4f03d77619ce89291ba09bd4882a8eb15977e74486ac876a9247f500a",
+     "size": 30289
+    }
+   ],
+   "primary": "iPhone_18_Pro_Max_12GB_2TB_25_Test_Cases.txt",
+   "sha256": "6227d1739828894a357caa1fa3b7405eb48f269b58eecd87ec06aec13bf390b1",
+   "size": 3135
+  },
+  {
+   "archive": "iPhone_18_Pro_Max_2TB_45_Single_Defect_and_Control_Test_Cases.zip",
+   "members": [
+    {
+     "member": "README.txt",
+     "role": "ignored",
+     "sha256": "8533fadf4ac4261ec0fc7d52a6587f79b2acc9191512ff0b0f92d690527ec8a2",
+     "size": 322
+    },
+    {
+     "member": "iPhone_18_Pro_Max_12GB_2TB_45_Single_Defect_and_Control_Test_Cases.txt",
+     "role": "ignored",
+     "sha256": "a3f684507daa275cf09acdd1a6000548dd9ec27ccaf021f8a49a569588f0e04b",
+     "size": 75337
+    }
+   ],
+   "primary": "(secondary only) iPhone_18_Pro_Max_12GB_2TB_45_Single_Defect_and_Control_Test_Cases.txt",
+   "sha256": "0c834397776b86a9359407c1a7854ce8cdc9a9474c35361f368e7fa1b33a3142",
+   "size": 5482
+  },
+  {
+   "archive": "iPhone_18_Pro_Max_2TB_764_Mixed_Test_Cases_160_Tested_604_Pending.zip",
+   "members": [
+    {
+     "member": "README.txt",
+     "role": "ignored",
+     "sha256": "5a3b5c40ff2b93e9dca777d44ba53e9a7a97c640446a70230c509d9cdbf452f0",
+     "size": 327
+    },
+    {
+     "member": "iPhone_18_Pro_Max_12GB_2TB_764_Mixed_Test_Cases_160_Tested_604_Pending.txt",
+     "role": "ignored",
+     "sha256": "4361747eceddc0a7b4a37d09177c2f419cdad63c410b3862ca02950772e433a1",
+     "size": 201884
+    }
+   ],
+   "primary": null,
+   "sha256": "b0b76dce0c2324c845a972fac6f699857dc8324c18fa98befa5e62b78cc75a76",
+   "size": 14832
+  },
+  {
+   "archive": "iPhone_18_Pro_Max_512GB_25_Test_Cases.zip",
+   "header": {
+    "date_end": "2026-10-17",
+    "date_prec": "day",
+    "date_start": "2026-10-17",
+    "get_upto": 137000,
+    "label": "APPLE IPHONE 18 PRO MAX (12 GB/512 GB)",
+    "model_scope": null,
+    "tested_line": "17 October 2026",
+    "url": "https://www.cashify.in/sell-old-mobile-phone/used-apple-iphone-18-pro-max-12-gb-512-gb"
+   },
+   "members": [
+    {
+     "member": "README.txt",
+     "role": "ignored",
+     "sha256": "c18944081d8364dd6df9474e9780532b00110ef93f91d836b190f418bcffdadd",
+     "size": 304
+    },
+    {
+     "member": "iPhone_18_Pro_Max_12GB_512GB_25_Test_Cases.txt",
+     "role": "ignored",
+     "sha256": "5118a33a5c963ce2a2a4a3feb597ad4bab85d9148cbecebd852715314b2fadeb",
+     "size": 30217
+    }
+   ],
+   "primary": "iPhone_18_Pro_Max_12GB_512GB_25_Test_Cases.txt",
+   "sha256": "5c5f7ae3090757aaf4268d7c6a9a47057b05dfc6cc3a76377443562d5ffd339b",
+   "size": 3102
+  },
+  {
+   "archive": "iPhone_Air_512GB_24_Test_Cases (1).zip",
+   "header": {
+    "date_end": "2026-10-17",
+    "date_prec": "day",
+    "date_start": "2026-10-17",
+    "get_upto": 75200,
+    "label": "APPLE IPHONE AIR (12 GB/512 GB)",
+    "model_scope": null,
+    "tested_line": "17 October 2026",
+    "url": null
+   },
+   "members": [
+    {
+     "member": "README.txt",
+     "role": "ignored",
+     "sha256": "45499564c336ea2ac91ad91154cbacdda4f1b0b13f9c1effd86db187345abf76",
+     "size": 297
+    },
+    {
+     "member": "iPhone_Air_12GB_512GB_24_Test_Cases.txt",
+     "role": "ignored",
+     "sha256": "299eba8f6a27c2aff71ac0cb3b1cfffc0408206d9a1bb5ca81c233f4c73993f5",
+     "size": 25724
+    }
+   ],
+   "primary": "iPhone_Air_12GB_512GB_24_Test_Cases.txt",
+   "sha256": "88c11d3137743e644e6a0073e15dfe4bda0dffb583d6c32e1617db569b796dec",
+   "size": 2658
+  },
+  {
+   "archive": "iPhone_Air_512GB_24_Test_Cases.zip",
+   "header": {
+    "date_end": "2026-10-17",
+    "date_prec": "day",
+    "date_start": "2026-10-17",
+    "get_upto": 75200,
+    "label": "iPhone Air",
+    "model_scope": null,
+    "tested_line": "17 October 2026",
+    "url": null
+   },
+   "members": [
+    {
+     "member": "iPhone_Air_512GB_24_Test_Cases.txt",
+     "role": "ignored",
+     "sha256": "14230ff468adf232e9fbca752b541d459d2e77dc68253b370da4d68acd654e6e",
+     "size": 25518
+    }
+   ],
+   "primary": "iPhone_Air_512GB_24_Test_Cases.txt",
+   "sha256": "1ead88218d446154ccb2a12dfd971d09d86cc3a4b138dd052cbe0f92a04a0e3f",
+   "size": 2244
+  },
+  {
+   "archive": "iPhone_Air_90_Test_Cases.zip",
+   "declared_coverage": "32-case checklist per variant: 30 live outcomes and 2 charger cases not applicable. Three variants: 87 numeric quotes, 3 no-offer outcomes and 6 not-applicable entries. Single eSIM for standard cases; Dual eSIM only for the flawless E01 baseline. Not exhaustive.",
+   "members": [
+    {
+     "member": "All_Variants_Comparison.html",
+     "role": "alternative_representation_hash_only",
+     "sha256": "4365c5eccab2222be576fa03d6ef475c079e678105ff21b99b564ca3ba1fbc3b",
+     "size": 42099
+    },
+    {
+     "member": "All_Variants_Report.txt",
+     "role": "ignored",
+     "sha256": "a2e6bfcbdaabd6658a193ce6dfc6eee14113008ec03ce846a74af8e7a3fa4edf",
+     "size": 19213
+    },
+    {
+     "member": "TEST_CASE_COUNTS.txt",
+     "role": "ignored",
+     "sha256": "2c981cd352e1e7c84ee3f534a56ebf8ba85d4f5fca94b3dac2106efe7e50a819",
+     "size": 667
+    },
+    {
+     "member": "match_price.py",
+     "role": "not_executed_hash_only",
+     "sha256": "18b5c7d436c73ff020c5f88b4ab555cd4ff07f01d4f22cc693473abf91089f69",
+     "size": 2923
+    },
+    {
+     "member": "pricing_data.json",
+     "role": "ignored",
+     "sha256": "ac966171e790b890bf689b4954a512a57227b1381d278be83ba4ca285475985d",
+     "size": 54623
+    },
+    {
+     "member": "test_case_counts.json",
+     "role": "ignored",
+     "sha256": "f00e298de6e0a75a433cd6712bc1f082b8f494324c226312e70f6b0080c58a44",
+     "size": 335
+    }
+   ],
+   "primary": "pricing_data.json",
+   "sha256": "f912b8a6bdb9fc8ba6d8761e51df88604b40cc8d9071f2d6d01a88facf8da7ae",
+   "size": 17650
+  },
+  {
+   "archive": "iPhone_X_256GB_24_Test_Cases (1).zip",
+   "header": {
+    "date_end": "2026-10-17",
+    "date_prec": "day",
+    "date_start": "2026-10-17",
+    "get_upto": 10020,
+    "label": "APPLE IPHONE X (3 GB/256 GB)",
+    "model_scope": null,
+    "tested_line": "17 October 2026",
+    "url": "https://www.cashify.in/sell-old-mobile-phone/used-apple-iphone-x-3-gb-256-gb"
+   },
+   "members": [
+    {
+     "member": "README.txt",
+     "role": "ignored",
+     "sha256": "ce82d305382bd0bb941d3b885ff71863411d754143b153204fea63df15bd8956",
+     "size": 294
+    },
+    {
+     "member": "iPhone_X_3GB_256GB_24_Test_Cases.txt",
+     "role": "ignored",
+     "sha256": "f15d83c2a89fa663ca5f45faa8f5fa27e9b88016a6def8bdad4690a1afca747c",
+     "size": 28001
+    }
+   ],
+   "primary": "iPhone_X_3GB_256GB_24_Test_Cases.txt",
+   "sha256": "4579cc6f625b7de46c61a1ffc781de1cc0d8e339f30121a35b2f2b41f1c3b745",
+   "size": 2703
+  },
+  {
+   "archive": "iPhone_X_256GB_24_Test_Cases.zip",
+   "header": {
+    "date_end": "2026-10-17",
+    "date_prec": "day",
+    "date_start": "2026-10-17",
+    "get_upto": 10020,
+    "label": "iPhone X",
+    "model_scope": null,
+    "tested_line": "17 October 2026",
+    "url": "https://www.cashify.in/sell-old-mobile-phone/used-apple-iphone-x-3-gb-256-gb"
+   },
+   "members": [
+    {
+     "member": "iPhone_X_256GB_24_Test_Cases.txt",
+     "role": "ignored",
+     "sha256": "5a8db7f1612ed56d201ad390c55c4d5c7691bbf60e7e81dd31ff0bb74d4114aa",
+     "size": 22683
+    }
+   ],
+   "primary": "iPhone_X_256GB_24_Test_Cases.txt",
+   "sha256": "bdd6b617195aacf67e9a558e0152461ec4d937dc58cb80b56697f8109d9817b8",
+   "size": 2231
+  }
+ ],
+ "catalog": {
+  "C01": {
+   "group": "Body scratches",
+   "name": "More than 2 scratches on body"
+  },
+  "C02": {
+   "group": "Body scratches",
+   "name": "1-2 scratches on body"
+  },
+  "C03": {
+   "group": "Body dents",
+   "name": "Major dent(s) or more than 2"
+  },
+  "C04": {
+   "group": "Body dents",
+   "name": "1-2 minor dents"
+  },
+  "D01": {
+   "group": "Display spots",
+   "name": "Large/ heavy visible spots on screen"
+  },
+  "D02": {
+   "group": "Display spots",
+   "name": "3 or more minor spots on screen"
+  },
+  "D03": {
+   "group": "Display spots",
+   "name": "1-2 minor spots on screen"
+  },
+  "D04": {
+   "group": "Display lines",
+   "name": "Visible line(s) on display"
+  },
+  "D05": {
+   "group": "Display lines",
+   "name": "Display faded along edges"
+  },
+  "D06": {
+   "group": "Display discoloration",
+   "name": "Major Discoloration"
+  },
+  "D07": {
+   "group": "Display discoloration",
+   "name": "Minor Discoloration"
+  },
+  "F01": {
+   "group": "Functional",
+   "name": "Front Camera not working"
+  },
+  "F02": {
+   "group": "Functional",
+   "name": "Back Camera not working"
+  },
+  "F03": {
+   "group": "Functional",
+   "name": "Volume Button not working"
+  },
+  "F04": {
+   "group": "Functional",
+   "name": "Finger Touch not working"
+  },
+  "F05": {
+   "group": "Functional",
+   "name": "WiFi not working"
+  },
+  "F06": {
+   "group": "Functional",
+   "name": "Speaker Faulty"
+  },
+  "F07": {
+   "group": "Functional",
+   "name": "Silent Button not working"
+  },
+  "F08": {
+   "group": "Functional",
+   "name": "Face Sensor not working"
+  },
+  "F09": {
+   "group": "Functional",
+   "name": "Power Button not working"
+  },
+  "F10": {
+   "group": "Functional",
+   "name": "Charging Port not working"
+  },
+  "F11": {
+   "group": "Functional",
+   "name": "Audio Receiver not working"
+  },
+  "F12": {
+   "group": "Functional",
+   "name": "Camera Glass Broken"
+  },
+  "F13": {
+   "group": "Functional",
+   "name": "Microphone not working"
+  },
+  "F14": {
+   "group": "Functional",
+   "name": "Bluetooth not working"
+  },
+  "F15": {
+   "group": "Functional",
+   "name": "Vibrator is not working"
+  },
+  "F16": {
+   "group": "Functional",
+   "name": "Proximity Sensor not working"
+  },
+  "F17": {
+   "group": "Functional",
+   "name": "Battery in Service (Health is less than 80%)"
+  },
+  "F18": {
+   "group": "Functional",
+   "name": "Battery Health 80-85%"
+  },
+  "P01": {
+   "group": "Panel damage",
+   "name": "Cracked/ broken side or back panel"
+  },
+  "P02": {
+   "group": "Panel damage",
+   "name": "Missing side or back panel"
+  },
+  "P03": {
+   "group": "Bent/loose screen",
+   "name": "Bent/ curved panel"
+  },
+  "P04": {
+   "group": "Bent/loose screen",
+   "name": "Loose screen (Gap in screen and body)"
+  },
+  "Q01": {
+   "group": "Basic device condition",
+   "name": "Unable to make/receive calls"
+  },
+  "Q02": {
+   "group": "Basic device condition",
+   "name": "Touch screen not working"
+  },
+  "Q03": {
+   "group": "Basic device condition",
+   "name": "Screen not original"
+  },
+  "S01": {
+   "group": "Screen physical",
+   "name": "Screen cracked/ glass broken"
+  },
+  "S02": {
+   "group": "Screen physical",
+   "name": "Chipped/cracked outside display area"
+  },
+  "S03": {
+   "group": "Screen physical",
+   "name": "More than 2 scratches on screen"
+  },
+  "S04": {
+   "group": "Screen physical",
+   "name": "1-2 scratches on screen"
+  }
+ },
+ "warnings": []
+}

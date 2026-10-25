@@ -1,0 +1,174 @@
+{
+  "version": "apple-cashify-template/2",
+  "description": "Within-group relative weights and interaction rules for Cashify's iPhone condition quote. Weights are rupee ratios to each class anchor measured on the iPhone 18 Pro Max (12 GB/2 TB) single-defect report of 2026-10-22 (reference INR 165,000) and checked against its 160 verified pair quotes. A class anchor value is calibrated per model in calibration.json; the weights are assumed shared across models (tested in the held-out validation, see docs/PRICING_EVIDENCE_REPORT.md).",
+  "classes": {
+    "display": {
+      "label": "Screen display condition: spots, lines, discoloration, scratches (shares one deduction with cracked glass, touch failure and non-original screen: the largest applies)",
+      "anchor": "D01",
+      "combine": "max",
+      "group": "screen",
+      "weights": {
+        "D01": 1,
+        "D02": 0.70588,
+        "D03": 0.23529,
+        "D04": 1,
+        "D05": 0.58824,
+        "D06": 0.64706,
+        "D07": 0.23529,
+        "S02": 0.49412,
+        "S03": 0.34588,
+        "S04": 0.14824
+      }
+    },
+    "cracked": {
+      "label": "Cracked / broken screen glass (shares the screen deduction: the largest applies)",
+      "anchor": "S01",
+      "combine": "max",
+      "group": "screen",
+      "weights": {
+        "S01": 1
+      }
+    },
+    "touch": {
+      "label": "Touch screen not working (shares the screen deduction: the largest applies)",
+      "anchor": "Q02",
+      "combine": "max",
+      "group": "screen",
+      "weights": {
+        "Q02": 1
+      }
+    },
+    "orig": {
+      "label": "Screen not original (shares the screen deduction: the largest applies)",
+      "anchor": "Q03",
+      "combine": "max",
+      "group": "screen",
+      "weights": {
+        "Q03": 1
+      }
+    },
+    "body": {
+      "label": "Body scratches / dents (shares one deduction with panel damage: the largest applies)",
+      "anchor": "C04",
+      "combine": "max",
+      "group": "body",
+      "weights": {
+        "C01": 1,
+        "C02": 0.54141,
+        "C03": 1.33333,
+        "C04": 1
+      }
+    },
+    "panel": {
+      "label": "Panel / frame damage (shares one deduction with body damage: the largest applies)",
+      "anchor": "P01",
+      "combine": "max",
+      "group": "body",
+      "weights": {
+        "P01": 1,
+        "P02": 1,
+        "P03": 1,
+        "P04": 1.72109
+      }
+    },
+    "cam": {
+      "label": "Camera faults (add up)",
+      "anchor": "F01+F02",
+      "combine": "sum",
+      "group": "cam",
+      "weights": {
+        "F01": 0.35,
+        "F02": 0.65,
+        "F12": 0.38
+      }
+    },
+    "fminA": {
+      "label": "Speaker / receiver / microphone / charging-port faults (add up)",
+      "anchor": "F06+F11+F13",
+      "combine": "sum",
+      "group": "fminA",
+      "weights": {
+        "F06": 0.41667,
+        "F10": 0.41667,
+        "F11": 0.41667,
+        "F13": 0.16667
+      }
+    },
+    "fminB": {
+      "label": "Button and vibration faults (add up)",
+      "anchor": "F03+F07+F09+F15",
+      "combine": "sum",
+      "group": "fminB",
+      "weights": {
+        "F03": 0.22222,
+        "F07": 0.33333,
+        "F09": 0.22222,
+        "F15": 0.22222
+      }
+    },
+    "prox": {
+      "label": "Proximity sensor",
+      "anchor": "F16",
+      "combine": "sum",
+      "group": "prox",
+      "weights": {
+        "F16": 1
+      }
+    },
+    "wifi": {
+      "label": "Wi-Fi / Bluetooth (one deduction: the largest applies)",
+      "anchor": "F05",
+      "combine": "max",
+      "group": "wifi",
+      "weights": {
+        "F05": 1,
+        "F14": 1
+      }
+    },
+    "face": {
+      "label": "Face ID / Face sensor",
+      "anchor": "F08",
+      "combine": "sum",
+      "group": "face",
+      "weights": {
+        "F08": 1
+      }
+    },
+    "batt": {
+      "label": "Battery health (one deduction: the largest applies)",
+      "anchor": "F17",
+      "combine": "max",
+      "group": "batt",
+      "weights": {
+        "F17": 1,
+        "F18": 0.3
+      }
+    },
+    "finger": {
+      "label": "Touch ID (no deduction measured on Face ID iPhones)",
+      "anchor": "F04",
+      "combine": "sum",
+      "group": "finger",
+      "weights": {
+        "F04": 0
+      }
+    }
+  },
+  "ageTriggerCodes": [
+    "Q02",
+    "Q03",
+    "S01",
+    "P01",
+    "P02",
+    "P03"
+  ],
+  "ageTriggerNote": "Cashify skips its age question (and prices the phone as over 11 months old) when the touch screen fails, the screen is not original, the glass is cracked, or the side/back panel is cracked, missing or bent. Spots, lines, discoloration and a loose screen do NOT skip it. Measured on 18 Pro Max 2 TB singles (age step 'Not shown' for exactly Q02,Q03,S01,P01,P02,P03).",
+  "scrapQuote": 1200,
+  "scrapNote": "A phone that cannot make or receive calls (Q01) alone quotes INR 1,200 (selling price 1,180 + INR 20 fee). Q01 combined with other faults produced 'no offer' in every model tested.",
+  "wirelessBluetoothNote": "Wi-Fi and Bluetooth faults overlap: both together deduct the same as one.",
+  "classNotes": {
+    "types": "Each class value is either a fixed rupee amount or a fraction of the reference price; the type is decided per model family in calibration.json from storage-variant comparisons.",
+    "panelLooseWithAgeTrigger": "P04 (loose screen) alone deducts 1.72x the P01 level, but when an age-trigger answer (e.g. cracked screen) is present it deducts the same as P01 (measured: S01+P04 = S01+P01 on the 18 Pro Max).",
+    "screenSplit": "Class anchors (rupees on the 18 Pro Max, reference 165,000): display D01 25,500; cracked S01 17,850; touch Q02 30,000; non-original Q03 15,000. Cashify prices all four as one deduction (largest applies), but their relative size differs by model, so each is calibrated separately where the data identify it."
+  }
+}

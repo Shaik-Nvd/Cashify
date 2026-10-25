@@ -13,6 +13,7 @@
 import assert from 'node:assert/strict';
 import { calculateFhoneifyPrice, DiagnosticsType } from '../../lib/pricingCalculator';
 import { parseDiagnostics } from '../../lib/pricing/diagnostics';
+import { applyPayoutCeiling, headlineFromBase } from '../../lib/pricing/payoutCeiling';
 import { findCatalogDevice } from '../../lib/pricing/catalog';
 import {
   PERFECT_CONDITION_DIAGNOSTICS,
@@ -299,7 +300,11 @@ async function run() {
     const result = await svc.quote({ ...identity, diagnostics: diag() });
     assert.ok(result.ok);
     assert.equal(result.internal.baseSource, 'reference_repository');
-    assert.equal(result.fhoneifyPrice, calculateFhoneifyPrice(identity.brand, identity.model, 61000, diag()).fhoneifyPrice);
+    const calc = calculateFhoneifyPrice(identity.brand, identity.model, 61000, diag());
+    // the service applies the owner's payout ceiling after the uplift; it only ever lowers a quote, and here by a few rupees
+    const ceiling = applyPayoutCeiling({ quote: calc.fhoneifyPrice, cashifyHeadlineEquivalent: headlineFromBase(calc.cashifyConditionEquivalent) }).quote;
+    assert.equal(result.fhoneifyPrice, ceiling);
+    assert.ok(calc.fhoneifyPrice - result.fhoneifyPrice >= 0 && calc.fhoneifyPrice - result.fhoneifyPrice <= 60);
   });
 
   await test('a failing or hanging repository degrades to the snapshot instead of failing the quote', async () => {

@@ -21,6 +21,9 @@ import type { WorkbookRouteEvidence } from './teamWorkbookResearchQuoteService';
 import { workbookComponents, workbookStorageIdentity } from './teamWorkbookCandidate';
 import { isReleaseEvidenceCurrent } from './releaseEvidenceAge';
 import { applyCompetitorUplift } from '../pricingCalculator';
+import { applyPayoutCeiling, headlineFromBase, type CeilingResult } from './payoutCeiling';
+import { InspectionRequiredError } from './inspectionRequired';
+import { customerPayout } from './payout';
 import { accessoryBasisForRoute, cleanAccessoryBaselineDiagnostics, getUptoIncludesAccessories, hasBox, hasVerifiedBoxIncludedRoute, isBoxIncludedIdentity, withoutBoxBonus, type AccessoryBasis } from './accessoryBasis';
 import type { QuestionnaireProfileStore } from '../referencePricing/questionnaire/store';
 import { questionnaireModelKey } from '../referencePricing/questionnaire/types';
@@ -89,6 +92,8 @@ export interface AuthoritativeQuote {
   fhoneifyPrice: number;
   /** Fhoneify Get Upto: Cashify's Get Upto plus the uplift, no deductions. */
   startingPrice: number;
+  /** How much of the INR 299 first-time coupon may be added without taking the payout over the owner's ceiling. */
+  couponHeadroom: number;
   quoteToken: string;
   expiresAt: string;
   pricingVersion: string;
@@ -113,6 +118,7 @@ export interface AuthoritativeQuote {
     routeEvidenceSha256?: string | null;
     glassShadow?: GlassShadowResult;
     exactFinalQuote?: { evidenceIds: string[]; fingerprint: string; observedAt: string; policy: string };
+    payoutCeiling: CeilingResult & { equivalentBasis: 'base' | 'selling' };
   };
 }
 
@@ -141,11 +147,14 @@ export interface LeadPricingAudit {
   releaseCandidate?: ReleaseCandidateOutcome | null;
   routeEvidenceSha256?: string | null;
   exactFinalQuote?: { evidenceIds: string[]; fingerprint: string; observedAt: string; policy: string } | null;
+  payoutCeiling?: { maxCustomerPayout: number; cashifyPayoutEquivalent: number; quoteBeforeCeiling: number; reduced: boolean; couponHeadroom: number } | null;
 }
 
 export interface VerifiedLeadPrice {
   ok: true;
   price: number;
+  /** Coupon bonus the customer may receive on top of this price under the payout ceiling (0..299). */
+  couponHeadroom: number;
   diagnostics: import('../pricingCalculator').DiagnosticsType;
   audit: LeadPricingAudit;
 }
@@ -238,6 +247,9 @@ export function createPricingService(deps: PricingServiceDeps) {
     let result;
     let startingPrice;
     let accessoryBasis: AccessoryBasis = 'LEGACY_BOX_BONUS';
+    // Which Cashify price the engine's Cashify-equivalent is on: the legacy calculators anchor on the Get Upto (base price);
+    // exact captured quotes and verified corrections are measured headline selling prices (base - INR 20).
+    let equivalentBasis: 'base' | 'selling' = 'base';
     let rc: ReleaseCandidateOutcome | null = null;
     let exactFinalQuote: AuthoritativeQuote['internal']['exactFinalQuote'];
     try {
@@ -246,7 +258,7 @@ export function createPricingService(deps: PricingServiceDeps) {
       // identical for both.
       // Eligibility is checked here, never inferred by the shared calculator's ordinary callers.
       result = priceDevice(device.brand, device.model, base.cashifyGetUptoReference, diagnostics, hybrid ? legacyQuestionnaire : questionnaire, dispatchStorage,
-        teamFallbackSupported ? { apple512OutOfWarrantyDispatch: true } : undefined);
+        { catalogStorage: device.storage, ...(teamFallbackSupported ? { apple512OutOfWarrantyDispatch: true } : {}) });
       const exact = hybrid && deps.exactFinalQuoteIndex ? deps.exactFinalQuoteIndex.find({ device, diagnostics,
         reference: base.cashifyGetUptoReference, referenceVerifiedAt: base.referenceLastVerifiedAt, questionnaire, route, now: at,
         referenceExact: base.source === 'reference_repository' && base.referenceStatus === 'fresh' && base.referenceSource === 'cashify' && !reference.degraded &&
@@ -257,6 +269,7 @@ export function createPricingService(deps: PricingServiceDeps) {
         result = { cashifyConditionEquivalent: exact.sellingPrice, fhoneifyPrice: policy === 'bounded-net'
           ? boundedCompetitiveOffer(base.cashifyGetUptoReference, exact.sellingPrice) : applyCompetitorUplift(base.cashifyGetUptoReference, exact.sellingPrice) };
         accessoryBasis = 'OBSERVED_FINAL_SELLING_PRICE';
+        equivalentBasis = 'selling';
         exactFinalQuote = { evidenceIds: exact.evidenceIds, fingerprint: exact.fingerprint, observedAt: exact.observedAt, policy };
         rc = { kind: 'VERIFIED', cashifyConditionEquivalent: exact.sellingPrice, rule: EXACT_FINAL_QUOTE_VERSION, evidence: exact.fingerprint, conditionClass: conditionClass(diagnostics) };
         quotePricingVersion = `${HYBRID_PRICING_VERSION}+${EXACT_FINAL_QUOTE_VERSION}+${policy}+${exact.fingerprint}`;
@@ -278,6 +291,7 @@ export function createPricingService(deps: PricingServiceDeps) {
               context: { questionnaire, startingPrice: computeFhoneifyGetUpto(base.cashifyGetUptoReference), pricingVersion } };
           }
           if (rc.kind === 'VERIFIED') {
+            equivalentBasis = 'selling';
             accessoryBasis = 'CALIBRATED_ROUTE_ACCESSORIES';
             if (getUptoIncludesAccessories(device, questionnaire, route, rc.rule !== 'fresh-glass')) accessoryBasis = accessoryBasisForRoute(route!);
             result = { cashifyConditionEquivalent: rc.cashifyConditionEquivalent,
@@ -329,6 +343,7 @@ export function createPricingService(deps: PricingServiceDeps) {
             result = { cashifyConditionEquivalent: correctedEquivalent,
               fhoneifyPrice: applyCompetitorUplift(base.cashifyGetUptoReference, correctedEquivalent) };
             accessoryBasis = accessoryBasisForRoute(route!);
+            equivalentBasis = 'selling';
           }
         // Defence in depth for the launch policy: in release mode a binding price
         // comes only from a verified candidate or the accessory-corrected route.
@@ -344,6 +359,7 @@ export function createPricingService(deps: PricingServiceDeps) {
           // Restore the exact legacy calculation and questionnaire from this same
           // reference/profile lookup; never infer or re-anchor a measured deduction.
           result = legacyResult;
+          equivalentBasis = 'base';
           for (const field of ['boxMode', 'chargerMode', 'sPenMode', 'eSimMode'] as const) delete (questionnaire as unknown as Record<string, unknown>)[field];
           Object.assign(questionnaire, legacyQuestionnaire);
           accessoryBasis = 'LEGACY_BOX_BONUS';
@@ -364,12 +380,26 @@ export function createPricingService(deps: PricingServiceDeps) {
       // Get Upto: the reference plus the uplift, nothing else.
       startingPrice = computeFhoneifyGetUpto(base.cashifyGetUptoReference);
     } catch (err) {
+      if (err instanceof InspectionRequiredError) {
+        deps.logger.info({ deviceKey: key, reason: err.reason, pricingVersion }, 'Evidence model: manual inspection required');
+        return { ok: false, code: 'MANUAL_INSPECTION_REQUIRED', message: 'We need to inspect this phone before we can quote a price',
+          context: { questionnaire, startingPrice: computeFhoneifyGetUpto(base.cashifyGetUptoReference), pricingVersion } };
+      }
       if (err instanceof PricingInvariantError) {
         deps.logger.error({ deviceKey: key, ...err.details, reason: err.message }, 'Pricing invariant violated; quote refused');
         return { ok: false, code: 'PRICING_INVARIANT_VIOLATION', message: 'Unable to price this device right now' };
       }
       throw err;
     }
+
+    // The owner's hard limit: the payout the customer receives may not exceed the Cashify-equivalent payout by more than
+    // min(8%, INR 2,000) - after the uplift, the INR 99 fee, rounding and the coupon. It only ever lowers a quote.
+    const ceiling = applyPayoutCeiling({
+      quote: result.fhoneifyPrice,
+      cashifyHeadlineEquivalent: equivalentBasis === 'selling' ? result.cashifyConditionEquivalent : headlineFromBase(result.cashifyConditionEquivalent),
+    });
+    if (ceiling.reduced) deps.logger.info({ deviceKey: key, before: ceiling.quoteBeforeCeiling, after: ceiling.quote, maxCustomerPayout: ceiling.maxCustomerPayout }, 'Payout ceiling lowered the quote');
+    result = { ...result, fhoneifyPrice: ceiling.quote };
 
     let glassShadow: GlassShadowResult | undefined;
     if (deps.glassShadowCandidate) {
@@ -404,6 +434,7 @@ export function createPricingService(deps: PricingServiceDeps) {
       device: { brand: device.brand, model: device.model, storage: device.storage },
       fhoneifyPrice: result.fhoneifyPrice,
       startingPrice,
+      couponHeadroom: ceiling.couponHeadroom,
       quoteToken,
       expiresAt: new Date(exp * 1000).toISOString(),
       pricingVersion: quotePricingVersion,
@@ -420,6 +451,7 @@ export function createPricingService(deps: PricingServiceDeps) {
         referenceSource: base.referenceSource,
         cashifyConditionEquivalent: result.cashifyConditionEquivalent,
         accessoryBasis,
+        payoutCeiling: { ...ceiling, equivalentBasis },
         ...(exactFinalQuote ? { exactFinalQuote } : {}),
         ...(rc ? { releaseCandidate: rc, routeEvidenceSha256: route?.evidenceSha256 ?? null } : {}),
       },
@@ -498,6 +530,11 @@ export function createPricingService(deps: PricingServiceDeps) {
     const price = tokenPrice ?? (current as AuthoritativeQuote).fhoneifyPrice;
     const parsed = parseDiagnostics(input.diagnostics);
     if (!parsed.ok) return { ok: false, code: 'INVALID_DIAGNOSTICS', message: parsed.error };
+    // The coupon bonus a lead may carry: what still fits under the ceiling for THIS price (a signed price can be older than
+    // the current quote). Without a current quote nothing is known, so no coupon bonus is granted.
+    const couponHeadroom = current.ok
+      ? Math.max(0, Math.min(current.couponHeadroom, current.internal.payoutCeiling.maxCustomerPayout - customerPayout(price, false).payout))
+      : 0;
 
     const audit: LeadPricingAudit = {
       priceSource: tokenPrice !== null ? 'quote_token' : 'recomputed',
@@ -522,6 +559,10 @@ export function createPricingService(deps: PricingServiceDeps) {
       releaseCandidate: current.ok ? current.internal.releaseCandidate ?? null : null,
       routeEvidenceSha256: current.ok ? current.internal.routeEvidenceSha256 ?? null : null,
       exactFinalQuote: current.ok ? current.internal.exactFinalQuote ?? null : null,
+      payoutCeiling: current.ok ? {
+        maxCustomerPayout: current.internal.payoutCeiling.maxCustomerPayout, cashifyPayoutEquivalent: current.internal.payoutCeiling.cashifyPayoutEquivalent,
+        quoteBeforeCeiling: current.internal.payoutCeiling.quoteBeforeCeiling, reduced: current.internal.payoutCeiling.reduced, couponHeadroom,
+      } : null,
     };
 
     if (tokenRejectedReason) {
@@ -531,7 +572,7 @@ export function createPricingService(deps: PricingServiceDeps) {
       deps.logger.warn({ brand: input.brand, model: input.model, storage: input.storage, clientQuotedPrice, price, priceSource: audit.priceSource }, 'Client-submitted lead price differs from authoritative price; stored authoritative price');
     }
 
-    return { ok: true, price, diagnostics: parsed.value, audit };
+    return { ok: true, price, couponHeadroom, diagnostics: parsed.value, audit };
   }
 
   return { quote, getUpto, verifyLeadPrice };

@@ -1,0 +1,3336 @@
+{
+ "version": "apple-cashify-calibration/1",
+ "generatedFrom": "data/pricing-evidence/measurements.jsonl (2284 usable measurements)",
+ "models": {
+  "iPhone 14": {
+   "modelKey": "iPhone 14",
+   "family": "14",
+   "storagesGb": [
+    128,
+    256,
+    512
+   ],
+   "asks": {
+    "warranty": false,
+    "bill": false,
+    "age": false,
+    "eSim": false
+   },
+   "age": null,
+   "boxNo": {
+    "base": 1208.5921702797907,
+    "aged": 2250,
+    "support": "measured"
+   },
+   "eSimDualPct": null,
+   "floor": null,
+   "classes": {
+    "display": {
+     "kind": "fixed",
+     "value": 15288.474265266217,
+     "support": "measured",
+     "n": 4
+    },
+    "cracked": {
+     "kind": "fixed",
+     "value": 17849.99999998289,
+     "support": "inferred",
+     "n": 0
+    },
+    "touch": {
+     "kind": "fixed",
+     "value": 29999.99999997125,
+     "support": "inferred",
+     "n": 0
+    },
+    "orig": {
+     "kind": "fixed",
+     "value": 8994.046528690013,
+     "support": "measured",
+     "n": 2
+    },
+    "body": {
+     "kind": "fixed",
+     "value": 3500,
+     "support": "inferred",
+     "n": 0
+    },
+    "panel": {
+     "kind": "fixed",
+     "value": 4500,
+     "support": "inferred",
+     "n": 0
+    },
+    "cam": {
+     "kind": "fixed",
+     "value": 4541.28440367176,
+     "support": "measured",
+     "n": 2
+    },
+    "fminA": {
+     "kind": "fixed",
+     "value": 4711.983940075476,
+     "support": "measured",
+     "n": 7
+    },
+    "fminB": {
+     "kind": "fixed",
+     "value": 4500,
+     "support": "inferred",
+     "n": 0
+    },
+    "prox": {
+     "kind": "fixed",
+     "value": 4950,
+     "support": "inferred",
+     "n": 0
+    },
+    "wifi": {
+     "kind": "pct",
+     "value": 0.3904708755993415,
+     "support": "measured",
+     "n": 1
+    },
+    "face": {
+     "kind": "pct",
+     "value": 0.2597747555353072,
+     "support": "measured",
+     "n": 8
+    },
+    "batt": {
+     "kind": "fixed",
+     "value": 3018.7004538885985,
+     "support": "measured",
+     "n": 14
+    },
+    "finger": {
+     "kind": "fixed",
+     "value": 0,
+     "support": "inferred",
+     "n": 0
+    }
+   },
+   "scrap": 1200,
+   "extremeFaultCount": 10,
+   "evidence": {
+    "shapes": 25,
+    "measurements": 75,
+    "dates": [
+     "2026-10-17"
+    ]
+   },
+   "notes": [],
+   "observedInteractions": [
+    "BATT",
+    "BATT+BOX+FACE",
+    "BATT+BOX+FACE+SCREEN",
+    "BATT+BOX+FMIN",
+    "BATT+FACE",
+    "BATT+FACE+SCREEN",
+    "BATT+FMIN",
+    "BATT+SCREEN",
+    "CAM",
+    "FACE",
+    "FMIN",
+    "SCREEN",
+    "WIFI"
+   ]
+  },
+  "iPhone 14 Pro": {
+   "modelKey": "iPhone 14 Pro",
+   "family": "14",
+   "storagesGb": [
+    128,
+    256,
+    512,
+    1024
+   ],
+   "asks": {
+    "warranty": false,
+    "bill": false,
+    "age": false,
+    "eSim": true
+   },
+   "age": null,
+   "boxNo": {
+    "base": 1211.5651744691663,
+    "aged": 2250,
+    "support": "measured"
+   },
+   "eSimDualPct": 0.05239902144763883,
+   "floor": null,
+   "classes": {
+    "display": {
+     "kind": "fixed",
+     "value": 16979.910245859373,
+     "support": "measured",
+     "n": 4
+    },
+    "cracked": {
+     "kind": "fixed",
+     "value": 17850.000000017106,
+     "support": "inferred",
+     "n": 0
+    },
+    "touch": {
+     "kind": "fixed",
+     "value": 30000.000000028755,
+     "support": "inferred",
+     "n": 0
+    },
+    "orig": {
+     "kind": "fixed",
+     "value": 9992.360715830477,
+     "support": "measured",
+     "n": 2
+    },
+    "body": {
+     "kind": "fixed",
+     "value": 3500,
+     "support": "inferred",
+     "n": 0
+    },
+    "panel": {
+     "kind": "fixed",
+     "value": 4500,
+     "support": "inferred",
+     "n": 0
+    },
+    "cam": {
+     "kind": "fixed",
+     "value": 6770.642201833693,
+     "support": "measured",
+     "n": 2
+    },
+    "fminA": {
+     "kind": "fixed",
+     "value": 4684.534950199121,
+     "support": "measured",
+     "n": 6
+    },
+    "fminB": {
+     "kind": "fixed",
+     "value": 4500,
+     "support": "inferred",
+     "n": 0
+    },
+    "prox": {
+     "kind": "fixed",
+     "value": 4950,
+     "support": "inferred",
+     "n": 0
+    },
+    "wifi": {
+     "kind": "pct",
+     "value": 0.3876373794087833,
+     "support": "measured",
+     "n": 1
+    },
+    "face": {
+     "kind": "pct",
+     "value": 0.2579674152938991,
+     "support": "measured",
+     "n": 8
+    },
+    "batt": {
+     "kind": "fixed",
+     "value": 3225.012833039638,
+     "support": "measured",
+     "n": 14
+    },
+    "finger": {
+     "kind": "fixed",
+     "value": 0,
+     "support": "inferred",
+     "n": 0
+    }
+   },
+   "scrap": 1200,
+   "extremeFaultCount": 10,
+   "evidence": {
+    "shapes": 25,
+    "measurements": 100,
+    "dates": [
+     "2026-10-22"
+    ]
+   },
+   "notes": [],
+   "observedInteractions": [
+    "BATT",
+    "BATT+BOX+FACE",
+    "BATT+BOX+FACE+SCREEN",
+    "BATT+BOX+FMIN",
+    "BATT+FACE",
+    "BATT+FACE+SCREEN",
+    "BATT+FMIN",
+    "BATT+SCREEN",
+    "CAM",
+    "FACE",
+    "FMIN",
+    "SCREEN",
+    "WIFI"
+   ]
+  },
+  "iPhone 15": {
+   "modelKey": "iPhone 15",
+   "family": "15",
+   "storagesGb": [
+    128,
+    256,
+    512
+   ],
+   "asks": {
+    "warranty": true,
+    "bill": true,
+    "age": true,
+    "eSim": false
+   },
+   "age": {
+    "1": {
+     "a": -1000,
+     "b": 0.08901589997086212,
+     "support": "inferred",
+     "n": 0
+    },
+    "2": {
+     "a": -1000,
+     "b": 0.1181683203849739,
+     "support": "inferred",
+     "n": 0
+    },
+    "3": {
+     "a": -1000,
+     "b": 0.22319711544199353,
+     "support": "inferred",
+     "n": 0
+    }
+   },
+   "boxNo": {
+    "base": 2153.1793195143396,
+    "aged": 213.90237485006514,
+    "support": "measured"
+   },
+   "eSimDualPct": null,
+   "floor": null,
+   "classes": {
+    "display": {
+     "kind": "fixed",
+     "value": 17418.251730978067,
+     "support": "measured",
+     "n": 5
+    },
+    "cracked": {
+     "kind": "fixed",
+     "value": 11911.104494303743,
+     "support": "measured",
+     "n": 1
+    },
+    "touch": {
+     "kind": "fixed",
+     "value": 10824.1176944113,
+     "support": "measured",
+     "n": 5
+    },
+    "orig": {
+     "kind": "fixed",
+     "value": 18318.050233454745,
+     "support": "measured",
+     "n": 2
+    },
+    "body": {
+     "kind": "fixed",
+     "value": 2750.00000000003,
+     "support": "measured",
+     "n": 1
+    },
+    "panel": {
+     "kind": "fixed",
+     "value": 3835.4753088762086,
+     "support": "measured",
+     "n": 3
+    },
+    "cam": {
+     "kind": "fixed",
+     "value": 5310.45297610046,
+     "support": "measured",
+     "n": 3
+    },
+    "fminA": {
+     "kind": "fixed",
+     "value": 5199.9480005200485,
+     "support": "measured",
+     "n": 1
+    },
+    "fminB": {
+     "kind": "fixed",
+     "value": 2850.0285002850032,
+     "support": "measured",
+     "n": 1
+    },
+    "prox": {
+     "kind": "fixed",
+     "value": 4950,
+     "support": "inferred",
+     "n": 0
+    },
+    "wifi": {
+     "kind": "pct",
+     "value": 0.2401807867744708,
+     "support": "measured",
+     "n": 7
+    },
+    "face": {
+     "kind": "pct",
+     "value": 0.1997148231961993,
+     "support": "measured",
+     "n": 18
+    },
+    "batt": {
+     "kind": "fixed",
+     "value": 3440.296863854499,
+     "support": "measured",
+     "n": 18
+    },
+    "finger": {
+     "kind": "fixed",
+     "value": 0,
+     "support": "inferred",
+     "n": 0
+    }
+   },
+   "scrap": 1200,
+   "extremeFaultCount": 10,
+   "evidence": {
+    "shapes": 42,
+    "measurements": 103,
+    "dates": [
+     "2026-10-24",
+     "unknown"
+    ]
+   },
+   "notes": [],
+   "ageByStorage": {
+    "128": {
+     "1": 0.0424,
+     "2": 0.0739,
+     "3": 0.18972
+    },
+    "256": {
+     "1": 0.04048,
+     "2": 0.07214,
+     "3": 0.1877
+    },
+    "512": {
+     "1": 0.0681,
+     "2": 0.09882,
+     "3": 0.21096
+    }
+   },
+   "observedInteractions": [
+    "AGED+BATT",
+    "AGED+BATT+BOX+FACE",
+    "AGED+BATT+BOX+FACE+SCREEN",
+    "AGED+BATT+FACE",
+    "AGED+BATT+FACE+SCREEN",
+    "AGED+BATT+FACE+SCREEN+WIFI",
+    "AGED+BATT+FACE+WIFI",
+    "AGED+BATT+SCREEN",
+    "AGED+BODY+SCREEN",
+    "AGED+FACE+SCREEN",
+    "AGED+FACE+SCREEN+WIFI",
+    "AGED+SCREEN+WIFI",
+    "BATT+BODY+CAM+SCREEN",
+    "BATT+BOX+FACE",
+    "BATT+CAM+FACE+FMIN+WIFI",
+    "BATT+FACE",
+    "BODY",
+    "CAM",
+    "FACE+WIFI",
+    "FMIN",
+    "SCREEN",
+    "WIFI"
+   ]
+  },
+  "iPhone 15 Plus": {
+   "modelKey": "iPhone 15 Plus",
+   "family": "15",
+   "storagesGb": [
+    128,
+    256,
+    512
+   ],
+   "asks": {
+    "warranty": true,
+    "bill": true,
+    "age": true,
+    "eSim": false
+   },
+   "age": {
+    "1": {
+     "a": 1455.3346074846777,
+     "b": 0.002803046108531961,
+     "support": "inferred",
+     "n": 0
+    },
+    "2": {
+     "a": 1474.2089717834851,
+     "b": 0.03405928470108326,
+     "support": "inferred",
+     "n": 0
+    },
+    "3": {
+     "a": 1408.6075130746467,
+     "b": 0.1510672900578354,
+     "support": "inferred",
+     "n": 0
+    }
+   },
+   "boxNo": {
+    "base": 2057.1899924414543,
+    "aged": 1508.7672847300141,
+    "support": "measured"
+   },
+   "eSimDualPct": null,
+   "floor": {
+    "basis": "reference",
+    "value": 0.26295
+   },
+   "classes": {
+    "display": {
+     "kind": "fixed",
+     "value": 18422.015363598774,
+     "support": "measured",
+     "n": 7
+    },
+    "cracked": {
+     "kind": "fixed",
+     "value": 12731.686421653254,
+     "support": "measured",
+     "n": 1
+    },
+    "touch": {
+     "kind": "fixed",
+     "value": 20536.463989754226,
+     "support": "measured",
+     "n": 6
+    },
+    "orig": {
+     "kind": "fixed",
+     "value": 11059.361246542852,
+     "support": "measured",
+     "n": 1
+    },
+    "body": {
+     "kind": "fixed",
+     "value": 2420.000000000164,
+     "support": "measured",
+     "n": 1
+    },
+    "panel": {
+     "kind": "fixed",
+     "value": 3218.320911470938,
+     "support": "measured",
+     "n": 3
+    },
+    "cam": {
+     "kind": "fixed",
+     "value": 5379.852127499757,
+     "support": "measured",
+     "n": 3
+    },
+    "fminA": {
+     "kind": "fixed",
+     "value": 5379.410181736453,
+     "support": "measured",
+     "n": 5
+    },
+    "fminB": {
+     "kind": "fixed",
+     "value": 2850.0285002850032,
+     "support": "measured",
+     "n": 1
+    },
+    "prox": {
+     "kind": "fixed",
+     "value": 4950,
+     "support": "inferred",
+     "n": 0
+    },
+    "wifi": {
+     "kind": "pct",
+     "value": 0.3092445930126791,
+     "support": "measured",
+     "n": 7
+    },
+    "face": {
+     "kind": "pct",
+     "value": 0.21961238508572758,
+     "support": "measured",
+     "n": 19
+    },
+    "batt": {
+     "kind": "fixed",
+     "value": 2678.7657638575606,
+     "support": "measured",
+     "n": 24
+    },
+    "finger": {
+     "kind": "fixed",
+     "value": 0,
+     "support": "inferred",
+     "n": 0
+    }
+   },
+   "scrap": 1200,
+   "extremeFaultCount": 10,
+   "evidence": {
+    "shapes": 51,
+    "measurements": 111,
+    "dates": [
+     "2026-10-17",
+     "2026-10-24"
+    ]
+   },
+   "notes": [],
+   "ageByStorage": {
+    "128": {
+     "1": 0.03483,
+     "2": 0.06658,
+     "3": 0.1821
+    },
+    "256": {
+     "1": 0.03412,
+     "2": 0.06567,
+     "3": 0.18133
+    },
+    "512": {
+     "1": 0.03272,
+     "2": 0.0644,
+     "3": 0.18004
+    }
+   },
+   "observedInteractions": [
+    "AGED+BATT",
+    "AGED+BATT+BOX+FACE",
+    "AGED+BATT+BOX+FACE+SCREEN",
+    "AGED+BATT+BOX+FMIN",
+    "AGED+BATT+FACE",
+    "AGED+BATT+FACE+SCREEN",
+    "AGED+BATT+FACE+SCREEN+WIFI",
+    "AGED+BATT+FACE+WIFI",
+    "AGED+BATT+FMIN",
+    "AGED+BATT+SCREEN",
+    "AGED+BODY+SCREEN",
+    "AGED+FACE",
+    "AGED+FACE+SCREEN",
+    "AGED+FACE+SCREEN+WIFI",
+    "AGED+SCREEN",
+    "AGED+SCREEN+WIFI",
+    "BATT+BODY+CAM+SCREEN",
+    "BATT+BOX+FACE",
+    "BATT+CAM+FACE+FMIN+WIFI",
+    "BATT+FACE",
+    "BODY",
+    "CAM",
+    "FACE+WIFI",
+    "FMIN",
+    "SCREEN",
+    "WIFI"
+   ]
+  },
+  "iPhone 15 Pro": {
+   "modelKey": "iPhone 15 Pro",
+   "family": "15",
+   "storagesGb": [
+    128,
+    256,
+    512,
+    1024
+   ],
+   "asks": {
+    "warranty": true,
+    "bill": true,
+    "age": true,
+    "eSim": true
+   },
+   "age": {
+    "1": {
+     "a": 2097.7898093766507,
+     "b": 0.010449850693790612,
+     "support": "inferred",
+     "n": 0
+    },
+    "2": {
+     "a": 2097.851638066369,
+     "b": 0.04169892241157511,
+     "support": "inferred",
+     "n": 0
+    },
+    "3": {
+     "a": 2099.2229026788887,
+     "b": 0.15626166741103537,
+     "support": "inferred",
+     "n": 0
+    }
+   },
+   "boxNo": {
+    "base": 1973.697528153054,
+    "aged": 1359.0985869500055,
+    "support": "measured"
+   },
+   "eSimDualPct": 0.04997712766879997,
+   "floor": {
+    "basis": "reference",
+    "value": 0.26042
+   },
+   "classes": {
+    "display": {
+     "kind": "fixed",
+     "value": 19486.385125527984,
+     "support": "measured",
+     "n": 5
+    },
+    "cracked": {
+     "kind": "fixed",
+     "value": 14115.650960894822,
+     "support": "measured",
+     "n": 1
+    },
+    "touch": {
+     "kind": "fixed",
+     "value": 23207.944527795215,
+     "support": "measured",
+     "n": 6
+    },
+    "orig": {
+     "kind": "fixed",
+     "value": 11512.103155080016,
+     "support": "measured",
+     "n": 1
+    },
+    "body": {
+     "kind": "fixed",
+     "value": 3299.999999999891,
+     "support": "measured",
+     "n": 1
+    },
+    "panel": {
+     "kind": "fixed",
+     "value": 3464.317838927223,
+     "support": "measured",
+     "n": 3
+    },
+    "cam": {
+     "kind": "fixed",
+     "value": 6390.198916680057,
+     "support": "measured",
+     "n": 3
+    },
+    "fminA": {
+     "kind": "fixed",
+     "value": 5399.946000539991,
+     "support": "measured",
+     "n": 1
+    },
+    "fminB": {
+     "kind": "fixed",
+     "value": 2850.0285002850032,
+     "support": "measured",
+     "n": 1
+    },
+    "prox": {
+     "kind": "fixed",
+     "value": 4950,
+     "support": "inferred",
+     "n": 0
+    },
+    "wifi": {
+     "kind": "pct",
+     "value": 0.31223993888269796,
+     "support": "measured",
+     "n": 7
+    },
+    "face": {
+     "kind": "pct",
+     "value": 0.2087234250016588,
+     "support": "measured",
+     "n": 18
+    },
+    "batt": {
+     "kind": "fixed",
+     "value": 3902.2000712170434,
+     "support": "measured",
+     "n": 18
+    },
+    "finger": {
+     "kind": "fixed",
+     "value": 0,
+     "support": "inferred",
+     "n": 0
+    }
+   },
+   "scrap": 1200,
+   "extremeFaultCount": 10,
+   "evidence": {
+    "shapes": 43,
+    "measurements": 136,
+    "dates": [
+     "2026-10-16",
+     "2026-10-24"
+    ]
+   },
+   "notes": [],
+   "ageByStorage": {
+    "128": {
+     "1": 0.04407,
+     "2": 0.07532,
+     "3": 0.1899
+    },
+    "256": {
+     "1": 0.04259,
+     "2": 0.07384,
+     "3": 0.18842
+    },
+    "512": {
+     "1": 0.04123,
+     "2": 0.07248,
+     "3": 0.18706
+    },
+    "1024": {
+     "1": 0.04038,
+     "2": 0.07163,
+     "3": 0.18622
+    }
+   },
+   "observedInteractions": [
+    "AGED+BATT",
+    "AGED+BATT+BOX+FACE",
+    "AGED+BATT+BOX+FACE+SCREEN",
+    "AGED+BATT+FACE",
+    "AGED+BATT+FACE+SCREEN",
+    "AGED+BATT+FACE+SCREEN+WIFI",
+    "AGED+BATT+FACE+WIFI",
+    "AGED+BATT+SCREEN",
+    "AGED+BODY+SCREEN",
+    "AGED+FACE+SCREEN",
+    "AGED+FACE+SCREEN+WIFI",
+    "AGED+SCREEN+WIFI",
+    "BATT+BODY+CAM+SCREEN",
+    "BATT+BOX+FACE",
+    "BATT+CAM+FACE+FMIN+WIFI",
+    "BATT+FACE",
+    "BODY",
+    "CAM",
+    "FACE+WIFI",
+    "FMIN",
+    "SCREEN",
+    "WIFI"
+   ]
+  },
+  "iPhone 15 Pro Max": {
+   "modelKey": "iPhone 15 Pro Max",
+   "family": "15",
+   "storagesGb": [
+    512
+   ],
+   "asks": {
+    "warranty": true,
+    "bill": true,
+    "age": true,
+    "eSim": true
+   },
+   "age": {
+    "1": {
+     "a": 1455.1735657326567,
+     "b": 0.022140331884536443,
+     "support": "inferred",
+     "n": 2
+    },
+    "2": {
+     "a": 1473.6168214977733,
+     "b": 0.05320421849953942,
+     "support": "inferred",
+     "n": 1
+    },
+    "3": {
+     "a": 1421.0396263326757,
+     "b": 0.16844589509992489,
+     "support": "inferred",
+     "n": 0
+    }
+   },
+   "boxNo": {
+    "base": 1949.9079032478685,
+    "aged": 1300.0524382550218,
+    "support": "measured"
+   },
+   "eSimDualPct": 0.04997712766880009,
+   "floor": null,
+   "classes": {
+    "display": {
+     "kind": "fixed",
+     "value": 19572.784686403393,
+     "support": "measured",
+     "n": 4
+    },
+    "cracked": {
+     "kind": "fixed",
+     "value": 13526.99756692129,
+     "support": "inferred",
+     "n": 0
+    },
+    "touch": {
+     "kind": "fixed",
+     "value": 21819.31672061408,
+     "support": "inferred",
+     "n": 0
+    },
+    "orig": {
+     "kind": "fixed",
+     "value": 11499.942131478574,
+     "support": "measured",
+     "n": 1
+    },
+    "body": {
+     "kind": "fixed",
+     "value": 2750.00000000003,
+     "support": "inferred",
+     "n": 0
+    },
+    "panel": {
+     "kind": "fixed",
+     "value": 3464.31783892729,
+     "support": "inferred",
+     "n": 0
+    },
+    "cam": {
+     "kind": "fixed",
+     "value": 5379.852127494652,
+     "support": "inferred",
+     "n": 0
+    },
+    "fminA": {
+     "kind": "fixed",
+     "value": 5760.272196177296,
+     "support": "measured",
+     "n": 4
+    },
+    "fminB": {
+     "kind": "fixed",
+     "value": 2850.028500285003,
+     "support": "inferred",
+     "n": 0
+    },
+    "prox": {
+     "kind": "fixed",
+     "value": 4950,
+     "support": "inferred",
+     "n": 0
+    },
+    "wifi": {
+     "kind": "pct",
+     "value": 0.30924459301165186,
+     "support": "inferred",
+     "n": 0
+    },
+    "face": {
+     "kind": "pct",
+     "value": 0.20833576908993884,
+     "support": "measured",
+     "n": 13
+    },
+    "batt": {
+     "kind": "fixed",
+     "value": 3999.964483838943,
+     "support": "measured",
+     "n": 20
+    },
+    "finger": {
+     "kind": "fixed",
+     "value": 0,
+     "support": "inferred",
+     "n": 0
+    }
+   },
+   "scrap": 1200,
+   "extremeFaultCount": 10,
+   "evidence": {
+    "shapes": 24,
+    "measurements": 24,
+    "dates": [
+     "2026-10-17"
+    ]
+   },
+   "notes": [],
+   "ageByStorage": {
+    "512": {
+     "1": null,
+     "2": null,
+     "3": 0.18805
+    }
+   },
+   "observedInteractions": [
+    "AGED+BATT",
+    "AGED+BATT+BOX+FACE",
+    "AGED+BATT+BOX+FACE+SCREEN",
+    "AGED+BATT+BOX+FMIN",
+    "AGED+BATT+FACE",
+    "AGED+BATT+FACE+SCREEN",
+    "AGED+BATT+FMIN",
+    "AGED+BATT+SCREEN",
+    "AGED+FACE",
+    "AGED+SCREEN",
+    "BATT+BOX+FACE",
+    "BATT+FACE"
+   ]
+  },
+  "iPhone 16": {
+   "modelKey": "iPhone 16",
+   "family": "16",
+   "storagesGb": [
+    128,
+    256,
+    512
+   ],
+   "asks": {
+    "warranty": true,
+    "bill": true,
+    "age": true,
+    "eSim": false
+   },
+   "age": {
+    "1": {
+     "a": 1754.386816826927,
+     "b": 0.010336068202651937,
+     "support": "inferred",
+     "n": 0
+    },
+    "2": {
+     "a": 1753.962969845659,
+     "b": 0.041593855706057586,
+     "support": "inferred",
+     "n": 0
+    },
+    "3": {
+     "a": 1744.3089356805392,
+     "b": 0.15635964657020446,
+     "support": "inferred",
+     "n": 0
+    }
+   },
+   "boxNo": {
+    "base": 2254.151656788091,
+    "aged": 1570.2478750410762,
+    "support": "measured"
+   },
+   "eSimDualPct": null,
+   "floor": {
+    "basis": "reference",
+    "value": 0.17708
+   },
+   "classes": {
+    "display": {
+     "kind": "fixed",
+     "value": 22060.99977222834,
+     "support": "measured",
+     "n": 7
+    },
+    "cracked": {
+     "kind": "fixed",
+     "value": 15750.609925747563,
+     "support": "measured",
+     "n": 1
+    },
+    "touch": {
+     "kind": "fixed",
+     "value": 26148.081907748794,
+     "support": "measured",
+     "n": 6
+    },
+    "orig": {
+     "kind": "fixed",
+     "value": 12953.593147698137,
+     "support": "measured",
+     "n": 1
+    },
+    "body": {
+     "kind": "fixed",
+     "value": 2750.0000000001046,
+     "support": "measured",
+     "n": 1
+    },
+    "panel": {
+     "kind": "fixed",
+     "value": 2969.470074507678,
+     "support": "measured",
+     "n": 3
+    },
+    "cam": {
+     "kind": "fixed",
+     "value": 8553.590816914639,
+     "support": "measured",
+     "n": 3
+    },
+    "fminA": {
+     "kind": "fixed",
+     "value": 5672.598869444875,
+     "support": "measured",
+     "n": 5
+    },
+    "fminB": {
+     "kind": "fixed",
+     "value": 3300.0330003300032,
+     "support": "measured",
+     "n": 1
+    },
+    "prox": {
+     "kind": "fixed",
+     "value": 4950,
+     "support": "inferred",
+     "n": 0
+    },
+    "wifi": {
+     "kind": "pct",
+     "value": 0.3124150757541011,
+     "support": "measured",
+     "n": 7
+    },
+    "face": {
+     "kind": "pct",
+     "value": 0.20854181230082663,
+     "support": "measured",
+     "n": 19
+    },
+    "batt": {
+     "kind": "fixed",
+     "value": 3984.5261077439163,
+     "support": "measured",
+     "n": 24
+    },
+    "finger": {
+     "kind": "fixed",
+     "value": 0,
+     "support": "inferred",
+     "n": 0
+    }
+   },
+   "scrap": 1200,
+   "extremeFaultCount": 10,
+   "evidence": {
+    "shapes": 51,
+    "measurements": 111,
+    "dates": [
+     "2026-10-16",
+     "2026-10-17",
+     "2026-10-24"
+    ]
+   },
+   "notes": [],
+   "ageByStorage": {
+    "128": {
+     "1": 0.04356,
+     "2": 0.07481,
+     "3": 0.18939
+    },
+    "256": {
+     "1": 0.0424,
+     "2": 0.07365,
+     "3": 0.18823
+    },
+    "512": {
+     "1": 0.04185,
+     "2": 0.0731,
+     "3": 0.18768
+    }
+   },
+   "observedInteractions": [
+    "AGED+BATT",
+    "AGED+BATT+BOX+FACE",
+    "AGED+BATT+BOX+FACE+SCREEN",
+    "AGED+BATT+BOX+FMIN",
+    "AGED+BATT+FACE",
+    "AGED+BATT+FACE+SCREEN",
+    "AGED+BATT+FACE+SCREEN+WIFI",
+    "AGED+BATT+FACE+WIFI",
+    "AGED+BATT+FMIN",
+    "AGED+BATT+SCREEN",
+    "AGED+BODY+SCREEN",
+    "AGED+FACE",
+    "AGED+FACE+SCREEN",
+    "AGED+FACE+SCREEN+WIFI",
+    "AGED+SCREEN",
+    "AGED+SCREEN+WIFI",
+    "BATT+BODY+CAM+SCREEN",
+    "BATT+BOX+FACE",
+    "BATT+FACE",
+    "BODY",
+    "CAM",
+    "FACE+WIFI",
+    "FMIN",
+    "SCREEN",
+    "WIFI"
+   ]
+  },
+  "iPhone 16 Plus": {
+   "modelKey": "iPhone 16 Plus",
+   "family": "16",
+   "storagesGb": [
+    128,
+    256,
+    512
+   ],
+   "asks": {
+    "warranty": true,
+    "bill": true,
+    "age": true,
+    "eSim": false
+   },
+   "age": {
+    "1": {
+     "a": 2044.469465422611,
+     "b": 0.0076802023954688926,
+     "support": "inferred",
+     "n": 0
+    },
+    "2": {
+     "a": 1893.2780074885238,
+     "b": 0.04160797218871194,
+     "support": "inferred",
+     "n": 0
+    },
+    "3": {
+     "a": 2034.5430762000249,
+     "b": 0.15369874930704924,
+     "support": "inferred",
+     "n": 0
+    }
+   },
+   "boxNo": {
+    "base": 2254.098943728225,
+    "aged": 1567.8057463945556,
+    "support": "measured"
+   },
+   "eSimDualPct": null,
+   "floor": {
+    "basis": "reference",
+    "value": 0.17711
+   },
+   "classes": {
+    "display": {
+     "kind": "fixed",
+     "value": 22914.85895332112,
+     "support": "measured",
+     "n": 7
+    },
+    "cracked": {
+     "kind": "fixed",
+     "value": 16301.331890937872,
+     "support": "measured",
+     "n": 1
+    },
+    "touch": {
+     "kind": "fixed",
+     "value": 27119.903607336582,
+     "support": "measured",
+     "n": 6
+    },
+    "orig": {
+     "kind": "fixed",
+     "value": 13453.005738688862,
+     "support": "measured",
+     "n": 1
+    },
+    "body": {
+     "kind": "fixed",
+     "value": 2970.000000000015,
+     "support": "measured",
+     "n": 1
+    },
+    "panel": {
+     "kind": "fixed",
+     "value": 3275.3774426355717,
+     "support": "measured",
+     "n": 3
+    },
+    "cam": {
+     "kind": "fixed",
+     "value": 8718.72405146149,
+     "support": "measured",
+     "n": 3
+    },
+    "fminA": {
+     "kind": "fixed",
+     "value": 5670.78102327795,
+     "support": "measured",
+     "n": 5
+    },
+    "fminB": {
+     "kind": "fixed",
+     "value": 3300.0330003300032,
+     "support": "measured",
+     "n": 1
+    },
+    "prox": {
+     "kind": "fixed",
+     "value": 4950,
+     "support": "inferred",
+     "n": 0
+    },
+    "wifi": {
+     "kind": "pct",
+     "value": 0.3124531881998893,
+     "support": "measured",
+     "n": 7
+    },
+    "face": {
+     "kind": "pct",
+     "value": 0.20842643724278612,
+     "support": "measured",
+     "n": 19
+    },
+    "batt": {
+     "kind": "fixed",
+     "value": 3994.900673888215,
+     "support": "measured",
+     "n": 24
+    },
+    "finger": {
+     "kind": "fixed",
+     "value": 0,
+     "support": "inferred",
+     "n": 0
+    }
+   },
+   "scrap": 1200,
+   "extremeFaultCount": 10,
+   "evidence": {
+    "shapes": 51,
+    "measurements": 111,
+    "dates": [
+     "2026-10-17",
+     "2026-10-24"
+    ]
+   },
+   "notes": [],
+   "ageByStorage": {
+    "128": {
+     "1": 0.04475,
+     "2": 0.07591,
+     "3": 0.19058
+    },
+    "256": {
+     "1": 0.04436,
+     "2": 0.07561,
+     "3": 0.19019
+    },
+    "512": {
+     "1": 0.04379,
+     "2": 0.07504,
+     "3": 0.18962
+    }
+   },
+   "observedInteractions": [
+    "AGED+BATT",
+    "AGED+BATT+BOX+FACE",
+    "AGED+BATT+BOX+FACE+SCREEN",
+    "AGED+BATT+BOX+FMIN",
+    "AGED+BATT+FACE",
+    "AGED+BATT+FACE+SCREEN",
+    "AGED+BATT+FACE+SCREEN+WIFI",
+    "AGED+BATT+FACE+WIFI",
+    "AGED+BATT+FMIN",
+    "AGED+BATT+SCREEN",
+    "AGED+BODY+SCREEN",
+    "AGED+FACE",
+    "AGED+FACE+SCREEN",
+    "AGED+FACE+SCREEN+WIFI",
+    "AGED+SCREEN",
+    "AGED+SCREEN+WIFI",
+    "BATT+BODY+CAM+SCREEN",
+    "BATT+BOX+FACE",
+    "BATT+FACE",
+    "BODY",
+    "CAM",
+    "FACE+WIFI",
+    "FMIN",
+    "SCREEN",
+    "WIFI"
+   ]
+  },
+  "iPhone 16 Pro": {
+   "modelKey": "iPhone 16 Pro",
+   "family": "16",
+   "storagesGb": [
+    128,
+    256,
+    512,
+    1024
+   ],
+   "asks": {
+    "warranty": true,
+    "bill": true,
+    "age": true,
+    "eSim": true
+   },
+   "age": {
+    "1": {
+     "a": 2008.6319951749856,
+     "b": 0.021798428866044633,
+     "support": "inferred",
+     "n": 0
+    },
+    "2": {
+     "a": 2109.2460251464213,
+     "b": 0.05141480348454326,
+     "support": "inferred",
+     "n": 0
+    },
+    "3": {
+     "a": 2111.010660796165,
+     "b": 0.16480068553742194,
+     "support": "inferred",
+     "n": 0
+    }
+   },
+   "boxNo": {
+    "base": 2250.0000000001664,
+    "aged": 1561.1013726874223,
+    "support": "measured"
+   },
+   "eSimDualPct": 0.04997997785019114,
+   "floor": {
+    "basis": "reference",
+    "value": 0.17525
+   },
+   "classes": {
+    "display": {
+     "kind": "fixed",
+     "value": 23800.021848835473,
+     "support": "measured",
+     "n": 3
+    },
+    "cracked": {
+     "kind": "fixed",
+     "value": 16927.28465637862,
+     "support": "measured",
+     "n": 1
+    },
+    "touch": {
+     "kind": "fixed",
+     "value": 27999.990345606893,
+     "support": "measured",
+     "n": 5
+    },
+    "orig": {
+     "kind": "fixed",
+     "value": 28267.284656376436,
+     "support": "measured",
+     "n": 1
+    },
+    "body": {
+     "kind": "fixed",
+     "value": 3299.9999999999327,
+     "support": "measured",
+     "n": 1
+    },
+    "panel": {
+     "kind": "fixed",
+     "value": 3632.707018620273,
+     "support": "measured",
+     "n": 3
+    },
+    "cam": {
+     "kind": "fixed",
+     "value": 9279.024927695451,
+     "support": "measured",
+     "n": 3
+    },
+    "fminA": {
+     "kind": "fixed",
+     "value": 5599.944000560004,
+     "support": "measured",
+     "n": 1
+    },
+    "fminB": {
+     "kind": "fixed",
+     "value": 3300.0330003300037,
+     "support": "measured",
+     "n": 1
+    },
+    "prox": {
+     "kind": "fixed",
+     "value": 4950,
+     "support": "inferred",
+     "n": 0
+    },
+    "wifi": {
+     "kind": "pct",
+     "value": 0.3092728488167747,
+     "support": "measured",
+     "n": 7
+    },
+    "face": {
+     "kind": "pct",
+     "value": 0.2062036148775282,
+     "support": "measured",
+     "n": 6
+    },
+    "batt": {
+     "kind": "fixed",
+     "value": 4200.002334245495,
+     "support": "measured",
+     "n": 4
+    },
+    "finger": {
+     "kind": "fixed",
+     "value": 0,
+     "support": "inferred",
+     "n": 0
+    }
+   },
+   "scrap": 1200,
+   "extremeFaultCount": 10,
+   "evidence": {
+    "shapes": 29,
+    "measurements": 120,
+    "dates": [
+     "2026-10-24"
+    ]
+   },
+   "notes": [],
+   "ageByStorage": {
+    "128": {
+     "1": 0.04898,
+     "2": 0.07996,
+     "3": 0.19334
+    },
+    "256": {
+     "1": 0.048,
+     "2": 0.07891,
+     "3": 0.19238
+    },
+    "512": {
+     "1": 0.04733,
+     "2": 0.07825,
+     "3": 0.19163
+    },
+    "1024": {
+     "1": 0.04713,
+     "2": 0.078,
+     "3": 0.19141
+    }
+   },
+   "observedInteractions": [
+    "AGED+BATT+FACE+SCREEN+WIFI",
+    "AGED+BATT+FACE+WIFI",
+    "AGED+BATT+SCREEN",
+    "AGED+BODY+SCREEN",
+    "AGED+FACE+SCREEN",
+    "AGED+FACE+SCREEN+WIFI",
+    "AGED+SCREEN+WIFI",
+    "BATT+BODY+CAM+SCREEN",
+    "BATT+CAM+FACE+FMIN+WIFI",
+    "BODY",
+    "CAM",
+    "FACE+WIFI",
+    "FMIN",
+    "SCREEN",
+    "WIFI"
+   ]
+  },
+  "iPhone 16 Pro Max": {
+   "modelKey": "iPhone 16 Pro Max",
+   "family": "16",
+   "storagesGb": [
+    256,
+    512,
+    1024
+   ],
+   "asks": {
+    "warranty": true,
+    "bill": true,
+    "age": true,
+    "eSim": true
+   },
+   "age": {
+    "1": {
+     "a": 2555.9458414771348,
+     "b": 0.017850417164149285,
+     "support": "inferred",
+     "n": 0
+    },
+    "2": {
+     "a": 2398.4932001476127,
+     "b": 0.050563962987738964,
+     "support": "inferred",
+     "n": 0
+    },
+    "3": {
+     "a": 2412.570971950799,
+     "b": 0.16379491785326908,
+     "support": "inferred",
+     "n": 0
+    }
+   },
+   "boxNo": {
+    "base": 2254.3635533903093,
+    "aged": 1554.3969989826685,
+    "support": "measured"
+   },
+   "eSimDualPct": 0.05001816641873369,
+   "floor": {
+    "basis": "reference",
+    "value": 0.17526
+   },
+   "classes": {
+    "display": {
+     "kind": "fixed",
+     "value": 23747.99959182947,
+     "support": "measured",
+     "n": 7
+    },
+    "cracked": {
+     "kind": "fixed",
+     "value": 16893.21351482869,
+     "support": "measured",
+     "n": 1
+    },
+    "touch": {
+     "kind": "fixed",
+     "value": 28066.401644449445,
+     "support": "measured",
+     "n": 6
+    },
+    "orig": {
+     "kind": "fixed",
+     "value": 13956.426254720458,
+     "support": "measured",
+     "n": 1
+    },
+    "body": {
+     "kind": "fixed",
+     "value": 3629.9999999997913,
+     "support": "measured",
+     "n": 1
+    },
+    "panel": {
+     "kind": "fixed",
+     "value": 4056.5138189441436,
+     "support": "measured",
+     "n": 3
+    },
+    "cam": {
+     "kind": "fixed",
+     "value": 9267.345139020526,
+     "support": "measured",
+     "n": 3
+    },
+    "fminA": {
+     "kind": "fixed",
+     "value": 5660.637045077418,
+     "support": "measured",
+     "n": 5
+    },
+    "fminB": {
+     "kind": "fixed",
+     "value": 3300.033000330003,
+     "support": "measured",
+     "n": 1
+    },
+    "prox": {
+     "kind": "fixed",
+     "value": 4950,
+     "support": "inferred",
+     "n": 0
+    },
+    "wifi": {
+     "kind": "pct",
+     "value": 0.30928724024650706,
+     "support": "measured",
+     "n": 7
+    },
+    "face": {
+     "kind": "pct",
+     "value": 0.20597792936952025,
+     "support": "measured",
+     "n": 19
+    },
+    "batt": {
+     "kind": "fixed",
+     "value": 4207.342586532686,
+     "support": "measured",
+     "n": 24
+    },
+    "finger": {
+     "kind": "fixed",
+     "value": 0,
+     "support": "inferred",
+     "n": 0
+    }
+   },
+   "scrap": 1200,
+   "extremeFaultCount": 10,
+   "evidence": {
+    "shapes": 52,
+    "measurements": 114,
+    "dates": [
+     "2026-10-17",
+     "2026-10-24"
+    ]
+   },
+   "notes": [],
+   "ageByStorage": {
+    "256": {
+     "1": 0.04744,
+     "2": 0.07833,
+     "3": 0.19172
+    },
+    "512": {
+     "1": 0.04679,
+     "2": 0.07772,
+     "3": 0.19112
+    },
+    "1024": {
+     "1": 0.04613,
+     "2": 0.0771,
+     "3": 0.19049
+    }
+   },
+   "observedInteractions": [
+    "AGED+BATT",
+    "AGED+BATT+BOX+FACE",
+    "AGED+BATT+BOX+FACE+SCREEN",
+    "AGED+BATT+BOX+FMIN",
+    "AGED+BATT+FACE",
+    "AGED+BATT+FACE+SCREEN",
+    "AGED+BATT+FACE+SCREEN+WIFI",
+    "AGED+BATT+FACE+WIFI",
+    "AGED+BATT+FMIN",
+    "AGED+BATT+SCREEN",
+    "AGED+BODY+SCREEN",
+    "AGED+FACE",
+    "AGED+FACE+SCREEN",
+    "AGED+FACE+SCREEN+WIFI",
+    "AGED+SCREEN",
+    "AGED+SCREEN+WIFI",
+    "BATT+BODY+CAM+SCREEN",
+    "BATT+BOX+FACE",
+    "BATT+CAM+FACE+FMIN+WIFI",
+    "BATT+FACE",
+    "BODY",
+    "CAM",
+    "FACE+WIFI",
+    "FMIN",
+    "SCREEN",
+    "WIFI"
+   ]
+  },
+  "iPhone 16e": {
+   "modelKey": "iPhone 16e",
+   "family": "16",
+   "storagesGb": [
+    128,
+    256,
+    512
+   ],
+   "asks": {
+    "warranty": true,
+    "bill": true,
+    "age": true,
+    "eSim": false
+   },
+   "age": {
+    "1": {
+     "a": 1750.8945234672246,
+     "b": 0.02059767850975457,
+     "support": "inferred",
+     "n": 0
+    },
+    "2": {
+     "a": 1800.4095598667977,
+     "b": 0.05018825589453582,
+     "support": "inferred",
+     "n": 0
+    },
+    "3": {
+     "a": 1717.1543840932668,
+     "b": 0.16581309271144487,
+     "support": "inferred",
+     "n": 0
+    }
+   },
+   "boxNo": {
+    "base": 2279.704555087212,
+    "aged": 1539.0970411862459,
+    "support": "measured"
+   },
+   "eSimDualPct": null,
+   "floor": {
+    "basis": "reference",
+    "value": 0.17536
+   },
+   "classes": {
+    "display": {
+     "kind": "fixed",
+     "value": 19438.44141540835,
+     "support": "measured",
+     "n": 7
+    },
+    "cracked": {
+     "kind": "fixed",
+     "value": 13826.393134797687,
+     "support": "measured",
+     "n": 1
+    },
+    "touch": {
+     "kind": "fixed",
+     "value": 19916.581603549726,
+     "support": "measured",
+     "n": 6
+    },
+    "orig": {
+     "kind": "fixed",
+     "value": 11533.632348881183,
+     "support": "measured",
+     "n": 1
+    },
+    "body": {
+     "kind": "fixed",
+     "value": 2750.0000000001046,
+     "support": "measured",
+     "n": 1
+    },
+    "panel": {
+     "kind": "fixed",
+     "value": 3106.9827651575974,
+     "support": "measured",
+     "n": 3
+    },
+    "cam": {
+     "kind": "fixed",
+     "value": 5836.6326529542985,
+     "support": "measured",
+     "n": 3
+    },
+    "fminA": {
+     "kind": "fixed",
+     "value": 5028.552053645543,
+     "support": "measured",
+     "n": 5
+    },
+    "fminB": {
+     "kind": "fixed",
+     "value": 3000.0300003000843,
+     "support": "measured",
+     "n": 1
+    },
+    "prox": {
+     "kind": "fixed",
+     "value": 4950,
+     "support": "inferred",
+     "n": 0
+    },
+    "wifi": {
+     "kind": "pct",
+     "value": 0.3076267611802099,
+     "support": "measured",
+     "n": 7
+    },
+    "face": {
+     "kind": "pct",
+     "value": 0.2104957122205945,
+     "support": "measured",
+     "n": 19
+    },
+    "batt": {
+     "kind": "fixed",
+     "value": 2756.6058261203493,
+     "support": "measured",
+     "n": 24
+    },
+    "finger": {
+     "kind": "fixed",
+     "value": 0,
+     "support": "inferred",
+     "n": 0
+    }
+   },
+   "scrap": 1200,
+   "extremeFaultCount": 10,
+   "evidence": {
+    "shapes": 51,
+    "measurements": 111,
+    "dates": [
+     "2026-10-17",
+     "2026-10-24"
+    ]
+   },
+   "notes": [],
+   "ageByStorage": {
+    "128": {
+     "1": 0.06688,
+     "2": 0.09781,
+     "3": 0.21121
+    },
+    "256": {
+     "1": 0.06517,
+     "2": 0.09598,
+     "3": 0.20952
+    },
+    "512": {
+     "1": 0.06308,
+     "2": 0.09389,
+     "3": 0.20742
+    }
+   },
+   "observedInteractions": [
+    "AGED+BATT",
+    "AGED+BATT+BOX+FACE",
+    "AGED+BATT+BOX+FACE+SCREEN",
+    "AGED+BATT+BOX+FMIN",
+    "AGED+BATT+FACE",
+    "AGED+BATT+FACE+SCREEN",
+    "AGED+BATT+FACE+SCREEN+WIFI",
+    "AGED+BATT+FACE+WIFI",
+    "AGED+BATT+FMIN",
+    "AGED+BATT+SCREEN",
+    "AGED+BODY+SCREEN",
+    "AGED+FACE",
+    "AGED+FACE+SCREEN",
+    "AGED+FACE+SCREEN+WIFI",
+    "AGED+SCREEN",
+    "AGED+SCREEN+WIFI",
+    "BATT+BODY+CAM+SCREEN",
+    "BATT+BOX+FACE",
+    "BATT+FACE",
+    "BODY",
+    "CAM",
+    "FACE+WIFI",
+    "FMIN",
+    "SCREEN",
+    "WIFI"
+   ]
+  },
+  "iPhone 17": {
+   "modelKey": "iPhone 17",
+   "family": "17plus",
+   "storagesGb": [
+    256,
+    512
+   ],
+   "asks": {
+    "warranty": true,
+    "bill": true,
+    "age": true,
+    "eSim": true
+   },
+   "age": {
+    "1": {
+     "a": -117.71237039750179,
+     "b": 0.11355426168469986,
+     "support": "inferred",
+     "n": 0
+    },
+    "2": {
+     "a": 217.39688071870575,
+     "b": 0.13652552915729527,
+     "support": "inferred",
+     "n": 0
+    },
+    "3": {
+     "a": -184.47152403296994,
+     "b": 0.24541249656040504,
+     "support": "inferred",
+     "n": 0
+    }
+   },
+   "boxNo": {
+    "base": 2222.330558335851,
+    "aged": 1463.527638766009,
+    "support": "measured"
+   },
+   "eSimDualPct": 0.04992494539946941,
+   "floor": {
+    "basis": "aged",
+    "value": 0.22453
+   },
+   "classes": {
+    "display": {
+     "kind": "fixed",
+     "value": 25614.906664146227,
+     "support": "measured",
+     "n": 5
+    },
+    "cracked": {
+     "kind": "fixed",
+     "value": 17924.325364083452,
+     "support": "measured",
+     "n": 1
+    },
+    "touch": {
+     "kind": "fixed",
+     "value": 29394.792319841865,
+     "support": "measured",
+     "n": 6
+    },
+    "orig": {
+     "kind": "fixed",
+     "value": 14981.127072820054,
+     "support": "measured",
+     "n": 1
+    },
+    "body": {
+     "kind": "pct",
+     "value": 0.11996948230356769,
+     "support": "measured",
+     "n": 1
+    },
+    "panel": {
+     "kind": "pct",
+     "value": 0.1325896116429347,
+     "support": "measured",
+     "n": 3
+    },
+    "cam": {
+     "kind": "fixed",
+     "value": 9281.802820430123,
+     "support": "measured",
+     "n": 6
+    },
+    "fminA": {
+     "kind": "fixed",
+     "value": 5698.5999543392745,
+     "support": "measured",
+     "n": 5
+    },
+    "fminB": {
+     "kind": "fixed",
+     "value": 3361.258102377167,
+     "support": "measured",
+     "n": 4
+    },
+    "prox": {
+     "kind": "fixed",
+     "value": 4949.99407018215,
+     "support": "inferred",
+     "n": 0
+    },
+    "wifi": {
+     "kind": "pct",
+     "value": 0.3003951047873542,
+     "support": "measured",
+     "n": 9
+    },
+    "face": {
+     "kind": "pct",
+     "value": 0.19838549486551618,
+     "support": "measured",
+     "n": 19
+    },
+    "batt": {
+     "kind": "fixed",
+     "value": 4364.5342268008735,
+     "support": "measured",
+     "n": 20
+    },
+    "finger": {
+     "kind": "fixed",
+     "value": 0,
+     "support": "inferred",
+     "n": 0
+    }
+   },
+   "scrap": 1200,
+   "extremeFaultCount": 10,
+   "evidence": {
+    "shapes": 58,
+    "measurements": 106,
+    "dates": [
+     "2026-10-16",
+     "2026-10-24"
+    ]
+   },
+   "notes": [],
+   "ageByStorage": {
+    "256": {
+     "1": 0.11176,
+     "2": 0.13985,
+     "3": 0.2426
+    },
+    "512": {
+     "1": 0.11182,
+     "2": 0.13973,
+     "3": 0.24269
+    }
+   },
+   "observedInteractions": [
+    "AGED+BATT",
+    "AGED+BATT+BOX+FACE",
+    "AGED+BATT+BOX+FACE+SCREEN",
+    "AGED+BATT+FACE",
+    "AGED+BATT+FACE+SCREEN",
+    "AGED+BATT+FACE+SCREEN+WIFI",
+    "AGED+BATT+FACE+WIFI",
+    "AGED+BATT+SCREEN",
+    "AGED+BODY+SCREEN",
+    "AGED+FACE+SCREEN",
+    "AGED+FACE+SCREEN+WIFI",
+    "AGED+SCREEN+WIFI",
+    "BATT",
+    "BATT+BODY+CAM+SCREEN",
+    "BATT+BOX+FACE",
+    "BATT+CAM+FACE+FMIN+WIFI",
+    "BATT+FACE",
+    "BODY",
+    "CAM",
+    "FACE",
+    "FACE+WIFI",
+    "FMIN",
+    "SCREEN",
+    "WIFI"
+   ]
+  },
+  "iPhone 17 Pro": {
+   "modelKey": "iPhone 17 Pro",
+   "family": "17plus",
+   "storagesGb": [
+    256,
+    512,
+    1024
+   ],
+   "asks": {
+    "warranty": true,
+    "bill": true,
+    "age": true,
+    "eSim": true
+   },
+   "age": {
+    "1": {
+     "a": -6.617873867481475,
+     "b": 0.11177348119261239,
+     "support": "inferred",
+     "n": 0
+    },
+    "2": {
+     "a": -19.78797602149895,
+     "b": 0.13999800412211258,
+     "support": "inferred",
+     "n": 0
+    },
+    "3": {
+     "a": -28.12877521477746,
+     "b": 0.2429023124073668,
+     "support": "inferred",
+     "n": 0
+    }
+   },
+   "boxNo": {
+    "base": 2249.999999723122,
+    "aged": 1509.3662855825892,
+    "support": "measured"
+   },
+   "eSimDualPct": 0.049952933023140925,
+   "floor": {
+    "basis": "reference",
+    "value": 0.17005
+   },
+   "classes": {
+    "display": {
+     "kind": "fixed",
+     "value": 25522.55538478918,
+     "support": "measured",
+     "n": 3
+    },
+    "cracked": {
+     "kind": "fixed",
+     "value": 17745.247528770287,
+     "support": "measured",
+     "n": 1
+    },
+    "touch": {
+     "kind": "fixed",
+     "value": 29964.483429503674,
+     "support": "measured",
+     "n": 6
+    },
+    "orig": {
+     "kind": "fixed",
+     "value": 14985.551202157785,
+     "support": "inferred",
+     "n": 0
+    },
+    "body": {
+     "kind": "pct",
+     "value": 0.11999999999967974,
+     "support": "measured",
+     "n": 1
+    },
+    "panel": {
+     "kind": "pct",
+     "value": 0.13464831270814384,
+     "support": "measured",
+     "n": 3
+    },
+    "cam": {
+     "kind": "fixed",
+     "value": 9283.896371452507,
+     "support": "measured",
+     "n": 3
+    },
+    "fminA": {
+     "kind": "fixed",
+     "value": 5599.944040293901,
+     "support": "measured",
+     "n": 1
+    },
+    "fminB": {
+     "kind": "fixed",
+     "value": 3300.033328783563,
+     "support": "measured",
+     "n": 1
+    },
+    "prox": {
+     "kind": "fixed",
+     "value": 4949.99407018215,
+     "support": "inferred",
+     "n": 0
+    },
+    "wifi": {
+     "kind": "pct",
+     "value": 0.2999682449884748,
+     "support": "measured",
+     "n": 7
+    },
+    "face": {
+     "kind": "pct",
+     "value": 0.20005523287643537,
+     "support": "measured",
+     "n": 6
+    },
+    "batt": {
+     "kind": "fixed",
+     "value": 4222.985693597583,
+     "support": "measured",
+     "n": 4
+    },
+    "finger": {
+     "kind": "fixed",
+     "value": 0,
+     "support": "inferred",
+     "n": 0
+    }
+   },
+   "scrap": 1200,
+   "extremeFaultCount": 10,
+   "evidence": {
+    "shapes": 29,
+    "measurements": 90,
+    "dates": [
+     "2026-10-23"
+    ]
+   },
+   "notes": [],
+   "ageByStorage": {
+    "256": {
+     "1": 0.11171,
+     "2": 0.1398,
+     "3": 0.24263
+    },
+    "512": {
+     "1": 0.11172,
+     "2": 0.13981,
+     "3": 0.2426
+    },
+    "1024": {
+     "1": 0.11171,
+     "2": 0.13982,
+     "3": 0.24267
+    }
+   },
+   "observedInteractions": [
+    "AGED+BATT+FACE+SCREEN+WIFI",
+    "AGED+BATT+FACE+WIFI",
+    "AGED+BATT+SCREEN",
+    "AGED+BODY+SCREEN",
+    "AGED+FACE+SCREEN",
+    "AGED+FACE+SCREEN+WIFI",
+    "AGED+SCREEN+WIFI",
+    "BATT+BODY+CAM+SCREEN",
+    "BATT+CAM+FACE+FMIN+WIFI",
+    "BODY",
+    "CAM",
+    "FACE+WIFI",
+    "FMIN",
+    "SCREEN",
+    "WIFI"
+   ]
+  },
+  "iPhone 17 Pro Max": {
+   "modelKey": "iPhone 17 Pro Max",
+   "family": "17plus",
+   "storagesGb": [
+    256,
+    512,
+    1024,
+    2048
+   ],
+   "asks": {
+    "warranty": true,
+    "bill": true,
+    "age": true,
+    "eSim": true
+   },
+   "age": {
+    "1": {
+     "a": 26.723150583798994,
+     "b": 0.11153440450265072,
+     "support": "inferred",
+     "n": 0
+    },
+    "2": {
+     "a": -5.803598350567087,
+     "b": 0.1398611833165185,
+     "support": "inferred",
+     "n": 0
+    },
+    "3": {
+     "a": 35.66065965643129,
+     "b": 0.24233416930570867,
+     "support": "inferred",
+     "n": 0
+    }
+   },
+   "boxNo": {
+    "base": 2249.999999792341,
+    "aged": 1509.3662855825892,
+    "support": "measured"
+   },
+   "eSimDualPct": 0.04996805095481834,
+   "floor": {
+    "basis": "reference",
+    "value": 0.17002
+   },
+   "classes": {
+    "display": {
+     "kind": "fixed",
+     "value": 25523.627894067497,
+     "support": "measured",
+     "n": 3
+    },
+    "cracked": {
+     "kind": "fixed",
+     "value": 17745.44603471078,
+     "support": "measured",
+     "n": 1
+    },
+    "touch": {
+     "kind": "fixed",
+     "value": 29967.896508236463,
+     "support": "measured",
+     "n": 6
+    },
+    "orig": {
+     "kind": "fixed",
+     "value": 14986.180925258046,
+     "support": "inferred",
+     "n": 0
+    },
+    "body": {
+     "kind": "pct",
+     "value": 0.11999133113192306,
+     "support": "measured",
+     "n": 1
+    },
+    "panel": {
+     "kind": "pct",
+     "value": 0.13455834164532732,
+     "support": "measured",
+     "n": 3
+    },
+    "cam": {
+     "kind": "fixed",
+     "value": 9284.128248913104,
+     "support": "measured",
+     "n": 3
+    },
+    "fminA": {
+     "kind": "fixed",
+     "value": 5599.944030360427,
+     "support": "measured",
+     "n": 1
+    },
+    "fminB": {
+     "kind": "fixed",
+     "value": 3300.0332466702052,
+     "support": "measured",
+     "n": 1
+    },
+    "prox": {
+     "kind": "fixed",
+     "value": 4949.99407018215,
+     "support": "inferred",
+     "n": 0
+    },
+    "wifi": {
+     "kind": "pct",
+     "value": 0.3000087815782237,
+     "support": "measured",
+     "n": 7
+    },
+    "face": {
+     "kind": "pct",
+     "value": 0.20001756314654526,
+     "support": "measured",
+     "n": 6
+    },
+    "batt": {
+     "kind": "fixed",
+     "value": 4220.907681444157,
+     "support": "measured",
+     "n": 4
+    },
+    "finger": {
+     "kind": "fixed",
+     "value": 0,
+     "support": "inferred",
+     "n": 0
+    }
+   },
+   "scrap": 1200,
+   "extremeFaultCount": 10,
+   "evidence": {
+    "shapes": 29,
+    "measurements": 120,
+    "dates": [
+     "2026-10-23"
+    ]
+   },
+   "notes": [],
+   "ageByStorage": {
+    "256": {
+     "1": 0.11178,
+     "2": 0.13982,
+     "3": 0.24265
+    },
+    "512": {
+     "1": 0.11176,
+     "2": 0.13983,
+     "3": 0.24266
+    },
+    "1024": {
+     "1": 0.11176,
+     "2": 0.13976,
+     "3": 0.24264
+    },
+    "2048": {
+     "1": 0.11176,
+     "2": 0.13984,
+     "3": 0.24261
+    }
+   },
+   "observedInteractions": [
+    "AGED+BATT+FACE+SCREEN+WIFI",
+    "AGED+BATT+FACE+WIFI",
+    "AGED+BATT+SCREEN",
+    "AGED+BODY+SCREEN",
+    "AGED+FACE+SCREEN",
+    "AGED+FACE+SCREEN+WIFI",
+    "AGED+SCREEN+WIFI",
+    "BATT+BODY+CAM+SCREEN",
+    "BATT+CAM+FACE+FMIN+WIFI",
+    "BODY",
+    "CAM",
+    "FACE+WIFI",
+    "FMIN",
+    "SCREEN",
+    "WIFI"
+   ]
+  },
+  "iPhone 17e": {
+   "modelKey": "iPhone 17e",
+   "family": "17plus",
+   "storagesGb": [
+    256,
+    512
+   ],
+   "asks": {
+    "warranty": true,
+    "bill": true,
+    "age": true,
+    "eSim": false
+   },
+   "age": {
+    "1": {
+     "a": 10.824502833586248,
+     "b": 0.11159510085606916,
+     "support": "inferred",
+     "n": 0
+    },
+    "2": {
+     "a": -36.86716512278906,
+     "b": 0.1405779293498865,
+     "support": "inferred",
+     "n": 0
+    },
+    "3": {
+     "a": -41.705724136185275,
+     "b": 0.2434775951184924,
+     "support": "inferred",
+     "n": 0
+    }
+   },
+   "boxNo": {
+    "base": 2249.999999999995,
+    "aged": 1509.3662855825892,
+    "support": "measured"
+   },
+   "eSimDualPct": null,
+   "floor": {
+    "basis": "aged",
+    "value": 0.22456
+   },
+   "classes": {
+    "display": {
+     "kind": "fixed",
+     "value": 19585.930969908906,
+     "support": "measured",
+     "n": 3
+    },
+    "cracked": {
+     "kind": "fixed",
+     "value": 13829.572654195685,
+     "support": "measured",
+     "n": 1
+    },
+    "touch": {
+     "kind": "fixed",
+     "value": 21936.64453852626,
+     "support": "measured",
+     "n": 6
+    },
+    "orig": {
+     "kind": "fixed",
+     "value": 11499.866175877618,
+     "support": "inferred",
+     "n": 0
+    },
+    "body": {
+     "kind": "pct",
+     "value": 0.12002130116617901,
+     "support": "measured",
+     "n": 1
+    },
+    "panel": {
+     "kind": "pct",
+     "value": 0.13073778470080777,
+     "support": "measured",
+     "n": 3
+    },
+    "cam": {
+     "kind": "fixed",
+     "value": 5874.724915258913,
+     "support": "measured",
+     "n": 3
+    },
+    "fminA": {
+     "kind": "fixed",
+     "value": 5499.945000550102,
+     "support": "measured",
+     "n": 1
+    },
+    "fminB": {
+     "kind": "fixed",
+     "value": 4500.0450004492905,
+     "support": "measured",
+     "n": 1
+    },
+    "prox": {
+     "kind": "fixed",
+     "value": 4949.99407018215,
+     "support": "inferred",
+     "n": 0
+    },
+    "wifi": {
+     "kind": "pct",
+     "value": 0.29999999999999716,
+     "support": "measured",
+     "n": 7
+    },
+    "face": {
+     "kind": "pct",
+     "value": 0.19770005552287542,
+     "support": "measured",
+     "n": 6
+    },
+    "batt": {
+     "kind": "fixed",
+     "value": 3346.208577143205,
+     "support": "measured",
+     "n": 4
+    },
+    "finger": {
+     "kind": "fixed",
+     "value": 0,
+     "support": "inferred",
+     "n": 0
+    }
+   },
+   "scrap": 1200,
+   "extremeFaultCount": 10,
+   "evidence": {
+    "shapes": 28,
+    "measurements": 58,
+    "dates": [
+     "2026-10-23"
+    ]
+   },
+   "notes": [],
+   "ageByStorage": {
+    "256": {
+     "1": 0.11183,
+     "2": 0.13978,
+     "3": 0.24258
+    },
+    "512": {
+     "1": 0.1118,
+     "2": 0.13989,
+     "3": 0.2427
+    }
+   },
+   "observedInteractions": [
+    "AGED+BATT+FACE+SCREEN+WIFI",
+    "AGED+BATT+FACE+WIFI",
+    "AGED+BATT+SCREEN",
+    "AGED+BODY+SCREEN",
+    "AGED+FACE+SCREEN",
+    "AGED+FACE+SCREEN+WIFI",
+    "AGED+SCREEN+WIFI",
+    "BATT+BODY+CAM+SCREEN",
+    "BATT+CAM+FACE+FMIN+WIFI",
+    "BODY",
+    "CAM",
+    "FACE+WIFI",
+    "FMIN",
+    "SCREEN",
+    "WIFI"
+   ]
+  },
+  "iPhone 18 Pro": {
+   "modelKey": "iPhone 18 Pro",
+   "family": "17plus",
+   "storagesGb": [
+    256,
+    512,
+    1024,
+    2048
+   ],
+   "asks": {
+    "warranty": true,
+    "bill": true,
+    "age": true,
+    "eSim": false
+   },
+   "age": {
+    "1": {
+     "a": -7.686637355148944,
+     "b": 0.1117896837853728,
+     "support": "inferred",
+     "n": 0
+    },
+    "2": {
+     "a": -2.9862357458783286,
+     "b": 0.13982106696669808,
+     "support": "inferred",
+     "n": 0
+    },
+    "3": {
+     "a": 17.692869155713378,
+     "b": 0.24251683964727863,
+     "support": "inferred",
+     "n": 0
+    }
+   },
+   "boxNo": {
+    "base": 2249.933484723627,
+    "aged": 1500.369777023658,
+    "support": "measured"
+   },
+   "eSimDualPct": null,
+   "floor": {
+    "basis": "reference",
+    "value": 0.17
+   },
+   "classes": {
+    "display": {
+     "kind": "fixed",
+     "value": 25499.855951252706,
+     "support": "measured",
+     "n": 7
+    },
+    "cracked": {
+     "kind": "fixed",
+     "value": 17851.27367846401,
+     "support": "measured",
+     "n": 1
+    },
+    "touch": {
+     "kind": "fixed",
+     "value": 30000.22276342141,
+     "support": "measured",
+     "n": 6
+    },
+    "orig": {
+     "kind": "fixed",
+     "value": 14999.845936932736,
+     "support": "measured",
+     "n": 1
+    },
+    "body": {
+     "kind": "pct",
+     "value": 0.12000000000000001,
+     "support": "measured",
+     "n": 1
+    },
+    "panel": {
+     "kind": "pct",
+     "value": 0.1336399731481106,
+     "support": "measured",
+     "n": 3
+    },
+    "cam": {
+     "kind": "fixed",
+     "value": 9999.88083833714,
+     "support": "measured",
+     "n": 3
+    },
+    "fminA": {
+     "kind": "fixed",
+     "value": 6000.116804231316,
+     "support": "measured",
+     "n": 5
+    },
+    "fminB": {
+     "kind": "fixed",
+     "value": 4500.045000449825,
+     "support": "measured",
+     "n": 1
+    },
+    "prox": {
+     "kind": "fixed",
+     "value": 4949.99407018215,
+     "support": "inferred",
+     "n": 0
+    },
+    "wifi": {
+     "kind": "pct",
+     "value": 0.2999988199111192,
+     "support": "measured",
+     "n": 7
+    },
+    "face": {
+     "kind": "pct",
+     "value": 0.20000006665693335,
+     "support": "measured",
+     "n": 19
+    },
+    "batt": {
+     "kind": "fixed",
+     "value": 4200.385165424967,
+     "support": "measured",
+     "n": 24
+    },
+    "finger": {
+     "kind": "fixed",
+     "value": 0,
+     "support": "inferred",
+     "n": 0
+    }
+   },
+   "scrap": 1200,
+   "extremeFaultCount": 10,
+   "evidence": {
+    "shapes": 54,
+    "measurements": 224,
+    "dates": [
+     "2026-10-17",
+     "2026-10-23"
+    ]
+   },
+   "notes": [],
+   "ageByStorage": {
+    "256": {
+     "1": 0.11174,
+     "2": 0.13983,
+     "3": 0.24264
+    },
+    "512": {
+     "1": 0.11173,
+     "2": 0.13976,
+     "3": 0.24268
+    },
+    "1024": {
+     "1": 0.11171,
+     "2": 0.13979,
+     "3": 0.24264
+    },
+    "2048": {
+     "1": 0.11175,
+     "2": 0.13981,
+     "3": 0.24263
+    }
+   },
+   "observedInteractions": [
+    "AGED+BATT",
+    "AGED+BATT+BOX+FACE",
+    "AGED+BATT+BOX+FACE+SCREEN",
+    "AGED+BATT+BOX+FMIN",
+    "AGED+BATT+FACE",
+    "AGED+BATT+FACE+SCREEN",
+    "AGED+BATT+FACE+SCREEN+WIFI",
+    "AGED+BATT+FACE+WIFI",
+    "AGED+BATT+FMIN",
+    "AGED+BATT+SCREEN",
+    "AGED+BODY+SCREEN",
+    "AGED+FACE",
+    "AGED+FACE+SCREEN",
+    "AGED+FACE+SCREEN+WIFI",
+    "AGED+SCREEN",
+    "AGED+SCREEN+WIFI",
+    "BATT+BODY+CAM+SCREEN",
+    "BATT+BOX+FACE",
+    "BATT+CAM+FACE+FMIN+WIFI",
+    "BATT+FACE",
+    "BODY",
+    "CAM",
+    "FACE+WIFI",
+    "FMIN",
+    "SCREEN",
+    "WIFI"
+   ]
+  },
+  "iPhone 18 Pro Max": {
+   "modelKey": "iPhone 18 Pro Max",
+   "family": "17plus",
+   "storagesGb": [
+    256,
+    512,
+    1024,
+    2048
+   ],
+   "asks": {
+    "warranty": true,
+    "bill": true,
+    "age": true,
+    "eSim": false
+   },
+   "age": {
+    "1": {
+     "a": 3.0619110573575314,
+     "b": 0.11172920646624583,
+     "support": "inferred",
+     "n": 0
+    },
+    "2": {
+     "a": -29.98037612128907,
+     "b": 0.13999986506780504,
+     "support": "inferred",
+     "n": 0
+    },
+    "3": {
+     "a": -31.685992276478377,
+     "b": 0.24285397606529147,
+     "support": "inferred",
+     "n": 0
+    }
+   },
+   "boxNo": {
+    "base": 2250.1392013531267,
+    "aged": 1499.853329573224,
+    "support": "measured"
+   },
+   "eSimDualPct": null,
+   "floor": {
+    "basis": "reference",
+    "value": 0.17
+   },
+   "classes": {
+    "display": {
+     "kind": "fixed",
+     "value": 25499.776986040106,
+     "support": "measured",
+     "n": 101
+    },
+    "cracked": {
+     "kind": "fixed",
+     "value": 17850.18225493264,
+     "support": "measured",
+     "n": 13
+    },
+    "touch": {
+     "kind": "fixed",
+     "value": 30000.412385427717,
+     "support": "measured",
+     "n": 7
+    },
+    "orig": {
+     "kind": "fixed",
+     "value": 14999.923055387178,
+     "support": "measured",
+     "n": 2
+    },
+    "body": {
+     "kind": "pct",
+     "value": 0.12000058107216505,
+     "support": "measured",
+     "n": 40
+    },
+    "panel": {
+     "kind": "pct",
+     "value": 0.13363655841712557,
+     "support": "measured",
+     "n": 39
+    },
+    "cam": {
+     "kind": "fixed",
+     "value": 10000.025541784013,
+     "support": "measured",
+     "n": 40
+    },
+    "fminA": {
+     "kind": "fixed",
+     "value": 5999.846648911071,
+     "support": "measured",
+     "n": 26
+    },
+    "fminB": {
+     "kind": "fixed",
+     "value": 4500.063388229284,
+     "support": "measured",
+     "n": 31
+    },
+    "prox": {
+     "kind": "fixed",
+     "value": 4949.994074380724,
+     "support": "measured",
+     "n": 5
+    },
+    "wifi": {
+     "kind": "pct",
+     "value": 0.29999938276421867,
+     "support": "measured",
+     "n": 18
+    },
+    "face": {
+     "kind": "pct",
+     "value": 0.1999996754778062,
+     "support": "measured",
+     "n": 24
+    },
+    "batt": {
+     "kind": "fixed",
+     "value": 4199.812159185193,
+     "support": "measured",
+     "n": 34
+    },
+    "finger": {
+     "kind": "fixed",
+     "value": 0,
+     "support": "inferred",
+     "n": 0
+    }
+   },
+   "scrap": 1200,
+   "extremeFaultCount": 10,
+   "evidence": {
+    "shapes": 251,
+    "measurements": 429,
+    "dates": [
+     "2026-10-17",
+     "2026-10-22",
+     "2026-10-23"
+    ]
+   },
+   "notes": [],
+   "ageByStorage": {
+    "256": {
+     "1": 0.11177,
+     "2": 0.13977,
+     "3": 0.24262
+    },
+    "512": {
+     "1": 0.11175,
+     "2": 0.13978,
+     "3": 0.24263
+    },
+    "1024": {
+     "1": 0.11172,
+     "2": 0.13979,
+     "3": 0.24262
+    },
+    "2048": {
+     "1": 0.11176,
+     "2": 0.13982,
+     "3": 0.24267
+    }
+   },
+   "observedInteractions": [
+    "AGED+BATT",
+    "AGED+BATT+BOX+FACE",
+    "AGED+BATT+BOX+FACE+SCREEN",
+    "AGED+BATT+BOX+FMIN",
+    "AGED+BATT+FACE",
+    "AGED+BATT+FACE+SCREEN",
+    "AGED+BATT+FACE+SCREEN+WIFI",
+    "AGED+BATT+FACE+WIFI",
+    "AGED+BATT+FMIN",
+    "AGED+BATT+SCREEN",
+    "AGED+BODY",
+    "AGED+BODY+SCREEN",
+    "AGED+FACE",
+    "AGED+FACE+SCREEN",
+    "AGED+FACE+SCREEN+WIFI",
+    "AGED+SCREEN",
+    "AGED+SCREEN+WIFI",
+    "BATT",
+    "BATT+BODY+CAM+SCREEN",
+    "BATT+BOX+FACE",
+    "BATT+CAM",
+    "BATT+CAM+FACE+FMIN+WIFI",
+    "BATT+FACE",
+    "BATT+FMIN",
+    "BODY",
+    "BODY+SCREEN",
+    "CAM",
+    "CAM+FACE",
+    "CAM+FMIN",
+    "CAM+WIFI",
+    "FACE",
+    "FACE+FMIN",
+    "FACE+WIFI",
+    "FMIN",
+    "FMIN+WIFI",
+    "SCREEN",
+    "WIFI"
+   ]
+  },
+  "iPhone Air": {
+   "modelKey": "iPhone Air",
+   "family": "17plus",
+   "storagesGb": [
+    256,
+    512,
+    1024
+   ],
+   "asks": {
+    "warranty": true,
+    "bill": true,
+    "age": true,
+    "eSim": true
+   },
+   "age": {
+    "1": {
+     "a": -5.238127207779718,
+     "b": 0.11178171605567605,
+     "support": "inferred",
+     "n": 0
+    },
+    "2": {
+     "a": 23.9481037399915,
+     "b": 0.13948387067264673,
+     "support": "inferred",
+     "n": 0
+    },
+    "3": {
+     "a": 24.86887914160167,
+     "b": 0.24235722933624507,
+     "support": "inferred",
+     "n": 0
+    }
+   },
+   "boxNo": {
+    "base": 2244.8652425456976,
+    "aged": 1536.353765652273,
+    "support": "measured"
+   },
+   "eSimDualPct": 0.049999999999999774,
+   "floor": {
+    "basis": "aged",
+    "value": 0.22445
+   },
+   "classes": {
+    "display": {
+     "kind": "fixed",
+     "value": 25509.821218680452,
+     "support": "measured",
+     "n": 7
+    },
+    "cracked": {
+     "kind": "fixed",
+     "value": 17733.805332343614,
+     "support": "measured",
+     "n": 1
+    },
+    "touch": {
+     "kind": "fixed",
+     "value": 29936.546917943164,
+     "support": "measured",
+     "n": 6
+    },
+    "orig": {
+     "kind": "fixed",
+     "value": 14950.441320976797,
+     "support": "measured",
+     "n": 1
+    },
+    "body": {
+     "kind": "pct",
+     "value": 0.11998340325887606,
+     "support": "measured",
+     "n": 1
+    },
+    "panel": {
+     "kind": "pct",
+     "value": 0.13513745048822295,
+     "support": "measured",
+     "n": 3
+    },
+    "cam": {
+     "kind": "fixed",
+     "value": 9283.021708873135,
+     "support": "measured",
+     "n": 3
+    },
+    "fminA": {
+     "kind": "fixed",
+     "value": 5653.869374029533,
+     "support": "measured",
+     "n": 5
+    },
+    "fminB": {
+     "kind": "fixed",
+     "value": 3300.033000330174,
+     "support": "measured",
+     "n": 1
+    },
+    "prox": {
+     "kind": "fixed",
+     "value": 4949.99407018215,
+     "support": "inferred",
+     "n": 0
+    },
+    "wifi": {
+     "kind": "pct",
+     "value": 0.3001701845447416,
+     "support": "measured",
+     "n": 7
+    },
+    "face": {
+     "kind": "pct",
+     "value": 0.19958521865997442,
+     "support": "measured",
+     "n": 19
+    },
+    "batt": {
+     "kind": "fixed",
+     "value": 4244.108514590146,
+     "support": "measured",
+     "n": 24
+    },
+    "finger": {
+     "kind": "fixed",
+     "value": 0,
+     "support": "inferred",
+     "n": 0
+    }
+   },
+   "scrap": 1200,
+   "extremeFaultCount": 10,
+   "evidence": {
+    "shapes": 52,
+    "measurements": 114,
+    "dates": [
+     "2026-10-17",
+     "2026-10-23"
+    ]
+   },
+   "notes": [],
+   "ageByStorage": {
+    "256": {
+     "1": 0.11171,
+     "2": 0.13986,
+     "3": 0.24271
+    },
+    "512": {
+     "1": 0.1117,
+     "2": 0.13976,
+     "3": 0.24269
+    },
+    "1024": {
+     "1": 0.11172,
+     "2": 0.13977,
+     "3": 0.24264
+    }
+   },
+   "observedInteractions": [
+    "AGED+BATT",
+    "AGED+BATT+BOX+FACE",
+    "AGED+BATT+BOX+FACE+SCREEN",
+    "AGED+BATT+BOX+FMIN",
+    "AGED+BATT+FACE",
+    "AGED+BATT+FACE+SCREEN",
+    "AGED+BATT+FACE+SCREEN+WIFI",
+    "AGED+BATT+FACE+WIFI",
+    "AGED+BATT+FMIN",
+    "AGED+BATT+SCREEN",
+    "AGED+BODY+SCREEN",
+    "AGED+FACE",
+    "AGED+FACE+SCREEN",
+    "AGED+FACE+SCREEN+WIFI",
+    "AGED+SCREEN",
+    "AGED+SCREEN+WIFI",
+    "BATT+BODY+CAM+SCREEN",
+    "BATT+BOX+FACE",
+    "BATT+CAM+FACE+FMIN+WIFI",
+    "BATT+FACE",
+    "BODY",
+    "CAM",
+    "FACE+WIFI",
+    "FMIN",
+    "SCREEN",
+    "WIFI"
+   ]
+  },
+  "iPhone X": {
+   "modelKey": "iPhone X",
+   "family": "other",
+   "storagesGb": [
+    256
+   ],
+   "asks": {
+    "warranty": false,
+    "bill": false,
+    "age": false,
+    "eSim": false
+   },
+   "age": null,
+   "boxNo": {
+    "base": 93.59904250984937,
+    "aged": 2250,
+    "support": "measured"
+   },
+   "eSimDualPct": null,
+   "floor": null,
+   "classes": {
+    "display": {
+     "kind": "fixed",
+     "value": 5990.089252590911,
+     "support": "measured",
+     "n": 4
+    },
+    "cracked": {
+     "kind": "fixed",
+     "value": 17850,
+     "support": "inferred",
+     "n": 0
+    },
+    "touch": {
+     "kind": "fixed",
+     "value": 30000,
+     "support": "inferred",
+     "n": 0
+    },
+    "orig": {
+     "kind": "fixed",
+     "value": 3359.767773053358,
+     "support": "measured",
+     "n": 3
+    },
+    "body": {
+     "kind": "fixed",
+     "value": 3500,
+     "support": "inferred",
+     "n": 0
+    },
+    "panel": {
+     "kind": "fixed",
+     "value": 4500,
+     "support": "inferred",
+     "n": 0
+    },
+    "cam": {
+     "kind": "fixed",
+     "value": 3100.9174312292384,
+     "support": "measured",
+     "n": 2
+    },
+    "fminA": {
+     "kind": "fixed",
+     "value": 1636.9643236338177,
+     "support": "measured",
+     "n": 7
+    },
+    "fminB": {
+     "kind": "fixed",
+     "value": 4500,
+     "support": "inferred",
+     "n": 0
+    },
+    "prox": {
+     "kind": "fixed",
+     "value": 4950,
+     "support": "inferred",
+     "n": 0
+    },
+    "wifi": {
+     "kind": "pct",
+     "value": 0.42315369257078467,
+     "support": "measured",
+     "n": 1
+    },
+    "face": {
+     "kind": "pct",
+     "value": 0.2879626931168437,
+     "support": "measured",
+     "n": 9
+    },
+    "batt": {
+     "kind": "fixed",
+     "value": 958.1626476380792,
+     "support": "measured",
+     "n": 15
+    },
+    "finger": {
+     "kind": "fixed",
+     "value": 0,
+     "support": "inferred",
+     "n": 0
+    }
+   },
+   "scrap": 1200,
+   "extremeFaultCount": 10,
+   "evidence": {
+    "shapes": 27,
+    "measurements": 27,
+    "dates": [
+     "2026-10-17"
+    ]
+   },
+   "notes": [],
+   "observedInteractions": [
+    "BATT",
+    "BATT+BOX+FACE",
+    "BATT+BOX+FACE+SCREEN",
+    "BATT+BOX+FMIN",
+    "BATT+FACE",
+    "BATT+FACE+SCREEN",
+    "BATT+FMIN",
+    "BATT+SCREEN",
+    "CAM",
+    "FACE",
+    "FMIN",
+    "SCREEN",
+    "WIFI"
+   ]
+  }
+ }
+}

@@ -38,6 +38,8 @@ export interface SignedQuote {
    * sessions saved before 2026-09-24: the page then asks everything. */
   questionnaire?: QuestionnaireSemantics;
   pricingVersion?: string;
+  /** Coupon bonus (0..299) that still fits under the payout ceiling for this price; absent in older sessions. */
+  couponHeadroom?: number;
 }
 
 export interface QuoteSession extends QuoteSessionDevice {

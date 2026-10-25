@@ -76,7 +76,7 @@ async function main() {
     assert.equal(q.fhoneifyPrice, old.fhoneifyPrice); assert.equal(q.pricingVersion, old.pricingVersion);
     assert.deepEqual(q.internal.exactFinalQuote, old.internal.exactFinalQuote);
    }
-   const off = customerPayout(q.fhoneifyPrice, false).payout, on = customerPayout(q.fhoneifyPrice, true).payout;
+   const off = customerPayout(q.fhoneifyPrice, false).payout, on = customerPayout(q.fhoneifyPrice, true, q.couponHeadroom).payout;
    assert(off > row.sellingPrice && off - row.sellingPrice <= 2000);
    assert(on > row.sellingPrice && on - row.sellingPrice <= 2000);
    for (const couponApplied of [false, true]) {

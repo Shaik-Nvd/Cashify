@@ -3,10 +3,16 @@ import { UNKNOWN_QUESTIONNAIRE, type QuestionnaireSemantics } from './pricing/qu
 import { inrConditionValue, resolveInrGroup, type InrDeductionConfig } from './pricing/inrDeductions';
 import { xiaomiInrDeductions } from './pricing/inrDeductionTables';
 import { teamTextOutOfWarrantyRule } from './pricing/appleVariantDispatch';
+import { appleEvidenceQuote } from './pricing/appleCashifyModel';
 
 /** Internal invocation context; never read from public diagnostic answers. */
 export interface PricingCalculationContext {
   apple512OutOfWarrantyDispatch?: boolean;
+  /** The catalog's storage string for the device being priced. The legacy dispatch only forwards a storage variant for a short
+   * reviewed list; the evidence-calibrated Apple model needs the real one to decide whether this exact variant is in scope. */
+  catalogStorage?: string;
+  /** Evaluation tools set this to price with the pre-existing Apple engine only (the baseline in held-out comparisons). */
+  disableAppleEvidence?: boolean;
 }
 
 export interface ModelParams {
@@ -444,6 +450,13 @@ export const getAppleModelParams = (model: string): ModelParams => {
 
 export function calculateApplePrice(model: string, reference: CashifyGetUptoReference, diagnostics: DiagnosticsType, semantics: QuestionnaireSemantics = UNKNOWN_QUESTIONNAIRE, storageVariant?: string, calculationContext?: PricingCalculationContext): PricingResult {
   if (!reference || reference <= 0) return { cashifyConditionEquivalent: 0, fhoneifyPrice: 0 };
+
+  // Evidence-calibrated model (lib/pricing/appleCashifyModel): used only for the exact iPhone models/storage variants that were
+  // measured against Cashify and passed held-out validation (scope.json). It throws InspectionRequiredError where Cashify itself
+  // declines the condition; for every other device, or an answer it cannot read, the engine below runs exactly as before.
+  // The reviewed out-of-warranty 512 GB router (appleVariantDispatch) is built around this file's own bespoke rules, so it is left exactly as reviewed.
+  const evidence = calculationContext?.disableAppleEvidence || calculationContext?.apple512OutOfWarrantyDispatch === true ? null : appleEvidenceQuote(model, calculationContext?.catalogStorage ?? storageVariant, reference, diagnostics);
+  if (evidence) return finalizeConditionQuote(reference, evidence.outcome.price);
 
   const lowerModel = String(model || "").toLowerCase().trim();
   // Only the supported hybrid service may opt in; direct/legacy callers retain prior dispatch.

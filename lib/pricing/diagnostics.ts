@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import type { DiagnosticsType } from '../pricingCalculator';
+import { isAppleEvidenceModel } from './appleCashifyModel/scope';
 
 /**
  * Validation for the diagnostics payload the quote flow sends. The pricing
@@ -75,7 +76,12 @@ export function parseDiagnostics(input: unknown): DiagnosticsParseResult {
 export function warrantyVoidedByDiagnostics(diagnostics: Pick<DiagnosticsType,
   'calls' | 'originalScreen' | 'screenCondition' | 'screenSpots' |
   'screenLines' | 'screenDiscoloration' | 'bodyPanel' | 'bodyBent'
->): boolean {
+>, device?: { model: string; storage?: string | null }): boolean {
+  // iPhones priced by the evidence-calibrated model: Cashify itself keeps asking the age question for spots, lines,
+  // discoloration and a loose screen (measured, 2026-10), and the model decides the age state from the raw answers
+  // (cracked glass, panel damage, bent frame, touch failure and a non-original screen force the over-11-months state).
+  // The customer's own warranty answer is therefore sent untouched. Every other device keeps the rule below.
+  if (device && isAppleEvidenceModel(device.model, device.storage)) return false;
   const value = (input: string | null) => String(input ?? '').toLowerCase();
   const screenCondition = value(diagnostics.screenCondition);
   const spots = value(diagnostics.screenSpots);

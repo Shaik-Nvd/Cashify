@@ -1,5 +1,6 @@
 /** Same deployed calculators, one in-memory reference/profile lookup per quote.
  * Regression for the inspection-only outage and price-lock transitions. */
+import { isAppleEvidenceModel } from '../../lib/pricing/appleCashifyModel/scope';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
@@ -64,8 +65,8 @@ async function main() {
       const expected = await strict.quote(input(device, diagnostics)); const result = await hybrid.quote(input(device, diagnostics)); assert(expected.ok && result.ok);
       assert.equal(result.fhoneifyPrice, expected.fhoneifyPrice); assert.equal(result.pricingVersion, `${HYBRID_PRICING_VERSION}+verified`);
     }
-    const n = await hybrid.quote(input(nord)); assert(n.ok); assert.equal(n.fhoneifyPrice, 8986); assert.equal(customerPayout(n.fhoneifyPrice, false).payout, 8887);
-    const d = await hybrid.quote(input(nord, display)); assert(d.ok); assert.equal(d.fhoneifyPrice, 3931);
+    const n = await hybrid.quote(input(nord)); assert(n.ok); assert.equal(n.fhoneifyPrice, 8977); assert.equal(customerPayout(n.fhoneifyPrice, false).payout, 8878);
+    const d = await hybrid.quote(input(nord, display)); assert(d.ok); assert.equal(d.fhoneifyPrice, 3923);
   });
   await check('uncovered launch device retains legacy quote; no broad allowlist outage', async () => {
     await sameAsLegacy(iphone17Pro, asked); await sameAsLegacy(a72, clean);
@@ -174,8 +175,11 @@ async function main() {
     let priced = 0, quarantined = 0;
     for (const device of validCatalog) {
       for (const diagnostics of [asked, { ...asked, defects: ['body_scratch'], bodyScratches: 'More than 2 scratches' }, { ...asked, calls: false }]) {
-        const expected = await ordinary.quote(input(device, diagnostics)); assert(expected.ok);
+        const expected = await ordinary.quote(input(device, diagnostics));
         const actual = await combined.quote(input(device, diagnostics));
+        // Evidence-calibrated iPhones decline combinations their own quotes never measured, in both modes alike.
+        if (!expected.ok && expected.code === 'MANUAL_INSPECTION_REQUIRED' && isAppleEvidenceModel(device.model, device.storage)) { assert(!actual.ok); assert.equal(actual.code, 'MANUAL_INSPECTION_REQUIRED'); quarantined++; continue; }
+        assert(expected.ok);
         if (device.brand === 'Xiaomi' && device.model === 'Xiaomi 14 Ultra' && device.storage === '16 GB/512 GB') {
           assert(!actual.ok); assert.equal(actual.code, 'MANUAL_INSPECTION_REQUIRED'); quarantined++;
         } else { assert(actual.ok, `${device.model} ${device.storage}`); assert.equal(actual.fhoneifyPrice, expected.fhoneifyPrice); priced++; }

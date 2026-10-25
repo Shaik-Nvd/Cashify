@@ -1,3 +1,4 @@
+import { isAppleEvidenceModel } from '../../lib/pricing/appleCashifyModel/scope';
 import assert from 'node:assert/strict';
 import fixture from '../pricing/fixtures/team-workbook-development-2026-10-02.json';
 import cases from '../pricing/fixtures/team-workbook-development-cases-2026-10-02.json';
@@ -45,8 +46,12 @@ async function main() {
       assert(!p.ok && 'reasonCode' in p && p.reasonCode === 'REFERENCE_BASELINE_INCONSISTENT'); checks++; continue;
     }
     if (uncertain.has(r.caseId.slice(0, 5))) {
-      assert(!p.ok && 'reasonCode' in p && p.reasonCode === 'OWNER_CORRECTION_UNMATCHED_WARRANTY', r.caseId); checks++; quarantined++; continue;
+      // Quarantined either by the research service or, for evidence-calibrated iPhones, earlier by the inspection policy.
+      assert(!p.ok && (('reasonCode' in p && p.reasonCode === 'OWNER_CORRECTION_UNMATCHED_WARRANTY') ||
+        (p.code === 'MANUAL_INSPECTION_REQUIRED' && isAppleEvidenceModel(r.model, request(r).storage))), r.caseId); checks++; quarantined++; continue;
     }
+    // Evidence-calibrated iPhones decline combinations their own quotes never measured; that is the designed policy, not a regression.
+    if (!p.ok && p.code === 'MANUAL_INSPECTION_REQUIRED' && isAppleEvidenceModel(r.model, request(r).storage)) { checks++; continue; }
     assert(p.ok && 'provisional' in p && p.provisional && p.researchOnly, r.caseId);
     assert.equal(p.cashifyConditionEquivalent, r.observed); assert.equal('quoteToken' in p, false);
     assert.equal(p.calibrationObservedAt, null); assert.equal(p.evidenceQuality, 'TESTER_REPORTED_UNVERIFIED');

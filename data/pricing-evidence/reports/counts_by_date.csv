@@ -1,0 +1,7 @@
+﻿date,independent_numeric_measurements,no_offer_measurements,models,date_basis
+2026-10-16,37,0,3,header_case_list; header_tested_day; header_tested_range
+2026-10-17,465,0,11,case_observed_on; header_case_list; header_tested_day
+2026-10-22,305,0,2,header_tested_day; record_observed_at; record_observed_date
+2026-10-23,595,11,6,record_observed_date
+2026-10-24,815,40,9,file_observed_date
+unknown,17,0,1,unknown

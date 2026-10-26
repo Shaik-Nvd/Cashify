@@ -458,6 +458,48 @@ export function calculateApplePrice(model: string, reference: CashifyGetUptoRefe
   const evidence = calculationContext?.disableAppleEvidence || calculationContext?.apple512OutOfWarrantyDispatch === true ? null : appleEvidenceQuote(model, calculationContext?.catalogStorage ?? storageVariant, reference, diagnostics);
   if (evidence) return finalizeConditionQuote(reference, evidence.outcome.price);
 
+  const legacy = calculateLegacyApplePrice(model, reference, diagnostics, semantics, storageVariant, calculationContext);
+  return completeLegacyApplePhysicalInputs(model, reference, diagnostics, semantics, storageVariant, calculationContext, legacy);
+}
+
+/** Restore the existing shared physical rules where the older bespoke formulas omitted the UI fields.
+ * Recorded and calibrated evidence is resolved before this fallback. Values are the existing
+ * GRANULAR_CONDITION_PENALTIES and model scales, not newly fitted Cashify deductions.
+ */
+function completeLegacyApplePhysicalInputs(model: string, reference: number, d: DiagnosticsType, semantics: QuestionnaireSemantics,
+  storage: string | undefined, context: PricingCalculationContext | undefined, legacy: PricingResult): PricingResult {
+  const family = model.trim().toLowerCase().replace(/^apple\s+/, '');
+  if (!['iphone x', 'iphone xr', 'iphone xs', 'iphone 11', 'iphone 12', 'iphone 12 pro max', 'iphone 13'].includes(family) || d.calls === false) return legacy;
+  // The page may send explicit clean labels alongside a damaged field. Shared
+  // legacy parsers otherwise treat an unrecognised nonempty screen answer as cracked.
+  const physicalFields = ['screenCondition', 'screenSpots', 'screenLines', 'screenDiscoloration', 'bodyScratches', 'bodyDents', 'bodyPanel', 'bodyBent'] as const;
+  d = { ...d };
+  for (const field of physicalFields) if (/^(no\b|phone not\b)/i.test(d[field]?.trim() ?? '')) d[field] = null;
+  const hasDamageAnswer = (values: (string | null)[]) => values.some(Boolean);
+  const missingScreen = hasDamageAnswer([d.screenCondition, d.screenSpots, d.screenLines, d.screenDiscoloration]) || d.defects.some(v => ['screen_scratch', 'broken_scratch', 'screen_spot', 'broken_screen'].includes(v));
+  const missingBody = hasDamageAnswer([d.bodyScratches, d.bodyDents, d.bodyPanel, d.bodyBent]) || d.defects.includes('body_scratch') || d.defects.includes('panel_missing');
+  if (!missingScreen && !missingBody) return legacy;
+
+  const clearScreen = (a: DiagnosticsType): DiagnosticsType => ({ ...a, touch: true, originalScreen: true,
+    screenCondition: null, screenSpots: null, screenLines: null, screenDiscoloration: null,
+    defects: a.defects.filter(v => !['screen_scratch', 'broken_scratch', 'broken_screen', 'screen_spot'].includes(v)) });
+  const clearBody = (a: DiagnosticsType): DiagnosticsType => ({ ...a, bodyScratches: null, bodyDents: null, bodyPanel: null, bodyBent: null,
+    defects: a.defects.filter(v => !['body_scratch', 'panel_missing'].includes(v)) });
+  const price = (a: DiagnosticsType) => calculateLegacyApplePrice(model, reference, a, semantics, storage, context).cashifyConditionEquivalent;
+  const neutral = price(clearBody(clearScreen(d)));
+  const params = getAppleModelParams(model);
+  // Compare each repair group against its existing charge, so touch/replaced screen and
+  // screen cosmetics do not acquire a second replacement deduction.
+  const screenOnly = clearBody({ ...d, hardware: [] });
+  const bodyOnly = clearScreen({ ...d, hardware: [] });
+  const screenRule = reference * (1 - calculateConditionAdjustments(screenOnly, params, { questionnaire: semantics }).conditionRetention);
+  const bodyRule = reference * (1 - calculateConditionAdjustments(bodyOnly, params, { questionnaire: semantics }).conditionRetention);
+  const screenDeduction = Math.max(0, neutral - price(clearBody(d)), missingScreen ? screenRule : 0);
+  const bodyDeduction = Math.max(0, neutral - price(clearScreen(d)), missingBody ? bodyRule : 0);
+  return finalizeConditionQuote(reference, Math.max(0, Math.min(legacy.cashifyConditionEquivalent, neutral - screenDeduction - bodyDeduction)));
+}
+
+function calculateLegacyApplePrice(model: string, reference: CashifyGetUptoReference, diagnostics: DiagnosticsType, semantics: QuestionnaireSemantics, storageVariant?: string, calculationContext?: PricingCalculationContext): PricingResult {
   const lowerModel = String(model || "").toLowerCase().trim();
   // Only the supported hybrid service may opt in; direct/legacy callers retain prior dispatch.
   const exactTeamModel = calculationContext?.apple512OutOfWarrantyDispatch === true &&

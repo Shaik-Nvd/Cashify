@@ -33,7 +33,7 @@ import { PERFECT_CONDITION_DIAGNOSTICS } from './perfectCondition';
 /** Recorded on every signed quote and lead so a price can be traced to the
  * code that produced it. Bump when base resolution, guardrails, or the
  * methodology change. */
-export const PRICING_ENGINE_VERSION = 'fhoneify-pricing/2026-10-25-apple-evidence-v2+payout-ceiling-v2';
+export const PRICING_ENGINE_VERSION = 'fhoneify-pricing/2026-10-26-apple-evidence-v2+legacy-physical-v1+payout-ceiling-v2';
 
 export type BaseSource = 'reference_repository' | 'materialized_snapshot' | 'catalog_base_price';
 

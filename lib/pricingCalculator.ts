@@ -1,3 +1,4 @@
+import { referenceBonus } from './pricing/referenceBonus';
 import { CASHIFY_CALIBRATION } from './pricing/calibration';
 import { UNKNOWN_QUESTIONNAIRE, type QuestionnaireSemantics } from './pricing/questionnaireSemantics';
 import { inrConditionValue, resolveInrGroup, type InrDeductionConfig } from './pricing/inrDeductions';
@@ -314,15 +315,7 @@ function rawConditionAdjustments(
 }
 
 export function applyCompetitorUplift(basePrice: number, exactCashifyPrice: number): number {
-  let upliftPercent = 1;
-  if (basePrice <= 20000) upliftPercent = 1.08;
-  else if (basePrice <= 50000) upliftPercent = 1.06;
-  else upliftPercent = 1.04;
-
-  let fhoneifyExtra = exactCashifyPrice * (upliftPercent - 1);
-  if (fhoneifyExtra > 2000) fhoneifyExtra = 2000;
-
-  return Math.max(Math.round(exactCashifyPrice + fhoneifyExtra), COMMON_BONUSES.floorPrice);
+  return Math.max(Math.round(exactCashifyPrice + referenceBonus(basePrice)), COMMON_BONUSES.floorPrice);
 }
 
 /**

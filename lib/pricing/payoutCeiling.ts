@@ -1,23 +1,16 @@
+import { referenceBonus } from './referenceBonus';
 import { customerPayout, DISPLAY_DEDUCTION, DISPLAY_DEDUCTION_EXEMPT_PRICE, FIRST_TIME_COUPON_BONUS } from './payout';
 
 /**
- * The owner's hard limit on what Fhoneify may pay above Cashify, applied to the amount the CUSTOMER RECEIVES:
+ * Production policy (owner approved 26 October 2026): applyReferenceBonusCeiling preserves
+ * condition value + min(original reference * reference tier, INR 2,000), then the existing
+ * customer fee. Coupon cannot stack above that budget. This replaces the former percentage
+ * ceiling on the damaged condition value.
  *
- *   customer payout <= Cashify-equivalent payout + min(8% of that payout, INR 2,000)
- *
- * It sits AFTER the existing uplift (applyCompetitorUplift is unchanged: 8% / 6% / 4% by price band, INR 2,000 cap) and
- * binds every other adjustment too - the INR 99 display fee, rounding, the first-time coupon, exact-quote bounds -
- * so none of them can push the payout over the ceiling. The 8% / 6% / 4% tiers are untouched; they were already at
- * or below 8%, and the uplift is applied exactly once.
- *
- * Three Cashify prices appear in the evidence and are never mixed up here:
- *   base price      what Cashify calls "Get Upto" for a clean device; the engine's Cashify-equivalent is on this basis
- *   selling price   the headline quote = base price - INR 20 IMEI validation fee (2,238 of 2,238 recorded quotes)
- *   payout          selling price - Cashify's processing fee (49 / 69 / 99): what the customer actually receives
- * Fhoneify charges its own INR 99 display fee and no IMEI fee, so with the same Cashify-equivalent a Fhoneify customer
- * is structurally ~INR 20 ahead before any uplift; the ceiling counts that as part of the extra.
- *
- * Browser-safe: no imports beyond ./payout.
+ * Historical applyPayoutCeiling/maxPayoutForCashifyPayout remain available to retrospective
+ * analysis and tests of the previous policy; production does not call them.
+ * Cashify base = headline Selling + INR20. equivalentBasis explicitly preserves that distinction.
+ * Browser-safe; all imports below are browser-safe.
  */
 export const PAYOUT_CEILING_POLICY = {
   maxRate: 0.08,
@@ -89,13 +82,28 @@ const refuse = (input: { quote: number; cashifyHeadlineEquivalent: number }, rea
  *
  * The limit is against the ESTIMATED Cashify payout, so satisfying it says nothing about the real Cashify payout.
  */
+/** Historical condition-percentage policy, retained for retrospective comparisons only. Production uses applyReferenceBonusCeiling. */
 export function applyPayoutCeiling(input: { quote: number; cashifyHeadlineEquivalent: number }): CeilingResult {
+  return boundCustomerPayout(input, maxPayoutForCashifyPayout(cashifyPayout(input.cashifyHeadlineEquivalent)));
+}
+
+/** The approved reference bonus is preserved after condition deductions. Fees retain their existing meaning;
+ * coupon headroom cannot add another bonus above the reference-based budget. */
+export function applyReferenceBonusCeiling(input: { quote: number; cashifyHeadlineEquivalent: number; reference: number; equivalentBasis: 'base' | 'selling' }): CeilingResult {
+  if (!Number.isFinite(input.reference) || input.reference <= 0) return refuse(input, 'invalid original reference');
+  const conditionValue = input.cashifyHeadlineEquivalent + (input.equivalentBasis === 'base' ? PAYOUT_CEILING_POLICY.cashifyImeiFee : 0);
+  const budgetQuote = Math.round(conditionValue + referenceBonus(input.reference));
+  return boundCustomerPayout(input, customerPayout(budgetQuote, false).payout);
+}
+
+function boundCustomerPayout(input: { quote: number; cashifyHeadlineEquivalent: number }, maxCustomerPayout: number): CeilingResult {
   const { quote: quoteBeforeCeiling, cashifyHeadlineEquivalent } = input;
   if (!Number.isFinite(quoteBeforeCeiling) || !Number.isFinite(cashifyHeadlineEquivalent)) return refuse(input, 'non-finite price input');
   if (quoteBeforeCeiling < MIN_CEILING_QUOTE) return refuse(input, 'quote below the minimum payable amount');
   if (cashifyHeadlineEquivalent <= 0) return refuse(input, 'no positive Cashify-equivalent price to bound the payout');
   const cashifyPayoutEquivalent = cashifyPayout(cashifyHeadlineEquivalent);
-  const maxCustomerPayout = maxPayoutForCashifyPayout(cashifyPayoutEquivalent);
+  if (cashifyPayoutEquivalent <= 0) return refuse(input, 'no positive Cashify payout to value');
+  if (!Number.isFinite(maxCustomerPayout)) return refuse(input, 'non-finite payout budget');
   // payout(q) = q - 99, except q = 1,200 where the display fee is waived (payout 1,200). Solve directly instead of searching.
   let quote = Math.min(Math.floor(quoteBeforeCeiling), maxCustomerPayout + DISPLAY_DEDUCTION);
   if (quote === DISPLAY_DEDUCTION_EXEMPT_PRICE && customerPayout(quote, false).payout > maxCustomerPayout) quote -= 1;

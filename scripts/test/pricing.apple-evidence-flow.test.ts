@@ -16,7 +16,7 @@ import { createPricingService, type PricingServiceDeps } from '../../lib/pricing
 import { findCatalogDevice } from '../../lib/pricing/catalog';
 import { deviceKey, type ReferencePriceRecord } from '../../lib/referencePricing/types';
 import { customerPayout } from '../../lib/pricing/payout';
-import { applyPayoutCeiling, headlineFromBase, maxPayoutForCashifyPayout, cashifyPayout } from '../../lib/pricing/payoutCeiling';
+import { applyReferenceBonusCeiling, headlineFromBase, maxPayoutForCashifyPayout, cashifyPayout } from '../../lib/pricing/payoutCeiling';
 import { appleEvidenceQuote, storageGbOf } from '../../lib/pricing/appleCashifyModel';
 import { loadQuoteSession, saveQuoteSession, sameAcceptedQuote, type SignedQuote, type KeyValueStorage } from '../../lib/pricing/quoteSession';
 
@@ -137,7 +137,7 @@ async function run() {
     assert.equal(a.body.data.pricingVersion, b.body.data.pricingVersion);
     const ev = appleEvidenceQuote(f.device.model, f.device.storage, f.reference, wifi);
     assert.ok(ev, 'in scope');
-    const expected = applyPayoutCeiling({ quote: applyCompetitorUplift(f.reference, ev!.outcome.price), cashifyHeadlineEquivalent: headlineFromBase(ev!.outcome.price) }).quote;
+    const expected = applyReferenceBonusCeiling({ quote: applyCompetitorUplift(f.reference, ev!.outcome.price), cashifyHeadlineEquivalent: headlineFromBase(ev!.outcome.price), reference:f.reference,equivalentBasis:'base' }).quote;
     assert.equal(a.body.data.fhoneifyPrice, expected, 'uplift applied once, then the ceiling');
   });
   await check('payout (with and without the coupon) never exceeds Cashify-equivalent payout + min(8%, ₹2,000) for any in-scope answer set', async () => {
@@ -150,7 +150,7 @@ async function run() {
       const q = r.body.data;
       const ev = appleEvidenceQuote(fx.device.model, fx.device.storage, fx.reference, d);
       const headline = headlineFromBase(ev!.outcome.price);
-      const ceiling = maxPayoutForCashifyPayout(cashifyPayout(headline));
+      const ceiling = customerPayout(applyCompetitorUplift(fx.reference, ev!.outcome.price), false).payout;
       assert.ok(customerPayout(q.fhoneifyPrice, false).payout <= ceiling, `${fx.model} standard (answer set ${setIndex}: price ${q.fhoneifyPrice}, evidence ${ev!.outcome.price}, ceiling ${ceiling})`);
       assert.ok(customerPayout(q.fhoneifyPrice, true, q.couponHeadroom).payout <= ceiling, `${fx.model} coupon`);
     }
@@ -246,7 +246,7 @@ async function run() {
     assert.equal(r.status, 200);
     const { priceDevice } = await import('../../lib/pricing/engine');
     const legacy = priceDevice(outside.brand, outside.model, 23710, { ...perfect, hardware: ['face'] }, undefined, outside.storage);
-    const expected = applyPayoutCeiling({ quote: legacy.fhoneifyPrice, cashifyHeadlineEquivalent: headlineFromBase(legacy.cashifyConditionEquivalent) }).quote;
+    const expected = applyReferenceBonusCeiling({ quote: legacy.fhoneifyPrice, cashifyHeadlineEquivalent: headlineFromBase(legacy.cashifyConditionEquivalent),reference:23710,equivalentBasis:'base' }).quote;
     assert.equal(r.body.data.fhoneifyPrice, expected);
   });
 

@@ -123,7 +123,7 @@ export function explainQuote(brand: string, model: string, referencePrice: numbe
 
   const cashifyEquivalent = result.cashifyConditionEquivalent;
   const tierPercent = referencePrice <= 20000 ? 8 : referencePrice <= 50000 ? 6 : 4;
-  const uncappedRupees = cashifyEquivalent * (tierPercent / 100);
+  const uncappedRupees = referencePrice * (tierPercent / 100);
   const capApplied = uncappedRupees > UPLIFT_CAP;
   const rupees = Math.min(uncappedRupees, UPLIFT_CAP);
   const beforeFloor = Math.round(cashifyEquivalent + rupees);

@@ -21,7 +21,7 @@ import type { WorkbookRouteEvidence } from './teamWorkbookResearchQuoteService';
 import { workbookComponents, workbookStorageIdentity } from './teamWorkbookCandidate';
 import { isReleaseEvidenceCurrent } from './releaseEvidenceAge';
 import { applyCompetitorUplift } from '../pricingCalculator';
-import { applyPayoutCeiling, headlineFromBase, type CeilingResult } from './payoutCeiling';
+import { applyReferenceBonusCeiling, headlineFromBase, type CeilingResult } from './payoutCeiling';
 import { InspectionRequiredError } from './inspectionRequired';
 import { customerPayout } from './payout';
 import { accessoryBasisForRoute, cleanAccessoryBaselineDiagnostics, getUptoIncludesAccessories, hasBox, hasVerifiedBoxIncludedRoute, isBoxIncludedIdentity, withoutBoxBonus, type AccessoryBasis } from './accessoryBasis';
@@ -394,11 +394,14 @@ export function createPricingService(deps: PricingServiceDeps) {
       throw err;
     }
 
-    // The owner's hard limit: the payout the customer receives may not exceed the Cashify-equivalent payout by more than
-    // min(8%, INR 2,000) - after the uplift, the INR 99 fee, rounding and the coupon. It only ever lowers a quote.
-    const ceiling = applyPayoutCeiling({
+    // Owner-approved reference-first bonus. Reapply from the Cashify condition equivalent
+    // so all exact, legacy and hybrid paths use the same bonus budget exactly once.
+    result = { ...result, fhoneifyPrice: applyCompetitorUplift(base.cashifyGetUptoReference, result.cashifyConditionEquivalent) };
+    const ceiling = applyReferenceBonusCeiling({
       quote: result.fhoneifyPrice,
       cashifyHeadlineEquivalent: equivalentBasis === 'selling' ? result.cashifyConditionEquivalent : headlineFromBase(result.cashifyConditionEquivalent),
+      reference: base.cashifyGetUptoReference,
+      equivalentBasis,
     });
     if (ceiling.status === 'inspection') {
       // The limit cannot be met by any quote: never show or sign a price that breaks it.

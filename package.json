@@ -58,7 +58,7 @@
     "test:pricing:generalization-properties": "tsx scripts/test/pricing.generalization-properties.test.ts",
     "test:pricing:hybrid": "tsx scripts/test/pricing.hybrid.test.ts",
     "test:pricing:payout-ceiling": "tsx scripts/test/pricing.payout-ceiling.test.ts",
-    "test:pricing:apple-evidence": "tsx scripts/test/pricing.apple-evidence.test.ts && tsx scripts/test/pricing.apple-evidence-exact.test.ts && tsx scripts/test/pricing.apple-evidence-flow.test.ts && tsx scripts/test/pricing.apple-evidence-service-reconciliation.test.ts && tsx scripts/test/pricing.signed-coupon.test.ts && tsx scripts/test/pricing.apple-legacy-physical.test.ts",
+    "test:pricing:apple-evidence": "tsx scripts/test/pricing.apple-evidence.test.ts && tsx scripts/test/pricing.apple-evidence-exact.test.ts && tsx scripts/test/pricing.apple-evidence-flow.test.ts && tsx scripts/test/pricing.apple-evidence-service-reconciliation.test.ts && tsx scripts/test/pricing.signed-coupon.test.ts && tsx scripts/test/pricing.apple-legacy-physical.test.ts && tsx scripts/test/pricing.reference-bonus.test.ts",
     "pricing-evidence:fit": "tsx scripts/pricing-evidence/fit-calibration.ts",
     "pricing-evidence:validate": "tsx scripts/pricing-evidence/validate-evidence-engine.ts",
     "pricing-evidence:scope": "tsx scripts/pricing-evidence/decide-scope.ts",

@@ -154,7 +154,7 @@ async function run() {
         const c = q.internal.payoutCeiling;
         assert.ok(customerPayout(q.fhoneifyPrice, false).payout <= c.maxCustomerPayout, `${model}: standard payout`);
         assert.ok(customerPayout(q.fhoneifyPrice, true, q.couponHeadroom).payout <= c.maxCustomerPayout, `${model}: coupon payout`);
-        assert.ok(q.pricingVersion.includes('+payout-ceiling-v2'), 'pricing version records the ceiling policy');
+        assert.ok(q.pricingVersion.includes('+payout-ceiling-v3'), 'pricing version records the ceiling policy');
         n++;
       }
     }

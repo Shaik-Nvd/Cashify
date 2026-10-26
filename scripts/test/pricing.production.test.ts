@@ -13,7 +13,7 @@
 import assert from 'node:assert/strict';
 import { calculateFhoneifyPrice, DiagnosticsType } from '../../lib/pricingCalculator';
 import { parseDiagnostics } from '../../lib/pricing/diagnostics';
-import { applyPayoutCeiling, headlineFromBase } from '../../lib/pricing/payoutCeiling';
+import { applyReferenceBonusCeiling, headlineFromBase } from '../../lib/pricing/payoutCeiling';
 import { findCatalogDevice } from '../../lib/pricing/catalog';
 import {
   PERFECT_CONDITION_DIAGNOSTICS,
@@ -303,10 +303,10 @@ async function run() {
     assert.ok(result.ok);
     assert.equal(result.internal.baseSource, 'reference_repository');
     const calc = calculateFhoneifyPrice(identity.brand, identity.model, 61000, diag());
-    // the service applies the owner's payout ceiling after the uplift; it only ever lowers a quote, and here by a few rupees
-    const ceiling = applyPayoutCeiling({ quote: calc.fhoneifyPrice, cashifyHeadlineEquivalent: headlineFromBase(calc.cashifyConditionEquivalent) }).quote;
+    // The reference-first payout budget must preserve the approved bonus.
+    const ceiling = applyReferenceBonusCeiling({ quote: calc.fhoneifyPrice, cashifyHeadlineEquivalent: headlineFromBase(calc.cashifyConditionEquivalent), reference: 61000, equivalentBasis: 'base' }).quote;
     assert.equal(result.fhoneifyPrice, ceiling);
-    assert.ok(calc.fhoneifyPrice - result.fhoneifyPrice >= 0 && calc.fhoneifyPrice - result.fhoneifyPrice <= 60);
+    assert.equal(result.fhoneifyPrice, calc.fhoneifyPrice);
   });
 
   await test('a failing or hanging repository degrades to the snapshot instead of failing the quote', async () => {
@@ -363,15 +363,15 @@ async function run() {
     assert.ok(lead.audit.currentPrice! < quoted.fhoneifyPrice, 'audit should record the drifted current price');
   });
 
-  await test('a phone whose Cashify-equivalent is not positive cannot be bounded by the payout ceiling: inspection, never a price', async () => {
+  await test('a phone whose Cashify payout is not positive requires inspection despite the reference bonus', async () => {
     const { svc } = service();
     const result = await svc.quote({ ...identity, diagnostics: DAMAGED });
     assert.ok(!result.ok);
     assert.equal((result as any).code, 'MANUAL_INSPECTION_REQUIRED');
   });
 
-  // The ORIGINAL heavily damaged scenario (DAMAGED): the legacy engine's Cashify-equivalent for it is zero, which no payout can be bounded
-  // against ("Cashify payout + min(8%, 2,000)" of nothing). Its intended outcome is explicit: no instant price and no stored lead.
+  // The heavily damaged case has no positive Cashify net payout after fees.
+  // The reference bonus must not turn that nonpayable condition into a signed quote.
   await test('DAMAGED (original case): an inflated client price is never stored - the heavily damaged phone has no instant quote, so nothing is stored at all', async () => {
     const { svc } = service();
     const result = await svc.verifyLeadPrice({ ...identity, diagnostics: DAMAGED, clientQuotedPrice: 9_999_999 });

@@ -343,10 +343,8 @@ export default function QuotePage() {
   const asksWarrantyQuestion = showsQuestion(modelQuestionnaire.warrantyMode) && isWarrantyEligible(selectedBrand, selectedModel);
   const asksBillQuestion = showsQuestion(modelQuestionnaire.billMode) && isWarrantyEligible(selectedBrand, selectedModel);
   const asksESimQuestion = modelQuestionnaire.eSimMode !== 'NOT_ASKED' && isESimEligible(selectedBrand, selectedModel);
-  const asksAgeQuestion = (diagnostics.originalScreen !== false && diagnostics.warranty === true) ||
-    modelQuestionnaire.ageMode === 'ASKED' ||
-    (modelQuestionnaire.ageMode !== 'NOT_ASKED' && questionnaireFor({ brand: selectedBrand, model: selectedModel }).asksAge) ||
-    (questionnaireFor({ brand: selectedBrand, model: selectedModel }).asksAge && diagnostics.warranty === true && diagnostics.originalScreen !== false);
+  const asksAgeQuestion = modelQuestionnaire.ageMode === 'ASKED' ||
+    questionnaireFor({ brand: selectedBrand, model: selectedModel }).asksAge;
   const finalPrice = activeFinalQuote?.price ?? null;
   const priceRequestIdRef = useRef(0);
   const startingRequestIdRef = useRef(0);

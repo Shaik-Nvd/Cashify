@@ -22,4 +22,4 @@ const diagnostics: any = {
 };
 
 const price = calculateFhoneifyPrice('Apple', 'Apple iPhone 12 Pro Max', 27620, diagnostics).fhoneifyPrice;
-console.log('Calculated Price:', Math.round(price));
+console.log('Calculated Price:', Math.round(price || 0));

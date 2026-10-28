@@ -385,6 +385,52 @@ export function evaluateAppleEvidence(profile: ModelProfile, reference: number, 
   if (!(reference > 0)) return { kind: 'UNSUPPORTED', reason: 'invalid reference price' };
   const a = parseAnswers(diagnostics);
   if (a.unsupported.length) return { kind: 'UNSUPPORTED', reason: `unrecognised answers: ${a.unsupported.join('; ')}` };
+  const weaker: Record<string, string[]> = {
+    S01: ['S02', 'S03', 'S04'], S03: ['S04'], D01: ['D02', 'D03'], D02: ['D03'],
+    D04: ['D05'], D06: ['D07'], C01: ['C02'], C03: ['C04'], P02: ['P01'], P03: ['P04'],
+  };
+  const result = evaluateParsed(profile, reference, a, storageGb);
+  if (result.kind !== 'PRICE' || a.callsFailed) return result;
+  const physical = a.codes.filter(c => !c.startsWith('F'));
+  if (!physical.length) return result;
+  const triggers = triggersOf(profile);
+  const choices = physical.map(code => [null, code, ...(weaker[code] ?? [])]);
+  const charge = (code: string | null, triggered: boolean) => {
+    if (!code) return 0;
+    const cls = classOf(code);
+    if (!cls) return 0;
+    const info = TEMPLATE.classes[cls];
+    const key = code === 'P04' && triggered ? 'P01' : code;
+    const own = profile.codes?.[key], cal = profile.classes[cls];
+    let amount = own ? classValue(own, reference) : cal ? info.weights[key] * classValue(cal, reference) : 0;
+    if (cls === 'body' && triggered) amount *= BODY_UNDER_TRIGGER_REMAINING[code] ?? 1;
+    return amount;
+  };
+  // Physical repair groups use maxima. Only the presence of an age-trigger
+  // couples them. Enumerate that trigger witness, then maximize each field's
+  // charge within its weaker choices, avoiding a Cartesian subset traversal.
+  const scenarios: ({ field: number; code: string } | null)[] = [null];
+  choices.forEach((options, field) => options.forEach(code => { if (code && triggers.has(code)) scenarios.push({ field, code }); }));
+  let ceiling = result.price;
+  for (const witness of scenarios) {
+    const codes = a.codes.filter(c => c.startsWith('F'));
+    choices.forEach((options, field) => {
+      const eligible = witness?.field === field ? [witness.code] : options.filter(code => witness || !code || !triggers.has(code));
+      const best = eligible.reduce<string | null>((winner, code) => charge(code, Boolean(witness)) > charge(winner, Boolean(witness)) ? code : winner, null);
+      // A zero-valued witness still determines age and must not disappear.
+      const selected = witness?.field === field ? witness.code : best;
+      if (selected) codes.push(selected);
+    });
+    const lesser = evaluateParsed(profile, reference, { ...a, codes: [...new Set(codes)].sort() }, storageGb);
+    if (lesser.kind === 'PRICE') ceiling = Math.min(ceiling, lesser.price);
+  }
+  return ceiling < result.price ? { ...result, price: ceiling, confidence: 'inferred', floorApplied: false,
+    breakdown: [...result.breakdown, { rule: 'repair-dominance', label: 'Preserve the deduction for an existing or less severe repair', amount: result.price - ceiling, support: 'rule' }],
+    notes: [...result.notes, 'Inferred repair values constrained so added or more severe physical damage cannot raise the quote'] } : result;
+
+}
+
+function evaluateParsed(profile: ModelProfile, reference: number, a: ParsedAnswers, storageGb?: number): EvidenceOutcome {
   const d = deduct(profile, reference, a, storageGb);
   if ('kind' in d) {
     if (d.kind === 'UNSUPPORTED') return d;

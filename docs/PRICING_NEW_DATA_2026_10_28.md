@@ -81,3 +81,15 @@ scaling, per-model camera ratio, reference up/down, recorded condition moves wit
 box/charger, every catalog variant priced, 12 Mini inferred, unrecorded combinations/capacities, inspection, served arithmetic),
 `pricing.apple-evidence-service-reconciliation` (all supplied quotes through the service), `pricing.apple-evidence-exact` (the recorded
 index as an opt-in fixture; serving never uses it).
+
+## Follow-up (28 Oct, after release)
+
+- Bonus cap: commit 8638714 (INR 1,000 cap) entered main with PR #23 without approval; 35a123e restored the owner-approved INR 2,000 cap.
+- Repair safety (`evaluateAppleEvidence`): an answer set is never quoted above the same phone with the added physical damage removed, or with a
+  physical answer replaced by its milder option (heavier scratches/spots/dents, missing vs broken panel, bent frame next to scratches). Inferred
+  values could otherwise invert the order. No recorded Cashify quote changes because of it.
+- iPhone 512 GB out-of-warranty: the historical captured-quote router no longer bypasses the fitted rules for models the rules cover; 27 recorded
+  quotes move by at most INR 740 (in-sample service MAE INR 24 -> 25).
+- Pricing suites: all 62 pass offline (14 were failing on 24336be with pre-release expectations). Expectations now derive from the current
+  rules and the approved bonus arithmetic, not from retired legacy prices; no accuracy threshold was widened. The catalog property sweep
+  (1,517,834 quotes) has 0 blocking failures; its 72 allowed rises are Cashify's minimum quote activating and equal the calibrated floor.

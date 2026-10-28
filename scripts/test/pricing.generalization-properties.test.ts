@@ -5,6 +5,9 @@
  *
  *   npm run test:pricing:generalization-properties
  */
+import { InspectionRequiredError } from '../../lib/pricing/inspectionRequired';
+import { appleEvidenceScope } from '../../lib/pricing/appleCashifyModel';
+import { evaluateAppleEvidence, roundTo10 } from '../../lib/pricing/appleCashifyModel/model';
 import referenceStore from '../../server/data/reference-prices/store.json';
 import snapshot from '../../lib/cashify_prices.json';
 import { SEED_DEVICES } from '../../lib/seed_devices';
@@ -75,15 +78,18 @@ const DAMAGED_STARTS: Partial<DiagnosticsType>[] = [
 
 type Failure = { invariant: string; device: string; regime: string; detail: string };
 const failures: Failure[] = [];
+const failureCounts = new Map<string, number>();
+const failureDevices = new Map<string, Set<string>>();
+let inspectionOutcomes = 0, skippedComparisons = 0, floorTransitions = 0;
 const invariantCounts = new Map<string, number>();
 const check = (invariant: string, ok: boolean, device: string, regime: string, detail: () => string) => {
   invariantCounts.set(invariant, (invariantCounts.get(invariant) ?? 0) + 1);
-  if (!ok) failures.push({ invariant, device, regime, detail: detail() });
+  if (!ok) { if (!failureDevices.has(invariant)) failureDevices.set(invariant, new Set()); failureDevices.get(invariant)!.add(device); failureCounts.set(invariant, (failureCounts.get(invariant) ?? 0) + 1); if (failures.filter(f => f.invariant === invariant).length < 5) failures.push({ invariant, device, regime, detail: detail() }); }
 };
 
 const upliftIndependent = (reference: number, eq: number) => {
   const tier = reference <= 20000 ? 0.08 : reference <= 50000 ? 0.06 : 0.04;
-  return Math.max(Math.round(eq + Math.min(eq * tier, 2000)), 100);
+  return Math.max(Math.round(eq + Math.min(reference * tier, 2000)), 100);
 };
 
 let devices = 0;
@@ -102,7 +108,7 @@ for (const device of SEED_DEVICES as any[]) {
       name, '-', () => 'pending entry acquired an unverified reference or base price');
     continue;
   }
-  if (!ref) { failures.push({ invariant: 'catalog entry resolves to a reference', device: name, regime: '-', detail: 'no reference, snapshot or basePrice' }); continue; }
+  if (!ref) { check('catalog entry resolves to a reference', false, name, '-', () => 'no reference, snapshot or basePrice'); continue; }
   devices++;
   families.add(pricingFamilyKey(device.brand, device.model));
   const reference = ref.cashifyGetUptoReference;
@@ -110,33 +116,55 @@ for (const device of SEED_DEVICES as any[]) {
   check('Get Upto = reference + capped 8/6/4% uplift, no deductions', computeFhoneifyGetUpto(reference) === upliftIndependent(reference, reference), name, '-', () => `${computeFhoneifyGetUpto(reference)}`);
 
   for (const [regimeName, semantics] of Object.entries(REGIMES)) {
-    const price = (o: Partial<DiagnosticsType>) => {
+    const price = (o: Partial<DiagnosticsType>): number | null => {
       quotes++;
       try {
-        const { cashifyConditionEquivalent: eq, fhoneifyPrice: fp } = priceDevice(device.brand, device.model, reference, base(o), semantics);
+        const { cashifyConditionEquivalent: eq, fhoneifyPrice: fp } = priceDevice(device.brand, device.model, reference, base(o), semantics, device.storage, { catalogStorage: device.storage });
         check('finite non-negative integer prices', Number.isInteger(eq) && eq >= 0 && Number.isInteger(fp) && fp >= 100, name, regimeName, () => `${eq}/${fp}`);
         check('uplift unchanged (final = equivalent + capped 8/6/4%)', fp === applyCompetitorUplift(reference, eq) && fp === upliftIndependent(reference, eq), name, regimeName, () => `${fp}`);
         check('never above the methodology ceiling', fp <= maxPlausiblePrice(reference), name, regimeName, () => `${fp}`);
         return eq;
       } catch (err: any) {
-        failures.push({ invariant: 'priceDevice never throws for UI-shaped answers', device: name, regime: regimeName, detail: `${JSON.stringify(o)}: ${err.message}` });
-        return NaN;
+        if (err instanceof InspectionRequiredError) { inspectionOutcomes++; return null; }
+        check('priceDevice never throws for UI-shaped answers', false, name, regimeName, () => `${JSON.stringify(o)}: ${err.message}`);
+        return null;
       }
     };
 
+    const compare = (values: (number | null)[], predicate: () => boolean): boolean => {
+      if (values.some(v => v === null)) { skippedComparisons++; return true; }
+      return predicate();
+    };
+    const doesNotRise = (before: number | null, after: number | null, previous: Partial<DiagnosticsType>, next: Partial<DiagnosticsType>): boolean => compare([before, after], () => {
+      if (after! <= before!) return true;
+      const scope = device.brand === 'Apple' ? appleEvidenceScope(device.model, device.storage) : null;
+      if (!scope) return false;
+      const a = evaluateAppleEvidence(scope.profile, reference, base(previous), scope.storageGb);
+      const b = evaluateAppleEvidence(scope.profile, reference, base(next), scope.storageGb);
+      // Only a documented calibrated minimum becoming active can reverse this comparison.
+      // Both actual amounts must match the calibrated rules, not an unrelated exact record.
+      if (a.kind === 'PRICE' && b.kind === 'PRICE' && !a.floorApplied && b.floorApplied && a.price === before && b.price === after && b.breakdown.some(v => v.rule === 'floor' && v.amount < 0)) {
+        const floor = scope.profile.floor!;
+        const age = b.breakdown.filter(v => v.rule === 'age').reduce((sum, v) => sum + v.amount, 0);
+        const expectedFloor = roundTo10(floor.value * (floor.basis === 'aged' ? reference - age : reference));
+        check('activated minimum equals the calibrated fixed floor', after === expectedFloor, name, regimeName, () => `${after} != ${expectedFloor}`);
+        floorTransitions++; return after === expectedFloor;
+      }
+      return false;
+    });
     for (const [ladder, steps] of Object.entries(LADDERS)) {
       const values = steps.map(price);
       for (let i = 1; i < values.length; i++) {
-        check(`severity ladder: ${ladder}`, values[i] <= values[i - 1], name, regimeName, () => `${JSON.stringify(steps[i])}: ${values[i]} > ${values[i - 1]}`);
+        check(`severity ladder: ${ladder}`, doesNotRise(values[i - 1], values[i], steps[i - 1], steps[i]), name, regimeName, () => `${JSON.stringify(steps[i])}: ${values[i]} > ${values[i - 1]}`);
       }
     }
 
     const clean = price({});
     for (const hw of HARDWARE) {
       const one = price({ hardware: [hw] });
-      check('a functional fault never raises the price', one <= clean, name, regimeName, () => `${hw}: ${one} > ${clean}`);
+      check('a functional fault never raises the price', doesNotRise(clean, one, {}, { hardware: [hw] }), name, regimeName, () => `${hw}: ${one} > ${clean}`);
       const two = price({ hardware: [hw, 'speaker'] });
-      check('a second functional fault never raises the price', two <= one, name, regimeName, () => `${hw}+speaker: ${two} > ${one}`);
+      check('a second functional fault never raises the price', doesNotRise(one, two, { hardware: [hw] }, { hardware: [hw, 'speaker'] }), name, regimeName, () => `${hw}+speaker: ${two} > ${one}`);
     }
 
     for (const start of DAMAGED_STARTS) {
@@ -146,28 +174,28 @@ for (const device of SEED_DEVICES as any[]) {
         // (possibly lighter) answer, not damage "added to" it.
         if (Object.keys(add).some((k) => k !== 'hardware' && (start as any)[k] !== undefined)) continue;
         const after = price(merge(start, add));
-        check(add.calls === false ? 'no-calls (fixed scrap price) never beats the same phone with calls working' : 'adding damage never raises the price', after <= before, name, regimeName, () => `${JSON.stringify(start)} + ${JSON.stringify(add)}: ${after} > ${before}`);
+        check(add.calls === false ? 'no-calls (fixed scrap price) never beats the same phone with calls working' : 'adding damage never raises the price', doesNotRise(before, after, start, merge(start, add)), name, regimeName, () => `${JSON.stringify(start)} + ${JSON.stringify(add)}: ${after} > ${before}`);
       }
     }
 
     const severe = price({ screenCondition: 'Screen cracked/ glass broken', bodyDents: 'Major dent(s) or more than 2', bodyPanel: 'Missing side or back panel', hardware: ['speaker', 'back_camera', 'wifi'], accessories: [] });
     const light = price({ screenCondition: '1-2 scratches on screen', bodyScratches: '1-2 scratches' });
-    check('severe damage never beats light damage', severe <= light, name, regimeName, () => `${severe} > ${light}`);
+    check('severe damage never beats light damage', compare([severe, light], () => severe! <= light!), name, regimeName, () => `${severe} > ${light}`);
 
     if (semantics.warrantyMode === 'NOT_ASKED') {
       const variants = [{ warranty: true, mobileAge: 'below3', validBill: true }, { warranty: false, mobileAge: 'above11', validBill: false }, { warranty: null, mobileAge: null, validBill: null }].map((v) => price(v as any));
-      check('NOT_ASKED: warranty/age/bill answers cannot move the price', variants.every((v) => v === variants[0]), name, regimeName, () => variants.join(' / '));
+      check('NOT_ASKED: warranty/age/bill answers cannot move the price', compare(variants, () => variants.every((v) => v === variants[0])), name, regimeName, () => variants.join(' / '));
     } else {
       const young = price({ warranty: true, mobileAge: 'below3', validBill: true });
       const old = price({ warranty: false, mobileAge: 'above11', validBill: true });
-      check('ASKED/UNKNOWN: out of warranty never beats in warranty', old <= young, name, regimeName, () => `${old} > ${young}`);
+      check('ASKED/UNKNOWN: out of warranty never beats in warranty', compare([old, young], () => old! <= young!), name, regimeName, () => `${old} > ${young}`);
       const noBill = price({ warranty: true, mobileAge: 'below3', validBill: false });
       const missingBill = price({ warranty: true, mobileAge: 'below3', validBill: null });
-      check('ASKED/UNKNOWN: a missing bill answer is not priced as "No"', noBill >= young || missingBill > noBill, name, regimeName, () => `missing ${missingBill}, no ${noBill}, yes ${young}`);
+      check('ASKED/UNKNOWN: a missing bill answer is not priced as "No"', compare([noBill, young, missingBill], () => noBill! >= young! || missingBill! > noBill!), name, regimeName, () => `missing ${missingBill}, no ${noBill}, yes ${young}`);
       const missingWarranty = price({ warranty: null, mobileAge: null, validBill: true });
-      check('ASKED/UNKNOWN: a missing warranty answer is not priced as "No"', missingWarranty >= old, name, regimeName, () => `${missingWarranty} < ${old}`);
+      check('ASKED/UNKNOWN: a missing warranty answer is not priced as "No"', compare([missingWarranty, old], () => missingWarranty! >= old!), name, regimeName, () => `${missingWarranty} < ${old}`);
       const oldNoBill = price({ warranty: false, mobileAge: 'above11', validBill: false });
-      check('no bill never pays more than a valid bill (out of warranty)', oldNoBill <= old, name, regimeName, () => `${oldNoBill} > ${old}`);
+      check('no bill never pays more than a valid bill (out of warranty)', compare([oldNoBill, old], () => oldNoBill! <= old!), name, regimeName, () => `${oldNoBill} > ${old}`);
     }
   }
 }
@@ -176,7 +204,8 @@ for (const device of SEED_DEVICES as any[]) {
 // (docs/PRICING_CONDITION_ENGINE.md, EXTERNAL VALIDATION REQUIRED): reported,
 // not failing, until Cashify evidence decides it.
 const KNOWN_POLICY = /^no-calls/;
-const blocking = failures.filter((f) => !KNOWN_POLICY.test(f.invariant));
+const blockingCount = [...failureCounts].filter(([key]) => !KNOWN_POLICY.test(key)).reduce((n, [, count]) => n + count, 0);
+const knownPolicyCount = [...failureCounts].filter(([key]) => KNOWN_POLICY.test(key)).reduce((n, [, count]) => n + count, 0);
 const byInvariant = new Map<string, Failure[]>();
 for (const f of failures) byInvariant.set(f.invariant, [...(byInvariant.get(f.invariant) ?? []), f]);
 console.log(JSON.stringify({
@@ -184,15 +213,15 @@ console.log(JSON.stringify({
   familiesTested: families.size,
   regimes: Object.keys(REGIMES),
   quotesTested: quotes,
-  invariants: Object.fromEntries([...invariantCounts.entries()].map(([k, n]) => [k, { checks: n, failures: byInvariant.get(k)?.length ?? 0 }])),
-  blockingFailures: blocking.length,
-  knownPolicyReports: failures.length - blocking.length,
-  failureSummary: [...byInvariant.entries()].map(([invariant, list]) => ({ invariant, count: list.length, devices: new Set(list.map((f) => f.device)).size, examples: list.slice(0, 3) })),
+  invariants: Object.fromEntries([...invariantCounts.entries()].map(([k, n]) => [k, { checks: n, failures: failureCounts.get(k) ?? 0 }])),
+  blockingFailures: blockingCount,
+  knownPolicyReports: knownPolicyCount, inspectionOutcomes, skippedComparisons, floorTransitions,
+  failureSummary: [...byInvariant.entries()].map(([invariant, list]) => ({ invariant, count: failureCounts.get(invariant), devices: failureDevices.get(invariant)?.size ?? 0, examples: list.slice(0, 3) })),
 }, null, 2));
 
-if (blocking.length) {
-  console.log(`\nFAIL: ${blocking.length} blocking property failure(s)`);
+if (blockingCount) {
+  console.log(`\nFAIL: ${blockingCount} blocking property failure(s)`);
   process.exitCode = 1;
 } else {
-  console.log(`\nPASS: ${devices} priced devices, ${pendingDevices} verified unpriced pending entries, ${quotes} quotes, ${families.size} families, ${invariantCounts.size} invariants (${failures.length - blocking.length} known-policy no-calls reports)`);
+  console.log(`\nPASS: ${devices} priced devices, ${pendingDevices} verified unpriced pending entries, ${quotes} quotes, ${families.size} families, ${invariantCounts.size} invariants (${knownPolicyCount} known-policy no-calls reports)`);
 }

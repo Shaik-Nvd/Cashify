@@ -50,7 +50,10 @@ async function main(){
  const parsed=parseDiagnostics(source.diagnostics);assert(parsed.ok);const reordered={...parsed.value,hardware:[...parsed.value.hardware].reverse(),accessories:[...parsed.value.accessories].reverse()};assert.equal(canonicalDiagnosticsHash(parsed.value),canonicalDiagnosticsHash(reordered));
  console.log('PASS bill contradiction remains inspection-only; token hashes preserve input order independence');
  for(const gu of [1,20000,20001,50000,50001,100000])for(let c=1;c<=150000;c+=17){const gross=boundedCompetitiveOffer(gu,c),standard=customerPayout(gross,false).payout,coupon=customerPayout(gross,true).payout;assert(standard>c&&standard-c<=2000);assert(coupon>c&&coupon-c<=2000);}
- assert.equal(competitiveOfferAudit(20000,1120).standardPass,false);assert.equal(competitiveOfferAudit(100000,100000).couponPass,false);
+ // Reference 1,225 gives a 98 bonus: after the 99 fee the customer receives Selling - 1.
+ const lowFeeBoundary=competitiveOfferAudit(1225,1120);assert.equal(lowFeeBoundary.gross,1218);assert.equal(lowFeeBoundary.standard,1119);assert.equal(lowFeeBoundary.standardPass,false);
+ // The capped 2,000 bonus plus the unrestricted research coupon exceeds the corridor.
+ assert.equal(competitiveOfferAudit(100000,100000).couponPass,false);
  console.log('PASS net-bound policy across 52,944 value/tier cases, low-value fee and high-value coupon boundaries');
  assert.equal(parseFinalSellingPrice('Get Upto ₹50,000\nVoucher ₹2,000'),null);assert.equal(parseFinalSellingPrice('Selling price\n₹12,340\nSell Now'),12340);assert.equal(parseFinalSellingPrice('Selling price ₹1,23,450'),123450);assert.equal(parseFinalSellingPrice('Selling price ₹1,200\nSelling price ₹2,000'),null);assert.throws(()=>requireEsimAnswer(null));assert.throws(()=>requireBooleanAnswer({},'warranty'));
  console.log('PASS scraper rejects Get Upto, vouchers, conflicting prices and invented conditional answers');

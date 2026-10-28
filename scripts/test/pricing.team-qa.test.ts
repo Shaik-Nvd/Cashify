@@ -37,7 +37,9 @@ const priced = comparable.map((o: any) => {
   const parsed = parseDiagnostics(o.fhoneifyAnswers);
   if (!parsed.ok) throw new Error(`${o.id}: ${parsed.error}`);
   // Priced under the questionnaire Cashify showed for the model.
-  const result = calculateFhoneifyPrice(o.brand, o.model, o.referencePrice, parsed.value, o.cashifyQuestionnaire ?? UNKNOWN_QUESTIONNAIRE);
+  // Supply catalog storage just as the authoritative service does, so Apple uses its current rules.
+  const storage = o.catalogStorage ?? o.variant;
+  const result = calculateFhoneifyPrice(o.brand, o.model, o.referencePrice, parsed.value, o.cashifyQuestionnaire ?? UNKNOWN_QUESTIONNAIRE, storage, { catalogStorage: storage });
   return { o, result, error: result.cashifyConditionEquivalent - o.cashifyFinal };
 });
 

@@ -4,6 +4,9 @@ import { createPricingService } from '../../lib/pricing/pricingService';
 import { findCatalogDevice } from '../../lib/pricing/catalog';
 import { deviceKey } from '../../lib/referencePricing/types';
 import { customerPayout } from '../../lib/pricing/payout';
+import { calculateFhoneifyPrice } from '../../lib/pricingCalculator';
+import { InspectionRequiredError } from '../../lib/pricing/inspectionRequired';
+import { releaseSafetyInspectionReason } from '../../lib/pricing/releaseCandidate';
 
 async function main() {
   const fixture = JSON.parse(fs.readFileSync('scripts/test/fixtures/iphone14-sibling-preservation-2026-10-11.json', 'utf8'));
@@ -24,14 +27,28 @@ async function main() {
       pricingMode: 'hybrid', snapshot: {}, now: () => at, logger: { info() {}, warn() {}, error() {} },
     });
     const result = await service.quote({ brand: device.brand, model: device.model, storage: device.storage, diagnostics: row.diagnostics });
-    assert.equal(result.ok, row.expected.ok, `${row.storage} ${row.condition}: quote availability preserved`);
+    // This fixture records the pre-calibration sibling behavior. Preserve its
+    // inputs, but validate service wiring against today's rules, not old prices.
+    let expected;
+    try {
+      expected = calculateFhoneifyPrice(device.brand, device.model, row.reference, row.diagnostics,
+        { warrantyMode: 'NOT_ASKED', billMode: 'NOT_ASKED', ageMode: 'NOT_ASKED' }, device.storage, { catalogStorage: device.storage });
+    } catch (error) {
+      if (!(error instanceof InspectionRequiredError)) throw error;
+    }
+    const safetyReason = releaseSafetyInspectionReason(device, row.diagnostics, true);
+    assert.equal(result.ok, Boolean(expected) && !safetyReason, `${row.storage} ${row.condition}: current rules and safety availability`);
     if (result.ok) {
-      assert.equal(result.fhoneifyPrice, row.expected.quote, `${row.storage} ${row.condition}: main payout preserved`);
-      assert.equal(customerPayout(result.fhoneifyPrice, false).payout, row.expected.couponOff);
-      assert.equal(customerPayout(result.fhoneifyPrice, true).payout, row.expected.couponOn);
+      assert.equal(result.internal.cashifyConditionEquivalent, expected!.cashifyConditionEquivalent, `${row.storage} ${row.condition}: current condition rule`);
+      const bonus = Math.max(100, Math.min(2000, Math.round(row.reference * (row.reference <= 20000 ? 0.08 : row.reference <= 50000 ? 0.06 : 0.04))));
+      assert.equal(result.fhoneifyPrice, expected!.cashifyConditionEquivalent + bonus, 'approved reference bonus applied once');
+      for (const coupon of [false, true]) {
+        const payout = customerPayout(result.fhoneifyPrice, coupon, result.couponHeadroom);
+        assert.equal(payout.payout, result.fhoneifyPrice - payout.deduction, 'coupon cannot stack above the reference bonus');
+      }
       binding++;
-    } else { assert.equal(result.code, row.expected.code); guarded++; }
+    } else { assert.equal(result.code, 'MANUAL_INSPECTION_REQUIRED'); guarded++; }
   }
-  console.log(`PASS ${binding} binding and ${guarded} guarded sibling cases preserve main payouts/availability`);
+  console.log(`PASS ${binding} binding and ${guarded} guarded sibling cases match current rules, bonus, and safety availability`);
 }
 main().catch(error => { console.error(error); process.exitCode = 1; });

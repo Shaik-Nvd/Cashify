@@ -2850,6 +2850,20 @@ export function calculateGenericAndroidPrice(brand: string, model: string, refer
 export function calculateCashifyPrice(
   brand: string,
   model: string,
+  reference: CashifyGetUptoReference,
+  diagnostics: DiagnosticsType,
+  semantics: QuestionnaireSemantics = UNKNOWN_QUESTIONNAIRE,
+  storageVariant?: string,
+  calculationContext?: PricingCalculationContext
+): PricingResult {
+  return calculateDevicePrice(brand, model, reference, diagnostics, semantics, storageVariant, calculationContext);
+}
+
+export const calculateFhoneifyPrice = calculateCashifyPrice;
+
+function calculateDevicePrice(
+  brand: string,
+  model: string,
   cashifyGetUptoReference: CashifyGetUptoReference,
   answers: DiagnosticsType,
   semantics: QuestionnaireSemantics = UNKNOWN_QUESTIONNAIRE,

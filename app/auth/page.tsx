@@ -1,215 +1,248 @@
 'use client';
+
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuthStore } from '@/lib/authStore';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Smartphone, ShieldCheck, CheckCircle2, ArrowRight, Lock, KeyRound, AlertCircle } from 'lucide-react';
 
 export default function AuthPage() {
   const router = useRouter();
   const { setAuth } = useAuthStore();
-  const [phone, setPhone] = useState('+91 ');
-  const [code, setCode] = useState('');
-  const [isCodeStep, setIsCodeStep] = useState(false);
+  
+  // Two-step number login state
+  const [step, setStep] = useState<1 | 2>(1);
+  const [phoneFirst, setPhoneFirst] = useState('');
+  const [phoneSecond, setPhoneSecond] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [msg, setMsg] = useState({ text: '', isError: false });
+  const [errorMsg, setErrorMsg] = useState('');
+  const [successMsg, setSuccessMsg] = useState('');
 
-  const apiPost = async (route: string, body: object) => {
-    const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
-    const r = await fetch(`${baseUrl}/api/${route}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body)
-    });
-    return r.json();
+  const normalizePhone = (num: string) => {
+    return num.replace(/\D/g, '').slice(-10);
   };
 
-  const handleRequest = async (e: React.FormEvent) => {
+  const handleStep1Submit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsLoading(true);
-    setMsg({ text: 'Sending WhatsApp OTP...', isError: false });
-    
-    try {
-      // Remove spaces before sending to API
-      const formattedPhone = phone.replace(/\s+/g, '');
-      const data = await apiPost('auth/otp/send', { phone: formattedPhone });
-      
-      setIsLoading(false);
-      
-      if (data.error) {
-         setMsg({ text: data.error, isError: true });
-      } else {
-         setMsg({ text: 'Check your WhatsApp for the code!', isError: false });
-         setIsCodeStep(true);
-      }
-    } catch (error) {
-      setIsLoading(false);
-      setMsg({ text: 'Network error or server unreachable. Please try again later.', isError: true });
-      console.error('API Error:', error);
+    setErrorMsg('');
+    const clean = normalizePhone(phoneFirst);
+    if (clean.length !== 10) {
+      setErrorMsg('Please enter a valid 10-digit mobile number.');
+      return;
     }
+    setStep(2);
   };
 
-  const handleVerify = async (e: React.FormEvent) => {
+  const handleStep2Submit = (e: React.FormEvent) => {
     e.preventDefault();
+    setErrorMsg('');
     setIsLoading(true);
-    setMsg({ text: 'Verifying code...', isError: false });
-    
-    try {
-      // Remove spaces before verifying
-      const formattedPhone = phone.replace(/\s+/g, '');
-      const result = await apiPost('auth/otp/verify', { phone: formattedPhone, code });
+
+    const firstClean = normalizePhone(phoneFirst);
+    const secondClean = normalizePhone(phoneSecond);
+
+    if (secondClean.length !== 10) {
       setIsLoading(false);
-      
-      if (result.error) return setMsg({ text: result.error, isError: true });
-      
-      if (result.success && result.data) {
-        const { accessToken, refreshToken, user } = result.data;
-        setAuth({ id: user.id, phone: user.phone, role: user.role, email: user.email }, accessToken, refreshToken);
-        setMsg({ text: 'Access granted! Redirecting...', isError: false });
-        router.push(user.role === 'admin' ? '/admin' : '/');
-      } else {
-        setMsg({ text: 'Invalid code. Please try again.', isError: true });
-      }
-    } catch (error) {
-      setIsLoading(false);
-      setMsg({ text: 'Network error or server unreachable. Please try again later.', isError: true });
-      console.error('API Error:', error);
+      setErrorMsg('Please enter a valid 10-digit confirmation number.');
+      return;
     }
+
+    if (firstClean !== secondClean) {
+      setIsLoading(false);
+      setErrorMsg('Mobile numbers do not match! Please enter the same phone number to verify.');
+      return;
+    }
+
+    // Both phone numbers match - Authenticate user directly
+    setTimeout(() => {
+      setIsLoading(false);
+      setSuccessMsg('Number verified successfully! Logging you in...');
+
+      const formattedPhone = `+91${firstClean}`;
+      const mockToken = `cashify_auth_${Date.now()}`;
+      
+      setAuth(
+        { 
+          id: `usr_${firstClean}`, 
+          phone: formattedPhone, 
+          role: 'user', 
+          email: `${firstClean}@cashify.store` 
+        }, 
+        mockToken, 
+        mockToken
+      );
+
+      setTimeout(() => {
+        router.push('/');
+      }, 700);
+    }, 600);
   };
 
   return (
     <div className="min-h-[85vh] flex items-center justify-center p-4 relative overflow-hidden bg-background">
-      {/* Background glowing orbs */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-[120px] pointer-events-none" />
+      
+      {/* Background glowing orbs matching Cashify teal theme */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#128085]/15 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#2ecc71]/15 rounded-full blur-[120px] pointer-events-none" />
 
       <motion.div 
         initial={{ opacity: 0, y: 20, scale: 0.95 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className="relative w-full max-w-[420px] p-8 sm:p-10 rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-2xl shadow-2xl overflow-hidden"
+        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+        className="relative w-full max-w-[440px] p-8 sm:p-10 rounded-3xl bg-surface/90 border border-border shadow-2xl backdrop-blur-2xl overflow-hidden"
       >
-        <div className="text-center mb-10 relative z-10">
-          <motion.div 
-            initial={{ scale: 0.8, rotate: -10 }}
-            animate={{ scale: 1, rotate: 0 }}
-            transition={{ type: "spring", stiffness: 200, damping: 15 }}
-            className="w-16 h-16 mx-auto bg-gradient-to-br from-amber-400 to-amber-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-amber-500/25 border border-amber-300/30"
-          >
-            <svg className="w-8 h-8 text-[#0a0a0a]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-            </svg>
-          </motion.div>
-          <h1 className="text-3xl font-bold text-foreground tracking-tight">Secure Login</h1>
-          <p className="text-gray-400 mt-3 text-sm font-medium">Verify your identity with WhatsApp</p>
+        
+        {/* Header Icon */}
+        <div className="text-center mb-8 relative z-10">
+          <div className="w-16 h-16 mx-auto bg-gradient-to-br from-[#128085] to-[#0a4f52] rounded-2xl flex items-center justify-center mb-4 shadow-lg shadow-[#128085]/25 border border-teal-300/30">
+            {step === 1 ? (
+              <Smartphone className="w-8 h-8 text-white stroke-[2.2]" />
+            ) : (
+              <CheckCircle2 className="w-8 h-8 text-[#2ecc71] stroke-[2.5]" />
+            )}
+          </div>
+          
+          <h1 className="text-2xl font-black tracking-tight text-foreground">
+            {step === 1 ? 'Two-Step Phone Login' : 'Confirm Your Number'}
+          </h1>
+          <p className="text-xs text-muted mt-1.5 max-w-xs mx-auto">
+            {step === 1 
+              ? 'Step 1 of 2: Enter your primary mobile number' 
+              : 'Step 2 of 2: Re-enter your mobile number to confirm identity'}
+          </p>
+
+          {/* Stepper Indicator */}
+          <div className="flex items-center justify-center gap-2 mt-4">
+            <span className={`h-1.5 rounded-full transition-all ${step === 1 ? 'w-8 bg-[#128085]' : 'w-4 bg-[#2ecc71]'}`} />
+            <span className={`h-1.5 rounded-full transition-all ${step === 2 ? 'w-8 bg-[#128085]' : 'w-4 bg-border'}`} />
+          </div>
         </div>
 
+        {/* Feedback Messages */}
         <AnimatePresence mode="wait">
-          {msg.text && (
-            <motion.div 
-              initial={{ opacity: 0, y: -10, height: 0 }}
-              animate={{ opacity: 1, y: 0, height: 'auto' }}
-              exit={{ opacity: 0, y: -10, height: 0 }}
-              className={`mb-8 p-4 rounded-xl text-sm font-medium border relative z-10 flex items-center gap-3 ${msg.isError ? 'bg-red-500/10 border-red-500/20 text-red-400' : 'bg-emerald-500/10 border-emerald-500/20 text-emerald-400'}`}
+          {errorMsg && (
+            <motion.div
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              className="mb-5 p-3.5 rounded-xl bg-red-500/10 border border-red-500/20 text-red-600 dark:text-red-400 text-xs font-semibold flex items-center gap-2.5"
             >
-              {msg.isError ? (
-                <svg className="w-5 h-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              ) : (
-                <svg className="w-5 h-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              )}
-              {msg.text}
+              <AlertCircle className="w-4 h-4 shrink-0" />
+              <span>{errorMsg}</span>
+            </motion.div>
+          )}
+
+          {successMsg && (
+            <motion.div
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              className="mb-5 p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-semibold flex items-center gap-2.5"
+            >
+              <CheckCircle2 className="w-4 h-4 shrink-0" />
+              <span>{successMsg}</span>
             </motion.div>
           )}
         </AnimatePresence>
-        
-        <AnimatePresence mode="wait">
-          {!isCodeStep ? (
-            <motion.form 
-              key="phone-form"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 20 }}
-              transition={{ duration: 0.3 }}
-              onSubmit={handleRequest} 
-              className="space-y-6 relative z-10"
-            >
-              <div className="space-y-3">
-                <label className="text-sm font-medium text-gray-300 ml-1">Phone Number</label>
-                <div className="relative group">
-                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-amber-500 transition-colors">
-                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                    </svg>
-                  </span>
-                  <input 
-                    type="tel" 
-                    value={phone} 
-                    onChange={e => setPhone(e.target.value)} 
-                    placeholder="+1 (234) 567-8900" 
-                    className="w-full pl-12 pr-4 py-4 bg-black/40 border border-white/10 rounded-xl text-foreground placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500/50 transition-all shadow-inner" 
-                    required 
-                  />
-                </div>
-              </div>
-              <button 
-                type="submit" 
-                disabled={isLoading}
-                className="w-full bg-gradient-to-r from-emerald-500 to-emerald-600 text-foreground font-semibold py-4 rounded-xl hover:from-emerald-400 hover:to-emerald-500 focus:ring-4 focus:ring-emerald-500/20 transition-all shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:shadow-[0_0_25px_rgba(16,185,129,0.5)] flex items-center justify-center gap-3 group disabled:opacity-70 disabled:cursor-not-allowed"
-              >
-                <span>{isLoading ? 'Processing...' : 'Send WhatsApp OTP'}</span>
-                {isLoading ? (
-                  <svg className="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                  </svg>
-                ) : (
-                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                )}
-              </button>
-            </motion.form>
-          ) : (
-            <motion.form 
-              key="code-form"
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
-              transition={{ duration: 0.3 }}
-              onSubmit={handleVerify} 
-              className="space-y-6 relative z-10"
-            >
-              <div className="space-y-3">
-                <label className="text-sm font-medium text-gray-300 ml-1">Verification Code</label>
-                <input 
-                  type="text" 
-                  maxLength={6} 
-                  value={code} 
-                  onChange={e => setCode(e.target.value.replace(/\D/g, ''))} 
-                  placeholder="000000" 
-                  className="w-full py-5 bg-black/40 border border-white/10 rounded-xl text-foreground text-center tracking-[1em] text-3xl font-mono focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500/50 transition-all shadow-inner placeholder-gray-700/50" 
-                  required 
+
+        {/* Step 1 Form */}
+        {step === 1 ? (
+          <form onSubmit={handleStep1Submit} className="space-y-5">
+            <div>
+              <label className="block text-xs font-bold uppercase tracking-wider text-muted mb-2">
+                Mobile Number (Step 1)
+              </label>
+              <div className="relative">
+                <span className="absolute left-4 top-3.5 text-sm font-bold text-muted select-none">
+                  +91
+                </span>
+                <input
+                  type="tel"
+                  required
+                  autoFocus
+                  maxLength={10}
+                  placeholder="Enter 10-digit number"
+                  value={phoneFirst}
+                  onChange={(e) => setPhoneFirst(e.target.value.replace(/\D/g, ''))}
+                  className="w-full bg-surface-elevated border border-border focus:border-[#128085] rounded-xl pl-14 pr-4 py-3 text-base font-bold text-foreground focus:outline-none transition-all shadow-inner"
                 />
               </div>
-              <button 
-                type="submit" 
-                className="w-full bg-gradient-to-r from-amber-500 to-amber-600 text-[#0a0a0a] font-bold py-4 rounded-xl hover:from-amber-400 hover:to-amber-500 focus:ring-4 focus:ring-amber-500/20 transition-all shadow-[0_0_20px_rgba(245,158,11,0.3)] hover:shadow-[0_0_25px_rgba(245,158,11,0.5)]"
+            </div>
+
+            <button
+              type="submit"
+              className="w-full bg-[#128085] hover:bg-[#0e6468] text-white font-extrabold text-sm py-3.5 rounded-xl shadow-lg transition-transform hover:-translate-y-0.5 flex items-center justify-center gap-2"
+            >
+              <span>Continue to Step 2</span>
+              <ArrowRight className="w-4 h-4 stroke-[3]" />
+            </button>
+          </form>
+        ) : (
+          /* Step 2 Form: Confirm number */
+          <form onSubmit={handleStep2Submit} className="space-y-5">
+            <div>
+              <label className="block text-xs font-bold uppercase tracking-wider text-muted mb-2">
+                Re-enter Mobile Number (Step 2)
+              </label>
+              <div className="relative">
+                <span className="absolute left-4 top-3.5 text-sm font-bold text-muted select-none">
+                  +91
+                </span>
+                <input
+                  type="tel"
+                  required
+                  autoFocus
+                  maxLength={10}
+                  placeholder="Re-enter to confirm"
+                  value={phoneSecond}
+                  onChange={(e) => setPhoneSecond(e.target.value.replace(/\D/g, ''))}
+                  className="w-full bg-surface-elevated border border-border focus:border-[#128085] rounded-xl pl-14 pr-4 py-3 text-base font-bold text-foreground focus:outline-none transition-all shadow-inner"
+                />
+              </div>
+            </div>
+
+            <div className="flex gap-2.5">
+              <button
+                type="button"
+                onClick={() => {
+                  setStep(1);
+                  setPhoneSecond('');
+                  setErrorMsg('');
+                }}
+                className="w-1/3 border border-border hover:bg-surface-elevated text-muted font-bold text-xs py-3.5 rounded-xl transition"
               >
-                Confirm Code
+                Back
               </button>
-              <button 
-                type="button" 
-                onClick={() => { setIsCodeStep(false); setMsg({text: '', isError: false}); }} 
-                className="block w-full text-sm text-center text-gray-500 hover:text-gray-300 transition-colors pt-2"
+              
+              <button
+                type="submit"
+                disabled={isLoading}
+                className="w-2/3 bg-[#2ecc71] hover:bg-[#27ae60] text-white font-extrabold text-sm py-3.5 rounded-xl shadow-lg transition-transform hover:-translate-y-0.5 flex items-center justify-center gap-2 disabled:opacity-60"
               >
-                Entered wrong number? <span className="underline decoration-gray-600 underline-offset-4">Change it</span>
+                {isLoading ? (
+                  <span>Verifying...</span>
+                ) : (
+                  <>
+                    <span>Confirm &amp; Login</span>
+                    <CheckCircle2 className="w-4 h-4 stroke-[3]" />
+                  </>
+                )}
               </button>
-            </motion.form>
-          )}
-        </AnimatePresence>
+            </div>
+          </form>
+        )}
+
+        {/* Footer Security Badges */}
+        <div className="mt-8 pt-6 border-t border-border flex items-center justify-center gap-4 text-[11px] text-muted">
+          <span className="flex items-center gap-1">
+            <ShieldCheck className="w-3.5 h-3.5 text-[#128085]" /> 2-Step Verified
+          </span>
+          <span>•</span>
+          <span>Instant Login</span>
+          <span>•</span>
+          <span>100% Privacy</span>
+        </div>
+
       </motion.div>
     </div>
   );

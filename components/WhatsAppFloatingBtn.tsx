@@ -39,7 +39,7 @@ export default function WhatsAppFloatingBtn() {
     return null;
   }
   
-  const phoneNumber = "919187448347";
+  const phoneNumber = "918553627474";
   
   let message = "I'm interested in your services.";
   if (pageContext && pageContext !== 'Cashify | Premium Phone Resale') {

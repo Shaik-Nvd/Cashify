@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { calculateCashifyPrice, DiagnosticsType } from '@/lib/pricingCalculator';
+import { calculateFhoneifyPrice, DiagnosticsType } from '@/lib/pricingCalculator';
 import { SEED_DEVICES } from '@/lib/seed_devices';
 import { sortBrands } from '@/lib/brands';
 
@@ -11,7 +11,7 @@ interface TestLog {
   brand: string;
   model: string;
   storage: string;
-  cashifyPrice: number;
+  fhoneifyPrice: number;
   cashifyPrice: number;
   diff: number;
   diffPercent: string;
@@ -23,7 +23,7 @@ export default function AlgorithmLab() {
   const [history, setHistory] = useState<TestLog[]>([]);
 
   useEffect(() => {
-    const saved = localStorage.getItem('cashify_algo_history');
+    const saved = localStorage.getItem('fhoneify_algo_history');
     if (saved) {
       try {
         setHistory(JSON.parse(saved));
@@ -39,12 +39,12 @@ export default function AlgorithmLab() {
     };
     const updated = [newLog, ...history];
     setHistory(updated);
-    localStorage.setItem('cashify_algo_history', JSON.stringify(updated));
+    localStorage.setItem('fhoneify_algo_history', JSON.stringify(updated));
   };
 
   const clearHistory = () => {
     setHistory([]);
-    localStorage.removeItem('cashify_algo_history');
+    localStorage.removeItem('fhoneify_algo_history');
   };
 
   return (
@@ -137,10 +137,10 @@ function CalculatorTab({ onSave }: { onSave: (log: any) => void }) {
     return false;
   };
 
-  const cashifyPrice = selectedDevice ? calculateCashifyPrice(selectedDevice.brand, selectedDevice.name || selectedDevice.model, selectedDevice.basePrice || selectedDevice.price || 0, diagnostics).cashifyPrice : 0;
+  const fhoneifyPrice = selectedDevice ? calculateFhoneifyPrice(selectedDevice.brand, selectedDevice.name || selectedDevice.model, selectedDevice.basePrice || selectedDevice.price || 0, diagnostics).fhoneifyPrice : 0;
   
   const cPrice = parseInt(cashifyPrice) || 0;
-  const diff = cashifyPrice - cPrice;
+  const diff = fhoneifyPrice - cPrice;
   const diffPercent = cPrice > 0 ? ((diff / cPrice) * 100).toFixed(2) : '0.00';
 
   const isProfitable = diff > 0;
@@ -404,8 +404,8 @@ function CalculatorTab({ onSave }: { onSave: (log: any) => void }) {
           </div>
 
           <div style={{ marginBottom: '2rem' }}>
-            <label style={{ display: 'block', marginBottom: '0.5rem', color: '#4CD964', fontSize: '0.9rem' }}>Cashify Algorithm Quote</label>
-            <div style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#4CD964' }}>₹{cashifyPrice}</div>
+            <label style={{ display: 'block', marginBottom: '0.5rem', color: '#4CD964', fontSize: '0.9rem' }}>Fhoneify Algorithm Quote</label>
+            <div style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#4CD964' }}>₹{fhoneifyPrice}</div>
           </div>
 
           <div style={{ marginBottom: '2rem' }}>
@@ -444,7 +444,7 @@ function CalculatorTab({ onSave }: { onSave: (log: any) => void }) {
                   brand: selectedDevice.brand,
                   model: selectedDevice.name || selectedDevice.model,
                   storage: selectedStorage,
-                  cashifyPrice,
+                  fhoneifyPrice,
                   cashifyPrice: cPrice,
                   diff,
                   diffPercent,
@@ -480,7 +480,7 @@ function HistoryTab({ history, onClear }: { history: TestLog[], onClear: () => v
             <tr style={{ borderBottom: '1px solid #333', color: 'var(--muted)', textAlign: 'left' }}>
               <th style={{ padding: '1rem' }}>Date</th>
               <th style={{ padding: '1rem' }}>Device</th>
-              <th style={{ padding: '1rem' }}>Cashify</th>
+              <th style={{ padding: '1rem' }}>Fhoneify</th>
               <th style={{ padding: '1rem' }}>Cashify</th>
               <th style={{ padding: '1rem' }}>Diff</th>
               <th style={{ padding: '1rem' }}>Margin</th>
@@ -496,7 +496,7 @@ function HistoryTab({ history, onClear }: { history: TestLog[], onClear: () => v
                     <div style={{ fontWeight: 'bold' }}>{log.model}</div>
                     <div style={{ fontSize: '0.8rem', color: 'var(--muted)' }}>{log.storage}</div>
                   </td>
-                  <td style={{ padding: '1rem', fontWeight: 'bold', color: '#4CD964' }}>₹{log.cashifyPrice}</td>
+                  <td style={{ padding: '1rem', fontWeight: 'bold', color: '#4CD964' }}>₹{log.fhoneifyPrice}</td>
                   <td style={{ padding: '1rem', color: '#FF9500' }}>₹{log.cashifyPrice}</td>
                   <td style={{ padding: '1rem', color: isProfitable ? '#4CD964' : '#FF3B30' }}>{isProfitable ? '+' : ''}₹{log.diff}</td>
                   <td style={{ padding: '1rem', color: isProfitable ? '#4CD964' : '#FF3B30' }}>{isProfitable ? '+' : ''}{log.diffPercent}%</td>

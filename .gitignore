@@ -36,3 +36,6 @@ tsconfig.next.tsbuildinfo
 # the rotation/removal steps. CI does NOT use the committed files - it reads
 # the CASHIFY_SESSION_STATE secret instead.
 
+
+.vercel
+.env*

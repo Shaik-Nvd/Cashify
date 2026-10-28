@@ -658,6 +658,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--data-dir", required=True)
     ap.add_argument("--out-dir", required=True)
+    ap.add_argument("--strict", action="store_true", help="fail when any archive yields no records (unsupported format)")
     args = ap.parse_args()
     warnings = []
     inventory = {"archives": []}
@@ -792,6 +793,12 @@ def main():
     print(f"archives={len(zips)} records={len(records)} warnings={len(warnings)}")
     print(Counter(r["outcome"] for r in records))
     print(Counter(r["family"] for r in records))
+    # An unsupported format must never look like success: the 2026-10-28 export folder produced zero records and zero warnings here.
+    empty = sorted(z for z, v in report["per_archive"].items() if not v.get("records"))
+    if zips and not records:
+        raise SystemExit(f"FAILED: {len(zips)} archives were found but no records were parsed (unsupported format?)")
+    if args.strict and empty:
+        raise SystemExit(f"FAILED (--strict): {len(empty)} archives yielded no records: {empty[:5]}")
 
 
 if __name__ == "__main__":

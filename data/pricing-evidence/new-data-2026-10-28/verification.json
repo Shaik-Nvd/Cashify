@@ -1,0 +1,11 @@
+{
+  "source_hashes_verified": 69,
+  "json_price_crosschecks": 2540,
+  "json_input_field_crosschecks": 6782,
+  "independent_summary_table_checks": 2885,
+  "complete_fee_arithmetic_checks": 4496,
+  "table_mismatches": [],
+  "priced_cases": 5218,
+  "unresolved_input_conflicts": 0,
+  "complementary_input_enrichments": 74
+}

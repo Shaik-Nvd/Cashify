@@ -1,0 +1,1068 @@
+{
+ "description": "Database ReferencePrice (Apple rows, all FRESH, lastVerifiedAt 2026-10-25T07 UTC, read-only query 2026-10-28) minus the flawless Cashify base (selling + IMEI fee) of the same model/capacity. cleanOffset is set only where at least two capacities show a consistent positive gap of at least INR 100; other differences are market movement between the refresh and the report date.",
+ "cleanOffsetByModel": {
+  "iPhone 11": 400,
+  "iPhone 11 Pro Max": 400,
+  "iPhone 7": 150,
+  "iPhone 8": 150,
+  "iPhone 8 Plus": 150
+ },
+ "rows": [
+  {
+   "model": "iPhone 11",
+   "storageGb": 64,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 12090,
+   "databaseReference": 12490,
+   "gap": 400
+  },
+  {
+   "model": "iPhone 11",
+   "storageGb": 128,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 13510,
+   "databaseReference": 13910,
+   "gap": 400
+  },
+  {
+   "model": "iPhone 11",
+   "storageGb": 256,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 14120,
+   "databaseReference": 14520,
+   "gap": 400
+  },
+  {
+   "model": "iPhone 11 Pro",
+   "storageGb": 64,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 15000,
+   "databaseReference": 15000,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 11 Pro",
+   "storageGb": 256,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 17000,
+   "databaseReference": 17000,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 11 Pro",
+   "storageGb": 512,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 17240,
+   "databaseReference": 17240,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 11 Pro Max",
+   "storageGb": 64,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 16550,
+   "databaseReference": 16950,
+   "gap": 400
+  },
+  {
+   "model": "iPhone 11 Pro Max",
+   "storageGb": 256,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 18340,
+   "databaseReference": 18740,
+   "gap": 400
+  },
+  {
+   "model": "iPhone 11 Pro Max",
+   "storageGb": 512,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 18820,
+   "databaseReference": 19220,
+   "gap": 400
+  },
+  {
+   "model": "iPhone 12",
+   "storageGb": 64,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 16490,
+   "databaseReference": 16490,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 12",
+   "storageGb": 128,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 17420,
+   "databaseReference": 17420,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 12",
+   "storageGb": 256,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 18630,
+   "databaseReference": 18630,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 12 Pro",
+   "storageGb": 128,
+   "flawlessBaseDate": "2026-10-25",
+   "flawlessBase": 23000,
+   "databaseReference": 23000,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 12 Pro",
+   "storageGb": 256,
+   "flawlessBaseDate": "2026-10-25",
+   "flawlessBase": 24460,
+   "databaseReference": 24460,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 12 Pro",
+   "storageGb": 512,
+   "flawlessBaseDate": "2026-10-25",
+   "flawlessBase": 25760,
+   "databaseReference": 25760,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 12 Pro Max",
+   "storageGb": 128,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 24460,
+   "databaseReference": 24460,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 12 Pro Max",
+   "storageGb": 256,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 25680,
+   "databaseReference": 25680,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 12 Pro Max",
+   "storageGb": 512,
+   "flawlessBaseDate": null,
+   "flawlessBase": 26910,
+   "databaseReference": 26910,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 13",
+   "storageGb": 128,
+   "flawlessBaseDate": "2026-10-25",
+   "flawlessBase": 24260,
+   "databaseReference": 24260,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 13",
+   "storageGb": 256,
+   "flawlessBaseDate": "2026-10-25",
+   "flawlessBase": 24890,
+   "databaseReference": 24890,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 13",
+   "storageGb": 512,
+   "flawlessBaseDate": "2026-10-25",
+   "flawlessBase": 25450,
+   "databaseReference": 25450,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 13 Mini",
+   "storageGb": 128,
+   "flawlessBaseDate": "2026-10-25",
+   "flawlessBase": 21390,
+   "databaseReference": 21390,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 13 Mini",
+   "storageGb": 256,
+   "flawlessBaseDate": "2026-10-25",
+   "flawlessBase": 22040,
+   "databaseReference": 22040,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 13 Mini",
+   "storageGb": 512,
+   "flawlessBaseDate": "2026-10-25",
+   "flawlessBase": 22440,
+   "databaseReference": 22440,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 13 Pro",
+   "storageGb": 128,
+   "flawlessBaseDate": "2026-10-25",
+   "flawlessBase": 32940,
+   "databaseReference": 32940,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 13 Pro",
+   "storageGb": 256,
+   "flawlessBaseDate": "2026-10-25",
+   "flawlessBase": 34800,
+   "databaseReference": 34800,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 13 Pro",
+   "storageGb": 512,
+   "flawlessBaseDate": "2026-10-25",
+   "flawlessBase": 36020,
+   "databaseReference": 36020,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 13 Pro",
+   "storageGb": 1024,
+   "flawlessBaseDate": "2026-10-25",
+   "flawlessBase": 36870,
+   "databaseReference": 36870,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 13 Pro Max",
+   "storageGb": 128,
+   "flawlessBaseDate": "2026-10-25",
+   "flawlessBase": 34840,
+   "databaseReference": 34840,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 13 Pro Max",
+   "storageGb": 128,
+   "flawlessBaseDate": "2026-10-28",
+   "flawlessBase": 35160,
+   "databaseReference": 34840,
+   "gap": -320
+  },
+  {
+   "model": "iPhone 13 Pro Max",
+   "storageGb": 256,
+   "flawlessBaseDate": "2026-10-25",
+   "flawlessBase": 35890,
+   "databaseReference": 35890,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 13 Pro Max",
+   "storageGb": 256,
+   "flawlessBaseDate": "2026-10-28",
+   "flawlessBase": 35890,
+   "databaseReference": 35890,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 13 Pro Max",
+   "storageGb": 512,
+   "flawlessBaseDate": "2026-10-25",
+   "flawlessBase": 38320,
+   "databaseReference": 38320,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 13 Pro Max",
+   "storageGb": 512,
+   "flawlessBaseDate": "2026-10-28",
+   "flawlessBase": 38320,
+   "databaseReference": 38320,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 13 Pro Max",
+   "storageGb": 1024,
+   "flawlessBaseDate": "2026-10-25",
+   "flawlessBase": 39860,
+   "databaseReference": 39860,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 13 Pro Max",
+   "storageGb": 1024,
+   "flawlessBaseDate": "2026-10-28",
+   "flawlessBase": 39860,
+   "databaseReference": 39860,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 14",
+   "storageGb": 128,
+   "flawlessBaseDate": "2026-10-25",
+   "flawlessBase": 28030,
+   "databaseReference": 28030,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 14",
+   "storageGb": 128,
+   "flawlessBaseDate": "2026-10-27",
+   "flawlessBase": 28270,
+   "databaseReference": 28030,
+   "gap": -240
+  },
+  {
+   "model": "iPhone 14",
+   "storageGb": 256,
+   "flawlessBaseDate": "2026-10-25",
+   "flawlessBase": 28750,
+   "databaseReference": 28750,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 14",
+   "storageGb": 256,
+   "flawlessBaseDate": "2026-10-27",
+   "flawlessBase": 28750,
+   "databaseReference": 28750,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 14",
+   "storageGb": 512,
+   "flawlessBaseDate": "2026-10-25",
+   "flawlessBase": 29240,
+   "databaseReference": 29240,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 14",
+   "storageGb": 512,
+   "flawlessBaseDate": "2026-10-27",
+   "flawlessBase": 29240,
+   "databaseReference": 29240,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 14 Plus",
+   "storageGb": 128,
+   "flawlessBaseDate": "2026-10-25",
+   "flawlessBase": 29650,
+   "databaseReference": 29650,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 14 Plus",
+   "storageGb": 256,
+   "flawlessBaseDate": "2026-10-25",
+   "flawlessBase": 30290,
+   "databaseReference": 30290,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 14 Plus",
+   "storageGb": 512,
+   "flawlessBaseDate": "2026-10-25",
+   "flawlessBase": 31270,
+   "databaseReference": 31270,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 14 Pro",
+   "storageGb": 128,
+   "flawlessBaseDate": "2026-10-27",
+   "flawlessBase": 43020,
+   "databaseReference": 42690,
+   "gap": -330
+  },
+  {
+   "model": "iPhone 14 Pro",
+   "storageGb": 256,
+   "flawlessBaseDate": "2026-10-27",
+   "flawlessBase": 44070,
+   "databaseReference": 44070,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 14 Pro",
+   "storageGb": 512,
+   "flawlessBaseDate": "2026-10-27",
+   "flawlessBase": 46500,
+   "databaseReference": 46100,
+   "gap": -400
+  },
+  {
+   "model": "iPhone 14 Pro",
+   "storageGb": 1024,
+   "flawlessBaseDate": "2026-10-27",
+   "flawlessBase": 47310,
+   "databaseReference": 46910,
+   "gap": -400
+  },
+  {
+   "model": "iPhone 14 Pro Max",
+   "storageGb": 128,
+   "flawlessBaseDate": "2026-10-25",
+   "flawlessBase": 43860,
+   "databaseReference": 43860,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 14 Pro Max",
+   "storageGb": 256,
+   "flawlessBaseDate": "2026-10-25",
+   "flawlessBase": 45480,
+   "databaseReference": 45480,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 14 Pro Max",
+   "storageGb": 512,
+   "flawlessBaseDate": "2026-10-25",
+   "flawlessBase": 47510,
+   "databaseReference": 47510,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 14 Pro Max",
+   "storageGb": 1024,
+   "flawlessBaseDate": "2026-10-25",
+   "flawlessBase": 49130,
+   "databaseReference": 49130,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 15 Pro",
+   "storageGb": 128,
+   "flawlessBaseDate": "2026-10-27",
+   "flawlessBase": 62400,
+   "databaseReference": 62400,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 15 Pro",
+   "storageGb": 256,
+   "flawlessBaseDate": "2026-10-27",
+   "flawlessBase": 65280,
+   "databaseReference": 65280,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 15 Pro",
+   "storageGb": 512,
+   "flawlessBaseDate": "2026-10-27",
+   "flawlessBase": 68160,
+   "databaseReference": 68160,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 15 Pro",
+   "storageGb": 1024,
+   "flawlessBaseDate": "2026-10-27",
+   "flawlessBase": 70080,
+   "databaseReference": 70080,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 15 Pro Max",
+   "storageGb": 256,
+   "flawlessBaseDate": "2026-10-27",
+   "flawlessBase": 71040,
+   "databaseReference": 71040,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 15 Pro Max",
+   "storageGb": 512,
+   "flawlessBaseDate": "2026-10-27",
+   "flawlessBase": 72480,
+   "databaseReference": 72480,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 15 Pro Max",
+   "storageGb": 1024,
+   "flawlessBaseDate": "2026-10-27",
+   "flawlessBase": 78240,
+   "databaseReference": 78240,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 16",
+   "storageGb": 128,
+   "flawlessBaseDate": "2026-10-27",
+   "flawlessBase": 52800,
+   "databaseReference": 52800,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 16",
+   "storageGb": 256,
+   "flawlessBaseDate": "2026-10-27",
+   "flawlessBase": 54720,
+   "databaseReference": 54720,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 16",
+   "storageGb": 512,
+   "flawlessBaseDate": "2026-10-27",
+   "flawlessBase": 55680,
+   "databaseReference": 55680,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 16 Plus",
+   "storageGb": 128,
+   "flawlessBaseDate": "2026-10-27",
+   "flawlessBase": 55200,
+   "databaseReference": 55200,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 16 Plus",
+   "storageGb": 256,
+   "flawlessBaseDate": "2026-10-27",
+   "flawlessBase": 55680,
+   "databaseReference": 55680,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 16 Plus",
+   "storageGb": 512,
+   "flawlessBaseDate": "2026-10-27",
+   "flawlessBase": 56640,
+   "databaseReference": 56640,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 16 Pro",
+   "storageGb": 128,
+   "flawlessBaseDate": "2026-10-27",
+   "flawlessBase": 74300,
+   "databaseReference": 73910,
+   "gap": -390
+  },
+  {
+   "model": "iPhone 16 Pro",
+   "storageGb": 256,
+   "flawlessBaseDate": "2026-10-27",
+   "flawlessBase": 76670,
+   "databaseReference": 76670,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 16 Pro",
+   "storageGb": 512,
+   "flawlessBaseDate": "2026-10-27",
+   "flawlessBase": 78590,
+   "databaseReference": 78590,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 16 Pro",
+   "storageGb": 1024,
+   "flawlessBaseDate": "2026-10-27",
+   "flawlessBase": 79360,
+   "databaseReference": 79360,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 16 Pro Max",
+   "storageGb": 256,
+   "flawlessBaseDate": "2026-10-27",
+   "flawlessBase": 86430,
+   "databaseReference": 86430,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 16 Pro Max",
+   "storageGb": 512,
+   "flawlessBaseDate": "2026-10-27",
+   "flawlessBase": 88270,
+   "databaseReference": 88270,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 16 Pro Max",
+   "storageGb": 1024,
+   "flawlessBaseDate": "2026-10-27",
+   "flawlessBase": 90400,
+   "databaseReference": 90400,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 16e",
+   "storageGb": 128,
+   "flawlessBaseDate": "2026-10-27",
+   "flawlessBase": 38310,
+   "databaseReference": 37830,
+   "gap": -480
+  },
+  {
+   "model": "iPhone 16e",
+   "storageGb": 256,
+   "flawlessBaseDate": "2026-10-27",
+   "flawlessBase": 39280,
+   "databaseReference": 39290,
+   "gap": 10
+  },
+  {
+   "model": "iPhone 16e",
+   "storageGb": 512,
+   "flawlessBaseDate": "2026-10-27",
+   "flawlessBase": 41220,
+   "databaseReference": 41230,
+   "gap": 10
+  },
+  {
+   "model": "iPhone 18 Pro",
+   "storageGb": 256,
+   "flawlessBaseDate": "2026-10-27",
+   "flawlessBase": 122000,
+   "databaseReference": 121000,
+   "gap": -1000
+  },
+  {
+   "model": "iPhone 18 Pro",
+   "storageGb": 512,
+   "flawlessBaseDate": "2026-10-27",
+   "flawlessBase": 127000,
+   "databaseReference": 127000,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 18 Pro",
+   "storageGb": 1024,
+   "flawlessBaseDate": "2026-10-27",
+   "flawlessBase": 140000,
+   "databaseReference": 140000,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 18 Pro",
+   "storageGb": 2048,
+   "flawlessBaseDate": "2026-10-27",
+   "flawlessBase": 160000,
+   "databaseReference": 160000,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 6",
+   "storageGb": 16,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 1530,
+   "databaseReference": 1550,
+   "gap": 20
+  },
+  {
+   "model": "iPhone 6",
+   "storageGb": 32,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 1750,
+   "databaseReference": 1770,
+   "gap": 20
+  },
+  {
+   "model": "iPhone 6",
+   "storageGb": 64,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 1970,
+   "databaseReference": 2000,
+   "gap": 30
+  },
+  {
+   "model": "iPhone 6",
+   "storageGb": 128,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 2170,
+   "databaseReference": 2200,
+   "gap": 30
+  },
+  {
+   "model": "iPhone 6 Plus",
+   "storageGb": 16,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 2060,
+   "databaseReference": 2080,
+   "gap": 20
+  },
+  {
+   "model": "iPhone 6 Plus",
+   "storageGb": 64,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 2350,
+   "databaseReference": 2380,
+   "gap": 30
+  },
+  {
+   "model": "iPhone 6 Plus",
+   "storageGb": 128,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 2610,
+   "databaseReference": 2640,
+   "gap": 30
+  },
+  {
+   "model": "iPhone 6 Plus",
+   "storageGb": 128,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 2640,
+   "databaseReference": 2640,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 6S",
+   "storageGb": 16,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 2060,
+   "databaseReference": 2080,
+   "gap": 20
+  },
+  {
+   "model": "iPhone 6S",
+   "storageGb": 32,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 2320,
+   "databaseReference": 2350,
+   "gap": 30
+  },
+  {
+   "model": "iPhone 6S",
+   "storageGb": 64,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 2630,
+   "databaseReference": 2650,
+   "gap": 20
+  },
+  {
+   "model": "iPhone 6S",
+   "storageGb": 128,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 2700,
+   "databaseReference": 2720,
+   "gap": 20
+  },
+  {
+   "model": "iPhone 6S Plus",
+   "storageGb": 16,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 2250,
+   "databaseReference": 2270,
+   "gap": 20
+  },
+  {
+   "model": "iPhone 6S Plus",
+   "storageGb": 32,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 2810,
+   "databaseReference": 2830,
+   "gap": 20
+  },
+  {
+   "model": "iPhone 6S Plus",
+   "storageGb": 64,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 3220,
+   "databaseReference": 3240,
+   "gap": 20
+  },
+  {
+   "model": "iPhone 6S Plus",
+   "storageGb": 128,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 3630,
+   "databaseReference": 3650,
+   "gap": 20
+  },
+  {
+   "model": "iPhone 7",
+   "storageGb": 32,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 4050,
+   "databaseReference": 4200,
+   "gap": 150
+  },
+  {
+   "model": "iPhone 7",
+   "storageGb": 128,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 4280,
+   "databaseReference": 4430,
+   "gap": 150
+  },
+  {
+   "model": "iPhone 7",
+   "storageGb": 256,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 4580,
+   "databaseReference": 4730,
+   "gap": 150
+  },
+  {
+   "model": "iPhone 7 Plus",
+   "storageGb": 32,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 4840,
+   "databaseReference": 4840,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 7 Plus",
+   "storageGb": 128,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 5450,
+   "databaseReference": 5450,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 7 Plus",
+   "storageGb": 256,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 5870,
+   "databaseReference": 5870,
+   "gap": 0
+  },
+  {
+   "model": "iPhone 8",
+   "storageGb": 64,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 5300,
+   "databaseReference": 5450,
+   "gap": 150
+  },
+  {
+   "model": "iPhone 8",
+   "storageGb": 128,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 5700,
+   "databaseReference": 5850,
+   "gap": 150
+  },
+  {
+   "model": "iPhone 8",
+   "storageGb": 256,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 6000,
+   "databaseReference": 6150,
+   "gap": 150
+  },
+  {
+   "model": "iPhone 8 Plus",
+   "storageGb": 64,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 6590,
+   "databaseReference": 6740,
+   "gap": 150
+  },
+  {
+   "model": "iPhone 8 Plus",
+   "storageGb": 128,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 6770,
+   "databaseReference": 6920,
+   "gap": 150
+  },
+  {
+   "model": "iPhone 8 Plus",
+   "storageGb": 256,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 7290,
+   "databaseReference": 7440,
+   "gap": 150
+  },
+  {
+   "model": "iPhone SE 1st Generation",
+   "storageGb": 16,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 1640,
+   "databaseReference": 1670,
+   "gap": 30
+  },
+  {
+   "model": "iPhone SE 1st Generation",
+   "storageGb": 32,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 1910,
+   "databaseReference": 1930,
+   "gap": 20
+  },
+  {
+   "model": "iPhone SE 1st Generation",
+   "storageGb": 64,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 2020,
+   "databaseReference": 2040,
+   "gap": 20
+  },
+  {
+   "model": "iPhone SE 1st Generation",
+   "storageGb": 128,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 2130,
+   "databaseReference": 2160,
+   "gap": 30
+  },
+  {
+   "model": "iPhone SE 2020",
+   "storageGb": 64,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 7610,
+   "databaseReference": 7610,
+   "gap": 0
+  },
+  {
+   "model": "iPhone SE 2020",
+   "storageGb": 128,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 7930,
+   "databaseReference": 7930,
+   "gap": 0
+  },
+  {
+   "model": "iPhone SE 2020",
+   "storageGb": 256,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 8100,
+   "databaseReference": 8100,
+   "gap": 0
+  },
+  {
+   "model": "iPhone SE 2022",
+   "storageGb": 64,
+   "flawlessBaseDate": "2026-10-25",
+   "flawlessBase": 12640,
+   "databaseReference": 12640,
+   "gap": 0
+  },
+  {
+   "model": "iPhone SE 2022",
+   "storageGb": 64,
+   "flawlessBaseDate": "2026-10-27",
+   "flawlessBase": 12640,
+   "databaseReference": 12640,
+   "gap": 0
+  },
+  {
+   "model": "iPhone SE 2022",
+   "storageGb": 128,
+   "flawlessBaseDate": "2026-10-25",
+   "flawlessBase": 12970,
+   "databaseReference": 12970,
+   "gap": 0
+  },
+  {
+   "model": "iPhone SE 2022",
+   "storageGb": 128,
+   "flawlessBaseDate": "2026-10-27",
+   "flawlessBase": 12970,
+   "databaseReference": 12970,
+   "gap": 0
+  },
+  {
+   "model": "iPhone SE 2022",
+   "storageGb": 256,
+   "flawlessBaseDate": "2026-10-25",
+   "flawlessBase": 13340,
+   "databaseReference": 13340,
+   "gap": 0
+  },
+  {
+   "model": "iPhone SE 2022",
+   "storageGb": 256,
+   "flawlessBaseDate": "2026-10-27",
+   "flawlessBase": 13340,
+   "databaseReference": 13340,
+   "gap": 0
+  },
+  {
+   "model": "iPhone X",
+   "storageGb": 64,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 9700,
+   "databaseReference": 9700,
+   "gap": 0
+  },
+  {
+   "model": "iPhone X",
+   "storageGb": 256,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 10020,
+   "databaseReference": 10020,
+   "gap": 0
+  },
+  {
+   "model": "iPhone XR",
+   "storageGb": 64,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 9800,
+   "databaseReference": 9800,
+   "gap": 0
+  },
+  {
+   "model": "iPhone XR",
+   "storageGb": 128,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 10600,
+   "databaseReference": 10600,
+   "gap": 0
+  },
+  {
+   "model": "iPhone XR",
+   "storageGb": 256,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 11030,
+   "databaseReference": 11030,
+   "gap": 0
+  },
+  {
+   "model": "iPhone XS",
+   "storageGb": 64,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 10400,
+   "databaseReference": 10400,
+   "gap": 0
+  },
+  {
+   "model": "iPhone XS",
+   "storageGb": 256,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 11610,
+   "databaseReference": 11610,
+   "gap": 0
+  },
+  {
+   "model": "iPhone XS",
+   "storageGb": 512,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 11860,
+   "databaseReference": 11860,
+   "gap": 0
+  },
+  {
+   "model": "iPhone XS Max",
+   "storageGb": 64,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 11710,
+   "databaseReference": 11710,
+   "gap": 0
+  },
+  {
+   "model": "iPhone XS Max",
+   "storageGb": 256,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 12640,
+   "databaseReference": 12640,
+   "gap": 0
+  },
+  {
+   "model": "iPhone XS Max",
+   "storageGb": 512,
+   "flawlessBaseDate": "2026-10-26",
+   "flawlessBase": 13290,
+   "databaseReference": 13290,
+   "gap": 0
+  }
+ ]
+}

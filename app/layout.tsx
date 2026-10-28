@@ -29,9 +29,12 @@ import type { Viewport } from 'next';
 export const metadata: Metadata = {
   title: {
     template: '%s | Cashify',
-    default: 'Cashify | Sell Old Phones Online, Buy Refurbished Mobiles & Repair',
+    default: 'Sell/Buy Old and Used Mobile Phones Online | Cashify',
   },
   description: "India's largest re-commerce marketplace for selling used phones for instant cash, certified refurbished smartphones, and doorstep repairs.",
+  icons: {
+    icon: '/favicon.svg',
+  },
 };
 
 export const viewport: Viewport = {

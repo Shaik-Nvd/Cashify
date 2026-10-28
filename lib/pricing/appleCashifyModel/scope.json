@@ -1,6 +1,108 @@
 {
- "version": "scope/2026-10-25b",
+ "version": "scope/2026-10-28",
  "models": {
+  "iPhone 11": {
+   "enabled": true,
+   "inferredPolicy": "price",
+   "storagesGb": [
+    64,
+    128,
+    256
+   ],
+   "reason": "calibrated rules price every answer set: held-out MAE ₹82 vs ₹671 (existing engine) on the same 180 quotes"
+  },
+  "iPhone 11 Pro": {
+   "enabled": true,
+   "inferredPolicy": "price",
+   "storagesGb": [
+    64,
+    256,
+    512
+   ],
+   "reason": "calibrated rules price every answer set: held-out MAE ₹321 vs ₹2311 (existing engine) on the same 180 quotes"
+  },
+  "iPhone 11 Pro Max": {
+   "enabled": true,
+   "inferredPolicy": "price",
+   "storagesGb": [
+    64,
+    256,
+    512
+   ],
+   "reason": "calibrated rules price every answer set: held-out MAE ₹163 vs ₹2645 (existing engine) on the same 180 quotes"
+  },
+  "iPhone 12": {
+   "enabled": true,
+   "inferredPolicy": "price",
+   "storagesGb": [
+    64,
+    128,
+    256
+   ],
+   "reason": "calibrated rules price every answer set: held-out MAE ₹74 vs ₹1032 (existing engine) on the same 180 quotes"
+  },
+  "iPhone 12 Pro": {
+   "enabled": true,
+   "inferredPolicy": "price",
+   "storagesGb": [
+    128,
+    256,
+    512
+   ],
+   "reason": "calibrated rules price every answer set: held-out MAE ₹82 vs ₹2969 (existing engine) on the same 180 quotes"
+  },
+  "iPhone 12 Pro Max": {
+   "enabled": true,
+   "inferredPolicy": "price",
+   "storagesGb": [
+    128,
+    256,
+    512
+   ],
+   "reason": "calibrated rules price every answer set: held-out MAE ₹293 vs ₹1682 (existing engine) on the same 180 quotes"
+  },
+  "iPhone 13": {
+   "enabled": true,
+   "inferredPolicy": "price",
+   "storagesGb": [
+    128,
+    256,
+    512
+   ],
+   "reason": "calibrated rules price every answer set: held-out MAE ₹62 vs ₹1255 (existing engine) on the same 180 quotes"
+  },
+  "iPhone 13 Mini": {
+   "enabled": true,
+   "inferredPolicy": "price",
+   "storagesGb": [
+    128,
+    256,
+    512
+   ],
+   "reason": "calibrated rules price every answer set: held-out MAE ₹104 vs ₹2980 (existing engine) on the same 180 quotes"
+  },
+  "iPhone 13 Pro": {
+   "enabled": true,
+   "inferredPolicy": "price",
+   "storagesGb": [
+    128,
+    256,
+    512,
+    1024
+   ],
+   "reason": "calibrated rules price every answer set: held-out MAE ₹170 vs ₹3957 (existing engine) on the same 240 quotes"
+  },
+  "iPhone 13 Pro Max": {
+   "enabled": true,
+   "inferredPolicy": "price",
+   "storagesGb": [
+    128,
+    256,
+    512,
+    1024
+   ],
+   "reason": "calibrated rules price every answer set: held-out MAE ₹99 vs ₹3371 (existing engine) on the same 584 quotes"
+  },
   "iPhone 14": {
    "enabled": true,
    "inferredPolicy": "price",
@@ -9,7 +111,17 @@
     256,
     512
    ],
-   "reason": "replaces the existing engine for unrecorded combinations: held-out MAE ₹83 vs ₹657 (existing engine) on the same 150 quotes; recorded quotes are answered exactly"
+   "reason": "calibrated rules price every answer set: held-out MAE ₹103 vs ₹2222 (existing engine) on the same 582 quotes"
+  },
+  "iPhone 14 Plus": {
+   "enabled": true,
+   "inferredPolicy": "price",
+   "storagesGb": [
+    128,
+    256,
+    512
+   ],
+   "reason": "calibrated rules price every answer set: held-out MAE ₹126 vs ₹3640 (existing engine) on the same 180 quotes"
   },
   "iPhone 14 Pro": {
    "enabled": true,
@@ -20,7 +132,18 @@
     512,
     1024
    ],
-   "reason": "replaces the existing engine for unrecorded combinations: held-out MAE ₹93 vs ₹2761 (existing engine) on the same 200 quotes; recorded quotes are answered exactly"
+   "reason": "calibrated rules price every answer set: held-out MAE ₹152 vs ₹5685 (existing engine) on the same 544 quotes"
+  },
+  "iPhone 14 Pro Max": {
+   "enabled": true,
+   "inferredPolicy": "price",
+   "storagesGb": [
+    128,
+    256,
+    512,
+    1024
+   ],
+   "reason": "calibrated rules price every answer set: held-out MAE ₹202 vs ₹5824 (existing engine) on the same 240 quotes"
   },
   "iPhone 15": {
    "enabled": true,
@@ -30,7 +153,7 @@
     256,
     512
    ],
-   "reason": "replaces the existing engine for unrecorded combinations: held-out MAE ₹805 vs ₹4813 (existing engine) on the same 196 quotes; recorded quotes are answered exactly"
+   "reason": "calibrated rules price every answer set: held-out MAE ₹1246 vs ₹4813 (existing engine) on the same 196 quotes"
   },
   "iPhone 15 Plus": {
    "enabled": true,
@@ -40,7 +163,7 @@
     256,
     512
    ],
-   "reason": "replaces the existing engine for unrecorded combinations: held-out MAE ₹560 vs ₹5194 (existing engine) on the same 214 quotes; recorded quotes are answered exactly"
+   "reason": "calibrated rules price every answer set: held-out MAE ₹1342 vs ₹5194 (existing engine) on the same 214 quotes"
   },
   "iPhone 15 Pro": {
    "enabled": true,
@@ -51,15 +174,17 @@
     512,
     1024
    ],
-   "reason": "replaces the existing engine for unrecorded combinations: held-out MAE ₹322 vs ₹8375 (existing engine) on the same 264 quotes; recorded quotes are answered exactly"
+   "reason": "calibrated rules price every answer set: held-out MAE ₹286 vs ₹6715 (existing engine) on the same 648 quotes"
   },
   "iPhone 15 Pro Max": {
    "enabled": true,
    "inferredPolicy": "price",
    "storagesGb": [
-    512
+    256,
+    512,
+    1024
    ],
-   "reason": "replaces the existing engine for unrecorded combinations: held-out MAE ₹96 vs ₹4436 (existing engine) on the same 24 quotes; recorded quotes are answered exactly"
+   "reason": "calibrated rules price every answer set: held-out MAE ₹83 vs ₹8349 (existing engine) on the same 348 quotes"
   },
   "iPhone 16": {
    "enabled": true,
@@ -69,7 +194,7 @@
     256,
     512
    ],
-   "reason": "replaces the existing engine for unrecorded combinations: held-out MAE ₹159 vs ₹6006 (existing engine) on the same 210 quotes; recorded quotes are answered exactly"
+   "reason": "calibrated rules price every answer set: held-out MAE ₹74 vs ₹5462 (existing engine) on the same 504 quotes"
   },
   "iPhone 16 Plus": {
    "enabled": true,
@@ -79,7 +204,7 @@
     256,
     512
    ],
-   "reason": "replaces the existing engine for unrecorded combinations: held-out MAE ₹143 vs ₹6264 (existing engine) on the same 210 quotes; recorded quotes are answered exactly"
+   "reason": "calibrated rules price every answer set: held-out MAE ₹41 vs ₹5770 (existing engine) on the same 504 quotes"
   },
   "iPhone 16 Pro": {
    "enabled": true,
@@ -90,7 +215,7 @@
     512,
     1024
    ],
-   "reason": "replaces the existing engine for unrecorded combinations: held-out MAE ₹171 vs ₹12100 (existing engine) on the same 232 quotes; recorded quotes are answered exactly"
+   "reason": "calibrated rules price every answer set: held-out MAE ₹69 vs ₹9895 (existing engine) on the same 632 quotes"
   },
   "iPhone 16 Pro Max": {
    "enabled": true,
@@ -100,7 +225,7 @@
     512,
     1024
    ],
-   "reason": "replaces the existing engine for unrecorded combinations: held-out MAE ₹98 vs ₹9599 (existing engine) on the same 222 quotes; recorded quotes are answered exactly"
+   "reason": "calibrated rules price every answer set: held-out MAE ₹63 vs ₹9596 (existing engine) on the same 522 quotes"
   },
   "iPhone 16e": {
    "enabled": true,
@@ -110,7 +235,7 @@
     256,
     512
    ],
-   "reason": "replaces the existing engine for unrecorded combinations: held-out MAE ₹180 vs ₹4948 (existing engine) on the same 210 quotes; recorded quotes are answered exactly"
+   "reason": "calibrated rules price every answer set: held-out MAE ₹362 vs ₹4626 (existing engine) on the same 504 quotes"
   },
   "iPhone 17": {
    "enabled": true,
@@ -119,7 +244,7 @@
     256,
     512
    ],
-   "reason": "replaces the existing engine for unrecorded combinations: held-out MAE ₹256 vs ₹6964 (existing engine) on the same 208 quotes; recorded quotes are answered exactly"
+   "reason": "calibrated rules price every answer set: held-out MAE ₹1201 vs ₹6964 (existing engine) on the same 104 quotes"
   },
   "iPhone 17 Pro": {
    "enabled": true,
@@ -129,7 +254,7 @@
     512,
     1024
    ],
-   "reason": "replaces the existing engine for unrecorded combinations: held-out MAE ₹75 vs ₹15962 (existing engine) on the same 174 quotes; recorded quotes are answered exactly"
+   "reason": "calibrated rules price every answer set: held-out MAE ₹577 vs ₹15962 (existing engine) on the same 174 quotes"
   },
   "iPhone 17 Pro Max": {
    "enabled": true,
@@ -140,7 +265,7 @@
     1024,
     2048
    ],
-   "reason": "replaces the existing engine for unrecorded combinations: held-out MAE ₹75 vs ₹18041 (existing engine) on the same 236 quotes; recorded quotes are answered exactly"
+   "reason": "calibrated rules price every answer set: held-out MAE ₹143 vs ₹18041 (existing engine) on the same 236 quotes"
   },
   "iPhone 17e": {
    "enabled": true,
@@ -149,7 +274,7 @@
     256,
     512
    ],
-   "reason": "replaces the existing engine for unrecorded combinations: held-out MAE ₹219 vs ₹7895 (existing engine) on the same 110 quotes; recorded quotes are answered exactly"
+   "reason": "calibrated rules price every answer set: held-out MAE ₹1824 vs ₹7895 (existing engine) on the same 55 quotes"
   },
   "iPhone 18 Pro": {
    "enabled": true,
@@ -160,7 +285,7 @@
     1024,
     2048
    ],
-   "reason": "replaces the existing engine for unrecorded combinations: held-out MAE ₹8 vs ₹17058 (existing engine) on the same 448 quotes; recorded quotes are answered exactly"
+   "reason": "calibrated rules price every answer set: held-out MAE ₹0 vs ₹17804 (existing engine) on the same 848 quotes"
   },
   "iPhone 18 Pro Max": {
    "enabled": true,
@@ -171,7 +296,90 @@
     1024,
     2048
    ],
-   "reason": "replaces the existing engine for unrecorded combinations: held-out MAE ₹1 vs ₹14559 (existing engine) on the same 858 quotes; recorded quotes are answered exactly"
+   "reason": "calibrated rules price every answer set: held-out MAE ₹625 vs ₹14559 (existing engine) on the same 858 quotes"
+  },
+  "iPhone 6": {
+   "enabled": true,
+   "inferredPolicy": "price",
+   "storagesGb": [
+    16,
+    32,
+    64,
+    128
+   ],
+   "reason": "calibrated rules price every answer set: held-out MAE ₹37 vs ₹687 (existing engine) on the same 240 quotes"
+  },
+  "iPhone 6 Plus": {
+   "enabled": true,
+   "inferredPolicy": "price",
+   "storagesGb": [
+    16,
+    64,
+    128
+   ],
+   "reason": "calibrated rules price every answer set: held-out MAE ₹45 vs ₹718 (existing engine) on the same 182 quotes"
+  },
+  "iPhone 6S": {
+   "enabled": true,
+   "inferredPolicy": "price",
+   "storagesGb": [
+    16,
+    32,
+    64,
+    128
+   ],
+   "reason": "calibrated rules price every answer set: held-out MAE ₹37 vs ₹732 (existing engine) on the same 240 quotes"
+  },
+  "iPhone 6S Plus": {
+   "enabled": true,
+   "inferredPolicy": "price",
+   "storagesGb": [
+    16,
+    32,
+    64,
+    128
+   ],
+   "reason": "calibrated rules price every answer set: held-out MAE ₹36 vs ₹745 (existing engine) on the same 240 quotes"
+  },
+  "iPhone 7": {
+   "enabled": true,
+   "inferredPolicy": "price",
+   "storagesGb": [
+    32,
+    128,
+    256
+   ],
+   "reason": "calibrated rules price every answer set: held-out MAE ₹49 vs ₹906 (existing engine) on the same 180 quotes"
+  },
+  "iPhone 7 Plus": {
+   "enabled": true,
+   "inferredPolicy": "price",
+   "storagesGb": [
+    32,
+    128,
+    256
+   ],
+   "reason": "calibrated rules price every answer set: held-out MAE ₹100 vs ₹900 (existing engine) on the same 180 quotes"
+  },
+  "iPhone 8": {
+   "enabled": true,
+   "inferredPolicy": "price",
+   "storagesGb": [
+    64,
+    128,
+    256
+   ],
+   "reason": "calibrated rules price every answer set: held-out MAE ₹52 vs ₹973 (existing engine) on the same 180 quotes"
+  },
+  "iPhone 8 Plus": {
+   "enabled": true,
+   "inferredPolicy": "price",
+   "storagesGb": [
+    64,
+    128,
+    256
+   ],
+   "reason": "calibrated rules price every answer set: held-out MAE ₹42 vs ₹1039 (existing engine) on the same 180 quotes"
   },
   "iPhone Air": {
    "enabled": true,
@@ -181,15 +389,84 @@
     512,
     1024
    ],
-   "reason": "replaces the existing engine for unrecorded combinations: held-out MAE ₹78 vs ₹10893 (existing engine) on the same 222 quotes; recorded quotes are answered exactly"
+   "reason": "calibrated rules price every answer set: held-out MAE ₹538 vs ₹10893 (existing engine) on the same 222 quotes"
   },
-  "iPhone X": {
-   "enabled": false,
+  "iPhone SE 1st Generation": {
+   "enabled": true,
    "inferredPolicy": "price",
    "storagesGb": [
+    16,
+    32,
+    64,
+    128
+   ],
+   "reason": "calibrated rules price every answer set: held-out MAE ₹56 vs ₹690 (existing engine) on the same 240 quotes"
+  },
+  "iPhone SE 2020": {
+   "enabled": true,
+   "inferredPolicy": "price",
+   "storagesGb": [
+    64,
+    128,
     256
    ],
-   "reason": "unrecorded combinations stay on the existing engine: held-out MAE ₹358 for the rules vs ₹13 for the existing engine on the same quotes (recorded quotes are still answered exactly)"
+   "reason": "calibrated rules price every answer set: held-out MAE ₹69 vs ₹1152 (existing engine) on the same 180 quotes"
+  },
+  "iPhone SE 2022": {
+   "enabled": true,
+   "inferredPolicy": "price",
+   "storagesGb": [
+    64,
+    128,
+    256
+   ],
+   "reason": "calibrated rules price every answer set: held-out MAE ₹127 vs ₹1222 (existing engine) on the same 414 quotes"
+  },
+  "iPhone X": {
+   "enabled": true,
+   "inferredPolicy": "price",
+   "storagesGb": [
+    64,
+    256
+   ],
+   "reason": "calibrated rules price every answer set: held-out MAE ₹63 vs ₹135 (existing engine) on the same 87 quotes"
+  },
+  "iPhone XR": {
+   "enabled": true,
+   "inferredPolicy": "price",
+   "storagesGb": [
+    64,
+    128,
+    256
+   ],
+   "reason": "calibrated rules price every answer set: held-out MAE ₹59 vs ₹576 (existing engine) on the same 180 quotes"
+  },
+  "iPhone XS": {
+   "enabled": true,
+   "inferredPolicy": "price",
+   "storagesGb": [
+    64,
+    256,
+    512
+   ],
+   "reason": "calibrated rules price every answer set: held-out MAE ₹88 vs ₹815 (existing engine) on the same 180 quotes"
+  },
+  "iPhone XS Max": {
+   "enabled": true,
+   "inferredPolicy": "price",
+   "storagesGb": [
+    64,
+    256,
+    512
+   ],
+   "reason": "calibrated rules price every answer set: held-out MAE ₹120 vs ₹1698 (existing engine) on the same 180 quotes"
+  },
+  "iPhone 12 Mini": {
+   "enabled": true,
+   "inferredPolicy": "price",
+   "storagesGb": [],
+   "fallbackFrom": "iPhone 12",
+   "reason": "no Cashify quotes of this model: iPhone 12 deductions (same generation) applied to its own reference, labelled inferred; zero-shot transfer error is reported in docs/PRICING_NEW_DATA_2026_10_28.md"
   }
  }
 }

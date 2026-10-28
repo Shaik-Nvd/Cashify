@@ -31,7 +31,7 @@ import { EVIDENCE_DIR } from './evidenceLib';
 import calibrationJson from '../../lib/pricing/appleCashifyModel/calibration.json';
 import type { Calibration } from '../../lib/pricing/appleCashifyModel/model';
 
-const VAL = path.join(EVIDENCE_DIR, 'validation');
+const VAL = path.join(EVIDENCE_DIR, process.env.VALIDATION_DIR ?? 'validation-2026-10-28');
 const CAL = calibrationJson as unknown as Calibration;
 const read = (p: string) => fs.readFileSync(path.join(VAL, p), 'utf8').split('\n').filter(Boolean).map(l => JSON.parse(l));
 const rows = [...read('rows_p1.jsonl'), ...read('rows_p2.jsonl')].filter(r => r.observedOutcome === 'NUMERIC_QUOTE' && r.observedBase != null);
@@ -94,16 +94,19 @@ for (const [mname, d] of Object.entries<any>(decisions)) {
 }
 fs.writeFileSync(path.join(VAL, 'scope_decision.json'), JSON.stringify(decisions, null, 1) + '\n');
 if (process.argv.includes('--write')) {
-  const out: any = { version: 'scope/2026-10-25b', models: {} };
+  const out: any = { version: 'scope/2026-10-28', models: {} };
   for (const [mname, d] of Object.entries<any>(decisions)) {
     const a = d.measured?.metrics;
     out.models[mname] = {
       enabled: d.enabled, inferredPolicy: 'price', storagesGb: d.storagesGb,
       reason: d.enabled
-        ? `replaces the existing engine for unrecorded combinations: held-out MAE ₹${d.maeNew} vs ₹${d.maeOld} (existing engine) on the same ${d.heldOutQuotes} quotes; recorded quotes are answered exactly`
-        : `unrecorded combinations stay on the existing engine: held-out MAE ₹${d.maeNew} for the rules vs ₹${d.maeOld} for the existing engine on the same quotes (recorded quotes are still answered exactly)`
+        ? `calibrated rules price every answer set: held-out MAE ₹${d.maeNew} vs ₹${d.maeOld} (existing engine) on the same ${d.heldOutQuotes} quotes`
+        : `stays on the existing engine: held-out MAE ₹${d.maeNew} for the rules vs ₹${d.maeOld} for the existing engine on the same quotes`
     };
   }
+  // iPhone 12 Mini: no Cashify quotes of its own in either collection; priced from the iPhone 12 (same generation), every value inferred
+  out.models['iPhone 12 Mini'] = { enabled: out.models['iPhone 12']?.enabled === true, inferredPolicy: 'price', storagesGb: [], fallbackFrom: 'iPhone 12',
+    reason: 'no Cashify quotes of this model: iPhone 12 deductions (same generation) applied to its own reference, labelled inferred; zero-shot transfer error is reported in docs/PRICING_NEW_DATA_2026_10_28.md' };
   fs.writeFileSync(path.resolve(__dirname, '../../lib/pricing/appleCashifyModel/scope.json'), JSON.stringify(out, null, 1) + '\n');
   console.log('wrote scope.json');
 }

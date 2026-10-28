@@ -27,6 +27,10 @@ export interface ClassCal {
   support: Support;
   /** Number of independent quote shapes that constrain this value. */
   n: number;
+  /** True when fixed-vs-fraction was decided by this model's own quotes at two or more capacities (otherwise borrowed from other models). */
+  decided?: boolean;
+  /** Where an inferred value comes from (the model's own codes of the class, or the nearest models by reference). */
+  basis?: string;
 }
 
 export interface AgeCal {
@@ -43,23 +47,35 @@ export interface ModelProfile {
   /** Storage capacities (GB) with quotes in the evidence. Values are relative to each variant's own reference,
    * but accuracy is only validated on these variants. */
   storagesGb: number[];
-  asks: { warranty: boolean; bill: boolean; age: boolean; eSim: boolean };
+  asks: { warranty: boolean; bill: boolean; age: boolean; eSim: boolean; /** the live form offers a charger answer (iPhone X-XS Max, 11 Pro, 7 Plus) */ charger?: boolean };
   /** Age deductions for 3-6, 6-11 and over-11 months. Null when the model's Cashify flow has no age effect. */
   age: { '1': AgeCal; '2': AgeCal; '3': AgeCal } | null;
   /** Measured age deductions as a fraction of that variant's reference, keyed by storage GB. Preferred over the
    * model-level law above for the variants it lists (some models' age effect is not linear in the reference). */
   ageByStorage?: Record<string, { '1': number | null; '2': number | null; '3': number | null }>;
   boxNo: { base: number; aged: number; support: Support };
+  /** Missing-charger deduction on the models whose form asks for it (rupees; aged = once treated as over 11 months). */
+  chargerNo?: { base: number; aged: number; support: Support };
   eSimDualPct: number | null;
   /** Lowest quote once the over-11-months state is forced, as a fraction of either the reference price or the aged
    * price (reference minus the over-11-months deduction), whichever explains the model's plateau; null when no
    * plateau was observed. It never applies in the younger states (the 'all faults' quotes are not floored). */
   floor: { basis: 'reference' | 'aged'; value: number } | null;
   classes: Partial<Record<ClassKey, ClassCal>>;
+  /** Per-code deductions measured on this model's own quotes (fixed rupees or a fraction of the reference). A code listed here is priced by
+   * its own value; the class anchor x template weight is only the fallback for codes without one. Several models' controlled labels disagree
+   * with the shared template ratios (camera front/back, battery, Wi-Fi), so the template is a prior, not the rule. */
+  codes?: Record<string, ClassCal>;
+  /** Condition codes that make Cashify price the phone as over 11 months old (it skips its age question). Absent = the template list; some models
+   * (iPhone 14: a cracked panel) price those codes without the age effect. */
+  ageTriggers?: string[];
+  /** Fixed rupees by which Cashify's flawless quote sits BELOW the database reference (Get Upto). Zero/absent for most models; INR 400 on the
+   * iPhone 11 / 11 Pro Max and INR 150 on the iPhone 7 / 8 / 8 Plus. Learned from the supplied flawless quotes against the verified references. */
+  cleanOffset?: { value: number; support: Support; n: number };
   scrap: number;
   /** Functional-fault count at or above which the combination is outside the evidence. */
   extremeFaultCount: number;
-  evidence: { shapes: number; measurements: number; dates: string[] };
+  evidence: { shapes: number; measurements: number; dates: string[]; /** median reference of the model's quotes (scales borrowed fixed costs) */ medianReference?: number };
   /** Combinations of condition groups (see interactionSignature) that appear together in this model's own quotes. A quote that
    * combines groups never seen together on this model is still priced by the group rules, but labelled 'inferred'. */
   observedInteractions?: string[];
@@ -114,6 +130,8 @@ export interface ParsedAnswers {
   codes: string[];
   callsFailed: boolean;
   boxMissing: boolean;
+  /** No charger selected. Priced only where the model's form asks for one (profile.asks.charger). */
+  chargerMissing: boolean;
   dualEsim: boolean;
   warranty: boolean | null;
   validBill: boolean | null;
@@ -152,6 +170,7 @@ export function parseAnswers(d: DiagnosticsType): ParsedAnswers {
     callsFailed: d.calls === false,
     // Same as the legacy engine: every iPhone flow asks about the box, so an unselected box is a missing box.
     boxMissing: !hasBox,
+    chargerMissing: !(d.charger === true || (d.accessories ?? []).includes('charger')),
     dualEsim: norm(d.eSim) === 'dual esim',
     warranty: d.warranty ?? null,
     validBill,
@@ -167,6 +186,7 @@ type TemplateClass = { label: string; anchor: string; combine: 'max' | 'sum'; gr
 const TEMPLATE = template as unknown as { classes: Record<ClassKey, TemplateClass>; ageTriggerCodes: string[]; scrapQuote: number };
 export const CLASS_ORDER = Object.keys(TEMPLATE.classes) as ClassKey[];
 export const AGE_TRIGGER_CODES = new Set(TEMPLATE.ageTriggerCodes);
+export const triggersOf = (profile: ModelProfile): Set<string> => (profile.ageTriggers ? new Set(profile.ageTriggers) : AGE_TRIGGER_CODES);
 export const SCRAP_QUOTE = TEMPLATE.scrapQuote;
 export const classWeights = (cls: ClassKey) => TEMPLATE.classes[cls].weights;
 export const classOf = (code: string): ClassKey | null => CLASS_ORDER.find(c => code in TEMPLATE.classes[c].weights) ?? null;
@@ -194,10 +214,18 @@ export function ageStateOf(a: ParsedAnswers, profile: ModelProfile): { state: nu
   const forcedBy: string[] = [];
   if (a.warranty === false) forcedBy.push('warranty=No');
   if (a.validBill === false && profile.asks.bill) forcedBy.push('bill=No');
-  for (const c of a.codes) if (AGE_TRIGGER_CODES.has(c)) forcedBy.push(c);
+  const triggers = triggersOf(profile);
+  for (const c of a.codes) if (triggers.has(c)) forcedBy.push(c);
   if (forcedBy.length) return { state: 3, forcedBy };
   return { state: ageStateFromAnswer(a.mobileAge), forcedBy };
 }
+
+/**
+ * When Cashify's minimum quote binds. Models with an age question: any functional fault once the phone is treated as over 11 months old.
+ * Models without one (iPhone 6 to 14 generations): two or more functional faults at any age; a single fault can quote below the minimum
+ * (iPhone 6 16 GB: back camera alone INR 280, front + back camera INR 350 = 22.9% of the reference).
+ */
+export const floorMinFaults = (profile: ModelProfile): number => (profile.age ? 1 : 2);
 
 export function classValue(cal: ClassCal, reference: number): number {
   return cal.kind === 'fixed' ? cal.value : cal.value * reference;
@@ -269,7 +297,14 @@ export function deduct(profile: ModelProfile, reference: number, a: ParsedAnswer
   let agedPrice: number | null = null;
   if (profile.age) {
     const m3 = storageGb != null ? profile.ageByStorage?.[String(storageGb)]?.['3'] : null;
-    agedPrice = reference - (m3 != null ? m3 * reference : profile.age['3'].a + profile.age['3'].b * reference);
+    agedPrice = reference - (profile.cleanOffset?.value ?? 0) - (m3 != null ? m3 * reference : profile.age['3'].a + profile.age['3'].b * reference);
+  }
+
+  // 0. clean offset: Cashify's flawless quote for this model sits a fixed amount below the reference it advertises
+  if (profile.cleanOffset && profile.cleanOffset.value > 0) {
+    deduction += profile.cleanOffset.value;
+    breakdown.push({ rule: 'baseline', label: 'Flawless quote sits below the advertised reference', amount: profile.cleanOffset.value, support: profile.cleanOffset.support });
+    weaken(profile.cleanOffset.support);
   }
 
   // 1. age / out-of-warranty (applied once)
@@ -288,22 +323,24 @@ export function deduct(profile: ModelProfile, reference: number, a: ParsedAnswer
   }
 
   // 2. condition classes (largest wins / add up within a group)
-  const triggered = forcedBy.some(f => AGE_TRIGGER_CODES.has(f));
-  const classAmounts: { cls: ClassKey; code: string; amount: number }[] = [];
+  const triggers = triggersOf(profile);
+  const triggered = forcedBy.some(f => triggers.has(f));
+  const classAmounts: { cls: ClassKey; code: string; amount: number; support: Support }[] = [];
   for (const cls of CLASS_ORDER) {
     const info = TEMPLATE.classes[cls];
     const present = a.codes.filter(c => c in info.weights);
     if (!present.length) continue;
     const cal = profile.classes[cls];
-    if (!cal) return { kind: 'UNSUPPORTED', reason: `no calibration for ${cls} (${present.join(',')}) on ${profile.modelKey}` };
     for (const code of present) {
-      let w = info.weights[code];
-      if (code === 'P04' && triggered) w = info.weights.P01; // measured exception (template.json)
-      let amount = w * classValue(cal, reference);
+      // P04 (loose screen) is priced like a cracked panel once an age-trigger answer has forced the aged state (measured exception, template.json)
+      const own = profile.codes?.[code === 'P04' && triggered ? 'P01' : code];
+      if (!own && !cal) return { kind: 'UNSUPPORTED', reason: `no calibration for ${cls} (${present.join(',')}) on ${profile.modelKey}` };
+      let amount = own ? classValue(own, reference) : info.weights[code === 'P04' && triggered ? 'P01' : code] * classValue(cal!, reference);
       if (cls === 'body' && triggered) amount *= BODY_UNDER_TRIGGER_REMAINING[code] ?? 1;
-      classAmounts.push({ cls, code, amount });
+      const support: Support = own ? own.support : cal!.support;
+      weaken(support);
+      classAmounts.push({ cls, code, amount, support: cls === 'body' && triggered ? 'inferred' : support });
     }
-    weaken(cal.support);
     if (cls === 'body' && triggered) weaken('inferred');
   }
   // body and panel share one deduction (largest); every other class combines by its own rule
@@ -316,7 +353,7 @@ export function deduct(profile: ModelProfile, reference: number, a: ParsedAnswer
   for (const [group, g] of groups) {
     const winner = g.combine === 'max' ? g.items.reduce((m, i) => (i.amount > m.amount ? i : m)) : null;
     const amount = winner ? winner.amount : g.items.reduce((s, i) => s + i.amount, 0);
-    const cals = g.items.map(i => profile.classes[i.cls]!.support);
+    const cals = g.items.map(i => i.support);
     deduction += amount;
     breakdown.push({
       rule: `class:${group}`,
@@ -330,6 +367,11 @@ export function deduct(profile: ModelProfile, reference: number, a: ParsedAnswer
     const amount = state === 3 ? profile.boxNo.aged : profile.boxNo.base;
     deduction += amount; weaken(profile.boxNo.support);
     breakdown.push({ rule: 'box', label: 'Original box missing', amount, support: profile.boxNo.support });
+  }
+  if (a.chargerMissing && profile.asks.charger && profile.chargerNo) {
+    const amount = state === 3 ? profile.chargerNo.aged : profile.chargerNo.base;
+    deduction += amount; weaken(profile.chargerNo.support);
+    breakdown.push({ rule: 'charger', label: 'Charger missing', amount, support: profile.chargerNo.support });
   }
   if (a.dualEsim && profile.asks.eSim && profile.eSimDualPct != null) {
     const amount = profile.eSimDualPct * reference;
@@ -356,9 +398,9 @@ export function evaluateAppleEvidence(profile: ModelProfile, reference: number, 
   let price = reference - d.deduction;
   let floorApplied = false;
   const floorBase = profile.floor ? (profile.floor.basis === 'aged' ? d.agedPrice : reference) : null;
-  if (profile.floor && floorBase != null && d.state === 3 && d.faultCount > 0 && price < profile.floor.value * floorBase) {
+  if (profile.floor && floorBase != null && (d.state === 3 || !profile.age) && d.faultCount >= floorMinFaults(profile) && price < profile.floor.value * floorBase) {
     const floor = profile.floor.value * floorBase;
-    breakdown.push({ rule: 'floor', label: `Lowest quote once treated as over 11 months (${(profile.floor.value * 100).toFixed(2)}% of the ${profile.floor.basis === 'aged' ? 'aged price' : 'reference'})`, amount: price - floor, support: 'measured' });
+    breakdown.push({ rule: 'floor', label: `${profile.age ? 'Lowest quote once treated as over 11 months' : 'Lowest quote for a phone with functional faults'} (${(profile.floor.value * 100).toFixed(2)}% of the ${profile.floor.basis === 'aged' ? 'aged price' : 'reference'})`, amount: price - floor, support: 'measured' });
     price = floor; floorApplied = true;
   }
   if (price <= 0) return { kind: 'NO_OFFER', reason: 'combined deductions exceed the reference price', reference, breakdown };

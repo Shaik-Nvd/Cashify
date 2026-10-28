@@ -32,7 +32,8 @@ async function main() {
   } });
   const config = resolvePricingReleaseConfig({}, process.cwd());
   assert.equal(config.mode, 'hybrid');
-  assert.equal(config.exactFinalQuoteCache, true);
+  // 2026-10-28: the committed release serves iPhones from the calibrated rules; the exact captured-price cache is off (an explicit index is still testable)
+  assert.equal(config.exactFinalQuoteCache, false);
   assert.equal(config.exactFinalQuoteOfferPolicy, 'bounded-net');
   const routes = loadReleaseRouteEvidence(config.routeEvidenceFile ?? undefined);
   const packageManifest = path.resolve('..', 'six-iphone-input-claude/files/scripts/pricing/fixtures/exact-captures-2026-10-10.json');

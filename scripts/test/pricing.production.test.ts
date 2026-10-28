@@ -92,8 +92,11 @@ function diag(overrides: Partial<DiagnosticsType> = {}): DiagnosticsType {
 
 // A worn but still valuable phone: the Cashify-equivalent stays positive, so the payout ceiling can bound the quote.
 const WORN = diag({ defects: ['body_scratch'], bodyScratches: 'More than 2 scratches', warranty: false, validBill: false, mobileAge: 'above11' });
+// Nonpayable: the fixture device is an iPhone, whose calibrated Cashify rules (2026-10-28 data) price touch + screen + panel + functional
+// damage positively (Cashify quotes such phones at its minimum). A phone that also cannot make calls is what Cashify declines, so the
+// nonpayable case keeps its intent with the call failure added.
 const DAMAGED = diag({
-  touch: false, originalScreen: false, warranty: false, validBill: false, accessories: [],
+  calls: false, touch: false, originalScreen: false, warranty: false, validBill: false, accessories: [],
   defects: ['broken_screen', 'body_scratch', 'panel_missing'], bodyScratches: 'More than 2 scratches',
   bodyDents: 'Major dent(s) or more than 2', hardware: ['battery_service', 'back_camera', 'face'], mobileAge: 'above11',
 });
@@ -281,7 +284,7 @@ async function run() {
     const { svc } = service();
     const result = await svc.quote({ ...identity, diagnostics: diag() });
     assert.ok(result.ok);
-    const expected = calculateFhoneifyPrice(identity.brand, identity.model, resolveReference({ device: identity })!.cashifyGetUptoReference, diag());
+    const expected = calculateFhoneifyPrice(identity.brand, identity.model, resolveReference({ device: identity })!.cashifyGetUptoReference, diag(), undefined, undefined, { catalogStorage: identity.storage });
     assert.equal(result.fhoneifyPrice, expected.fhoneifyPrice);
     const verified = verifyQuoteToken(result.quoteToken, SECRET, Math.floor(Date.now() / 1000));
     assert.ok(verified.ok && verified.payload.p === result.fhoneifyPrice);
@@ -302,7 +305,7 @@ async function run() {
     const result = await svc.quote({ ...identity, diagnostics: diag() });
     assert.ok(result.ok);
     assert.equal(result.internal.baseSource, 'reference_repository');
-    const calc = calculateFhoneifyPrice(identity.brand, identity.model, 61000, diag());
+    const calc = calculateFhoneifyPrice(identity.brand, identity.model, 61000, diag(), undefined, undefined, { catalogStorage: identity.storage });
     // The reference-first payout budget must preserve the approved bonus.
     const ceiling = applyReferenceBonusCeiling({ quote: calc.fhoneifyPrice, cashifyHeadlineEquivalent: headlineFromBase(calc.cashifyConditionEquivalent), reference: 61000, equivalentBasis: 'base' }).quote;
     assert.equal(result.fhoneifyPrice, ceiling);

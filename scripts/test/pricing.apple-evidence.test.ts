@@ -58,7 +58,7 @@ test('calibration integrity: every profile prices a clean phone at its reference
     const ref = 50000;
     const clean = evaluateAppleEvidence(p, ref, withAnswers({ mobileAge: 'below3' }), p.storagesGb[0]);
     assert.equal(clean.kind, 'PRICE');
-    if (clean.kind === 'PRICE') assert.equal(clean.price, ref, `${name}: flawless = reference`);
+    if (clean.kind === 'PRICE') assert.equal(clean.price, ref - (p.cleanOffset?.value ?? 0), `${name}: flawless = reference less the measured clean offset`);
     if (p.age) {
       const a = (s: '1' | '2' | '3') => p.age![s].a + p.age![s].b * ref;
       assert.ok(a('1') <= a('2') && a('2') <= a('3'), `${name}: age deductions rise with age`);
@@ -183,21 +183,23 @@ test('SCOPE: storage parsing handles every catalog spelling', () => {
 test('SCOPE: every enabled model has a calibration profile that covers the storages it enables', () => {
   for (const [model, entry] of Object.entries((scopeJson as any).models as Record<string, { enabled: boolean; storagesGb: number[] }>)) {
     if (!entry.enabled) continue;
-    const p = CAL.models[model];
+    const fallback = (entry as { fallbackFrom?: string }).fallbackFrom;
+    const p = CAL.models[model] ?? (fallback ? CAL.models[fallback] : undefined);
+    if (fallback) { assert.ok(p, `${model}: fallback ${fallback} profile`); assert.equal(entry.storagesGb.length, 0, `${model}: a fallback claims no measured storage`); continue; }
     assert.ok(p, `${model}: profile`);
     for (const gb of entry.storagesGb) assert.ok(p.storagesGb.includes(gb), `${model}: ${gb} GB measured`);
   }
 });
 test('SCOPE: devices outside the scope are not touched by the evidence model', () => {
   const diag = withAnswers({ hardware: ['face'] });
-  assert.equal(appleEvidenceQuote('Apple iPhone 13', '128GB', 30000, diag), null);
-  assert.equal(appleEvidenceQuote('Apple iPhone 12 Pro Max', '256GB', 30000, diag), null);
+  // every catalog iPhone is now in scope (pricing.apple-reference-rules.test.ts); a model the catalog does not know stays untouched
+  assert.equal(appleEvidenceQuote('Apple iPhone 99', '128GB', 30000, diag), null);
   assert.equal(appleEvidenceQuote('Samsung Galaxy S24', '8 GB/256 GB', 30000, diag), null);
 });
 test('SCOPE: for in-scope iPhones the form no longer pre-voids warranty for spots/lines; other devices keep the legacy rule', () => {
   const spots = { ...perfect, screenSpots: '3 or more minor spots on screen' };
   assert.equal(warrantyVoidedByDiagnostics(spots), true, 'legacy rule unchanged without a device');
-  assert.equal(warrantyVoidedByDiagnostics(spots, { model: 'Apple iPhone 13', storage: '128GB' }), true, 'iPhone 13 is outside the evidence');
+  assert.equal(warrantyVoidedByDiagnostics(spots, { model: 'Samsung Galaxy S24', storage: '8 GB/256 GB' }), true, 'devices outside the evidence keep the legacy rule');
   const enabled = Object.entries((scopeJson as any).models as Record<string, { enabled: boolean; storagesGb: number[] }>).find(([, e]) => e.enabled);
   if (enabled) {
     const gb = enabled[1].storagesGb[0];

@@ -14,7 +14,7 @@ import { customerPayout, DISPLAY_DEDUCTION, DISPLAY_DEDUCTION_EXEMPT_PRICE, FIRS
  */
 export const PAYOUT_CEILING_POLICY = {
   maxRate: 0.08,
-  maxExtraRupees: 2000,
+  maxExtraRupees: 1000,
   /** Cashify's IMEI validation fee (selling price = base price - this). Set to 0 to compare base-to-quote instead. */
   cashifyImeiFee: 20,
 } as const;

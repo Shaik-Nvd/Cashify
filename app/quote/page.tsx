@@ -343,8 +343,10 @@ export default function QuotePage() {
   const asksWarrantyQuestion = showsQuestion(modelQuestionnaire.warrantyMode) && isWarrantyEligible(selectedBrand, selectedModel);
   const asksBillQuestion = showsQuestion(modelQuestionnaire.billMode) && isWarrantyEligible(selectedBrand, selectedModel);
   const asksESimQuestion = modelQuestionnaire.eSimMode !== 'NOT_ASKED' && isESimEligible(selectedBrand, selectedModel);
-  const asksAgeQuestion = modelQuestionnaire.ageMode === 'ASKED' ||
-    (modelQuestionnaire.ageMode === 'UNKNOWN' && questionnaireFor({ brand: selectedBrand, model: selectedModel }).asksAge);
+  const asksAgeQuestion = (diagnostics.originalScreen !== false && diagnostics.warranty === true) ||
+    modelQuestionnaire.ageMode === 'ASKED' ||
+    (modelQuestionnaire.ageMode !== 'NOT_ASKED' && questionnaireFor({ brand: selectedBrand, model: selectedModel }).asksAge) ||
+    (questionnaireFor({ brand: selectedBrand, model: selectedModel }).asksAge && diagnostics.warranty === true && diagnostics.originalScreen !== false);
   const finalPrice = activeFinalQuote?.price ?? null;
   const priceRequestIdRef = useRef(0);
   const startingRequestIdRef = useRef(0);
@@ -2790,11 +2792,12 @@ export default function QuotePage() {
 
                     // Rules:
                     // 1. If screen is NOT original (originalScreen === false), Cashify never asks the mobile age question.
-                    // 2. If screen IS original (originalScreen === true) and user selected Yes on warranty (warranty === true),
+                    // 2. If screen IS original (originalScreen !== false) and user selected Yes on warranty (warranty === true),
                     //    the age question must ALWAYS be asked (including for Apple iPhone 18 Pro Max 12 GB/256 GB).
                     const screenIsNotOriginal = diagnostics.originalScreen === false;
+                    const forceAgeForWarranty = diagnostics.warranty === true && !screenIsNotOriginal;
 
-                    if (asksAge && !screenIsNotOriginal) {
+                    if ((asksAge || forceAgeForWarranty) && !screenIsNotOriginal) {
                       if (isWarrantyValid) {
                         // Cashify skips the age question entirely for brand new phones (17e, 16e, Z Flip7 FE) without box
                         const isBrandNewApple = selectedBrand === 'Apple' && (selectedModel.toLowerCase().includes('17e') || selectedModel.toLowerCase().includes('16e'));

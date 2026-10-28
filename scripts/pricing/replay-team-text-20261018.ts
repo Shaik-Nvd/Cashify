@@ -69,8 +69,10 @@ export async function replayTeamText(options: ReplayOptions = {}) {
       record.referenceUsed = quote.internal.cashifyGetUptoReference;
       record.accessoryBasis = quote.internal.accessoryBasis;
       record.questionnaire = quote.questionnaire;
-      record.couponOff = customerPayout(quote.fhoneifyPrice, false);
-      record.couponOn = customerPayout(quote.fhoneifyPrice, true);
+      record.couponHeadroom = quote.couponHeadroom;
+      record.equivalentBasis = quote.internal.payoutCeiling.equivalentBasis;
+      record.couponOff = customerPayout(quote.fhoneifyPrice, false, quote.couponHeadroom);
+      record.couponOn = customerPayout(quote.fhoneifyPrice, true, quote.couponHeadroom);
       record.deltaOff = record.couponOff.payout - row.sellingPrice;
       record.deltaOn = record.couponOn.payout - row.sellingPrice;
       record.passOff = pass(record.deltaOff); record.passOn = pass(record.deltaOn);

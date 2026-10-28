@@ -1,3 +1,4 @@
+import { isAppleEvidenceModel } from './appleCashifyModel/scope';
 import type { GlassShadowCandidate, GlassShadowResult } from './glassShadowCandidate';
 import { boundedCompetitiveOffer, EXACT_FINAL_QUOTE_VERSION, type ExactFinalQuoteIndex } from './exactFinalQuote';
 import type { ReferencePriceRepository } from '../referencePricing/store';
@@ -233,7 +234,7 @@ export function createPricingService(deps: PricingServiceDeps) {
     }
 
     const legacyQuestionnaire = { ...questionnaire };
-    const teamFallbackSupported = hybrid && legacyQuestionnaire.warrantyMode !== 'NOT_ASKED' &&
+    const teamFallbackSupported = hybrid && !isAppleEvidenceModel(device.model, device.storage) && legacyQuestionnaire.warrantyMode !== 'NOT_ASKED' &&
       supportedApple512Fallback(device, diagnostics, base.cashifyGetUptoReference, at);
     const dispatchStorage = reviewedAppleDispatchStorage(device,
       teamFallbackSupported ? diagnostics : undefined);

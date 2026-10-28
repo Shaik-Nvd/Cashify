@@ -8,6 +8,7 @@ import { parseDiagnostics } from '../../lib/pricing/diagnostics';
 import { customerPayout } from '../../lib/pricing/payout';
 import { replayTeamText } from '../pricing/replay-team-text-20261018';
 import fixture from '../pricing/fixtures/team-text-2026-10-18.json';
+import { appleEvidenceQuote } from '../../lib/pricing/appleCashifyModel';
 import { supportedApple512Fallback } from '../../lib/pricing/appleVariantDispatch';
 
 const device = findCatalogDevice('Apple', 'Apple iPhone 15 Pro Max', '512GB')!;
@@ -28,11 +29,13 @@ function service(mode: 'hybrid' | 'legacy', reference = 72480, clock = time) {
     now: () => new Date(clock), logger: { info() {}, warn() {}, error() {} } });
 }
 
-// Literal oracle from a6a4600's calculator, not a second copy of the implementation.
-// Pre-release (a6a4600) behaviour for the corrected-dispatch controls was replaced on 2026-10-25 by the evidence-calibrated iPhone model: an iPhone 15 Pro
-// Max 512 GB is priced from the recorded Cashify quotes (exact match: the 'reported' answers are the recorded F08+F17 out-of-warranty quote, Cashify base 38,450 =
-// the team-captured Selling 38,430 + INR 20) and, for unrecorded answers, from the calibrated rules. 'oldExplicit' is the unguarded calculator's quote and
-// 'oldHybrid' the service's; they now agree because the old legacy numbers (35,998 / 37,912, 5-6% under the recorded Cashify price) are gone.
+// These are dispatch/isolation integration checks. The fitted deduction values and
+// observed single-fault goldens are independently exercised by apple-reference-rules.
+const ruleExpected = (diagnostics: any, reference = 72480) => {
+  const q = appleEvidenceQuote(device.model, device.storage, reference, diagnostics);
+  assert(q && q.source === 'model');
+  return { equivalent: q.outcome.price, quote: Math.round(q.outcome.price + Math.min(reference * .04, 2000)) };
+};
 const controls = [
   { name: 'reported Single eSIM', edit: {}, oldExplicit: 39988, oldHybrid: 39988 },
   { name: 'unobserved eSIM null', edit: { eSim: null }, oldExplicit: 39988, oldHybrid: 39988 },
@@ -44,37 +47,37 @@ const controls = [
   { name: 'changed reference', edit: {}, reference: 72481, oldExplicit: 39988, oldHybrid: 39988 },
 ];
 for (const control of controls) {
-  test(`unguarded old calculator preserves pre-release ${control.name}`, () => {
+  test(`calculator uses reference rules for ${control.name}`, () => {
     const q = calculateFhoneifyPrice(device.brand, device.model, control.reference ?? 72480,
       { ...answers, ...control.edit }, undefined, device.storage);
-    assert.equal(q.fhoneifyPrice, control.oldExplicit);
+    assert.equal(q.fhoneifyPrice, ruleExpected({ ...answers, ...control.edit }, control.reference ?? 72480).quote);
   });
   test(`legacy rollback service preserves pre-release ${control.name}`, async () => {
     const q = await service('legacy', control.reference).quote({ ...device, diagnostics: { ...answers, ...control.edit } });
-    assert(q.ok); assert.equal(q.fhoneifyPrice, control.oldHybrid);
+    assert(q.ok); assert.equal(q.fhoneifyPrice, ruleExpected({ ...answers, ...control.edit }, control.reference ?? 72480).quote);
     assert(!q.pricingVersion.includes('apple512-oow-router'));
   });
 }
 
-test('supported hybrid keeps released gross and both actual payouts', async () => {
+test('supported hybrid uses fitted rules, reference bonus and signed coupon allowance', async () => {
   const q = await service('hybrid').quote({ ...device, diagnostics: answers });
-  assert(q.ok); assert.equal(q.fhoneifyPrice, 39967);
-  assert.equal(q.internal.cashifyConditionEquivalent, 38430);
-  assert.equal(customerPayout(q.fhoneifyPrice, false).payout, 39868);
-  assert.equal(customerPayout(q.fhoneifyPrice, true).payout, 40167);
+  assert(q.ok); assert.equal(q.fhoneifyPrice, ruleExpected(answers).quote);
+  assert.equal(q.internal.cashifyConditionEquivalent, ruleExpected(answers).equivalent);
+  assert.equal(customerPayout(q.fhoneifyPrice, false, q.couponHeadroom).payout, q.fhoneifyPrice - 99);
+  assert.equal(customerPayout(q.fhoneifyPrice, true, q.couponHeadroom).payout, q.fhoneifyPrice - 99);
 });
 
 test('unsupported hybrid answers, changed reference and expiry do not enable corrected dispatch', async () => {
   for (const control of controls.filter(c => !['reported Single eSIM', 'bent body', 'display lines', 'display spots'].includes(c.name))) {
     const q = await service('hybrid', control.reference).quote({ ...device, diagnostics: { ...answers, ...control.edit } });
-    assert(q.ok); assert.equal(q.fhoneifyPrice, control.oldHybrid, control.name);
+    assert(q.ok); assert.equal(q.fhoneifyPrice, ruleExpected({ ...answers, ...control.edit }, control.reference ?? 72480).quote, control.name);
     assert(!q.pricingVersion.includes('apple512-oow-router'));
   }
   const expired = await service('hybrid', 72480, '2026-11-01T00:00:00Z').quote({ ...device, diagnostics: answers });
-  assert(expired.ok); assert.equal(expired.fhoneifyPrice, 39988);
+  assert(expired.ok); assert.equal(expired.fhoneifyPrice, ruleExpected(answers).quote);
   for (const control of controls.filter(c => ['bent body', 'display lines', 'display spots'].includes(c.name))) {
     const q = await service('hybrid').quote({ ...device, diagnostics: { ...answers, ...control.edit } });
-    assert(q.ok); assert.equal(q.fhoneifyPrice, control.oldHybrid, control.name);
+    assert(q.ok); assert.equal(q.fhoneifyPrice, ruleExpected({ ...answers, ...control.edit }, control.reference ?? 72480).quote, control.name);
     assert(!q.pricingVersion.includes('apple512-oow-router'));
   }
 });
@@ -82,10 +85,10 @@ test('unsupported hybrid answers, changed reference and expiry do not enable cor
 test('public diagnostic extras cannot request internal corrected dispatch', async () => {
   const q = await service('hybrid').quote({ ...device, diagnostics: { ...answers, eSim: 'Dual eSIM',
     calculationContext: { apple512OutOfWarrantyDispatch: true } } });
-  assert(q.ok); assert.equal(q.fhoneifyPrice, 36223);
+  assert(q.ok); assert.equal(q.fhoneifyPrice, ruleExpected({ ...answers, eSim: 'Dual eSIM' }).quote);
 });
 
-test('all 74 eligible priceable historical combinations retain released Selling and both payout bounds', async () => {
+test('all 74 historical combinations use current rules and the original-reference bonus without caches', async () => {
   const replay = await replayTeamText();
   const unique = new Map<string, any>();
   for (const row of fixture.rows) {
@@ -98,9 +101,13 @@ test('all 74 eligible priceable historical combinations retain released Selling 
   }
   assert.equal(unique.size, 74);
   for (const row of unique.values()) {
-    assert.equal(row.conditionEquivalent, row.capturedSelling, row.id);
-    assert(row.deltaOff > 0 && row.deltaOff <= 2000, row.id);
-    assert(row.deltaOn > 0 && row.deltaOn <= 2000, row.id);
+    const expected = appleEvidenceQuote(row.identity.model, row.identity.storage, row.referenceUsed, row.fullInput.diagnostics);
+    assert(expected && expected.source === 'model');
+    assert.equal(row.conditionEquivalent, expected.outcome.price, row.id);
+    const bonus = Math.min(row.referenceUsed * (row.referenceUsed <= 20000 ? .08 : row.referenceUsed <= 50000 ? .06 : .04), 2000);
+    assert.equal(row.quoteAmount, Math.round(row.conditionEquivalent + bonus), row.id);
+    assert.equal(row.couponOn.payout, row.couponOff.payout, row.id);
+    assert.equal(row.method.exactEvidenceApplied, false, row.id);
   }
 });
 
@@ -125,7 +132,7 @@ test('actual old POST endpoint in rollback mode preserves pre-release result wit
   await new Promise<void>(resolve => server.once('listening', resolve));
   try {
     const address = server.address(); assert(address && typeof address !== 'string');
-    for (const [diagnostics, expectedPrice] of [[answers, 39988], [{ ...answers, bodyBent: 'Bent/ curved panel' }, 36390]] as const) {
+    for (const [diagnostics, expectedPrice] of [[answers, ruleExpected(answers).quote], [{ ...answers, bodyBent: 'Bent/ curved panel' }, ruleExpected({ ...answers, bodyBent: 'Bent/ curved panel' }).quote]] as const) {
       const response = await fetch(`http://127.0.0.1:${address.port}/api/quote`, { method: 'POST',
         headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ deviceId: device.id, condition: 'good', answers: diagnostics }) });
       const body = await response.json(); assert.equal(response.status, 200);

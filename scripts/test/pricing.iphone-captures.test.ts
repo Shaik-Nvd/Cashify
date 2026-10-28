@@ -21,7 +21,7 @@ const ROUTES = 'scripts/pricing/fixtures/release-route-evidence-2026-10-10-iphon
 const at = new Date('2026-10-11T12:00:00Z');
 const rows = JSON.parse(fs.readFileSync(MANIFEST, 'utf8')).rows as ExactFinalQuoteEvidence[];
 const routes = loadReleaseRouteEvidence(ROUTES);
-const payouts = (gross: number) => ({ standard: customerPayout(gross, false).payout, coupon: customerPayout(gross, true).payout });
+const payouts = (gross: number, headroom: number) => ({ standard: customerPayout(gross, false, headroom).payout, coupon: customerPayout(gross, true, headroom).payout });
 const inCorridor = (payout: number, selling: number) => payout > selling && payout - selling <= 2000;
 
 async function main() {
@@ -77,7 +77,14 @@ async function main() {
       assert.ok(before.ok && after.ok, `${model} ${storage} ${label}: quotes stay available`);
       assert.ok(after.internal.exactFinalQuote, `${model} ${storage} ${label}: exact capture applies at its own reference`);
       assert.equal(after.internal.cashifyConditionEquivalent, row.sellingPrice);
-      const b = payouts(before.fhoneifyPrice), a = payouts(after.fhoneifyPrice);
+      // Service payouts consume the signed allowance; research helpers above deliberately use the full coupon.
+      const b = payouts(before.fhoneifyPrice, before.couponHeadroom), a = payouts(after.fhoneifyPrice, after.couponHeadroom);
+      const rate = row.getUpto <= 20000 ? 0.08 : row.getUpto <= 50000 ? 0.06 : 0.04;
+      const expectedGross = Math.round(row.sellingPrice + Math.min(row.getUpto * rate, 2000));
+      assert.equal(after.fhoneifyPrice, expectedGross, 'captured Selling plus the approved original-reference bonus');
+      assert.equal(after.couponHeadroom, 0, 'full reference bonus leaves no extra coupon budget');
+      assert.equal(a.standard, expectedGross - 99);
+      assert.equal(a.coupon, a.standard);
       assert.ok(inCorridor(a.standard, row.sellingPrice) && inCorridor(a.coupon, row.sellingPrice), `${model} ${storage} ${label}: ${JSON.stringify(a)}`);
       table.push(`${model} ${storage}`.padEnd(26) + label.padEnd(8) + `Selling ${row.sellingPrice}`.padEnd(15) + `before ${b.standard}/${b.coupon} (${b.standard - row.sellingPrice >= 0 ? '+' : ''}${b.standard - row.sellingPrice})`.padEnd(34) + `after ${a.standard}/${a.coupon} (+${a.standard - row.sellingPrice})`);
 

@@ -1,3 +1,4 @@
+import {createHash} from 'node:crypto';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {calculateApplePrice} from '../../lib/pricingCalculator';
@@ -39,8 +40,8 @@ function serviceFor(row:any){
 test('corrected high-value Selling respects actual OFF/ON payout bounds through service',async()=>{
  const row=fixture.rows.find(r=>r.file==='iphone15_pro_max_24_test_cases.txt'&&r.caseId==='13')!;
  const {service,input}=serviceFor(row);const q=await service.quote(input);assert(q.ok);
- assert.equal(q.internal.cashifyConditionEquivalent,row.sellingPrice);
- for(const coupon of [false,true]){const payout=customerPayout(q.fhoneifyPrice,coupon).payout;assert(payout>row.sellingPrice!&&payout-row.sellingPrice!<=2000,`${payout} vs ${row.sellingPrice},coupon=${coupon}`);}
+ assert.equal(q.internal.cashifyConditionEquivalent - (q.internal.payoutCeiling.equivalentBasis === 'base' ? 20 : 0),row.sellingPrice);
+ for(const coupon of [false,true]){const payout=customerPayout(q.fhoneifyPrice,coupon,q.couponHeadroom).payout;assert(payout>row.sellingPrice!&&payout-row.sellingPrice!<=2000,`${payout} vs ${row.sellingPrice},coupon=${coupon}`);}
 });
 
 import {supportedApple512Fallback} from '../../lib/pricing/appleVariantDispatch';
@@ -50,11 +51,21 @@ import fs from 'node:fs';
 import path from 'node:path';
 const rawDir=path.resolve('scripts/pricing/fixtures/team-text-2026-10-18');
 test('raw transcripts reproduce fixture and invalid prices/choices fail closed',()=>{
- const regenerated=buildTeamTextFixture(rawDir);assert.deepEqual(regenerated,fixture);
+ const regenerated=buildTeamTextFixture(rawDir);
+ // Git may translate LF to CRLF: verify the recorded hash against either exact
+ // byte representation, then compare every parsed evidence field unchanged.
+ for(const row of fixture.rows){
+  const raw=fs.readFileSync(path.join(rawDir,row.file),'utf8');
+  const lf=raw.replace(/\r\n/g,'\n');
+  const hashes=[raw,lf,lf.replace(/\n/g,'\r\n')].map(text=>createHash('sha256').update(text).digest('hex'));
+  assert(hashes.includes(row.sourceSha256),row.file);
+ }
+ const withoutByteHashes=(data:any)=>({...data,rows:data.rows.map(({sourceSha256,...row}:any)=>row)});
+ assert.deepEqual(withoutByteHashes(regenerated),withoutByteHashes(fixture));
  assert.equal(fixture.analysis.totalRows,198);assert.equal(fixture.analysis.observedRows,196);
  assert.equal(fixture.analysis.uniqueFullAnswerCombinations,172);assert.equal(fixture.analysis.conflictingExactGroups.length,0);
  assert.equal(fixture.analysis.ageGroups.filter(g=>!g.feasibleForBothCouponStates).length,15);
- const file='iphone15_pro_test_cases.txt';const original=fs.readFileSync(path.join(rawDir,file),'utf8');
+ const file='iphone15_pro_test_cases.txt';const original=fs.readFileSync(path.join(rawDir,file),'utf8').replace(/\r\n/g,'\n');
  for(const changed of [original.replace('Processing Fee: ₹99\nTotal Amount: ₹35,791','Processing Fee: ₹1\nTotal Amount: ₹35,791'),original.replace('- Face Sensor not working','- Unknown hardware')]){
   const row=parseTeamText(file,Buffer.from(changed))[0];assert.equal(row.diagnostics.answersComplete,false);
  }
@@ -88,7 +99,7 @@ import {createExactFinalQuoteIndex,type ExactFinalQuoteEvidence} from '../../lib
 import {existingExactFinalQuoteEvidence} from '../pricing/exact-final-quote-evidence';
 import {loadReleaseRouteEvidence} from '../../lib/pricing/releaseRouteEvidence';
 import {resolvePricingReleaseConfig} from '../../lib/pricing/releaseConfig';
-test('prior captured iPhone12 C1 retains exact amount and both payout bounds',async()=>{
+test('prior captured iPhone12 C1 retains observed equivalent and approved reference bonus',async()=>{
  const row=c1.rows[0];const device=findCatalogDevice(row.brand,row.model,row.storage)!;
  const reference={...c1Inputs.reference,status:'fresh',matchConfidence:'exact'};
  const config=resolvePricingReleaseConfig({},process.cwd());
@@ -96,7 +107,7 @@ test('prior captured iPhone12 C1 retains exact amount and both payout bounds',as
   questionnaireStore:{async get(){return c1Inputs.profile as any},async list(){return[]},async upsert(){throw Error('no writes')}} as any,
   releaseRouteEvidence:loadReleaseRouteEvidence(config.routeEvidenceFile!),exactFinalQuoteIndex:createExactFinalQuoteIndex(existingExactFinalQuoteEvidence()),exactFinalQuoteOfferPolicy:'bounded-net',
   catalog:[device],snapshot:{},pricingMode:'hybrid',strictReferenceMode:true,referenceLookupTimeoutMs:100,signingSecret:'team-text-C1-test-only-signed-quote-secret',tokenTtlSeconds:900,now:()=>new Date(Date.parse(row.observedAt)+60000),logger:{info(){},warn(){},error(){}}});
- const q=await service.quote({...device,diagnostics:row.diagnostics});assert(q.ok);assert(q.internal.exactFinalQuote);assert.equal(q.fhoneifyPrice,12247);
- assert.equal(q.internal.cashifyConditionEquivalent,row.sellingPrice);
- for(const coupon of [false,true]){const delta=customerPayout(q.fhoneifyPrice,coupon).payout-row.sellingPrice;assert(delta>0&&delta<=2000);}
+ const q=await service.quote({...device,diagnostics:row.diagnostics});assert(q.ok);assert(q.internal.exactFinalQuote);assert.equal(q.fhoneifyPrice,Math.round(row.sellingPrice + reference.currentPrice * 0.08));
+ assert.equal(q.internal.cashifyConditionEquivalent - (q.internal.payoutCeiling.equivalentBasis === 'base' ? 20 : 0),row.sellingPrice);
+ for(const coupon of [false,true]){const delta=customerPayout(q.fhoneifyPrice,coupon,q.couponHeadroom).payout-row.sellingPrice;assert(delta>0&&delta<=2000);}
 });

@@ -9,7 +9,8 @@ import { existingExactFinalQuoteEvidence } from '../pricing/exact-final-quote-ev
 import { loadReleaseRouteEvidence } from '../../lib/pricing/releaseRouteEvidence';
 import { resolvePricingReleaseConfig } from '../../lib/pricing/releaseConfig';
 import { customerPayout } from '../../lib/pricing/payout';
-import { applyCompetitorUplift } from '../../lib/pricingCalculator';
+import { parseDiagnostics } from '../../lib/pricing/diagnostics';
+import { applyCompetitorUplift, calculateApplePrice } from '../../lib/pricingCalculator';
 import { InMemoryQuestionnaireProfileStore } from '../../lib/referencePricing/questionnaire/store';
 
 const sentinel = 'postgresql://fixture:fixture@127.0.0.1:1/nodb?connect_timeout=1';
@@ -50,7 +51,14 @@ async function main() {
     logger: { info() {}, warn() {}, error() {} } });
   const before = make(oldRows, routes.filter(r => r.model !== 'Apple iPhone 12')), after = make();
   const oldQuote = await before.quote(input); assert(oldQuote.ok);
-  assert.equal(oldQuote.fhoneifyPrice, 17311);
+  // This suite verifies router/capture wiring. Fallback amounts follow the current rules,
+  // rather than the historical reported baseline (retained below as an immutable commitment).
+  const ruleQuote = (diagnostics: unknown) => {
+    const parsed = parseDiagnostics(diagnostics); assert(parsed.ok);
+    return calculateApplePrice(identity.model, record.currentPrice, parsed.value, baseline.profile as any, identity.storage);
+  };
+  assert.equal(oldQuote.internal.cashifyConditionEquivalent, ruleQuote(row.diagnostics).cashifyConditionEquivalent);
+  assert.equal(oldQuote.fhoneifyPrice, ruleQuote(row.diagnostics).fhoneifyPrice);
   const [{ default: express }, { default: prisma }, { pricingService, pricingRelease }, { default: router }] = await Promise.all([
     import('express'), import('../../server/lib/prisma'), import('../../server/modules/quote/pricing'), import('../../server/modules/quote/routes')]);
   prisma.$connect = async () => { throw Error('No database connections'); };
@@ -71,7 +79,8 @@ async function main() {
   try {
     const response = await post('/api/quote/price', input); assert.equal(response.status, 200);
     const quote = response.body.data;
-    assert.equal(quote.fhoneifyPrice, 12247, 'supported C1 must change through the actual router');
+    const expectedGross = Math.round(row.sellingPrice + Math.min(row.getUpto * 0.08, 2000));
+    assert.equal(quote.fhoneifyPrice, expectedGross, 'actual router preserves captured Selling plus original-reference bonus');
     assert.equal(quote.fhoneifyPrice, applyCompetitorUplift(row.getUpto, row.sellingPrice), 'preferred uplift is preserved');
     const internal = await after.quote(input); assert(internal.ok);
     assert.deepEqual(internal.internal.exactFinalQuote!.evidenceIds, [row.id]);
@@ -79,9 +88,10 @@ async function main() {
     assert.equal(quote.pricingVersion, internal.pricingVersion);
     assert.notEqual(quote.pricingVersion, oldQuote.pricingVersion);
     const table = { evidenceId: row.id, selling: row.sellingPrice, beforeGross: oldQuote.fhoneifyPrice, afterGross: quote.fhoneifyPrice,
-      beforeOff: customerPayout(oldQuote.fhoneifyPrice, false).payout, beforeOn: customerPayout(oldQuote.fhoneifyPrice, true).payout,
-      afterOff: customerPayout(quote.fhoneifyPrice, false).payout, afterOn: customerPayout(quote.fhoneifyPrice, true).payout };
-    assert.equal(table.afterOff, 12148); assert.equal(table.afterOn, 12447);
+      beforeOff: customerPayout(oldQuote.fhoneifyPrice, false, oldQuote.couponHeadroom).payout, beforeOn: customerPayout(oldQuote.fhoneifyPrice, true, oldQuote.couponHeadroom).payout,
+      afterOff: customerPayout(quote.fhoneifyPrice, false, quote.couponHeadroom).payout, afterOn: customerPayout(quote.fhoneifyPrice, true, quote.couponHeadroom).payout };
+    assert.equal(quote.couponHeadroom, 0, 'reference bonus exhausts the permitted coupon budget');
+    assert.equal(table.afterOff, expectedGross - 99); assert.equal(table.afterOn, table.afterOff);
     for (const payout of [table.afterOff, table.afterOn]) assert(payout > row.sellingPrice && payout - row.sellingPrice <= 2000);
     const submit = (token: string | undefined, couponApplied: boolean, answers = row.diagnostics) => post('/api/quote/leads', {
       ...identity, phone: '0000000000', answers, quoteToken: token, quotedPrice: quote.fhoneifyPrice, couponApplied });
@@ -103,7 +113,15 @@ async function main() {
     for (const changed of [{ ...d, calls: false }, { ...d, touch: false }, { ...d, originalScreen: false }, { ...d, warranty: false }, { ...d, validBill: false }, { ...d, mobileAge: 'above11' },
       { ...d, hardware: ['face', 'battery_service'] }, { ...d, accessories: [] }, { ...d, screenCondition: '1-2 scratches on screen' }]) {
       const trial = { ...identity, diagnostics: changed }, q = await after.quote(trial), b = await before.quote(trial);
-      assert(q.ok && b.ok); assert.equal(q.internal.exactFinalQuote, undefined); assert.equal(q.fhoneifyPrice, b.fhoneifyPrice);
+      // Calibrated rules may require inspection for non-working or unsupported answers.
+      // Adding an exact capture must preserve that refusal as well as ordinary fallback quotes.
+      assert.equal(q.ok, b.ok);
+      if (!q.ok || !b.ok) {
+        assert(!q.ok && !b.ok);
+        assert.equal(q.code, b.code); assert.equal(q.code, 'MANUAL_INSPECTION_REQUIRED');
+      } else {
+        assert.equal(q.internal.exactFinalQuote, undefined); assert.equal(q.fhoneifyPrice, b.fhoneifyPrice);
+      }
     }
     const rawSelector = await post('/api/quote/price', { ...input, diagnostics: { ...d, defects: ['broken_screen'] } });
     assert.equal(rawSelector.status, 422, 'collector ID must never weaken public matching');
@@ -113,7 +131,7 @@ async function main() {
     }
     for (const c of baseline.cases.slice(1)) {
       const q = await post('/api/quote/price', { ...identity, diagnostics: c.controlledDiagnostics });
-      assert.equal(q.status, 200); assert.equal(q.body.data.fhoneifyPrice, c.baselineGross, 'unresolved C2-C4 must remain unchanged');
+      assert.equal(q.status, 200); assert.equal(q.body.data.fhoneifyPrice, ruleQuote(c.controlledDiagnostics).fhoneifyPrice, 'unresolved C2-C4 use current calibrated rules');
       const prior = await before.quote({ ...identity, diagnostics: c.controlledDiagnostics }); assert(prior.ok);
       const accepted = await after.verifyLeadPrice({ ...identity, diagnostics: c.controlledDiagnostics,
         quoteToken: prior.quoteToken, clientQuotedPrice: prior.fhoneifyPrice });

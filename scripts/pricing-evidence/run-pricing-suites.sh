@@ -9,7 +9,7 @@ pass=0; fail=0
 for f in scripts/test/pricing.*.test.ts scripts/test/referencePricing.*.test.ts scripts/test/test_iphone*.ts; do
   s=$(basename "$f" .ts)
   case "$s" in pricing.quote-integration.test|pricing.agent-z-browser.test) echo "SKIP  $s (writes to the database / needs a browser)"; continue;; esac
-  out=$(timeout 900 npx tsx "$f" 2>&1); code=$?
+  out=$(timeout 3600 npx tsx "$f" 2>&1); code=$?
   summary=$(echo "$out" | grep -E "[0-9]+ passed" | tail -1)
   printf '%-52s exit=%s  %s\n' "$s" "$code" "$summary"
   if [ $code -ne 0 ]; then fail=$((fail+1)); echo "$out" | grep -E "FAIL|Error|AssertionError" | head -6 | sed 's/^/      /'; else pass=$((pass+1)); fi

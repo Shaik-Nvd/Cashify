@@ -161,9 +161,9 @@ async function run() {
 
   const base = { ...PERFECT_CONDITION_DIAGNOSTICS, mobileAge: null, warranty: null, validBill: null, accessories: ['box'] } as DiagnosticsType;
 
-  await test('engine NOT_ASKED: no out-of-warranty/bill depreciation (iPhone 13 clean ≈ Cashify ₹24,030)', () => {
+  await test('engine NOT_ASKED: no warranty or bill depreciation, and no legacy clean box bonus', () => {
     const r = calculateFhoneifyPrice('Apple', 'Apple iPhone 13', 23710, base, NOT_ASKED);
-    assert.equal(r.cashifyConditionEquivalent, 24090);
+    assert.equal(r.cashifyConditionEquivalent, 23710);
     // Even a stray "No" from an old client cannot bring the depreciation back.
     const stray = calculateFhoneifyPrice('Apple', 'Apple iPhone 13', 23710, { ...base, warranty: false, validBill: false, mobileAge: 'above11' }, NOT_ASKED);
     assert.equal(stray.cashifyConditionEquivalent, r.cashifyConditionEquivalent);
@@ -216,7 +216,7 @@ async function run() {
     if (known.ok) {
       assert.equal(known.questionnaire.warrantyMode, 'NOT_ASKED');
       assert.equal(known.questionnaire.source, 'profile');
-      assert.equal(known.fhoneifyPrice, 25535);
+      assert.equal(known.fhoneifyPrice, 25133);
       assert.equal(known.startingPrice, 25133, 'Get Upto unchanged');
     }
   });

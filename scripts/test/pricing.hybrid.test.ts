@@ -65,8 +65,10 @@ async function main() {
       const expected = await strict.quote(input(device, diagnostics)); const result = await hybrid.quote(input(device, diagnostics)); assert(expected.ok && result.ok);
       assert.equal(result.fhoneifyPrice, expected.fhoneifyPrice); assert.equal(result.pricingVersion, `${HYBRID_PRICING_VERSION}+verified`);
     }
-    const n = await hybrid.quote(input(nord)); assert(n.ok); assert.equal(n.fhoneifyPrice, 8977); assert.equal(customerPayout(n.fhoneifyPrice, false).payout, 8878);
-    const d = await hybrid.quote(input(nord, display)); assert(d.ok); assert.equal(d.fhoneifyPrice, 3923);
+    const n = await hybrid.quote(input(nord)); assert(n.ok); assert.equal(n.fhoneifyPrice, 8987); assert.equal(customerPayout(n.fhoneifyPrice, false).payout, 8888);
+    const d = await hybrid.quote(input(nord, display)); assert(d.ok);
+    // approved reference-first bonus (2026-10-26): round(C + min(8% x 8,340, 2,000))
+    assert.equal(d.fhoneifyPrice, Math.round(d.internal.cashifyConditionEquivalent + Math.min(8340 * 0.08, 2000))); assert.equal(d.fhoneifyPrice, 4307);
   });
   await check('uncovered launch device retains legacy quote; no broad allowlist outage', async () => {
     await sameAsLegacy(iphone17Pro, asked); await sameAsLegacy(a72, clean);

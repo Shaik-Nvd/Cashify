@@ -131,7 +131,8 @@ async function main() {
     const first = await post('/api/quote/price', quoteRequest);
     assert.equal(first.status, 200);
     const displayed = first.body.data;
-    assert.equal(displayed.fhoneifyPrice, 6094);
+    // bounded-net exact offer: round(Selling 5,650 + min(8% x Get Upto 5,970, 2,000)) = 6,128 under the approved reference bonus
+    assert.equal(displayed.fhoneifyPrice, 6128);
     assert.equal(displayed.internal, undefined);
 
     // Simulate the reference refresh between display and pickup submission.
@@ -142,7 +143,8 @@ async function main() {
       clientQuotedPrice: displayed.fhoneifyPrice,
     });
     assert(current.ok);
-    assert.equal(current.price, 6428);
+    // after the refresh (Get Upto 5,980) the exact capture no longer matches; the current quote is C + min(8% x 5,980, 2,000)
+    assert.equal(current.price, 6458);
 
     const observations: any[] = [];
     const record = async (name: string, body: any, expected?: number) => {
@@ -167,14 +169,14 @@ async function main() {
         };
         await record(`stale-original-price-coupon-${couponApplied}-omit-${omitPrice}`, body, 409);
       }
-      await record(`stale-token-updated-6428-coupon-${couponApplied}`, {
+      await record(`stale-token-updated-6458-coupon-${couponApplied}`, {
         ...identity, phone: '0000000000', answers: source.diagnostics,
-        quoteToken: displayed.quoteToken, quotedPrice: 6428, couponApplied,
+        quoteToken: displayed.quoteToken, quotedPrice: 6458, couponApplied,
       }, 409);
       for (const token of ['invalid-signature', ''] as const) {
-        await record(`${token ? 'invalid' : 'empty'}-token-updated-6428-coupon-${couponApplied}`, {
+        await record(`${token ? 'invalid' : 'empty'}-token-updated-6458-coupon-${couponApplied}`, {
           ...identity, phone: '0000000000', answers: source.diagnostics,
-          quoteToken: token, quotedPrice: 6428, couponApplied,
+          quoteToken: token, quotedPrice: 6458, couponApplied,
         }, 409);
       }
     }
@@ -182,7 +184,7 @@ async function main() {
     for (const couponApplied of [false, true]) for (const omitPrice of [false, true]) {
       await record('omitted-token-coupon-'+couponApplied+'-omit-price-'+omitPrice, {
         ...identity, phone: '0000000000', answers: source.diagnostics, couponApplied,
-        ...(omitPrice ? {} : {quotedPrice: 6428}),
+        ...(omitPrice ? {} : {quotedPrice: 6458}),
       }, 409);
     }
     assert.equal(leads.length, 0, 'all rejected attempts must precede persistence');
@@ -192,7 +194,7 @@ async function main() {
     const writesBeforeFreshIssue = leads.length;
     const fresh = await post('/api/quote/price', quoteRequest);
     assert.equal(fresh.status, 200);
-    assert.equal(fresh.body.data.fhoneifyPrice, 6428);
+    assert.equal(fresh.body.data.fhoneifyPrice, 6458);
     assert.equal(leads.length, writesBeforeFreshIssue, 'issuing the fresh quote must not persist a lead');
 
     for (const couponApplied of [false, true]) {

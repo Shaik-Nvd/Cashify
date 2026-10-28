@@ -55,7 +55,7 @@ async function main() {
   const q = (s: ReturnType<typeof make>, dev: typeof nord, d: object) => s.quote({ brand: dev.brand, model: dev.model, storage: dev.storage, diagnostics: d });
 
   await check('verified scope still binds: Nord candidate and 8 Pro accessory route', async () => {
-    const n = await q(rc, nord, clean); assert(n.ok); assert.equal(n.fhoneifyPrice, 8977); assert.equal(n.pricingVersion, RELEASE_CANDIDATE_PRICING_VERSION);
+    const n = await q(rc, nord, clean); assert(n.ok); assert.equal(n.fhoneifyPrice, 8987); assert.equal(n.pricingVersion, RELEASE_CANDIDATE_PRICING_VERSION);
     const p = await q(rc, eightPro, clean); assert(p.ok); assert.equal(p.internal.cashifyConditionEquivalent, 11500);
   });
   await check('former legacy fallback variants inspect in release mode, with no token', async () => {
@@ -83,7 +83,7 @@ async function main() {
   await check('an old release token for an in-scope route is recomputed after a policy version change', async () => {
     const legacyNord = await q(legacy, nord, clean); assert(legacyNord.ok);
     const lead = await rc.verifyLeadPrice({ brand: nord.brand, model: nord.model, storage: nord.storage, diagnostics: clean, quoteToken: legacyNord.quoteToken, clientQuotedPrice: legacyNord.fhoneifyPrice });
-    assert(lead.ok); assert.equal(lead.price, 8977); assert.equal(lead.audit.priceSource, 'recomputed'); assert.equal(lead.audit.tokenRejectedReason, 'pricing_version_changed');
+    assert(lead.ok); assert.equal(lead.price, 8987); assert.equal(lead.audit.priceSource, 'recomputed'); assert.equal(lead.audit.tokenRejectedReason, 'pricing_version_changed');
   });
   await check('missing route evidence (expired or unreadable file) inspects everything, never legacy', async () => {
     const none = make('release-candidate', []);

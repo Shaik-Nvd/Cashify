@@ -12,7 +12,7 @@ import { deviceKey, type ReferencePriceRecord } from '../../lib/referencePricing
 import { InMemoryQuestionnaireProfileStore } from '../../lib/referencePricing/questionnaire/store';
 import { questionnaireModelKey } from '../../lib/referencePricing/questionnaire/types';
 import { applyCompetitorUplift } from '../../lib/pricingCalculator';
-import { applyPayoutCeiling } from '../../lib/pricing/payoutCeiling';
+import { applyReferenceBonusCeiling } from '../../lib/pricing/payoutCeiling';
 import { loadReleaseRouteEvidence } from '../../lib/pricing/releaseRouteEvidence';
 
 const at = new Date('2026-10-03T12:00:00Z'), t = '2026-10-03T11:00:00Z';
@@ -53,7 +53,8 @@ async function main() {
   assert(l.internal.cashifyConditionEquivalent - r.internal.cashifyConditionEquivalent >= 300, 'bonus removed');
   assert(Math.abs(r.internal.cashifyConditionEquivalent - 8320) < Math.abs(l.internal.cashifyConditionEquivalent - 8320)); checks++;
   // uplift once, then the owner's payout ceiling (selling-basis equivalent on the verified route)
-  assert.equal(r.fhoneifyPrice, applyPayoutCeiling({ quote: applyCompetitorUplift(8340, r.internal.cashifyConditionEquivalent), cashifyHeadlineEquivalent: r.internal.cashifyConditionEquivalent }).quote); checks++;
+  // production applies the approved reference-first bonus budget (2026-10-26), not the historical 8%-of-damaged-value ceiling
+  assert.equal(r.fhoneifyPrice, applyReferenceBonusCeiling({ quote: applyCompetitorUplift(8340, r.internal.cashifyConditionEquivalent), cashifyHeadlineEquivalent: r.internal.cashifyConditionEquivalent, reference: 8340, equivalentBasis: r.internal.payoutCeiling.equivalentBasis }).quote); checks++;
   // RC, missing box is unsupported, with no binding price or token.
   const noBox = await q(rc, { ...clean, accessories: ['charger'] }), legacyNoBox = await q(legacy, { ...clean, accessories: ['charger'] });
   assert(!noBox.ok && legacyNoBox.ok); assert.equal(noBox.code, 'MANUAL_INSPECTION_REQUIRED');
@@ -76,7 +77,9 @@ async function main() {
   // correction; the disabled legacy engine keeps its historical quote.
   const ru = await q(rc, clean, ablationMeasured), lu = await q(legacy, clean, ablationMeasured); assert(ru.ok && lu.ok);
   assert.equal(ru.internal.cashifyConditionEquivalent, 9690); assert.equal(ru.internal.accessoryBasis, 'GET_UPTO_INCLUDES_BOX_AND_CHARGER');
-  assert.equal(lu.internal.accessoryBasis, 'LEGACY_BOX_BONUS'); assert.equal(lu.fhoneifyPrice - ru.fhoneifyPrice, 410); checks++;
+  assert.equal(lu.internal.accessoryBasis, 'LEGACY_BOX_BONUS'); // the bonus is on the reference (same for both), so the offers differ by exactly the condition difference
+  assert.equal(lu.fhoneifyPrice - ru.fhoneifyPrice, lu.internal.cashifyConditionEquivalent - ru.internal.cashifyConditionEquivalent);
+  assert.equal(lu.fhoneifyPrice - ru.fhoneifyPrice, 400); checks++;
   const scratched = await q(rc, { ...clean, defects: ['screen_scratch'], screenCondition: 'More than 2 scratches on screen' }, ablationMeasured);
   assert(!scratched.ok); assert.equal(scratched.code, 'MANUAL_INSPECTION_REQUIRED', 'measured +7.9% screen-scratch overpayment on this route'); checks++;
   const glass = await q(rc, { ...clean, defects: ['screen_scratch'], screenCondition: 'Screen cracked/ glass broken' }, ablationMeasured);

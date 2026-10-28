@@ -441,11 +441,11 @@ async function run() {
     });
     await check('hybrid HTTP price/token/reload/lead uses the corrected amount and unchanged payout', async () => {
       active = make('hybrid'); const response = await post('/api/quote/price', requestFor(clean));
-      assert.equal(response.status, 200); assert.equal(response.body.data.fhoneifyPrice, 8977);
+      assert.equal(response.status, 200); assert.equal(response.body.data.fhoneifyPrice, 8987);
       const token = response.body.data.quoteToken; assert(token);
       const lead = await post('/api/quote/leads', leadFor(clean, token, 1)); assert.equal(lead.status, 200);
-      const saved = leads.at(-1)!; assert.equal(saved.quotedPrice, 8977);
-      assert.deepEqual((saved.answers.pricing as any).customerPayout, customerPayout(8977, false));
+      const saved = leads.at(-1)!; assert.equal(saved.quotedPrice, 8987);
+      assert.deepEqual((saved.answers.pricing as any).customerPayout, customerPayout(8987, false));
     });
     await check('hybrid fallback endpoint issues a token and persists the unchanged legacy price', async () => {
       active = make('hybrid', { releaseRouteEvidence: [] }); const expected = await legacy.quote(requestFor(display)); assert(expected.ok);

@@ -2,117 +2,217 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { 
   Search, MapPin, ChevronDown, User, Smartphone, Laptop, 
   Gamepad2, Camera, Watch, RefreshCw, PenTool, Store, ShoppingBag, 
-  ArrowRight, ShieldCheck, Truck, Zap, Star, ChevronLeft, ChevronRight, CheckCircle2
+  ArrowRight, ShieldCheck, Truck, Zap, Star, ChevronLeft, ChevronRight, CheckCircle2,
+  Percent, Shield, ThumbsUp, DollarSign, Award, Clock
 } from 'lucide-react';
 import FAQs from '@/components/FAQs';
 import ClosingCta from '@/components/home/ClosingCta';
 
 export default function LandingPage() {
   const [selectedCity, setSelectedCity] = useState('Gurgaon');
+  const [showCityModal, setShowCityModal] = useState(false);
+  const [searchVal, setSearchVal] = useState('');
   const [activeSlide, setActiveSlide] = useState(0);
 
   const heroBanners = [
     {
+      tag: "DOORSTEP SERVICE",
       title: "Sell old phone",
-      subtitle: "From your doorstep or at any of our 200 stores pan-India",
+      highlight: "for Instant Cash",
+      subtitle: "From your doorstep in 60 mins or at any of our 200+ certified stores pan-India",
       ctaText: "Sell Now",
       ctaLink: "/quote",
-      bgGradient: "from-[#2ec4b6] via-[#20a39e] to-[#0e7478]",
+      bgGradient: "from-[#128085] via-[#0d6e72] to-[#084b4e]",
       badge1: "DOORSTEP PICKUP",
       badge2: "200 STORES PAN INDIA",
-      stat: "Instant Cash at Doorstep"
+      statNumber: "₹42,500+",
+      statLabel: "Highest Payout Rate Today",
+      statPhone: "iPhone 15 / Galaxy S24"
     },
     {
-      title: "Buy Refurbished Mobiles",
-      subtitle: "32-Point Quality Inspected with 6 to 12 Months Cashify Warranty",
-      ctaText: "Shop Now",
+      tag: "REFURBISHED MEGA SALE",
+      title: "Buy Refurbished",
+      highlight: "Mobiles & Laptops",
+      subtitle: "32-Point Quality Inspected with 6 to 12 Months Cashify Warranty & 7 Days Replacement",
+      ctaText: "Shop Refurbished",
       ctaLink: "/buy",
-      bgGradient: "from-[#128085] via-[#0e6468] to-[#094649]",
-      badge1: "32-POINT CHECK",
+      bgGradient: "from-[#0a4f52] via-[#0e6468] to-[#128085]",
+      badge1: "32-POINT QUALITY CHECK",
       badge2: "1 YEAR WARRANTY",
-      stat: "Up to 70% Off Flagships"
+      statNumber: "Up to 70% OFF",
+      statLabel: "On Flagships with Warranty",
+      statPhone: "Zero Cost EMI Available"
     },
     {
-      title: "Broken Phone Screen?",
-      subtitle: "Doorstep screen & battery repair in 30 minutes with 6 months warranty",
-      ctaText: "Book Repair",
+      tag: "EXPRESS DOORSTEP REPAIR",
+      title: "Phone Screen Broken?",
+      highlight: "Fix It In 30 Mins",
+      subtitle: "Certified technicians visit your home or office. OEM grade screens with 6 months warranty.",
+      ctaText: "Book Doorstep Repair",
       ctaLink: "/repair",
-      bgGradient: "from-[#028090] via-[#007f5f] to-[#2b9348]",
-      badge1: "GENUINE PARTS",
-      badge2: "30-MIN DOORSTEP",
-      stat: "Free Doorstep Visit"
+      bgGradient: "from-[#007f5f] via-[#10705a] to-[#025a47]",
+      badge1: "GENUINE SPARE PARTS",
+      badge2: "6 MONTHS WARRANTY",
+      statNumber: "30 Minutes",
+      statLabel: "Average Doorstep Repair Time",
+      statPhone: "Free Diagnostic Visit"
     }
   ];
 
   const services = [
-    { name: "Sell Phone", icon: "📱", href: "/quote", badge: "Instant Cash" },
-    { name: "Buy Gadgets", icon: "💻", href: "/buy", badge: "Warranty" },
-    { name: "Buy Phone", icon: "📱", href: "/buy", badge: "Refurbished" },
-    { name: "Buy Laptops", icon: "💻", href: "/buy", badge: "Top Brands" },
-    { name: "Rent Devices", icon: "🎮", href: "/buy", badge: "Easy Rent" },
-    { name: "Buy Cameras", icon: "📷", href: "/buy", badge: "DSLR & Lens" },
-    { name: "Pixel Upgrade", icon: "✨", href: "/quote", badge: "Extra ₹2K" },
-    { name: "Gaming Consoles", icon: "🕹️", href: "/buy", badge: "PS5 & Xbox" },
-    { name: "Repair Phone", icon: "🛠️", href: "/repair", badge: "Doorstep" },
-    { name: "Repair Laptop", icon: "💻", href: "/repair", badge: "In 45 Mins" },
-    { name: "Find New Phone", icon: "🔍", href: "/quote", badge: "Compare" },
-    { name: "Nearby Stores", icon: "🏬", href: "/stores", badge: "200+ Stores" },
-    { name: "Accessories", icon: "🎧", href: "/buy", badge: "Chargers & Buds" },
-    { name: "Smartwatches", icon: "⌚", href: "/quote", badge: "Apple & Wear" },
-    { name: "Recycle Phone", icon: "♻️", href: "/quote", badge: "Go Green" },
-    { name: "Buy Tablets", icon: "📱", href: "/buy", badge: "iPads & Tabs" },
+    { name: "Sell Phone", emoji: "📱", href: "/quote", badge: "Instant Cash", desc: "Top Value" },
+    { name: "Buy Gadgets", emoji: "💻", href: "/buy", badge: "Warranty", desc: "Certified" },
+    { name: "Buy Phone", emoji: "📲", href: "/buy", badge: "Refurbished", desc: "32-Pt Check" },
+    { name: "Buy Laptops", emoji: "🖥️", href: "/buy", badge: "Up to 60% Off", desc: "Mac & Windows" },
+    { name: "Rent PS5", emoji: "🎮", href: "/buy", badge: "Gaming", desc: "Zero Deposit" },
+    { name: "Buy Cameras", emoji: "📷", href: "/buy", badge: "DSLR & Lens", desc: "Inspected" },
+    { name: "Pixel Upgrade", emoji: "✨", href: "/quote", badge: "₹2,000 Bonus", desc: "Exchange Deal" },
+    { name: "Gaming Consoles", emoji: "🕹️", href: "/buy", badge: "PlayStation", desc: "Pre-owned" },
+    { name: "Repair Phone", emoji: "🛠️", href: "/repair", badge: "30 Mins", desc: "At Doorstep" },
+    { name: "Repair Laptop", emoji: "🔧", href: "/repair", badge: "Screen & Batt", desc: "Free Visit" },
+    { name: "Find New Phone", emoji: "🔍", href: "/quote", badge: "Price Drop", desc: "Best Deals" },
+    { name: "Nearby Stores", emoji: "🏬", href: "/stores", badge: "200+ Stores", desc: "Walk-in" },
+    { name: "Accessories", emoji: "🎧", href: "/buy", badge: "Original", desc: "Buds & Cables" },
+    { name: "Smartwatches", emoji: "⌚", href: "/quote", badge: "Sell Apple Watch", desc: "Spot Cash" },
+    { name: "Recycle Phone", emoji: "♻️", href: "/quote", badge: "Zero E-Waste", desc: "Eco Reward" },
+    { name: "Buy Tablets", emoji: "📟", href: "/buy", badge: "iPads & Tabs", desc: "With Warranty" },
   ];
 
-  const topSellingMobiles = [
-    { name: "Apple iPhone 13 (128 GB)", price: "₹34,499", origPrice: "₹59,900", discount: "42% OFF", condition: "Superb", rating: 4.8 },
-    { name: "Samsung Galaxy S22 5G", price: "₹26,999", origPrice: "₹72,999", discount: "63% OFF", condition: "Flawless", rating: 4.7 },
-    { name: "Apple iPhone 14 Pro", price: "₹68,999", origPrice: "₹1,29,900", discount: "47% OFF", condition: "Flawless", rating: 4.9 },
-    { name: "OnePlus 10 Pro 5G", price: "₹23,499", origPrice: "₹66,999", discount: "65% OFF", condition: "Superb", rating: 4.6 }
+  const popularBrands = [
+    { name: "Apple", logo: "", models: "iPhone 15, 14, 13, 12, 11", href: "/quote?brand=Apple" },
+    { name: "Samsung", logo: "SAMSUNG", models: "Galaxy S24, S23, S22, Z Fold", href: "/quote?brand=Samsung" },
+    { name: "OnePlus", logo: "1+", models: "OnePlus 12, 11, 10, Nord Series", href: "/quote?brand=OnePlus" },
+    { name: "Xiaomi", logo: "mi", models: "Redmi Note, Xiaomi Pro, POCO", href: "/quote?brand=Xiaomi" },
+    { name: "Vivo", logo: "vivo", models: "V30, V29, X90, T Series", href: "/quote?brand=Vivo" },
+    { name: "Oppo", logo: "oppo", models: "Reno 11, Find N, F Series", href: "/quote?brand=Oppo" },
+    { name: "Google", logo: "G", models: "Pixel 8 Pro, 7a, 6, 7", href: "/quote?brand=Google" },
+    { name: "Realme", logo: "realme", models: "Realme 12 Pro, GT, Narzo", href: "/quote?brand=Realme" },
   ];
+
+  const featuredDeals = [
+    {
+      name: "Apple iPhone 13 (128 GB)",
+      color: "Midnight Black",
+      price: "₹34,499",
+      origPrice: "₹59,900",
+      discount: "42% OFF",
+      condition: "Superb Condition",
+      warranty: "6 Months Cashify Warranty",
+      rating: 4.8,
+      reviews: "1,240 ratings",
+      tag: "Best Seller"
+    },
+    {
+      name: "Samsung Galaxy S22 5G (128 GB)",
+      color: "Phantom White",
+      price: "₹26,999",
+      origPrice: "₹72,999",
+      discount: "63% OFF",
+      condition: "Flawless Condition",
+      warranty: "6 Months Cashify Warranty",
+      rating: 4.7,
+      reviews: "890 ratings",
+      tag: "Top Value"
+    },
+    {
+      name: "Apple iPhone 14 Pro (128 GB)",
+      color: "Deep Purple",
+      price: "₹68,999",
+      origPrice: "₹1,29,900",
+      discount: "47% OFF",
+      condition: "Flawless Condition",
+      warranty: "12 Months Warranty",
+      rating: 4.9,
+      reviews: "2,150 ratings",
+      tag: "Premium Deal"
+    },
+    {
+      name: "OnePlus 10 Pro 5G (128 GB)",
+      color: "Emerald Forest",
+      price: "₹23,499",
+      origPrice: "₹66,999",
+      discount: "65% OFF",
+      condition: "Superb Condition",
+      warranty: "6 Months Cashify Warranty",
+      rating: 4.6,
+      reviews: "640 ratings",
+      tag: "Hot Price"
+    }
+  ];
+
+  const citiesList = ["Gurgaon", "Delhi NCR", "Bengaluru", "Mumbai", "Hyderabad", "Pune", "Chennai", "Kolkata", "Ahmedabad", "Noida"];
 
   return (
-    <div className="w-full bg-[#f4f7f8] text-[#1c252c] min-h-screen">
+    <div className="w-full bg-[#f8fafb] text-[#1c252c] min-h-screen">
       
-      {/* Sub-Header / Search & Top Bar (Exact Cashify Header) */}
-      <div className="bg-white border-b border-gray-100 shadow-xs">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+      {/* Top Banner Notice */}
+      <div className="bg-[#0e6468] text-white text-[11px] sm:text-xs py-1.5 px-4 text-center font-semibold flex items-center justify-center gap-2">
+        <span className="bg-[#f8c12d] text-[#0e6468] text-[9px] font-black uppercase px-1.5 py-0.5 rounded">OFFER</span>
+        <span>Get Extra ₹1,500 Bonus on Selling Old Phones Today! Code: <strong>CASHIFYMAX</strong></span>
+      </div>
+
+      {/* Main Cashify Header (Exact Desktop & Mobile Layout) */}
+      <header className="sticky top-0 z-40 bg-white border-b border-gray-100 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-3.5">
           <div className="flex items-center justify-between gap-4">
             
-            {/* Cashify Official Logo */}
-            <Link href="/" className="flex items-center gap-2 no-underline">
-              <div className="w-9 h-9 rounded-full bg-[#20a39e] flex items-center justify-center text-white font-black text-xl shadow-sm">
+            {/* Logo */}
+            <Link href="/" className="flex items-center gap-2.5 no-underline shrink-0">
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#128085] flex items-center justify-center text-white font-black text-xl shadow-sm">
                 C
               </div>
-              <span className="text-2xl font-black tracking-tight text-[#148387]">
-                CASHIFY
-              </span>
+              <div className="flex flex-col">
+                <span className="text-2xl sm:text-3xl font-black tracking-tight text-[#128085] leading-none">
+                  CASHIFY
+                </span>
+                <span className="text-[9px] font-bold text-gray-400 uppercase tracking-widest mt-0.5">
+                  Sell • Buy • Repair
+                </span>
+              </div>
             </Link>
 
-            {/* Central Search Bar */}
+            {/* Central Search Bar with Icon & Placeholder */}
             <div className="flex-1 max-w-2xl hidden md:block">
               <div className="relative">
                 <Search className="absolute left-4 top-3 h-4 w-4 text-gray-400" />
                 <input
                   type="text"
-                  placeholder="Search for mobiles, accessories & More"
-                  className="w-full bg-[#f1f5f7] border border-gray-200 rounded-lg pl-11 pr-4 py-2 text-sm focus:outline-none focus:border-[#20a39e] focus:bg-white transition"
+                  value={searchVal}
+                  onChange={(e) => setSearchVal(e.target.value)}
+                  placeholder="Search for mobiles, laptops, smartwatches & accessories..."
+                  className="w-full bg-[#f1f5f7] border border-gray-200 rounded-full pl-11 pr-24 py-2.5 text-xs sm:text-sm focus:outline-none focus:border-[#128085] focus:bg-white transition"
                 />
+                <button 
+                  onClick={() => {
+                    if (searchVal) window.location.href = `/quote?search=${encodeURIComponent(searchVal)}`;
+                  }}
+                  className="absolute right-1.5 top-1.5 bg-[#128085] hover:bg-[#0e6468] text-white text-xs font-bold px-4 py-1.5 rounded-full transition shadow-xs"
+                >
+                  Search
+                </button>
               </div>
             </div>
 
-            {/* Location Selector & User Profile */}
-            <div className="flex items-center gap-5 text-sm font-semibold text-gray-700">
-              <div className="flex items-center gap-1 cursor-pointer hover:text-[#20a39e]">
-                <MapPin className="h-4 w-4 text-[#20a39e]" />
+            {/* Location Selector & User Authentication Action */}
+            <div className="flex items-center gap-4 sm:gap-6 text-xs sm:text-sm font-bold text-gray-700">
+              <div 
+                onClick={() => setShowCityModal(true)}
+                className="flex items-center gap-1.5 cursor-pointer bg-gray-50 border border-gray-200 hover:border-[#128085] px-3 py-1.5 rounded-full transition"
+              >
+                <MapPin className="h-3.5 w-3.5 text-[#128085]" />
                 <span>{selectedCity}</span>
                 <ChevronDown className="h-3.5 w-3.5 text-gray-400" />
               </div>
 
-              <Link href="/auth" className="flex items-center gap-1.5 cursor-pointer text-gray-700 hover:text-[#20a39e] no-underline">
-                <User className="h-4 w-4 text-gray-500" />
+              <Link 
+                href="/auth" 
+                className="flex items-center gap-1.5 bg-[#e6f6f6] hover:bg-[#d5efef] text-[#128085] px-3.5 py-1.5 rounded-full no-underline transition"
+              >
+                <User className="h-4 w-4" />
                 <span>Login</span>
               </Link>
             </div>
@@ -121,156 +221,229 @@ export default function LandingPage() {
         </div>
 
         {/* Secondary Category Navigation Bar */}
-        <div className="border-t border-gray-100 bg-white">
+        <div className="border-t border-gray-100 bg-[#fafbfc]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between text-xs font-bold text-gray-700 py-2.5 overflow-x-auto no-scrollbar gap-6">
-              <span className="flex items-center gap-1 cursor-pointer hover:text-[#20a39e]">All <ChevronDown className="h-3 w-3 text-gray-400" /></span>
-              <Link href="/quote" className="hover:text-[#20a39e] flex items-center gap-1 no-underline text-gray-700">Sell Phone <ChevronDown className="h-3 w-3 text-gray-400" /></Link>
-              <Link href="/quote" className="hover:text-[#20a39e] flex items-center gap-1 no-underline text-gray-700">Sell Gadgets <ChevronDown className="h-3 w-3 text-gray-400" /></Link>
-              <Link href="/buy" className="hover:text-[#20a39e] flex items-center gap-1 no-underline text-gray-700">Buy Refurbished Devices <ChevronDown className="h-3 w-3 text-gray-400" /></Link>
-              <Link href="/quote" className="hover:text-[#20a39e] flex items-center gap-1 no-underline text-gray-700">Find New Gadget <ChevronDown className="h-3 w-3 text-gray-400" /></Link>
-              <Link href="/buy" className="hover:text-[#20a39e] flex items-center gap-1 no-underline text-gray-700">Buy Laptop <ChevronDown className="h-3 w-3 text-gray-400" /></Link>
-              <Link href="/stores" className="hover:text-[#20a39e] flex items-center gap-1 no-underline text-gray-700">Cashify Store <ChevronDown className="h-3 w-3 text-gray-400" /></Link>
-              <span className="hover:text-[#20a39e] flex items-center gap-1 cursor-pointer">More <ChevronDown className="h-3 w-3 text-gray-400" /></span>
+            <div className="flex items-center justify-between text-xs font-bold text-gray-700 py-2.5 overflow-x-auto no-scrollbar gap-6 min-w-max">
+              <span className="flex items-center gap-1 cursor-pointer text-[#128085] font-extrabold">All Categories</span>
+              <Link href="/quote" className="hover:text-[#128085] flex items-center gap-1 no-underline text-gray-700 transition">Sell Phone <ChevronDown className="h-3 w-3 text-gray-400" /></Link>
+              <Link href="/quote" className="hover:text-[#128085] flex items-center gap-1 no-underline text-gray-700 transition">Sell Gadgets <ChevronDown className="h-3 w-3 text-gray-400" /></Link>
+              <Link href="/buy" className="hover:text-[#128085] flex items-center gap-1 no-underline text-gray-700 transition">Buy Refurbished Devices <ChevronDown className="h-3 w-3 text-gray-400" /></Link>
+              <Link href="/quote" className="hover:text-[#128085] flex items-center gap-1 no-underline text-gray-700 transition">Find New Gadget <ChevronDown className="h-3 w-3 text-gray-400" /></Link>
+              <Link href="/buy" className="hover:text-[#128085] flex items-center gap-1 no-underline text-gray-700 transition">Buy Laptop <ChevronDown className="h-3 w-3 text-gray-400" /></Link>
+              <Link href="/repair" className="hover:text-[#128085] flex items-center gap-1 no-underline text-gray-700 transition">Doorstep Repair <ChevronDown className="h-3 w-3 text-gray-400" /></Link>
+              <Link href="/stores" className="hover:text-[#128085] flex items-center gap-1 no-underline text-gray-700 transition">Cashify Stores <ChevronDown className="h-3 w-3 text-gray-400" /></Link>
+              <Link href="/partner" className="hover:text-[#128085] flex items-center gap-1 no-underline text-[#f37021] transition">Partner With Us</Link>
             </div>
           </div>
         </div>
-      </div>
+      </header>
 
-      {/* Main Content Area */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
+      {/* Main Content Body */}
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-10">
         
-        {/* Exact Hero Slider Banner */}
-        <div className="relative rounded-2xl overflow-hidden shadow-lg transition-all duration-500">
-          <div className={`bg-gradient-to-r ${heroBanners[activeSlide].bgGradient} p-8 sm:p-12 text-white min-h-[300px] sm:min-h-[340px] flex items-center justify-between relative`}>
+        {/* Hero Interactive Slider */}
+        <section className="relative rounded-3xl overflow-hidden shadow-xl border border-teal-100">
+          <div className={`bg-gradient-to-r ${heroBanners[activeSlide].bgGradient} p-8 sm:p-14 text-white min-h-[340px] sm:min-h-[380px] flex items-center justify-between relative`}>
             
-            {/* Left Texts */}
-            <div className="max-w-xl space-y-4 z-10">
-              <h1 className="text-3xl sm:text-5xl font-black tracking-tight leading-tight">
-                {heroBanners[activeSlide].title}
+            {/* Left Content */}
+            <div className="max-w-xl space-y-5 z-10">
+              <span className="inline-block bg-white/20 text-white text-[11px] font-black uppercase tracking-widest px-3 py-1 rounded-full backdrop-blur-md border border-white/20">
+                {heroBanners[activeSlide].tag}
+              </span>
+
+              <h1 className="text-3xl sm:text-5xl font-black tracking-tight leading-none">
+                {heroBanners[activeSlide].title} <br />
+                <span className="text-[#2ecc71]">{heroBanners[activeSlide].highlight}</span>
               </h1>
-              <p className="text-sm sm:text-lg text-teal-50 max-w-md font-medium leading-relaxed">
+
+              <p className="text-sm sm:text-base text-teal-50 max-w-lg font-medium leading-relaxed">
                 {heroBanners[activeSlide].subtitle}
               </p>
               
-              <div className="pt-2">
+              <div className="pt-2 flex flex-wrap items-center gap-4">
                 <Link
                   href={heroBanners[activeSlide].ctaLink}
-                  className="inline-flex items-center gap-2 bg-white text-[#128085] hover:bg-teal-50 font-black text-sm px-7 py-3 rounded-xl shadow-md transition-transform hover:-translate-y-0.5 no-underline"
+                  className="inline-flex items-center gap-2 bg-white text-[#128085] hover:bg-teal-50 font-black text-sm px-8 py-3.5 rounded-xl shadow-lg transition-transform hover:-translate-y-0.5 no-underline"
                 >
                   {heroBanners[activeSlide].ctaText}
                   <ArrowRight className="h-4 w-4 stroke-[3]" />
                 </Link>
+
+                <div className="flex items-center gap-2 text-xs font-semibold text-teal-100">
+                  <Truck className="h-4 w-4 text-[#2ecc71]" />
+                  <span>Free Doorstep Pickup in {selectedCity}</span>
+                </div>
               </div>
             </div>
 
-            {/* Right Graphic Mockup */}
-            <div className="hidden lg:flex items-center gap-6 z-10 pr-6">
-              <div className="w-56 h-72 bg-gray-900 rounded-3xl border-4 border-gray-700 shadow-2xl p-4 flex flex-col justify-between text-white relative">
+            {/* Right Visual Card */}
+            <div className="hidden lg:flex items-center z-10 pr-6">
+              <div className="w-64 bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 p-6 shadow-2xl space-y-5 text-white">
                 <div className="flex justify-between items-center text-[10px] font-bold">
-                  <span className="bg-[#20a39e] text-white px-2 py-0.5 rounded-full">{heroBanners[activeSlide].badge1}</span>
-                  <span className="text-teal-300">verified</span>
+                  <span className="bg-[#2ecc71] text-gray-900 font-extrabold px-2.5 py-0.5 rounded-full">{heroBanners[activeSlide].badge1}</span>
+                  <span className="text-teal-200">Verified</span>
                 </div>
-                <div className="text-center my-auto">
-                  <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center mx-auto mb-2 text-2xl">
-                    📱
-                  </div>
-                  <h4 className="font-extrabold text-sm">{heroBanners[activeSlide].stat}</h4>
-                  <p className="text-[10px] text-teal-200 mt-1">UPI in 60 seconds</p>
+
+                <div className="text-center py-2">
+                  <div className="text-3xl font-black text-white">{heroBanners[activeSlide].statNumber}</div>
+                  <div className="text-xs text-teal-100 font-semibold mt-1">{heroBanners[activeSlide].statLabel}</div>
+                  <div className="text-[10px] text-teal-200 mt-0.5">{heroBanners[activeSlide].statPhone}</div>
                 </div>
-                <div className="bg-white/10 rounded-xl p-2 text-center text-[10px] font-bold">
+
+                <div className="bg-white/15 rounded-xl p-2.5 text-center text-[10px] font-bold tracking-wide uppercase">
                   {heroBanners[activeSlide].badge2}
                 </div>
               </div>
             </div>
 
-            {/* Controls */}
+            {/* Left / Right Slider Arrows */}
             <button
               onClick={() => setActiveSlide((prev) => (prev === 0 ? heroBanners.length - 1 : prev - 1))}
-              className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/80 hover:bg-white text-gray-700 flex items-center justify-center shadow-md transition"
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 hover:bg-white text-gray-800 flex items-center justify-center shadow-lg transition"
             >
-              <ChevronLeft className="h-5 w-5" />
+              <ChevronLeft className="h-5 w-5 stroke-[2.5]" />
             </button>
             <button
               onClick={() => setActiveSlide((prev) => (prev === heroBanners.length - 1 ? 0 : prev + 1))}
-              className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/80 hover:bg-white text-gray-700 flex items-center justify-center shadow-md transition"
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 hover:bg-white text-gray-800 flex items-center justify-center shadow-lg transition"
             >
-              <ChevronRight className="h-5 w-5" />
+              <ChevronRight className="h-5 w-5 stroke-[2.5]" />
             </button>
 
-            {/* Dot Indicators */}
-            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+            {/* Slide Dots */}
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
               {heroBanners.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => setActiveSlide(i)}
-                  className={`h-1.5 rounded-full transition-all ${activeSlide === i ? 'w-6 bg-white' : 'w-2 bg-white/40'}`}
+                  className={`h-2 rounded-full transition-all ${activeSlide === i ? 'w-8 bg-white' : 'w-2 bg-white/40'}`}
                 />
               ))}
             </div>
 
           </div>
-        </div>
+        </section>
 
-        {/* Our Services Section (Exact 2-Row Grid from Reference) */}
-        <section className="bg-white rounded-2xl p-6 sm:p-8 shadow-xs border border-gray-100">
-          <div className="mb-6">
-            <h2 className="text-xl sm:text-2xl font-black text-gray-900">Our Services</h2>
+        {/* 16-Tile "Our Services" Grid (Identical to Official Cashify) */}
+        <section className="bg-white rounded-3xl p-6 sm:p-8 shadow-xs border border-gray-100">
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <h2 className="text-2xl font-black text-gray-900 tracking-tight">Our Services</h2>
+              <p className="text-xs text-gray-500 mt-0.5">Explore instant device buyback, certified refurbished gadgets, and doorstep repair</p>
+            </div>
           </div>
 
-          <div className="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-8 gap-3 sm:gap-4">
-            {services.map((item, idx) => (
+          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3 sm:gap-4">
+            {services.map((srv, idx) => (
               <Link
                 key={idx}
-                href={item.href}
-                className="group flex flex-col items-center text-center p-3 rounded-2xl border border-gray-100 bg-[#f7fafb] hover:bg-[#ebf6f6] hover:border-[#20a39e]/40 hover:shadow-sm transition-all no-underline"
+                href={srv.href}
+                className="group flex flex-col items-center text-center p-3.5 rounded-2xl border border-gray-100 bg-[#f7fafb] hover:bg-[#ebf6f6] hover:border-[#128085]/40 hover:shadow-md transition-all no-underline"
               >
-                <div className="w-12 h-12 rounded-xl bg-white shadow-xs flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
-                  {item.icon}
+                <div className="w-14 h-14 rounded-2xl bg-white shadow-xs flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+                  {srv.emoji}
                 </div>
-                <span className="text-xs font-bold text-gray-800 mt-2.5 group-hover:text-[#148387] line-clamp-1">
-                  {item.name}
+                <span className="text-xs font-bold text-gray-900 mt-3 group-hover:text-[#128085] line-clamp-1">
+                  {srv.name}
                 </span>
-                <span className="text-[9px] font-semibold text-[#20a39e] mt-0.5 line-clamp-1">
-                  {item.badge}
+                <span className="text-[10px] font-extrabold text-[#128085] mt-0.5 line-clamp-1">
+                  {srv.badge}
+                </span>
+                <span className="text-[9px] text-gray-400 mt-0.5 line-clamp-1">
+                  {srv.desc}
                 </span>
               </Link>
             ))}
           </div>
         </section>
 
-        {/* Top Selling Mobiles (Refurbished Storefront) */}
-        <section className="bg-white rounded-2xl p-6 sm:p-8 shadow-xs border border-gray-100">
+        {/* Brand Picker Section */}
+        <section className="bg-white rounded-3xl p-6 sm:p-8 shadow-xs border border-gray-100">
           <div className="flex items-center justify-between mb-6">
             <div>
-              <h2 className="text-xl sm:text-2xl font-black text-gray-900">Buy Refurbished Mobiles</h2>
-              <p className="text-xs text-gray-500 mt-1">32-point inspection • 6 Months Warranty • 7-day replacement</p>
+              <h2 className="text-2xl font-black text-gray-900 tracking-tight">Select Your Brand to Sell</h2>
+              <p className="text-xs text-gray-500 mt-0.5">Instant online price calculation for 1,200+ models with free doorstep pickup</p>
             </div>
-            <Link href="/buy" className="text-xs font-bold text-[#20a39e] hover:text-[#148387] flex items-center gap-1 no-underline">
-              View All <ChevronRight className="h-3.5 w-3.5" />
+            <Link href="/quote" className="text-xs font-bold text-[#128085] hover:underline flex items-center gap-1 no-underline">
+              View All Brands <ChevronRight className="h-4 w-4" />
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {topSellingMobiles.map((item, i) => (
-              <div key={i} className="rounded-2xl border border-gray-200 hover:border-[#20a39e] hover:shadow-md transition p-4 bg-white flex flex-col justify-between">
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
+            {popularBrands.map((b) => (
+              <Link
+                key={b.name}
+                href={b.href}
+                className="p-4 rounded-2xl border border-gray-100 bg-[#fbfcfd] hover:border-[#128085] hover:bg-[#f0f9f9] text-center transition-all group no-underline flex flex-col justify-between"
+              >
+                <div className="text-xl font-black text-gray-800 group-hover:text-[#128085]">{b.logo}</div>
+                <div className="text-xs font-bold text-gray-900 mt-2">{b.name}</div>
+                <div className="text-[9px] text-gray-400 mt-1 line-clamp-1">{b.models}</div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        {/* Buy Refurbished Phones Storefront */}
+        <section className="bg-white rounded-3xl p-6 sm:p-8 shadow-xs border border-gray-100">
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <h2 className="text-2xl font-black text-gray-900 tracking-tight">Buy Refurbished Mobiles</h2>
+              <p className="text-xs text-gray-500 mt-0.5">32-point inspection • 6 to 12 Months Warranty • 7 Days Replacement</p>
+            </div>
+            <Link href="/buy" className="text-xs font-bold text-[#128085] hover:underline flex items-center gap-1 no-underline">
+              View All 150+ Deals <ChevronRight className="h-4 w-4" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {featuredDeals.map((deal, idx) => (
+              <div 
+                key={idx}
+                className="rounded-2xl border border-gray-200 hover:border-[#128085] hover:shadow-lg transition p-5 bg-white flex flex-col justify-between"
+              >
                 <div>
-                  <div className="flex justify-between items-center text-[10px] mb-2 font-bold">
-                    <span className="bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-full">{item.condition}</span>
-                    <span className="flex items-center text-amber-500 font-semibold"><Star className="h-3 w-3 fill-amber-400 mr-0.5" /> {item.rating}</span>
+                  <div className="flex justify-between items-center mb-3">
+                    <span className="bg-[#e6f6f6] text-[#128085] text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full">
+                      {deal.tag}
+                    </span>
+                    <span className="flex items-center text-amber-500 text-xs font-bold">
+                      <Star className="h-3.5 w-3.5 fill-amber-400 mr-1" />
+                      {deal.rating}
+                    </span>
                   </div>
-                  <div className="h-36 bg-[#f7fafb] rounded-xl flex items-center justify-center text-4xl mb-3">
-                    📱
+
+                  <div className="h-44 bg-[#f8fafb] rounded-2xl flex items-center justify-center p-4 mb-4 relative">
+                    <div className="w-20 h-32 bg-gray-900 rounded-2xl border-4 border-gray-700 shadow-md flex flex-col items-center justify-between p-2">
+                      <div className="w-6 h-1 bg-gray-600 rounded-full mt-1"></div>
+                      <span className="text-[8px] font-black text-teal-400">CERTIFIED</span>
+                      <div className="w-2 h-2 rounded-full border border-gray-600 mb-1"></div>
+                    </div>
+                    <span className="absolute bottom-2 right-2 text-[10px] bg-white border border-gray-200 px-2 py-0.5 rounded-md font-semibold text-gray-600 shadow-xs">
+                      {deal.condition}
+                    </span>
                   </div>
-                  <h4 className="font-bold text-sm text-gray-900 line-clamp-1">{item.name}</h4>
+
+                  <h3 className="font-extrabold text-sm text-gray-900 line-clamp-1">{deal.name}</h3>
+                  <p className="text-[11px] text-gray-400 mt-0.5">{deal.color}</p>
+
                   <div className="flex items-baseline gap-2 mt-2">
-                    <span className="text-lg font-black text-gray-900">{item.price}</span>
-                    <span className="text-xs text-gray-400 line-through">{item.origPrice}</span>
-                    <span className="text-xs font-bold text-emerald-600">{item.discount}</span>
+                    <span className="text-xl font-black text-gray-900">{deal.price}</span>
+                    <span className="text-xs text-gray-400 line-through">{deal.origPrice}</span>
+                    <span className="text-xs font-extrabold text-[#2ecc71]">{deal.discount}</span>
                   </div>
+
+                  <p className="text-[11px] font-semibold text-[#128085] mt-2 flex items-center gap-1">
+                    <ShieldCheck className="h-3.5 w-3.5" />
+                    {deal.warranty}
+                  </p>
                 </div>
-                <div className="mt-4 pt-3 border-t border-gray-100 flex gap-2">
-                  <Link href="/buy" className="flex-1 bg-[#20a39e] hover:bg-[#148387] text-white text-xs font-bold py-2 rounded-xl text-center no-underline transition">
+
+                <div className="mt-5 pt-3 border-t border-gray-100 flex gap-2">
+                  <Link 
+                    href="/buy" 
+                    className="flex-1 bg-[#128085] hover:bg-[#0e6468] text-white text-xs font-bold py-2.5 rounded-xl text-center no-underline transition shadow-xs"
+                  >
                     Buy Now
                   </Link>
                 </div>
@@ -279,50 +452,80 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* Why Choose Cashify 4-Card Section */}
+        {/* 4 Pillars of Cashify Trust */}
         <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="bg-white p-5 rounded-2xl border border-gray-100 shadow-xs text-center space-y-2">
-            <div className="w-10 h-10 rounded-xl bg-[#e6f6f6] text-[#20a39e] flex items-center justify-center mx-auto text-xl font-bold">
+          <div className="bg-white p-6 rounded-3xl border border-gray-100 shadow-xs text-center space-y-2.5">
+            <div className="w-12 h-12 rounded-2xl bg-[#e6f6f6] text-[#128085] flex items-center justify-center mx-auto text-2xl font-bold">
               ⚡
             </div>
-            <h4 className="font-bold text-sm text-gray-900">Instant Spot Payment</h4>
-            <p className="text-xs text-gray-500">Instant transfer via UPI or Cash right at your doorstep before pickup.</p>
+            <h3 className="font-extrabold text-sm text-gray-900">Instant Spot Payment</h3>
+            <p className="text-xs text-gray-500 leading-relaxed">Payment credited via UPI or Bank Transfer right in front of you before your device is picked up.</p>
           </div>
 
-          <div className="bg-white p-5 rounded-2xl border border-gray-100 shadow-xs text-center space-y-2">
-            <div className="w-10 h-10 rounded-xl bg-[#e6f6f6] text-[#20a39e] flex items-center justify-center mx-auto text-xl font-bold">
+          <div className="bg-white p-6 rounded-3xl border border-gray-100 shadow-xs text-center space-y-2.5">
+            <div className="w-12 h-12 rounded-2xl bg-[#e6f6f6] text-[#128085] flex items-center justify-center mx-auto text-2xl font-bold">
               🚚
             </div>
-            <h4 className="font-bold text-sm text-gray-900">Free Doorstep Pickup</h4>
-            <p className="text-xs text-gray-500">Pickups scheduled in 60 minutes across India with verified executives.</p>
+            <h3 className="font-extrabold text-sm text-gray-900">Free Doorstep Pickup</h3>
+            <p className="text-xs text-gray-500 leading-relaxed">Book a convenient pickup slot. Our verified executive reaches your location with zero visit fees.</p>
           </div>
 
-          <div className="bg-white p-5 rounded-2xl border border-gray-100 shadow-xs text-center space-y-2">
-            <div className="w-10 h-10 rounded-xl bg-[#e6f6f6] text-[#20a39e] flex items-center justify-center mx-auto text-xl font-bold">
+          <div className="bg-white p-6 rounded-3xl border border-gray-100 shadow-xs text-center space-y-2.5">
+            <div className="w-12 h-12 rounded-2xl bg-[#e6f6f6] text-[#128085] flex items-center justify-center mx-auto text-2xl font-bold">
               🛡️
             </div>
-            <h4 className="font-bold text-sm text-gray-900">100% Data Safety</h4>
-            <p className="text-xs text-gray-500">Certified military-grade data wipe guarantee with invoice certification.</p>
+            <h3 className="font-extrabold text-sm text-gray-900">100% Data Safety</h3>
+            <p className="text-xs text-gray-500 leading-relaxed">Complete military-grade data wipeout guarantee on every smartphone with official certificate.</p>
           </div>
 
-          <div className="bg-white p-5 rounded-2xl border border-gray-100 shadow-xs text-center space-y-2">
-            <div className="w-10 h-10 rounded-xl bg-[#e6f6f6] text-[#20a39e] flex items-center justify-center mx-auto text-xl font-bold">
+          <div className="bg-white p-6 rounded-3xl border border-gray-100 shadow-xs text-center space-y-2.5">
+            <div className="w-12 h-12 rounded-2xl bg-[#e6f6f6] text-[#128085] flex items-center justify-center mx-auto text-2xl font-bold">
               🏬
             </div>
-            <h4 className="font-bold text-sm text-gray-900">200+ Retail Stores</h4>
-            <p className="text-xs text-gray-500">Walk into any nearby Cashify store for walk-in checks and spot deals.</p>
+            <h3 className="font-extrabold text-sm text-gray-900">200+ Retail Stores</h3>
+            <p className="text-xs text-gray-500 leading-relaxed">Visit any nearby Cashify retail store across India for offline diagnostics, buyback, and repairs.</p>
           </div>
         </section>
 
         {/* FAQs */}
-        <section aria-labelledby="faq-title" className="bg-white rounded-2xl p-6 sm:p-8 shadow-xs border border-gray-100">
+        <section aria-labelledby="faq-title" className="bg-white rounded-3xl p-6 sm:p-8 shadow-xs border border-gray-100">
           <FAQs />
         </section>
 
         {/* Closing CTA */}
         <ClosingCta />
 
-      </div>
+      </main>
+
+      {/* City Modal */}
+      {showCityModal && (
+        <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 backdrop-blur-xs">
+          <div className="bg-white rounded-2xl max-w-sm w-full p-6 shadow-2xl relative">
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-base font-bold text-gray-900">Select City</h3>
+              <button onClick={() => setShowCityModal(false)} className="text-gray-400 hover:text-gray-700 text-sm font-bold">✕</button>
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              {citiesList.map((c) => (
+                <button
+                  key={c}
+                  onClick={() => {
+                    setSelectedCity(c);
+                    setShowCityModal(false);
+                  }}
+                  className={`p-2.5 rounded-xl text-left border text-xs font-bold transition flex items-center gap-1.5 ${
+                    selectedCity === c ? 'border-[#128085] bg-[#e6f6f6] text-[#128085]' : 'border-gray-200 text-gray-700 hover:bg-gray-50'
+                  }`}
+                >
+                  <MapPin className="h-3.5 w-3.5 text-[#128085]" />
+                  <span>{c}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }

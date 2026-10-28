@@ -83,7 +83,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <a href="#main-content" className="skip-link">Skip to content</a>
+          <a href="#main-content" className="sr-only">Skip to content</a>
           <Navbar />
           <div className="pb-[calc(80px+env(safe-area-inset-bottom,16px))] md:pb-0">
             <main id="main-content" className="page-animate" style={{ minHeight: '100vh' }}>

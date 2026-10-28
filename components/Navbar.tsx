@@ -113,8 +113,8 @@ export default function Navbar() {
     menuButtonRef.current?.focus();
   };
 
-  // Hide the D2C Navbar on Partner and ITAD pages
-  if (pathname?.startsWith('/partner') || pathname?.startsWith('/itad')) {
+  // Hide standard navbar on homepage, partner, itad, or admin pages
+  if (pathname === '/' || pathname?.startsWith('/partner') || pathname?.startsWith('/itad') || pathname?.startsWith('/admin')) {
     return null;
   }
 

@@ -1,7 +1,7 @@
 /**
  * Which quote-flow questions actually change a device's price.
  *
- * lib/pricingCalculator.ts (calculateFhoneifyPrice) dispatches to one of
+ * lib/pricingCalculator.ts (calculateCashifyPrice) dispatches to one of
  * eight brand calculators by brand/model substring match. This module
  * mirrors that same dispatch so the questionnaire eligibility can never
  * drift from the engine it is describing - see scripts/test/
@@ -49,7 +49,7 @@ export interface QuestionnaireEligibility {
 }
 
 /**
- * Mirrors the brand routing in calculateFhoneifyPrice (lib/pricingCalculator.ts)
+ * Mirrors the brand routing in calculateCashifyPrice (lib/pricingCalculator.ts)
  * exactly, including its brand/model substring checks and precedence order.
  */
 export function resolveEngineBrand(brand: string, model: string): EngineBrand {

@@ -63,5 +63,5 @@ export function calculateVerifiedWorkbookCandidate(specs: readonly WorkbookEvide
   return { supported: true as const, version, evidenceQuality: 'VERIFIED_TRACE_SCREENSHOT' as const,
     baselineKind: input.baseline ? 'measured_clean_control' as const : spec.baseline.kind,
     cleanBaseline: baseline, componentDeduction: deduction,
-    quote: { cashifyConditionEquivalent: value, fhoneifyPrice: applyCompetitorUplift(input.reference, value) } };
+    quote: { cashifyConditionEquivalent: value, cashifyPrice: applyCompetitorUplift(input.reference, value) } };
 }

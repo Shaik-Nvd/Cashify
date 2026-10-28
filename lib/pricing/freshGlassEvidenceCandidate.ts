@@ -37,5 +37,5 @@ export function calculateFreshGlassEvidenceCandidate(input: {
     baselineKind: 'get_upto_calibrated_retention' as const, cleanBaseline: baseline, componentDeduction: deduction,
     cleanMayExceedGetUpto: spec.cleanRetention > 1, evidenceQuality: 'VERIFIED_A_B_TRACE_SCREENSHOT' as const,
     evaluationRole: 'RETROSPECTIVE_RUNTIME_IMPLEMENTATION_OF_FROZEN_CONDITIONAL_RULE' as const,
-    quote: { cashifyConditionEquivalent: price, fhoneifyPrice: applyCompetitorUplift(input.reference, price) } };
+    quote: { cashifyConditionEquivalent: price, cashifyPrice: applyCompetitorUplift(input.reference, price) } };
 }

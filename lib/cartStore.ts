@@ -42,6 +42,6 @@ export const useCartStore = create<CartStore>()(
 
       totalPrice: () => get().items.reduce((sum, item) => sum + item.price, 0),
     }),
-    { name: 'fhoneify-cart' }
+    { name: 'cashify-cart' }
   )
 );

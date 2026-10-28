@@ -1,6 +1,6 @@
 import { MousePointerClick, Timer, Truck, Wallet } from 'lucide-react';
 
-// Only claims documented for Fhoneify (see Fhoneify_User_Manual.md, "Sell").
+// Only claims documented for Cashify (see Cashify_User_Manual.md, "Sell").
 const FEATURES = [
   { Icon: Timer, title: 'Instant quote', desc: 'Answer a few questions about your phone and see its value straight away.' },
   { Icon: Truck, title: 'Free doorstep pickup', desc: 'No fees for pickup. Currently operating exclusively in Bengaluru.' },
@@ -8,13 +8,13 @@ const FEATURES = [
   { Icon: MousePointerClick, title: 'Simple & convenient', desc: 'Check price, schedule pickup & get paid.' },
 ];
 
-export default function WhyFhoneify() {
+export default function WhyCashify() {
   return (
     <section aria-labelledby="why-title" className="mx-auto max-w-7xl px-4 py-16 md:px-6 md:py-24">
       <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
         <div className="lg:sticky lg:top-28 lg:self-start">
           <h2 id="why-title" className="font-display text-[1.9rem] font-medium leading-tight tracking-[-0.02em] text-foreground md:text-[2.5rem]">
-            Why sell with Fhoneify
+            Why sell with Cashify
           </h2>
           <p className="mt-3 max-w-md text-muted md:text-lg">
             An instant quote, a free pickup at your door and payment before your phone leaves your hands.

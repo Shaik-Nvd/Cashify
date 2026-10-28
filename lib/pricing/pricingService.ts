@@ -12,7 +12,7 @@ import {
   PRICING_ENGINE_VERSION,
   PricingInvariantError,
   QuoteReferenceStatus,
-  computeFhoneifyGetUpto,
+  computeCashifyGetUpto,
   priceDevice,
   resolveReference,
 } from './engine';
@@ -89,9 +89,9 @@ export interface PricingFailure {
 export interface AuthoritativeQuote {
   ok: true;
   device: { brand: string; model: string; storage: string };
-  /** Fhoneify final offer for these answers. */
-  fhoneifyPrice: number;
-  /** Fhoneify Get Upto: Cashify's Get Upto plus the uplift, no deductions. */
+  /** Cashify final offer for these answers. */
+  cashifyPrice: number;
+  /** Cashify Get Upto: Cashify's Get Upto plus the uplift, no deductions. */
   startingPrice: number;
   /** How much of the INR 299 first-time coupon may be added without taking the payout over the owner's ceiling. */
   couponHeadroom: number;
@@ -126,7 +126,7 @@ export interface AuthoritativeQuote {
 /** Persisted with the lead so every stored price is auditable. */
 export interface LeadPricingAudit {
   priceSource: 'quote_token' | 'recomputed';
-  fhoneifyPrice: number;
+  cashifyPrice: number;
   pricingVersion: string;
   pricedAt: string;
   tokenIssuedAt: string | null;
@@ -137,7 +137,7 @@ export interface LeadPricingAudit {
   cashifyGetUptoReference: number | null;
   baseSource: BaseSource | null;
   cashifyConditionEquivalent: number | null;
-  fhoneifyGetUpto: number | null;
+  cashifyGetUpto: number | null;
   questionnaire: (QuestionnaireSemantics & { source: 'profile' | 'fallback' }) | null;
   referenceStatus: QuoteReferenceStatus | null;
   referenceSource: string | null;
@@ -267,7 +267,7 @@ export function createPricingService(deps: PricingServiceDeps) {
           reference.record?.model === device.model && workbookStorageIdentity(reference.record?.storage ?? '') === workbookStorageIdentity(device.storage) }) : null;
       if (exact?.matched && !releaseSafetyInspectionReason(device, diagnostics, true)) {
         const policy = deps.exactFinalQuoteOfferPolicy ?? 'existing-uplift';
-        result = { cashifyConditionEquivalent: exact.sellingPrice, fhoneifyPrice: policy === 'bounded-net'
+        result = { cashifyConditionEquivalent: exact.sellingPrice, cashifyPrice: policy === 'bounded-net'
           ? boundedCompetitiveOffer(base.cashifyGetUptoReference, exact.sellingPrice) : applyCompetitorUplift(base.cashifyGetUptoReference, exact.sellingPrice) };
         accessoryBasis = 'OBSERVED_FINAL_SELLING_PRICE';
         equivalentBasis = 'selling';
@@ -289,14 +289,14 @@ export function createPricingService(deps: PricingServiceDeps) {
             deps.logger.info({ deviceKey: key, reason: rc.reason, pricingVersion, reference: base.cashifyGetUptoReference, referenceSource: base.referenceSource,
               questionnaire, conditionClass: rc.conditionClass, routeEvidenceSha256: route?.evidenceSha256 ?? null }, 'Release candidate: manual inspection required');
             return { ok: false, code: 'MANUAL_INSPECTION_REQUIRED', message: 'We need to inspect this phone before we can quote a price',
-              context: { questionnaire, startingPrice: computeFhoneifyGetUpto(base.cashifyGetUptoReference), pricingVersion } };
+              context: { questionnaire, startingPrice: computeCashifyGetUpto(base.cashifyGetUptoReference), pricingVersion } };
           }
           if (rc.kind === 'VERIFIED') {
             equivalentBasis = 'selling';
             accessoryBasis = 'CALIBRATED_ROUTE_ACCESSORIES';
             if (getUptoIncludesAccessories(device, questionnaire, route, rc.rule !== 'fresh-glass')) accessoryBasis = accessoryBasisForRoute(route!);
             result = { cashifyConditionEquivalent: rc.cashifyConditionEquivalent,
-              fhoneifyPrice: applyCompetitorUplift(base.cashifyGetUptoReference, rc.cashifyConditionEquivalent) };
+              cashifyPrice: applyCompetitorUplift(base.cashifyGetUptoReference, rc.cashifyConditionEquivalent) };
           }
           if (rc.kind === 'LEGACY' && isBoxIncludedIdentity(device)) {
             const routeFresh = route && /^[a-f0-9]{64}$/.test(route.evidenceSha256) && isReleaseEvidenceCurrent(route.observedAt, at);
@@ -308,7 +308,7 @@ export function createPricingService(deps: PricingServiceDeps) {
             if (!routeFresh || !profileFresh || !exactReference || !hasVerifiedBoxIncludedRoute(device, questionnaire, route) ||
               route!.baselineGetUpto == null || (route!.baselineGetUpto !== base.cashifyGetUptoReference && rc.conditionClass !== 'clean')) {
               return { ok: false, code: 'MANUAL_INSPECTION_REQUIRED', message: 'Accessory route or clean-reference evidence needs revalidation',
-                context: { questionnaire, startingPrice: computeFhoneifyGetUpto(base.cashifyGetUptoReference), pricingVersion } };
+                context: { questionnaire, startingPrice: computeCashifyGetUpto(base.cashifyGetUptoReference), pricingVersion } };
             }
             // Matched controls on these routes support the clean rule and the
             // legacy deltas for exactly "More than 2 scratches" and "Major
@@ -319,7 +319,7 @@ export function createPricingService(deps: PricingServiceDeps) {
             if (!ACCESSORY_ROUTE_CONDITIONS.has(rc.conditionClass) || !components || components.length > 1 ||
               components.some(c => c !== 'body_heavy' && c !== 'body_dents')) {
               return { ok: false, code: 'MANUAL_INSPECTION_REQUIRED', message: 'This condition is not validated on the accessory-corrected route',
-                context: { questionnaire, startingPrice: computeFhoneifyGetUpto(base.cashifyGetUptoReference), pricingVersion } };
+                context: { questionnaire, startingPrice: computeCashifyGetUpto(base.cashifyGetUptoReference), pricingVersion } };
             }
             // Same answer strictness as the verified candidates: on these
             // NOT_ASKED routes no ownership/eSIM answer exists, and only box and
@@ -328,13 +328,13 @@ export function createPricingService(deps: PricingServiceDeps) {
             if (diagnostics.warranty != null || diagnostics.validBill != null || diagnostics.mobileAge != null || diagnostics.eSim != null ||
               accessories.some(a => a !== 'box' && a !== 'charger') || (diagnostics.box === true && !accessories.includes('box'))) {
               return { ok: false, code: 'MANUAL_INSPECTION_REQUIRED', message: 'We need to inspect this phone before we can quote a price',
-                context: { questionnaire, startingPrice: computeFhoneifyGetUpto(base.cashifyGetUptoReference), pricingVersion } };
+                context: { questionnaire, startingPrice: computeCashifyGetUpto(base.cashifyGetUptoReference), pricingVersion } };
             }
             const boxAndChargerPresent = hasBox(diagnostics) && diagnostics.box !== false &&
               (route!.chargerMode !== 'ASKED' || (diagnostics.charger !== false && (diagnostics.charger === true || accessories.includes('charger'))));
             if (!boxAndChargerPresent) {
               return { ok: false, code: 'MANUAL_INSPECTION_REQUIRED', message: 'Missing accessory deductions are not verified for this route',
-                context: { questionnaire, startingPrice: computeFhoneifyGetUpto(base.cashifyGetUptoReference), pricingVersion } };
+                context: { questionnaire, startingPrice: computeCashifyGetUpto(base.cashifyGetUptoReference), pricingVersion } };
             }
             const withoutBox = (d: typeof diagnostics) => priceDevice(device.brand, device.model, base.cashifyGetUptoReference, withoutBoxBonus(d), questionnaire, dispatchStorage);
             const cleanEngine = withoutBox(cleanAccessoryBaselineDiagnostics(diagnostics));
@@ -342,7 +342,7 @@ export function createPricingService(deps: PricingServiceDeps) {
             const measuredClean = Math.round((base.cashifyGetUptoReference - 20) / 10) * 10;
             const correctedEquivalent = Math.max(0, Math.round((measuredClean + conditionEngine.cashifyConditionEquivalent - cleanEngine.cashifyConditionEquivalent) / 10) * 10);
             result = { cashifyConditionEquivalent: correctedEquivalent,
-              fhoneifyPrice: applyCompetitorUplift(base.cashifyGetUptoReference, correctedEquivalent) };
+              cashifyPrice: applyCompetitorUplift(base.cashifyGetUptoReference, correctedEquivalent) };
             accessoryBasis = accessoryBasisForRoute(route!);
             equivalentBasis = 'selling';
           }
@@ -350,7 +350,7 @@ export function createPricingService(deps: PricingServiceDeps) {
         // comes only from a verified candidate or the accessory-corrected route.
         if (rc && rc.kind !== 'VERIFIED' && !accessoryBasis.startsWith('GET_UPTO_INCLUDES')) {
           return { ok: false, code: 'MANUAL_INSPECTION_REQUIRED', message: 'We need to inspect this phone before we can quote a price',
-            context: { questionnaire, startingPrice: computeFhoneifyGetUpto(base.cashifyGetUptoReference), pricingVersion } };
+            context: { questionnaire, startingPrice: computeCashifyGetUpto(base.cashifyGetUptoReference), pricingVersion } };
         }
           return undefined;
         })();
@@ -375,18 +375,18 @@ export function createPricingService(deps: PricingServiceDeps) {
         // Same preferred uplift and existing net-bound policy; the coupon must
         // not push this corrected fallback beyond its estimated Selling+2000.
         // This remains an estimate, never promoted to screenshot-verified evidence.
-        result = { ...result, fhoneifyPrice: boundedCompetitiveOffer(base.cashifyGetUptoReference, result.cashifyConditionEquivalent) };
+        result = { ...result, cashifyPrice: boundedCompetitiveOffer(base.cashifyGetUptoReference, result.cashifyConditionEquivalent) };
         // The reviewed 512GB transcript formulas return headline Selling prices, not base prices.
         equivalentBasis = 'selling';
         quotePricingVersion += '+apple512-oow-router-v1';
       }
       // Get Upto: the reference plus the uplift, nothing else.
-      startingPrice = computeFhoneifyGetUpto(base.cashifyGetUptoReference);
+      startingPrice = computeCashifyGetUpto(base.cashifyGetUptoReference);
     } catch (err) {
       if (err instanceof InspectionRequiredError) {
         deps.logger.info({ deviceKey: key, reason: err.reason, pricingVersion }, 'Evidence model: manual inspection required');
         return { ok: false, code: 'MANUAL_INSPECTION_REQUIRED', message: 'We need to inspect this phone before we can quote a price',
-          context: { questionnaire, startingPrice: computeFhoneifyGetUpto(base.cashifyGetUptoReference), pricingVersion } };
+          context: { questionnaire, startingPrice: computeCashifyGetUpto(base.cashifyGetUptoReference), pricingVersion } };
       }
       if (err instanceof PricingInvariantError) {
         deps.logger.error({ deviceKey: key, ...err.details, reason: err.message }, 'Pricing invariant violated; quote refused');
@@ -397,9 +397,9 @@ export function createPricingService(deps: PricingServiceDeps) {
 
     // Owner-approved reference-first bonus. Reapply from the Cashify condition equivalent
     // so all exact, legacy and hybrid paths use the same bonus budget exactly once.
-    result = { ...result, fhoneifyPrice: applyCompetitorUplift(base.cashifyGetUptoReference, result.cashifyConditionEquivalent) };
+    result = { ...result, cashifyPrice: applyCompetitorUplift(base.cashifyGetUptoReference, result.cashifyConditionEquivalent) };
     const ceiling = applyReferenceBonusCeiling({
-      quote: result.fhoneifyPrice,
+      quote: result.cashifyPrice,
       cashifyHeadlineEquivalent: equivalentBasis === 'selling' ? result.cashifyConditionEquivalent : headlineFromBase(result.cashifyConditionEquivalent),
       reference: base.cashifyGetUptoReference,
       equivalentBasis,
@@ -408,10 +408,10 @@ export function createPricingService(deps: PricingServiceDeps) {
       // The limit cannot be met by any quote: never show or sign a price that breaks it.
       deps.logger.info({ deviceKey: key, reason: ceiling.inspectionReason, before: ceiling.quoteBeforeCeiling, pricingVersion }, 'Payout ceiling cannot be satisfied: manual inspection required');
       return { ok: false, code: 'MANUAL_INSPECTION_REQUIRED', message: 'We need to inspect this phone before we can quote a price',
-        context: { questionnaire, startingPrice: computeFhoneifyGetUpto(base.cashifyGetUptoReference), pricingVersion } };
+        context: { questionnaire, startingPrice: computeCashifyGetUpto(base.cashifyGetUptoReference), pricingVersion } };
     }
     if (ceiling.reduced) deps.logger.info({ deviceKey: key, before: ceiling.quoteBeforeCeiling, after: ceiling.quote, maxCustomerPayout: ceiling.maxCustomerPayout }, 'Payout ceiling lowered the quote');
-    result = { ...result, fhoneifyPrice: ceiling.quote };
+    result = { ...result, cashifyPrice: ceiling.quote };
 
     let glassShadow: GlassShadowResult | undefined;
     if (deps.glassShadowCandidate) {
@@ -429,7 +429,7 @@ export function createPricingService(deps: PricingServiceDeps) {
     const iat = Math.floor(at.getTime() / 1000);
     const exp = iat + deps.tokenTtlSeconds;
     const quoteToken = signQuoteToken(
-      { v: QUOTE_TOKEN_VERSION, dk: key, dh: diagnosticsHash, p: result.fhoneifyPrice, ch: ceiling.couponHeadroom, pv: quotePricingVersion, iat, exp },
+      { v: QUOTE_TOKEN_VERSION, dk: key, dh: diagnosticsHash, p: result.cashifyPrice, ch: ceiling.couponHeadroom, pv: quotePricingVersion, iat, exp },
       deps.signingSecret
     );
 
@@ -444,7 +444,7 @@ export function createPricingService(deps: PricingServiceDeps) {
     return {
       ok: true,
       device: { brand: device.brand, model: device.model, storage: device.storage },
-      fhoneifyPrice: result.fhoneifyPrice,
+      cashifyPrice: result.cashifyPrice,
       startingPrice,
       couponHeadroom: ceiling.couponHeadroom,
       quoteToken,
@@ -470,8 +470,8 @@ export function createPricingService(deps: PricingServiceDeps) {
     };
   }
 
-  /** Fhoneify Get Upto only (homepage cards): the same reference lookup and
-   * computeFhoneifyGetUpto as quote(), with no answers and no token. */
+  /** Cashify Get Upto only (homepage cards): the same reference lookup and
+   * computeCashifyGetUpto as quote(), with no answers and no token. */
   async function getUpto(input: { brand: string; model: string; storage: string }): Promise<
     { ok: true; device: { brand: string; model: string; storage: string }; startingPrice: number; referenceStatus: QuoteReferenceStatus } | PricingFailure
   > {
@@ -486,7 +486,7 @@ export function createPricingService(deps: PricingServiceDeps) {
     return {
       ok: true,
       device: { brand: device.brand, model: device.model, storage: device.storage },
-      startingPrice: computeFhoneifyGetUpto(base.cashifyGetUptoReference),
+      startingPrice: computeCashifyGetUpto(base.cashifyGetUptoReference),
       referenceStatus: base.referenceStatus,
     };
   }
@@ -541,7 +541,7 @@ export function createPricingService(deps: PricingServiceDeps) {
 
     if (tokenPrice === null && !current.ok) return current;
 
-    const price = tokenPrice ?? (current as AuthoritativeQuote).fhoneifyPrice;
+    const price = tokenPrice ?? (current as AuthoritativeQuote).cashifyPrice;
     const parsed = parseDiagnostics(input.diagnostics);
     if (!parsed.ok) return { ok: false, code: 'INVALID_DIAGNOSTICS', message: parsed.error };
     // Honor the complete accepted offer for its token lifetime, including the coupon.
@@ -552,18 +552,18 @@ export function createPricingService(deps: PricingServiceDeps) {
 
     const audit: LeadPricingAudit = {
       priceSource: tokenPrice !== null ? 'quote_token' : 'recomputed',
-      fhoneifyPrice: price,
+      cashifyPrice: price,
       pricingVersion: tokenPricingVersion ?? activePricingVersion,
       pricedAt: now().toISOString(),
       tokenIssuedAt,
       tokenRejectedReason,
       clientQuotedPrice,
       clientPriceMismatch: clientQuotedPrice !== null && clientQuotedPrice !== price,
-      currentPrice: current.ok ? current.fhoneifyPrice : null,
+      currentPrice: current.ok ? current.cashifyPrice : null,
       cashifyGetUptoReference: current.ok ? current.internal.cashifyGetUptoReference : null,
       baseSource: current.ok ? current.internal.baseSource : null,
       cashifyConditionEquivalent: current.ok ? current.internal.cashifyConditionEquivalent : null,
-      fhoneifyGetUpto: current.ok ? current.startingPrice : null,
+      cashifyGetUpto: current.ok ? current.startingPrice : null,
       questionnaire: current.ok ? current.questionnaire : null,
       referenceStatus: current.ok ? current.referenceStatus : null,
       referenceSource: current.ok ? current.internal.referenceSource : null,

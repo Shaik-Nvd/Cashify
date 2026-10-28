@@ -28,7 +28,7 @@ export default function CreateListingPage() {
     if (!hydrated) return;
     if (!isAuthenticated) { router.push('/auth'); return; }
     try {
-      const saved = sessionStorage.getItem('fhoneify-quote-prefill');
+      const saved = sessionStorage.getItem('cashify-quote-prefill');
       if (saved) setPrefill(JSON.parse(saved));
       else router.push('/quote');
     } catch { router.push('/quote'); }
@@ -42,7 +42,7 @@ export default function CreateListingPage() {
       const res = await api.post('/api/sell/listings', {
         deviceId: prefill.deviceId, condition: prefill.condition, city, address, pickupDate,
       });
-      sessionStorage.removeItem('fhoneify-quote-prefill');
+      sessionStorage.removeItem('cashify-quote-prefill');
       router.push('/sell');
     } catch (err: unknown) {
       const msg = (err as { response?: { data?: { error?: string } } })?.response?.data?.error;

@@ -12,7 +12,7 @@ export default function DiagnosticsPage() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const data = sessionStorage.getItem('fhoneify-diagnostics-prefill');
+    const data = sessionStorage.getItem('cashify-diagnostics-prefill');
     if (data) {
       setDeviceData(JSON.parse(data));
     } else {
@@ -44,7 +44,7 @@ export default function DiagnosticsPage() {
   const handleFinish = () => {
     if (!deviceData) return;
     // Pass results back to quote page
-    sessionStorage.setItem('fhoneify-diagnostics-results', JSON.stringify(results));
+    sessionStorage.setItem('cashify-diagnostics-results', JSON.stringify(results));
     router.push('/quote');
   };
 

@@ -113,7 +113,7 @@ export default function BuyPage() {
                   onChange={(e) => setIsSelectTier(e.target.checked)} 
                   style={{ accentColor: 'var(--gold)' }}
                 />
-                Fhoneify Select (Premium)
+                Cashify Select (Premium)
               </label>
             </div>
             {(brandFilter || cityFilter || isSelectTier || searchQuery) && (

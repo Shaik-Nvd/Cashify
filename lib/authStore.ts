@@ -55,7 +55,7 @@ export const useAuthStore = create<AuthStore>()(
         }),
     }),
     {
-      name: 'fhoneify-auth',
+      name: 'cashify-auth',
     }
   )
 );

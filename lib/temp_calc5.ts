@@ -178,7 +178,7 @@ export const getAndroidModelParams = (brand: string, model: string) => {
   return params;
 };
 
-export function calculateFhoneifyPrice(
+export function calculateCashifyPrice(
   brand: string,
   model: string,
   basePrice: number,
@@ -458,17 +458,17 @@ export function calculateFhoneifyPrice(
     upliftPercent = 1.04;
   }
 
-  let fhoneifyExtra = cashifyPrice * (upliftPercent - 1.0);
+  let cashifyExtra = cashifyPrice * (upliftPercent - 1.0);
   
   // Cap the extra bonus between ₹100 and ₹2000
-  if (fhoneifyExtra > 2000) {
-    fhoneifyExtra = 2000;
+  if (cashifyExtra > 2000) {
+    cashifyExtra = 2000;
   }
-  if (fhoneifyExtra < 100 && cashifyPrice > 1200) {
-    fhoneifyExtra = 100;
+  if (cashifyExtra < 100 && cashifyPrice > 1200) {
+    cashifyExtra = 100;
   }
 
-  const calculated = cashifyPrice + fhoneifyExtra;
+  const calculated = cashifyPrice + cashifyExtra;
     
   return Math.max(Math.round(calculated), floor_price);
 }

@@ -1,8 +1,8 @@
 import {
   applyCompetitorUplift,
-  calculateFhoneifyPrice,
+  calculateCashifyPrice,
   COMMON_BONUSES,
-  computeFhoneifyGetUpto,
+  computeCashifyGetUpto,
   CashifyGetUptoReference,
   DiagnosticsType,
   PricingResult,
@@ -22,7 +22,7 @@ import { PERFECT_CONDITION_DIAGNOSTICS } from './perfectCondition';
  * figures, so there is exactly one place a customer's price comes from.
  *
  *   Get Upto:    ReferencePrice.currentPrice (Cashify's live public Get Upto)
- *                -> computeFhoneifyGetUpto (the existing uplift, nothing else)
+ *                -> computeCashifyGetUpto (the existing uplift, nothing else)
  *   Final offer: ReferencePrice.currentPrice -> brand condition rules
  *                -> Cashify condition equivalent -> the same uplift
  *
@@ -33,7 +33,7 @@ import { PERFECT_CONDITION_DIAGNOSTICS } from './perfectCondition';
 /** Recorded on every signed quote and lead so a price can be traced to the
  * code that produced it. Bump when base resolution, guardrails, or the
  * methodology change. */
-export const PRICING_ENGINE_VERSION = 'fhoneify-pricing/2026-10-28-reference-bonus-v2+repair-safety-v1+apple-reference-rules-v3+legacy-physical-v1+payout-ceiling-v3';
+export const PRICING_ENGINE_VERSION = 'cashify-pricing/2026-10-28-reference-bonus-v2+repair-safety-v1+apple-reference-rules-v3+legacy-physical-v1+payout-ceiling-v3';
 
 export type BaseSource = 'reference_repository' | 'materialized_snapshot' | 'catalog_base_price';
 
@@ -162,25 +162,25 @@ export function priceDevice(
     throw new PricingInvariantError('Cashify Get Upto reference must be a positive finite number', { brand, model, reference });
   }
 
-  const result = calculateFhoneifyPrice(brand, model, reference, diagnostics, semantics, storageVariant, calculationContext);
-  const { cashifyConditionEquivalent, fhoneifyPrice } = result;
+  const result = calculateCashifyPrice(brand, model, reference, diagnostics, semantics, storageVariant, calculationContext);
+  const { cashifyConditionEquivalent, cashifyPrice } = result;
   const ceiling = maxPlausiblePrice(reference);
-  const details = { brand, model, reference, cashifyConditionEquivalent, fhoneifyPrice, ceiling };
+  const details = { brand, model, reference, cashifyConditionEquivalent, cashifyPrice, ceiling };
 
-  if (!Number.isInteger(fhoneifyPrice) || !Number.isInteger(cashifyConditionEquivalent)) {
+  if (!Number.isInteger(cashifyPrice) || !Number.isInteger(cashifyConditionEquivalent)) {
     throw new PricingInvariantError('engine produced a non-integer price', details);
   }
-  if (fhoneifyPrice < COMMON_BONUSES.floorPrice) {
+  if (cashifyPrice < COMMON_BONUSES.floorPrice) {
     throw new PricingInvariantError('price is below the floor price', details);
   }
-  if (fhoneifyPrice < cashifyConditionEquivalent) {
+  if (cashifyPrice < cashifyConditionEquivalent) {
     throw new PricingInvariantError('uplifted price is below the Cashify condition equivalent', details);
   }
-  if (fhoneifyPrice > ceiling) {
+  if (cashifyPrice > ceiling) {
     throw new PricingInvariantError('price exceeds the maximum the methodology can produce', details);
   }
 
   return result;
 }
 
-export { PERFECT_CONDITION_DIAGNOSTICS, computeFhoneifyGetUpto };
+export { PERFECT_CONDITION_DIAGNOSTICS, computeCashifyGetUpto };

@@ -137,10 +137,13 @@ export default function Navbar() {
       <nav aria-label="Main" className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 md:px-6">
         <Link
           href="/"
-          className="text-[1.15rem] font-bold uppercase tracking-[0.22em] text-gold no-underline hover:text-gold-hover"
-          aria-label="Fhoneify home"
+          className="flex items-center gap-1.5 text-2xl font-black tracking-tight text-[#128085] no-underline hover:opacity-95"
+          aria-label="Cashify home"
         >
-          Fhoneify
+          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#128085] text-lg font-black text-white shadow-sm">
+            C
+          </span>
+          <span>cashify<span className="text-[#2ecc71] text-3xl leading-none">.</span></span>
         </Link>
 
         {/* Desktop links */}

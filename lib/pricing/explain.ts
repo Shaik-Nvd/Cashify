@@ -1,5 +1,5 @@
 import { applyCompetitorUplift, COMMON_BONUSES, DiagnosticsType } from '../pricingCalculator';
-import { computeFhoneifyGetUpto, priceDevice } from './engine';
+import { computeCashifyGetUpto, priceDevice } from './engine';
 import { PERFECT_CONDITION_DIAGNOSTICS } from './perfectCondition';
 
 /**
@@ -7,7 +7,7 @@ import { PERFECT_CONDITION_DIAGNOSTICS } from './perfectCondition';
  * against Cashify by hand.
  *
  * It contains NO pricing formula of its own. Each answer's effect is measured
- * by re-running the real engine (priceDevice -> calculateFhoneifyPrice) as the
+ * by re-running the real engine (priceDevice -> calculateCashifyPrice) as the
  * answers are applied one group at a time, starting from perfect condition.
  * The size of a step can depend on the age-adjusted base and on repair-group
  * waivers; the order used is fixed and printed, and the steps always add up
@@ -26,8 +26,8 @@ export interface QuoteExplanation {
   model: string;
   /** Cashify's live public Get Upto for the variant. */
   referencePrice: number;
-  /** Fhoneify Get Upto shown before any answer: reference + uplift. */
-  fhoneifyGetUpto: number;
+  /** Cashify Get Upto shown before any answer: reference + uplift. */
+  cashifyGetUpto: number;
   perfectConditionCashifyEquivalent: number;
   steps: ExplainStep[];
   cashifyEquivalent: number;
@@ -130,15 +130,15 @@ export function explainQuote(brand: string, model: string, referencePrice: numbe
 
   // Cross-check the description above against the real uplift function.
   const engineFinal = applyCompetitorUplift(referencePrice, cashifyEquivalent);
-  if (engineFinal !== result.fhoneifyPrice || Math.max(beforeFloor, COMMON_BONUSES.floorPrice) !== engineFinal) {
-    throw new Error(`explain: uplift description (${beforeFloor}) disagrees with the engine (${result.fhoneifyPrice})`);
+  if (engineFinal !== result.cashifyPrice || Math.max(beforeFloor, COMMON_BONUSES.floorPrice) !== engineFinal) {
+    throw new Error(`explain: uplift description (${beforeFloor}) disagrees with the engine (${result.cashifyPrice})`);
   }
 
   return {
     brand,
     model,
     referencePrice,
-    fhoneifyGetUpto: computeFhoneifyGetUpto(referencePrice),
+    cashifyGetUpto: computeCashifyGetUpto(referencePrice),
     perfectConditionCashifyEquivalent: perfect,
     steps,
     cashifyEquivalent,
@@ -150,7 +150,7 @@ export function explainQuote(brand: string, model: string, referencePrice: numbe
       rupees: Math.round(rupees),
       floorApplied: beforeFloor < COMMON_BONUSES.floorPrice,
     },
-    finalPrice: result.fhoneifyPrice,
+    finalPrice: result.cashifyPrice,
     ignoredAnswers,
   };
 }

@@ -307,11 +307,11 @@ export default function QuotePage() {
 
   useEffect(() => {
     if (selectedModel) {
-      document.title = `Sell ${selectedBrand} ${selectedModel} | Fhoneify`;
+      document.title = `Sell ${selectedBrand} ${selectedModel} | Cashify`;
     } else if (selectedBrand) {
-      document.title = `Sell ${selectedBrand} | Fhoneify`;
+      document.title = `Sell ${selectedBrand} | Cashify`;
     } else {
-      document.title = 'Get a Quote | Fhoneify';
+      document.title = 'Get a Quote | Cashify';
     }
   }, [selectedBrand, selectedModel]);
 
@@ -334,8 +334,8 @@ export default function QuotePage() {
   const activeStartingQuote = startingQuote && sameDevice(startingQuote.device, currentDevice) ? startingQuote : null;
   const activeFinalQuote = finalQuote && sameDevice(finalQuote.device, currentDevice) ? finalQuote : null;
   const activeStartingContext = startingContext && sameDevice(startingContext.device, currentDevice) ? startingContext : null;
-  // Fhoneify Get Upto = Cashify Get Upto + uplift, with no answers applied.
-  const fhoneifyGetUpto = activeStartingQuote?.getUpto ?? activeStartingContext?.getUpto ?? null;
+  // Cashify Get Upto = Cashify Get Upto + uplift, with no answers applied.
+  const cashifyGetUpto = activeStartingQuote?.getUpto ?? activeStartingContext?.getUpto ?? null;
   // Which questions Cashify's own questionnaire asks for this model. A
   // question Cashify does not ask is not shown and never sent as "No";
   // UNKNOWN (no stored profile yet) shows it - the safe, explicit fallback.
@@ -1037,7 +1037,7 @@ export default function QuotePage() {
     const res = await api.post('/api/quote/price', { brand, model, storage, diagnostics: diag });
     const d = res.data?.data;
     if (
-      !res.data?.success || typeof d?.fhoneifyPrice !== 'number' || !(d.fhoneifyPrice > 0) ||
+      !res.data?.success || typeof d?.cashifyPrice !== 'number' || !(d.cashifyPrice > 0) ||
       typeof d?.startingPrice !== 'number' || !(d.startingPrice > 0) || !d.quoteToken
     ) {
       throw new Error(res.data?.error || 'Pricing is currently unavailable for this device.');
@@ -1048,7 +1048,7 @@ export default function QuotePage() {
         ...(isQuestionMode(q.boxMode) ? { boxMode: q.boxMode } : {}), ...(isQuestionMode(q.chargerMode) ? { chargerMode: q.chargerMode } : {}),
         ...(isQuestionMode(q.sPenMode) ? { sPenMode: q.sPenMode } : {}), ...(isQuestionMode(q.eSimMode) ? { eSimMode: q.eSimMode } : {}) }
       : UNKNOWN_QUESTIONNAIRE;
-    return { device: { brand, model, storage }, price: d.fhoneifyPrice, getUpto: d.startingPrice, token: d.quoteToken, expiresAt: d.expiresAt, diagnostics: diag, questionnaire, pricingVersion: d.pricingVersion,
+    return { device: { brand, model, storage }, price: d.cashifyPrice, getUpto: d.startingPrice, token: d.quoteToken, expiresAt: d.expiresAt, diagnostics: diag, questionnaire, pricingVersion: d.pricingVersion,
       // How much of the first-time coupon fits under the payout ceiling; absent from older servers (then the full bonus applies).
       ...(typeof d.couponHeadroom === 'number' && Number.isFinite(d.couponHeadroom) ? { couponHeadroom: d.couponHeadroom } : {}) };
   };
@@ -1408,7 +1408,7 @@ export default function QuotePage() {
         model: selectedModel,
         storage: selectedStorage,
         answers: diagnostics,
-        fhoneifyPrice: finalPrice // Send for backend logging
+        cashifyPrice: finalPrice // Send for backend logging
       }, {
         signal: controller.signal
       });
@@ -2344,8 +2344,8 @@ export default function QuotePage() {
           <div className="flex flex-col gap-2 flex-1 w-full text-foreground items-center md:items-start">
             <h2 style={{ fontSize: '1.4rem', fontWeight: 500 }}>Sell Old {getDisplayModelName(selectedBrand, selectedModel)} ({selectedStorage})</h2>
             <p style={{ color: '#666', fontSize: '1rem', marginTop: '1rem' }}>Get Upto</p>
-            {fhoneifyGetUpto != null ? (
-              <p style={{ fontSize: '3rem', fontWeight: 700, color: 'var(--gold)' }}>{formatCurrency(fhoneifyGetUpto)}</p>
+            {cashifyGetUpto != null ? (
+              <p style={{ fontSize: '3rem', fontWeight: 700, color: 'var(--gold)' }}>{formatCurrency(cashifyGetUpto)}</p>
             ) : startingPriceError ? (
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                 <p style={{ color: '#FF3B30', fontSize: '0.95rem' }}>{startingPriceError}</p>
@@ -2951,7 +2951,7 @@ export default function QuotePage() {
                   <a href={inspectionRequestLinks({ brand: selectedBrand, model: getDisplayModelName(selectedBrand, selectedModel), storage: selectedStorage }).whatsapp}
                     target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ padding: '12px', borderRadius: '8px', fontWeight: 600 }}>Request an inspection on WhatsApp</a>
                   <p style={{ fontSize: '0.85rem', color: 'var(--muted)' }}>
-                    Or email <a href={inspectionRequestLinks({ brand: selectedBrand, model: getDisplayModelName(selectedBrand, selectedModel), storage: selectedStorage }).email} style={{ textDecoration: 'underline' }}>support@fhoneify.in</a>. If an answer was wrong, you can change it.
+                    Or email <a href={inspectionRequestLinks({ brand: selectedBrand, model: getDisplayModelName(selectedBrand, selectedModel), storage: selectedStorage }).email} style={{ textDecoration: 'underline' }}>support@cashify.in</a>. If an answer was wrong, you can change it.
                   </p>
                   <button type="button" onClick={() => navigateToState(selectedBrand, selectedModel, selectedStorage, 'storage', 3)} className="btn-outline">Review answers</button>
                 </>
@@ -3256,7 +3256,7 @@ export default function QuotePage() {
 
             <div style={{ marginBottom: '1rem' }}>
               <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--muted)', marginBottom: '0.5rem' }}>Flat / House No / Building Name</label>
-              <input type="text" required value={address} onChange={(e) => setAddress(e.target.value)} placeholder="e.g. 101, Fhoneify Apartments" style={{ width: '100%', padding: '0.75rem', borderRadius: '8px', border: '1px solid #666', background: 'transparent', color: 'inherit', boxSizing: 'border-box' }} />
+              <input type="text" required value={address} onChange={(e) => setAddress(e.target.value)} placeholder="e.g. 101, Cashify Apartments" style={{ width: '100%', padding: '0.75rem', borderRadius: '8px', border: '1px solid #666', background: 'transparent', color: 'inherit', boxSizing: 'border-box' }} />
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">

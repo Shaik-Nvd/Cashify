@@ -12,7 +12,7 @@ export default function ITADLandingPage() {
           Secure Enterprise <br /> Liquidation.
         </h1>
         <p style={{ color: 'var(--muted)', fontSize: '1.1rem', maxWidth: '36rem', margin: '0 auto 3rem', lineHeight: 1.6 }}>
-          Upgrade your company&apos;s devices with confidence. Fhoneify B2B provides maximum value recovery, certified DoD 5220.22-M data destruction, and seamless bulk logistics.
+          Upgrade your company&apos;s devices with confidence. Cashify B2B provides maximum value recovery, certified DoD 5220.22-M data destruction, and seamless bulk logistics.
         </p>
         <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1rem' }}>
           <button className="btn-primary" style={{ padding: '16px 40px', fontSize: '1rem' }}>Get Enterprise Valuation</button>

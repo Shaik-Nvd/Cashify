@@ -37,7 +37,7 @@ export default function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 md:grid-cols-[1.3fr_1fr_1fr_1.2fr] md:px-6 md:py-16">
         <div>
           <Link href="/" className="text-[1.1rem] font-bold uppercase tracking-[0.22em] text-gold no-underline hover:text-gold-hover">
-            Fhoneify
+            Cashify
           </Link>
           <p className="mt-3 max-w-xs text-sm leading-relaxed text-muted">
             Sell your old phone with free doorstep pickup and instant payment, or buy a verified refurbished one.
@@ -73,16 +73,16 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <a href="mailto:ffhoneify@gmail.com" className="inline-flex min-h-[40px] items-center gap-2 text-sm text-foreground no-underline hover:text-gold">
+              <a href="mailto:fcashify@gmail.com" className="inline-flex min-h-[40px] items-center gap-2 text-sm text-foreground no-underline hover:text-gold">
                 <Mail aria-hidden="true" className="h-4 w-4 text-gold" />
-                ffhoneify@gmail.com
+                fcashify@gmail.com
               </a>
             </li>
           </ul>
         </div>
       </div>
       <div className="border-t border-border">
-        <p suppressHydrationWarning className="mx-auto max-w-7xl px-4 py-5 text-xs text-muted md:px-6">© {new Date().getFullYear()} Fhoneify. All rights reserved.</p>
+        <p suppressHydrationWarning className="mx-auto max-w-7xl px-4 py-5 text-xs text-muted md:px-6">© {new Date().getFullYear()} Cashify. All rights reserved.</p>
       </div>
     </footer>
   );

@@ -60,23 +60,23 @@ export type DiagnosticsType = {
  * - CashifyGetUptoReference: Cashify's live public "Get Upto" figure for the
  *   exact variant (ReferencePrice.currentPrice, source "cashify"). It is
  *   already Cashify's best-case used-device offer, not a new/launch price, so
- *   it must never be depreciated to produce Fhoneify's own "Get Upto".
+ *   it must never be depreciated to produce Cashify's own "Get Upto".
  * - The pre-2026-09-16 `lib/cashify_prices.json` values were a different,
  *   pre-inflated base (Get Upto / model multiplier, commit cbc344a). The file
  *   is now regenerated from ReferencePrice, so it holds Get Upto values too.
  * - CashifyConditionEquivalent: what Cashify's own questionnaire pays for the
  *   customer's answers (final offer only).
- * - FhoneifyGetUpto / FhoneifyFinalOffer: the two figures after the existing
+ * - CashifyGetUpto / CashifyFinalOffer: the two figures after the existing
  *   applyCompetitorUplift rule.
  */
 export type CashifyGetUptoReference = number;
 export type CashifyConditionEquivalent = number;
-export type FhoneifyGetUpto = number;
-export type FhoneifyFinalOffer = number;
+export type CashifyGetUpto = number;
+export type CashifyFinalOffer = number;
 
 export interface PricingResult {
   cashifyConditionEquivalent: CashifyConditionEquivalent;
-  fhoneifyPrice: FhoneifyFinalOffer;
+  cashifyPrice: CashifyFinalOffer;
 }
 
 // ============================================================================
@@ -321,11 +321,11 @@ export function applyCompetitorUplift(basePrice: number, exactCashifyPrice: numb
 }
 
 /**
- * Fhoneify's public "Get Upto": Cashify's Get Upto plus the existing uplift.
+ * Cashify's public "Get Upto": Cashify's Get Upto plus the existing uplift.
  * No age, warranty, condition or accessory rule runs here - the customer has
  * not answered anything yet, and the reference is already Cashify's ceiling.
  */
-export function computeFhoneifyGetUpto(reference: CashifyGetUptoReference): FhoneifyGetUpto {
+export function computeCashifyGetUpto(reference: CashifyGetUptoReference): CashifyGetUpto {
   return applyCompetitorUplift(reference, reference);
 }
 
@@ -349,7 +349,7 @@ function finalizeConditionQuote(reference: CashifyGetUptoReference, conditionVal
   const cashifyConditionEquivalent = Math.round(conditionValue);
   return {
     cashifyConditionEquivalent,
-    fhoneifyPrice: applyCompetitorUplift(reference, cashifyConditionEquivalent),
+    cashifyPrice: applyCompetitorUplift(reference, cashifyConditionEquivalent),
   };
 }
 
@@ -444,7 +444,7 @@ export const getAppleModelParams = (model: string): ModelParams => {
 };
 
 export function calculateApplePrice(model: string, reference: CashifyGetUptoReference, diagnostics: DiagnosticsType, semantics: QuestionnaireSemantics = UNKNOWN_QUESTIONNAIRE, storageVariant?: string, calculationContext?: PricingCalculationContext): PricingResult {
-  if (!reference || reference <= 0) return { cashifyConditionEquivalent: 0, fhoneifyPrice: 0 };
+  if (!reference || reference <= 0) return { cashifyConditionEquivalent: 0, cashifyPrice: 0 };
 
   // Evidence-calibrated model (lib/pricing/appleCashifyModel): used only for the exact iPhone models/storage variants that were
   // measured against Cashify and passed held-out validation (scope.json). It throws InspectionRequiredError where Cashify itself
@@ -645,7 +645,7 @@ function calculateLegacyApplePrice(model: string, reference: CashifyGetUptoRefer
   // --- SPECIALIZED ALGORITHM FOR iPHONE 12 PRO MAX (6 GB/512 GB) ---
   const is512GB = storageVariant 
     ? storageVariant.toLowerCase().includes("512") 
-    : reference >= 26800; // 512GB base price in Cashify is 26910, in Fhoneify DB it is 27620
+    : reference >= 26800; // 512GB base price in Cashify is 26910, in Cashify DB it is 27620
   
   if ((lowerModel === "iphone 12 pro max" || lowerModel === "apple iphone 12 pro max") && is512GB) {
     let price = reference;
@@ -701,7 +701,7 @@ function calculateLegacyApplePrice(model: string, reference: CashifyGetUptoRefer
   // --- SPECIALIZED ALGORITHM FOR iPHONE 12 PRO MAX (6 GB/256 GB) ---
   const is256GB = storageVariant 
     ? storageVariant.toLowerCase().includes("256") 
-    : (reference > 26000 && reference < 26800); // 256GB base price in Cashify is 25680, in Fhoneify DB it is 26650
+    : (reference > 26000 && reference < 26800); // 256GB base price in Cashify is 25680, in Cashify DB it is 26650
   
   if ((lowerModel === "iphone 12 pro max" || lowerModel === "apple iphone 12 pro max") && is256GB) {
     let price = reference;
@@ -2482,7 +2482,7 @@ function calculateLegacyApplePrice(model: string, reference: CashifyGetUptoRefer
 // ============================================================================
 
 export function calculateSamsungPrice(model: string, reference: CashifyGetUptoReference, diagnostics: DiagnosticsType, semantics: QuestionnaireSemantics = UNKNOWN_QUESTIONNAIRE): PricingResult {
-  if (!reference || reference <= 0) return { cashifyConditionEquivalent: 0, fhoneifyPrice: 0 };
+  if (!reference || reference <= 0) return { cashifyConditionEquivalent: 0, cashifyPrice: 0 };
 
   const lowerModel = String(model || "").toLowerCase();
   const isA = lowerModel.includes("galaxy a") || !!lowerModel.match(/\ba\d\d\b/);
@@ -2559,7 +2559,7 @@ export function calculateXiaomiPrice(
   semantics: QuestionnaireSemantics = UNKNOWN_QUESTIONNAIRE,
   inrConfig: InrDeductionConfig = xiaomiInrDeductions()
 ): PricingResult {
-  if (!reference || reference <= 0) return { cashifyConditionEquivalent: 0, fhoneifyPrice: 0 };
+  if (!reference || reference <= 0) return { cashifyConditionEquivalent: 0, cashifyPrice: 0 };
 
   const lowerModel = String(model || "").toLowerCase();
   const isRedmiNote = lowerModel.includes("note");
@@ -2625,7 +2625,7 @@ export function calculateXiaomiPrice(
 // ============================================================================
 
 export function calculateVivoPrice(model: string, reference: CashifyGetUptoReference, diagnostics: DiagnosticsType, semantics: QuestionnaireSemantics = UNKNOWN_QUESTIONNAIRE): PricingResult {
-  if (!reference || reference <= 0) return { cashifyConditionEquivalent: 0, fhoneifyPrice: 0 };
+  if (!reference || reference <= 0) return { cashifyConditionEquivalent: 0, cashifyPrice: 0 };
 
   const lowerModel = String(model || "").toLowerCase();
   const isFold = lowerModel.includes("fold");
@@ -2673,7 +2673,7 @@ export function calculateVivoPrice(model: string, reference: CashifyGetUptoRefer
 // ============================================================================
 
 export function calculateOppoPrice(model: string, reference: CashifyGetUptoReference, diagnostics: DiagnosticsType, semantics: QuestionnaireSemantics = UNKNOWN_QUESTIONNAIRE): PricingResult {
-  if (!reference || reference <= 0) return { cashifyConditionEquivalent: 0, fhoneifyPrice: 0 };
+  if (!reference || reference <= 0) return { cashifyConditionEquivalent: 0, cashifyPrice: 0 };
 
   const lowerModel = String(model || "").toLowerCase();
   const isFindX9s = lowerModel.includes("find x9s");
@@ -2723,7 +2723,7 @@ export function calculateOppoPrice(model: string, reference: CashifyGetUptoRefer
 // ============================================================================
 
 export function calculateOnePlusPrice(model: string, reference: CashifyGetUptoReference, diagnostics: DiagnosticsType, semantics: QuestionnaireSemantics = UNKNOWN_QUESTIONNAIRE): PricingResult {
-  if (!reference || reference <= 0) return { cashifyConditionEquivalent: 0, fhoneifyPrice: 0 };
+  if (!reference || reference <= 0) return { cashifyConditionEquivalent: 0, cashifyPrice: 0 };
 
   const lowerModel = String(model || "").toLowerCase();
   const isPro = lowerModel.includes("pro");
@@ -2785,7 +2785,7 @@ export function nothingModelFamily(model: string): 'Phone 1' | 'Phone 2' | 'othe
 }
 
 export function calculateNothingPrice(model: string, reference: CashifyGetUptoReference, diagnostics: DiagnosticsType, semantics: QuestionnaireSemantics = UNKNOWN_QUESTIONNAIRE): PricingResult {
-  if (!reference || reference <= 0) return { cashifyConditionEquivalent: 0, fhoneifyPrice: 0 };
+  if (!reference || reference <= 0) return { cashifyConditionEquivalent: 0, cashifyPrice: 0 };
 
   const lowerModel = String(model || "").toLowerCase();
   const nothingFamily = nothingModelFamily(model);
@@ -2825,7 +2825,7 @@ export function calculateNothingPrice(model: string, reference: CashifyGetUptoRe
 // ============================================================================
 
 export function calculateGenericAndroidPrice(brand: string, model: string, reference: CashifyGetUptoReference, diagnostics: DiagnosticsType, semantics: QuestionnaireSemantics = UNKNOWN_QUESTIONNAIRE): PricingResult {
-  if (!reference || reference <= 0) return { cashifyConditionEquivalent: 0, fhoneifyPrice: 0 };
+  if (!reference || reference <= 0) return { cashifyConditionEquivalent: 0, cashifyPrice: 0 };
 
   const params: ModelParams = { warrantyPenalty: 0.12, gstBillPenalty: 0.08, callsPenalty: 0.45, originalScreenPenalty: 0.55, touchPenalty: 0.45, functionalScale: 0.75, physicalScale: 0.7 };
   let ageMultiplier = diagnostics.warranty === false ? 0.75 : 0.95;
@@ -2847,7 +2847,7 @@ export function calculateGenericAndroidPrice(brand: string, model: string, refer
 // CENTRAL ROUTER DISPATCHER
 // ============================================================================
 
-export function calculateFhoneifyPrice(
+export function calculateCashifyPrice(
   brand: string,
   model: string,
   cashifyGetUptoReference: CashifyGetUptoReference,

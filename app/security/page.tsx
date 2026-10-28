@@ -38,7 +38,7 @@ export default function SecurityCenterPage() {
         <p className="eyebrow" style={{ marginBottom: '0.5rem' }}>DATA SECURITY</p>
         <h1 style={{ fontSize: '2rem', fontWeight: 300, color: 'var(--foreground)', marginBottom: '1rem' }}>Security Center</h1>
         <p style={{ color: 'var(--muted)', maxWidth: '32rem', margin: '0 auto' }}>
-          We guarantee 100% data destruction for every device sold to Fhoneify. View your device status and download official wiping certificates below.
+          We guarantee 100% data destruction for every device sold to Cashify. View your device status and download official wiping certificates below.
         </p>
       </div>
 

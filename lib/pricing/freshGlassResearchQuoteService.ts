@@ -39,7 +39,7 @@ export function createFreshGlassResearchQuoteService(service: PricingService, op
       diagnostics: parsed.value, route, now: at });
     if (!result.supported) return reject('UNVALIDATED_CONDITION_OR_CALIBRATION', result.reason);
     return { ok: true as const, researchOnly: true as const, device: current.device, pricingVersion: result.version, ...result.quote,
-      startingPrice: current.startingPrice, customerPayout: customerPayout(result.quote.fhoneifyPrice, false),
+      startingPrice: current.startingPrice, customerPayout: customerPayout(result.quote.cashifyPrice, false),
       baselineKind: result.baselineKind, cleanBaseline: result.cleanBaseline, componentDeduction: result.componentDeduction,
       cleanMayExceedGetUpto: result.cleanMayExceedGetUpto,
       headlineCompatibility: result.cleanMayExceedGetUpto ? 'REQUIRES_EXPLICIT_PRODUCTION_REVIEW' as const : 'NO_OBSERVED_CLEAN_BASELINE_EXCEEDANCE' as const,

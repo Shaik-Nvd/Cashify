@@ -39,7 +39,7 @@ export function createOnePlusDisplayResearchQuoteService(service: PricingService
       diagnostics: parsed.value, route, now: at });
     if (!result.supported) return reject('UNVALIDATED_CONDITION_OR_CALIBRATION', result.reason);
     return { ok: true as const, researchOnly: true as const, device: current.device, pricingVersion: result.version, ...result.quote,
-      startingPrice: current.startingPrice, customerPayout: customerPayout(result.quote.fhoneifyPrice, false),
+      startingPrice: current.startingPrice, customerPayout: customerPayout(result.quote.cashifyPrice, false),
       baselineKind: result.baselineKind, cleanBaseline: result.cleanBaseline, componentDeduction: result.componentDeduction,
       evidenceQuality: result.evidenceQuality, calibrationObservedAt: spec.calibratedAt };
   }

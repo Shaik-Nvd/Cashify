@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { ArrowRight, MapPin, Star, Truck, Wallet } from 'lucide-react';
 import HeroPhone from './HeroPhone';
 
-const GOOGLE_REVIEWS_URL = 'https://www.google.com/search?q=fhoneify#lrd=0x3bae17bb4da7d305:0x238a115b32aa0950,1,,,,';
+const GOOGLE_REVIEWS_URL = 'https://www.google.com/search?q=cashify#lrd=0x3bae17bb4da7d305:0x238a115b32aa0950,1,,,,';
 
 const TRUST = [
   { Icon: Truck, label: 'Free doorstep pickup' },

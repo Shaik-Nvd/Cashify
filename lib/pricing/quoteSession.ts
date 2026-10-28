@@ -25,9 +25,9 @@ export interface QuoteSessionDevice {
 export interface SignedQuote {
   /** The device exactly as the page submitted it. */
   device: QuoteSessionDevice;
-  /** POST /api/quote/price fhoneifyPrice - the final offer for `diagnostics`. */
+  /** POST /api/quote/price cashifyPrice - the final offer for `diagnostics`. */
   price: number;
-  /** POST /api/quote/price startingPrice - Fhoneify Get Upto (Cashify Get
+  /** POST /api/quote/price startingPrice - Cashify Get Upto (Cashify Get
    * Upto + uplift, no answers applied). */
   getUpto: number;
   token: string;
@@ -59,7 +59,7 @@ export interface KeyValueStorage {
   removeItem(key: string): void;
 }
 
-export const QUOTE_SESSION_KEY = 'fhoneify-quote-session';
+export const QUOTE_SESSION_KEY = 'cashify-quote-session';
 
 export const sameDevice = (a: QuoteSessionDevice, b: QuoteSessionDevice) =>
   a.brand === b.brand && a.model === b.model && a.storage === b.storage;

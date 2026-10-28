@@ -63,7 +63,7 @@ export function createTeamWorkbookResearchQuoteService(service: PricingService, 
     if (!candidate.supported) return unsupported('UNVALIDATED_CONDITION', candidate.reason);
     return { ok: true as const, researchOnly: true as const, provisional: true as const, device: current.device,
       pricingVersion: candidate.version, ...candidate.quote, startingPrice: current.startingPrice,
-      customerPayout: customerPayout(candidate.quote.fhoneifyPrice, false), baselineKind: candidate.baselineKind,
+      customerPayout: customerPayout(candidate.quote.cashifyPrice, false), baselineKind: candidate.baselineKind,
       evidenceQuality: candidate.evidenceQuality, calibrationObservedAt: null,
       componentDeduction: candidate.componentDeduction, cleanBaseline: candidate.cleanBaseline,
       inputs: { reference: current.internal.cashifyGetUptoReference, questionnaire: current.questionnaire, route } };

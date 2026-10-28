@@ -34,7 +34,7 @@ export default function PrivacyPolicy() {
 
       <h2 style={{ fontSize: '1.5rem', marginTop: '30px', marginBottom: '15px' }}>5. Contact Us</h2>
       <p style={{ marginBottom: '15px', color: 'var(--muted)' }}>
-        If you have any questions or concerns about this Privacy Policy, please contact us at privacy@fhoneify.in.
+        If you have any questions or concerns about this Privacy Policy, please contact us at privacy@cashify.in.
       </p>
     </div>
   );

@@ -44,7 +44,7 @@ export function createXiaomiResearchQuoteService(service: PricingService, option
     // This adapter deliberately exposes no verifyLeadPrice method.
     return { ok: true as const, researchOnly: true as const, device: current.device,
       pricingVersion: candidate.version, ...candidate.quote, startingPrice: current.startingPrice,
-      customerPayout: customerPayout(candidate.quote.fhoneifyPrice, false),
+      customerPayout: customerPayout(candidate.quote.cashifyPrice, false),
       baselineKind: 'get_upto_calibrated_retention' as const,
       inputs: { reference, questionnaire: current.questionnaire, eSimMode: route.eSimMode } };
   }

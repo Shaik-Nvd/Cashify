@@ -110,7 +110,7 @@ export default function StoresPage() {
     <div className="container" style={{ padding: '4rem 1rem', maxWidth: '64rem' }}>
       <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
         <p className="eyebrow" style={{ marginBottom: '1rem' }}>LOCATE US</p>
-        <h1 className="page-title" style={{ marginBottom: '1rem' }}>Fhoneify Offline Stores</h1>
+        <h1 className="page-title" style={{ marginBottom: '1rem' }}>Cashify Offline Stores</h1>
         <p className="page-subtitle" style={{ maxWidth: '32rem', margin: '0 auto' }}>
           Find a store near you to drop off devices for repair, or trade in your old phone in person.
         </p>

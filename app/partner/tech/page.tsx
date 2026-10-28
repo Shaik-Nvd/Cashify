@@ -75,7 +75,7 @@ export default function FieldTechDashboard() {
   return (
     <div style={{ backgroundColor: '#000', minHeight: '100vh', padding: '2rem' }}>
       <div style={{ maxWidth: '48rem', margin: '0 auto' }}>
-        <h1 style={{ color: 'var(--gold)', fontSize: '1.5rem', marginBottom: '2rem' }}>Fhoneify Tech App</h1>
+        <h1 style={{ color: 'var(--gold)', fontSize: '1.5rem', marginBottom: '2rem' }}>Cashify Tech App</h1>
 
         {/* Tech Float Ledger */}
         <div className="card" style={{ marginBottom: '2rem', display: 'flex', gap: '2rem' }}>

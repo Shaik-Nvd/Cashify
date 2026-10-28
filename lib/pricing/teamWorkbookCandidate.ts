@@ -23,7 +23,7 @@ export type WorkbookCandidateResult = { supported: false; reason: string } | {
   supported: true; version: string; evidenceQuality: 'TESTER_REPORTED_UNVERIFIED';
   baselineKind: 'get_upto_calibrated_retention' | 'measured_clean_control';
   cleanBaseline: number; componentDeduction: number; components: readonly string[];
-  quote: { cashifyConditionEquivalent: number; fhoneifyPrice: number };
+  quote: { cashifyConditionEquivalent: number; cashifyPrice: number };
 };
 const signature = (values: readonly string[]) => [...new Set(values)].sort().join('|');
 const clean = (value: string | null | undefined, allowed: readonly string[]) => value == null || value === '' || allowed.includes(value);
@@ -104,5 +104,5 @@ export function calculateTeamWorkbookCandidate(input: {
   if (!Number.isFinite(baseline) || baseline <= 0 || !Number.isFinite(value) || value <= 0) return reject('No validated positive-price outcome');
   return { supported: true, version: TEAM_WORKBOOK_CANDIDATE_VERSION, evidenceQuality: 'TESTER_REPORTED_UNVERIFIED',
     baselineKind, cleanBaseline: baseline, componentDeduction: deduction, components,
-    quote: { cashifyConditionEquivalent: value, fhoneifyPrice: applyCompetitorUplift(input.reference, value) } };
+    quote: { cashifyConditionEquivalent: value, cashifyPrice: applyCompetitorUplift(input.reference, value) } };
 }

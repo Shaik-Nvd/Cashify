@@ -28,10 +28,10 @@ import type { Viewport } from 'next';
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | Fhoneify',
-    default: 'Fhoneify | Premium Phone Resale',
+    template: '%s | Cashify',
+    default: 'Cashify | Sell Old Phones Online, Buy Refurbished Mobiles & Repair',
   },
-  description: "India's premium marketplace for selling and buying verified refurbished phones",
+  description: "India's largest re-commerce marketplace for selling used phones for instant cash, certified refurbished smartphones, and doorstep repairs.",
 };
 
 export const viewport: Viewport = {

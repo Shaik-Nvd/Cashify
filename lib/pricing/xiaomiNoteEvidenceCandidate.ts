@@ -67,5 +67,5 @@ export function calculateXiaomiNoteEvidenceCandidate(input: {
   const value = Math.round((clean - deduction) / 10) * 10;
   if (!Number.isFinite(value) || value <= 0) return unsupported('No validated positive price at this baseline');
   return { supported: true, version: XIAOMI_NOTE_CANDIDATE_VERSION,
-    quote: { cashifyConditionEquivalent: value, fhoneifyPrice: applyCompetitorUplift(baseline.reference, value) } };
+    quote: { cashifyConditionEquivalent: value, cashifyPrice: applyCompetitorUplift(baseline.reference, value) } };
 }

@@ -1,7 +1,7 @@
 import Hero from '@/components/home/Hero';
 import BrandPicker from '@/components/home/BrandPicker';
 import ProcessSteps from '@/components/home/ProcessSteps';
-import WhyFhoneify from '@/components/home/WhyFhoneify';
+import WhyCashify from '@/components/home/WhyCashify';
 import ClosingCta from '@/components/home/ClosingCta';
 import TopSellingModels from '@/components/TopSellingModels';
 import FAQs from '@/components/FAQs';
@@ -16,7 +16,7 @@ export default function LandingPage() {
       <BrandPicker />
       <ProcessSteps />
       <TopSellingModels />
-      <WhyFhoneify />
+      <WhyCashify />
 
       <section aria-labelledby="faq-title" className="mx-auto max-w-7xl px-4 py-16 md:px-6 md:py-20">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr] lg:gap-16">

@@ -85,7 +85,7 @@ export default function WalletPage() {
               Copy
             </button>
             <a
-              href={`https://wa.me/?text=${encodeURIComponent(`Sign up on Fhoneify using my referral code ${data?.referralCode} and get ₹250! ${typeof window !== 'undefined' ? window.location.origin : 'https://fhoneify.com'}?ref=${data?.referralCode}&utm_source=whatsapp&utm_medium=share`)}`}
+              href={`https://wa.me/?text=${encodeURIComponent(`Sign up on Cashify using my referral code ${data?.referralCode} and get ₹250! ${typeof window !== 'undefined' ? window.location.origin : 'https://cashify.com'}?ref=${data?.referralCode}&utm_source=whatsapp&utm_medium=share`)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary"

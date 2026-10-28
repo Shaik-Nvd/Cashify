@@ -8,7 +8,7 @@ export default function TermsAndConditions() {
       
       <h2 style={{ fontSize: '1.5rem', marginTop: '30px', marginBottom: '15px' }}>1. Agreement to Terms</h2>
       <p style={{ marginBottom: '15px', color: 'var(--muted)' }}>
-        By accessing or using Fhoneify, you agree to be bound by these Terms and Conditions. If you disagree with any part of the terms, you may not access the service.
+        By accessing or using Cashify, you agree to be bound by these Terms and Conditions. If you disagree with any part of the terms, you may not access the service.
       </p>
 
       <h2 style={{ fontSize: '1.5rem', marginTop: '30px', marginBottom: '15px' }}>2. Device Valuation and Sale</h2>
@@ -18,7 +18,7 @@ export default function TermsAndConditions() {
 
       <h2 style={{ fontSize: '1.5rem', marginTop: '30px', marginBottom: '15px' }}>3. Data Privacy</h2>
       <p style={{ marginBottom: '15px', color: 'var(--muted)' }}>
-        It is your sole responsibility to back up and erase all personal data from your device before handing it over. Fhoneify is not responsible for any loss of data.
+        It is your sole responsibility to back up and erase all personal data from your device before handing it over. Cashify is not responsible for any loss of data.
       </p>
 
       <h2 style={{ fontSize: '1.5rem', marginTop: '30px', marginBottom: '15px' }}>4. Payment</h2>
@@ -28,7 +28,7 @@ export default function TermsAndConditions() {
 
       <h2 style={{ fontSize: '1.5rem', marginTop: '30px', marginBottom: '15px' }}>5. Contact Us</h2>
       <p style={{ marginBottom: '15px', color: 'var(--muted)' }}>
-        If you have any questions about these Terms, please contact us at support@fhoneify.in.
+        If you have any questions about these Terms, please contact us at support@cashify.in.
       </p>
     </div>
   );

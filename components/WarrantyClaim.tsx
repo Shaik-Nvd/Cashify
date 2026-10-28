@@ -19,8 +19,8 @@ export default function WarrantyClaim() {
               +91 91874 48347
             </a>{' '}
             or email at{' '}
-            <a href="mailto:ffhoneify@gmail.com" className="font-semibold text-gold underline-offset-4 hover:underline">
-              ffhoneify@gmail.com
+            <a href="mailto:fcashify@gmail.com" className="font-semibold text-gold underline-offset-4 hover:underline">
+              fcashify@gmail.com
             </a>{' '}
             to register your complaint.
           </p>

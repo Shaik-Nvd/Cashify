@@ -5,7 +5,7 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
 function getAccessToken(): string | null {
   if (typeof window === 'undefined') return null;
   try {
-    const raw = localStorage.getItem('fhoneify-auth');
+    const raw = localStorage.getItem('cashify-auth');
     if (!raw) return null;
     const parsed = JSON.parse(raw);
     return parsed?.state?.accessToken ?? null;
@@ -38,7 +38,7 @@ api.interceptors.response.use(
       
       // Do not globally redirect if it's an OTP error (like "Invalid OTP") or if we are on the Quote page (which has its own modal)
       if (!configUrl.includes('/api/auth/otp') && !path.startsWith('/auth') && !path.startsWith('/quote')) {
-        localStorage.removeItem('fhoneify-auth');
+        localStorage.removeItem('cashify-auth');
         window.location.href = '/auth';
       }
     }

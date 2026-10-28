@@ -43,7 +43,7 @@ export default function ListingDetailPage() {
         const res = await api.get(`/api/buy/listings/${id}`);
         setListing(res.data?.data ?? null);
         if (res.data?.data) {
-          document.title = `${res.data.data.brand} ${res.data.data.model} | Fhoneify`;
+          document.title = `${res.data.data.brand} ${res.data.data.model} | Cashify`;
         }
       } catch {
         setError('Failed to load listing');

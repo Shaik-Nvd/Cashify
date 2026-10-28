@@ -42,7 +42,7 @@ export default function WhatsAppFloatingBtn() {
   const phoneNumber = "919187448347";
   
   let message = "I'm interested in your services.";
-  if (pageContext && pageContext !== 'Fhoneify | Premium Phone Resale') {
+  if (pageContext && pageContext !== 'Cashify | Premium Phone Resale') {
     message = `I'm reaching out from the ${pageContext} page.`;
     if (pathname.startsWith('/buy') && pageContext !== 'Buy Refurbished Phones') {
        message = `I'm interested in buying a phone (from: ${pageContext})`;
@@ -50,7 +50,7 @@ export default function WhatsAppFloatingBtn() {
        message = `I'm interested to sell my phone (from: ${pageContext})`;
     }
   } else {
-    if (pathname === '/') message = "Hi Fhoneify, I'd like to know more about your services.";
+    if (pathname === '/') message = "Hi Cashify, I'd like to know more about your services.";
     else if (pathname.startsWith('/buy')) message = "I'm interested in buying a refurbished phone.";
     else if (pathname.startsWith('/quote') || pathname.startsWith('/sell')) message = "I'm interested to sell my phone";
   }
@@ -103,7 +103,7 @@ export default function WhatsAppFloatingBtn() {
               Open WhatsApp Chat
             </a>
             <a 
-              href="mailto:support@fhoneify.in"
+              href="mailto:support@cashify.in"
               className="bg-[#f0f2f5] hover:bg-[#e4e6eb] text-gray-700 font-semibold py-1.5 px-4 text-sm rounded-full flex items-center justify-center gap-2 transition"
             >
               Email Support

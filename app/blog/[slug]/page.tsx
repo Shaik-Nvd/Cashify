@@ -23,7 +23,7 @@ export async function generateMetadata(
   const post = await getPost(params.slug);
   
   if (!post) {
-    return { title: 'Post Not Found | Fhoneify' };
+    return { title: 'Post Not Found | Cashify' };
   }
  
   return {

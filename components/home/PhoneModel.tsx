@@ -93,7 +93,7 @@ function PhoneScreen() {
         </span>
       </div>
 
-      <p className="mt-[8%] text-[0.62em] font-bold uppercase tracking-[0.28em] text-[#d4af37]">Fhoneify</p>
+      <p className="mt-[8%] text-[0.62em] font-bold uppercase tracking-[0.28em] text-[#d4af37]">Cashify</p>
       <p className="font-display mt-[4%] text-[1.55em] leading-[1.1] text-white">Sell your phone</p>
 
       <div className="mt-[8%] flex items-center gap-[0.7em] rounded-[0.9em] border border-white/10 bg-white/[0.04] p-[0.8em]">

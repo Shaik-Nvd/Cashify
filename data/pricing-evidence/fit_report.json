@@ -1,36 +1,36 @@
 [
  {
-  "modelKey": "iPhone 14",
-  "rows": 75,
-  "used": 75,
-  "rmse": 81.20427768063661,
-  "maxAbs": 385.3463632923797,
+  "modelKey": "iPhone 11",
+  "rows": 90,
+  "used": 90,
+  "rmse": 8.490847447280313,
+  "maxAbs": 29.441009534590194,
   "floor": null,
   "params": {
    "box.base": {
-    "value": 1208.5921702797907,
+    "value": 200.1564497885831,
     "support": "measured",
     "shapes": 7
    },
    "class.display": {
-    "value": 15288.474265266217,
-    "support": "measured",
-    "shapes": 4
+    "value": 25500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.cracked": {
-    "value": 17849.99999998289,
+    "value": 17850,
     "support": "inferred",
     "shapes": 0
    },
    "class.touch": {
-    "value": 29999.99999997125,
+    "value": 30000,
     "support": "inferred",
     "shapes": 0
    },
    "class.orig": {
-    "value": 8994.046528690013,
-    "support": "measured",
-    "shapes": 2
+    "value": 15000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.body": {
     "value": 3500,
@@ -43,14 +43,14 @@
     "shapes": 0
    },
    "class.cam": {
-    "value": 4541.28440367176,
-    "support": "measured",
-    "shapes": 2
+    "value": 10000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.fminA": {
-    "value": 4711.983940075476,
-    "support": "measured",
-    "shapes": 7
+    "value": 6000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.fminB": {
     "value": 4500,
@@ -63,59 +63,959 @@
     "shapes": 0
    },
    "class.wifi": {
-    "value": 0.3904708755993415,
+    "value": 0.3,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.face": {
+    "value": 0.2,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.batt": {
+    "value": 4200,
+    "support": "inferred",
+    "shapes": 0
+   }
+  }
+ },
+ {
+  "modelKey": "iPhone 11 Pro",
+  "rows": 90,
+  "used": 90,
+  "rmse": 202.74578886527658,
+  "maxAbs": 1232.8764415534479,
+  "floor": null,
+  "params": {
+   "box.base": {
+    "value": 202.07344540839372,
+    "support": "measured",
+    "shapes": 7
+   },
+   "charger.base": {
+    "value": 386.2125103217764,
+    "support": "measured",
+    "shapes": 29
+   },
+   "class.display": {
+    "value": 25500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cracked": {
+    "value": 17850,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.touch": {
+    "value": 30000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.orig": {
+    "value": 15000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.body": {
+    "value": 3500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.panel": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cam": {
+    "value": 10000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminA": {
+    "value": 6000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminB": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.prox": {
+    "value": 4950,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.wifi": {
+    "value": 0.3,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.face": {
+    "value": 0.2,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.batt": {
+    "value": 4200,
+    "support": "inferred",
+    "shapes": 0
+   }
+  }
+ },
+ {
+  "modelKey": "iPhone 11 Pro Max",
+  "rows": 90,
+  "used": 90,
+  "rmse": 305.360279139742,
+  "maxAbs": 2179.991778269323,
+  "floor": null,
+  "params": {
+   "box.base": {
+    "value": 200,
+    "support": "measured",
+    "shapes": 7
+   },
+   "class.display": {
+    "value": 25500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cracked": {
+    "value": 17850,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.touch": {
+    "value": 30000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.orig": {
+    "value": 15000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.body": {
+    "value": 3500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.panel": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cam": {
+    "value": 10000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminA": {
+    "value": 6000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminB": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.prox": {
+    "value": 4950,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.wifi": {
+    "value": 0.3,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.face": {
+    "value": 0.2,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.batt": {
+    "value": 4200,
+    "support": "inferred",
+    "shapes": 0
+   }
+  }
+ },
+ {
+  "modelKey": "iPhone 12",
+  "rows": 90,
+  "used": 90,
+  "rmse": 11.708605641743091,
+  "maxAbs": 86.53788568650089,
+  "floor": null,
+  "params": {
+   "box.base": {
+    "value": 800.1929718841185,
+    "support": "measured",
+    "shapes": 7
+   },
+   "class.display": {
+    "value": 25500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cracked": {
+    "value": 17850,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.touch": {
+    "value": 30000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.orig": {
+    "value": 15000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.body": {
+    "value": 3500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.panel": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cam": {
+    "value": 10000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminA": {
+    "value": 6000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminB": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.prox": {
+    "value": 4950,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.wifi": {
+    "value": 0.3,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.face": {
+    "value": 0.2,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.batt": {
+    "value": 4200,
+    "support": "inferred",
+    "shapes": 0
+   }
+  }
+ },
+ {
+  "modelKey": "iPhone 12 Pro",
+  "rows": 90,
+  "used": 90,
+  "rmse": 89.63126017411017,
+  "maxAbs": 610.107421875,
+  "floor": null,
+  "params": {
+   "box.base": {
+    "value": 799.7730088809815,
+    "support": "measured",
+    "shapes": 7
+   },
+   "class.display": {
+    "value": 25500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cracked": {
+    "value": 17850,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.touch": {
+    "value": 30000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.orig": {
+    "value": 15000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.body": {
+    "value": 3500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.panel": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cam": {
+    "value": 10000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminA": {
+    "value": 6000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminB": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.prox": {
+    "value": 4950,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.wifi": {
+    "value": 0.3,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.face": {
+    "value": 0.2,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.batt": {
+    "value": 4200,
+    "support": "inferred",
+    "shapes": 0
+   }
+  }
+ },
+ {
+  "modelKey": "iPhone 12 Pro Max",
+  "rows": 90,
+  "used": 90,
+  "rmse": 105.30543544039152,
+  "maxAbs": 699.6835780143738,
+  "floor": null,
+  "params": {
+   "box.base": {
+    "value": 799.7147154786902,
+    "support": "measured",
+    "shapes": 7
+   },
+   "class.display": {
+    "value": 25500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cracked": {
+    "value": 17850,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.touch": {
+    "value": 30000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.orig": {
+    "value": 15000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.body": {
+    "value": 3500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.panel": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cam": {
+    "value": 10000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminA": {
+    "value": 6000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminB": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.prox": {
+    "value": 4950,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.wifi": {
+    "value": 0.3,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.face": {
+    "value": 0.2,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.batt": {
+    "value": 4200,
+    "support": "inferred",
+    "shapes": 0
+   }
+  }
+ },
+ {
+  "modelKey": "iPhone 13",
+  "rows": 90,
+  "used": 90,
+  "rmse": 5.539470656143163,
+  "maxAbs": 25.69616861201939,
+  "floor": null,
+  "params": {
+   "box.base": {
+    "value": 999.9669600945432,
+    "support": "measured",
+    "shapes": 7
+   },
+   "class.display": {
+    "value": 25500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cracked": {
+    "value": 17850,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.touch": {
+    "value": 30000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.orig": {
+    "value": 15000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.body": {
+    "value": 3500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.panel": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cam": {
+    "value": 10000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminA": {
+    "value": 6000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminB": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.prox": {
+    "value": 4950,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.wifi": {
+    "value": 0.3,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.face": {
+    "value": 0.2,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.batt": {
+    "value": 4200,
+    "support": "inferred",
+    "shapes": 0
+   }
+  }
+ },
+ {
+  "modelKey": "iPhone 13 Mini",
+  "rows": 90,
+  "used": 90,
+  "rmse": 3.5466929985563325,
+  "maxAbs": 12.180833989981693,
+  "floor": null,
+  "params": {
+   "box.base": {
+    "value": 1000.2366664875482,
+    "support": "measured",
+    "shapes": 7
+   },
+   "class.display": {
+    "value": 25500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cracked": {
+    "value": 17850,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.touch": {
+    "value": 30000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.orig": {
+    "value": 15000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.body": {
+    "value": 3500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.panel": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cam": {
+    "value": 10000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminA": {
+    "value": 6000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminB": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.prox": {
+    "value": 4950,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.wifi": {
+    "value": 0.3,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.face": {
+    "value": 0.2,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.batt": {
+    "value": 4200,
+    "support": "inferred",
+    "shapes": 0
+   }
+  }
+ },
+ {
+  "modelKey": "iPhone 13 Pro",
+  "rows": 120,
+  "used": 120,
+  "rmse": 13.14773223956306,
+  "maxAbs": 60.4687462091606,
+  "floor": null,
+  "params": {
+   "box.base": {
+    "value": 1000.285644332501,
+    "support": "measured",
+    "shapes": 7
+   },
+   "esim": {
+    "value": 0.052799041099425605,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.display": {
+    "value": 25500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cracked": {
+    "value": 17850,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.touch": {
+    "value": 30000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.orig": {
+    "value": 15000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.body": {
+    "value": 3500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.panel": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cam": {
+    "value": 10000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminA": {
+    "value": 6000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminB": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.prox": {
+    "value": 4950,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.wifi": {
+    "value": 0.3,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.face": {
+    "value": 0.2,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.batt": {
+    "value": 4200,
+    "support": "inferred",
+    "shapes": 0
+   }
+  }
+ },
+ {
+  "modelKey": "iPhone 13 Pro Max",
+  "rows": 292,
+  "used": 288,
+  "rmse": 13.981083002370584,
+  "maxAbs": 69.52743019987247,
+  "floor": null,
+  "params": {
+   "box.base": {
+    "value": 1000.195911479915,
+    "support": "measured",
+    "shapes": 7
+   },
+   "esim": {
+    "value": 0.05279904109956936,
     "support": "measured",
     "shapes": 1
    },
+   "class.display": {
+    "value": 25500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cracked": {
+    "value": 17850,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.touch": {
+    "value": 30000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.orig": {
+    "value": 15000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.body": {
+    "value": 3500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.panel": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cam": {
+    "value": 10000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminA": {
+    "value": 6000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminB": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.prox": {
+    "value": 4950,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.wifi": {
+    "value": 0.3,
+    "support": "inferred",
+    "shapes": 0
+   },
    "class.face": {
-    "value": 0.2597747555353072,
-    "support": "measured",
-    "shapes": 8
+    "value": 0.2,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.batt": {
-    "value": 3018.7004538885985,
+    "value": 4200,
+    "support": "inferred",
+    "shapes": 0
+   }
+  }
+ },
+ {
+  "modelKey": "iPhone 14",
+  "rows": 291,
+  "used": 288,
+  "rmse": 60.481398944396716,
+  "maxAbs": 865,
+  "floor": null,
+  "params": {
+   "box.base": {
+    "value": 1199.7768478896742,
     "support": "measured",
-    "shapes": 14
+    "shapes": 13
+   },
+   "esim": {
+    "value": 0.05177867603801384,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.display": {
+    "value": 25500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cracked": {
+    "value": 17850,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.touch": {
+    "value": 30000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.orig": {
+    "value": 15000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.body": {
+    "value": 3500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.panel": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cam": {
+    "value": 10000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminA": {
+    "value": 6000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminB": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.prox": {
+    "value": 4950,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.wifi": {
+    "value": 0.3,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.face": {
+    "value": 0.2,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.batt": {
+    "value": 4200,
+    "support": "inferred",
+    "shapes": 0
+   }
+  }
+ },
+ {
+  "modelKey": "iPhone 14 Plus",
+  "rows": 90,
+  "used": 90,
+  "rmse": 80.8807523097937,
+  "maxAbs": 640.3515625,
+  "floor": null,
+  "params": {
+   "box.base": {
+    "value": 1200.3009009078692,
+    "support": "measured",
+    "shapes": 7
+   },
+   "class.display": {
+    "value": 25500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cracked": {
+    "value": 17850,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.touch": {
+    "value": 30000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.orig": {
+    "value": 15000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.body": {
+    "value": 3500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.panel": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cam": {
+    "value": 10000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminA": {
+    "value": 6000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminB": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.prox": {
+    "value": 4950,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.wifi": {
+    "value": 0.3,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.face": {
+    "value": 0.2,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.batt": {
+    "value": 4200,
+    "support": "inferred",
+    "shapes": 0
    }
   }
  },
  {
   "modelKey": "iPhone 14 Pro",
-  "rows": 100,
-  "used": 100,
-  "rmse": 115.34684405269049,
-  "maxAbs": 380.7714401496876,
+  "rows": 272,
+  "used": 268,
+  "rmse": 11.359911937569992,
+  "maxAbs": 59.69387650986755,
   "floor": null,
   "params": {
    "box.base": {
-    "value": 1211.5651744691663,
+    "value": 1200.1280972545014,
     "support": "measured",
     "shapes": 7
    },
    "esim": {
-    "value": 0.05239902144763883,
+    "value": 0.05237156805069228,
     "support": "measured",
     "shapes": 1
    },
    "class.display": {
-    "value": 16979.910245859373,
-    "support": "measured",
-    "shapes": 4
+    "value": 25500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.cracked": {
-    "value": 17850.000000017106,
+    "value": 17850,
     "support": "inferred",
     "shapes": 0
    },
    "class.touch": {
-    "value": 30000.000000028755,
+    "value": 30000,
     "support": "inferred",
     "shapes": 0
    },
    "class.orig": {
-    "value": 9992.360715830477,
-    "support": "measured",
-    "shapes": 2
+    "value": 15000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.body": {
     "value": 3500,
@@ -128,14 +1028,14 @@
     "shapes": 0
    },
    "class.cam": {
-    "value": 6770.642201833693,
-    "support": "measured",
-    "shapes": 2
+    "value": 10000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.fminA": {
-    "value": 4684.534950199121,
-    "support": "measured",
-    "shapes": 6
+    "value": 6000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.fminB": {
     "value": 4500,
@@ -148,19 +1048,104 @@
     "shapes": 0
    },
    "class.wifi": {
-    "value": 0.3876373794087833,
-    "support": "measured",
-    "shapes": 1
+    "value": 0.3,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.face": {
-    "value": 0.2579674152938991,
-    "support": "measured",
-    "shapes": 8
+    "value": 0.2,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.batt": {
-    "value": 3225.012833039638,
+    "value": 4200,
+    "support": "inferred",
+    "shapes": 0
+   }
+  }
+ },
+ {
+  "modelKey": "iPhone 14 Pro Max",
+  "rows": 120,
+  "used": 120,
+  "rmse": 15.62261376765456,
+  "maxAbs": 67.40821288701409,
+  "floor": null,
+  "params": {
+   "box.base": {
+    "value": 1199.9279264699344,
     "support": "measured",
-    "shapes": 14
+    "shapes": 7
+   },
+   "esim": {
+    "value": 0.05177867603801384,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.display": {
+    "value": 25500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cracked": {
+    "value": 17850,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.touch": {
+    "value": 30000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.orig": {
+    "value": 15000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.body": {
+    "value": 3500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.panel": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cam": {
+    "value": 10000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminA": {
+    "value": 6000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminB": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.prox": {
+    "value": 4950,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.wifi": {
+    "value": 0.3,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.face": {
+    "value": 0.2,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.batt": {
+    "value": 4200,
+    "support": "inferred",
+    "shapes": 0
    }
   }
  },
@@ -168,8 +1153,8 @@
   "modelKey": "iPhone 15",
   "rows": 98,
   "used": 97,
-  "rmse": 341.05424297449144,
-  "maxAbs": 1704.4374242910235,
+  "rmse": 1127.3103476354013,
+  "maxAbs": 6261.407901466264,
   "floor": {
    "basis": "aged",
    "value": 0.31053
@@ -181,7 +1166,7 @@
     "shapes": 0
    },
    "age1.b": {
-    "value": 0.08901589997083897,
+    "value": 0.08858574048391613,
     "support": "inferred",
     "shapes": 0
    },
@@ -191,74 +1176,74 @@
     "shapes": 0
    },
    "age2.b": {
-    "value": 0.11816832038494995,
+    "value": 0.1180796069601093,
     "support": "inferred",
     "shapes": 0
    },
    "age3.a": {
-    "value": -1000,
+    "value": -945.7101880013865,
     "support": "inferred",
     "shapes": 0
    },
    "age3.b": {
-    "value": 0.22319711544213788,
+    "value": 0.22283246091413095,
     "support": "inferred",
     "shapes": 0
    },
    "box.base": {
-    "value": 2087.4558691182738,
+    "value": 1950.1121200163473,
     "support": "measured",
     "shapes": 3
    },
    "box.aged": {
-    "value": 1396.3949962847973,
+    "value": 1264.8410112906404,
     "support": "measured",
     "shapes": 4
    },
    "class.display": {
-    "value": 17643.705497580715,
-    "support": "measured",
-    "shapes": 5
+    "value": 25500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.cracked": {
-    "value": 12225.771835668089,
-    "support": "measured",
-    "shapes": 1
+    "value": 17850,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.touch": {
-    "value": 19891.226007768157,
-    "support": "measured",
-    "shapes": 6
+    "value": 30000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.orig": {
-    "value": 10682.08568439166,
-    "support": "measured",
-    "shapes": 1
+    "value": 15000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.body": {
-    "value": 2750.00000000003,
-    "support": "measured",
-    "shapes": 1
+    "value": 3500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.panel": {
-    "value": 3520.808030331991,
-    "support": "measured",
-    "shapes": 3
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.cam": {
-    "value": 5398.570896899525,
-    "support": "measured",
-    "shapes": 3
+    "value": 10000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.fminA": {
-    "value": 5199.948000520049,
-    "support": "measured",
-    "shapes": 1
+    "value": 6000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.fminB": {
-    "value": 2850.0285002850023,
-    "support": "measured",
-    "shapes": 1
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.prox": {
     "value": 4950,
@@ -266,19 +1251,19 @@
     "shapes": 0
    },
    "class.wifi": {
-    "value": 0.2983782723308703,
-    "support": "measured",
-    "shapes": 7
+    "value": 0.3,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.face": {
-    "value": 0.22853057603971566,
-    "support": "measured",
-    "shapes": 18
+    "value": 0.2,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.batt": {
-    "value": 2263.2330165228655,
-    "support": "measured",
-    "shapes": 18
+    "value": 4200,
+    "support": "inferred",
+    "shapes": 0
    }
   }
  },
@@ -286,97 +1271,97 @@
   "modelKey": "iPhone 15 Plus",
   "rows": 107,
   "used": 105,
-  "rmse": 353.8547474448397,
-  "maxAbs": 1855.2857536114134,
+  "rmse": 878.3850999872419,
+  "maxAbs": 4381.6148378906255,
   "floor": {
    "basis": "reference",
    "value": 0.26295
   },
   "params": {
    "age1.a": {
-    "value": 1455.334607488451,
+    "value": 1462.1384616166606,
     "support": "inferred",
     "shapes": 0
    },
    "age1.b": {
-    "value": 0.002803046108451803,
+    "value": 0.002657943474198542,
     "support": "inferred",
     "shapes": 0
    },
    "age2.a": {
-    "value": 1474.2089717832685,
+    "value": 1480.8206598570969,
     "support": "inferred",
     "shapes": 0
    },
    "age2.b": {
-    "value": 0.0340592847010882,
+    "value": 0.03391828026245014,
     "support": "inferred",
     "shapes": 0
    },
    "age3.a": {
-    "value": 1408.6131586135584,
+    "value": 1410.6766769029516,
     "support": "inferred",
     "shapes": 0
    },
    "age3.b": {
-    "value": 0.15106716687237096,
+    "value": 0.15102332747385708,
     "support": "inferred",
     "shapes": 0
    },
    "box.base": {
-    "value": 2057.1899924425556,
+    "value": 1950.0423529184293,
     "support": "measured",
     "shapes": 3
    },
    "box.aged": {
-    "value": 1508.7672847396625,
+    "value": 1300.6650606815958,
     "support": "measured",
     "shapes": 7
    },
    "class.display": {
-    "value": 18422.015363599054,
-    "support": "measured",
-    "shapes": 7
+    "value": 25500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.cracked": {
-    "value": 12731.686421653929,
-    "support": "measured",
-    "shapes": 1
+    "value": 17850,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.touch": {
-    "value": 20536.463989755943,
-    "support": "measured",
-    "shapes": 6
+    "value": 30000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.orig": {
-    "value": 11059.361246534221,
-    "support": "measured",
-    "shapes": 1
+    "value": 15000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.body": {
-    "value": 2420.000000000164,
-    "support": "measured",
-    "shapes": 1
+    "value": 3500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.panel": {
-    "value": 3218.320911470554,
-    "support": "measured",
-    "shapes": 3
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.cam": {
-    "value": 5379.852127499809,
-    "support": "measured",
-    "shapes": 3
+    "value": 10000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.fminA": {
-    "value": 5379.410181734857,
-    "support": "measured",
-    "shapes": 5
+    "value": 6000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.fminB": {
-    "value": 2850.028500285003,
-    "support": "measured",
-    "shapes": 1
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.prox": {
     "value": 4950,
@@ -384,122 +1369,122 @@
     "shapes": 0
    },
    "class.wifi": {
-    "value": 0.30924459301268825,
-    "support": "measured",
-    "shapes": 7
+    "value": 0.3,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.face": {
-    "value": 0.21961238508571418,
-    "support": "measured",
-    "shapes": 19
+    "value": 0.2,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.batt": {
-    "value": 2678.765763855469,
-    "support": "measured",
-    "shapes": 24
+    "value": 4200,
+    "support": "inferred",
+    "shapes": 0
    }
   }
  },
  {
   "modelKey": "iPhone 15 Pro",
-  "rows": 132,
-  "used": 128,
-  "rmse": 75.73545781679731,
-  "maxAbs": 235.57967447490228,
+  "rows": 324,
+  "used": 316,
+  "rmse": 0.4970115491724171,
+  "maxAbs": 3.7639620653319525,
   "floor": {
    "basis": "reference",
    "value": 0.26042
   },
   "params": {
    "age1.a": {
-    "value": 2097.7898093767003,
+    "value": 2098.9603321100585,
     "support": "inferred",
     "shapes": 0
    },
    "age1.b": {
-    "value": 0.010449850693789566,
+    "value": 0.0104322755375543,
     "support": "inferred",
     "shapes": 0
    },
    "age2.a": {
-    "value": 2097.851638065925,
+    "value": 2098.98960343743,
     "support": "inferred",
     "shapes": 0
    },
    "age2.b": {
-    "value": 0.04169892241158159,
+    "value": 0.041681836111531465,
     "support": "inferred",
     "shapes": 0
    },
    "age3.a": {
-    "value": 2099.2229088452336,
+    "value": 2099.6250558098945,
     "support": "inferred",
     "shapes": 0
    },
    "age3.b": {
-    "value": 0.15626166731845678,
+    "value": 0.15625562915964225,
     "support": "inferred",
     "shapes": 0
    },
    "box.base": {
-    "value": 1973.6976068873917,
+    "value": 1949.9763200592,
     "support": "measured",
     "shapes": 3
    },
    "box.aged": {
-    "value": 1359.0994371104891,
+    "value": 1299.9971200144014,
     "support": "measured",
     "shapes": 4
    },
    "esim": {
-    "value": 0.04997712766879997,
+    "value": 0.049977127668799956,
     "support": "measured",
     "shapes": 1
    },
    "class.display": {
-    "value": 19486.385115946312,
-    "support": "measured",
-    "shapes": 5
+    "value": 25500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.cracked": {
-    "value": 14115.65096452329,
-    "support": "measured",
-    "shapes": 1
+    "value": 17850,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.touch": {
-    "value": 23207.94459676399,
-    "support": "measured",
-    "shapes": 6
+    "value": 30000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.orig": {
-    "value": 11512.102431487572,
-    "support": "measured",
-    "shapes": 1
+    "value": 15000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.body": {
-    "value": 3299.999999999891,
-    "support": "measured",
-    "shapes": 1
+    "value": 3500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.panel": {
-    "value": 3464.3178354217057,
-    "support": "measured",
-    "shapes": 3
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.cam": {
-    "value": 6390.198921347971,
-    "support": "measured",
-    "shapes": 3
+    "value": 10000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.fminA": {
-    "value": 5399.9460005399915,
-    "support": "measured",
-    "shapes": 1
+    "value": 6000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.fminB": {
-    "value": 2850.0285002850032,
-    "support": "measured",
-    "shapes": 1
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.prox": {
     "value": 4950,
@@ -507,120 +1492,120 @@
     "shapes": 0
    },
    "class.wifi": {
-    "value": 0.3122399402828061,
-    "support": "measured",
-    "shapes": 7
+    "value": 0.3,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.face": {
-    "value": 0.20872342291254153,
-    "support": "measured",
-    "shapes": 18
+    "value": 0.2,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.batt": {
-    "value": 3902.199977407281,
-    "support": "measured",
-    "shapes": 18
+    "value": 4200,
+    "support": "inferred",
+    "shapes": 0
    }
   }
  },
  {
   "modelKey": "iPhone 15 Pro Max",
-  "rows": 24,
-  "used": 24,
-  "rmse": 0.28858797568823935,
-  "maxAbs": 1.3229470631304139,
+  "rows": 174,
+  "used": 171,
+  "rmse": 1.6116988867196373,
+  "maxAbs": 10.270400000001246,
   "floor": {
    "basis": "reference",
    "value": 0.26042
   },
   "params": {
    "age1.a": {
-    "value": 1455.1735657980375,
+    "value": 2339.1959486074265,
     "support": "inferred",
-    "shapes": 2
+    "shapes": 0
    },
    "age1.b": {
-    "value": 0.02214033187700764,
+    "value": 0.009976507156658813,
     "support": "inferred",
-    "shapes": 2
+    "shapes": 0
    },
    "age2.a": {
-    "value": 1473.616821500019,
+    "value": 2306.10977720261,
     "support": "inferred",
-    "shapes": 1
+    "shapes": 0
    },
    "age2.b": {
-    "value": 0.05320421849955323,
+    "value": 0.04171920109778211,
     "support": "inferred",
-    "shapes": 1
+    "shapes": 0
    },
    "age3.a": {
-    "value": 1421.045149773364,
+    "value": 2339.112648048589,
     "support": "inferred",
     "shapes": 0
    },
    "age3.b": {
-    "value": 0.16844580602981957,
+    "value": 0.15580791891246773,
     "support": "inferred",
     "shapes": 0
    },
    "box.base": {
-    "value": 1949.9079032500354,
+    "value": 1949.9788801055997,
     "support": "measured",
-    "shapes": 2
+    "shapes": 3
    },
    "box.aged": {
-    "value": 1300.0524382682602,
+    "value": 1300.0322174798027,
     "support": "measured",
     "shapes": 7
    },
    "esim": {
-    "value": 0.04997712766880009,
+    "value": 0.0499641641178177,
+    "support": "measured",
+    "shapes": 1
+   },
+   "class.display": {
+    "value": 25500,
     "support": "inferred",
     "shapes": 0
    },
-   "class.display": {
-    "value": 19572.784686393778,
-    "support": "measured",
-    "shapes": 4
-   },
    "class.cracked": {
-    "value": 13562.47981886786,
+    "value": 17850,
     "support": "inferred",
     "shapes": 0
    },
    "class.touch": {
-    "value": 22066.038441505418,
+    "value": 30000,
     "support": "inferred",
     "shapes": 0
    },
    "class.orig": {
-    "value": 11499.942131466456,
-    "support": "measured",
-    "shapes": 1
+    "value": 15000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.body": {
-    "value": 2750.00000000003,
+    "value": 3500,
     "support": "inferred",
     "shapes": 0
    },
    "class.panel": {
-    "value": 3464.317835421404,
+    "value": 4500,
     "support": "inferred",
     "shapes": 0
    },
    "class.cam": {
-    "value": 5398.570896899648,
+    "value": 10000,
     "support": "inferred",
     "shapes": 0
    },
    "class.fminA": {
-    "value": 5760.272196155313,
-    "support": "measured",
-    "shapes": 4
+    "value": 6000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.fminB": {
-    "value": 2850.0285002850032,
+    "value": 4500,
     "support": "inferred",
     "shapes": 0
    },
@@ -630,117 +1615,117 @@
     "shapes": 0
    },
    "class.wifi": {
-    "value": 0.309244593011663,
+    "value": 0.3,
     "support": "inferred",
     "shapes": 0
    },
    "class.face": {
-    "value": 0.2083357690898738,
-    "support": "measured",
-    "shapes": 13
+    "value": 0.2,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.batt": {
-    "value": 3999.964483840387,
-    "support": "measured",
-    "shapes": 20
+    "value": 4200,
+    "support": "inferred",
+    "shapes": 0
    }
   }
  },
  {
   "modelKey": "iPhone 16",
-  "rows": 105,
-  "used": 105,
-  "rmse": 102.81242219661063,
-  "maxAbs": 446.4091830853613,
+  "rows": 252,
+  "used": 249,
+  "rmse": 3.776460029242284,
+  "maxAbs": 19.4479999999985,
   "floor": {
    "basis": "reference",
    "value": 0.17708
   },
   "params": {
    "age1.a": {
-    "value": 1754.386816826927,
+    "value": 1752.292128663787,
     "support": "inferred",
     "shapes": 0
    },
    "age1.b": {
-    "value": 0.010336068202651937,
+    "value": 0.010374553589909161,
     "support": "inferred",
     "shapes": 0
    },
    "age2.a": {
-    "value": 1753.962969845659,
+    "value": 1751.9928365363744,
     "support": "inferred",
     "shapes": 0
    },
    "age2.b": {
-    "value": 0.041593855706057586,
+    "value": 0.04163005264457567,
     "support": "inferred",
     "shapes": 0
    },
    "age3.a": {
-    "value": 1744.3089356805392,
+    "value": 1746.8686506350095,
     "support": "inferred",
     "shapes": 0
    },
    "age3.b": {
-    "value": 0.15635964657020446,
+    "value": 0.1563102465675053,
     "support": "inferred",
     "shapes": 0
    },
    "box.base": {
-    "value": 2254.151656788091,
+    "value": 2250.332489832982,
     "support": "measured",
     "shapes": 3
    },
    "box.aged": {
-    "value": 1570.2478750410762,
+    "value": 1512.3592854904566,
     "support": "measured",
     "shapes": 7
    },
    "class.display": {
-    "value": 22060.99977222834,
-    "support": "measured",
-    "shapes": 7
+    "value": 25500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.cracked": {
-    "value": 15750.609925747563,
-    "support": "measured",
-    "shapes": 1
+    "value": 17850,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.touch": {
-    "value": 26148.081907748794,
-    "support": "measured",
-    "shapes": 6
+    "value": 30000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.orig": {
-    "value": 12953.593147698137,
-    "support": "measured",
-    "shapes": 1
+    "value": 15000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.body": {
-    "value": 2750.0000000001046,
-    "support": "measured",
-    "shapes": 1
+    "value": 3500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.panel": {
-    "value": 2969.470074507678,
-    "support": "measured",
-    "shapes": 3
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.cam": {
-    "value": 8553.590816914639,
-    "support": "measured",
-    "shapes": 3
+    "value": 10000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.fminA": {
-    "value": 5672.598869444875,
-    "support": "measured",
-    "shapes": 5
+    "value": 6000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.fminB": {
-    "value": 3300.0330003300032,
-    "support": "measured",
-    "shapes": 1
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.prox": {
     "value": 4950,
@@ -748,117 +1733,117 @@
     "shapes": 0
    },
    "class.wifi": {
-    "value": 0.3124150757541011,
-    "support": "measured",
-    "shapes": 7
+    "value": 0.3,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.face": {
-    "value": 0.20854181230082663,
-    "support": "measured",
-    "shapes": 19
+    "value": 0.2,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.batt": {
-    "value": 3984.5261077439163,
-    "support": "measured",
-    "shapes": 24
+    "value": 4200,
+    "support": "inferred",
+    "shapes": 0
    }
   }
  },
  {
   "modelKey": "iPhone 16 Plus",
-  "rows": 105,
-  "used": 105,
-  "rmse": 107.86253371168938,
-  "maxAbs": 481.2759485385104,
+  "rows": 252,
+  "used": 249,
+  "rmse": 4.9471884862326165,
+  "maxAbs": 20.947715308626357,
   "floor": {
    "basis": "reference",
    "value": 0.17711
   },
   "params": {
    "age1.a": {
-    "value": 2044.469465422611,
+    "value": 2051.096737817105,
     "support": "inferred",
     "shapes": 0
    },
    "age1.b": {
-    "value": 0.0076802023954688926,
+    "value": 0.0075615312549882595,
     "support": "inferred",
     "shapes": 0
    },
    "age2.a": {
-    "value": 1893.2780074885238,
+    "value": 1891.3099622775683,
     "support": "inferred",
     "shapes": 0
    },
    "age2.b": {
-    "value": 0.04160797218871194,
+    "value": 0.04164321135220357,
     "support": "inferred",
     "shapes": 0
    },
    "age3.a": {
-    "value": 2034.5430762000249,
+    "value": 2045.216093696461,
     "support": "inferred",
     "shapes": 0
    },
    "age3.b": {
-    "value": 0.15369874930704924,
+    "value": 0.15350415626916222,
     "support": "inferred",
     "shapes": 0
    },
    "box.base": {
-    "value": 2254.098943728225,
+    "value": 2249.961242732111,
     "support": "measured",
     "shapes": 3
    },
    "box.aged": {
-    "value": 1567.8057463945556,
+    "value": 1519.8869787601225,
     "support": "measured",
     "shapes": 7
    },
    "class.display": {
-    "value": 22914.85895332112,
-    "support": "measured",
-    "shapes": 7
+    "value": 25500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.cracked": {
-    "value": 16301.331890937872,
-    "support": "measured",
-    "shapes": 1
+    "value": 17850,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.touch": {
-    "value": 27119.903607336582,
-    "support": "measured",
-    "shapes": 6
+    "value": 30000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.orig": {
-    "value": 13453.005738688862,
-    "support": "measured",
-    "shapes": 1
+    "value": 15000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.body": {
-    "value": 2970.000000000015,
-    "support": "measured",
-    "shapes": 1
+    "value": 3500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.panel": {
-    "value": 3275.3774426355717,
-    "support": "measured",
-    "shapes": 3
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.cam": {
-    "value": 8718.72405146149,
-    "support": "measured",
-    "shapes": 3
+    "value": 10000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.fminA": {
-    "value": 5670.78102327795,
-    "support": "measured",
-    "shapes": 5
+    "value": 6000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.fminB": {
-    "value": 3300.0330003300032,
-    "support": "measured",
-    "shapes": 1
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.prox": {
     "value": 4950,
@@ -866,122 +1851,122 @@
     "shapes": 0
    },
    "class.wifi": {
-    "value": 0.3124531881998893,
-    "support": "measured",
-    "shapes": 7
+    "value": 0.3,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.face": {
-    "value": 0.20842643724278612,
-    "support": "measured",
-    "shapes": 19
+    "value": 0.2,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.batt": {
-    "value": 3994.900673888215,
-    "support": "measured",
-    "shapes": 24
+    "value": 4200,
+    "support": "inferred",
+    "shapes": 0
    }
   }
  },
  {
   "modelKey": "iPhone 16 Pro",
-  "rows": 116,
-  "used": 112,
-  "rmse": 98.25517360642169,
-  "maxAbs": 420.97507230454903,
+  "rows": 316,
+  "used": 308,
+  "rmse": 2.1579766142625627,
+  "maxAbs": 9.43612342858978,
   "floor": {
    "basis": "reference",
    "value": 0.17525
   },
   "params": {
    "age1.a": {
-    "value": 2008.6319951749856,
+    "value": 2019.1174485668323,
     "support": "inferred",
     "shapes": 0
    },
    "age1.b": {
-    "value": 0.021798428866044633,
+    "value": 0.021665005210513122,
     "support": "inferred",
     "shapes": 0
    },
    "age2.a": {
-    "value": 2109.2460251464213,
+    "value": 2109.367712259592,
     "support": "inferred",
     "shapes": 0
    },
    "age2.b": {
-    "value": 0.05141480348454326,
+    "value": 0.05141315317567874,
     "support": "inferred",
     "shapes": 0
    },
    "age3.a": {
-    "value": 2111.010660796165,
+    "value": 2083.3583576961937,
     "support": "inferred",
     "shapes": 0
    },
    "age3.b": {
-    "value": 0.16480068553742194,
+    "value": 0.1651520472541741,
     "support": "inferred",
     "shapes": 0
    },
    "box.base": {
-    "value": 2250.0000000001664,
+    "value": 2250,
     "support": "measured",
     "shapes": 1
    },
    "box.aged": {
-    "value": 1561.1013726874223,
+    "value": 1506.8102642305523,
     "support": "inferred",
     "shapes": 0
    },
    "esim": {
-    "value": 0.04997997785019114,
+    "value": 0.049980736183470716,
     "support": "measured",
     "shapes": 1
    },
    "class.display": {
-    "value": 23800.021848835473,
-    "support": "measured",
-    "shapes": 3
+    "value": 25500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.cracked": {
-    "value": 16927.28465637862,
-    "support": "measured",
-    "shapes": 1
+    "value": 17850,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.touch": {
-    "value": 27999.990345606893,
-    "support": "measured",
-    "shapes": 5
+    "value": 30000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.orig": {
-    "value": 28267.284656376436,
-    "support": "measured",
-    "shapes": 1
+    "value": 15000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.body": {
-    "value": 3299.9999999999327,
-    "support": "measured",
-    "shapes": 1
+    "value": 3500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.panel": {
-    "value": 3632.707018620273,
-    "support": "measured",
-    "shapes": 3
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.cam": {
-    "value": 9279.024927695451,
-    "support": "measured",
-    "shapes": 3
+    "value": 10000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.fminA": {
-    "value": 5599.944000560004,
-    "support": "measured",
-    "shapes": 1
+    "value": 6000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.fminB": {
-    "value": 3300.0330003300037,
-    "support": "measured",
-    "shapes": 1
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.prox": {
     "value": 4950,
@@ -989,122 +1974,122 @@
     "shapes": 0
    },
    "class.wifi": {
-    "value": 0.3092728488167747,
-    "support": "measured",
-    "shapes": 7
+    "value": 0.3,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.face": {
-    "value": 0.2062036148775282,
-    "support": "measured",
-    "shapes": 6
+    "value": 0.2,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.batt": {
-    "value": 4200.002334245495,
-    "support": "measured",
-    "shapes": 4
+    "value": 4200,
+    "support": "inferred",
+    "shapes": 0
    }
   }
  },
  {
   "modelKey": "iPhone 16 Pro Max",
-  "rows": 111,
-  "used": 108,
-  "rmse": 98.0401992610796,
-  "maxAbs": 432.6548609794736,
+  "rows": 261,
+  "used": 255,
+  "rmse": 1.4429233166041426,
+  "maxAbs": 10,
   "floor": {
    "basis": "reference",
    "value": 0.17526
   },
   "params": {
    "age1.a": {
-    "value": 2555.9458414771348,
+    "value": 2564.223355958968,
     "support": "inferred",
     "shapes": 0
    },
    "age1.b": {
-    "value": 0.017850417164149285,
+    "value": 0.017756776489352304,
     "support": "inferred",
     "shapes": 0
    },
    "age2.a": {
-    "value": 2398.4932001476127,
+    "value": 2405.031732101954,
     "support": "inferred",
     "shapes": 0
    },
    "age2.b": {
-    "value": 0.050563962987738964,
+    "value": 0.05048999498715067,
     "support": "inferred",
     "shapes": 0
    },
    "age3.a": {
-    "value": 2412.570971950799,
+    "value": 2414.898068173514,
     "support": "inferred",
     "shapes": 0
    },
    "age3.b": {
-    "value": 0.16379491785326908,
+    "value": 0.16376903719335095,
     "support": "inferred",
     "shapes": 0
    },
    "box.base": {
-    "value": 2254.3635533903093,
+    "value": 2249.9808375598827,
     "support": "measured",
     "shapes": 3
    },
    "box.aged": {
-    "value": 1554.3969989826685,
+    "value": 1499.879886143263,
     "support": "measured",
     "shapes": 7
    },
    "esim": {
-    "value": 0.05001816641873369,
+    "value": 0.05001816641873378,
     "support": "measured",
     "shapes": 1
    },
    "class.display": {
-    "value": 23747.99959182947,
-    "support": "measured",
-    "shapes": 7
+    "value": 25500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.cracked": {
-    "value": 16893.21351482869,
-    "support": "measured",
-    "shapes": 1
+    "value": 17850,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.touch": {
-    "value": 28066.401644449445,
-    "support": "measured",
-    "shapes": 6
+    "value": 30000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.orig": {
-    "value": 13956.426254720458,
-    "support": "measured",
-    "shapes": 1
+    "value": 15000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.body": {
-    "value": 3629.9999999997913,
-    "support": "measured",
-    "shapes": 1
+    "value": 3500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.panel": {
-    "value": 4056.5138189441436,
-    "support": "measured",
-    "shapes": 3
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.cam": {
-    "value": 9267.345139020526,
-    "support": "measured",
-    "shapes": 3
+    "value": 10000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.fminA": {
-    "value": 5660.637045077418,
-    "support": "measured",
-    "shapes": 5
+    "value": 6000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.fminB": {
-    "value": 3300.033000330003,
-    "support": "measured",
-    "shapes": 1
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.prox": {
     "value": 4950,
@@ -1112,117 +2097,117 @@
     "shapes": 0
    },
    "class.wifi": {
-    "value": 0.30928724024650706,
-    "support": "measured",
-    "shapes": 7
+    "value": 0.3,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.face": {
-    "value": 0.20597792936952025,
-    "support": "measured",
-    "shapes": 19
+    "value": 0.2,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.batt": {
-    "value": 4207.342586532686,
-    "support": "measured",
-    "shapes": 24
+    "value": 4200,
+    "support": "inferred",
+    "shapes": 0
    }
   }
  },
  {
   "modelKey": "iPhone 16e",
-  "rows": 105,
-  "used": 105,
-  "rmse": 244.99519203345244,
-  "maxAbs": 1566.583231292676,
+  "rows": 252,
+  "used": 249,
+  "rmse": 240.242912606791,
+  "maxAbs": 2040.2769400619945,
   "floor": {
    "basis": "reference",
    "value": 0.17536
   },
   "params": {
    "age1.a": {
-    "value": 1750.8945234672246,
+    "value": 1750.5616748003044,
     "support": "inferred",
     "shapes": 0
    },
    "age1.b": {
-    "value": 0.02059767850975457,
+    "value": 0.020606549119459132,
     "support": "inferred",
     "shapes": 0
    },
    "age2.a": {
-    "value": 1800.4095598667977,
+    "value": 1778.0123071640126,
     "support": "inferred",
     "shapes": 0
    },
    "age2.b": {
-    "value": 0.05018825589453582,
+    "value": 0.05073767272048984,
     "support": "inferred",
     "shapes": 0
    },
    "age3.a": {
-    "value": 1717.1543840932668,
+    "value": 1730.3005983049702,
     "support": "inferred",
     "shapes": 0
    },
    "age3.b": {
-    "value": 0.16581309271144487,
+    "value": 0.16547438639616782,
     "support": "inferred",
     "shapes": 0
    },
    "box.base": {
-    "value": 2279.704555087212,
+    "value": 2250.554324176703,
     "support": "measured",
     "shapes": 3
    },
    "box.aged": {
-    "value": 1539.0970411862459,
+    "value": 1501.261242970648,
     "support": "measured",
     "shapes": 7
    },
    "class.display": {
-    "value": 19438.44141540835,
-    "support": "measured",
-    "shapes": 7
+    "value": 25500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.cracked": {
-    "value": 13826.393134797687,
-    "support": "measured",
-    "shapes": 1
+    "value": 17850,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.touch": {
-    "value": 19916.581603549726,
-    "support": "measured",
-    "shapes": 6
+    "value": 30000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.orig": {
-    "value": 11533.632348881183,
-    "support": "measured",
-    "shapes": 1
+    "value": 15000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.body": {
-    "value": 2750.0000000001046,
-    "support": "measured",
-    "shapes": 1
+    "value": 3500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.panel": {
-    "value": 3106.9827651575974,
-    "support": "measured",
-    "shapes": 3
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.cam": {
-    "value": 5836.6326529542985,
-    "support": "measured",
-    "shapes": 3
+    "value": 10000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.fminA": {
-    "value": 5028.552053645543,
-    "support": "measured",
-    "shapes": 5
+    "value": 6000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.fminB": {
-    "value": 3000.0300003000843,
-    "support": "measured",
-    "shapes": 1
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.prox": {
     "value": 4950,
@@ -1230,19 +2215,19 @@
     "shapes": 0
    },
    "class.wifi": {
-    "value": 0.3076267611802099,
-    "support": "measured",
-    "shapes": 7
+    "value": 0.3,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.face": {
-    "value": 0.2104957122205945,
-    "support": "measured",
-    "shapes": 19
+    "value": 0.2,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.batt": {
-    "value": 2756.6058261203493,
-    "support": "measured",
-    "shapes": 24
+    "value": 4200,
+    "support": "inferred",
+    "shapes": 0
    }
   }
  },
@@ -1250,8 +2235,8 @@
   "modelKey": "iPhone 17",
   "rows": 104,
   "used": 102,
-  "rmse": 200.15255937865942,
-  "maxAbs": 919.7118824540885,
+  "rmse": 136.394177854322,
+  "maxAbs": 960.3922297018726,
   "floor": {
    "basis": "aged",
    "value": 0.22453
@@ -1268,104 +2253,104 @@
     "shapes": 0
    },
    "age2.a": {
-    "value": 217.39688071870575,
+    "value": 217.39685992282344,
     "support": "inferred",
     "shapes": 0
    },
    "age2.b": {
-    "value": 0.13652552915729527,
+    "value": 0.13652552946946173,
     "support": "inferred",
     "shapes": 0
    },
    "age3.a": {
-    "value": -184.47152403296994,
+    "value": -184.47539998078918,
     "support": "inferred",
     "shapes": 0
    },
    "age3.b": {
-    "value": 0.24541249656040504,
+    "value": 0.2454125547421178,
     "support": "inferred",
     "shapes": 0
    },
    "box.base": {
-    "value": 2222.330558335851,
+    "value": 2249.946500334373,
     "support": "measured",
     "shapes": 3
    },
    "box.aged": {
-    "value": 1463.527638766009,
+    "value": 1499.8990005049936,
     "support": "measured",
     "shapes": 4
    },
    "esim": {
-    "value": 0.04992494539946941,
+    "value": 0.04992494539946973,
     "support": "measured",
     "shapes": 1
    },
    "class.display": {
-    "value": 25614.906664146227,
-    "support": "measured",
-    "shapes": 5
+    "value": 25500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.cracked": {
-    "value": 17924.325364083452,
-    "support": "measured",
-    "shapes": 1
+    "value": 17850,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.touch": {
-    "value": 29394.792319841865,
-    "support": "measured",
-    "shapes": 6
+    "value": 30000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.orig": {
-    "value": 14981.127072820054,
-    "support": "measured",
-    "shapes": 1
+    "value": 15000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.body": {
-    "value": 0.11996948230356769,
-    "support": "measured",
-    "shapes": 1
+    "value": 0.12,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.panel": {
-    "value": 0.1325896116429347,
-    "support": "measured",
-    "shapes": 3
+    "value": 0.13363636363636364,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.cam": {
-    "value": 9281.802820430123,
-    "support": "measured",
-    "shapes": 6
+    "value": 10000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.fminA": {
-    "value": 5698.5999543392745,
-    "support": "measured",
-    "shapes": 5
+    "value": 6000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.fminB": {
-    "value": 3361.258102377167,
-    "support": "measured",
-    "shapes": 4
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.prox": {
-    "value": 4949.99407018215,
+    "value": 4950,
     "support": "inferred",
     "shapes": 0
    },
    "class.wifi": {
-    "value": 0.3003951047873542,
-    "support": "measured",
-    "shapes": 9
+    "value": 0.3,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.face": {
-    "value": 0.19838549486551618,
-    "support": "measured",
-    "shapes": 19
+    "value": 0.2,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.batt": {
-    "value": 4364.5342268008735,
-    "support": "measured",
-    "shapes": 20
+    "value": 4200,
+    "support": "inferred",
+    "shapes": 0
    }
   }
  },
@@ -1373,8 +2358,8 @@
   "modelKey": "iPhone 17 Pro",
   "rows": 87,
   "used": 84,
-  "rmse": 100.01962319264187,
-  "maxAbs": 416.1036285474929,
+  "rmse": 0.4715808796744427,
+  "maxAbs": 1.9604668238025624,
   "floor": {
    "basis": "reference",
    "value": 0.17005
@@ -1391,104 +2376,104 @@
     "shapes": 0
    },
    "age2.a": {
-    "value": -19.78797602149895,
+    "value": -19.78865766201697,
     "support": "inferred",
     "shapes": 0
    },
    "age2.b": {
-    "value": 0.13999800412211258,
+    "value": 0.13999801053870675,
     "support": "inferred",
     "shapes": 0
    },
    "age3.a": {
-    "value": -28.12877521477746,
+    "value": -28.129940273194507,
     "support": "inferred",
     "shapes": 0
    },
    "age3.b": {
-    "value": 0.2429023124073668,
+    "value": 0.2429023233745721,
     "support": "inferred",
     "shapes": 0
    },
    "box.base": {
-    "value": 2249.999999723122,
+    "value": 2250,
     "support": "measured",
     "shapes": 1
    },
    "box.aged": {
-    "value": 1509.3662855825892,
+    "value": 1499.950776429237,
     "support": "inferred",
     "shapes": 0
    },
    "esim": {
-    "value": 0.049952933023140925,
+    "value": 0.04995293304202625,
     "support": "measured",
     "shapes": 1
    },
    "class.display": {
-    "value": 25522.55538478918,
-    "support": "measured",
-    "shapes": 3
+    "value": 25500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.cracked": {
-    "value": 17745.247528770287,
-    "support": "measured",
-    "shapes": 1
+    "value": 17850,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.touch": {
-    "value": 29964.483429503674,
-    "support": "measured",
-    "shapes": 6
+    "value": 30000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.orig": {
-    "value": 14985.551202157785,
+    "value": 15000,
     "support": "inferred",
     "shapes": 0
    },
    "class.body": {
-    "value": 0.11999999999967974,
-    "support": "measured",
-    "shapes": 1
+    "value": 0.12,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.panel": {
-    "value": 0.13464831270814384,
-    "support": "measured",
-    "shapes": 3
+    "value": 0.13363636363636364,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.cam": {
-    "value": 9283.896371452507,
-    "support": "measured",
-    "shapes": 3
+    "value": 10000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.fminA": {
-    "value": 5599.944040293901,
-    "support": "measured",
-    "shapes": 1
+    "value": 6000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.fminB": {
-    "value": 3300.033328783563,
-    "support": "measured",
-    "shapes": 1
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.prox": {
-    "value": 4949.99407018215,
+    "value": 4950,
     "support": "inferred",
     "shapes": 0
    },
    "class.wifi": {
-    "value": 0.2999682449884748,
-    "support": "measured",
-    "shapes": 7
+    "value": 0.3,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.face": {
-    "value": 0.20005523287643537,
-    "support": "measured",
-    "shapes": 6
+    "value": 0.2,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.batt": {
-    "value": 4222.985693597583,
-    "support": "measured",
-    "shapes": 4
+    "value": 4200,
+    "support": "inferred",
+    "shapes": 0
    }
   }
  },
@@ -1496,8 +2481,8 @@
   "modelKey": "iPhone 17 Pro Max",
   "rows": 118,
   "used": 112,
-  "rmse": 100.1155863839685,
-  "maxAbs": 415.87175108689553,
+  "rmse": 1.6053571610944148,
+  "maxAbs": 8.90366937781073,
   "floor": {
    "basis": "reference",
    "value": 0.17002
@@ -1514,104 +2499,104 @@
     "shapes": 0
    },
    "age2.a": {
-    "value": -5.803598350567087,
+    "value": -5.8037951314119915,
     "support": "inferred",
     "shapes": 0
    },
    "age2.b": {
-    "value": 0.1398611833165185,
+    "value": 0.1398611850004021,
     "support": "inferred",
     "shapes": 0
    },
    "age3.a": {
-    "value": 35.66065965643129,
+    "value": 35.66065707451816,
     "support": "inferred",
     "shapes": 0
    },
    "age3.b": {
-    "value": 0.24233416930570867,
+    "value": 0.24233416932780238,
     "support": "inferred",
     "shapes": 0
    },
    "box.base": {
-    "value": 2249.999999792341,
+    "value": 2250,
     "support": "measured",
     "shapes": 1
    },
    "box.aged": {
-    "value": 1509.3662855825892,
+    "value": 1499.950776429237,
     "support": "inferred",
     "shapes": 0
    },
    "esim": {
-    "value": 0.04996805095481834,
+    "value": 0.04996805097207795,
     "support": "measured",
     "shapes": 1
    },
    "class.display": {
-    "value": 25523.627894067497,
-    "support": "measured",
-    "shapes": 3
+    "value": 25500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.cracked": {
-    "value": 17745.44603471078,
-    "support": "measured",
-    "shapes": 1
+    "value": 17850,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.touch": {
-    "value": 29967.896508236463,
-    "support": "measured",
-    "shapes": 6
+    "value": 30000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.orig": {
-    "value": 14986.180925258046,
+    "value": 15000,
     "support": "inferred",
     "shapes": 0
    },
    "class.body": {
-    "value": 0.11999133113192306,
-    "support": "measured",
-    "shapes": 1
+    "value": 0.12,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.panel": {
-    "value": 0.13455834164532732,
-    "support": "measured",
-    "shapes": 3
+    "value": 0.13363636363636364,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.cam": {
-    "value": 9284.128248913104,
-    "support": "measured",
-    "shapes": 3
+    "value": 10000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.fminA": {
-    "value": 5599.944030360427,
-    "support": "measured",
-    "shapes": 1
+    "value": 6000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.fminB": {
-    "value": 3300.0332466702052,
-    "support": "measured",
-    "shapes": 1
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.prox": {
-    "value": 4949.99407018215,
+    "value": 4950,
     "support": "inferred",
     "shapes": 0
    },
    "class.wifi": {
-    "value": 0.3000087815782237,
-    "support": "measured",
-    "shapes": 7
+    "value": 0.3,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.face": {
-    "value": 0.20001756314654526,
-    "support": "measured",
-    "shapes": 6
+    "value": 0.2,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.batt": {
-    "value": 4220.907681444157,
-    "support": "measured",
-    "shapes": 4
+    "value": 4200,
+    "support": "inferred",
+    "shapes": 0
    }
   }
  },
@@ -1619,8 +2604,8 @@
   "modelKey": "iPhone 17e",
   "rows": 55,
   "used": 54,
-  "rmse": 303.4038961567577,
-  "maxAbs": 1635.9215271138164,
+  "rmse": 726.9976206041911,
+  "maxAbs": 2964.622030511746,
   "floor": {
    "basis": "aged",
    "value": 0.22456
@@ -1637,217 +2622,232 @@
     "shapes": 0
    },
    "age2.a": {
-    "value": -36.86716512278906,
+    "value": -36.86729962206243,
     "support": "inferred",
     "shapes": 0
    },
    "age2.b": {
-    "value": 0.1405779293498865,
+    "value": 0.14057793203005234,
     "support": "inferred",
     "shapes": 0
    },
    "age3.a": {
-    "value": -41.705724136185275,
+    "value": -41.70595084810544,
     "support": "inferred",
     "shapes": 0
    },
    "age3.b": {
-    "value": 0.2434775951184924,
+    "value": 0.24347759963602933,
     "support": "inferred",
     "shapes": 0
    },
    "box.base": {
-    "value": 2249.999999999995,
+    "value": 2250,
     "support": "measured",
     "shapes": 1
    },
    "box.aged": {
-    "value": 1509.3662855825892,
+    "value": 1499.950776429237,
     "support": "inferred",
     "shapes": 0
    },
    "class.display": {
-    "value": 19585.930969908906,
-    "support": "measured",
-    "shapes": 3
+    "value": 25500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.cracked": {
-    "value": 13829.572654195685,
-    "support": "measured",
-    "shapes": 1
+    "value": 17850,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.touch": {
-    "value": 21936.64453852626,
-    "support": "measured",
-    "shapes": 6
+    "value": 30000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.orig": {
-    "value": 11499.866175877618,
+    "value": 15000,
     "support": "inferred",
     "shapes": 0
    },
    "class.body": {
-    "value": 0.12002130116617901,
-    "support": "measured",
-    "shapes": 1
+    "value": 0.12,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.panel": {
-    "value": 0.13073778470080777,
-    "support": "measured",
-    "shapes": 3
+    "value": 0.13363636363636364,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.cam": {
-    "value": 5874.724915258913,
-    "support": "measured",
-    "shapes": 3
+    "value": 10000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.fminA": {
-    "value": 5499.945000550102,
-    "support": "measured",
-    "shapes": 1
+    "value": 6000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.fminB": {
-    "value": 4500.0450004492905,
-    "support": "measured",
-    "shapes": 1
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.prox": {
-    "value": 4949.99407018215,
+    "value": 4950,
     "support": "inferred",
     "shapes": 0
    },
    "class.wifi": {
-    "value": 0.29999999999999716,
-    "support": "measured",
-    "shapes": 7
+    "value": 0.3,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.face": {
-    "value": 0.19770005552287542,
-    "support": "measured",
-    "shapes": 6
+    "value": 0.2,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.batt": {
-    "value": 3346.208577143205,
-    "support": "measured",
-    "shapes": 4
+    "value": 4200,
+    "support": "inferred",
+    "shapes": 0
    }
   }
  },
  {
   "modelKey": "iPhone 18 Pro",
-  "rows": 224,
-  "used": 216,
-  "rmse": 1.225982087679951,
-  "maxAbs": 6.581532880896702,
+  "rows": 424,
+  "used": 412,
+  "rmse": 1.364919152590317,
+  "maxAbs": 7.294287517608609,
   "floor": {
    "basis": "reference",
    "value": 0.17
   },
   "params": {
    "age1.a": {
-    "value": -7.686637355148944,
+    "value": -10.087232959604878,
     "support": "inferred",
     "shapes": 0
    },
    "age1.b": {
-    "value": 0.1117896837853728,
+    "value": 0.11180576123024265,
     "support": "inferred",
     "shapes": 0
    },
    "age2.a": {
-    "value": -2.9862357458783286,
+    "value": -3.086281215333498,
     "support": "inferred",
     "shapes": 0
    },
    "age2.b": {
-    "value": 0.13982106696669808,
+    "value": 0.13982216224968083,
     "support": "inferred",
     "shapes": 0
    },
    "age3.a": {
-    "value": 17.692869155713378,
+    "value": 17.184470428766645,
     "support": "inferred",
     "shapes": 0
    },
    "age3.b": {
-    "value": 0.24251683964727863,
+    "value": 0.24252055051796195,
     "support": "inferred",
     "shapes": 0
    },
    "box.base": {
-    "value": 2249.933484723627,
+    "value": 2250.1737890940985,
     "support": "measured",
     "shapes": 4
    },
+   "charger.base": {
+    "value": 0,
+    "support": "measured",
+    "shapes": 46
+   },
+   "charger.aged": {
+    "value": 0,
+    "support": "measured",
+    "shapes": 29
+   },
    "box.aged": {
-    "value": 1500.369777023658,
+    "value": 1499.9522130647488,
     "support": "measured",
     "shapes": 7
+   },
+   "esim": {
+    "value": 0.0500000836443462,
+    "support": "measured",
+    "shapes": 1
    },
    "class.display": {
-    "value": 25499.855951252706,
-    "support": "measured",
-    "shapes": 7
+    "value": 25500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.cracked": {
-    "value": 17851.27367846401,
-    "support": "measured",
-    "shapes": 1
+    "value": 17850,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.touch": {
-    "value": 30000.22276342141,
-    "support": "measured",
-    "shapes": 6
+    "value": 30000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.orig": {
-    "value": 14999.845936932736,
-    "support": "measured",
-    "shapes": 1
+    "value": 15000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.body": {
-    "value": 0.12000000000000001,
-    "support": "measured",
-    "shapes": 1
+    "value": 0.12,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.panel": {
-    "value": 0.1336399731481106,
-    "support": "measured",
-    "shapes": 3
+    "value": 0.13363636363636364,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.cam": {
-    "value": 9999.88083833714,
-    "support": "measured",
-    "shapes": 3
+    "value": 10000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.fminA": {
-    "value": 6000.116804231316,
-    "support": "measured",
-    "shapes": 5
+    "value": 6000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.fminB": {
-    "value": 4500.045000449825,
-    "support": "measured",
-    "shapes": 1
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.prox": {
-    "value": 4949.99407018215,
+    "value": 4950,
     "support": "inferred",
     "shapes": 0
    },
    "class.wifi": {
-    "value": 0.2999988199111192,
-    "support": "measured",
-    "shapes": 7
+    "value": 0.3,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.face": {
-    "value": 0.20000006665693335,
-    "support": "measured",
-    "shapes": 19
+    "value": 0.2,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.batt": {
-    "value": 4200.385165424967,
-    "support": "measured",
-    "shapes": 24
+    "value": 4200,
+    "support": "inferred",
+    "shapes": 0
    }
   }
  },
@@ -1855,8 +2855,8 @@
   "modelKey": "iPhone 18 Pro Max",
   "rows": 429,
   "used": 420,
-  "rmse": 0.5685877742127828,
-  "maxAbs": 6.465150841046125,
+  "rmse": 768.3354810280526,
+  "maxAbs": 8050,
   "floor": {
    "basis": "reference",
    "value": 0.17
@@ -1873,99 +2873,771 @@
     "shapes": 0
    },
    "age2.a": {
-    "value": -29.98037612128907,
+    "value": -29.980414668607686,
     "support": "inferred",
     "shapes": 0
    },
    "age2.b": {
-    "value": 0.13999986506780504,
+    "value": 0.13999986533286032,
     "support": "inferred",
     "shapes": 0
    },
    "age3.a": {
-    "value": -31.685992276478377,
+    "value": -31.6887145205965,
     "support": "inferred",
     "shapes": 0
    },
    "age3.b": {
-    "value": 0.24285397606529147,
+    "value": 0.2428539949333471,
     "support": "inferred",
     "shapes": 0
    },
    "box.base": {
-    "value": 2250.1392013531267,
+    "value": 2249.9952504301964,
     "support": "measured",
     "shapes": 4
    },
+   "charger.base": {
+    "value": 0,
+    "support": "measured",
+    "shapes": 6
+   },
+   "charger.aged": {
+    "value": 0,
+    "support": "measured",
+    "shapes": 20
+   },
    "box.aged": {
-    "value": 1499.853329573224,
+    "value": 1499.694001342107,
     "support": "measured",
     "shapes": 7
    },
    "class.display": {
-    "value": 25499.776986040106,
-    "support": "measured",
-    "shapes": 101
+    "value": 25500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.cracked": {
-    "value": 17850.18225493264,
-    "support": "measured",
-    "shapes": 13
+    "value": 17850,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.touch": {
-    "value": 30000.412385427717,
+    "value": 30000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.orig": {
+    "value": 15000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.body": {
+    "value": 0.12,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.panel": {
+    "value": 0.13363636363636364,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cam": {
+    "value": 10000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminA": {
+    "value": 6000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminB": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.prox": {
+    "value": 4950,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.wifi": {
+    "value": 0.3,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.face": {
+    "value": 0.2,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.batt": {
+    "value": 4200,
+    "support": "inferred",
+    "shapes": 0
+   }
+  }
+ },
+ {
+  "modelKey": "iPhone 6",
+  "rows": 120,
+  "used": 120,
+  "rmse": 31.796065160459772,
+  "maxAbs": 255,
+  "floor": {
+   "basis": "reference",
+   "value": 0.22819
+  },
+  "params": {
+   "box.base": {
+    "value": 23.782648460732823,
     "support": "measured",
     "shapes": 7
    },
+   "class.display": {
+    "value": 25500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cracked": {
+    "value": 17850,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.touch": {
+    "value": 30000,
+    "support": "inferred",
+    "shapes": 0
+   },
    "class.orig": {
-    "value": 14999.923055387178,
-    "support": "measured",
-    "shapes": 2
+    "value": 15000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.body": {
-    "value": 0.12000058107216505,
-    "support": "measured",
-    "shapes": 40
+    "value": 3500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.panel": {
-    "value": 0.13363655841712557,
-    "support": "measured",
-    "shapes": 39
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.cam": {
-    "value": 10000.025541784013,
-    "support": "measured",
-    "shapes": 40
+    "value": 10000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.fminA": {
-    "value": 5999.846648911071,
-    "support": "measured",
-    "shapes": 26
+    "value": 6000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.fminB": {
-    "value": 4500.063388229284,
-    "support": "measured",
-    "shapes": 31
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.prox": {
-    "value": 4949.994074380724,
-    "support": "measured",
-    "shapes": 5
+    "value": 4950,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.wifi": {
-    "value": 0.29999938276421867,
-    "support": "measured",
-    "shapes": 18
+    "value": 0.3,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.face": {
-    "value": 0.1999996754778062,
-    "support": "measured",
-    "shapes": 24
+    "value": 0.2,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.batt": {
-    "value": 4199.812159185193,
+    "value": 4200,
+    "support": "inferred",
+    "shapes": 0
+   }
+  }
+ },
+ {
+  "modelKey": "iPhone 6 Plus",
+  "rows": 91,
+  "used": 91,
+  "rmse": 29.589247552394294,
+  "maxAbs": 210.25390625,
+  "floor": {
+   "basis": "reference",
+   "value": 0.22737
+  },
+  "params": {
+   "box.base": {
+    "value": 22.709002727354143,
     "support": "measured",
-    "shapes": 34
+    "shapes": 14
+   },
+   "charger.base": {
+    "value": 0,
+    "support": "measured",
+    "shapes": 47
+   },
+   "class.display": {
+    "value": 25500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cracked": {
+    "value": 17850,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.touch": {
+    "value": 30000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.orig": {
+    "value": 15000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.body": {
+    "value": 3500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.panel": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cam": {
+    "value": 10000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminA": {
+    "value": 6000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminB": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.prox": {
+    "value": 4950,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.wifi": {
+    "value": 0.3,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.face": {
+    "value": 0.2,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.batt": {
+    "value": 4200,
+    "support": "inferred",
+    "shapes": 0
+   }
+  }
+ },
+ {
+  "modelKey": "iPhone 6S",
+  "rows": 120,
+  "used": 120,
+  "rmse": 36.22199808859264,
+  "maxAbs": 260,
+  "floor": {
+   "basis": "reference",
+   "value": 0.228
+  },
+  "params": {
+   "box.base": {
+    "value": 29.89158685982648,
+    "support": "measured",
+    "shapes": 7
+   },
+   "class.display": {
+    "value": 25500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cracked": {
+    "value": 17850,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.touch": {
+    "value": 30000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.orig": {
+    "value": 15000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.body": {
+    "value": 3500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.panel": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cam": {
+    "value": 10000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminA": {
+    "value": 6000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminB": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.prox": {
+    "value": 4950,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.wifi": {
+    "value": 0.3,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.face": {
+    "value": 0.2,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.batt": {
+    "value": 4200,
+    "support": "inferred",
+    "shapes": 0
+   }
+  }
+ },
+ {
+  "modelKey": "iPhone 6S Plus",
+  "rows": 120,
+  "used": 120,
+  "rmse": 68.88035323086326,
+  "maxAbs": 545,
+  "floor": {
+   "basis": "reference",
+   "value": 0.22686
+  },
+  "params": {
+   "box.base": {
+    "value": 29.968429783080044,
+    "support": "measured",
+    "shapes": 7
+   },
+   "class.display": {
+    "value": 25500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cracked": {
+    "value": 17850,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.touch": {
+    "value": 30000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.orig": {
+    "value": 15000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.body": {
+    "value": 3500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.panel": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cam": {
+    "value": 10000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminA": {
+    "value": 6000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminB": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.prox": {
+    "value": 4950,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.wifi": {
+    "value": 0.3,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.face": {
+    "value": 0.2,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.batt": {
+    "value": 4200,
+    "support": "inferred",
+    "shapes": 0
+   }
+  }
+ },
+ {
+  "modelKey": "iPhone 7",
+  "rows": 90,
+  "used": 90,
+  "rmse": 24.30043609114321,
+  "maxAbs": 149.81829643249512,
+  "floor": null,
+  "params": {
+   "box.base": {
+    "value": 49.841234283612444,
+    "support": "measured",
+    "shapes": 7
+   },
+   "class.display": {
+    "value": 25500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cracked": {
+    "value": 17850,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.touch": {
+    "value": 30000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.orig": {
+    "value": 15000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.body": {
+    "value": 3500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.panel": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cam": {
+    "value": 10000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminA": {
+    "value": 6000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminB": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.prox": {
+    "value": 4950,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.wifi": {
+    "value": 0.3,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.face": {
+    "value": 0.2,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.batt": {
+    "value": 4200,
+    "support": "inferred",
+    "shapes": 0
+   }
+  }
+ },
+ {
+  "modelKey": "iPhone 7 Plus",
+  "rows": 90,
+  "used": 90,
+  "rmse": 69.52278751410437,
+  "maxAbs": 350.0191716368968,
+  "floor": null,
+  "params": {
+   "box.base": {
+    "value": 49.26644630329789,
+    "support": "measured",
+    "shapes": 7
+   },
+   "charger.base": {
+    "value": 141.34986077483936,
+    "support": "measured",
+    "shapes": 29
+   },
+   "class.display": {
+    "value": 25500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cracked": {
+    "value": 17850,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.touch": {
+    "value": 30000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.orig": {
+    "value": 15000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.body": {
+    "value": 3500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.panel": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cam": {
+    "value": 10000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminA": {
+    "value": 6000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminB": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.prox": {
+    "value": 4950,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.wifi": {
+    "value": 0.3,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.face": {
+    "value": 0.2,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.batt": {
+    "value": 4200,
+    "support": "inferred",
+    "shapes": 0
+   }
+  }
+ },
+ {
+  "modelKey": "iPhone 8",
+  "rows": 90,
+  "used": 90,
+  "rmse": 7.017800799062237,
+  "maxAbs": 40.00095266016626,
+  "floor": null,
+  "params": {
+   "box.base": {
+    "value": 50.05750903340134,
+    "support": "measured",
+    "shapes": 7
+   },
+   "class.display": {
+    "value": 25500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cracked": {
+    "value": 17850,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.touch": {
+    "value": 30000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.orig": {
+    "value": 15000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.body": {
+    "value": 3500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.panel": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cam": {
+    "value": 10000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminA": {
+    "value": 6000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminB": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.prox": {
+    "value": 4950,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.wifi": {
+    "value": 0.3,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.face": {
+    "value": 0.2,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.batt": {
+    "value": 4200,
+    "support": "inferred",
+    "shapes": 0
+   }
+  }
+ },
+ {
+  "modelKey": "iPhone 8 Plus",
+  "rows": 90,
+  "used": 90,
+  "rmse": 7.738841143353924,
+  "maxAbs": 60.0054982267925,
+  "floor": null,
+  "params": {
+   "box.base": {
+    "value": 49.484064253935266,
+    "support": "measured",
+    "shapes": 7
+   },
+   "class.display": {
+    "value": 25500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cracked": {
+    "value": 17850,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.touch": {
+    "value": 30000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.orig": {
+    "value": 15000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.body": {
+    "value": 3500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.panel": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cam": {
+    "value": 10000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminA": {
+    "value": 6000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminB": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.prox": {
+    "value": 4950,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.wifi": {
+    "value": 0.3,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.face": {
+    "value": 0.2,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.batt": {
+    "value": 4200,
+    "support": "inferred",
+    "shapes": 0
    }
   }
  },
@@ -1973,8 +3645,8 @@
   "modelKey": "iPhone Air",
   "rows": 111,
   "used": 108,
-  "rmse": 91.32078400519953,
-  "maxAbs": 416.97829112686486,
+  "rmse": 4.264101460545511,
+  "maxAbs": 41.225605504027044,
   "floor": {
    "basis": "aged",
    "value": 0.22445
@@ -1991,124 +3663,44 @@
     "shapes": 0
    },
    "age2.a": {
-    "value": 23.9481037399915,
+    "value": 23.948103268706973,
     "support": "inferred",
     "shapes": 0
    },
    "age2.b": {
-    "value": 0.13948387067264673,
+    "value": 0.13948387067868528,
     "support": "inferred",
     "shapes": 0
    },
    "age3.a": {
-    "value": 24.86887914160167,
+    "value": 24.86898024475729,
     "support": "inferred",
     "shapes": 0
    },
    "age3.b": {
-    "value": 0.24235722933624507,
+    "value": 0.24235722833117335,
     "support": "inferred",
     "shapes": 0
    },
    "box.base": {
-    "value": 2244.8652425456976,
+    "value": 2250.0319998400014,
     "support": "measured",
     "shapes": 3
    },
    "box.aged": {
-    "value": 1536.353765652273,
+    "value": 1499.950297550733,
     "support": "measured",
     "shapes": 7
    },
    "esim": {
-    "value": 0.049999999999999774,
+    "value": 0.04999999999999981,
     "support": "measured",
     "shapes": 1
    },
    "class.display": {
-    "value": 25509.821218680452,
-    "support": "measured",
-    "shapes": 7
-   },
-   "class.cracked": {
-    "value": 17733.805332343614,
-    "support": "measured",
-    "shapes": 1
-   },
-   "class.touch": {
-    "value": 29936.546917943164,
-    "support": "measured",
-    "shapes": 6
-   },
-   "class.orig": {
-    "value": 14950.441320976797,
-    "support": "measured",
-    "shapes": 1
-   },
-   "class.body": {
-    "value": 0.11998340325887606,
-    "support": "measured",
-    "shapes": 1
-   },
-   "class.panel": {
-    "value": 0.13513745048822295,
-    "support": "measured",
-    "shapes": 3
-   },
-   "class.cam": {
-    "value": 9283.021708873135,
-    "support": "measured",
-    "shapes": 3
-   },
-   "class.fminA": {
-    "value": 5653.869374029533,
-    "support": "measured",
-    "shapes": 5
-   },
-   "class.fminB": {
-    "value": 3300.033000330174,
-    "support": "measured",
-    "shapes": 1
-   },
-   "class.prox": {
-    "value": 4949.99407018215,
+    "value": 25500,
     "support": "inferred",
     "shapes": 0
-   },
-   "class.wifi": {
-    "value": 0.3001701845447416,
-    "support": "measured",
-    "shapes": 7
-   },
-   "class.face": {
-    "value": 0.19958521865997442,
-    "support": "measured",
-    "shapes": 19
-   },
-   "class.batt": {
-    "value": 4244.108514590146,
-    "support": "measured",
-    "shapes": 24
-   }
-  }
- },
- {
-  "modelKey": "iPhone X",
-  "rows": 27,
-  "used": 27,
-  "rmse": 218.25972714172403,
-  "maxAbs": 617.9260752714972,
-  "floor": null,
-  "params": {
-   "box.base": {
-    "value": 93.59904250984937,
-    "support": "measured",
-    "shapes": 7
-   },
-   "class.display": {
-    "value": 5990.089252590911,
-    "support": "measured",
-    "shapes": 4
    },
    "class.cracked": {
     "value": 17850,
@@ -2121,29 +3713,29 @@
     "shapes": 0
    },
    "class.orig": {
-    "value": 3359.767773053358,
-    "support": "measured",
-    "shapes": 3
+    "value": 15000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.body": {
-    "value": 3500,
+    "value": 0.12,
     "support": "inferred",
     "shapes": 0
    },
    "class.panel": {
-    "value": 4500,
+    "value": 0.13363636363636364,
     "support": "inferred",
     "shapes": 0
    },
    "class.cam": {
-    "value": 3100.9174312292384,
-    "support": "measured",
-    "shapes": 2
+    "value": 10000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.fminA": {
-    "value": 1636.9643236338177,
-    "support": "measured",
-    "shapes": 7
+    "value": 6000,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.fminB": {
     "value": 4500,
@@ -2156,19 +3748,602 @@
     "shapes": 0
    },
    "class.wifi": {
-    "value": 0.42315369257078467,
-    "support": "measured",
-    "shapes": 1
+    "value": 0.3,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.face": {
-    "value": 0.2879626931168437,
-    "support": "measured",
-    "shapes": 9
+    "value": 0.2,
+    "support": "inferred",
+    "shapes": 0
    },
    "class.batt": {
-    "value": 958.1626476380792,
+    "value": 4200,
+    "support": "inferred",
+    "shapes": 0
+   }
+  }
+ },
+ {
+  "modelKey": "iPhone SE 1st Generation",
+  "rows": 120,
+  "used": 120,
+  "rmse": 23.778033947850897,
+  "maxAbs": 208.75,
+  "floor": {
+   "basis": "reference",
+   "value": 0.22576
+  },
+  "params": {
+   "box.base": {
+    "value": 25.091672475930892,
     "support": "measured",
-    "shapes": 15
+    "shapes": 7
+   },
+   "class.display": {
+    "value": 25500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cracked": {
+    "value": 17850,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.touch": {
+    "value": 30000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.orig": {
+    "value": 15000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.body": {
+    "value": 3500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.panel": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cam": {
+    "value": 10000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminA": {
+    "value": 6000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminB": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.prox": {
+    "value": 4950,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.wifi": {
+    "value": 0.3,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.face": {
+    "value": 0.2,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.batt": {
+    "value": 4200,
+    "support": "inferred",
+    "shapes": 0
+   }
+  }
+ },
+ {
+  "modelKey": "iPhone SE 2020",
+  "rows": 90,
+  "used": 90,
+  "rmse": 25.55892404555308,
+  "maxAbs": 209.66796875,
+  "floor": null,
+  "params": {
+   "box.base": {
+    "value": 199.7816370884832,
+    "support": "measured",
+    "shapes": 7
+   },
+   "class.display": {
+    "value": 25500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cracked": {
+    "value": 17850,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.touch": {
+    "value": 30000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.orig": {
+    "value": 15000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.body": {
+    "value": 3500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.panel": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cam": {
+    "value": 10000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminA": {
+    "value": 6000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminB": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.prox": {
+    "value": 4950,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.wifi": {
+    "value": 0.3,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.face": {
+    "value": 0.2,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.batt": {
+    "value": 4200,
+    "support": "inferred",
+    "shapes": 0
+   }
+  }
+ },
+ {
+  "modelKey": "iPhone SE 2022",
+  "rows": 207,
+  "used": 204,
+  "rmse": 31.133377472043243,
+  "maxAbs": 207.5990747879723,
+  "floor": null,
+  "params": {
+   "box.base": {
+    "value": 600.0148114171454,
+    "support": "measured",
+    "shapes": 7
+   },
+   "class.display": {
+    "value": 25500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cracked": {
+    "value": 17850,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.touch": {
+    "value": 30000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.orig": {
+    "value": 15000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.body": {
+    "value": 3500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.panel": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cam": {
+    "value": 10000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminA": {
+    "value": 6000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminB": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.prox": {
+    "value": 4950,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.wifi": {
+    "value": 0.3,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.face": {
+    "value": 0.2,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.batt": {
+    "value": 4200,
+    "support": "inferred",
+    "shapes": 0
+   }
+  }
+ },
+ {
+  "modelKey": "iPhone X",
+  "rows": 87,
+  "used": 87,
+  "rmse": 22.288646030518937,
+  "maxAbs": 205.97167077532686,
+  "floor": null,
+  "params": {
+   "box.base": {
+    "value": 99.8204191526278,
+    "support": "measured",
+    "shapes": 13
+   },
+   "charger.base": {
+    "value": 304.02889806209583,
+    "support": "measured",
+    "shapes": 53
+   },
+   "class.display": {
+    "value": 25500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cracked": {
+    "value": 17850,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.touch": {
+    "value": 30000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.orig": {
+    "value": 15000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.body": {
+    "value": 3500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.panel": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cam": {
+    "value": 10000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminA": {
+    "value": 6000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminB": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.prox": {
+    "value": 4950,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.wifi": {
+    "value": 0.3,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.face": {
+    "value": 0.2,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.batt": {
+    "value": 4200,
+    "support": "inferred",
+    "shapes": 0
+   }
+  }
+ },
+ {
+  "modelKey": "iPhone XR",
+  "rows": 90,
+  "used": 90,
+  "rmse": 48.91181757613904,
+  "maxAbs": 459.83007553581956,
+  "floor": null,
+  "params": {
+   "box.base": {
+    "value": 100.08225487253385,
+    "support": "measured",
+    "shapes": 7
+   },
+   "charger.base": {
+    "value": 294.5063828897407,
+    "support": "measured",
+    "shapes": 29
+   },
+   "class.display": {
+    "value": 25500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cracked": {
+    "value": 17850,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.touch": {
+    "value": 30000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.orig": {
+    "value": 15000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.body": {
+    "value": 3500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.panel": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cam": {
+    "value": 10000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminA": {
+    "value": 6000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminB": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.prox": {
+    "value": 4950,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.wifi": {
+    "value": 0.3,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.face": {
+    "value": 0.2,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.batt": {
+    "value": 4200,
+    "support": "inferred",
+    "shapes": 0
+   }
+  }
+ },
+ {
+  "modelKey": "iPhone XS",
+  "rows": 90,
+  "used": 90,
+  "rmse": 85.47163268698664,
+  "maxAbs": 789.7544253442284,
+  "floor": null,
+  "params": {
+   "box.base": {
+    "value": 100.07939584723046,
+    "support": "measured",
+    "shapes": 7
+   },
+   "charger.base": {
+    "value": 291.7302668183169,
+    "support": "measured",
+    "shapes": 29
+   },
+   "class.display": {
+    "value": 25500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cracked": {
+    "value": 17850,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.touch": {
+    "value": 30000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.orig": {
+    "value": 15000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.body": {
+    "value": 3500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.panel": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cam": {
+    "value": 10000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminA": {
+    "value": 6000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminB": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.prox": {
+    "value": 4950,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.wifi": {
+    "value": 0.3,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.face": {
+    "value": 0.2,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.batt": {
+    "value": 4200,
+    "support": "inferred",
+    "shapes": 0
+   }
+  }
+ },
+ {
+  "modelKey": "iPhone XS Max",
+  "rows": 90,
+  "used": 90,
+  "rmse": 78.92297138355227,
+  "maxAbs": 609.8792108954794,
+  "floor": null,
+  "params": {
+   "box.base": {
+    "value": 101.86044760857317,
+    "support": "measured",
+    "shapes": 7
+   },
+   "charger.base": {
+    "value": 297.65894335078457,
+    "support": "measured",
+    "shapes": 29
+   },
+   "class.display": {
+    "value": 25500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cracked": {
+    "value": 17850,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.touch": {
+    "value": 30000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.orig": {
+    "value": 15000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.body": {
+    "value": 3500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.panel": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.cam": {
+    "value": 10000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminA": {
+    "value": 6000,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.fminB": {
+    "value": 4500,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.prox": {
+    "value": 4950,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.wifi": {
+    "value": 0.3,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.face": {
+    "value": 0.2,
+    "support": "inferred",
+    "shapes": 0
+   },
+   "class.batt": {
+    "value": 4200,
+    "support": "inferred",
+    "shapes": 0
    }
   }
  }

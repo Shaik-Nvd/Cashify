@@ -1,0 +1,1469 @@
+{
+  "priced_records": 5218,
+  "iphone_priced_records": 4948,
+  "samsung_priced_records": 270,
+  "priced_iphone_models": 37,
+  "priced_iphone_variants": 121,
+  "baseline_deductions": 5218,
+  "pure_single_functional_unique_rows": 1372,
+  "paired_fault_or_box_contrasts": 8842,
+  "pattern_groups": 391,
+  "storage_holdout_pattern_groups": 391,
+  "negative_deductions": 0,
+  "issues": [],
+  "coverage": [
+    {
+      "model": "iPhone 11",
+      "priced_records": 90,
+      "priced_storages": [
+        64,
+        128,
+        256
+      ],
+      "pending_records": 0,
+      "unavailable_records": 0,
+      "pure_single_functional_codes": [
+        "F01",
+        "F02",
+        "F08",
+        "F10",
+        "F13",
+        "F17",
+        "F18"
+      ],
+      "missing_pure_single_codes": [
+        "F03",
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "F09",
+        "F11",
+        "F12",
+        "F14",
+        "F15",
+        "F16"
+      ],
+      "combination_records": 54
+    },
+    {
+      "model": "iPhone 11 Pro",
+      "priced_records": 90,
+      "priced_storages": [
+        64,
+        256,
+        512
+      ],
+      "pending_records": 0,
+      "unavailable_records": 0,
+      "pure_single_functional_codes": [],
+      "missing_pure_single_codes": [
+        "F01",
+        "F02",
+        "F03",
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "F08",
+        "F09",
+        "F10",
+        "F11",
+        "F12",
+        "F13",
+        "F14",
+        "F15",
+        "F16",
+        "F17",
+        "F18"
+      ],
+      "combination_records": 54
+    },
+    {
+      "model": "iPhone 11 Pro Max",
+      "priced_records": 90,
+      "priced_storages": [
+        64,
+        256,
+        512
+      ],
+      "pending_records": 0,
+      "unavailable_records": 0,
+      "pure_single_functional_codes": [
+        "F01",
+        "F02",
+        "F08",
+        "F10",
+        "F13",
+        "F17",
+        "F18"
+      ],
+      "missing_pure_single_codes": [
+        "F03",
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "F09",
+        "F11",
+        "F12",
+        "F14",
+        "F15",
+        "F16"
+      ],
+      "combination_records": 54
+    },
+    {
+      "model": "iPhone 12",
+      "priced_records": 90,
+      "priced_storages": [
+        64,
+        128,
+        256
+      ],
+      "pending_records": 0,
+      "unavailable_records": 0,
+      "pure_single_functional_codes": [
+        "F01",
+        "F02",
+        "F08",
+        "F10",
+        "F13",
+        "F17",
+        "F18"
+      ],
+      "missing_pure_single_codes": [
+        "F03",
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "F09",
+        "F11",
+        "F12",
+        "F14",
+        "F15",
+        "F16"
+      ],
+      "combination_records": 54
+    },
+    {
+      "model": "iPhone 12 Pro",
+      "priced_records": 90,
+      "priced_storages": [
+        128,
+        256,
+        512
+      ],
+      "pending_records": 0,
+      "unavailable_records": 0,
+      "pure_single_functional_codes": [
+        "F01",
+        "F02",
+        "F08",
+        "F10",
+        "F13",
+        "F17",
+        "F18"
+      ],
+      "missing_pure_single_codes": [
+        "F03",
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "F09",
+        "F11",
+        "F12",
+        "F14",
+        "F15",
+        "F16"
+      ],
+      "combination_records": 54
+    },
+    {
+      "model": "iPhone 12 Pro Max",
+      "priced_records": 90,
+      "priced_storages": [
+        128,
+        256,
+        512
+      ],
+      "pending_records": 0,
+      "unavailable_records": 0,
+      "pure_single_functional_codes": [
+        "F01",
+        "F02",
+        "F08",
+        "F10",
+        "F13",
+        "F17",
+        "F18"
+      ],
+      "missing_pure_single_codes": [
+        "F03",
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "F09",
+        "F11",
+        "F12",
+        "F14",
+        "F15",
+        "F16"
+      ],
+      "combination_records": 54
+    },
+    {
+      "model": "iPhone 13",
+      "priced_records": 90,
+      "priced_storages": [
+        128,
+        256,
+        512
+      ],
+      "pending_records": 0,
+      "unavailable_records": 0,
+      "pure_single_functional_codes": [
+        "F01",
+        "F02",
+        "F08",
+        "F10",
+        "F13",
+        "F17",
+        "F18"
+      ],
+      "missing_pure_single_codes": [
+        "F03",
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "F09",
+        "F11",
+        "F12",
+        "F14",
+        "F15",
+        "F16"
+      ],
+      "combination_records": 54
+    },
+    {
+      "model": "iPhone 13 Mini",
+      "priced_records": 90,
+      "priced_storages": [
+        128,
+        256,
+        512
+      ],
+      "pending_records": 0,
+      "unavailable_records": 0,
+      "pure_single_functional_codes": [
+        "F01",
+        "F02",
+        "F08",
+        "F10",
+        "F13",
+        "F17",
+        "F18"
+      ],
+      "missing_pure_single_codes": [
+        "F03",
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "F09",
+        "F11",
+        "F12",
+        "F14",
+        "F15",
+        "F16"
+      ],
+      "combination_records": 54
+    },
+    {
+      "model": "iPhone 13 Pro",
+      "priced_records": 120,
+      "priced_storages": [
+        128,
+        256,
+        512,
+        1024
+      ],
+      "pending_records": 0,
+      "unavailable_records": 0,
+      "pure_single_functional_codes": [
+        "F01",
+        "F02",
+        "F08",
+        "F10",
+        "F13",
+        "F17",
+        "F18"
+      ],
+      "missing_pure_single_codes": [
+        "F03",
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "F09",
+        "F11",
+        "F12",
+        "F14",
+        "F15",
+        "F16"
+      ],
+      "combination_records": 72
+    },
+    {
+      "model": "iPhone 13 Pro Max",
+      "priced_records": 320,
+      "priced_storages": [
+        128,
+        256,
+        512,
+        1024
+      ],
+      "pending_records": 0,
+      "unavailable_records": 32,
+      "pure_single_functional_codes": [
+        "F01",
+        "F02",
+        "F03",
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "F08",
+        "F09",
+        "F10",
+        "F11",
+        "F12",
+        "F13",
+        "F14",
+        "F15",
+        "F16",
+        "F17",
+        "F18"
+      ],
+      "missing_pure_single_codes": [],
+      "combination_records": 80
+    },
+    {
+      "model": "iPhone 14",
+      "priced_records": 237,
+      "priced_storages": [
+        128,
+        256,
+        512
+      ],
+      "pending_records": 0,
+      "unavailable_records": 27,
+      "pure_single_functional_codes": [
+        "F01",
+        "F02",
+        "F03",
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "F08",
+        "F09",
+        "F10",
+        "F11",
+        "F12",
+        "F13",
+        "F14",
+        "F15",
+        "F16",
+        "F17",
+        "F18"
+      ],
+      "missing_pure_single_codes": [],
+      "combination_records": 60
+    },
+    {
+      "model": "iPhone 14 Plus",
+      "priced_records": 90,
+      "priced_storages": [
+        128,
+        256,
+        512
+      ],
+      "pending_records": 0,
+      "unavailable_records": 0,
+      "pure_single_functional_codes": [
+        "F01",
+        "F02",
+        "F08",
+        "F10",
+        "F13",
+        "F17",
+        "F18"
+      ],
+      "missing_pure_single_codes": [
+        "F03",
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "F09",
+        "F11",
+        "F12",
+        "F14",
+        "F15",
+        "F16"
+      ],
+      "combination_records": 54
+    },
+    {
+      "model": "iPhone 14 Pro",
+      "priced_records": 200,
+      "priced_storages": [
+        128,
+        256,
+        512,
+        1024
+      ],
+      "pending_records": 0,
+      "unavailable_records": 32,
+      "pure_single_functional_codes": [
+        "F01",
+        "F02",
+        "F03",
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "F08",
+        "F09",
+        "F10",
+        "F11",
+        "F12",
+        "F13",
+        "F14",
+        "F15",
+        "F16",
+        "F17",
+        "F18"
+      ],
+      "missing_pure_single_codes": [],
+      "combination_records": 8
+    },
+    {
+      "model": "iPhone 14 Pro Max",
+      "priced_records": 120,
+      "priced_storages": [
+        128,
+        256,
+        512,
+        1024
+      ],
+      "pending_records": 0,
+      "unavailable_records": 0,
+      "pure_single_functional_codes": [
+        "F01",
+        "F02",
+        "F08",
+        "F10",
+        "F13",
+        "F17",
+        "F18"
+      ],
+      "missing_pure_single_codes": [
+        "F03",
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "F09",
+        "F11",
+        "F12",
+        "F14",
+        "F15",
+        "F16"
+      ],
+      "combination_records": 72
+    },
+    {
+      "model": "iPhone 15 Plus",
+      "priced_records": 0,
+      "priced_storages": [],
+      "pending_records": 174,
+      "unavailable_records": 0,
+      "pure_single_functional_codes": [],
+      "missing_pure_single_codes": [
+        "F01",
+        "F02",
+        "F03",
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "F08",
+        "F09",
+        "F10",
+        "F11",
+        "F12",
+        "F13",
+        "F14",
+        "F15",
+        "F16",
+        "F17",
+        "F18"
+      ],
+      "combination_records": 0
+    },
+    {
+      "model": "iPhone 15 Pro",
+      "priced_records": 228,
+      "priced_storages": [
+        128,
+        256,
+        512,
+        1024
+      ],
+      "pending_records": 236,
+      "unavailable_records": 8,
+      "pure_single_functional_codes": [
+        "F01",
+        "F02",
+        "F03",
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "F08",
+        "F09",
+        "F10",
+        "F11",
+        "F12",
+        "F13",
+        "F14",
+        "F15",
+        "F16",
+        "F17",
+        "F18"
+      ],
+      "missing_pure_single_codes": [],
+      "combination_records": 8
+    },
+    {
+      "model": "iPhone 15 Pro Max",
+      "priced_records": 174,
+      "priced_storages": [
+        256,
+        512,
+        1024
+      ],
+      "pending_records": 0,
+      "unavailable_records": 6,
+      "pure_single_functional_codes": [
+        "F01",
+        "F02",
+        "F03",
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "F08",
+        "F09",
+        "F10",
+        "F11",
+        "F12",
+        "F13",
+        "F14",
+        "F15",
+        "F16",
+        "F17",
+        "F18"
+      ],
+      "missing_pure_single_codes": [],
+      "combination_records": 6
+    },
+    {
+      "model": "iPhone 16",
+      "priced_records": 171,
+      "priced_storages": [
+        128,
+        256,
+        512
+      ],
+      "pending_records": 0,
+      "unavailable_records": 9,
+      "pure_single_functional_codes": [
+        "F01",
+        "F02",
+        "F03",
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "F08",
+        "F09",
+        "F10",
+        "F11",
+        "F12",
+        "F13",
+        "F14",
+        "F15",
+        "F16",
+        "F17",
+        "F18"
+      ],
+      "missing_pure_single_codes": [],
+      "combination_records": 6
+    },
+    {
+      "model": "iPhone 16 Plus",
+      "priced_records": 171,
+      "priced_storages": [
+        128,
+        256,
+        512
+      ],
+      "pending_records": 0,
+      "unavailable_records": 9,
+      "pure_single_functional_codes": [
+        "F01",
+        "F02",
+        "F03",
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "F08",
+        "F09",
+        "F10",
+        "F11",
+        "F12",
+        "F13",
+        "F14",
+        "F15",
+        "F16",
+        "F17",
+        "F18"
+      ],
+      "missing_pure_single_codes": [],
+      "combination_records": 6
+    },
+    {
+      "model": "iPhone 16 Pro",
+      "priced_records": 232,
+      "priced_storages": [
+        128,
+        256,
+        512,
+        1024
+      ],
+      "pending_records": 0,
+      "unavailable_records": 8,
+      "pure_single_functional_codes": [
+        "F01",
+        "F02",
+        "F03",
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "F08",
+        "F09",
+        "F10",
+        "F11",
+        "F12",
+        "F13",
+        "F14",
+        "F15",
+        "F16",
+        "F17",
+        "F18"
+      ],
+      "missing_pure_single_codes": [],
+      "combination_records": 8
+    },
+    {
+      "model": "iPhone 16 Pro Max",
+      "priced_records": 174,
+      "priced_storages": [
+        256,
+        512,
+        1024
+      ],
+      "pending_records": 0,
+      "unavailable_records": 6,
+      "pure_single_functional_codes": [
+        "F01",
+        "F02",
+        "F03",
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "F08",
+        "F09",
+        "F10",
+        "F11",
+        "F12",
+        "F13",
+        "F14",
+        "F15",
+        "F16",
+        "F17",
+        "F18"
+      ],
+      "missing_pure_single_codes": [],
+      "combination_records": 6
+    },
+    {
+      "model": "iPhone 16e",
+      "priced_records": 171,
+      "priced_storages": [
+        128,
+        256,
+        512
+      ],
+      "pending_records": 0,
+      "unavailable_records": 9,
+      "pure_single_functional_codes": [
+        "F01",
+        "F02",
+        "F03",
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "F08",
+        "F09",
+        "F10",
+        "F11",
+        "F12",
+        "F13",
+        "F14",
+        "F15",
+        "F16",
+        "F17",
+        "F18"
+      ],
+      "missing_pure_single_codes": [],
+      "combination_records": 6
+    },
+    {
+      "model": "iPhone 17",
+      "priced_records": 0,
+      "priced_storages": [],
+      "pending_records": 116,
+      "unavailable_records": 0,
+      "pure_single_functional_codes": [],
+      "missing_pure_single_codes": [
+        "F01",
+        "F02",
+        "F03",
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "F08",
+        "F09",
+        "F10",
+        "F11",
+        "F12",
+        "F13",
+        "F14",
+        "F15",
+        "F16",
+        "F17",
+        "F18"
+      ],
+      "combination_records": 0
+    },
+    {
+      "model": "iPhone 17 Pro",
+      "priced_records": 0,
+      "priced_storages": [],
+      "pending_records": 174,
+      "unavailable_records": 0,
+      "pure_single_functional_codes": [],
+      "missing_pure_single_codes": [
+        "F01",
+        "F02",
+        "F03",
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "F08",
+        "F09",
+        "F10",
+        "F11",
+        "F12",
+        "F13",
+        "F14",
+        "F15",
+        "F16",
+        "F17",
+        "F18"
+      ],
+      "combination_records": 0
+    },
+    {
+      "model": "iPhone 17 Pro Max",
+      "priced_records": 0,
+      "priced_storages": [],
+      "pending_records": 232,
+      "unavailable_records": 0,
+      "pure_single_functional_codes": [],
+      "missing_pure_single_codes": [
+        "F01",
+        "F02",
+        "F03",
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "F08",
+        "F09",
+        "F10",
+        "F11",
+        "F12",
+        "F13",
+        "F14",
+        "F15",
+        "F16",
+        "F17",
+        "F18"
+      ],
+      "combination_records": 0
+    },
+    {
+      "model": "iPhone 17e",
+      "priced_records": 0,
+      "priced_storages": [],
+      "pending_records": 116,
+      "unavailable_records": 0,
+      "pure_single_functional_codes": [],
+      "missing_pure_single_codes": [
+        "F01",
+        "F02",
+        "F03",
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "F08",
+        "F09",
+        "F10",
+        "F11",
+        "F12",
+        "F13",
+        "F14",
+        "F15",
+        "F16",
+        "F17",
+        "F18"
+      ],
+      "combination_records": 0
+    },
+    {
+      "model": "iPhone 18 Pro",
+      "priced_records": 232,
+      "priced_storages": [
+        256,
+        512,
+        1024,
+        2048
+      ],
+      "pending_records": 0,
+      "unavailable_records": 8,
+      "pure_single_functional_codes": [
+        "F01",
+        "F02",
+        "F03",
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "F08",
+        "F09",
+        "F10",
+        "F11",
+        "F12",
+        "F13",
+        "F14",
+        "F15",
+        "F16",
+        "F17",
+        "F18"
+      ],
+      "missing_pure_single_codes": [],
+      "combination_records": 8
+    },
+    {
+      "model": "iPhone 18 Pro Max",
+      "priced_records": 0,
+      "priced_storages": [],
+      "pending_records": 174,
+      "unavailable_records": 0,
+      "pure_single_functional_codes": [],
+      "missing_pure_single_codes": [
+        "F01",
+        "F02",
+        "F03",
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "F08",
+        "F09",
+        "F10",
+        "F11",
+        "F12",
+        "F13",
+        "F14",
+        "F15",
+        "F16",
+        "F17",
+        "F18"
+      ],
+      "combination_records": 0
+    },
+    {
+      "model": "iPhone 6",
+      "priced_records": 120,
+      "priced_storages": [
+        16,
+        32,
+        64,
+        128
+      ],
+      "pending_records": 0,
+      "unavailable_records": 0,
+      "pure_single_functional_codes": [
+        "F01",
+        "F02",
+        "F04",
+        "F10",
+        "F13",
+        "F17",
+        "F18"
+      ],
+      "missing_pure_single_codes": [
+        "F03",
+        "F05",
+        "F06",
+        "F07",
+        "F08",
+        "F09",
+        "F11",
+        "F12",
+        "F14",
+        "F15",
+        "F16"
+      ],
+      "combination_records": 72
+    },
+    {
+      "model": "iPhone 6 Plus",
+      "priced_records": 91,
+      "priced_storages": [
+        16,
+        64,
+        128
+      ],
+      "pending_records": 0,
+      "unavailable_records": 0,
+      "pure_single_functional_codes": [
+        "F01",
+        "F02",
+        "F04",
+        "F10",
+        "F13",
+        "F17",
+        "F18"
+      ],
+      "missing_pure_single_codes": [
+        "F03",
+        "F05",
+        "F06",
+        "F07",
+        "F08",
+        "F09",
+        "F11",
+        "F12",
+        "F14",
+        "F15",
+        "F16"
+      ],
+      "combination_records": 54
+    },
+    {
+      "model": "iPhone 6S",
+      "priced_records": 120,
+      "priced_storages": [
+        16,
+        32,
+        64,
+        128
+      ],
+      "pending_records": 0,
+      "unavailable_records": 0,
+      "pure_single_functional_codes": [
+        "F01",
+        "F02",
+        "F04",
+        "F10",
+        "F13",
+        "F17",
+        "F18"
+      ],
+      "missing_pure_single_codes": [
+        "F03",
+        "F05",
+        "F06",
+        "F07",
+        "F08",
+        "F09",
+        "F11",
+        "F12",
+        "F14",
+        "F15",
+        "F16"
+      ],
+      "combination_records": 72
+    },
+    {
+      "model": "iPhone 6S Plus",
+      "priced_records": 120,
+      "priced_storages": [
+        16,
+        32,
+        64,
+        128
+      ],
+      "pending_records": 0,
+      "unavailable_records": 0,
+      "pure_single_functional_codes": [
+        "F01",
+        "F02",
+        "F04",
+        "F10",
+        "F13",
+        "F17",
+        "F18"
+      ],
+      "missing_pure_single_codes": [
+        "F03",
+        "F05",
+        "F06",
+        "F07",
+        "F08",
+        "F09",
+        "F11",
+        "F12",
+        "F14",
+        "F15",
+        "F16"
+      ],
+      "combination_records": 72
+    },
+    {
+      "model": "iPhone 7",
+      "priced_records": 90,
+      "priced_storages": [
+        32,
+        128,
+        256
+      ],
+      "pending_records": 0,
+      "unavailable_records": 0,
+      "pure_single_functional_codes": [
+        "F01",
+        "F02",
+        "F04",
+        "F10",
+        "F13",
+        "F17",
+        "F18"
+      ],
+      "missing_pure_single_codes": [
+        "F03",
+        "F05",
+        "F06",
+        "F07",
+        "F08",
+        "F09",
+        "F11",
+        "F12",
+        "F14",
+        "F15",
+        "F16"
+      ],
+      "combination_records": 54
+    },
+    {
+      "model": "iPhone 7 Plus",
+      "priced_records": 90,
+      "priced_storages": [
+        32,
+        128,
+        256
+      ],
+      "pending_records": 0,
+      "unavailable_records": 0,
+      "pure_single_functional_codes": [],
+      "missing_pure_single_codes": [
+        "F01",
+        "F02",
+        "F03",
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "F08",
+        "F09",
+        "F10",
+        "F11",
+        "F12",
+        "F13",
+        "F14",
+        "F15",
+        "F16",
+        "F17",
+        "F18"
+      ],
+      "combination_records": 54
+    },
+    {
+      "model": "iPhone 8",
+      "priced_records": 90,
+      "priced_storages": [
+        64,
+        128,
+        256
+      ],
+      "pending_records": 0,
+      "unavailable_records": 0,
+      "pure_single_functional_codes": [
+        "F01",
+        "F02",
+        "F04",
+        "F10",
+        "F13",
+        "F17",
+        "F18"
+      ],
+      "missing_pure_single_codes": [
+        "F03",
+        "F05",
+        "F06",
+        "F07",
+        "F08",
+        "F09",
+        "F11",
+        "F12",
+        "F14",
+        "F15",
+        "F16"
+      ],
+      "combination_records": 54
+    },
+    {
+      "model": "iPhone 8 Plus",
+      "priced_records": 90,
+      "priced_storages": [
+        64,
+        128,
+        256
+      ],
+      "pending_records": 0,
+      "unavailable_records": 0,
+      "pure_single_functional_codes": [
+        "F01",
+        "F02",
+        "F04",
+        "F10",
+        "F13",
+        "F17",
+        "F18"
+      ],
+      "missing_pure_single_codes": [
+        "F03",
+        "F05",
+        "F06",
+        "F07",
+        "F08",
+        "F09",
+        "F11",
+        "F12",
+        "F14",
+        "F15",
+        "F16"
+      ],
+      "combination_records": 54
+    },
+    {
+      "model": "iPhone Air",
+      "priced_records": 0,
+      "priced_storages": [],
+      "pending_records": 174,
+      "unavailable_records": 0,
+      "pure_single_functional_codes": [],
+      "missing_pure_single_codes": [
+        "F01",
+        "F02",
+        "F03",
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "F08",
+        "F09",
+        "F10",
+        "F11",
+        "F12",
+        "F13",
+        "F14",
+        "F15",
+        "F16",
+        "F17",
+        "F18"
+      ],
+      "combination_records": 0
+    },
+    {
+      "model": "iPhone SE 1st Generation",
+      "priced_records": 120,
+      "priced_storages": [
+        16,
+        32,
+        64,
+        128
+      ],
+      "pending_records": 0,
+      "unavailable_records": 0,
+      "pure_single_functional_codes": [
+        "F01",
+        "F02",
+        "F04",
+        "F10",
+        "F13",
+        "F17",
+        "F18"
+      ],
+      "missing_pure_single_codes": [
+        "F03",
+        "F05",
+        "F06",
+        "F07",
+        "F08",
+        "F09",
+        "F11",
+        "F12",
+        "F14",
+        "F15",
+        "F16"
+      ],
+      "combination_records": 72
+    },
+    {
+      "model": "iPhone SE 2020",
+      "priced_records": 90,
+      "priced_storages": [
+        64,
+        128,
+        256
+      ],
+      "pending_records": 0,
+      "unavailable_records": 0,
+      "pure_single_functional_codes": [
+        "F01",
+        "F02",
+        "F04",
+        "F10",
+        "F13",
+        "F17",
+        "F18"
+      ],
+      "missing_pure_single_codes": [
+        "F03",
+        "F05",
+        "F06",
+        "F07",
+        "F08",
+        "F09",
+        "F11",
+        "F12",
+        "F14",
+        "F15",
+        "F16"
+      ],
+      "combination_records": 54
+    },
+    {
+      "model": "iPhone SE 2022",
+      "priced_records": 237,
+      "priced_storages": [
+        64,
+        128,
+        256
+      ],
+      "pending_records": 0,
+      "unavailable_records": 27,
+      "pure_single_functional_codes": [
+        "F01",
+        "F02",
+        "F03",
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "F08",
+        "F09",
+        "F10",
+        "F11",
+        "F12",
+        "F13",
+        "F14",
+        "F15",
+        "F16",
+        "F17",
+        "F18"
+      ],
+      "missing_pure_single_codes": [],
+      "combination_records": 60
+    },
+    {
+      "model": "iPhone X",
+      "priced_records": 60,
+      "priced_storages": [
+        64,
+        256
+      ],
+      "pending_records": 0,
+      "unavailable_records": 0,
+      "pure_single_functional_codes": [],
+      "missing_pure_single_codes": [
+        "F01",
+        "F02",
+        "F03",
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "F08",
+        "F09",
+        "F10",
+        "F11",
+        "F12",
+        "F13",
+        "F14",
+        "F15",
+        "F16",
+        "F17",
+        "F18"
+      ],
+      "combination_records": 36
+    },
+    {
+      "model": "iPhone XR",
+      "priced_records": 90,
+      "priced_storages": [
+        64,
+        128,
+        256
+      ],
+      "pending_records": 0,
+      "unavailable_records": 0,
+      "pure_single_functional_codes": [],
+      "missing_pure_single_codes": [
+        "F01",
+        "F02",
+        "F03",
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "F08",
+        "F09",
+        "F10",
+        "F11",
+        "F12",
+        "F13",
+        "F14",
+        "F15",
+        "F16",
+        "F17",
+        "F18"
+      ],
+      "combination_records": 54
+    },
+    {
+      "model": "iPhone XS",
+      "priced_records": 90,
+      "priced_storages": [
+        64,
+        256,
+        512
+      ],
+      "pending_records": 0,
+      "unavailable_records": 0,
+      "pure_single_functional_codes": [],
+      "missing_pure_single_codes": [
+        "F01",
+        "F02",
+        "F03",
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "F08",
+        "F09",
+        "F10",
+        "F11",
+        "F12",
+        "F13",
+        "F14",
+        "F15",
+        "F16",
+        "F17",
+        "F18"
+      ],
+      "combination_records": 54
+    },
+    {
+      "model": "iPhone XS Max",
+      "priced_records": 90,
+      "priced_storages": [
+        64,
+        256,
+        512
+      ],
+      "pending_records": 0,
+      "unavailable_records": 0,
+      "pure_single_functional_codes": [],
+      "missing_pure_single_codes": [
+        "F01",
+        "F02",
+        "F03",
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "F08",
+        "F09",
+        "F10",
+        "F11",
+        "F12",
+        "F13",
+        "F14",
+        "F15",
+        "F16",
+        "F17",
+        "F18"
+      ],
+      "combination_records": 54
+    }
+  ]
+}

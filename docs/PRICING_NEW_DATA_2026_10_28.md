@@ -1,0 +1,83 @@
+# Reference-driven iPhone pricing from the 2026-10-28 Cashify data
+
+Implements `scratch/new-data-audit-2026-10-28/CLAUDE_HANDOFF.md`. The approved bonus is unchanged:
+`quote before the Fhoneify fee = round(C + min(R x tier(R), 2000))` with R the database reference, C the Cashify condition equivalent,
+tier 8% (R <= 20,000) / 6% (<= 50,000) / 4%, INR 100 floor; nonpayable outcomes still require inspection.
+
+## What changed
+
+1. **Import** (`scripts/pricing-evidence/import-new-data.ts`, `data/pricing-evidence/new-data-2026-10-28/`). The audited case records become
+   measurements with asserted counts (6,795 records: 5,218 priced = 4,948 iPhone + 270 Samsung; 1,396 pending; 181 unavailable).
+   Pending/unavailable records are never priced, Samsung is kept but not fitted, exact repeats inside one report count once (318),
+   and 9 quotes carrying a fault choice that changed nothing at one capacity but is priced at others (SE 2022 256 GB fingerprint)
+   are flagged as unavailable-option controls and kept out of fitting. The old normalizer now fails when archives yield no records.
+   Result: 4,630 new iPhone measurements + 2,285 earlier = 6,915.
+2. **Reference proxy and clean offset.** Each record is evaluated at its own report's flawless quote. Against the database references
+   (all FRESH, verified 2026-10-25 07:00 UTC, read-only) the flawless base equals R for every model except a fixed gap of INR 400
+   (iPhone 11, 11 Pro Max) and INR 150 (iPhone 7, 8, 8 Plus) (`db-reference-gaps.json`); that gap is the model's `cleanOffset`.
+3. **Rules** (`lib/pricing/appleCashifyModel/model.ts`), all learned per model (`fitCalibration.ts` -> `calibration.json`):
+   - a value per condition code, fixed rupees or a share of R, decided by the model's own capacities (front/back camera, battery,
+     Wi-Fi, Face ID ... are no longer forced through one template ratio); codes a model never measured take the model's own class
+     codes through the template ratio, else the three models with the nearest reference, scaled to this model's R (labelled inferred
+     with their basis);
+   - repair groups charged once (largest screen deduction; body/panel shared), functional faults add up (verified: pairs of functional
+     faults equal the sum of the singles on every combination report);
+   - age/warranty/bill: applied once; which screen/panel answers force the aged state is learned per model (iPhone 14 panel damage does
+     not); models whose quotes never exercise the age flow (iPhone 14/14 Pro reports record warranty "yes" but the live questionnaire
+     profile says the question is not asked) have no age law;
+   - missing box everywhere, missing charger only where the model's form asks it (X, XR, XS, XS Max, 11 Pro, 7 Plus: about INR 300),
+     seeded from controlled box/charger pairs;
+   - Cashify's minimum: on aged phones with a functional fault (iPhone 15 generation on), and for models without an age question when
+     two or more functional faults are present (iPhone 6/6S/SE 1st gen at 22.6-22.8% of R; a single fault can quote below it);
+   - scrap quote for a phone that cannot make calls: measured per model (INR 1,200; SE 2022 INR 800).
+4. **Serving uses the rules, not cached prices.** The recorded-quote index (`exact.ts`) answers only when a caller opts in
+   (`useRecordedQuotes`, tests/fixtures); the production service never sets it. `config/pricing-release.json` turns the captured
+   final-price cache off (`exactFinalQuoteCache: false`). Every quote therefore follows the current R.
+5. **Coverage.** All 46 catalog iPhone models / 151 variants are priced by the rules. iPhone 12 Mini has no quotes of its own and is
+   priced with the iPhone 12 values (same generation) at its own reference, every value labelled inferred (`scope.json fallbackFrom`).
+6. `PRICING_ENGINE_VERSION` = `fhoneify-pricing/2026-10-28-reference-bonus-v1+apple-reference-rules-v3+legacy-physical-v1+payout-ceiling-v3`.
+
+## Accuracy
+
+The model structure (per-code values, additive functional faults, learned age triggers, floors) was chosen after looking at the audit
+summaries and in-sample residuals, so held-out numbers are honest about parameter estimation and optimistic about structure.
+Grouping for every split: model + exact deviation set (all capacities, dates, repeats and mirrored exports of one condition stay on
+one side); prices are never used to form partitions.
+
+`scripts/pricing-evidence/validate-new-data.ts` (each protocol refits on its training rows only; rules alone, no recorded prices),
+6,854 complete quotes; results in `data/pricing-evidence/validation-2026-10-28/`:
+
+| Protocol | Held out | Existing engine MAE (median) | Rules MAE | median / p90 / p95 | within INR 500 | priced |
+|---|---|---:|---:|---|---:|---:|
+| p1 | unseen condition shapes (5 folds) | INR 6,052 (1,979) | **INR 287** | 0 / 590 / 1,160 | 89.2% | 6,808 / 6,854 |
+| p2 | unseen capacity (each rank of models with 3+ capacities) | INR 6,102 (2,035) | **INR 126** | 0 / 20 / 70 | 97.1% | 6,563 / 6,608 |
+| p3 | later session: fit on the earlier collection, test 25-28 Oct | INR 7,467 (5,004) | **INR 867** | 10 / 3,780 / 5,620 | 76.3% | 1,781 / 1,781 |
+| p4 | whole model unseen (zero-shot from other models) | INR 6,052 (1,979) | **INR 1,043** | 300 / 2,530 / 4,220 | 61.4% | 6,793 / 6,854 |
+
+Unpriced rows are inspection outcomes (Cashify-declined or contradictory: calls failure with other faults, 10+ faults); all 51 recorded
+Cashify no-offers remain no-offers. p3 is the hardest honest check of the earlier models (the reports of 25-28 Oct differ in session,
+reference and sometimes flow from those of 16-24 Oct). p4 bounds the error of the iPhone 12 Mini fallback (zero-shot, median INR 300).
+Per-model figures: `validation-2026-10-28/coverage.md`; scope decision (owner rule of 2026-10-25: the rules serve a model when they
+beat the existing engine on the same held-out quotes): all 45 measured models enabled, plus the 12 Mini fallback.
+
+**In-sample, through the production quote service** (`replay-service.ts`, hybrid mode as committed, each quote at its recorded R):
+6,854 complete quotes, 6,809 priced, 45 inspection (calls failure with other faults, or ten or more simultaneous faults, which Cashify
+mostly declines), MAE INR 24, 96.0% within INR 20, 98.0% within INR 100; 71 residuals above INR 300 and the 45 inspections (listed in
+`validation-2026-10-28/in-sample-exceptions.jsonl` with source pointers). Approved bonus arithmetic: 0 mismatches.
+The handoff's single-fault table (12, 13, 15 Pro Max, 16, 16 Pro, 18 Pro; front/back camera, battery service, battery 80-85%) is reproduced
+exactly at every supplied capacity; iPhone 16 Wi-Fi 16,500/17,100/17,400 within INR 60.
+
+## Remaining exceptions (in-sample, largest)
+
+- 18 Pro Max 256/512/1 TB body-cosmetic combinations (C02 C04 ...): body codes were measured only on 2 TB; INR 2,400-8,050 too low.
+- iPhone 15 / 15 Plus / 17e touch + non-original + cracked + panel combinations: INR 2,200-6,300 (few quotes; Cashify fixes only the sum).
+- 16e / 15 touch failure alone vs touch + battery recorded on different days: INR 800-2,000 either way.
+- 11 Pro / 11 Pro Max non-original screen with functional faults (combination reports only): INR 1,000-2,200.
+
+## Tests
+
+`pricing.new-data-import` (counts, unsupported formats, duplicate leakage), `pricing.apple-reference-rules` (handoff deductions, Wi-Fi
+scaling, per-model camera ratio, reference up/down, recorded condition moves with R, clean offset, age once, repair-group overlap,
+box/charger, every catalog variant priced, 12 Mini inferred, unrecorded combinations/capacities, inspection, served arithmetic),
+`pricing.apple-evidence-service-reconciliation` (all supplied quotes through the service), `pricing.apple-evidence-exact` (the recorded
+index as an opt-in fixture; serving never uses it).

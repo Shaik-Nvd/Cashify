@@ -42,8 +42,17 @@ export interface Measurement {
 
 export const EVIDENCE_DIR = path.resolve(__dirname, '../../data/pricing-evidence');
 
-export function loadMeasurements(file = path.join(EVIDENCE_DIR, 'measurements.jsonl')): Measurement[] {
-  return fs.readFileSync(file, 'utf8').split('\n').filter(Boolean).map(l => JSON.parse(l));
+const readJsonl = (file: string): Measurement[] => fs.readFileSync(file, 'utf8').split('\n').filter(Boolean).map(l => JSON.parse(l));
+/** The earlier collection (measurements.jsonl) plus, unless a single file is named, the audited 2026-10-28 import
+ * (measurements-2026-10-28.jsonl, written by import-new-data.ts). */
+/** Models whose flawless quote sits a fixed amount below the database reference (new-data-2026-10-28/db-reference-gaps.json). The reference
+ * proxy of an imported record is its flawless quote PLUS this offset, i.e. the reference the database would have returned. */
+export const CLEAN_OFFSET: Record<string, number> = JSON.parse(fs.readFileSync(path.join(EVIDENCE_DIR, 'new-data-2026-10-28/db-reference-gaps.json'), 'utf8')).cleanOffsetByModel;
+
+export function loadMeasurements(file?: string): Measurement[] {
+  if (file) return readJsonl(file);
+  const extra = path.join(EVIDENCE_DIR, 'measurements-2026-10-28.jsonl');
+  return [...readJsonl(path.join(EVIDENCE_DIR, 'measurements.jsonl')), ...(fs.existsSync(extra) ? readJsonl(extra) : [])];
 }
 
 // ---------------------------------------------------------------------------
@@ -82,7 +91,7 @@ export function modelSemantics(ms: Measurement[]): Map<string, QuestionnaireSema
   for (const m of ms) (byModel.get(m.model_key) ?? byModel.set(m.model_key, []).get(m.model_key)!).push(m);
   for (const [model, rows] of byModel) {
     // Only trust "was the question shown" where the source records it per case (TXT = explicit); JSON files carry file defaults.
-    const explicit = rows.filter(r => r.family === 'case_txt');
+    const explicit = rows.filter(r => r.family === 'case_txt' || r.family.startsWith('new_'));
     const mode = (key: 'warranty' | 'bill'): 'ASKED' | 'NOT_ASKED' => {
       if (!explicit.length) return 'ASKED';
       return explicit.some(r => r.inputs[key].value === 'yes' || r.inputs[key].value === 'no') ? 'ASKED' : 'NOT_ASKED';
@@ -97,9 +106,14 @@ export function modelSemantics(ms: Measurement[]): Map<string, QuestionnaireSema
   return out;
 }
 
-/** Inputs the source recorded as unknown (never replaced by an ideal-condition default). */
+/** Flag set by import-new-data.ts on a quote that carries a fault choice Cashify evidently did not offer for that capacity: the quote equals the
+ * flawless one while the same choice is priced at other capacities of the model. Such a control is not a zero-priced fault. */
+export const UNAVAILABLE_OPTION_FLAG = 'unavailable_option_control';
+
+/** Inputs the source recorded as unknown, or choices that were probably not offered (never replaced by an ideal-condition default). */
 export function hasUnknownInput(m: Measurement): boolean {
-  return (['calls', 'touch', 'original_screen', 'warranty', 'bill', 'box'] as const).some(k => m.inputs[k].value === 'unknown');
+  return (['calls', 'touch', 'original_screen', 'warranty', 'bill', 'box'] as const).some(k => m.inputs[k].value === 'unknown') ||
+    m.flags.some(f => f.startsWith(UNAVAILABLE_OPTION_FLAG));
 }
 
 /**

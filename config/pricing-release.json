@@ -4,7 +4,7 @@
   "approvedBy": "owner, 2026-10-03 (merge, deploy, refresh and activate after verification)",
   "note": "Hybrid mode applies exact eligible measured corrections, otherwise preserves legacy quotes except explicit unsafe profiles and invalid diagnostics. Unavailable or expired correction evidence does not disable ordinary quotes. PRICING_RELEASE_CANDIDATE=off overrides this file for rollback. The historical releaseCandidate boolean remains false so older code defaults to legacy. Exact captured Selling-price cache is checked before fitted corrections. It requires unchanged exact reference/answers and fresh evidence/profile/route. Net-bounded exact offers constrain the existing preferred uplift so standard payout and the existing coupon payout both stay above the captured price and at most INR 2000 above it. Cache misses keep hybrid availability.",
   "mode": "hybrid",
-  "exactFinalQuoteCache": true,
+  "exactFinalQuoteCache": false,
   "exactFinalQuoteOfferPolicy": "bounded-net",
-  "exactFinalQuoteReviewStatus": "Composed review candidate: approved c130458 six-iPhone evidence plus supported fresh C1 only; C2 ambiguous, C3/C4 unattempted. No collection, references, push or deployment in this task."
+  "exactFinalQuoteReviewStatus": "Disabled 2026-10-28: served iPhone quotes come from the reference-driven calibrated rules (lib/pricing/appleCashifyModel); captured final Selling prices remain validation fixtures only (docs/PRICING_NEW_DATA_2026_10_28.md)."
 }

@@ -1,0 +1,2946 @@
+{
+ "iPhone 11": {
+  "mode": "all",
+  "enabled": true,
+  "maeNew": 82,
+  "maeOld": 671,
+  "declinedShare": 0,
+  "T6": true,
+  "measured": {
+   "metrics": {
+    "quotes": 117,
+    "shapes": 25,
+    "medianRelPct": 0,
+    "p90RelPct": 0.2743484224965706,
+    "p95OverPct": 0.411522633744856,
+    "worstOverPctOfReference": 0.24019215372297836,
+    "maeEvidence": 6,
+    "maeExisting": 543
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "inferred": {
+   "metrics": {
+    "quotes": 63,
+    "shapes": 16,
+    "medianRelPct": 0.22753128555176336,
+    "p90RelPct": 7.9335793357933575,
+    "p95OverPct": 2.0530367835757057,
+    "worstOverPctOfReference": 6.885508406725379,
+    "maeEvidence": 224,
+    "maeExisting": 910
+   },
+   "checks": {
+    "T1": true,
+    "T2": false,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": [
+    "T2"
+   ]
+  },
+  "failedMeasured": [],
+  "failedInferred": [
+   "T2"
+  ],
+  "storagesGb": [
+   64,
+   128,
+   256
+  ],
+  "heldOutQuotes": 180,
+  "shareMeasured": 0.65
+ },
+ "iPhone 11 Pro": {
+  "mode": "all",
+  "enabled": true,
+  "maeNew": 321,
+  "maeOld": 2311,
+  "declinedShare": 0,
+  "T6": true,
+  "measured": {
+   "metrics": {
+    "quotes": 90,
+    "shapes": 19,
+    "medianRelPct": 0.0968054211035818,
+    "p90RelPct": 2.571428571428571,
+    "p95OverPct": 2.5952960259529605,
+    "worstOverPctOfReference": 2.666666666666667,
+    "maeEvidence": 97,
+    "maeExisting": 3010
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "inferred": {
+   "metrics": {
+    "quotes": 90,
+    "shapes": 19,
+    "medianRelPct": 0.5,
+    "p90RelPct": 16.923076923076923,
+    "p95OverPct": 7.976878612716763,
+    "worstOverPctOfReference": 8.4,
+    "maeEvidence": 544,
+    "maeExisting": 1611
+   },
+   "checks": {
+    "T1": true,
+    "T2": false,
+    "T3": false,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": [
+    "T2",
+    "T3"
+   ]
+  },
+  "failedMeasured": [],
+  "failedInferred": [
+   "T2",
+   "T3"
+  ],
+  "storagesGb": [
+   64,
+   256,
+   512
+  ],
+  "heldOutQuotes": 180,
+  "shareMeasured": 0.5
+ },
+ "iPhone 11 Pro Max": {
+  "mode": "all",
+  "enabled": true,
+  "maeNew": 163,
+  "maeOld": 2645,
+  "declinedShare": 0,
+  "T6": true,
+  "measured": {
+   "metrics": {
+    "quotes": 117,
+    "shapes": 25,
+    "medianRelPct": 0,
+    "p90RelPct": 0.35874439461883406,
+    "p95OverPct": 0.31678986272439286,
+    "worstOverPctOfReference": 0.2359882005899705,
+    "maeEvidence": 52,
+    "maeExisting": 3082
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "inferred": {
+   "metrics": {
+    "quotes": 63,
+    "shapes": 16,
+    "medianRelPct": 0.8312020460358057,
+    "p90RelPct": 12.660550458715598,
+    "p95OverPct": 13.24376199616123,
+    "worstOverPctOfReference": 8.141592920353983,
+    "maeEvidence": 368,
+    "maeExisting": 1832
+   },
+   "checks": {
+    "T1": true,
+    "T2": false,
+    "T3": false,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": [
+    "T2",
+    "T3"
+   ]
+  },
+  "failedMeasured": [],
+  "failedInferred": [
+   "T2",
+   "T3"
+  ],
+  "storagesGb": [
+   64,
+   256,
+   512
+  ],
+  "heldOutQuotes": 180,
+  "shareMeasured": 0.65
+ },
+ "iPhone 12": {
+  "mode": "all",
+  "enabled": true,
+  "maeNew": 74,
+  "maeOld": 1032,
+  "declinedShare": 0,
+  "T6": true,
+  "measured": {
+   "metrics": {
+    "quotes": 120,
+    "shapes": 25,
+    "medianRelPct": 0,
+    "p90RelPct": 0.3424657534246575,
+    "p95OverPct": 0.4177109440267335,
+    "worstOverPctOfReference": 0.42449969678593086,
+    "maeEvidence": 12,
+    "maeExisting": 922
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "inferred": {
+   "metrics": {
+    "quotes": 60,
+    "shapes": 15,
+    "medianRelPct": 0.3780718336483932,
+    "p90RelPct": 1.6404199475065617,
+    "p95OverPct": 0.6006006006006006,
+    "worstOverPctOfReference": 0.5457853244390539,
+    "maeEvidence": 197,
+    "maeExisting": 1252
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "failedMeasured": [],
+  "failedInferred": [],
+  "storagesGb": [
+   64,
+   128,
+   256
+  ],
+  "heldOutQuotes": 180,
+  "shareMeasured": 0.6666666666666666
+ },
+ "iPhone 12 Pro": {
+  "mode": "all",
+  "enabled": true,
+  "maeNew": 82,
+  "maeOld": 2969,
+  "declinedShare": 0,
+  "T6": true,
+  "measured": {
+   "metrics": {
+    "quotes": 123,
+    "shapes": 25,
+    "medianRelPct": 0,
+    "p90RelPct": 0.3714020427112349,
+    "p95OverPct": 0.2869440459110474,
+    "worstOverPctOfReference": 2.7391304347826084,
+    "maeEvidence": 57,
+    "maeExisting": 3496
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "inferred": {
+   "metrics": {
+    "quotes": 57,
+    "shapes": 14,
+    "medianRelPct": 0.11086474501108648,
+    "p90RelPct": 2.982349360925137,
+    "p95OverPct": 2.982349360925137,
+    "worstOverPctOfReference": 2.9114906832298137,
+    "maeEvidence": 136,
+    "maeExisting": 1833
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "failedMeasured": [],
+  "failedInferred": [],
+  "storagesGb": [
+   128,
+   256,
+   512
+  ],
+  "heldOutQuotes": 180,
+  "shareMeasured": 0.6833333333333333
+ },
+ "iPhone 12 Pro Max": {
+  "mode": "all",
+  "enabled": true,
+  "maeNew": 293,
+  "maeOld": 1682,
+  "declinedShare": 0,
+  "T6": true,
+  "measured": {
+   "metrics": {
+    "quotes": 105,
+    "shapes": 25,
+    "medianRelPct": 0,
+    "p90RelPct": 0.26246719160104987,
+    "p95OverPct": 0.26246719160104987,
+    "worstOverPctOfReference": 0.1635322976287817,
+    "maeEvidence": 22,
+    "maeExisting": 1215
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "inferred": {
+   "metrics": {
+    "quotes": 75,
+    "shapes": 20,
+    "medianRelPct": 0.8635578583765112,
+    "p90RelPct": 17.141522652965904,
+    "p95OverPct": 5.913978494623656,
+    "worstOverPctOfReference": 4.946852003270646,
+    "maeEvidence": 673,
+    "maeExisting": 2336
+   },
+   "checks": {
+    "T1": true,
+    "T2": false,
+    "T3": false,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": [
+    "T2",
+    "T3"
+   ]
+  },
+  "failedMeasured": [],
+  "failedInferred": [
+   "T2",
+   "T3"
+  ],
+  "storagesGb": [
+   128,
+   256,
+   512
+  ],
+  "heldOutQuotes": 180,
+  "shareMeasured": 0.5833333333333334
+ },
+ "iPhone 13": {
+  "mode": "all",
+  "enabled": true,
+  "maeNew": 62,
+  "maeOld": 1255,
+  "declinedShare": 0,
+  "T6": true,
+  "measured": {
+   "metrics": {
+    "quotes": 123,
+    "shapes": 25,
+    "medianRelPct": 0,
+    "p90RelPct": 0.08237232289950577,
+    "p95OverPct": 0.09328358208955223,
+    "worstOverPctOfReference": 0.8035355564483728,
+    "maeEvidence": 8,
+    "maeExisting": 1042
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "inferred": {
+   "metrics": {
+    "quotes": 57,
+    "shapes": 14,
+    "medianRelPct": 0.055803571428571425,
+    "p90RelPct": 4.053303720155469,
+    "p95OverPct": 2.1321961620469083,
+    "worstOverPctOfReference": 2.061005770816158,
+    "maeEvidence": 179,
+    "maeExisting": 1714
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "failedMeasured": [],
+  "failedInferred": [],
+  "storagesGb": [
+   128,
+   256,
+   512
+  ],
+  "heldOutQuotes": 180,
+  "shareMeasured": 0.6833333333333333
+ },
+ "iPhone 13 Mini": {
+  "mode": "all",
+  "enabled": true,
+  "maeNew": 104,
+  "maeOld": 2980,
+  "declinedShare": 0,
+  "T6": true,
+  "measured": {
+   "metrics": {
+    "quotes": 120,
+    "shapes": 25,
+    "medianRelPct": 0,
+    "p90RelPct": 0.09823182711198428,
+    "p95OverPct": 0.09823182711198428,
+    "worstOverPctOfReference": 0.04675081813931744,
+    "maeEvidence": 20,
+    "maeExisting": 3571
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "inferred": {
+   "metrics": {
+    "quotes": 60,
+    "shapes": 15,
+    "medianRelPct": 0.3264925373134328,
+    "p90RelPct": 4.025301897642323,
+    "p95OverPct": 2.5786487880350695,
+    "worstOverPctOfReference": 3.272557269752221,
+    "maeEvidence": 272,
+    "maeExisting": 1798
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "failedMeasured": [],
+  "failedInferred": [],
+  "storagesGb": [
+   128,
+   256,
+   512
+  ],
+  "heldOutQuotes": 180,
+  "shareMeasured": 0.6666666666666666
+ },
+ "iPhone 13 Pro": {
+  "mode": "all",
+  "enabled": true,
+  "maeNew": 170,
+  "maeOld": 3957,
+  "declinedShare": 0,
+  "T6": true,
+  "measured": {
+   "metrics": {
+    "quotes": 160,
+    "shapes": 25,
+    "medianRelPct": 0,
+    "p90RelPct": 0.22388059701492538,
+    "p95OverPct": 0.38314176245210724,
+    "worstOverPctOfReference": 2.3679417122040074,
+    "maeEvidence": 67,
+    "maeExisting": 4621
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "inferred": {
+   "metrics": {
+    "quotes": 80,
+    "shapes": 15,
+    "medianRelPct": 0,
+    "p90RelPct": 1.747141041931385,
+    "p95OverPct": 0.38314176245210724,
+    "worstOverPctOfReference": 1.5179113539769278,
+    "maeEvidence": 376,
+    "maeExisting": 2629
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "failedMeasured": [],
+  "failedInferred": [],
+  "storagesGb": [
+   128,
+   256,
+   512,
+   1024
+  ],
+  "heldOutQuotes": 240,
+  "shareMeasured": 0.6666666666666666
+ },
+ "iPhone 13 Pro Max": {
+  "mode": "all",
+  "enabled": true,
+  "maeNew": 99,
+  "maeOld": 3371,
+  "declinedShare": 0,
+  "T6": true,
+  "measured": {
+   "metrics": {
+    "quotes": 392,
+    "shapes": 58,
+    "medianRelPct": 0,
+    "p90RelPct": 0.211118930330753,
+    "p95OverPct": 0.229147571035747,
+    "worstOverPctOfReference": 0.30649205906937865,
+    "maeEvidence": 9,
+    "maeExisting": 3633
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "inferred": {
+   "metrics": {
+    "quotes": 192,
+    "shapes": 38,
+    "medianRelPct": 0,
+    "p90RelPct": 3.010536879076769,
+    "p95OverPct": 6.39666919000757,
+    "worstOverPctOfReference": 9.243458475540386,
+    "maeEvidence": 281,
+    "maeExisting": 2838
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": false,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": [
+    "T3"
+   ]
+  },
+  "failedMeasured": [],
+  "failedInferred": [
+   "T3"
+  ],
+  "storagesGb": [
+   128,
+   256,
+   512,
+   1024
+  ],
+  "heldOutQuotes": 584,
+  "shareMeasured": 0.6712328767123288
+ },
+ "iPhone 14": {
+  "mode": "all",
+  "enabled": true,
+  "maeNew": 103,
+  "maeOld": 2222,
+  "declinedShare": 0,
+  "T6": true,
+  "measured": {
+   "metrics": {
+    "quotes": 411,
+    "shapes": 63,
+    "medianRelPct": 0,
+    "p90RelPct": 0.05803830528148578,
+    "p95OverPct": 0.0585480093676815,
+    "worstOverPctOfReference": 1.573187414500684,
+    "maeEvidence": 16,
+    "maeExisting": 1599
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "inferred": {
+   "metrics": {
+    "quotes": 171,
+    "shapes": 39,
+    "medianRelPct": 0.1436265709156194,
+    "p90RelPct": 5.5160142348754455,
+    "p95OverPct": 5.82039911308204,
+    "worstOverPctOfReference": 9.05553590378493,
+    "maeEvidence": 312,
+    "maeExisting": 3719
+   },
+   "checks": {
+    "T1": true,
+    "T2": false,
+    "T3": false,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": [
+    "T2",
+    "T3"
+   ]
+  },
+  "failedMeasured": [],
+  "failedInferred": [
+   "T2",
+   "T3"
+  ],
+  "storagesGb": [
+   128,
+   256,
+   512
+  ],
+  "heldOutQuotes": 582,
+  "shareMeasured": 0.7061855670103093
+ },
+ "iPhone 14 Plus": {
+  "mode": "all",
+  "enabled": true,
+  "maeNew": 126,
+  "maeOld": 3640,
+  "declinedShare": 0,
+  "T6": true,
+  "measured": {
+   "metrics": {
+    "quotes": 120,
+    "shapes": 25,
+    "medianRelPct": 0,
+    "p90RelPct": 0.10554089709762532,
+    "p95OverPct": 0.12903225806451613,
+    "worstOverPctOfReference": 0.2023608768971332,
+    "maeEvidence": 6,
+    "maeExisting": 3978
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "inferred": {
+   "metrics": {
+    "quotes": 60,
+    "shapes": 15,
+    "medianRelPct": 0.11049723756906078,
+    "p90RelPct": 9.082892416225748,
+    "p95OverPct": 14.713474445018068,
+    "worstOverPctOfReference": 9.612141652613827,
+    "maeEvidence": 367,
+    "maeExisting": 2965
+   },
+   "checks": {
+    "T1": true,
+    "T2": false,
+    "T3": false,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": [
+    "T2",
+    "T3"
+   ]
+  },
+  "failedMeasured": [],
+  "failedInferred": [
+   "T2",
+   "T3"
+  ],
+  "storagesGb": [
+   128,
+   256,
+   512
+  ],
+  "heldOutQuotes": 180,
+  "shareMeasured": 0.6666666666666666
+ },
+ "iPhone 14 Pro": {
+  "mode": "all",
+  "enabled": true,
+  "maeNew": 152,
+  "maeOld": 5685,
+  "declinedShare": 0,
+  "T6": true,
+  "measured": {
+   "metrics": {
+    "quotes": 352,
+    "shapes": 53,
+    "medianRelPct": 0,
+    "p90RelPct": 0.2068252326783868,
+    "p95OverPct": 0.22988505747126436,
+    "worstOverPctOfReference": 1.3820566877488873,
+    "maeEvidence": 42,
+    "maeExisting": 4968
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "inferred": {
+   "metrics": {
+    "quotes": 192,
+    "shapes": 38,
+    "medianRelPct": 0.04711425206124853,
+    "p90RelPct": 2.7628190119409974,
+    "p95OverPct": 3.071317022384175,
+    "worstOverPctOfReference": 8.833100883310088,
+    "maeEvidence": 355,
+    "maeExisting": 7000
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": false,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": [
+    "T3"
+   ]
+  },
+  "failedMeasured": [],
+  "failedInferred": [
+   "T3"
+  ],
+  "storagesGb": [
+   128,
+   256,
+   512,
+   1024
+  ],
+  "heldOutQuotes": 544,
+  "shareMeasured": 0.6470588235294118
+ },
+ "iPhone 14 Pro Max": {
+  "mode": "all",
+  "enabled": true,
+  "maeNew": 202,
+  "maeOld": 5824,
+  "declinedShare": 0,
+  "T6": true,
+  "measured": {
+   "metrics": {
+    "quotes": 164,
+    "shapes": 25,
+    "medianRelPct": 0,
+    "p90RelPct": 0.14058106841611998,
+    "p95OverPct": 0.14058106841611998,
+    "worstOverPctOfReference": 0.11399908800729594,
+    "maeEvidence": 13,
+    "maeExisting": 6455
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "inferred": {
+   "metrics": {
+    "quotes": 76,
+    "shapes": 14,
+    "medianRelPct": 0.14398848092152627,
+    "p90RelPct": 4.427872290841296,
+    "p95OverPct": 12.300531914893616,
+    "worstOverPctOfReference": 7.729138166894665,
+    "maeEvidence": 611,
+    "maeExisting": 4461
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": false,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": [
+    "T3"
+   ]
+  },
+  "failedMeasured": [],
+  "failedInferred": [
+   "T3"
+  ],
+  "storagesGb": [
+   128,
+   256,
+   512,
+   1024
+  ],
+  "heldOutQuotes": 240,
+  "shareMeasured": 0.6833333333333333
+ },
+ "iPhone 15": {
+  "mode": "all",
+  "enabled": true,
+  "maeNew": 1246,
+  "maeOld": 4813,
+  "declinedShare": 0.010204081632653073,
+  "T6": true,
+  "measured": {
+   "metrics": {
+    "quotes": 45,
+    "shapes": 16,
+    "medianRelPct": 0,
+    "p90RelPct": 5.662921348314607,
+    "p95OverPct": 64.86842105263158,
+    "worstOverPctOfReference": 33.33333333333333,
+    "maeEvidence": 1170,
+    "maeExisting": 1432
+   },
+   "checks": {
+    "T1": true,
+    "T2": false,
+    "T3": false,
+    "T4": false,
+    "T5s": true,
+    "T7": false
+   },
+   "failed": [
+    "T2",
+    "T3",
+    "T4",
+    "T7"
+   ]
+  },
+  "inferred": {
+   "metrics": {
+    "quotes": 149,
+    "shapes": 37,
+    "medianRelPct": 1.8095768374164811,
+    "p90RelPct": 20.86885911490053,
+    "p95OverPct": 41.4738646101114,
+    "worstOverPctOfReference": 17.66169154228856,
+    "maeEvidence": 1268,
+    "maeExisting": 5835
+   },
+   "checks": {
+    "T1": false,
+    "T2": false,
+    "T3": false,
+    "T4": true,
+    "T5s": true,
+    "T7": false
+   },
+   "failed": [
+    "T1",
+    "T2",
+    "T3",
+    "T7"
+   ]
+  },
+  "failedMeasured": [
+   "T2",
+   "T3",
+   "T4",
+   "T7"
+  ],
+  "failedInferred": [
+   "T1",
+   "T2",
+   "T3",
+   "T7"
+  ],
+  "storagesGb": [
+   128,
+   256,
+   512
+  ],
+  "heldOutQuotes": 196,
+  "shareMeasured": 0.23195876288659795
+ },
+ "iPhone 15 Plus": {
+  "mode": "all",
+  "enabled": true,
+  "maeNew": 1342,
+  "maeOld": 5194,
+  "declinedShare": 0.01869158878504673,
+  "T6": true,
+  "measured": {
+   "metrics": {
+    "quotes": 54,
+    "shapes": 24,
+    "medianRelPct": 0,
+    "p90RelPct": 36.34053367217281,
+    "p95OverPct": 68.6767895878525,
+    "worstOverPctOfReference": 32.58377425044092,
+    "maeEvidence": 1270,
+    "maeExisting": 3002
+   },
+   "checks": {
+    "T1": true,
+    "T2": false,
+    "T3": false,
+    "T4": true,
+    "T5s": true,
+    "T7": false
+   },
+   "failed": [
+    "T2",
+    "T3",
+    "T7"
+   ]
+  },
+  "inferred": {
+   "metrics": {
+    "quotes": 156,
+    "shapes": 46,
+    "medianRelPct": 0.0944733112895607,
+    "p90RelPct": 21.12676056338028,
+    "p95OverPct": 32.35540653813915,
+    "worstOverPctOfReference": 27.674897119341562,
+    "maeEvidence": 1366,
+    "maeExisting": 5952
+   },
+   "checks": {
+    "T1": true,
+    "T2": false,
+    "T3": false,
+    "T4": true,
+    "T5s": true,
+    "T7": false
+   },
+   "failed": [
+    "T2",
+    "T3",
+    "T7"
+   ]
+  },
+  "failedMeasured": [
+   "T2",
+   "T3",
+   "T7"
+  ],
+  "failedInferred": [
+   "T2",
+   "T3",
+   "T7"
+  ],
+  "storagesGb": [
+   128,
+   256,
+   512
+  ],
+  "heldOutQuotes": 214,
+  "shareMeasured": 0.2571428571428571
+ },
+ "iPhone 15 Pro": {
+  "mode": "all",
+  "enabled": true,
+  "maeNew": 286,
+  "maeOld": 6715,
+  "declinedShare": 0.012345679012345734,
+  "T6": true,
+  "measured": {
+   "metrics": {
+    "quotes": 307,
+    "shapes": 61,
+    "medianRelPct": 0,
+    "p90RelPct": 0,
+    "p95OverPct": 0,
+    "worstOverPctOfReference": 25.256849315068493,
+    "maeEvidence": 444,
+    "maeExisting": 6241
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": false
+   },
+   "failed": [
+    "T7"
+   ]
+  },
+  "inferred": {
+   "metrics": {
+    "quotes": 333,
+    "shapes": 67,
+    "medianRelPct": 0,
+    "p90RelPct": 0.6124636349716736,
+    "p95OverPct": 0.3185247275775356,
+    "worstOverPctOfReference": 2.7243589743589745,
+    "maeEvidence": 141,
+    "maeExisting": 7151
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "failedMeasured": [
+   "T7"
+  ],
+  "failedInferred": [],
+  "storagesGb": [
+   128,
+   256,
+   512,
+   1024
+  ],
+  "heldOutQuotes": 648,
+  "shareMeasured": 0.4796875
+ },
+ "iPhone 15 Pro Max": {
+  "mode": "all",
+  "enabled": true,
+  "maeNew": 83,
+  "maeOld": 8349,
+  "declinedShare": 0,
+  "T6": true,
+  "measured": {
+   "metrics": {
+    "quotes": 168,
+    "shapes": 61,
+    "medianRelPct": 0,
+    "p90RelPct": 0,
+    "p95OverPct": 0,
+    "worstOverPctOfReference": 0.01379690949227373,
+    "maeEvidence": 0,
+    "maeExisting": 8494
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "inferred": {
+   "metrics": {
+    "quotes": 180,
+    "shapes": 65,
+    "medianRelPct": 0,
+    "p90RelPct": 0.8609556607834696,
+    "p95OverPct": 0.29180040852057193,
+    "worstOverPctOfReference": 1.2528153153153154,
+    "maeEvidence": 159,
+    "maeExisting": 8213
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "failedMeasured": [],
+  "failedInferred": [],
+  "storagesGb": [
+   256,
+   512,
+   1024
+  ],
+  "heldOutQuotes": 348,
+  "shareMeasured": 0.4827586206896552
+ },
+ "iPhone 16": {
+  "mode": "all",
+  "enabled": true,
+  "maeNew": 74,
+  "maeOld": 5462,
+  "declinedShare": 0,
+  "T6": true,
+  "measured": {
+   "metrics": {
+    "quotes": 244,
+    "shapes": 70,
+    "medianRelPct": 0,
+    "p90RelPct": 0.03075030750307503,
+    "p95OverPct": 0.027548209366391182,
+    "worstOverPctOfReference": 0.03787878787878788,
+    "maeEvidence": 4,
+    "maeExisting": 5267
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "inferred": {
+   "metrics": {
+    "quotes": 260,
+    "shapes": 77,
+    "medianRelPct": 0,
+    "p90RelPct": 1.4985014985014986,
+    "p95OverPct": 0.13183915622940012,
+    "worstOverPctOfReference": 3.2386363636363638,
+    "maeEvidence": 140,
+    "maeExisting": 5644
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "failedMeasured": [],
+  "failedInferred": [],
+  "storagesGb": [
+   128,
+   256,
+   512
+  ],
+  "heldOutQuotes": 504,
+  "shareMeasured": 0.48412698412698413
+ },
+ "iPhone 16 Plus": {
+  "mode": "all",
+  "enabled": true,
+  "maeNew": 41,
+  "maeOld": 5770,
+  "declinedShare": 0,
+  "T6": true,
+  "measured": {
+   "metrics": {
+    "quotes": 243,
+    "shapes": 69,
+    "medianRelPct": 0,
+    "p90RelPct": 0.030883261272390366,
+    "p95OverPct": 0.026123301985370953,
+    "worstOverPctOfReference": 0.03561253561253561,
+    "maeEvidence": 2,
+    "maeExisting": 5613
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "inferred": {
+   "metrics": {
+    "quotes": 261,
+    "shapes": 77,
+    "medianRelPct": 0,
+    "p90RelPct": 0.8658008658008658,
+    "p95OverPct": 0.7382798080472499,
+    "worstOverPctOfReference": 1.257183908045977,
+    "maeEvidence": 77,
+    "maeExisting": 5917
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "failedMeasured": [],
+  "failedInferred": [],
+  "storagesGb": [
+   128,
+   256,
+   512
+  ],
+  "heldOutQuotes": 504,
+  "shareMeasured": 0.48214285714285715
+ },
+ "iPhone 16 Pro": {
+  "mode": "all",
+  "enabled": true,
+  "maeNew": 69,
+  "maeOld": 9895,
+  "declinedShare": 0.012658227848101222,
+  "T6": true,
+  "measured": {
+   "metrics": {
+    "quotes": 300,
+    "shapes": 52,
+    "medianRelPct": 0,
+    "p90RelPct": 0,
+    "p95OverPct": 0,
+    "worstOverPctOfReference": 0.013529968881071573,
+    "maeEvidence": 0,
+    "maeExisting": 9935
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "inferred": {
+   "metrics": {
+    "quotes": 324,
+    "shapes": 56,
+    "medianRelPct": 0,
+    "p90RelPct": 0.9629000283205892,
+    "p95OverPct": 0.9852941176470589,
+    "worstOverPctOfReference": 1.1440107671601614,
+    "maeEvidence": 132,
+    "maeExisting": 9858
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "failedMeasured": [],
+  "failedInferred": [],
+  "storagesGb": [
+   128,
+   256,
+   512,
+   1024
+  ],
+  "heldOutQuotes": 632,
+  "shareMeasured": 0.4807692307692308
+ },
+ "iPhone 16 Pro Max": {
+  "mode": "all",
+  "enabled": true,
+  "maeNew": 63,
+  "maeOld": 9596,
+  "declinedShare": 0.011494252873563204,
+  "T6": true,
+  "measured": {
+   "metrics": {
+    "quotes": 263,
+    "shapes": 75,
+    "medianRelPct": 0,
+    "p90RelPct": 0,
+    "p95OverPct": 0,
+    "worstOverPctOfReference": 0.011570056693277797,
+    "maeEvidence": 0,
+    "maeExisting": 9533
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "inferred": {
+   "metrics": {
+    "quotes": 253,
+    "shapes": 78,
+    "medianRelPct": 0,
+    "p90RelPct": 0.7217610970768675,
+    "p95OverPct": 1.0907347476926765,
+    "worstOverPctOfReference": 1.3768367465000577,
+    "maeEvidence": 128,
+    "maeExisting": 9660
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "failedMeasured": [],
+  "failedInferred": [],
+  "storagesGb": [
+   256,
+   512,
+   1024
+  ],
+  "heldOutQuotes": 522,
+  "shareMeasured": 0.5096899224806202
+ },
+ "iPhone 16e": {
+  "mode": "all",
+  "enabled": true,
+  "maeNew": 362,
+  "maeOld": 4626,
+  "declinedShare": 0,
+  "T6": true,
+  "measured": {
+   "metrics": {
+    "quotes": 258,
+    "shapes": 72,
+    "medianRelPct": 0,
+    "p90RelPct": 0.030609121518212427,
+    "p95OverPct": 0.03147623544224111,
+    "worstOverPctOfReference": 33.96409509946628,
+    "maeEvidence": 176,
+    "maeExisting": 4486
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": false
+   },
+   "failed": [
+    "T7"
+   ]
+  },
+  "inferred": {
+   "metrics": {
+    "quotes": 246,
+    "shapes": 73,
+    "medianRelPct": 0.02677376171352075,
+    "p90RelPct": 5.829204313611192,
+    "p95OverPct": 2.0672546857772875,
+    "worstOverPctOfReference": 27.462396894711304,
+    "maeEvidence": 557,
+    "maeExisting": 4772
+   },
+   "checks": {
+    "T1": true,
+    "T2": false,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": false
+   },
+   "failed": [
+    "T2",
+    "T7"
+   ]
+  },
+  "failedMeasured": [
+   "T7"
+  ],
+  "failedInferred": [
+   "T2",
+   "T7"
+  ],
+  "storagesGb": [
+   128,
+   256,
+   512
+  ],
+  "heldOutQuotes": 504,
+  "shareMeasured": 0.5119047619047619
+ },
+ "iPhone 17": {
+  "mode": "all",
+  "enabled": true,
+  "maeNew": 1201,
+  "maeOld": 6964,
+  "declinedShare": 0.019230769230769273,
+  "T6": true,
+  "measured": {
+   "metrics": {
+    "quotes": 35,
+    "shapes": 20,
+    "medianRelPct": 0,
+    "p90RelPct": 0,
+    "p95OverPct": 0.46728971962616817,
+    "worstOverPctOfReference": 0.45801526717557256,
+    "maeEvidence": 17,
+    "maeExisting": 3251
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "inferred": {
+   "metrics": {
+    "quotes": 67,
+    "shapes": 36,
+    "medianRelPct": 0,
+    "p90RelPct": 12.213740458015266,
+    "p95OverPct": 99.61832061068702,
+    "worstOverPctOfReference": 36.99236641221374,
+    "maeEvidence": 1819,
+    "maeExisting": 8903
+   },
+   "checks": {
+    "T1": true,
+    "T2": false,
+    "T3": false,
+    "T4": true,
+    "T5s": true,
+    "T7": false
+   },
+   "failed": [
+    "T2",
+    "T3",
+    "T7"
+   ]
+  },
+  "failedMeasured": [],
+  "failedInferred": [
+   "T2",
+   "T3",
+   "T7"
+  ],
+  "storagesGb": [
+   256,
+   512
+  ],
+  "heldOutQuotes": 104,
+  "shareMeasured": 0.3431372549019608
+ },
+ "iPhone 17 Pro": {
+  "mode": "all",
+  "enabled": true,
+  "maeNew": 577,
+  "maeOld": 15962,
+  "declinedShare": 0.03448275862068961,
+  "T6": true,
+  "measured": {
+   "metrics": {
+    "quotes": 36,
+    "shapes": 7,
+    "medianRelPct": 0,
+    "p90RelPct": 0,
+    "p95OverPct": 0,
+    "worstOverPctOfReference": 0,
+    "maeEvidence": 0,
+    "maeExisting": 6463
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "inferred": {
+   "metrics": {
+    "quotes": 132,
+    "shapes": 24,
+    "medianRelPct": 0,
+    "p90RelPct": 1.2659470068694798,
+    "p95OverPct": 13.368125250903251,
+    "worstOverPctOfReference": 9.419354838709678,
+    "maeEvidence": 735,
+    "maeExisting": 18552
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": false,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": [
+    "T3"
+   ]
+  },
+  "failedMeasured": [],
+  "failedInferred": [
+   "T3"
+  ],
+  "storagesGb": [
+   256,
+   512,
+   1024
+  ],
+  "heldOutQuotes": 174,
+  "shareMeasured": 0.21428571428571427
+ },
+ "iPhone 17 Pro Max": {
+  "mode": "all",
+  "enabled": true,
+  "maeNew": 143,
+  "maeOld": 18041,
+  "declinedShare": 0.05084745762711862,
+  "T6": true,
+  "measured": {
+   "metrics": {
+    "quotes": 48,
+    "shapes": 7,
+    "medianRelPct": 0,
+    "p90RelPct": 0,
+    "p95OverPct": 0,
+    "worstOverPctOfReference": 0.008460236886632826,
+    "maeEvidence": 0,
+    "maeExisting": 7382
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "inferred": {
+   "metrics": {
+    "quotes": 176,
+    "shapes": 24,
+    "medianRelPct": 0,
+    "p90RelPct": 0.510879848628193,
+    "p95OverPct": 0.9363295880149813,
+    "worstOverPctOfReference": 2.8127853881278537,
+    "maeEvidence": 182,
+    "maeExisting": 20948
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "failedMeasured": [],
+  "failedInferred": [],
+  "storagesGb": [
+   256,
+   512,
+   1024,
+   2048
+  ],
+  "heldOutQuotes": 236,
+  "shareMeasured": 0.21428571428571427
+ },
+ "iPhone 17e": {
+  "mode": "all",
+  "enabled": true,
+  "maeNew": 1824,
+  "maeOld": 7895,
+  "declinedShare": 0.018181818181818188,
+  "T6": true,
+  "measured": {
+   "metrics": {
+    "quotes": 12,
+    "shapes": 5,
+    "medianRelPct": 0,
+    "p90RelPct": 16.731182795698924,
+    "p95OverPct": 16.741573033707866,
+    "worstOverPctOfReference": 8.370786516853933,
+    "maeEvidence": 697,
+    "maeExisting": 2726
+   },
+   "checks": {
+    "T1": true,
+    "T2": false,
+    "T3": false,
+    "T4": true,
+    "T5s": false,
+    "T7": true
+   },
+   "failed": [
+    "T2",
+    "T3",
+    "T5s"
+   ]
+  },
+  "inferred": {
+   "metrics": {
+    "quotes": 42,
+    "shapes": 21,
+    "medianRelPct": 0.9610389610389611,
+    "p90RelPct": 56.39686684073107,
+    "p95OverPct": 76.17728531855957,
+    "worstOverPctOfReference": 21.483870967741936,
+    "maeEvidence": 2146,
+    "maeExisting": 9372
+   },
+   "checks": {
+    "T1": true,
+    "T2": false,
+    "T3": false,
+    "T4": true,
+    "T5s": true,
+    "T7": false
+   },
+   "failed": [
+    "T2",
+    "T3",
+    "T7"
+   ]
+  },
+  "failedMeasured": [
+   "T2",
+   "T3",
+   "T5s",
+   "T5"
+  ],
+  "failedInferred": [
+   "T2",
+   "T3",
+   "T7"
+  ],
+  "storagesGb": [
+   256,
+   512
+  ],
+  "heldOutQuotes": 55,
+  "shareMeasured": 0.2222222222222222
+ },
+ "iPhone 18 Pro": {
+  "mode": "all",
+  "enabled": true,
+  "maeNew": 0,
+  "maeOld": 17804,
+  "declinedShare": 0.018867924528301883,
+  "T6": true,
+  "measured": {
+   "metrics": {
+    "quotes": 436,
+    "shapes": 79,
+    "medianRelPct": 0,
+    "p90RelPct": 0,
+    "p95OverPct": 0,
+    "worstOverPctOfReference": 0.007874015748031496,
+    "maeEvidence": 0,
+    "maeExisting": 18958
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "inferred": {
+   "metrics": {
+    "quotes": 396,
+    "shapes": 78,
+    "medianRelPct": 0,
+    "p90RelPct": 0,
+    "p95OverPct": 0,
+    "worstOverPctOfReference": 0.008333333333333333,
+    "maeEvidence": 1,
+    "maeExisting": 16534
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "failedMeasured": [],
+  "failedInferred": [],
+  "storagesGb": [
+   256,
+   512,
+   1024,
+   2048
+  ],
+  "heldOutQuotes": 848,
+  "shareMeasured": 0.5240384615384616
+ },
+ "iPhone 18 Pro Max": {
+  "mode": "all",
+  "enabled": true,
+  "maeNew": 625,
+  "maeOld": 14559,
+  "declinedShare": 0.018648018648018683,
+  "T6": true,
+  "measured": {
+   "metrics": {
+    "quotes": 428,
+    "shapes": 227,
+    "medianRelPct": 0,
+    "p90RelPct": 0,
+    "p95OverPct": 0,
+    "worstOverPctOfReference": 0.007692307692307693,
+    "maeEvidence": 117,
+    "maeExisting": 14984
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "inferred": {
+   "metrics": {
+    "quotes": 414,
+    "shapes": 238,
+    "medianRelPct": 0,
+    "p90RelPct": 0.012913223140495868,
+    "p95OverPct": 10.927672955974844,
+    "worstOverPctOfReference": 11.969696969696969,
+    "maeEvidence": 1150,
+    "maeExisting": 14120
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": false,
+    "T4": true,
+    "T5s": true,
+    "T7": false
+   },
+   "failed": [
+    "T3",
+    "T7"
+   ]
+  },
+  "failedMeasured": [],
+  "failedInferred": [
+   "T3",
+   "T7"
+  ],
+  "storagesGb": [
+   256,
+   512,
+   1024,
+   2048
+  ],
+  "heldOutQuotes": 858,
+  "shareMeasured": 0.5083135391923991
+ },
+ "iPhone 6": {
+  "mode": "all",
+  "enabled": true,
+  "maeNew": 37,
+  "maeOld": 687,
+  "declinedShare": 0,
+  "T6": true,
+  "measured": {
+   "metrics": {
+    "quotes": 156,
+    "shapes": 25,
+    "medianRelPct": 0,
+    "p90RelPct": 1.25,
+    "p95OverPct": 1.25,
+    "worstOverPctOfReference": 2.7649769585253456,
+    "maeEvidence": 7,
+    "maeExisting": 697
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "inferred": {
+   "metrics": {
+    "quotes": 84,
+    "shapes": 16,
+    "medianRelPct": 2.083333333333333,
+    "p90RelPct": 36.95652173913043,
+    "p95OverPct": 44.44444444444444,
+    "worstOverPctOfReference": 21.568627450980394,
+    "maeEvidence": 93,
+    "maeExisting": 669
+   },
+   "checks": {
+    "T1": false,
+    "T2": false,
+    "T3": false,
+    "T4": true,
+    "T5s": true,
+    "T7": false
+   },
+   "failed": [
+    "T1",
+    "T2",
+    "T3",
+    "T7"
+   ]
+  },
+  "failedMeasured": [],
+  "failedInferred": [
+   "T1",
+   "T2",
+   "T3",
+   "T7"
+  ],
+  "storagesGb": [
+   16,
+   32,
+   64,
+   128
+  ],
+  "heldOutQuotes": 240,
+  "shareMeasured": 0.65
+ },
+ "iPhone 6 Plus": {
+  "mode": "all",
+  "enabled": true,
+  "maeNew": 45,
+  "maeOld": 718,
+  "declinedShare": 0.005494505494505475,
+  "T6": true,
+  "measured": {
+   "metrics": {
+    "quotes": 125,
+    "shapes": 41,
+    "medianRelPct": 0,
+    "p90RelPct": 3.861003861003861,
+    "p95OverPct": 0.7518796992481203,
+    "worstOverPctOfReference": 2.681992337164751,
+    "maeEvidence": 13,
+    "maeExisting": 709
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "inferred": {
+   "metrics": {
+    "quotes": 56,
+    "shapes": 15,
+    "medianRelPct": 3.2520325203252036,
+    "p90RelPct": 30.53435114503817,
+    "p95OverPct": 31.25,
+    "worstOverPctOfReference": 19.41747572815534,
+    "maeEvidence": 116,
+    "maeExisting": 736
+   },
+   "checks": {
+    "T1": false,
+    "T2": false,
+    "T3": false,
+    "T4": true,
+    "T5s": true,
+    "T7": false
+   },
+   "failed": [
+    "T1",
+    "T2",
+    "T3",
+    "T7"
+   ]
+  },
+  "failedMeasured": [],
+  "failedInferred": [
+   "T1",
+   "T2",
+   "T3",
+   "T7"
+  ],
+  "storagesGb": [
+   16,
+   64,
+   128
+  ],
+  "heldOutQuotes": 182,
+  "shareMeasured": 0.6906077348066298
+ },
+ "iPhone 6S": {
+  "mode": "all",
+  "enabled": true,
+  "maeNew": 37,
+  "maeOld": 732,
+  "declinedShare": 0,
+  "T6": true,
+  "measured": {
+   "metrics": {
+    "quotes": 164,
+    "shapes": 25,
+    "medianRelPct": 0,
+    "p90RelPct": 1.639344262295082,
+    "p95OverPct": 1.639344262295082,
+    "worstOverPctOfReference": 7.4074074074074066,
+    "maeEvidence": 11,
+    "maeExisting": 705
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "inferred": {
+   "metrics": {
+    "quotes": 76,
+    "shapes": 14,
+    "medianRelPct": 2.7522935779816518,
+    "p90RelPct": 28.57142857142857,
+    "p95OverPct": 29.87012987012987,
+    "worstOverPctOfReference": 15.53398058252427,
+    "maeEvidence": 94,
+    "maeExisting": 790
+   },
+   "checks": {
+    "T1": false,
+    "T2": false,
+    "T3": false,
+    "T4": true,
+    "T5s": true,
+    "T7": false
+   },
+   "failed": [
+    "T1",
+    "T2",
+    "T3",
+    "T7"
+   ]
+  },
+  "failedMeasured": [],
+  "failedInferred": [
+   "T1",
+   "T2",
+   "T3",
+   "T7"
+  ],
+  "storagesGb": [
+   16,
+   32,
+   64,
+   128
+  ],
+  "heldOutQuotes": 240,
+  "shareMeasured": 0.6833333333333333
+ },
+ "iPhone 6S Plus": {
+  "mode": "all",
+  "enabled": true,
+  "maeNew": 36,
+  "maeOld": 745,
+  "declinedShare": 0.012499999999999956,
+  "T6": true,
+  "measured": {
+   "metrics": {
+    "quotes": 166,
+    "shapes": 25,
+    "medianRelPct": 0,
+    "p90RelPct": 1.2195121951219512,
+    "p95OverPct": 0.4830917874396135,
+    "worstOverPctOfReference": 3.8567493112947657,
+    "maeEvidence": 17,
+    "maeExisting": 761
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "inferred": {
+   "metrics": {
+    "quotes": 71,
+    "shapes": 13,
+    "medianRelPct": 0.4878048780487805,
+    "p90RelPct": 19.41747572815534,
+    "p95OverPct": 29.78723404255319,
+    "worstOverPctOfReference": 17.77777777777778,
+    "maeEvidence": 80,
+    "maeExisting": 706
+   },
+   "checks": {
+    "T1": true,
+    "T2": false,
+    "T3": false,
+    "T4": true,
+    "T5s": true,
+    "T7": false
+   },
+   "failed": [
+    "T2",
+    "T3",
+    "T7"
+   ]
+  },
+  "failedMeasured": [],
+  "failedInferred": [
+   "T2",
+   "T3",
+   "T7"
+  ],
+  "storagesGb": [
+   16,
+   32,
+   64,
+   128
+  ],
+  "heldOutQuotes": 240,
+  "shareMeasured": 0.70042194092827
+ },
+ "iPhone 7": {
+  "mode": "all",
+  "enabled": true,
+  "maeNew": 49,
+  "maeOld": 906,
+  "declinedShare": 0,
+  "T6": true,
+  "measured": {
+   "metrics": {
+    "quotes": 120,
+    "shapes": 25,
+    "medianRelPct": 0,
+    "p90RelPct": 0.36231884057971014,
+    "p95OverPct": 0,
+    "worstOverPctOfReference": 1.6913319238900635,
+    "maeEvidence": 6,
+    "maeExisting": 923
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "inferred": {
+   "metrics": {
+    "quotes": 60,
+    "shapes": 15,
+    "medianRelPct": 0.8368200836820083,
+    "p90RelPct": 16.400000000000002,
+    "p95OverPct": 12,
+    "worstOverPctOfReference": 14.285714285714285,
+    "maeEvidence": 135,
+    "maeExisting": 873
+   },
+   "checks": {
+    "T1": true,
+    "T2": false,
+    "T3": false,
+    "T4": true,
+    "T5s": true,
+    "T7": false
+   },
+   "failed": [
+    "T2",
+    "T3",
+    "T7"
+   ]
+  },
+  "failedMeasured": [],
+  "failedInferred": [
+   "T2",
+   "T3",
+   "T7"
+  ],
+  "storagesGb": [
+   32,
+   128,
+   256
+  ],
+  "heldOutQuotes": 180,
+  "shareMeasured": 0.6666666666666666
+ },
+ "iPhone 7 Plus": {
+  "mode": "all",
+  "enabled": true,
+  "maeNew": 100,
+  "maeOld": 900,
+  "declinedShare": 0,
+  "T6": true,
+  "measured": {
+   "metrics": {
+    "quotes": 87,
+    "shapes": 19,
+    "medianRelPct": 1.7738359201773837,
+    "p90RelPct": 7.8125,
+    "p95OverPct": 4.968944099378882,
+    "worstOverPctOfReference": 3.577512776831346,
+    "maeEvidence": 80,
+    "maeExisting": 995
+   },
+   "checks": {
+    "T1": false,
+    "T2": false,
+    "T3": false,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": [
+    "T1",
+    "T2",
+    "T3"
+   ]
+  },
+  "inferred": {
+   "metrics": {
+    "quotes": 93,
+    "shapes": 20,
+    "medianRelPct": 1.1799410029498525,
+    "p90RelPct": 10.663983903420524,
+    "p95OverPct": 13.451776649746192,
+    "worstOverPctOfReference": 13.223140495867769,
+    "maeEvidence": 118,
+    "maeExisting": 811
+   },
+   "checks": {
+    "T1": false,
+    "T2": false,
+    "T3": false,
+    "T4": true,
+    "T5s": true,
+    "T7": false
+   },
+   "failed": [
+    "T1",
+    "T2",
+    "T3",
+    "T7"
+   ]
+  },
+  "failedMeasured": [
+   "T1",
+   "T2",
+   "T3"
+  ],
+  "failedInferred": [
+   "T1",
+   "T2",
+   "T3",
+   "T7"
+  ],
+  "storagesGb": [
+   32,
+   128,
+   256
+  ],
+  "heldOutQuotes": 180,
+  "shareMeasured": 0.48333333333333334
+ },
+ "iPhone 8": {
+  "mode": "all",
+  "enabled": true,
+  "maeNew": 52,
+  "maeOld": 973,
+  "declinedShare": 0,
+  "T6": true,
+  "measured": {
+   "metrics": {
+    "quotes": 126,
+    "shapes": 25,
+    "medianRelPct": 0,
+    "p90RelPct": 2.272727272727273,
+    "p95OverPct": 1.8306636155606408,
+    "worstOverPctOfReference": 4.957264957264957,
+    "maeEvidence": 19,
+    "maeExisting": 1015
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "inferred": {
+   "metrics": {
+    "quotes": 54,
+    "shapes": 13,
+    "medianRelPct": 0.9554140127388535,
+    "p90RelPct": 8.51063829787234,
+    "p95OverPct": 8,
+    "worstOverPctOfReference": 7.339449541284404,
+    "maeEvidence": 128,
+    "maeExisting": 875
+   },
+   "checks": {
+    "T1": true,
+    "T2": false,
+    "T3": false,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": [
+    "T2",
+    "T3"
+   ]
+  },
+  "failedMeasured": [],
+  "failedInferred": [
+   "T2",
+   "T3"
+  ],
+  "storagesGb": [
+   64,
+   128,
+   256
+  ],
+  "heldOutQuotes": 180,
+  "shareMeasured": 0.7
+ },
+ "iPhone 8 Plus": {
+  "mode": "all",
+  "enabled": true,
+  "maeNew": 42,
+  "maeOld": 1039,
+  "declinedShare": 0,
+  "T6": true,
+  "measured": {
+   "metrics": {
+    "quotes": 120,
+    "shapes": 25,
+    "medianRelPct": 0,
+    "p90RelPct": 0.8976660682226212,
+    "p95OverPct": 0.3067484662576687,
+    "worstOverPctOfReference": 1.881720430107527,
+    "maeEvidence": 10,
+    "maeExisting": 1138
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "inferred": {
+   "metrics": {
+    "quotes": 60,
+    "shapes": 15,
+    "medianRelPct": 0.16155088852988692,
+    "p90RelPct": 7.197549770290965,
+    "p95OverPct": 3.2116788321167884,
+    "worstOverPctOfReference": 6.317204301075269,
+    "maeEvidence": 106,
+    "maeExisting": 839
+   },
+   "checks": {
+    "T1": true,
+    "T2": false,
+    "T3": false,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": [
+    "T2",
+    "T3"
+   ]
+  },
+  "failedMeasured": [],
+  "failedInferred": [
+   "T2",
+   "T3"
+  ],
+  "storagesGb": [
+   64,
+   128,
+   256
+  ],
+  "heldOutQuotes": 180,
+  "shareMeasured": 0.6666666666666666
+ },
+ "iPhone Air": {
+  "mode": "all",
+  "enabled": true,
+  "maeNew": 538,
+  "maeOld": 10893,
+  "declinedShare": 0.027027027027026973,
+  "T6": true,
+  "measured": {
+   "metrics": {
+    "quotes": 58,
+    "shapes": 23,
+    "medianRelPct": 0,
+    "p90RelPct": 0.7738440704198104,
+    "p95OverPct": 1.92489744398864,
+    "worstOverPctOfReference": 0.8714285714285714,
+    "maeEvidence": 56,
+    "maeExisting": 6126
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "inferred": {
+   "metrics": {
+    "quotes": 158,
+    "shapes": 46,
+    "medianRelPct": 0,
+    "p90RelPct": 4.208530805687204,
+    "p95OverPct": 3.137336380635778,
+    "worstOverPctOfReference": 19.60919540229885,
+    "maeEvidence": 715,
+    "maeExisting": 12643
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": false,
+    "T4": true,
+    "T5s": true,
+    "T7": false
+   },
+   "failed": [
+    "T3",
+    "T7"
+   ]
+  },
+  "failedMeasured": [],
+  "failedInferred": [
+   "T3",
+   "T7"
+  ],
+  "storagesGb": [
+   256,
+   512,
+   1024
+  ],
+  "heldOutQuotes": 222,
+  "shareMeasured": 0.26851851851851855
+ },
+ "iPhone SE 1st Generation": {
+  "mode": "all",
+  "enabled": true,
+  "maeNew": 56,
+  "maeOld": 690,
+  "declinedShare": 0,
+  "T6": true,
+  "measured": {
+   "metrics": {
+    "quotes": 152,
+    "shapes": 25,
+    "medianRelPct": 0,
+    "p90RelPct": 0.819672131147541,
+    "p95OverPct": 1.0526315789473684,
+    "worstOverPctOfReference": 10.7981220657277,
+    "maeEvidence": 7,
+    "maeExisting": 678
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": false
+   },
+   "failed": [
+    "T7"
+   ]
+  },
+  "inferred": {
+   "metrics": {
+    "quotes": 88,
+    "shapes": 17,
+    "medianRelPct": 7.329842931937172,
+    "p90RelPct": 40.86021505376344,
+    "p95OverPct": 39.0625,
+    "worstOverPctOfReference": 30.48780487804878,
+    "maeEvidence": 142,
+    "maeExisting": 710
+   },
+   "checks": {
+    "T1": false,
+    "T2": false,
+    "T3": false,
+    "T4": true,
+    "T5s": true,
+    "T7": false
+   },
+   "failed": [
+    "T1",
+    "T2",
+    "T3",
+    "T7"
+   ]
+  },
+  "failedMeasured": [
+   "T7"
+  ],
+  "failedInferred": [
+   "T1",
+   "T2",
+   "T3",
+   "T7"
+  ],
+  "storagesGb": [
+   16,
+   32,
+   64,
+   128
+  ],
+  "heldOutQuotes": 240,
+  "shareMeasured": 0.6333333333333333
+ },
+ "iPhone SE 2020": {
+  "mode": "all",
+  "enabled": true,
+  "maeNew": 69,
+  "maeOld": 1152,
+  "declinedShare": 0,
+  "T6": true,
+  "measured": {
+   "metrics": {
+    "quotes": 123,
+    "shapes": 25,
+    "medianRelPct": 0,
+    "p90RelPct": 0.21052631578947367,
+    "p95OverPct": 0.19801980198019803,
+    "worstOverPctOfReference": 0.49382716049382713,
+    "maeEvidence": 4,
+    "maeExisting": 1298
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "inferred": {
+   "metrics": {
+    "quotes": 57,
+    "shapes": 14,
+    "medianRelPct": 0.2079002079002079,
+    "p90RelPct": 18.248175182481752,
+    "p95OverPct": 18.248175182481752,
+    "worstOverPctOfReference": 16.4257555847569,
+    "maeEvidence": 209,
+    "maeExisting": 838
+   },
+   "checks": {
+    "T1": true,
+    "T2": false,
+    "T3": false,
+    "T4": true,
+    "T5s": true,
+    "T7": false
+   },
+   "failed": [
+    "T2",
+    "T3",
+    "T7"
+   ]
+  },
+  "failedMeasured": [],
+  "failedInferred": [
+   "T2",
+   "T3",
+   "T7"
+  ],
+  "storagesGb": [
+   64,
+   128,
+   256
+  ],
+  "heldOutQuotes": 180,
+  "shareMeasured": 0.6833333333333333
+ },
+ "iPhone SE 2022": {
+  "mode": "all",
+  "enabled": true,
+  "maeNew": 127,
+  "maeOld": 1222,
+  "declinedShare": 0,
+  "T6": true,
+  "measured": {
+   "metrics": {
+    "quotes": 262,
+    "shapes": 57,
+    "medianRelPct": 0,
+    "p90RelPct": 0.16778523489932887,
+    "p95OverPct": 0.4153686396677051,
+    "worstOverPctOfReference": 10.047468354430379,
+    "maeEvidence": 27,
+    "maeExisting": 1199
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": false
+   },
+   "failed": [
+    "T7"
+   ]
+  },
+  "inferred": {
+   "metrics": {
+    "quotes": 152,
+    "shapes": 40,
+    "medianRelPct": 0,
+    "p90RelPct": 12.547051442910917,
+    "p95OverPct": 14.041514041514041,
+    "worstOverPctOfReference": 11.867088607594937,
+    "maeEvidence": 299,
+    "maeExisting": 1261
+   },
+   "checks": {
+    "T1": true,
+    "T2": false,
+    "T3": false,
+    "T4": true,
+    "T5s": true,
+    "T7": false
+   },
+   "failed": [
+    "T2",
+    "T3",
+    "T7"
+   ]
+  },
+  "failedMeasured": [
+   "T7"
+  ],
+  "failedInferred": [
+   "T2",
+   "T3",
+   "T7"
+  ],
+  "storagesGb": [
+   64,
+   128,
+   256
+  ],
+  "heldOutQuotes": 414,
+  "shareMeasured": 0.6328502415458938
+ },
+ "iPhone X": {
+  "mode": "all",
+  "enabled": true,
+  "maeNew": 63,
+  "maeOld": 135,
+  "declinedShare": 0,
+  "T6": true,
+  "measured": {
+   "metrics": {
+    "quotes": 54,
+    "shapes": 34,
+    "medianRelPct": 0,
+    "p90RelPct": 0.9890109890109889,
+    "p95OverPct": 0.4750593824228029,
+    "worstOverPctOfReference": 0.998003992015968,
+    "maeEvidence": 18,
+    "maeExisting": 98
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "inferred": {
+   "metrics": {
+    "quotes": 33,
+    "shapes": 20,
+    "medianRelPct": 0,
+    "p90RelPct": 11.46788990825688,
+    "p95OverPct": 11.46788990825688,
+    "worstOverPctOfReference": 10.309278350515463,
+    "maeEvidence": 137,
+    "maeExisting": 195
+   },
+   "checks": {
+    "T1": true,
+    "T2": false,
+    "T3": false,
+    "T4": false,
+    "T5s": true,
+    "T7": false
+   },
+   "failed": [
+    "T2",
+    "T3",
+    "T4",
+    "T7"
+   ]
+  },
+  "failedMeasured": [
+   "T5"
+  ],
+  "failedInferred": [
+   "T2",
+   "T3",
+   "T4",
+   "T7"
+  ],
+  "storagesGb": [
+   64,
+   256
+  ],
+  "heldOutQuotes": 87,
+  "shareMeasured": 0.6206896551724138
+ },
+ "iPhone XR": {
+  "mode": "all",
+  "enabled": true,
+  "maeNew": 59,
+  "maeOld": 576,
+  "declinedShare": 0,
+  "T6": true,
+  "measured": {
+   "metrics": {
+    "quotes": 102,
+    "shapes": 19,
+    "medianRelPct": 0.1006036217303823,
+    "p90RelPct": 0.5050505050505051,
+    "p95OverPct": 0.49382716049382713,
+    "worstOverPctOfReference": 0.5102040816326531,
+    "maeEvidence": 15,
+    "maeExisting": 482
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "inferred": {
+   "metrics": {
+    "quotes": 78,
+    "shapes": 15,
+    "medianRelPct": 0.15600624024961,
+    "p90RelPct": 6.408094435075886,
+    "p95OverPct": 8.121827411167512,
+    "worstOverPctOfReference": 8.16326530612245,
+    "maeEvidence": 116,
+    "maeExisting": 700
+   },
+   "checks": {
+    "T1": true,
+    "T2": false,
+    "T3": false,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": [
+    "T2",
+    "T3"
+   ]
+  },
+  "failedMeasured": [],
+  "failedInferred": [
+   "T2",
+   "T3"
+  ],
+  "storagesGb": [
+   64,
+   128,
+   256
+  ],
+  "heldOutQuotes": 180,
+  "shareMeasured": 0.5666666666666667
+ },
+ "iPhone XS": {
+  "mode": "all",
+  "enabled": true,
+  "maeNew": 88,
+  "maeOld": 815,
+  "declinedShare": 0,
+  "T6": true,
+  "measured": {
+   "metrics": {
+    "quotes": 96,
+    "shapes": 19,
+    "medianRelPct": 0.12531328320802004,
+    "p90RelPct": 1.8518518518518516,
+    "p95OverPct": 2.2857142857142856,
+    "worstOverPctOfReference": 1.826923076923077,
+    "maeEvidence": 37,
+    "maeExisting": 648
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "inferred": {
+   "metrics": {
+    "quotes": 84,
+    "shapes": 17,
+    "medianRelPct": 0.2717391304347826,
+    "p90RelPct": 9.903713892709765,
+    "p95OverPct": 10.099573257467995,
+    "worstOverPctOfReference": 9.423076923076923,
+    "maeEvidence": 145,
+    "maeExisting": 1007
+   },
+   "checks": {
+    "T1": true,
+    "T2": false,
+    "T3": false,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": [
+    "T2",
+    "T3"
+   ]
+  },
+  "failedMeasured": [],
+  "failedInferred": [
+   "T2",
+   "T3"
+  ],
+  "storagesGb": [
+   64,
+   256,
+   512
+  ],
+  "heldOutQuotes": 180,
+  "shareMeasured": 0.5333333333333333
+ },
+ "iPhone XS Max": {
+  "mode": "all",
+  "enabled": true,
+  "maeNew": 120,
+  "maeOld": 1698,
+  "declinedShare": 0,
+  "T6": true,
+  "measured": {
+   "metrics": {
+    "quotes": 90,
+    "shapes": 19,
+    "medianRelPct": 0.12033694344163659,
+    "p90RelPct": 1.2412723041117144,
+    "p95OverPct": 1.1547344110854503,
+    "worstOverPctOfReference": 0.8539709649871904,
+    "maeEvidence": 33,
+    "maeExisting": 2264
+   },
+   "checks": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5s": true,
+    "T7": true
+   },
+   "failed": []
+  },
+  "inferred": {
+   "metrics": {
+    "quotes": 90,
+    "shapes": 19,
+    "medianRelPct": 0.39904229848363926,
+    "p90RelPct": 8.549471661863594,
+    "p95OverPct": 8.741594620557157,
+    "worstOverPctOfReference": 11.443210930828352,
+    "maeEvidence": 208,
+    "maeExisting": 1132
+   },
+   "checks": {
+    "T1": true,
+    "T2": false,
+    "T3": false,
+    "T4": true,
+    "T5s": true,
+    "T7": false
+   },
+   "failed": [
+    "T2",
+    "T3",
+    "T7"
+   ]
+  },
+  "failedMeasured": [],
+  "failedInferred": [
+   "T2",
+   "T3",
+   "T7"
+  ],
+  "storagesGb": [
+   64,
+   256,
+   512
+  ],
+  "heldOutQuotes": 180,
+  "shareMeasured": 0.5
+ }
+}

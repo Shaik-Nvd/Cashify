@@ -1,9 +1,9 @@
 /**
  * Exact matches against the supplied Cashify quotations, and what is NOT an exact match.
  *
- * The owner confirmed the supplied quotations are real Cashify results. A request for the same variant and the same answers
- * must therefore return the recorded Cashify-equivalent (selling price + INR 20) before uplift, collected against the same
- * Get Upto. No database, network or browser.
+ * The recorded-quote index (exact.json, the earlier collection) is an OBSERVATION SET used as a fixture: it answers only when a caller
+ * opts in (useRecordedQuotes). Served quotes come from the calibrated rules (pricing.apple-reference-rules.test.ts); the last test
+ * here asserts that the default path never answers from it. No database, network or browser.
  *
  * Run: npx tsx scripts/test/pricing.apple-evidence-exact.test.ts
  */
@@ -11,14 +11,15 @@ import assert from 'node:assert/strict';
 import { appleEvidenceQuote } from '../../lib/pricing/appleCashifyModel';
 import { EXACT } from '../../lib/pricing/appleCashifyModel/exact';
 import { InspectionRequiredError } from '../../lib/pricing/inspectionRequired';
-import { hasUnknownInput, loadMeasurements, toDiagnostics } from '../pricing-evidence/evidenceLib';
+import path from 'node:path';
+import { EVIDENCE_DIR, hasUnknownInput, loadMeasurements, toDiagnostics } from '../pricing-evidence/evidenceLib';
 
 let passed = 0, failed = 0;
 async function test(name: string, fn: () => void | Promise<void>) {
   try { await fn(); console.log(`  PASS  ${name}`); passed++; } catch (e: any) { console.log(`  FAIL  ${name}: ${String(e.message ?? e).slice(0, 500)}`); failed++; }
 }
-const ms = loadMeasurements().filter(m => !hasUnknownInput(m));
-const quote = (model: string, gb: number, ref: number, d: any) => appleEvidenceQuote(model, `${gb}GB`, ref, d);
+const ms = loadMeasurements(path.join(EVIDENCE_DIR, 'measurements.jsonl')).filter(m => !hasUnknownInput(m));
+const quote = (model: string, gb: number, ref: number, d: any) => appleEvidenceQuote(model, `${gb}GB`, ref, d, { useRecordedQuotes: true });
 
 async function run() {
   console.log('\nExact recorded Cashify quotes\n');
@@ -82,6 +83,18 @@ async function run() {
       assert.ok(g0 > 0); assert.ok(base == null || base > 0);
     }
     assert.ok(entries > 2000, `entries ${entries}`);
+  });
+
+  await test('the serving path never answers from the recorded index', () => {
+    let n = 0;
+    for (const m of ms) {
+      if (m.outcome !== 'NUMERIC_QUOTE') continue;
+      try {
+        const q = appleEvidenceQuote(m.model_key, `${m.storage_gb}GB`, m.variant_get_upto, toDiagnostics(m, 'none'));
+        if (q) { assert.equal(q.source, 'model'); n++; }
+      } catch (e) { if (!(e instanceof InspectionRequiredError)) throw e; }
+    }
+    assert.ok(n > 2000, `checked ${n}`);
   });
 
   console.log(`\n${passed} passed, ${failed} failed`);

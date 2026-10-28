@@ -11,7 +11,11 @@ import scopeJson from './scope.json';
  *  inspect manual inspection: no instant price (the existing pattern for unvalidated conditions)
  *  legacy  leave it to the existing engine, unchanged */
 export type InferredPolicy = 'price' | 'inspect' | 'legacy';
-export interface ScopeEntry { enabled: boolean; inferredPolicy: InferredPolicy; reason: string; storagesGb: number[] }
+export interface ScopeEntry {
+  enabled: boolean; inferredPolicy: InferredPolicy; reason: string; storagesGb: number[];
+  /** A model with no quotes of its own is priced with this sibling's calibration, every value labelled inferred (iPhone 12 Mini <- iPhone 12). */
+  fallbackFrom?: string;
+}
 export const SCOPE = scopeJson as unknown as { version: string; models: Record<string, ScopeEntry> };
 
 /** 'Apple iPhone 15 Pro Max' -> 'iPhone 15 Pro Max' */

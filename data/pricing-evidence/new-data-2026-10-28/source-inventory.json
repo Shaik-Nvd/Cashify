@@ -1,0 +1,2255 @@
+[
+  {
+    "file": "All Individualtxt.txt",
+    "sha256": "8d221d2a722950b51c82fb475fbd25d25a04423c9f18fc423c379bf83bc245c2",
+    "bytes": 227254,
+    "duplicate_of": null,
+    "members": [],
+    "role": "reference_template"
+  },
+  {
+    "file": "Apple_iPhone_14_All_3_Variants_174_Scenarios (1).zip",
+    "sha256": "7ce38b30a524c261fc8689062c80c0460287dca1d84fb9546531e01d8472e01f",
+    "bytes": 18190,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Apple_iPhone_14_256GB_58_Scenarios.txt",
+        "sha256": "270f648806acee58d63fe542cdc8eb96b9839b4ace214d8fdc9b1b597714eb9b",
+        "bytes": 48958,
+        "duplicate_of": null
+      },
+      {
+        "name": "Apple_iPhone_14_512GB_58_Scenarios.txt",
+        "sha256": "4d90f828845c56c307f0cbad0fff67f3feb68e2495ed6fa0deb216d868f95850",
+        "bytes": 48958,
+        "duplicate_of": null
+      },
+      {
+        "name": "Apple_iPhone_14_All_3_Variants_174_Scenarios.txt",
+        "sha256": "4c0fded11f21e9c9f78952018fe9acdc9ef7aaf88b3766d8844089bc246f3ed9",
+        "bytes": 143229,
+        "duplicate_of": null
+      },
+      {
+        "name": "Apple_iPhone_14_128GB_58_Scenarios.txt",
+        "sha256": "786a45299f387f739a2be6e015cab60e81f9321e61552c48466a55d230622cf2",
+        "bytes": 48958,
+        "duplicate_of": null
+      },
+      {
+        "name": "verified_prices.json",
+        "sha256": "e13dc1bb36a9789bedcd8b8465a0e2c9c985e44da597b1411f10a6596ea4b853",
+        "bytes": 2525,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 14",
+    "parsed_cases": 348,
+    "priced_cases": 294
+  },
+  {
+    "file": "Apple_iPhone_14_All_3_Variants_174_Scenarios.zip",
+    "sha256": "7ce38b30a524c261fc8689062c80c0460287dca1d84fb9546531e01d8472e01f",
+    "bytes": 18190,
+    "duplicate_of": "Apple_iPhone_14_All_3_Variants_174_Scenarios (1).zip",
+    "members": [
+      {
+        "name": "Apple_iPhone_14_256GB_58_Scenarios.txt",
+        "sha256": "270f648806acee58d63fe542cdc8eb96b9839b4ace214d8fdc9b1b597714eb9b",
+        "bytes": 48958,
+        "duplicate_of": [
+          "Apple_iPhone_14_All_3_Variants_174_Scenarios (1).zip",
+          "Apple_iPhone_14_256GB_58_Scenarios.txt"
+        ]
+      },
+      {
+        "name": "Apple_iPhone_14_512GB_58_Scenarios.txt",
+        "sha256": "4d90f828845c56c307f0cbad0fff67f3feb68e2495ed6fa0deb216d868f95850",
+        "bytes": 48958,
+        "duplicate_of": [
+          "Apple_iPhone_14_All_3_Variants_174_Scenarios (1).zip",
+          "Apple_iPhone_14_512GB_58_Scenarios.txt"
+        ]
+      },
+      {
+        "name": "Apple_iPhone_14_All_3_Variants_174_Scenarios.txt",
+        "sha256": "4c0fded11f21e9c9f78952018fe9acdc9ef7aaf88b3766d8844089bc246f3ed9",
+        "bytes": 143229,
+        "duplicate_of": [
+          "Apple_iPhone_14_All_3_Variants_174_Scenarios (1).zip",
+          "Apple_iPhone_14_All_3_Variants_174_Scenarios.txt"
+        ]
+      },
+      {
+        "name": "Apple_iPhone_14_128GB_58_Scenarios.txt",
+        "sha256": "786a45299f387f739a2be6e015cab60e81f9321e61552c48466a55d230622cf2",
+        "bytes": 48958,
+        "duplicate_of": [
+          "Apple_iPhone_14_All_3_Variants_174_Scenarios (1).zip",
+          "Apple_iPhone_14_128GB_58_Scenarios.txt"
+        ]
+      },
+      {
+        "name": "verified_prices.json",
+        "sha256": "e13dc1bb36a9789bedcd8b8465a0e2c9c985e44da597b1411f10a6596ea4b853",
+        "bytes": 2525,
+        "duplicate_of": [
+          "Apple_iPhone_14_All_3_Variants_174_Scenarios (1).zip",
+          "verified_prices.json"
+        ]
+      }
+    ],
+    "model": "iPhone 14",
+    "parsed_cases": 348,
+    "priced_cases": 294
+  },
+  {
+    "file": "Apple_iPhone_14_Pro_All_4_Variants_232_Scenarios.zip",
+    "sha256": "7e950ca309c2d9827dcd697809303f1bf036ee7b2ca951d7592b22c4abb8db0a",
+    "bytes": 23395,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Apple_iPhone_14_Pro_1TB_58_Scenarios.txt",
+        "sha256": "b157c34e68f9acaa17881900fecec5887645b546117857aee2af5026c3902255",
+        "bytes": 48997,
+        "duplicate_of": null
+      },
+      {
+        "name": "Apple_iPhone_14_Pro_512GB_58_Scenarios.txt",
+        "sha256": "a7661384d3c351850b84b28d43fbe6c60de1a03c7a5663bba2e513a5d84bc48f",
+        "bytes": 48999,
+        "duplicate_of": null
+      },
+      {
+        "name": "Apple_iPhone_14_Pro_128GB_58_Scenarios.txt",
+        "sha256": "aa510b0d248205101e97b3d70b648f89004b2197e2b7e3139407dbb5da83328e",
+        "bytes": 48999,
+        "duplicate_of": null
+      },
+      {
+        "name": "Apple_iPhone_14_Pro_256GB_58_Scenarios.txt",
+        "sha256": "7ad09216322123034f478b4fb2a04bae00268bbbc5e05645689d5d52d481327b",
+        "bytes": 48999,
+        "duplicate_of": null
+      },
+      {
+        "name": "Apple_iPhone_14_Pro_All_4_Variants_232_Scenarios.txt",
+        "sha256": "fd049f5094e68046ba4b8b66edec6e8f76d0ee935056b6d4826ec2e23ed7024e",
+        "bytes": 190568,
+        "duplicate_of": null
+      },
+      {
+        "name": "verified_prices.json",
+        "sha256": "768cefa638270acc62c4650e9fc9b26ba0ee17c3630c9b47997caaa7d60caf88",
+        "bytes": 3428,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 14 Pro",
+    "parsed_cases": 464,
+    "priced_cases": 400
+  },
+  {
+    "file": "Apple_iPhone_15_Plus_6GB_128GB_256GB_512GB_174_Test_Cases_Combined.zip",
+    "sha256": "6551316516c9a39e68847d54a9260970ab32a635839715bbf8e7eda83661c314",
+    "bytes": 12682,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Apple_iPhone_15_Plus_6GB_128GB_256GB_512GB_174_Test_Cases_Combined.txt",
+        "sha256": "e5f8b81da2534fa9dec8a21b06f6a72ce1005d175d95157b613da4fdbcd46182",
+        "bytes": 638506,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 15 Plus",
+    "parsed_cases": 174,
+    "priced_cases": 0
+  },
+  {
+    "file": "Apple_iPhone_15_Pro_8GB_128GB_256GB_512GB_1TB_232_Test_Cases_Combined.zip",
+    "sha256": "b0e067af063cd695b74dc63abb085feef08cf7263ffe8e8a97af739f408f5785",
+    "bytes": 16408,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Apple_iPhone_15_Pro_8GB_128GB_256GB_512GB_1TB_232_Test_Cases_Combined.txt",
+        "sha256": "f339d085743cc321e8bc2c962bb007a00aa09029cdc478897b2c4daf30d37943",
+        "bytes": 850940,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 15 Pro",
+    "parsed_cases": 232,
+    "priced_cases": 0
+  },
+  {
+    "file": "Apple_iPhone_15_Pro_8GB_128GB_57_Verified_1_Unresolved_Cashify_Report.zip",
+    "sha256": "d001fea83117f424d8341ebfc7291a8e3027ed0587cd7ecf682ae0fefa634a3e",
+    "bytes": 10343,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Apple_iPhone_15_Pro_8GB_128GB_57_Verified_1_Unresolved_Cashify_Report.txt",
+        "sha256": "45a3b7defc35b8c476deef84b470690e3975792097271ee83b6022cf81eb2244",
+        "bytes": 18225,
+        "duplicate_of": null
+      },
+      {
+        "name": "Apple_iPhone_15_Pro_8GB_128GB_57_Verified_Quotes.csv",
+        "sha256": "f16be819ea72c1ec472c5c0aa69aca6cdc052f2fd22a08aa8630359d26889647",
+        "bytes": 7119,
+        "duplicate_of": null
+      },
+      {
+        "name": "Apple_iPhone_15_Pro_8GB_128GB_Verified_Evidence.json",
+        "sha256": "7106ceaddceffe0d0d2f239ce41eda3eee8ef7aba9ccb7279861ed3aba7c59e0",
+        "bytes": 157918,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 15 Pro",
+    "parsed_cases": 57,
+    "priced_cases": 57
+  },
+  {
+    "file": "Apple_iPhone_15_Pro_All_4_Variants_128GB_256GB_512GB_1TB_228_Verified_Cashify_Reports.zip",
+    "sha256": "493f0be650ed1379aba5fab6bbd72ea08aefc393908a29818c5089db391f146d",
+    "bytes": 42110,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Apple_iPhone_15_Pro_All_4_Variants_228_Verified_Report.txt",
+        "sha256": "3437ebfae112accf277f7821f7540ccd02ff73d71af42e6c9ea726407d99ec88",
+        "bytes": 98021,
+        "duplicate_of": null
+      },
+      {
+        "name": "Apple_iPhone_15_Pro_8GB_128GB_57_Verified_1_Unresolved.txt",
+        "sha256": "8946c01206ab8e7d132ffb30eaa7d4195538d3569799dba828f59801b764b1bb",
+        "bytes": 25692,
+        "duplicate_of": null
+      },
+      {
+        "name": "Apple_iPhone_15_Pro_8GB_256GB_57_Verified_1_Unresolved.txt",
+        "sha256": "356f3299a73932b5a1fb444296d3c842125fbf543ad30a2eac51c816c62c5a5e",
+        "bytes": 27058,
+        "duplicate_of": null
+      },
+      {
+        "name": "Apple_iPhone_15_Pro_8GB_512GB_57_Verified_1_Unresolved.txt",
+        "sha256": "3ea7fec0bdca1c056b3d1ab38d3565ecca7a349d4a3d2d847089aa8a89c6643d",
+        "bytes": 25692,
+        "duplicate_of": null
+      },
+      {
+        "name": "Apple_iPhone_15_Pro_8GB_1TB_57_Verified_1_Unresolved.txt",
+        "sha256": "bc16ffc2110ef5199f6804a6889b73f49e4d942f80102f767266e99790b5f01c",
+        "bytes": 25688,
+        "duplicate_of": null
+      },
+      {
+        "name": "Apple_iPhone_15_Pro_All_4_Variants_228_Verified_Quotes.csv",
+        "sha256": "ac00f29d489273d541b5e715e42ce26101aae72dbbfe163e336ebe7403694d01",
+        "bytes": 45986,
+        "duplicate_of": null
+      },
+      {
+        "name": "Verified_Quote_Evidence.json",
+        "sha256": "f031583bdc6f70025e08db77485fd2d99eed21c3803e6e4f464594aa206d14ec",
+        "bytes": 619906,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 15 Pro",
+    "parsed_cases": 464,
+    "priced_cases": 456
+  },
+  {
+    "file": "Apple_iPhone_17_8GB_256GB_512GB_116_Test_Cases_Combined.zip",
+    "sha256": "c9cfaf2bf9745be6825e50a9196cd661f64fae6908eecf838cf45c3a1b8b2f25",
+    "bytes": 8928,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Apple_iPhone_17_8GB_256GB_512GB_116_Test_Cases_Combined.txt",
+        "sha256": "d05b8ca2c62355c3012902f2766fcf7f7dd8390662836d9a7ce45bba4cd97e4f",
+        "bytes": 425084,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 17",
+    "parsed_cases": 116,
+    "priced_cases": 0
+  },
+  {
+    "file": "Apple_iPhone_17_Pro_12GB_256GB_512GB_1TB_174_Test_Cases_Combined.zip",
+    "sha256": "46049084320b907a749b47a1fd30c5d38a459ffe530bee5def0403f54f311873",
+    "bytes": 12666,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Apple_iPhone_17_Pro_12GB_256GB_512GB_1TB_174_Test_Cases_Combined.txt",
+        "sha256": "2025b3489956da797028387ca146e0d1457ff086c2f35d8169d4d918bad397a5",
+        "bytes": 638359,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 17 Pro",
+    "parsed_cases": 174,
+    "priced_cases": 0
+  },
+  {
+    "file": "Apple_iPhone_17_Pro_Max_12GB_256GB_512GB_1TB_2TB_232_Test_Cases_Combined.zip",
+    "sha256": "8ed280207814b1874a648a6fe18653f7ea79fa75d77d374dae02cb480797eaa3",
+    "bytes": 16447,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Apple_iPhone_17_Pro_Max_12GB_256GB_512GB_1TB_2TB_232_Test_Cases_Combined.txt",
+        "sha256": "c2a99d446223be0550ce59db64466a541b60fb530b0b0a0fe10c505fc0f08e3e",
+        "bytes": 852179,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 17 Pro Max",
+    "parsed_cases": 232,
+    "priced_cases": 0
+  },
+  {
+    "file": "Apple_iPhone_17e_8GB_256GB_512GB_116_Test_Cases_Combined.zip",
+    "sha256": "947ca06c46b3fb2400e182e777ec700b17b50b1de670abd0a498220d337f4b77",
+    "bytes": 8978,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Apple_iPhone_17e_8GB_256GB_512GB_116_Test_Cases_Combined.txt",
+        "sha256": "7fd502ec175d7afe43ebcda5f6837c720a152520c621c00b9f3a2dbadc8d2b0c",
+        "bytes": 425311,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 17e",
+    "parsed_cases": 116,
+    "priced_cases": 0
+  },
+  {
+    "file": "Apple_iPhone_18_Pro_Max_12GB_1TB_512GB_256GB_174_Test_Cases_Combined.txt",
+    "sha256": "a0dff3ba58de265804aebfcb82e55dadf30cfe62f0468edb3ac594e2200b4eef",
+    "bytes": 639764,
+    "duplicate_of": null,
+    "members": [],
+    "role": "standalone_export"
+  },
+  {
+    "file": "Apple_iPhone_18_Pro_Max_12GB_1TB_512GB_256GB_174_Test_Cases_Combined.zip",
+    "sha256": "351190acd8963fedd1d36cd4fbd5ad6d8fede0299dc88ac3d9caca5b14187399",
+    "bytes": 12992,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Apple_iPhone_18_Pro_Max_12GB_1TB_512GB_256GB_174_Test_Cases_Combined.txt",
+        "sha256": "a0dff3ba58de265804aebfcb82e55dadf30cfe62f0468edb3ac594e2200b4eef",
+        "bytes": 639764,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 18 Pro Max",
+    "parsed_cases": 174,
+    "priced_cases": 0
+  },
+  {
+    "file": "Apple_iPhone_18_Pro_Max_12GB_1TB_58_Test_Cases.zip",
+    "sha256": "ecceb8a5316b988f7e6b700639fc1e15ef2a035cfdea7731bf6fbb40c1d78e60",
+    "bytes": 5190,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Apple_iPhone_18_Pro_Max_12GB_1TB_58_Test_Cases.txt",
+        "sha256": "c88a5adc743a629b914e0908c9f73154bc59210d8c83fcdb4314a7608ddcd347",
+        "bytes": 213020,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 18 Pro Max",
+    "parsed_cases": 58,
+    "priced_cases": 0
+  },
+  {
+    "file": "Apple_iPhone_18_Pro_Max_12GB_256GB_58_Test_Cases.zip",
+    "sha256": "ec8bffc9c8e0e53356db620629a6aaef246e4245379d513872d64ad194303782",
+    "bytes": 5193,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Apple_iPhone_18_Pro_Max_12GB_256GB_58_Test_Cases.txt",
+        "sha256": "a206261ff6047fd928dded67cdd18a3f63002882c1639689361e96115dd00081",
+        "bytes": 213142,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 18 Pro Max",
+    "parsed_cases": 58,
+    "priced_cases": 0
+  },
+  {
+    "file": "Apple_iPhone_18_Pro_Max_12GB_512GB_58_Test_Cases.zip",
+    "sha256": "8f2cdde8eb1b7520fac78fb405abc78930f60a41ae703c97723b79cdca14d8c7",
+    "bytes": 5190,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Apple_iPhone_18_Pro_Max_12GB_512GB_58_Test_Cases.txt",
+        "sha256": "94be83acd1ee5b63d6b2fb488fba4304b970a1d7549c7f6c5b6ac7c3578c10d7",
+        "bytes": 213142,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 18 Pro Max",
+    "parsed_cases": 58,
+    "priced_cases": 0
+  },
+  {
+    "file": "Apple_iPhone_Air_17_Air_12GB_256GB_512GB_1TB_174_Test_Cases_Combined.zip",
+    "sha256": "a5e779c47f8cb141983948b89db1e705b52b0b4afac59da49c1007ecbcf0731d",
+    "bytes": 12835,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Apple_iPhone_Air_17_Air_12GB_256GB_512GB_1TB_174_Test_Cases_Combined.txt",
+        "sha256": "6d81e66b0d90b715c386f95c18b779f80a330de115e1153c6e1f310f236e38a6",
+        "bytes": 638186,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone Air",
+    "parsed_cases": 174,
+    "priced_cases": 0
+  },
+  {
+    "file": "Apple_iPhone_SE_2022_All_Variants_174_Reference_Entries.zip",
+    "sha256": "bad6432e6b4709158f166343c134eb6fc09182e35e3efa5574d7ea600a1cf67a",
+    "bytes": 21397,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "All_Variants_Price_Comparison.txt",
+        "sha256": "b79e94d605f92d9cdbe5f21bd06f1bd840d349f35a5fa50ec23f5e874e8005b5",
+        "bytes": 8802,
+        "duplicate_of": null
+      },
+      {
+        "name": "Apple_iPhone_SE_2022_128GB_58_Reference_Cases.txt",
+        "sha256": "2a4a4a2533752ef33e2e2facf76badefaa19355eb09e28cb481bba595e2f7c84",
+        "bytes": 155246,
+        "duplicate_of": null
+      },
+      {
+        "name": "Apple_iPhone_SE_2022_256GB_58_Reference_Cases.txt",
+        "sha256": "db0ad47dd4972e8687a635d74c4ea5bb3cbfa21203734f86f9f1311697d2119d",
+        "bytes": 155245,
+        "duplicate_of": null
+      },
+      {
+        "name": "Apple_iPhone_SE_2022_64GB_58_Reference_Cases.txt",
+        "sha256": "e02bead06be14e8d37bcba29e975b5b165a904f4215b662beefe48aee5f032e4",
+        "bytes": 155196,
+        "duplicate_of": null
+      },
+      {
+        "name": "README.txt",
+        "sha256": "e95bc3a8126fb4fb5ee083d8f64d4432ecb649debb0d2d22ad906c75fd9057d7",
+        "bytes": 2561,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone SE 2022",
+    "parsed_cases": 174,
+    "priced_cases": 147
+  },
+  {
+    "file": "Cashify_GalaxyZFold7_All_Variants_90_Test_Cases.zip",
+    "sha256": "d75380ef653517edc9e677c8f6e05125096eb5d7fb077b6f5335a1e0f037b7b4",
+    "bytes": 4670,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Cashify_GalaxyZFold7_All_Variants_90_Test_Cases.txt",
+        "sha256": "c9eacbbbbac025501c28af0cdf21d33eb9ef5c960f8515e59cddd3b188e5fa17",
+        "bytes": 58935,
+        "duplicate_of": null
+      }
+    ],
+    "model": "Samsung Galaxy Z Fold 7",
+    "parsed_cases": 90,
+    "priced_cases": 90
+  },
+  {
+    "file": "Cashify_GalaxyZFold8_All_Variants_90_Test_Cases.zip",
+    "sha256": "b7fa0dc558f8172b1cbdabb3bc01b19c7d95742253cf7d9ac7bf0cb363eaca00",
+    "bytes": 4635,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Cashify_GalaxyZFold8_All_Variants_90_Test_Cases.txt",
+        "sha256": "089e114d5898f3e2409557aa688687605d106b7bfcce19b73d16d9354030f6db",
+        "bytes": 59097,
+        "duplicate_of": null
+      }
+    ],
+    "model": "Samsung Galaxy Z Fold 8",
+    "parsed_cases": 90,
+    "priced_cases": 90
+  },
+  {
+    "file": "Cashify_GalaxyZFold8Ultra_All_Variants_90_Test_Cases.zip",
+    "sha256": "9b9d310c08eb331d11f0fb2cc773f41c18ce2e17f5353be2b5eb330ee9d4d00f",
+    "bytes": 4639,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Cashify_GalaxyZFold8Ultra_All_Variants_90_Test_Cases.txt",
+        "sha256": "fad43602f3b9908c4a0e2a6574b44aca6ab193e22d8ae78b58c43ec7a81b7d38",
+        "bytes": 59368,
+        "duplicate_of": null
+      }
+    ],
+    "model": "Samsung Galaxy Z Fold 8 Ultra",
+    "parsed_cases": 90,
+    "priced_cases": 90
+  },
+  {
+    "file": "Cashify_iPhone11_All_Variants_90_Test_Cases.zip",
+    "sha256": "214549721b87edffde02681874391fbd9b3599ed3ac394a10fe2efebc663f13e",
+    "bytes": 4572,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Cashify_iPhone11_All_Variants_90_Test_Cases.txt",
+        "sha256": "a2c4f61da3cd331aa3066717f3a0e5d1be679a2574a9aa27987f8a9e66efd014",
+        "bytes": 53093,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 11",
+    "parsed_cases": 90,
+    "priced_cases": 90
+  },
+  {
+    "file": "Cashify_iPhone11Pro_All_Variants_90_Cases.zip",
+    "sha256": "70a742260279ed7db73031eace7df3231489d5bda95e459071d31beb651daa59",
+    "bytes": 12533,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Baseline_Rechecks.json",
+        "sha256": "038a407e22161bbfabb09cc015ca08a4449b0bc31d08c76ccfbc96407e4242c4",
+        "bytes": 931,
+        "duplicate_of": null
+      },
+      {
+        "name": "README.txt",
+        "sha256": "6ec0a9e6888cc5243bdf812b058641f7d2639096d150ae0371fd60f1298cb7cc",
+        "bytes": 1643,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone11Pro_256GB_30_Test_Cases.txt",
+        "sha256": "cbf61f229135b70224f9ba398dd906cb9cd84521baeda9bc00cc94a184ba0ef1",
+        "bytes": 20286,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone11Pro_512GB_30_Test_Cases.txt",
+        "sha256": "e7214dd459b43cf4c2b374a7abb7b6642dd9a2282f65acc12aaed114476c75c4",
+        "bytes": 20293,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone11Pro_64GB_30_Test_Cases.txt",
+        "sha256": "a57856c603d5db189832a9e35d5b13d1fde2810f4400cdab368ebfabf2a77671",
+        "bytes": 20241,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone11Pro_All_Variants_90_Cases.csv",
+        "sha256": "694346c7f2f2660681a8e00eb34d10a4ba0fb8cfe3985ccb3941001d61c76890",
+        "bytes": 15847,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone11Pro_All_Variants_90_Cases.json",
+        "sha256": "a5709035202ce4fe262803a9dfd542ce0af2203fdb8c5f5858d291f43f6e7cf8",
+        "bytes": 31702,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 11 Pro",
+    "parsed_cases": 90,
+    "priced_cases": 90
+  },
+  {
+    "file": "Cashify_iPhone11ProMax_All_Variants_90_Cases.zip",
+    "sha256": "882bbbc36e0a1b7a8fc43f0ad88aa05703b8733560e8649dda7f534b3f0b24d3",
+    "bytes": 12575,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Baseline_Rechecks.json",
+        "sha256": "90ff444275e48b6b8f0f8043781271dc6f5d075f56f9817a9de3f9bad9160a23",
+        "bytes": 1327,
+        "duplicate_of": null
+      },
+      {
+        "name": "README.txt",
+        "sha256": "e68d5aeeb13dff67e6b4789577fe754ac05b19692615570e937daa8211bca7b8",
+        "bytes": 2453,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone11ProMax_256GB_30_Test_Cases.txt",
+        "sha256": "a7cde5a6cddc017caf8f59cd5773665306891b9d36333661c266cdf2fc5c20d2",
+        "bytes": 18034,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone11ProMax_512GB_30_Test_Cases.txt",
+        "sha256": "5937bda3d9bc87217e0cbc0ed1d9ed1c7065a84f34428d3d1913a0cf8de40a46",
+        "bytes": 18034,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone11ProMax_64GB_30_Test_Cases.txt",
+        "sha256": "55767e120a01cc540b849c66ab1314800a21f7cc6af81718e6dbdf9f20d950b4",
+        "bytes": 17996,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone11ProMax_All_Variants_90_Cases.csv",
+        "sha256": "1e3e9bfb80303989a24fab0b426d12c9087000c81e2c18fed9e17cc72979d777",
+        "bytes": 19801,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone11ProMax_All_Variants_90_Cases.json",
+        "sha256": "4a16adf1fb6345632483c9111f12ad0c78dcedb8e198cb5d91a1e7e12f135a30",
+        "bytes": 52673,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 11 Pro Max",
+    "parsed_cases": 90,
+    "priced_cases": 90
+  },
+  {
+    "file": "Cashify_iPhone12_All_Variants_90_Cases (1).zip",
+    "sha256": "7690943584042d04aea50c5fe69e682be33dab46fca6e84382c6bb4e253c4cb5",
+    "bytes": 12528,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Baseline_Rechecks.json",
+        "sha256": "b941a5c66847136b6d61d9f5659ef04fe5a628839caab9fe8a49a35e267b9777",
+        "bytes": 1327,
+        "duplicate_of": null
+      },
+      {
+        "name": "README.txt",
+        "sha256": "7a299f1735b712285cc26d8aec16daef66f49a6197cde4fd1c54688f106f5ac8",
+        "bytes": 2461,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone12_128GB_30_Test_Cases.txt",
+        "sha256": "036cf43fe52df7a2314fee934b675edb3f3c3c78f9d8722d7eeab9a7128e3174",
+        "bytes": 18018,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone12_256GB_30_Test_Cases.txt",
+        "sha256": "d070ab275761616dac3ff368dd1c8f6032be0957ddc557a88609074b04217337",
+        "bytes": 18018,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone12_64GB_30_Test_Cases.txt",
+        "sha256": "0f3a6133df92861a0e89983869b201956cbdcd22c07b86b2cd9b56f5e7bf0fc7",
+        "bytes": 18004,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone12_All_Variants_90_Cases.csv",
+        "sha256": "89518685cdf5a4245c54ffcbaa22c48d4ac239e9a63c5942d5af8178fe021643",
+        "bytes": 19813,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone12_All_Variants_90_Cases.json",
+        "sha256": "a2a3b61554484bc3d505140912a0b5c6059b22739d70f07c5c25c6f78ae84e8d",
+        "bytes": 52685,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 12",
+    "parsed_cases": 90,
+    "priced_cases": 90
+  },
+  {
+    "file": "Cashify_iPhone12_All_Variants_90_Cases Json.zip",
+    "sha256": "7690943584042d04aea50c5fe69e682be33dab46fca6e84382c6bb4e253c4cb5",
+    "bytes": 12528,
+    "duplicate_of": "Cashify_iPhone12_All_Variants_90_Cases (1).zip",
+    "members": [
+      {
+        "name": "Baseline_Rechecks.json",
+        "sha256": "b941a5c66847136b6d61d9f5659ef04fe5a628839caab9fe8a49a35e267b9777",
+        "bytes": 1327,
+        "duplicate_of": [
+          "Cashify_iPhone12_All_Variants_90_Cases (1).zip",
+          "Baseline_Rechecks.json"
+        ]
+      },
+      {
+        "name": "README.txt",
+        "sha256": "7a299f1735b712285cc26d8aec16daef66f49a6197cde4fd1c54688f106f5ac8",
+        "bytes": 2461,
+        "duplicate_of": [
+          "Cashify_iPhone12_All_Variants_90_Cases (1).zip",
+          "README.txt"
+        ]
+      },
+      {
+        "name": "iPhone12_128GB_30_Test_Cases.txt",
+        "sha256": "036cf43fe52df7a2314fee934b675edb3f3c3c78f9d8722d7eeab9a7128e3174",
+        "bytes": 18018,
+        "duplicate_of": [
+          "Cashify_iPhone12_All_Variants_90_Cases (1).zip",
+          "iPhone12_128GB_30_Test_Cases.txt"
+        ]
+      },
+      {
+        "name": "iPhone12_256GB_30_Test_Cases.txt",
+        "sha256": "d070ab275761616dac3ff368dd1c8f6032be0957ddc557a88609074b04217337",
+        "bytes": 18018,
+        "duplicate_of": [
+          "Cashify_iPhone12_All_Variants_90_Cases (1).zip",
+          "iPhone12_256GB_30_Test_Cases.txt"
+        ]
+      },
+      {
+        "name": "iPhone12_64GB_30_Test_Cases.txt",
+        "sha256": "0f3a6133df92861a0e89983869b201956cbdcd22c07b86b2cd9b56f5e7bf0fc7",
+        "bytes": 18004,
+        "duplicate_of": [
+          "Cashify_iPhone12_All_Variants_90_Cases (1).zip",
+          "iPhone12_64GB_30_Test_Cases.txt"
+        ]
+      },
+      {
+        "name": "iPhone12_All_Variants_90_Cases.csv",
+        "sha256": "89518685cdf5a4245c54ffcbaa22c48d4ac239e9a63c5942d5af8178fe021643",
+        "bytes": 19813,
+        "duplicate_of": [
+          "Cashify_iPhone12_All_Variants_90_Cases (1).zip",
+          "iPhone12_All_Variants_90_Cases.csv"
+        ]
+      },
+      {
+        "name": "iPhone12_All_Variants_90_Cases.json",
+        "sha256": "a2a3b61554484bc3d505140912a0b5c6059b22739d70f07c5c25c6f78ae84e8d",
+        "bytes": 52685,
+        "duplicate_of": [
+          "Cashify_iPhone12_All_Variants_90_Cases (1).zip",
+          "iPhone12_All_Variants_90_Cases.json"
+        ]
+      }
+    ],
+    "model": "iPhone 12",
+    "parsed_cases": 90,
+    "priced_cases": 90
+  },
+  {
+    "file": "Cashify_iPhone12_All_Variants_90_Cases.zip",
+    "sha256": "45eb5b021c8d97daf106c25f4c93aa904d33a5100a1e58392f5b25c89c09e6af",
+    "bytes": 12372,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Baseline_Rechecks.json",
+        "sha256": "a739a4ffcca91c78068b545fa7bfa4d0f723bae27a14419b440d764919e90b9d",
+        "bytes": 868,
+        "duplicate_of": null
+      },
+      {
+        "name": "README.txt",
+        "sha256": "d3f1e1153bc190b0a9e5779934e593f70fbd26a39fa6ab64c26b8212f561e2cb",
+        "bytes": 1516,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone12_128GB_30_Test_Cases.txt",
+        "sha256": "efb6c75eb016f36ca467d88a029cbc4aec3276420b86cbf07ec120d1cad6bc61",
+        "bytes": 19132,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone12_256GB_30_Test_Cases.txt",
+        "sha256": "0c8317c805ea8834b51ad9731b5bfa47edd187e840d28814c682f38efbde4e17",
+        "bytes": 19132,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone12_64GB_30_Test_Cases.txt",
+        "sha256": "3a58288436d84a7163440cfdfd8528b0b179c537c34e7a3752d3aadbd1f44cfa",
+        "bytes": 19095,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone12_All_Variants_90_Cases.csv",
+        "sha256": "56688047e5035c6c6b47cc712e661bde470b571dd0f6585c071582ae955afc8f",
+        "bytes": 15222,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone12_All_Variants_90_Cases.json",
+        "sha256": "9eeda8470ffcf841f93e0d42b951376772b6c09a642ffda3b61cc2bf8796d1a5",
+        "bytes": 29750,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 12",
+    "parsed_cases": 90,
+    "priced_cases": 90
+  },
+  {
+    "file": "Cashify_iPhone12Pro_All_Variants_90_Cases.zip",
+    "sha256": "f1fc4f6e48f39e0b0d58559043dfc9b680789e2e1f8067f4124a012144bed236",
+    "bytes": 12745,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Baseline_Rechecks.json",
+        "sha256": "94fe7ab96178003f7e807ef23eb61f44a6b02bbdaac50e59fa6d9df7dcc4242f",
+        "bytes": 1328,
+        "duplicate_of": null
+      },
+      {
+        "name": "README.txt",
+        "sha256": "c5c3cb8b6471f4364a8530682d1ca41616561f4f9d092c256472ac7dd5b68753",
+        "bytes": 2422,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone12Pro_128GB_30_Test_Cases.txt",
+        "sha256": "c18d499fb090bc77dff7392c72a7d76d1bf571120f66a81c6955b23f3a9ddf88",
+        "bytes": 18034,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone12Pro_256GB_30_Test_Cases.txt",
+        "sha256": "2bd9aef6ecbdad09c2fb343f269cd8d88612740068faf1b0cc96b6734ad6c947",
+        "bytes": 18044,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone12Pro_512GB_30_Test_Cases.txt",
+        "sha256": "bac1ca34e3e56038ff96ab010fe50ecdb20759e6d3408d1368d455a4e808fedf",
+        "bytes": 18044,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone12Pro_All_Variants_90_Cases.csv",
+        "sha256": "4eede946751d78089385136ef3159d6b529a56e192671dfb204f9219a03da5b8",
+        "bytes": 19871,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone12Pro_All_Variants_90_Cases.json",
+        "sha256": "722794c98ea3267ef121bace5e5ce090a1dcafda01e1644ab1dfcfe12bd40d8f",
+        "bytes": 52743,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 12 Pro",
+    "parsed_cases": 90,
+    "priced_cases": 90
+  },
+  {
+    "file": "Cashify_iPhone12ProMax_All_Variants_90_Cases.zip",
+    "sha256": "97b813b7f6af5f9212a8474af6127a1bfb6c65ced2edaea0f21736e0ddbfb935",
+    "bytes": 12319,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Baseline_Rechecks.json",
+        "sha256": "0c10a5901160b0cacd47373cf0191e6ef6051e389390eef063aaaf6c2849b7e6",
+        "bytes": 869,
+        "duplicate_of": null
+      },
+      {
+        "name": "README.txt",
+        "sha256": "995349ab0a13a3f83e0c70d083de6a0cb7e9924329d8df0d83fe6aa8a419cfc3",
+        "bytes": 1598,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone12ProMax_128GB_30_Test_Cases.txt",
+        "sha256": "ffa96eb936df16bd96f4ab104e53a19ac3cf816625b1cdbafe9182531f220b05",
+        "bytes": 19394,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone12ProMax_256GB_30_Test_Cases.txt",
+        "sha256": "c4b94657ddaf7fb09863c272e109cfc7b3213a4ac5041b4c195c12bc8614ceea",
+        "bytes": 19394,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone12ProMax_512GB_30_Test_Cases.txt",
+        "sha256": "bded12d6ea191824d365981977127bc99857b67708f69fbb13c77685c8584250",
+        "bytes": 18426,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone12ProMax_All_Variants_90_Cases.csv",
+        "sha256": "863d5cf06774d23c67dc224b4a62137e5b7459412c6e9ba42ef7f9af79e54c62",
+        "bytes": 15477,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone12ProMax_All_Variants_90_Cases.json",
+        "sha256": "813923c277d3d2190fb92fb4383ed96bac0043d3353b0a17e7e4826a6f78d1f5",
+        "bytes": 28779,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 12 Pro Max",
+    "parsed_cases": 90,
+    "priced_cases": 90
+  },
+  {
+    "file": "Cashify_iPhone13_All_Variants_90_Cases.zip",
+    "sha256": "1b31d84e887140504b6a6112cf2c5e72be038cf01fbc14670b1ecdaef767c2d5",
+    "bytes": 8962,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Baseline_Rechecks.json",
+        "sha256": "791711b426f271f86645fcbdfcac7953923b0abb4fdba9d3cc00a9624d341eef",
+        "bytes": 728,
+        "duplicate_of": null
+      },
+      {
+        "name": "README.txt",
+        "sha256": "917bce6009be77c0473ff92efffd5f49a5878f31c37b7304cb44eda0728b90b3",
+        "bytes": 643,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone13_128GB_30_Test_Cases.txt",
+        "sha256": "009c3aa1ce8216cb1268e47091782effed9a8d4fb5c63f3dd4a030c3d0ad1e44",
+        "bytes": 14652,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone13_256GB_30_Test_Cases.txt",
+        "sha256": "123f00abf402090709ef347a3db350424ca606ad523e516d44586b8c658db9bf",
+        "bytes": 14652,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone13_512GB_30_Test_Cases.txt",
+        "sha256": "58293ee25510cedb2a1507dfe82a062966cf310795df6ae47115f6f1f4a60693",
+        "bytes": 14652,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone13_All_Variants_90_Cases.csv",
+        "sha256": "d43f108966c5502bd1ac113d2e8be52daec1690ffcf7dedbfee742542ab5ae9a",
+        "bytes": 11888,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone13_All_Variants_90_Cases.json",
+        "sha256": "c34259a52a9473ca835fae3ed6e2101fef9571bba27fbea20a4f930bea8101af",
+        "bytes": 25583,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 13",
+    "parsed_cases": 90,
+    "priced_cases": 90
+  },
+  {
+    "file": "Cashify_iPhone13Mini_All_Variants_90_Cases.zip",
+    "sha256": "35accda8d294ffda5850307ecc06c6d517d0f424d4dd416398bed3863e69bc09",
+    "bytes": 9064,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Baseline_Rechecks.json",
+        "sha256": "091a813eabd3fbfaee87a881202f25bee964771e3e243a3b773717bac6e8c4fd",
+        "bytes": 728,
+        "duplicate_of": null
+      },
+      {
+        "name": "README.txt",
+        "sha256": "56e05acce60be3cb9223c14756def4672ec0337e52036735fd50328d4ad7775b",
+        "bytes": 648,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone13Mini_128GB_30_Test_Cases.txt",
+        "sha256": "c8bdac5b5126bb576866ef109d47170d708a58edb2acaa3afe40394c561d4475",
+        "bytes": 14648,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone13Mini_256GB_30_Test_Cases.txt",
+        "sha256": "c726659349cd57e4d7fc9832fb4ad2cfd71f25854e7fd7d674dad164a99651c5",
+        "bytes": 14651,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone13Mini_512GB_30_Test_Cases.txt",
+        "sha256": "14a6cc1b6ec351c3563f2166ce43827f990fa7cc7168a63bdae5fc99b41ff505",
+        "bytes": 14654,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone13Mini_All_Variants_90_Cases.csv",
+        "sha256": "254b33997953b7756611a6c1bb59dc07ae2fc9da607e886679ffb1dd3d028bd5",
+        "bytes": 11870,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone13Mini_All_Variants_90_Cases.json",
+        "sha256": "2edda01b9b85f564fa73aa3036d06d0e9837669f2c85621cd5c15a94b20f6e06",
+        "bytes": 25565,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 13 Mini",
+    "parsed_cases": 90,
+    "priced_cases": 90
+  },
+  {
+    "file": "Cashify_iPhone13Pro_All_Variants_120_Cases.zip",
+    "sha256": "d81458b19506fd56db6fe8e2e7739e5a7b56ded2b88d5cce8323ce4d65122d0d",
+    "bytes": 11790,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Baseline_Rechecks.json",
+        "sha256": "91e4111a95349265d496a022e27502a11f676bc4f5806b05e7b7ce69b6d2a52a",
+        "bytes": 1076,
+        "duplicate_of": null
+      },
+      {
+        "name": "README.txt",
+        "sha256": "6ce7fcaae1c13e50b58c15b19f6dcdb8baa5cbe54d53ab633af09abcc6e8b565",
+        "bytes": 814,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone13Pro_128GB_30_Test_Cases.txt",
+        "sha256": "b38fc21867d7b25a19ea9a1a18a6c32819f36fe019014bd4c64bbfe4fcdaa6e2",
+        "bytes": 15270,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone13Pro_1TB_30_Test_Cases.txt",
+        "sha256": "67966110191ac3063d10f28b219223ffbc47623b8c7ee71ea9b52e33a00d8c55",
+        "bytes": 15268,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone13Pro_256GB_30_Test_Cases.txt",
+        "sha256": "941eada296fe8eb3f632a1a6a6770a80f7725177a4c2717bfe9e2b4e6c1c9ce8",
+        "bytes": 15270,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone13Pro_512GB_30_Test_Cases.txt",
+        "sha256": "c4e714666e7bcc36f5d2c590ab4d0815f51b38b0abf77d29550cefe295b945eb",
+        "bytes": 15270,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone13Pro_All_Variants_120_Cases.csv",
+        "sha256": "6df666ff4deeb98c6b910e722048d91a1792b1df2b05251827a6ef15a22bc11d",
+        "bytes": 17212,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone13Pro_All_Variants_120_Cases.json",
+        "sha256": "98127f49d69c226ea17084550d1a042b783d00aa0cc81a4d86da3e35b828fb81",
+        "bytes": 37302,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 13 Pro",
+    "parsed_cases": 120,
+    "priced_cases": 120
+  },
+  {
+    "file": "Cashify_iPhone13ProMax_All_232_Reference_Cases.zip",
+    "sha256": "fb32c911d4c16865251b17bb88a297c293fbcf59e9e0d1d683e5ae186b2f33df",
+    "bytes": 17202,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Cashify_iPhone13ProMax_All_232_Reference_Cases.txt",
+        "sha256": "1f659ee50b9d516974f551007211425f7a326aba753bca2fb9d2ff031d5ba461",
+        "bytes": 808049,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 13 Pro Max",
+    "parsed_cases": 232,
+    "priced_cases": 200
+  },
+  {
+    "file": "Cashify_iPhone13ProMax_All_Variants_120_Cases.zip",
+    "sha256": "32d31f767db0ae8a5818b34ea6b84c8c39454b1e3bb0648846fd1bada17a21c1",
+    "bytes": 11618,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Baseline_Rechecks.json",
+        "sha256": "ff833d821d40656b75f3008f34bd6609b91ca9b37ec38e0161420226c2a5a65c",
+        "bytes": 1076,
+        "duplicate_of": null
+      },
+      {
+        "name": "README.txt",
+        "sha256": "ce23b0ba5b2e3b7e391533f07cca2d21ffe3731158169f45b604bd45201c04ed",
+        "bytes": 818,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone13ProMax_128GB_30_Test_Cases.txt",
+        "sha256": "5c84e6be2f8d71e4d2487998598756224d4ff04c3498c1ecb2c36387190386c3",
+        "bytes": 15271,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone13ProMax_1TB_30_Test_Cases.txt",
+        "sha256": "11d002f76aa1e475866f6f993c1a3f0ea2535c6fefc5c9be994373d708a881b7",
+        "bytes": 15272,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone13ProMax_256GB_30_Test_Cases.txt",
+        "sha256": "e0f306d2e557dc5f3203d4be72a352ef8b0c553d44907fb64bf086b8debfd66a",
+        "bytes": 15271,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone13ProMax_512GB_30_Test_Cases.txt",
+        "sha256": "6580fff7099867231553e7174316c4f5dd876234457af130105fcdbb00817126",
+        "bytes": 15274,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone13ProMax_All_Variants_120_Cases.csv",
+        "sha256": "6b0fe703cdc4cb383b0aa07aa8d1e06e2da49e0d1994777a4dc1b8bc8670af8d",
+        "bytes": 17206,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone13ProMax_All_Variants_120_Cases.json",
+        "sha256": "5bca81ce8037e622011a45b68d3a6a85e03c5ddf35a93bf1ff7a87086c0ca098",
+        "bytes": 37296,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 13 Pro Max",
+    "parsed_cases": 120,
+    "priced_cases": 120
+  },
+  {
+    "file": "Cashify_iPhone14_All_Variants_90_Cases.zip",
+    "sha256": "d6341aad8a397c3edb82b489785ab6704d2d593e873f454f65cbf21a9c7082cc",
+    "bytes": 9101,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Baseline_Rechecks.json",
+        "sha256": "5c594960827beb759db17fb1f521f2c9543799ec6963b05c25e21eef20849218",
+        "bytes": 728,
+        "duplicate_of": null
+      },
+      {
+        "name": "README.txt",
+        "sha256": "417a6f6d4db5bae46425f183deb4fee504e12543f87a229563e68f4630a44cb6",
+        "bytes": 643,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone14_128GB_30_Test_Cases.txt",
+        "sha256": "1d7b2b13324d25629d198a20efb25fd07e104199f7b8b010b1db933d88ee32f2",
+        "bytes": 14667,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone14_256GB_30_Test_Cases.txt",
+        "sha256": "8ded21dc1ad7a2a4921256308da4b1e41b5e2fa3a2d05f7e2875a6982d4722d6",
+        "bytes": 14667,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone14_512GB_30_Test_Cases.txt",
+        "sha256": "b5b989cd3e76692c18de36246046d554e3611fdda8c08e1614475ab9fc6cfaa7",
+        "bytes": 14667,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone14_All_Variants_90_Cases.csv",
+        "sha256": "4c016f1c591563850f671ae15c95e7bf9fb1694fa5c1677cbb5e9b2b02ef3153",
+        "bytes": 11888,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone14_All_Variants_90_Cases.json",
+        "sha256": "ad63b7b646a714ba8c81bee8e778af454c37b81ef18fb101a5208b2053196bc2",
+        "bytes": 25583,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 14",
+    "parsed_cases": 90,
+    "priced_cases": 90
+  },
+  {
+    "file": "Cashify_iPhone14Plus_512GB_30_Cases.zip",
+    "sha256": "cfd832cf862eec29dd71fd788782534b5edee2eeb7c9d6f7525a02732dd3ba56",
+    "bytes": 3872,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "iPhone14Plus_512GB_Results.json",
+        "sha256": "2269fa16f8d723d0f9662d79778a43ad1d752ba87d9309ab8861d69506e7f4f1",
+        "bytes": 7996,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone14Plus_512GB_30_Test_Cases.csv",
+        "sha256": "b163b5defde4a92c8a4e0dad21ff49fc4e16326122d008319c640065cc2a7f11",
+        "bytes": 3925,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone14Plus_512GB_30_Test_Cases.txt",
+        "sha256": "54477757a1a2359f3cc805b735c472515b1b96372640a448d7eb64098ae3a062",
+        "bytes": 15719,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 14 Plus",
+    "parsed_cases": 30,
+    "priced_cases": 30
+  },
+  {
+    "file": "Cashify_iPhone14Plus_90_Test_Cases_TXT_Only.zip",
+    "sha256": "872d48494c346ef0d0c6a6c887b973fa54e5bd7b9192a21a31998cb68b7dce27",
+    "bytes": 4632,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "iPhone14Plus_128GB_30_Test_Cases.txt",
+        "sha256": "0dcfb650f16a47aa7ac665469c4e90d6e11455e8aeca6e2431c7cfae1ffc514d",
+        "bytes": 14591,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone14Plus_256GB_30_Test_Cases.txt",
+        "sha256": "1675bc91c9045547a789022d225ab4e8d935ee2d2a65d1a09089dc187e006c17",
+        "bytes": 14591,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone14Plus_512GB_30_Test_Cases.txt",
+        "sha256": "c9ead6c355adc565d015add3202b50904f8e1c74f997ca0e5b3e06dcce96a672",
+        "bytes": 14591,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 14 Plus",
+    "parsed_cases": 90,
+    "priced_cases": 90
+  },
+  {
+    "file": "Cashify_iPhone14Plus_All_Variants_90_Cases.zip",
+    "sha256": "b26ff5f7b81d539dca40b07f06a667e800c471beea8f7c25288f0a11085b6d9a",
+    "bytes": 8962,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Baseline_Rechecks.json",
+        "sha256": "86469f24da14ebdce0425c0af177b300ff2e44e5352ba3543b05d42184414cfe",
+        "bytes": 728,
+        "duplicate_of": null
+      },
+      {
+        "name": "README.txt",
+        "sha256": "199d82ad4300f87bf84ce779bc80075d57741cadd2899e9ccf7bd3312bad738d",
+        "bytes": 670,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone14Plus_128GB_30_Test_Cases.txt",
+        "sha256": "0dcfb650f16a47aa7ac665469c4e90d6e11455e8aeca6e2431c7cfae1ffc514d",
+        "bytes": 14591,
+        "duplicate_of": [
+          "Cashify_iPhone14Plus_90_Test_Cases_TXT_Only.zip",
+          "iPhone14Plus_128GB_30_Test_Cases.txt"
+        ]
+      },
+      {
+        "name": "iPhone14Plus_256GB_30_Test_Cases.txt",
+        "sha256": "1675bc91c9045547a789022d225ab4e8d935ee2d2a65d1a09089dc187e006c17",
+        "bytes": 14591,
+        "duplicate_of": [
+          "Cashify_iPhone14Plus_90_Test_Cases_TXT_Only.zip",
+          "iPhone14Plus_256GB_30_Test_Cases.txt"
+        ]
+      },
+      {
+        "name": "iPhone14Plus_512GB_30_Test_Cases.txt",
+        "sha256": "c9ead6c355adc565d015add3202b50904f8e1c74f997ca0e5b3e06dcce96a672",
+        "bytes": 14591,
+        "duplicate_of": [
+          "Cashify_iPhone14Plus_90_Test_Cases_TXT_Only.zip",
+          "iPhone14Plus_512GB_30_Test_Cases.txt"
+        ]
+      },
+      {
+        "name": "iPhone14Plus_All_Variants_90_Cases.csv",
+        "sha256": "d18e1cd915fc3bd9ec34fd0336e5d22958ca0e681f280d8a61410de9d99723fd",
+        "bytes": 11621,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone14Plus_All_Variants_90_Cases.json",
+        "sha256": "8e9fc0c6f8c15ecceb482c024afa1086c2c935c4752edaa8e248bac30680e1f6",
+        "bytes": 25583,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 14 Plus",
+    "parsed_cases": 90,
+    "priced_cases": 90
+  },
+  {
+    "file": "Cashify_iPhone14ProMax_All_Variants_120_Cases (1).zip",
+    "sha256": "fb16e8dfa8c1fdb1656d950174fdb6225d7c9356d4de5b32f8817e3f2e50d349",
+    "bytes": 12379,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Baseline_Rechecks.json",
+        "sha256": "5caa963866f267cc8a2c67a0ef8d49940595cddc950f31fe00d096ef3cbb985d",
+        "bytes": 1076,
+        "duplicate_of": null
+      },
+      {
+        "name": "README.txt",
+        "sha256": "1f2d61d696187c4bf5861ce2bc9f423134117c29f8cfd9e423e915758210fffd",
+        "bytes": 802,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone14ProMax_128GB_30_Test_Cases.txt",
+        "sha256": "777b4e17114b8515a0b2078258a4540d5c094655ddbbcb7ec95efea4159ca705",
+        "bytes": 15385,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone14ProMax_1TB_30_Test_Cases.txt",
+        "sha256": "ae87789d645eea62f8ed0e6e5171883a1cadb1f3e750ca64df526f6ad18afa2b",
+        "bytes": 15383,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone14ProMax_256GB_30_Test_Cases.txt",
+        "sha256": "876b79fbb850782e9fc201ab74b44a10150a29db8fc0abf00da1f84dee88372b",
+        "bytes": 15385,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone14ProMax_512GB_30_Test_Cases.txt",
+        "sha256": "a4f5f759bc62b310350bb0541fcedb22cb06ca739f5383d87793849d657c0509",
+        "bytes": 15385,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone14ProMax_All_Variants_120_Cases.csv",
+        "sha256": "f09a7335ab6e97a8bc18fa626ca2f15498584b0a959cee06beff4305ef6b5b0f",
+        "bytes": 17212,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone14ProMax_All_Variants_120_Cases.json",
+        "sha256": "8e4699e03f39a4d1e9767c78bb3e1c6d45858af203692514bffc36c8bca1f182",
+        "bytes": 37302,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 14 Pro Max",
+    "parsed_cases": 120,
+    "priced_cases": 120
+  },
+  {
+    "file": "Cashify_iPhone14ProMax_All_Variants_120_Cases.zip",
+    "sha256": "fb16e8dfa8c1fdb1656d950174fdb6225d7c9356d4de5b32f8817e3f2e50d349",
+    "bytes": 12379,
+    "duplicate_of": "Cashify_iPhone14ProMax_All_Variants_120_Cases (1).zip",
+    "members": [
+      {
+        "name": "Baseline_Rechecks.json",
+        "sha256": "5caa963866f267cc8a2c67a0ef8d49940595cddc950f31fe00d096ef3cbb985d",
+        "bytes": 1076,
+        "duplicate_of": [
+          "Cashify_iPhone14ProMax_All_Variants_120_Cases (1).zip",
+          "Baseline_Rechecks.json"
+        ]
+      },
+      {
+        "name": "README.txt",
+        "sha256": "1f2d61d696187c4bf5861ce2bc9f423134117c29f8cfd9e423e915758210fffd",
+        "bytes": 802,
+        "duplicate_of": [
+          "Cashify_iPhone14ProMax_All_Variants_120_Cases (1).zip",
+          "README.txt"
+        ]
+      },
+      {
+        "name": "iPhone14ProMax_128GB_30_Test_Cases.txt",
+        "sha256": "777b4e17114b8515a0b2078258a4540d5c094655ddbbcb7ec95efea4159ca705",
+        "bytes": 15385,
+        "duplicate_of": [
+          "Cashify_iPhone14ProMax_All_Variants_120_Cases (1).zip",
+          "iPhone14ProMax_128GB_30_Test_Cases.txt"
+        ]
+      },
+      {
+        "name": "iPhone14ProMax_1TB_30_Test_Cases.txt",
+        "sha256": "ae87789d645eea62f8ed0e6e5171883a1cadb1f3e750ca64df526f6ad18afa2b",
+        "bytes": 15383,
+        "duplicate_of": [
+          "Cashify_iPhone14ProMax_All_Variants_120_Cases (1).zip",
+          "iPhone14ProMax_1TB_30_Test_Cases.txt"
+        ]
+      },
+      {
+        "name": "iPhone14ProMax_256GB_30_Test_Cases.txt",
+        "sha256": "876b79fbb850782e9fc201ab74b44a10150a29db8fc0abf00da1f84dee88372b",
+        "bytes": 15385,
+        "duplicate_of": [
+          "Cashify_iPhone14ProMax_All_Variants_120_Cases (1).zip",
+          "iPhone14ProMax_256GB_30_Test_Cases.txt"
+        ]
+      },
+      {
+        "name": "iPhone14ProMax_512GB_30_Test_Cases.txt",
+        "sha256": "a4f5f759bc62b310350bb0541fcedb22cb06ca739f5383d87793849d657c0509",
+        "bytes": 15385,
+        "duplicate_of": [
+          "Cashify_iPhone14ProMax_All_Variants_120_Cases (1).zip",
+          "iPhone14ProMax_512GB_30_Test_Cases.txt"
+        ]
+      },
+      {
+        "name": "iPhone14ProMax_All_Variants_120_Cases.csv",
+        "sha256": "f09a7335ab6e97a8bc18fa626ca2f15498584b0a959cee06beff4305ef6b5b0f",
+        "bytes": 17212,
+        "duplicate_of": [
+          "Cashify_iPhone14ProMax_All_Variants_120_Cases (1).zip",
+          "iPhone14ProMax_All_Variants_120_Cases.csv"
+        ]
+      },
+      {
+        "name": "iPhone14ProMax_All_Variants_120_Cases.json",
+        "sha256": "8e4699e03f39a4d1e9767c78bb3e1c6d45858af203692514bffc36c8bca1f182",
+        "bytes": 37302,
+        "duplicate_of": [
+          "Cashify_iPhone14ProMax_All_Variants_120_Cases (1).zip",
+          "iPhone14ProMax_All_Variants_120_Cases.json"
+        ]
+      }
+    ],
+    "model": "iPhone 14 Pro Max",
+    "parsed_cases": 120,
+    "priced_cases": 120
+  },
+  {
+    "file": "Cashify_iPhone15Pro_120_Test_Cases_TXT_Only.zip",
+    "sha256": "9dbcc3786a0dc88460389ecea1958bdf3508be3f34f9c8da74d12becb0ad198f",
+    "bytes": 4408,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Cashify_iPhone15Pro_120_Test_Cases.txt",
+        "sha256": "e304182ea8c437d2e3b5ec3b15d60899f358ed8395b7883a5327d8eb1aa8c93f",
+        "bytes": 37985,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 15 Pro",
+    "parsed_cases": 0,
+    "priced_cases": 0
+  },
+  {
+    "file": "Cashify_iPhone15Pro_232_Reference_Cases_224_Priced_8_Unavailable.zip",
+    "sha256": "dc896d47cbf9a90c27eb3ed8736c7a619d90bedb1cbc05e5e1560b6132d7809d",
+    "bytes": 13012,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Cashify_iPhone15Pro_232_Reference_Cases_224_Priced_8_Unavailable.txt",
+        "sha256": "f37892d7aba95b7459a49ac30d7d5d18d1f0beb36955d9f4a4195e95b94e218b",
+        "bytes": 209515,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 15 Pro",
+    "parsed_cases": 232,
+    "priced_cases": 224
+  },
+  {
+    "file": "Cashify_iPhone15ProMax_174_Test_Cases.zip",
+    "sha256": "8b22ce8767a7c39dd3311c00bbfdf25e11d8b785f0cd7bd8252dbbc0e6db3ce3",
+    "bytes": 15946,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Cashify_iPhone15ProMax_174_Test_Cases.txt",
+        "sha256": "d3faf952caf05f62ceb050cba97808b19796d318faccba1ded8a1b47f9b9e140",
+        "bytes": 240655,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 15 Pro Max",
+    "parsed_cases": 180,
+    "priced_cases": 174
+  },
+  {
+    "file": "Cashify_iPhone16_171_Test_Cases.zip",
+    "sha256": "4d3bbf578fff746acfd55f632d5b3f185fead49e5ceda72a761ffa0fbbb6a131",
+    "bytes": 15169,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Cashify_iPhone16_171_Test_Cases.txt",
+        "sha256": "a8e9ac41f23ef46a74419b4049eea2cc110e30e1449d71f7fed7f6f30239e1b6",
+        "bytes": 237006,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 16",
+    "parsed_cases": 180,
+    "priced_cases": 171
+  },
+  {
+    "file": "Cashify_iPhone16e_171_Test_Cases.zip",
+    "sha256": "f434f40264d81b972de0d23a2dd1cb40788308b3cd7b4d00218d7a4c0cf24094",
+    "bytes": 15406,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Cashify_iPhone16e_Exact_Defect_Deductions_All_Variants.txt",
+        "sha256": "ed836f294c2384f2b7eae02e54965667391f961c2d6cedb19cfff85ef356c61c",
+        "bytes": 236861,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 16e",
+    "parsed_cases": 180,
+    "priced_cases": 171
+  },
+  {
+    "file": "Cashify_iPhone16Plus_171_Test_Cases.zip",
+    "sha256": "52a3a3f7001f2151648670c374d9a59e10836daf16d1a721a526b9f7aa25d753",
+    "bytes": 15285,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Cashify_iPhone16Plus_171_Test_Cases.txt",
+        "sha256": "9aba32db7f6c4638305adb303602e210e7b210cf9948735e4abd20fca2005dd1",
+        "bytes": 237041,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 16 Plus",
+    "parsed_cases": 180,
+    "priced_cases": 171
+  },
+  {
+    "file": "Cashify_iPhone16Pro_232_Test_Cases.zip",
+    "sha256": "7bbe9cf59ef606030632af85f53c8019359459ffbf3a0397e022f5fe75765b3d",
+    "bytes": 19752,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Cashify_iPhone16Pro_232_Test_Cases.txt",
+        "sha256": "61c34a71945c0ff69adab45700e47a44ad3598a06e4d8154ad46841e10e3d0e9",
+        "bytes": 319018,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 16 Pro",
+    "parsed_cases": 240,
+    "priced_cases": 232
+  },
+  {
+    "file": "Cashify_iPhone16ProMax_174_Test_Cases.zip",
+    "sha256": "e96ad8b7c32700fed83d8282b8f441db044b4133f50fae2f3fcb1a77c00abec3",
+    "bytes": 15703,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Cashify_iPhone16ProMax_Exact_Defect_Deductions_All_Variants.txt",
+        "sha256": "2c928569e3f8ecd4b92b6901fba39b10f5ca1428604702f524efc2d4871b13b0",
+        "bytes": 240670,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 16 Pro Max",
+    "parsed_cases": 180,
+    "priced_cases": 174
+  },
+  {
+    "file": "Cashify_iPhone18Pro_232_Test_Cases.zip",
+    "sha256": "be613262788c0d01d82c23d4be2bf146279e721b65c5cb853a40acfab1b4f16e",
+    "bytes": 19698,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Cashify_iPhone18Pro_Exact_Defect_Deductions_All_Variants.txt",
+        "sha256": "aae8cbf6b0b3414e9e5a6956d69de2417021d3003a5a7ae119ff9860dc329bb7",
+        "bytes": 320417,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 18 Pro",
+    "parsed_cases": 240,
+    "priced_cases": 232
+  },
+  {
+    "file": "Cashify_iPhone18Pro_Exact_Defect_Deductions_All_Variants (1).zip",
+    "sha256": "be613262788c0d01d82c23d4be2bf146279e721b65c5cb853a40acfab1b4f16e",
+    "bytes": 19698,
+    "duplicate_of": "Cashify_iPhone18Pro_232_Test_Cases.zip",
+    "members": [
+      {
+        "name": "Cashify_iPhone18Pro_Exact_Defect_Deductions_All_Variants.txt",
+        "sha256": "aae8cbf6b0b3414e9e5a6956d69de2417021d3003a5a7ae119ff9860dc329bb7",
+        "bytes": 320417,
+        "duplicate_of": [
+          "Cashify_iPhone18Pro_232_Test_Cases.zip",
+          "Cashify_iPhone18Pro_Exact_Defect_Deductions_All_Variants.txt"
+        ]
+      }
+    ],
+    "model": "iPhone 18 Pro",
+    "parsed_cases": 240,
+    "priced_cases": 232
+  },
+  {
+    "file": "Cashify_iPhone18Pro_Exact_Defect_Deductions_All_Variants.zip",
+    "sha256": "be613262788c0d01d82c23d4be2bf146279e721b65c5cb853a40acfab1b4f16e",
+    "bytes": 19698,
+    "duplicate_of": "Cashify_iPhone18Pro_232_Test_Cases.zip",
+    "members": [
+      {
+        "name": "Cashify_iPhone18Pro_Exact_Defect_Deductions_All_Variants.txt",
+        "sha256": "aae8cbf6b0b3414e9e5a6956d69de2417021d3003a5a7ae119ff9860dc329bb7",
+        "bytes": 320417,
+        "duplicate_of": [
+          "Cashify_iPhone18Pro_232_Test_Cases.zip",
+          "Cashify_iPhone18Pro_Exact_Defect_Deductions_All_Variants.txt"
+        ]
+      }
+    ],
+    "model": "iPhone 18 Pro",
+    "parsed_cases": 240,
+    "priced_cases": 232
+  },
+  {
+    "file": "Cashify_iPhone6_All_Variants_120_Test_Cases.zip",
+    "sha256": "2caa623b941b8b58795557b61b41260cef817b3813881596f4611db82f7db9d2",
+    "bytes": 4683,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Cashify_iPhone6_All_Variants_120_Test_Cases.txt",
+        "sha256": "c4146835a16a561b023a4cd2a791c29c93de2f4c8a0672613e55556ed47ccf1a",
+        "bytes": 69382,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 6",
+    "parsed_cases": 120,
+    "priced_cases": 120
+  },
+  {
+    "file": "Cashify_iPhone6Plus_All_Variants_90_Test_Cases.zip",
+    "sha256": "4f4bbba32b68735cc88a3b7f98d99f776bcaa93c8969a55ffeb81b61022ed9ed",
+    "bytes": 4133,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Cashify_iPhone6Plus_All_Variants_90_Test_Cases.txt",
+        "sha256": "eec82c322f35ea11146d8b7e39cd43a7fea5ac9c142cde7b8861da7afe5b5daf",
+        "bytes": 52658,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 6 Plus",
+    "parsed_cases": 90,
+    "priced_cases": 90
+  },
+  {
+    "file": "Cashify_iPhone6Plus_Partial_18_of_90_Cases.zip",
+    "sha256": "6589dc817a4aea1a0f119e4ac0503d744ed80dd554785b51797a77c7c273afb1",
+    "bytes": 3841,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "README.txt",
+        "sha256": "c2991ee3cd5d44f42697c8fcd1071a3db3e1bcbba0f7dbe5d99d64cded2e9953",
+        "bytes": 844,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone6Plus_128GB_18_Verified_Test_Cases.txt",
+        "sha256": "a4d61a19436b522810dc8b0d11850befbef405bf3f3f06a153ca40f0d77c34d9",
+        "bytes": 9162,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone6Plus_18_Verified_Cases.json",
+        "sha256": "dbc5b02f0f383b061e5468f1416d85938c9c8445aa659c29a9c75b575ce6d204",
+        "bytes": 6393,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone6Plus_72_Untested_Cases.json",
+        "sha256": "73a7783644e1aa9d550608af409533f21bb15d0f0a96b4c0f008c2e2a3d5d6aa",
+        "bytes": 21421,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 6 Plus",
+    "parsed_cases": 18,
+    "priced_cases": 18
+  },
+  {
+    "file": "Cashify_iPhone6S_All_Variants_120_Test_Cases.zip",
+    "sha256": "89d451d65d8ae35344a6f772d2f47dd3f4e2b62a7d5aaf954900686a4c2fde89",
+    "bytes": 4941,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Cashify_iPhone6S_All_Variants_120_Test_Cases.txt",
+        "sha256": "4f9758bb1840ca0d55d04a9b5af0ae63e13f373408f13e122c3f640e87bc76a0",
+        "bytes": 69559,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 6S",
+    "parsed_cases": 120,
+    "priced_cases": 120
+  },
+  {
+    "file": "Cashify_iPhone6SPlus_All_Variants_120_Test_Cases.zip",
+    "sha256": "48a1351832c5c86046a940db05cd0f13aa91a87437ba090c4d9bec97ae482690",
+    "bytes": 5113,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Cashify_iPhone6SPlus_All_Variants_120_Test_Cases.txt",
+        "sha256": "79680065ae886067572c58dd9b2928eadff011db4d1c23b0984574e51b52d877",
+        "bytes": 69718,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 6S Plus",
+    "parsed_cases": 120,
+    "priced_cases": 120
+  },
+  {
+    "file": "Cashify_iPhone7_All_Variants_90_Test_Cases.zip",
+    "sha256": "491d8247311bf61bb43fda25191a76135168b05feb9ff52ff56b587e2bd79699",
+    "bytes": 4392,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Cashify_iPhone7_All_Variants_90_Test_Cases.txt",
+        "sha256": "b39a90bdd28856a8f759c2d1c4b1591737db7d2fadd6b3519a9d8b8140b14ef3",
+        "bytes": 52750,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 7",
+    "parsed_cases": 90,
+    "priced_cases": 90
+  },
+  {
+    "file": "Cashify_iPhone7Plus_All_Variants_90_Cases.zip",
+    "sha256": "c2162978c990c77a0eaff3b49e2d7fb1481b57c6223a285ce87f403654720c98",
+    "bytes": 12794,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Baseline_Rechecks.json",
+        "sha256": "89e5c61fc03d719c9af8971fb7a9bf9959243117174bc6bef2e56bb94c1adc56",
+        "bytes": 922,
+        "duplicate_of": null
+      },
+      {
+        "name": "README.txt",
+        "sha256": "3d965ee56010476cb83b7986a91f76f275cb6080fd321148bf131c5586e42948",
+        "bytes": 1722,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone7Plus_128GB_30_Test_Cases.txt",
+        "sha256": "171f9bc6a8200d7f968c62e8119252eb59ab9192b280a843f799ab5bc2aefafb",
+        "bytes": 20312,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone7Plus_256GB_30_Test_Cases.txt",
+        "sha256": "bcfab9019a53d5202560c061bb1162f1f6dba6134bbb5ac69b4289a4476570be",
+        "bytes": 20312,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone7Plus_32GB_30_Test_Cases.txt",
+        "sha256": "6ef4295527d31657fca024fc6a17ea64297752349f46d206710ebba18d801dfd",
+        "bytes": 20281,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone7Plus_All_Variants_90_Cases.csv",
+        "sha256": "f27b62fef89aa004a6e8eefe342a91fdab44a03a790c7b586759f34dc79dd2a2",
+        "bytes": 15668,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhone7Plus_All_Variants_90_Cases.json",
+        "sha256": "bded1231250240998ae99f9aa49cbe1bffe3070caa47e9453a56a1f9ae847d16",
+        "bytes": 31523,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 7 Plus",
+    "parsed_cases": 90,
+    "priced_cases": 90
+  },
+  {
+    "file": "Cashify_iPhone8_All_Variants_90_Test_Cases.zip",
+    "sha256": "b6ac30e3e6cfbf612090e8d9b8a874b382bd0fa5960405b3bc00d37bd99a1275",
+    "bytes": 4357,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Cashify_iPhone8_All_Variants_90_Test_Cases.txt",
+        "sha256": "a1ce62e9137f4d12b4cb332b1188b6a5858a06cd874182cf1b50dd23b79dda7a",
+        "bytes": 52788,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 8",
+    "parsed_cases": 90,
+    "priced_cases": 90
+  },
+  {
+    "file": "Cashify_iPhone8Plus_All_Variants_90_Test_Cases.zip",
+    "sha256": "cf7087e2d0b184d3f36337defa0a3714b0e653b0f4d8f02cf87f90ced69d455e",
+    "bytes": 4446,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Cashify_iPhone8Plus_All_Variants_90_Test_Cases.txt",
+        "sha256": "6b1cecb8c2a445b3aecec4b7b1a7ff6fb798346904c57103a8cd4835afec76c9",
+        "bytes": 52825,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone 8 Plus",
+    "parsed_cases": 90,
+    "priced_cases": 90
+  },
+  {
+    "file": "Cashify_iPhoneSE1stGeneration_All_Variants_120_Test_Cases.zip",
+    "sha256": "1366d9c33ed7cb8336535de8a5fe630af33130da68830cc57dd2758f136f10ff",
+    "bytes": 4857,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Cashify_iPhoneSE1stGeneration_All_Variants_120_Test_Cases.txt",
+        "sha256": "80cbae8762147c0dcf5d010145364f2de63cb67a930a052f8a4428356f75feff",
+        "bytes": 69508,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone SE 1st Generation",
+    "parsed_cases": 120,
+    "priced_cases": 120
+  },
+  {
+    "file": "Cashify_iPhoneSE2020_All_Variants_90_Cases.zip",
+    "sha256": "b54bc58d799d29f3bde4b47e15c67a743c618ef2cdf36f6cd8dd024d18a02d63",
+    "bytes": 12529,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Baseline_Rechecks.json",
+        "sha256": "beceeb4b1ad4973ab8171bb0ffc321f7fbeee269078107961ed5ad3b327651db",
+        "bytes": 1318,
+        "duplicate_of": null
+      },
+      {
+        "name": "README.txt",
+        "sha256": "052d884665a7e0c0ebb77cf57471579162970c73572277cae01a706e63bf0642",
+        "bytes": 2605,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhoneSE2020_128GB_30_Test_Cases.txt",
+        "sha256": "67162f7a4975ee51bf0d56a5b7f1c34c938e36f206ab68f7e27888bd863246e3",
+        "bytes": 17872,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhoneSE2020_256GB_30_Test_Cases.txt",
+        "sha256": "3248c9e3ee685fdf449e5aaeafecdd741686dc31f46bff7cfc9425c7e428bda3",
+        "bytes": 17872,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhoneSE2020_64GB_30_Test_Cases.txt",
+        "sha256": "a4959184c6ee5a5b1c8041ee6a776940119fa7faccda661ce27eb06c04b2bd10",
+        "bytes": 17870,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhoneSE2020_All_Variants_90_Cases.csv",
+        "sha256": "841a58abf2929f05012635d386d709747aac9467283a4e60fa967c11ca226737",
+        "bytes": 19609,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhoneSE2020_All_Variants_90_Cases.json",
+        "sha256": "80a6fc065fff5d5064cbb2ed78704597366c7139d798e7e6daefa686682ec74c",
+        "bytes": 52481,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone SE 2020",
+    "parsed_cases": 90,
+    "priced_cases": 90
+  },
+  {
+    "file": "Cashify_iPhoneSE2022_All_Variants_90_Cases.zip",
+    "sha256": "da89e411cfcc9297b0e7cadcf8b8426d9185ded01bbf86a1d6362f68fee05e44",
+    "bytes": 9676,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Baseline_Rechecks.json",
+        "sha256": "fde98517ff28a25374ccf5032d74c4662ca11e3967885aa6fbb4751b471888be",
+        "bytes": 727,
+        "duplicate_of": null
+      },
+      {
+        "name": "README.txt",
+        "sha256": "9d86cd97fa3531dfec51d58db8928bbb7ac7e61f92c1f113c4142ecee9a1d9b0",
+        "bytes": 991,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhoneSE2022_128GB_30_Test_Cases.txt",
+        "sha256": "0ab861d9790141da50181600f0329c76bb5ac14bef1e184656a1555677bec11e",
+        "bytes": 15098,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhoneSE2022_256GB_30_Test_Cases.txt",
+        "sha256": "e3f971b3b52eb411994da7189600df934b3b89e57e19f8d8e6a2417d90fad39c",
+        "bytes": 15113,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhoneSE2022_64GB_30_Test_Cases.txt",
+        "sha256": "44ef78b9ea3d5c0e262964e9b60b5f7bec6c8e1b228452410b75bdaec78a5b02",
+        "bytes": 15097,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhoneSE2022_All_Variants_90_Cases.csv",
+        "sha256": "fbb5cfb2781b5bd57c73d968791f5765caee266c446eb1202ad46cf104e51ace",
+        "bytes": 11780,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhoneSE2022_All_Variants_90_Cases.json",
+        "sha256": "5a9867fa136eda097974fa71d4adfd108c305fa4979dbbff726d4af0e8cbbeeb",
+        "bytes": 25475,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone SE 2022",
+    "parsed_cases": 90,
+    "priced_cases": 90
+  },
+  {
+    "file": "Cashify_iPhoneX_All_Variants_60_Cases.zip",
+    "sha256": "f23864df05163a63f6102d4c6670838e3c11411399f5d6b751a6d57c17bf6955",
+    "bytes": 9067,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Baseline_Rechecks.json",
+        "sha256": "9017c70d61db49abb6accf1ae5740ef2e8fc8d45d78cfe5f3c68b2c3b4093440",
+        "bytes": 617,
+        "duplicate_of": null
+      },
+      {
+        "name": "README.txt",
+        "sha256": "0c570019b8cbf5e07d1e35ad0f9b639d3b6531bdd96b00bf07b2a75f672ba20a",
+        "bytes": 1510,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhoneX_256GB_30_Test_Cases.txt",
+        "sha256": "9d905409b50d259837336a95854c87f3049b173af3d080f96ce6466873ea5aef",
+        "bytes": 20063,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhoneX_64GB_30_Test_Cases.txt",
+        "sha256": "37f9b356a8192e519c14220fbb2f85e22e22e47546092fd19a09ecb3f27a51ec",
+        "bytes": 20030,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhoneX_All_Variants_60_Cases.csv",
+        "sha256": "3e962de129a3054e8bc864fbd8365e87d7ec5dbd6d0f03cc68f62f4e03c70adf",
+        "bytes": 10204,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhoneX_All_Variants_60_Cases.json",
+        "sha256": "8b83521a30a006de2109bb321af12f1c82461d4f57796c84f591d8eb932c3e6b",
+        "bytes": 20992,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone X",
+    "parsed_cases": 60,
+    "priced_cases": 60
+  },
+  {
+    "file": "Cashify_iPhoneXR_All_Variants_90_Cases.zip",
+    "sha256": "25fe7a02c49d3532247f7fa2c49fed9698ea50b1fd2d5556e276c79985a4494b",
+    "bytes": 12458,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Baseline_Rechecks.json",
+        "sha256": "8162b2ce2a23033ca1288878ea1aa2e02ae688b3635d49288db5979c2aae6d97",
+        "bytes": 928,
+        "duplicate_of": null
+      },
+      {
+        "name": "README.txt",
+        "sha256": "30f80ee0f7cabe5030ca2e2939d74feacc67cfe839d50ec6c85ec30c05ea9dcd",
+        "bytes": 1632,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhoneXR_128GB_30_Test_Cases.txt",
+        "sha256": "b3ce1ac54e549cbbbc632147966339a9bfb86ced812cdcff38cc71d4b6311e65",
+        "bytes": 20098,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhoneXR_256GB_30_Test_Cases.txt",
+        "sha256": "04224056c9a583b7f952e8b3be4c45b91bf2d26a48ef8cd8c901c1810eca0932",
+        "bytes": 20115,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhoneXR_64GB_30_Test_Cases.txt",
+        "sha256": "03162e298c997613cd95342f55711d924a3b442576bd887a684c26bcd5454622",
+        "bytes": 20061,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhoneXR_All_Variants_90_Cases.csv",
+        "sha256": "80e60985f3e58b0026b618ef8473022bc5bf5a13afd0b11360491175aa369d95",
+        "bytes": 15313,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhoneXR_All_Variants_90_Cases.json",
+        "sha256": "fe95f98315b8ef6488e5996547c693a3df66dde9cad21d54700363567ead9f14",
+        "bytes": 31528,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone XR",
+    "parsed_cases": 90,
+    "priced_cases": 90
+  },
+  {
+    "file": "Cashify_iPhoneXS_All_Variants_90_Cases.zip",
+    "sha256": "05d26a7809a0c31f309670b3ad3465d9e4638c4f0e7bb97ff15724ea8ef0ce6a",
+    "bytes": 12523,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Baseline_Rechecks.json",
+        "sha256": "cde637706e008268329b27d2ca158ea6f6bd82bcf02209ae2e3e74243ecfa405",
+        "bytes": 931,
+        "duplicate_of": null
+      },
+      {
+        "name": "README.txt",
+        "sha256": "e554b52f6fa4d7d3d76c728ca7d1c223eb25013bc696c7cfe9e0f371552d7746",
+        "bytes": 1635,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhoneXS_256GB_30_Test_Cases.txt",
+        "sha256": "cbadcdee63b27bc678fb7161b8184400ea3d2b101ed97eb409d4e0a03820ba77",
+        "bytes": 20126,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhoneXS_512GB_30_Test_Cases.txt",
+        "sha256": "7f8620dd0c83017e09c0b68046002987ab5b423226f1267da4833040ae8310b4",
+        "bytes": 20133,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhoneXS_64GB_30_Test_Cases.txt",
+        "sha256": "da994308122ca04e7fa976daba563c60a992917b972cfa0129a2fb79d891f8c5",
+        "bytes": 20065,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhoneXS_All_Variants_90_Cases.csv",
+        "sha256": "26bc187cda782ffb8cdfb8616c0128b3565afc49054e4046fc3b87b9d5dda8d9",
+        "bytes": 15363,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhoneXS_All_Variants_90_Cases.json",
+        "sha256": "17a6603b2a1f848f12da7d796ca27a53bab0735f05f5100114bd4360e5005307",
+        "bytes": 31578,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone XS",
+    "parsed_cases": 90,
+    "priced_cases": 90
+  },
+  {
+    "file": "Cashify_iPhoneXSMax_All_Variants_90_Cases.zip",
+    "sha256": "d68900649c87a2fbac1b1327be030a81f4174f24a5f4ead48f99167cd6815e1c",
+    "bytes": 12702,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "Baseline_Rechecks.json",
+        "sha256": "74e7b979fee9732347ab45bb0f553913ec59c7d348b46a1a3875b16c47781f98",
+        "bytes": 931,
+        "duplicate_of": null
+      },
+      {
+        "name": "README.txt",
+        "sha256": "2f2698d6bb1a5579e7663e44f138edcd33e99cd6662004c7915d00c8434a092d",
+        "bytes": 1643,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhoneXSMax_256GB_30_Test_Cases.txt",
+        "sha256": "8fd17cc27f8e7bf2aabc9e0f470e35f944daf01332e2b87fd18f4aff9c0ffb83",
+        "bytes": 20261,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhoneXSMax_512GB_30_Test_Cases.txt",
+        "sha256": "6e5ee04fe55ea04b374810aecdb483d551cdc08be198837da658102161558b65",
+        "bytes": 20267,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhoneXSMax_64GB_30_Test_Cases.txt",
+        "sha256": "0c0d7201106318666b06287bb50018eb86f2f1cbe61fc68291ec721c2528f731",
+        "bytes": 20221,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhoneXSMax_All_Variants_90_Cases.csv",
+        "sha256": "7cb9736e5b48b8c3cdfef834ab8ec189996482417b0b580fd097830eadb6c54b",
+        "bytes": 15776,
+        "duplicate_of": null
+      },
+      {
+        "name": "iPhoneXSMax_All_Variants_90_Cases.json",
+        "sha256": "97f9d0112300f0f4bb5bf9937dbb84565828ac79270ab2330456fdb19dc12ba2",
+        "bytes": 31631,
+        "duplicate_of": null
+      }
+    ],
+    "model": "iPhone XS Max",
+    "parsed_cases": 90,
+    "priced_cases": 90
+  },
+  {
+    "file": "iPhone_18_Pro_Max_3_Variants_58_Cases_Each_174_Total.zip",
+    "sha256": "5d4a6ed776061f1292fd89e4bebfba97b242fd7b244df409999c114905609d7c",
+    "bytes": 15493,
+    "duplicate_of": null,
+    "members": [
+      {
+        "name": "iPhone_18_Pro_Max_12GB_1TB_58_Test_Cases.txt",
+        "sha256": "c88a5adc743a629b914e0908c9f73154bc59210d8c83fcdb4314a7608ddcd347",
+        "bytes": 213020,
+        "duplicate_of": [
+          "Apple_iPhone_18_Pro_Max_12GB_1TB_58_Test_Cases.zip",
+          "Apple_iPhone_18_Pro_Max_12GB_1TB_58_Test_Cases.txt"
+        ]
+      },
+      {
+        "name": "iPhone_18_Pro_Max_12GB_512GB_58_Test_Cases.txt",
+        "sha256": "94be83acd1ee5b63d6b2fb488fba4304b970a1d7549c7f6c5b6ac7c3578c10d7",
+        "bytes": 213142,
+        "duplicate_of": [
+          "Apple_iPhone_18_Pro_Max_12GB_512GB_58_Test_Cases.zip",
+          "Apple_iPhone_18_Pro_Max_12GB_512GB_58_Test_Cases.txt"
+        ]
+      },
+      {
+        "name": "iPhone_18_Pro_Max_12GB_256GB_58_Test_Cases.txt",
+        "sha256": "a206261ff6047fd928dded67cdd18a3f63002882c1639689361e96115dd00081",
+        "bytes": 213142,
+        "duplicate_of": [
+          "Apple_iPhone_18_Pro_Max_12GB_256GB_58_Test_Cases.zip",
+          "Apple_iPhone_18_Pro_Max_12GB_256GB_58_Test_Cases.txt"
+        ]
+      }
+    ],
+    "model": "iPhone 18 Pro Max",
+    "parsed_cases": 174,
+    "priced_cases": 0
+  }
+]

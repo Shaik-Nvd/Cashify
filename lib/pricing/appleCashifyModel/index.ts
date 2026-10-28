@@ -18,9 +18,29 @@ const CALIBRATION = calibrationJson as unknown as Calibration;
 export const APPLE_EVIDENCE_VERSION = `apple-cashify-model/1+${CALIBRATION.version}+${SCOPE.version}`;
 export { evidenceModelKey, isAppleEvidenceModel, storageGbOf };
 
+/** The sibling's calibration with every value relabelled inferred: used only for a model without quotes of its own (scope.json fallbackFrom). */
+function inferredFrom(source: ModelProfile, modelKey: string): ModelProfile {
+  const p: ModelProfile = JSON.parse(JSON.stringify(source));
+  const infer = (o: { support: string } | null | undefined) => { if (o) o.support = 'inferred'; };
+  Object.values(p.classes).forEach(infer);
+  Object.values(p.codes ?? {}).forEach(infer);
+  if (p.age) Object.values(p.age).forEach(infer);
+  infer(p.boxNo); infer(p.chargerNo); infer(p.cleanOffset);
+  delete p.ageByStorage;
+  p.observedInteractions = [];
+  p.notes = [...p.notes, `no Cashify quotes of ${modelKey}: deductions borrowed from ${source.modelKey} (same generation), all inferred`];
+  return { ...p, modelKey };
+}
+const profileFor = (modelKey: string): ModelProfile | null => {
+  const own = CALIBRATION.models[modelKey];
+  if (own) return own;
+  const from = SCOPE.models[modelKey]?.fallbackFrom;
+  return from && CALIBRATION.models[from] ? inferredFrom(CALIBRATION.models[from], modelKey) : null;
+};
+
 export function appleEvidenceScope(model: string, storage: string | undefined | null): { profile: ModelProfile; storageGb: number } | null {
   if (!isAppleEvidenceModel(model, storage)) return null;
-  const profile = CALIBRATION.models[evidenceModelKey(model)];
+  const profile = profileFor(evidenceModelKey(model));
   const storageGb = storageGbOf(storage);
   return profile && storageGb != null ? { profile, storageGb } : null;
 }
@@ -36,20 +56,22 @@ export interface AppleEvidenceQuote {
 
 /**
  * Cashify-equivalent price for an iPhone, or null when the existing engine should price it (no recorded quote and no calibrated model).
- * Order: (1) a recorded Cashify quote for this exact variant and answers, (2) the calibrated rules for the model.
+ * Served quotes come from the calibrated rules alone: they depend on the current reference for every answer set. The recorded-quote index
+ * (exact.json: one observed Cashify price per variant and answers, at the reference of its day) is an observation set, not a pricing source;
+ * it is consulted only when a caller opts in with useRecordedQuotes (validation fixtures and tests), so it can never hide a wrong deduction.
  * Throws InspectionRequiredError only when Cashify itself declined the condition (recorded no-offer), the combination is
  * contradictory (cannot make calls plus other faults; more simultaneous faults than any Cashify quote shows) or the deductions leave nothing.
  */
-export function appleEvidenceQuote(model: string, storage: string | undefined | null, reference: number, diagnostics: DiagnosticsType): AppleEvidenceQuote | null {
+export function appleEvidenceQuote(model: string, storage: string | undefined | null, reference: number, diagnostics: DiagnosticsType, options: { useRecordedQuotes?: boolean } = {}): AppleEvidenceQuote | null {
   const modelKey = evidenceModelKey(model);
   const gb = storageGbOf(storage);
   if (gb == null || !(reference > 0)) return null;
   const entry = SCOPE.models[modelKey];
-  const calibrated = CALIBRATION.models[modelKey] ?? null;
+  const calibrated = profileFor(modelKey);
   const profile = entry?.enabled ? calibrated : null;
 
   // the recorded quote is keyed with the calibrated profile (which fixes how age/warranty answers reduce to Cashify's state) whether or not the rules are enabled
-  const hit = findExact(modelKey, gb, calibrated, diagnostics, reference);
+  const hit = options.useRecordedQuotes ? findExact(modelKey, gb, calibrated, diagnostics, reference) : null;
   if (hit) {
     const [date, g0, recorded] = hit.entry;
     if (recorded == null) throw new InspectionRequiredError(`${modelKey}: Cashify declined exactly this condition (recorded no-offer${date ? `, ${date}` : ''})`);

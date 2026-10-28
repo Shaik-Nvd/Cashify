@@ -46,7 +46,8 @@ async function main() {
  const before = make(previous, routes.filter(r => r.model !== 'Apple iPhone 12')), after = make();
  const [{ default: express }, { default: prisma }, { pricingService, pricingStatus }, { default: router }] = await Promise.all([
   import('express'), import('../../server/lib/prisma'), import('../../server/modules/quote/pricing'), import('../../server/modules/quote/routes')]);
- assert.equal(pricingStatus(now).exactFinalQuoteCache.uniqueKeys, 129, 'actual runtime C1-only override preserves all packaged keys');
+ // 2026-10-28: the committed configuration disables the runtime captured-price cache (served iPhone quotes come from the calibrated rules)
+ assert.equal(pricingStatus(now).exactFinalQuoteCache.uniqueKeys, 0, 'the runtime exact cache is disabled by config/pricing-release.json');
  assert.equal(pricingStatus(now).releaseRoutes, 51, 'actual runtime C1-only route override preserves all manifests');
  prisma.$connect = async () => { throw Error('No production connections'); };
  let selected: any, active = after;

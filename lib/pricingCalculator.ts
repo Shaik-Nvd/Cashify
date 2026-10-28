@@ -14,6 +14,8 @@ export interface PricingCalculationContext {
   catalogStorage?: string;
   /** Evaluation tools set this to price with the pre-existing Apple engine only (the baseline in held-out comparisons). */
   disableAppleEvidence?: boolean;
+  /** Fixtures and tests opt in to answering from the recorded Cashify quotes. Never set by the serving path: served iPhone quotes come from the calibrated rules. */
+  useRecordedAppleQuotes?: boolean;
 }
 
 export interface ModelParams {
@@ -448,7 +450,7 @@ export function calculateApplePrice(model: string, reference: CashifyGetUptoRefe
   // measured against Cashify and passed held-out validation (scope.json). It throws InspectionRequiredError where Cashify itself
   // declines the condition; for every other device, or an answer it cannot read, the engine below runs exactly as before.
   // The reviewed out-of-warranty 512 GB router (appleVariantDispatch) is built around this file's own bespoke rules, so it is left exactly as reviewed.
-  const evidence = calculationContext?.disableAppleEvidence || calculationContext?.apple512OutOfWarrantyDispatch === true ? null : appleEvidenceQuote(model, calculationContext?.catalogStorage ?? storageVariant, reference, diagnostics);
+  const evidence = calculationContext?.disableAppleEvidence || calculationContext?.apple512OutOfWarrantyDispatch === true ? null : appleEvidenceQuote(model, calculationContext?.catalogStorage ?? storageVariant, reference, diagnostics, { useRecordedQuotes: calculationContext?.useRecordedAppleQuotes === true });
   if (evidence) return finalizeConditionQuote(reference, evidence.outcome.price);
 
   const legacy = calculateLegacyApplePrice(model, reference, diagnostics, semantics, storageVariant, calculationContext);

@@ -531,6 +531,14 @@ export function fitModel(modelKey: string, all: Measurement[], sem: ReturnType<t
     if (p.name === 'box.base') profile.boxNo.support = support;
     if (p.name === 'charger.base' && profile.chargerNo) profile.chargerNo.support = support;
   });
+  // The fixed gap between the flawless quote and the reference on the iPhone 11 / 11 Pro Max / 7 / 8 / 8 Plus is Cashify's original-charger
+  // answer (live check 2026-10-28: iPhone 11 Pro Max 256 GB, same faults, charger yes 17,660 vs no 17,260). The reports never selected a charger,
+  // so the measured offset becomes a missing-charger deduction: identical for those quotes, and no deduction when the customer has the charger.
+  if (profile.cleanOffset) {
+    profile.asks = { ...profile.asks, charger: true };
+    profile.chargerNo = { base: profile.cleanOffset.value, aged: profile.cleanOffset.value, support: 'measured' };
+    delete profile.cleanOffset;
+  }
   const errs = fitRows.map(r => -residual(r, deductionFor(profile, r) ?? 0));
   report.rmse = Math.sqrt(errs.reduce((s, e) => s + e * e, 0) / Math.max(1, errs.length));
   report.maxAbs = Math.max(0, ...errs.map(Math.abs));

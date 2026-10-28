@@ -15,7 +15,7 @@
     "bill": false,
     "age": false,
     "eSim": false,
-    "charger": false
+    "charger": true
    },
    "age": null,
    "boxNo": {
@@ -110,11 +110,6 @@
      "support": "inferred",
      "n": 0
     }
-   },
-   "cleanOffset": {
-    "value": 400,
-    "support": "measured",
-    "n": 1
    },
    "scrap": 1200,
    "extremeFaultCount": 10,
@@ -408,7 +403,12 @@
     "FMIN",
     "SCREEN",
     "WIFI"
-   ]
+   ],
+   "chargerNo": {
+    "base": 400,
+    "aged": 400,
+    "support": "measured"
+   }
   },
   "iPhone 11 Pro": {
    "modelKey": "iPhone 11 Pro",
@@ -821,7 +821,7 @@
     "bill": false,
     "age": false,
     "eSim": false,
-    "charger": false
+    "charger": true
    },
    "age": null,
    "boxNo": {
@@ -916,11 +916,6 @@
      "support": "inferred",
      "n": 0
     }
-   },
-   "cleanOffset": {
-    "value": 400,
-    "support": "measured",
-    "n": 1
    },
    "scrap": 1200,
    "extremeFaultCount": 10,
@@ -1214,7 +1209,12 @@
     "FMIN",
     "SCREEN",
     "WIFI"
-   ]
+   ],
+   "chargerNo": {
+    "base": 400,
+    "aged": 400,
+    "support": "measured"
+   }
   },
   "iPhone 12": {
    "modelKey": "iPhone 12",
@@ -14134,7 +14134,7 @@
     "bill": false,
     "age": false,
     "eSim": false,
-    "charger": false
+    "charger": true
    },
    "age": null,
    "boxNo": {
@@ -14229,11 +14229,6 @@
      "support": "inferred",
      "n": 0
     }
-   },
-   "cleanOffset": {
-    "value": 150,
-    "support": "measured",
-    "n": 1
    },
    "scrap": 1200,
    "extremeFaultCount": 10,
@@ -14524,7 +14519,12 @@
     "FMIN",
     "SCREEN",
     "WIFI"
-   ]
+   ],
+   "chargerNo": {
+    "base": 150,
+    "aged": 150,
+    "support": "measured"
+   }
   },
   "iPhone 7 Plus": {
    "modelKey": "iPhone 7 Plus",
@@ -14934,7 +14934,7 @@
     "bill": false,
     "age": false,
     "eSim": false,
-    "charger": false
+    "charger": true
    },
    "age": null,
    "boxNo": {
@@ -15029,11 +15029,6 @@
      "support": "inferred",
      "n": 0
     }
-   },
-   "cleanOffset": {
-    "value": 150,
-    "support": "measured",
-    "n": 1
    },
    "scrap": 1200,
    "extremeFaultCount": 10,
@@ -15324,7 +15319,12 @@
     "FMIN",
     "SCREEN",
     "WIFI"
-   ]
+   ],
+   "chargerNo": {
+    "base": 150,
+    "aged": 150,
+    "support": "measured"
+   }
   },
   "iPhone 8 Plus": {
    "modelKey": "iPhone 8 Plus",
@@ -15339,7 +15339,7 @@
     "bill": false,
     "age": false,
     "eSim": false,
-    "charger": false
+    "charger": true
    },
    "age": null,
    "boxNo": {
@@ -15434,11 +15434,6 @@
      "support": "inferred",
      "n": 0
     }
-   },
-   "cleanOffset": {
-    "value": 150,
-    "support": "measured",
-    "n": 1
    },
    "scrap": 1200,
    "extremeFaultCount": 10,
@@ -15729,7 +15724,12 @@
     "FMIN",
     "SCREEN",
     "WIFI"
-   ]
+   ],
+   "chargerNo": {
+    "base": 150,
+    "aged": 150,
+    "support": "measured"
+   }
   },
   "iPhone Air": {
    "modelKey": "iPhone Air",

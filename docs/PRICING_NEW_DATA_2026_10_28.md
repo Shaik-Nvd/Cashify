@@ -93,3 +93,20 @@ index as an opt-in fixture; serving never uses it).
 - Pricing suites: all 62 pass offline (14 were failing on 24336be with pre-release expectations). Expectations now derive from the current
   rules and the approved bonus arithmetic, not from retired legacy prices; no accuracy threshold was widened. The catalog property sweep
   (1,517,834 quotes) has 0 blocking failures; its 72 allowed rises are Cashify's minimum quote activating and equal the calibrated floor.
+
+## Live random check against Cashify (28 Oct, seed 19522)
+
+Five iPhones drawn at random from the 46-model catalog with random answers, quoted on the live API and on cashify.in (owner's logged-in
+session, no order placed). C = Fhoneify final - min(R x tier, 2000); Cashify = base price on its quote page.
+
+| Device and answers | Fhoneify final | Fhoneify C | Cashify base | Gap |
+|---|---:|---:|---:|---:|
+| iPhone 16 Plus 256 GB, 1-2 body scratches, no box (in warranty, <3 months) | 53,540 | 51,540 | 51,540 | 0 |
+| iPhone 11 Pro Max 256 GB, speaker, 1-2 minor dents, box, no charger | 18,979 | 17,480 | 17,260 | +220 |
+| iPhone 14 Pro 512 GB, Face ID, 1-2 minor dents, box, single eSIM | 35,000 | 33,000 | 33,300 | -300 |
+| iPhone 8 256 GB, speaker + front camera, 1-2 screen and body scratches, no box/charger | 4,752 | 4,260 | 4,590 | -330 |
+| iPhone 6S 16 GB, flawless, box, no charger | 2,246 | 2,080 | 2,060 | +20 |
+
+Finding fixed afterwards: the INR 400 / 150 "clean offset" of the iPhone 11 / 11 Pro Max / 7 / 8 / 8 Plus is Cashify's original-charger answer
+(iPhone 11 Pro Max, same faults: charger yes 17,660, no 17,260). It is now a missing-charger deduction, so a customer who has the charger is no
+longer under-paid by it. The INR 20 gap on the iPhone 6S is the same question at a smaller amount and is not modelled.

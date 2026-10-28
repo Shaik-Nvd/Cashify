@@ -79,11 +79,17 @@ async function run() {
     assert.ok(later > at, 'the recorded condition updates when the reference rises');
   });
 
-  await test('flawless quote = reference; the measured clean offset applies on the iPhone 11 / 7 / 8 families only', () => {
+  await test('flawless quote = reference; the iPhone 11 / 7 / 8 families deduct a missing original charger, not a fixed offset', () => {
     assert.equal(price('iPhone 16', 128, 52800, clean), 52800);
     assert.equal(price('iPhone 11', 64, 12490, clean), 12090);
     assert.equal(price('iPhone 8', 64, 5450, clean), 5300);
     assert.equal(price('iPhone 12', 64, 16490, clean), 16490);
+    // live Cashify 2026-10-28, iPhone 11 Pro Max 256 GB, speaker + 1-2 dents, box: charger yes 17,660, no 17,260
+    const withCharger = { ...clean, accessories: ['box', 'charger'], charger: true };
+    assert.equal(price('iPhone 11', 64, 12490, withCharger), 12490);
+    assert.equal(price('iPhone 8', 64, 5450, withCharger), 5450);
+    const faults = { hardware: ['speaker'], bodyDents: '1-2 minor dents' };
+    assert.equal(price('iPhone 11 Pro Max', 256, 18740, { ...withCharger, ...faults }) - price('iPhone 11 Pro Max', 256, 18740, { ...clean, ...faults }), 400);
   });
 
   await test('age is applied once however many answers force the aged state', () => {

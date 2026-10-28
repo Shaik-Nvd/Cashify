@@ -77,6 +77,7 @@ export type CashifyFinalOffer = number;
 export interface PricingResult {
   cashifyConditionEquivalent: CashifyConditionEquivalent;
   cashifyPrice: CashifyFinalOffer;
+  fhoneifyPrice?: CashifyFinalOffer;
 }
 
 // ============================================================================

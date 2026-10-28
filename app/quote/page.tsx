@@ -2793,29 +2793,11 @@ export default function QuotePage() {
                     // Rules:
                     // 1. If screen is NOT original (originalScreen === false), Cashify never asks the mobile age question.
                     // 2. If screen IS original (originalScreen !== false) and user selected Yes on warranty (warranty === true),
-                    //    the age question must ALWAYS be asked (including for Apple iPhone 18 Pro Max 12 GB/256 GB).
+                    //    the age question must ALWAYS be asked for all Apple devices (including iPhone 15, 16, 17, 18 series).
                     const screenIsNotOriginal = diagnostics.originalScreen === false;
                     const forceAgeForWarranty = diagnostics.warranty === true && !screenIsNotOriginal;
 
                     if ((asksAge || forceAgeForWarranty) && !screenIsNotOriginal) {
-                      if (isWarrantyValid) {
-                        // Cashify skips the age question entirely for brand new phones (17e, 16e, Z Flip7 FE) without box
-                        const isBrandNewApple = selectedBrand === 'Apple' && (selectedModel.toLowerCase().includes('17e') || selectedModel.toLowerCase().includes('16e'));
-                        const isBrandNewSamsung = selectedBrand === 'Samsung' && selectedModel.toLowerCase().includes('flip7 fe');
-                        if ((isBrandNewApple && !diagnostics.accessories.includes('box')) || isBrandNewSamsung) {
-                           const assignedAge = 'below3' as const;
-                           const updatedDiag = { ...baseDiag, mobileAge: assignedAge };
-                           setDiagnostics(updatedDiag);
-                           if (isAuthenticated) {
-                             calculateFinalPrice(updatedDiag);
-                             setMarketPriceFetched(false);
-                             navigateToState(selectedBrand, selectedModel, selectedStorage, 'storage', 11);
-                           } else {
-                             setFinalQuote(null); navigateToState(selectedBrand, selectedModel, selectedStorage, 'storage', 10);
-                           }
-                           return;
-                        }
-                      }
                       // Ask the age question.
                       setDiagnostics(baseDiag);
                       navigateToState(selectedBrand, selectedModel, selectedStorage, 'storage', 9);

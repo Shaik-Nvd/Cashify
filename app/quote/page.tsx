@@ -2305,15 +2305,22 @@ export default function QuotePage() {
           )}
 
           {selectionStage === 'storage' && (
-            <div id="variant-selection-area">
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem' }}>
+            <div id="variant-selection-area" className="w-full">
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
                 <h2 style={{ fontWeight: 600, fontSize: '1.25rem' }}>Choose a variant</h2>
-                <button onClick={() => navigateToState(selectedBrand, '', '', 'model', 1)} style={{ color: 'var(--gold)', background: 'none', border: 'none', cursor: 'pointer' }}>Change Model</button>
+                <button onClick={() => navigateToState(selectedBrand, '', '', 'model', 1)} style={{ color: 'var(--teal)', fontWeight: 600, fontSize: '0.9rem', background: 'none', border: 'none', cursor: 'pointer' }}>Change Model</button>
               </div>
-              <div className="card" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', padding: '1.25rem', borderRadius: '12px', border: '1px solid var(--border)', backgroundColor: 'var(--surface)' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
-                  <img src={`/images/models/${selectedModel.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.png`} alt={selectedModel} style={{ width: '60px', height: '80px', objectFit: 'contain' }} onError={(e) => { e.currentTarget.src = '/images/placeholder-phone.svg'; e.currentTarget.onerror = null; }} />
-                  <div><p style={{ color: 'var(--muted)', fontSize: '0.8rem' }}>{selectedBrand}</p><h3 style={{ fontSize: '1.2rem', fontWeight: 600 }}>{selectedModel}</h3></div>
+
+              <div className="card shadow-sm" style={{ display: 'flex', flexDirection: 'column', gap: '1.75rem', padding: '1.75rem', borderRadius: '16px', border: '1px solid var(--border)', backgroundColor: 'var(--surface)' }}>
+                {/* Device Info Header */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', paddingBottom: '1.25rem', borderBottom: '1px solid var(--border)' }}>
+                  <div style={{ width: '64px', height: '80px', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: 'var(--background)', borderRadius: '12px', padding: '6px', border: '1px solid var(--border)' }}>
+                    <img src={`/images/models/${selectedModel.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.png`} alt={selectedModel} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} onError={(e) => { e.currentTarget.src = '/images/placeholder-phone.svg'; e.currentTarget.onerror = null; }} />
+                  </div>
+                  <div>
+                    <span style={{ color: 'var(--muted)', fontSize: '0.8rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.5px' }}>{selectedBrand}</span>
+                    <h3 style={{ fontSize: '1.25rem', fontWeight: 600, marginTop: '2px', color: 'var(--foreground)' }}>{selectedModel}</h3>
+                  </div>
                 </div>
                 
                 {storageOptions.length === 0 && !loading ? (
@@ -2321,16 +2328,40 @@ export default function QuotePage() {
                     <span style={{ fontSize: '2.5rem', display: 'block', marginBottom: '1rem' }}>📱</span>
                     <h3 style={{ fontSize: '1.1rem', fontWeight: 500, marginBottom: '0.5rem' }}>Model configuration not found</h3>
                     <p style={{ fontSize: '0.9rem' }}>We couldn&apos;t find the storage variants for this model. It might be under process.</p>
-                    <button onClick={() => navigateToState(selectedBrand, '', '', 'model', 1)} style={{ marginTop: '1.5rem', padding: '0.5rem 1rem', backgroundColor: 'var(--gold)', color: '#000', borderRadius: '6px', fontWeight: 600, border: 'none', cursor: 'pointer' }}>View All {selectedBrand} Models</button>
+                    <button onClick={() => navigateToState(selectedBrand, '', '', 'model', 1)} style={{ marginTop: '1.5rem', padding: '0.6rem 1.25rem', backgroundColor: 'var(--teal)', color: '#fff', borderRadius: '8px', fontWeight: 600, border: 'none', cursor: 'pointer' }}>View All {selectedBrand} Models</button>
                   </div>
                 ) : (
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
-                    {storageOptions.map((s) => (
-                      <button key={s} onClick={() => handleStorageSelect(s)} style={{ padding: '0.75rem 1.5rem', borderRadius: '8px', border: selectedStorage === s ? '1px solid #4CD964' : '1px solid var(--border)', backgroundColor: selectedStorage === s ? 'rgba(76,217,100,0.1)' : 'var(--surface-elevated)', color: selectedStorage === s ? '#4CD964' : 'var(--foreground)', cursor: 'pointer' }}>{s}</button>
-                    ))}
+                  <div>
+                    <p style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--muted)', marginBottom: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Select Storage</p>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(100px, 1fr))', gap: '0.85rem' }}>
+                      {storageOptions.map((s) => {
+                        const isSelected = selectedStorage === s;
+                        return (
+                          <button
+                            key={s}
+                            type="button"
+                            onClick={() => handleStorageSelect(s)}
+                            style={{
+                              padding: '0.85rem 1rem',
+                              borderRadius: '10px',
+                              border: isSelected ? '2px solid var(--teal)' : '1px solid var(--border)',
+                              backgroundColor: isSelected ? 'var(--teal-soft)' : 'var(--background)',
+                              color: isSelected ? 'var(--teal)' : 'var(--foreground)',
+                              fontWeight: isSelected ? 700 : 500,
+                              fontSize: '0.95rem',
+                              cursor: 'pointer',
+                              textAlign: 'center',
+                              transition: 'all 150ms ease'
+                            }}
+                          >
+                            {s}
+                          </button>
+                        );
+                      })}
+                    </div>
                   </div>
                 )}
-                {loading && <p style={{ color: 'var(--gold)', textAlign: 'center', marginTop: '1rem', fontWeight: 600 }}>Loading...</p>}
+                {loading && <p style={{ color: 'var(--teal)', textAlign: 'center', marginTop: '1rem', fontWeight: 600 }}>Loading...</p>}
               </div>
             </div>
           )}

@@ -99,3 +99,52 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--teal);
 }
+
+/* Card components */
+.card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: all 200ms ease;
+}
+.card:hover {
+  border-color: rgba(18, 128, 133, 0.4);
+  box-shadow: 0 4px 20px rgba(18, 128, 133, 0.08);
+}
+
+/* Button utility classes */
+.btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 text-sm font-semibold;
+  min-height: 44px;
+  transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease, box-shadow 200ms ease, transform 160ms ease;
+  touch-action: manipulation;
+}
+.btn:hover {
+  transform: translateY(-1px);
+}
+.btn:active {
+  transform: translateY(0) scale(0.985);
+}
+.btn-primary {
+  @apply btn;
+  background-color: var(--gold);
+  color: var(--on-gold);
+  box-shadow: var(--shadow-sm);
+}
+.btn-primary:hover {
+  background-color: var(--gold-hover);
+  color: var(--on-gold);
+  box-shadow: var(--shadow-md);
+}
+.btn-outline {
+  @apply btn;
+  background-color: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+.btn-outline:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+

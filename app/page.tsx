@@ -329,71 +329,71 @@ export default function LandingPage() {
         </section>
 
         {/* Services Showcase - Sell Phone & Buy Phone */}
-        <section className="bg-white rounded-3xl p-6 sm:p-8 shadow-xs border border-gray-100">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-2">
+        <section className="bg-white rounded-3xl p-4 sm:p-8 shadow-xs border border-gray-100">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-5 sm:mb-8 gap-1.5">
             <div>
-              <span className="text-[11px] font-black uppercase tracking-widest text-[#128085] bg-[#e6f6f6] px-3 py-1 rounded-full">
+              <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-widest text-[#128085] bg-[#e6f6f6] px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full">
                 Core Services
               </span>
-              <h2 className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight mt-2">
+              <h2 className="text-xl sm:text-3xl font-black text-gray-900 tracking-tight mt-1.5">
                 Sell or Buy Refurbished Phones
               </h2>
-              <p className="text-xs sm:text-sm text-gray-500 mt-1">
+              <p className="text-[11px] sm:text-sm text-gray-500 mt-0.5">
                 India&apos;s most trusted smartphone trade-in and certified refurbished marketplace
               </p>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
             
             {/* SELL PHONE CARD */}
             <Link
               href="/quote"
-              className="group relative overflow-hidden rounded-3xl border border-gray-200/90 bg-gradient-to-br from-white via-[#f7fcfc] to-[#e6f5f5] p-6 sm:p-8 hover:border-[#128085] hover:shadow-xl transition-all duration-300 no-underline flex flex-col justify-between"
+              className="group relative overflow-hidden rounded-2xl sm:rounded-3xl border border-gray-100 bg-[#f7fafb] hover:bg-[#eef8f8] hover:border-[#128085]/60 hover:shadow-xl transition-all duration-300 no-underline p-4 sm:p-7 flex flex-col justify-between"
             >
-              <div className="flex items-start justify-between gap-4">
-                <div className="space-y-3 max-w-[62%] sm:max-w-[65%]">
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black bg-[#128085] text-white shadow-xs">
-                    <Zap className="h-3.5 w-3.5 fill-current" />
+              <div className="flex items-center justify-between gap-3 sm:gap-6">
+                <div className="space-y-2 sm:space-y-3 flex-1 min-w-0">
+                  <div className="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-xs font-black bg-[#128085] text-white shadow-xs">
+                    <Zap className="h-3 w-3 fill-current text-white" />
                     <span>Instant Price Quote</span>
                   </div>
 
-                  <h3 className="text-2xl sm:text-3xl font-black text-gray-900 group-hover:text-[#128085] transition-colors">
+                  <h3 className="text-xl sm:text-2xl font-black text-gray-950 group-hover:text-[#128085] transition-colors leading-tight">
                     Sell Old Phone
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-medium">
-                    Get paid instantly at your doorstep. 100% safe data wipe with zero pickup charges.
+                  <p className="text-[11px] sm:text-xs text-gray-500 leading-snug line-clamp-2">
+                    Instant cash at your doorstep. 100% certified data wipeout with free pickup.
                   </p>
 
-                  <div className="pt-2 flex flex-wrap gap-2 text-[11px] font-bold text-gray-700">
-                    <span className="bg-white/90 border border-teal-100 px-2.5 py-1 rounded-lg">⚡ Instant UPI</span>
-                    <span className="bg-white/90 border border-teal-100 px-2.5 py-1 rounded-lg">🚚 Free Doorstep</span>
-                    <span className="bg-white/90 border border-teal-100 px-2.5 py-1 rounded-lg">🛡️ Safe Wipeout</span>
+                  <div className="flex flex-wrap gap-1.5 pt-1 text-[10px] sm:text-[11px] font-bold text-gray-700">
+                    <span className="bg-white border border-teal-100 text-[#128085] px-2 py-0.5 rounded-md shadow-2xs">⚡ Instant UPI</span>
+                    <span className="bg-white border border-teal-100 text-[#128085] px-2 py-0.5 rounded-md shadow-2xs">🚚 Free Doorstep</span>
+                    <span className="bg-white border border-teal-100 text-[#128085] px-2 py-0.5 rounded-md shadow-2xs">🛡️ Safe Wipeout</span>
                   </div>
                 </div>
 
-                {/* Real Phone Graphic */}
-                <div className="relative w-28 h-36 sm:w-36 sm:h-44 shrink-0 transition-transform duration-300 group-hover:scale-105 group-hover:-rotate-2">
-                  <div className="absolute inset-0 bg-[#128085]/10 rounded-full blur-xl transform scale-75" />
+                {/* Real High-End Transparent Smartphone Render */}
+                <div className="relative w-24 h-28 sm:w-32 sm:h-36 shrink-0 flex items-center justify-center">
+                  <div className="absolute inset-0 bg-teal-200/30 rounded-full blur-xl transform scale-75" />
                   <Image
-                    src="/images/sell_phone.png"
-                    alt="Sell Old Phone on Cashify"
+                    src="/images/models/apple-iphone-15-pro-max.png"
+                    alt="Sell iPhone & Smartphones on Cashify"
                     fill
-                    className="object-contain drop-shadow-lg"
+                    className="object-contain drop-shadow-md group-hover:scale-105 transition-transform"
                     priority
                   />
                 </div>
               </div>
 
-              <div className="mt-6 pt-5 border-t border-teal-100/70 flex items-center justify-between">
-                <div>
-                  <span className="text-[11px] text-gray-400 font-bold block uppercase tracking-wider">Top Brands</span>
-                  <span className="text-xs font-black text-gray-800">Apple, Samsung, OnePlus, Xiaomi</span>
+              <div className="mt-4 pt-3.5 border-t border-gray-200/70 flex items-center justify-between gap-2">
+                <div className="min-w-0">
+                  <span className="text-[9px] sm:text-[10px] text-gray-400 font-bold block uppercase tracking-wider">Top Brands</span>
+                  <span className="text-[11px] sm:text-xs font-bold text-gray-800 truncate block">Apple, Samsung, OnePlus</span>
                 </div>
-                <div className="flex items-center gap-1.5 bg-[#128085] text-white text-xs sm:text-sm font-extrabold px-5 py-2.5 rounded-full shadow-md group-hover:bg-[#0e6468] transition">
+                <div className="flex items-center gap-1 bg-[#128085] text-white text-xs sm:text-sm font-bold px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full shadow-xs group-hover:bg-[#0e6468] transition shrink-0">
                   <span>Sell Now</span>
-                  <ArrowRight className="h-4 w-4 stroke-[2.5]" />
+                  <ArrowRight className="h-3.5 w-3.5 stroke-[2.5]" />
                 </div>
               </div>
             </Link>
@@ -401,51 +401,51 @@ export default function LandingPage() {
             {/* BUY PHONE CARD */}
             <Link
               href="/buy"
-              className="group relative overflow-hidden rounded-3xl border border-gray-200/90 bg-gradient-to-br from-white via-[#f8fafc] to-[#eef6ff] p-6 sm:p-8 hover:border-[#128085] hover:shadow-xl transition-all duration-300 no-underline flex flex-col justify-between"
+              className="group relative overflow-hidden rounded-2xl sm:rounded-3xl border border-gray-100 bg-[#f7fafb] hover:bg-[#eef8f8] hover:border-[#128085]/60 hover:shadow-xl transition-all duration-300 no-underline p-4 sm:p-7 flex flex-col justify-between"
             >
-              <div className="flex items-start justify-between gap-4">
-                <div className="space-y-3 max-w-[62%] sm:max-w-[65%]">
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black bg-[#0e6468] text-white shadow-xs">
-                    <ShieldCheck className="h-3.5 w-3.5" />
-                    <span>Up to 70% Off Flagships</span>
+              <div className="flex items-center justify-between gap-3 sm:gap-6">
+                <div className="space-y-2 sm:space-y-3 flex-1 min-w-0">
+                  <div className="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-xs font-black bg-[#0e6468] text-white shadow-xs">
+                    <ShieldCheck className="h-3 w-3 text-white" />
+                    <span>Up to 70% Off</span>
                   </div>
 
-                  <h3 className="text-2xl sm:text-3xl font-black text-gray-900 group-hover:text-[#128085] transition-colors">
+                  <h3 className="text-xl sm:text-2xl font-black text-gray-950 group-hover:text-[#128085] transition-colors leading-tight">
                     Buy Refurbished Phone
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-medium">
-                    Certified like-new smartphones. 32-point inspection, 6-12 months warranty, and 7 days refund.
+                  <p className="text-[11px] sm:text-xs text-gray-500 leading-snug line-clamp-2">
+                    Certified like-new phones. 32-point inspection, warranty &amp; 7 days refund.
                   </p>
 
-                  <div className="pt-2 flex flex-wrap gap-2 text-[11px] font-bold text-gray-700">
-                    <span className="bg-white/90 border border-blue-100 px-2.5 py-1 rounded-lg">🏷️ 32-Pt Tested</span>
-                    <span className="bg-white/90 border border-blue-100 px-2.5 py-1 rounded-lg">🛡️ 1 Year Warranty</span>
-                    <span className="bg-white/90 border border-blue-100 px-2.5 py-1 rounded-lg">💳 No-Cost EMI</span>
+                  <div className="flex flex-wrap gap-1.5 pt-1 text-[10px] sm:text-[11px] font-bold text-gray-700">
+                    <span className="bg-white border border-teal-100 text-[#0e6468] px-2 py-0.5 rounded-md shadow-2xs">🏷️ 32-Pt Tested</span>
+                    <span className="bg-white border border-teal-100 text-[#0e6468] px-2 py-0.5 rounded-md shadow-2xs">🛡️ 1 Year Warranty</span>
+                    <span className="bg-white border border-teal-100 text-[#0e6468] px-2 py-0.5 rounded-md shadow-2xs">💳 No-Cost EMI</span>
                   </div>
                 </div>
 
-                {/* Real Phone Graphic */}
-                <div className="relative w-28 h-36 sm:w-36 sm:h-44 shrink-0 transition-transform duration-300 group-hover:scale-105 group-hover:rotate-2">
-                  <div className="absolute inset-0 bg-[#0e6468]/10 rounded-full blur-xl transform scale-75" />
+                {/* Real High-End Transparent Smartphone Render */}
+                <div className="relative w-24 h-28 sm:w-32 sm:h-36 shrink-0 flex items-center justify-center">
+                  <div className="absolute inset-0 bg-teal-200/30 rounded-full blur-xl transform scale-75" />
                   <Image
-                    src="/images/buy_phone.png"
-                    alt="Buy Refurbished Phone on Cashify"
+                    src="/images/models/samsung-galaxy-s24-ultra-5g.png"
+                    alt="Buy Refurbished Samsung & Flagship Phones on Cashify"
                     fill
-                    className="object-contain drop-shadow-lg"
+                    className="object-contain drop-shadow-md group-hover:scale-105 transition-transform"
                     priority
                   />
                 </div>
               </div>
 
-              <div className="mt-6 pt-5 border-t border-blue-100/70 flex items-center justify-between">
-                <div>
-                  <span className="text-[11px] text-gray-400 font-bold block uppercase tracking-wider">Starting From</span>
-                  <span className="text-xs font-black text-gray-800">₹6,999 with 1 Year Warranty</span>
+              <div className="mt-4 pt-3.5 border-t border-gray-200/70 flex items-center justify-between gap-2">
+                <div className="min-w-0">
+                  <span className="text-[9px] sm:text-[10px] text-gray-400 font-bold block uppercase tracking-wider">Starting From</span>
+                  <span className="text-[11px] sm:text-xs font-bold text-gray-800 truncate block">₹6,999 with 1 Year Warranty</span>
                 </div>
-                <div className="flex items-center gap-1.5 bg-[#2ecc71] text-white text-xs sm:text-sm font-extrabold px-5 py-2.5 rounded-full shadow-md group-hover:bg-[#27ae60] transition">
+                <div className="flex items-center gap-1 bg-[#2ecc71] text-white text-xs sm:text-sm font-bold px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full shadow-xs group-hover:bg-[#27ae60] transition shrink-0">
                   <span>Explore Phones</span>
-                  <ArrowRight className="h-4 w-4 stroke-[2.5]" />
+                  <ArrowRight className="h-3.5 w-3.5 stroke-[2.5]" />
                 </div>
               </div>
             </Link>

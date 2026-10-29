@@ -18,20 +18,25 @@ const FAQ_ITEMS = [
 export default function FAQs() {
   return (
     <div className="w-full">
-      <h2 id="faq-title" className="font-display text-[1.9rem] font-medium leading-tight tracking-[-0.02em] text-foreground md:text-[2.5rem]">
+      <h2 id="faq-title" className="text-2xl font-black tracking-tight text-gray-900 md:text-3xl">
         Questions, answered
       </h2>
+      <p className="text-xs text-gray-500 mt-1">
+        Everything you need to know about selling or buying your mobile on Cashify
+      </p>
 
-      <div className="mt-8 border-b border-border">
+      <div className="mt-6 divide-y divide-gray-100">
         {FAQ_ITEMS.map((item, idx) => (
-          <details key={item.q} className="group border-t border-border" open={idx === 0}>
-            <summary className="flex min-h-[64px] cursor-pointer list-none items-center justify-between gap-6 py-4 text-left text-[1.02rem] font-semibold text-foreground transition-colors hover:text-gold [&::-webkit-details-marker]:hidden">
-              {item.q}
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-border text-muted transition-transform duration-200 group-open:rotate-45 group-open:border-gold group-open:text-gold">
-                <Plus aria-hidden="true" className="h-4 w-4" />
+          <details key={item.q} className="group py-4" open={idx === 0}>
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left text-base font-bold text-gray-900 transition hover:text-[#128085] [&::-webkit-details-marker]:hidden">
+              <span>{item.q}</span>
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-gray-200 text-gray-400 group-hover:border-[#128085] group-hover:text-[#128085] transition-transform duration-200 group-open:rotate-45 group-open:border-[#128085] group-open:bg-[#eaf6f6] group-open:text-[#128085]">
+                <Plus aria-hidden="true" className="h-4 w-4 stroke-[2.5]" />
               </span>
             </summary>
-            <p className="max-w-[62ch] pb-6 pr-12 leading-relaxed text-muted">{item.a}</p>
+            <p className="pt-3 pb-2 text-sm leading-relaxed text-gray-600 max-w-3xl">
+              {item.a}
+            </p>
           </details>
         ))}
       </div>

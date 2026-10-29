@@ -15,8 +15,8 @@ export default function WarrantyClaim() {
           <StepNumber n={1} />
           <p className="leading-relaxed text-muted">
             Drop a &quot;Hi&quot; on WhatsApp on{' '}
-            <a href="https://wa.me/919353859485" target="_blank" rel="noopener noreferrer" className="font-semibold text-gold underline-offset-4 hover:underline">
-              +91 93538 59485
+            <a href="https://wa.me/918553627474" target="_blank" rel="noopener noreferrer" className="font-semibold text-gold underline-offset-4 hover:underline">
+              +91 85536 27474
             </a>{' '}
             or email at{' '}
             <a href="mailto:fcashify@gmail.com" className="font-semibold text-gold underline-offset-4 hover:underline">
@@ -42,7 +42,7 @@ export default function WarrantyClaim() {
       </ol>
 
       <a
-        href="https://wa.me/919353859485"
+        href="https://wa.me/918553627474"
         target="_blank"
         rel="noopener noreferrer"
         className="btn-outline mt-7 w-full no-underline sm:w-auto"

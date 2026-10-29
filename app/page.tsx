@@ -64,22 +64,26 @@ export default function LandingPage() {
   ];
 
   const services = [
-    { name: "Sell Phone", emoji: "📱", href: "/quote", badge: "Instant Cash", desc: "Top Value" },
-    { name: "Buy Gadgets", emoji: "💻", href: "/buy", badge: "Warranty", desc: "Certified" },
-    { name: "Buy Phone", emoji: "📲", href: "/buy", badge: "Refurbished", desc: "32-Pt Check" },
-    { name: "Buy Laptops", emoji: "🖥️", href: "/buy", badge: "Up to 60% Off", desc: "Mac & Windows" },
-    { name: "Rent PS5", emoji: "🎮", href: "/buy", badge: "Gaming", desc: "Zero Deposit" },
-    { name: "Buy Cameras", emoji: "📷", href: "/buy", badge: "DSLR & Lens", desc: "Inspected" },
-    { name: "Pixel Upgrade", emoji: "✨", href: "/quote", badge: "₹2,000 Bonus", desc: "Exchange Deal" },
-    { name: "Gaming Consoles", emoji: "🕹️", href: "/buy", badge: "PlayStation", desc: "Pre-owned" },
-    { name: "Repair Phone", emoji: "🛠️", href: "/repair", badge: "30 Mins", desc: "At Doorstep" },
-    { name: "Repair Laptop", emoji: "🔧", href: "/repair", badge: "Screen & Batt", desc: "Free Visit" },
-    { name: "Find New Phone", emoji: "🔍", href: "/quote", badge: "Price Drop", desc: "Best Deals" },
-    { name: "Nearby Stores", emoji: "🏬", href: "/stores", badge: "200+ Stores", desc: "Walk-in" },
-    { name: "Accessories", emoji: "🎧", href: "/buy", badge: "Original", desc: "Buds & Cables" },
-    { name: "Smartwatches", emoji: "⌚", href: "/quote", badge: "Sell Apple Watch", desc: "Spot Cash" },
-    { name: "Recycle Phone", emoji: "♻️", href: "/quote", badge: "Zero E-Waste", desc: "Eco Reward" },
-    { name: "Buy Tablets", emoji: "📟", href: "/buy", badge: "iPads & Tabs", desc: "With Warranty" },
+    { 
+      name: "Sell Phone", 
+      emoji: "📱", 
+      href: "/quote", 
+      badge: "Instant Cash & Doorstep", 
+      desc: "Get the highest market valuation in 60 seconds with free pickup",
+      actionText: "Sell Now →",
+      bgGradient: "from-teal-50 to-emerald-50",
+      borderColor: "border-teal-200"
+    },
+    { 
+      name: "Buy Phone", 
+      emoji: "📲", 
+      href: "/buy", 
+      badge: "Certified Refurbished", 
+      desc: "32-Point Quality Inspected with 6-12 Months Warranty & Free Delivery",
+      actionText: "Buy Now →",
+      bgGradient: "from-blue-50 to-teal-50",
+      borderColor: "border-teal-200"
+    },
   ];
 
   const popularBrands = [
@@ -324,34 +328,40 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* 16-Tile "Our Services" Grid (Identical to Official Cashify) */}
+        {/* Services Section - Buy Phone & Sell Phone */}
         <section className="bg-white rounded-3xl p-6 sm:p-8 shadow-xs border border-gray-100">
-          <div className="flex items-center justify-between mb-6">
-            <div>
-              <h2 className="text-2xl font-black text-gray-900 tracking-tight">Our Services</h2>
-              <p className="text-xs text-gray-500 mt-0.5">Explore instant device buyback, certified refurbished gadgets, and doorstep repair</p>
-            </div>
+          <div className="mb-6">
+            <h2 className="text-2xl font-black text-gray-900 tracking-tight">Our Services</h2>
+            <p className="text-xs text-gray-500 mt-0.5">Explore instant device buyback with doorstep pickup or certified refurbished smartphones</p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3 sm:gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             {services.map((srv, idx) => (
               <Link
                 key={idx}
                 href={srv.href}
-                className="group flex flex-col items-center text-center p-3.5 rounded-2xl border border-gray-100 bg-[#f7fafb] hover:bg-[#ebf6f6] hover:border-[#128085]/40 hover:shadow-md transition-all no-underline"
+                className="group relative flex items-center justify-between p-6 sm:p-8 rounded-2xl border border-gray-200 hover:border-[#128085] bg-gradient-to-br from-white to-[#f7fbfb] hover:shadow-lg transition-all no-underline"
               >
-                <div className="w-14 h-14 rounded-2xl bg-white shadow-xs flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
-                  {srv.emoji}
+                <div className="flex items-center gap-5 sm:gap-6">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-[#eaf6f6] border border-teal-100 flex items-center justify-center text-4xl sm:text-5xl group-hover:scale-105 transition-transform shrink-0 shadow-xs">
+                    {srv.emoji}
+                  </div>
+                  <div>
+                    <span className="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-black tracking-wide uppercase bg-teal-100 text-[#128085] mb-1.5">
+                      {srv.badge}
+                    </span>
+                    <h3 className="text-xl sm:text-2xl font-black text-gray-950 group-hover:text-[#128085] transition-colors">
+                      {srv.name}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-gray-500 mt-1 max-w-sm font-medium">
+                      {srv.desc}
+                    </p>
+                  </div>
                 </div>
-                <span className="text-xs font-bold text-gray-900 mt-3 group-hover:text-[#128085] line-clamp-1">
-                  {srv.name}
-                </span>
-                <span className="text-[10px] font-extrabold text-[#128085] mt-0.5 line-clamp-1">
-                  {srv.badge}
-                </span>
-                <span className="text-[9px] text-gray-400 mt-0.5 line-clamp-1">
-                  {srv.desc}
-                </span>
+
+                <div className="hidden sm:flex items-center gap-1 text-sm font-black text-[#128085] bg-white group-hover:bg-[#128085] group-hover:text-white px-4 py-2 rounded-full border border-teal-200 transition-all shadow-xs">
+                  <span>{srv.actionText}</span>
+                </div>
               </Link>
             ))}
           </div>

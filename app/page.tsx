@@ -87,14 +87,14 @@ export default function LandingPage() {
   ];
 
   const popularBrands = [
-    { name: "Apple", logo: "", models: "iPhone 15, 14, 13, 12, 11", href: "/quote?brand=Apple" },
-    { name: "Samsung", logo: "SAMSUNG", models: "Galaxy S24, S23, S22, Z Fold", href: "/quote?brand=Samsung" },
-    { name: "OnePlus", logo: "1+", models: "OnePlus 12, 11, 10, Nord Series", href: "/quote?brand=OnePlus" },
-    { name: "Xiaomi", logo: "mi", models: "Redmi Note, Xiaomi Pro, POCO", href: "/quote?brand=Xiaomi" },
-    { name: "Vivo", logo: "vivo", models: "V30, V29, X90, T Series", href: "/quote?brand=Vivo" },
-    { name: "Oppo", logo: "oppo", models: "Reno 11, Find N, F Series", href: "/quote?brand=Oppo" },
-    { name: "Google", logo: "G", models: "Pixel 8 Pro, 7a, 6, 7", href: "/quote?brand=Google" },
-    { name: "Realme", logo: "realme", models: "Realme 12 Pro, GT, Narzo", href: "/quote?brand=Realme" },
+    { name: "Apple", logoSrc: "/images/brands/apple.png", models: "iPhone 15, 14, 13, 12, 11", href: "/quote?brand=Apple" },
+    { name: "Samsung", logoSrc: "/images/brands/samsung.png", models: "Galaxy S24, S23, S22, Z Fold", href: "/quote?brand=Samsung" },
+    { name: "OnePlus", logoSrc: "/images/brands/oneplus.png", models: "OnePlus 12, 11, 10, Nord Series", href: "/quote?brand=OnePlus" },
+    { name: "Xiaomi", logoSrc: "/images/brands/xiaomi.png", models: "Redmi Note, Xiaomi Pro, POCO", href: "/quote?brand=Xiaomi" },
+    { name: "Vivo", logoSrc: "/images/brands/vivo.png", models: "V30, V29, X90, T Series", href: "/quote?brand=Vivo" },
+    { name: "Oppo", logoSrc: "/images/brands/oppo.png", models: "Reno 11, Find N, F Series", href: "/quote?brand=Oppo" },
+    { name: "Google", logoSrc: "/images/brands/google.png", models: "Pixel 8 Pro, 7a, 6, 7", href: "/quote?brand=Google" },
+    { name: "Realme", logoSrc: "/images/brands/realme.png", models: "Realme 12 Pro, GT, Narzo", href: "/quote?brand=Realme" },
   ];
 
   const featuredDeals = [
@@ -246,7 +246,7 @@ export default function LandingPage() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-10">
         
         {/* Hero Interactive Slider */}
-        <section className="relative rounded-3xl overflow-hidden shadow-xl border border-teal-100">
+        <section className="relative rounded-3xl overflow-hidden shadow-xl border border-teal-100 group">
           <div className={`bg-gradient-to-r ${heroBanners[activeSlide].bgGradient} p-8 sm:p-14 text-white min-h-[340px] sm:min-h-[380px] flex items-center justify-between relative`}>
             
             {/* Left Content */}
@@ -300,18 +300,20 @@ export default function LandingPage() {
               </div>
             </div>
 
-            {/* Left / Right Slider Arrows */}
+            {/* Left / Right Slider Arrows (Subtle: smaller, semi-transparent, reveal on hover) */}
             <button
               onClick={() => setActiveSlide((prev) => (prev === 0 ? heroBanners.length - 1 : prev - 1))}
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 hover:bg-white text-gray-800 flex items-center justify-center shadow-lg transition"
+              aria-label="Previous slide"
+              className="absolute left-2.5 sm:left-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/25 hover:bg-white/90 text-white hover:text-gray-900 flex items-center justify-center backdrop-blur-md opacity-40 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300 z-20 shadow-sm"
             >
-              <ChevronLeft className="h-5 w-5 stroke-[2.5]" />
+              <ChevronLeft className="h-4 w-4 stroke-[2.5]" />
             </button>
             <button
               onClick={() => setActiveSlide((prev) => (prev === heroBanners.length - 1 ? 0 : prev + 1))}
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 hover:bg-white text-gray-800 flex items-center justify-center shadow-lg transition"
+              aria-label="Next slide"
+              className="absolute right-2.5 sm:right-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/25 hover:bg-white/90 text-white hover:text-gray-900 flex items-center justify-center backdrop-blur-md opacity-40 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300 z-20 shadow-sm"
             >
-              <ChevronRight className="h-5 w-5 stroke-[2.5]" />
+              <ChevronRight className="h-4 w-4 stroke-[2.5]" />
             </button>
 
             {/* Slide Dots */}
@@ -470,11 +472,21 @@ export default function LandingPage() {
               <Link
                 key={b.name}
                 href={b.href}
-                className="p-4 rounded-2xl border border-gray-100 bg-[#fbfcfd] hover:border-[#128085] hover:bg-[#f0f9f9] text-center transition-all group no-underline flex flex-col justify-between"
+                className="p-4 rounded-2xl border border-gray-100 bg-[#fbfcfd] hover:border-[#128085] hover:bg-[#f0f9f9] text-center transition-all group no-underline flex flex-col items-center justify-between min-h-[140px]"
               >
-                <div className="text-xl font-black text-gray-800 group-hover:text-[#128085]">{b.logo}</div>
-                <div className="text-xs font-bold text-gray-900 mt-2">{b.name}</div>
-                <div className="text-[9px] text-gray-400 mt-1 line-clamp-1">{b.models}</div>
+                <div className="h-10 w-full flex items-center justify-center">
+                  <Image
+                    src={b.logoSrc}
+                    alt={`${b.name} logo`}
+                    width={48}
+                    height={48}
+                    className="object-contain max-h-9 max-w-[70px] transition-transform duration-200 group-hover:scale-110"
+                  />
+                </div>
+                <div className="w-full mt-2">
+                  <div className="text-xs font-bold text-gray-900 group-hover:text-[#128085] transition-colors">{b.name}</div>
+                  <div className="text-[9px] text-gray-400 mt-0.5 line-clamp-1">{b.models}</div>
+                </div>
               </Link>
             ))}
           </div>

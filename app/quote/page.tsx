@@ -2310,7 +2310,7 @@ export default function QuotePage() {
                 <h2 style={{ fontWeight: 600, fontSize: '1.25rem' }}>Choose a variant</h2>
                 <button onClick={() => navigateToState(selectedBrand, '', '', 'model', 1)} style={{ color: 'var(--gold)', background: 'none', border: 'none', cursor: 'pointer' }}>Change Model</button>
               </div>
-              <div className="card" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', border: '1px solid var(--border)', backgroundColor: 'var(--surface)' }}>
+              <div className="card" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', padding: '1.25rem', borderRadius: '12px', border: '1px solid var(--border)', backgroundColor: 'var(--surface)' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
                   <img src={`/images/models/${selectedModel.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.png`} alt={selectedModel} style={{ width: '60px', height: '80px', objectFit: 'contain' }} onError={(e) => { e.currentTarget.src = '/images/placeholder-phone.svg'; e.currentTarget.onerror = null; }} />
                   <div><p style={{ color: 'var(--muted)', fontSize: '0.8rem' }}>{selectedBrand}</p><h3 style={{ fontSize: '1.2rem', fontWeight: 600 }}>{selectedModel}</h3></div>

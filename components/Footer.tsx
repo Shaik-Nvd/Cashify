@@ -67,9 +67,9 @@ export default function Footer() {
           <h2 className="text-xs font-semibold uppercase tracking-[0.14em] text-muted">Talk to us</h2>
           <ul className="mt-3">
             <li>
-              <a href="mailto:support@cashify.store" className="inline-flex min-h-[40px] items-center gap-2 text-sm text-foreground no-underline hover:text-gold">
+              <a href="mailto:trustbridgepartner@gmail.com" className="inline-flex min-h-[40px] items-center gap-2 text-sm text-foreground no-underline hover:text-gold">
                 <Mail aria-hidden="true" className="h-4 w-4 text-gold" />
-                support@cashify.store
+                trustbridgepartner@gmail.com
               </a>
             </li>
           </ul>

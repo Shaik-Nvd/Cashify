@@ -28,7 +28,7 @@ export default function TermsAndConditions() {
 
       <h2 style={{ fontSize: '1.5rem', marginTop: '30px', marginBottom: '15px' }}>5. Contact Us</h2>
       <p style={{ marginBottom: '15px', color: 'var(--muted)' }}>
-        If you have any questions about these Terms, please contact us at support@cashify.in.
+        If you have any questions about these Terms, please contact us at trustbridgepartner@gmail.com.
       </p>
     </div>
   );

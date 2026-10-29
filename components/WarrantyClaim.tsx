@@ -15,8 +15,8 @@ export default function WarrantyClaim() {
           <StepNumber n={1} />
           <p className="leading-relaxed text-muted">
             Email us at{' '}
-            <a href="mailto:support@cashify.store" className="font-semibold text-gold underline-offset-4 hover:underline">
-              support@cashify.store
+            <a href="mailto:trustbridgepartner@gmail.com" className="font-semibold text-gold underline-offset-4 hover:underline">
+              trustbridgepartner@gmail.com
             </a>{' '}
             to register your complaint.
           </p>
@@ -38,7 +38,7 @@ export default function WarrantyClaim() {
       </ol>
 
       <a
-        href="mailto:support@cashify.store"
+        href="mailto:trustbridgepartner@gmail.com"
         className="btn-outline mt-7 w-full no-underline sm:w-auto"
       >
         <Mail aria-hidden="true" className="h-4 w-4" />

@@ -2982,7 +2982,7 @@ export default function QuotePage() {
                   <a href={inspectionRequestLinks({ brand: selectedBrand, model: getDisplayModelName(selectedBrand, selectedModel), storage: selectedStorage }).email}
                     className="btn-primary" style={{ padding: '12px', borderRadius: '8px', fontWeight: 600 }}>Request an Inspection via Email</a>
                   <p style={{ fontSize: '0.85rem', color: 'var(--muted)' }}>
-                    Contact us at <a href={inspectionRequestLinks({ brand: selectedBrand, model: getDisplayModelName(selectedBrand, selectedModel), storage: selectedStorage }).email} style={{ textDecoration: 'underline' }}>support@cashify.store</a>. If an answer was wrong, you can change it.
+                    Contact us at <a href={inspectionRequestLinks({ brand: selectedBrand, model: getDisplayModelName(selectedBrand, selectedModel), storage: selectedStorage }).email} style={{ textDecoration: 'underline' }}>trustbridgepartner@gmail.com</a>. If an answer was wrong, you can change it.
                   </p>
                   <button type="button" onClick={() => navigateToState(selectedBrand, selectedModel, selectedStorage, 'storage', 3)} className="btn-outline">Review answers</button>
                 </>

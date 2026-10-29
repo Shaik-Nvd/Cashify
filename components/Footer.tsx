@@ -67,12 +67,6 @@ export default function Footer() {
           <h2 className="text-xs font-semibold uppercase tracking-[0.14em] text-muted">Talk to us</h2>
           <ul className="mt-3">
             <li>
-              <a href="https://wa.me/919353859485" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-[40px] items-center gap-2 text-sm text-foreground no-underline hover:text-gold">
-                <MessageCircle aria-hidden="true" className="h-4 w-4 text-gold" />
-                +91 93538 59485
-              </a>
-            </li>
-            <li>
               <a href="mailto:support@cashify.store" className="inline-flex min-h-[40px] items-center gap-2 text-sm text-foreground no-underline hover:text-gold">
                 <Mail aria-hidden="true" className="h-4 w-4 text-gold" />
                 support@cashify.store

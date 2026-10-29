@@ -2979,10 +2979,10 @@ export default function QuotePage() {
               {manualInspectionRequired ? (
                 <>
                   <p>We can&apos;t give an instant price for these answers yet. Our team can inspect your phone and quote it for you, free and with no obligation.</p>
-                  <a href={inspectionRequestLinks({ brand: selectedBrand, model: getDisplayModelName(selectedBrand, selectedModel), storage: selectedStorage }).whatsapp}
-                    target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ padding: '12px', borderRadius: '8px', fontWeight: 600 }}>Request an inspection on WhatsApp</a>
+                  <a href={inspectionRequestLinks({ brand: selectedBrand, model: getDisplayModelName(selectedBrand, selectedModel), storage: selectedStorage }).email}
+                    className="btn-primary" style={{ padding: '12px', borderRadius: '8px', fontWeight: 600 }}>Request an Inspection via Email</a>
                   <p style={{ fontSize: '0.85rem', color: 'var(--muted)' }}>
-                    Or email <a href={inspectionRequestLinks({ brand: selectedBrand, model: getDisplayModelName(selectedBrand, selectedModel), storage: selectedStorage }).email} style={{ textDecoration: 'underline' }}>support@cashify.in</a>. If an answer was wrong, you can change it.
+                    Contact us at <a href={inspectionRequestLinks({ brand: selectedBrand, model: getDisplayModelName(selectedBrand, selectedModel), storage: selectedStorage }).email} style={{ textDecoration: 'underline' }}>support@cashify.store</a>. If an answer was wrong, you can change it.
                   </p>
                   <button type="button" onClick={() => navigateToState(selectedBrand, selectedModel, selectedStorage, 'storage', 3)} className="btn-outline">Review answers</button>
                 </>

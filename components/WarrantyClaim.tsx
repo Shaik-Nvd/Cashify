@@ -1,4 +1,4 @@
-import { MessageCircle, ShieldCheck } from 'lucide-react';
+import { Mail, ShieldCheck } from 'lucide-react';
 
 export default function WarrantyClaim() {
   return (
@@ -14,13 +14,9 @@ export default function WarrantyClaim() {
         <li className="flex gap-4">
           <StepNumber n={1} />
           <p className="leading-relaxed text-muted">
-            Drop a &quot;Hi&quot; on WhatsApp on{' '}
-            <a href="https://wa.me/919353859485" target="_blank" rel="noopener noreferrer" className="font-semibold text-gold underline-offset-4 hover:underline">
-              +91 93538 59485
-            </a>{' '}
-            or email at{' '}
-            <a href="mailto:fcashify@gmail.com" className="font-semibold text-gold underline-offset-4 hover:underline">
-              fcashify@gmail.com
+            Email us at{' '}
+            <a href="mailto:support@cashify.store" className="font-semibold text-gold underline-offset-4 hover:underline">
+              support@cashify.store
             </a>{' '}
             to register your complaint.
           </p>
@@ -42,13 +38,11 @@ export default function WarrantyClaim() {
       </ol>
 
       <a
-        href="https://wa.me/919353859485"
-        target="_blank"
-        rel="noopener noreferrer"
+        href="mailto:support@cashify.store"
         className="btn-outline mt-7 w-full no-underline sm:w-auto"
       >
-        <MessageCircle aria-hidden="true" className="h-4 w-4" />
-        Message us on WhatsApp
+        <Mail aria-hidden="true" className="h-4 w-4" />
+        Email Support
       </a>
     </div>
   );

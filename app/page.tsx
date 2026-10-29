@@ -225,18 +225,18 @@ export default function LandingPage() {
         </div>
 
         {/* Secondary Category Navigation Bar */}
-        <div className="border-t border-gray-100 bg-[#fafbfc]">
+        <div className="border-t border-gray-100 bg-[#fafbfc] overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between text-xs font-bold text-gray-700 py-2.5 overflow-x-auto no-scrollbar gap-6 min-w-max">
-              <span className="flex items-center gap-1 cursor-pointer text-[#128085] font-extrabold">All Categories</span>
-              <Link href="/quote" className="hover:text-[#128085] flex items-center gap-1 no-underline text-gray-700 transition">Sell Phone <ChevronDown className="h-3 w-3 text-gray-400" /></Link>
-              <Link href="/quote" className="hover:text-[#128085] flex items-center gap-1 no-underline text-gray-700 transition">Sell Gadgets <ChevronDown className="h-3 w-3 text-gray-400" /></Link>
-              <Link href="/buy" className="hover:text-[#128085] flex items-center gap-1 no-underline text-gray-700 transition">Buy Refurbished Devices <ChevronDown className="h-3 w-3 text-gray-400" /></Link>
-              <Link href="/quote" className="hover:text-[#128085] flex items-center gap-1 no-underline text-gray-700 transition">Find New Gadget <ChevronDown className="h-3 w-3 text-gray-400" /></Link>
-              <Link href="/buy" className="hover:text-[#128085] flex items-center gap-1 no-underline text-gray-700 transition">Buy Laptop <ChevronDown className="h-3 w-3 text-gray-400" /></Link>
-              <Link href="/repair" className="hover:text-[#128085] flex items-center gap-1 no-underline text-gray-700 transition">Doorstep Repair <ChevronDown className="h-3 w-3 text-gray-400" /></Link>
-              <Link href="/stores" className="hover:text-[#128085] flex items-center gap-1 no-underline text-gray-700 transition">Cashify Stores <ChevronDown className="h-3 w-3 text-gray-400" /></Link>
-              <Link href="/partner" className="hover:text-[#128085] flex items-center gap-1 no-underline text-[#f37021] transition">Partner With Us</Link>
+            <div className="flex items-center justify-between text-xs font-bold text-gray-700 py-2.5 overflow-x-auto no-scrollbar gap-6 max-w-full">
+              <span className="flex items-center gap-1 cursor-pointer text-[#128085] font-extrabold shrink-0">All Categories</span>
+              <Link href="/quote" className="hover:text-[#128085] flex items-center gap-1 no-underline text-gray-700 transition shrink-0">Sell Phone <ChevronDown className="h-3 w-3 text-gray-400" /></Link>
+              <Link href="/quote" className="hover:text-[#128085] flex items-center gap-1 no-underline text-gray-700 transition shrink-0">Sell Gadgets <ChevronDown className="h-3 w-3 text-gray-400" /></Link>
+              <Link href="/buy" className="hover:text-[#128085] flex items-center gap-1 no-underline text-gray-700 transition shrink-0">Buy Refurbished Devices <ChevronDown className="h-3 w-3 text-gray-400" /></Link>
+              <Link href="/quote" className="hover:text-[#128085] flex items-center gap-1 no-underline text-gray-700 transition shrink-0">Find New Gadget <ChevronDown className="h-3 w-3 text-gray-400" /></Link>
+              <Link href="/buy" className="hover:text-[#128085] flex items-center gap-1 no-underline text-gray-700 transition shrink-0">Buy Laptop <ChevronDown className="h-3 w-3 text-gray-400" /></Link>
+              <Link href="/repair" className="hover:text-[#128085] flex items-center gap-1 no-underline text-gray-700 transition shrink-0">Doorstep Repair <ChevronDown className="h-3 w-3 text-gray-400" /></Link>
+              <Link href="/stores" className="hover:text-[#128085] flex items-center gap-1 no-underline text-gray-700 transition shrink-0">Cashify Stores <ChevronDown className="h-3 w-3 text-gray-400" /></Link>
+              <Link href="/partner" className="hover:text-[#128085] flex items-center gap-1 no-underline text-[#f37021] transition shrink-0">Partner With Us</Link>
             </div>
           </div>
         </div>

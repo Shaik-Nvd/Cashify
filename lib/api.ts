@@ -1,16 +1,20 @@
 import axios, { AxiosInstance, AxiosError } from 'axios';
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+const API_URL = process.env.NEXT_PUBLIC_API_URL !== undefined ? process.env.NEXT_PUBLIC_API_URL : '';
 
 function getAccessToken(): string | null {
   if (typeof window === 'undefined') return null;
   try {
-    const raw = localStorage.getItem('cashify-auth');
-    if (!raw) return null;
-    const parsed = JSON.parse(raw);
-    return parsed?.state?.accessToken ?? null;
-  } catch {
+    const raw = localStorage.getItem('cashify-auth') || localStorage.getItem('sstelecom-auth') || localStorage.getItem('minttechnologies-auth') || localStorage.getItem('fhoneify-auth');
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      if (parsed?.state?.accessToken) return parsed.state.accessToken;
+    }
+    const directToken = localStorage.getItem('accessToken');
+    if (directToken) return directToken;
     return null;
+  } catch {
+    return localStorage.getItem('accessToken') || null;
   }
 }
 

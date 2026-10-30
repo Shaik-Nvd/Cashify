@@ -477,25 +477,25 @@ export default function LandingPage() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3.5">
             {popularBrands.map((b) => (
               <Link
                 key={b.name}
                 href={b.href}
-                className="p-4 rounded-2xl glass-card text-center transition-all group no-underline flex flex-col items-center justify-between min-h-[140px]"
+                className="p-3.5 rounded-2xl glass-card text-center transition-all duration-300 group no-underline flex flex-col items-center justify-between min-h-[148px] hover:border-[#2ecc71]/50 hover:shadow-[0_0_24px_rgba(46,204,113,0.22)] hover:-translate-y-1"
               >
-                <div className="h-10 w-full flex items-center justify-center">
+                <div className="w-full aspect-[16/11] rounded-xl bg-gradient-to-b from-white to-gray-50 p-2.5 flex items-center justify-center shadow-md ring-1 ring-white/20 group-hover:scale-105 group-hover:shadow-[0_4px_16px_rgba(255,255,255,0.25)] transition-all duration-300">
                   <Image
                     src={b.logoSrc}
                     alt={`${b.name} logo`}
-                    width={48}
-                    height={48}
-                    className="object-contain max-h-9 max-w-[70px] transition-transform duration-200 group-hover:scale-110 drop-shadow-md brightness-110"
+                    width={72}
+                    height={72}
+                    className="object-contain max-h-8 max-w-[80%] transition-transform duration-300 group-hover:scale-110"
                   />
                 </div>
-                <div className="w-full mt-2">
-                  <div className="text-xs font-bold text-white group-hover:text-[#2ecc71] transition-colors">{b.name}</div>
-                  <div className="text-[9px] text-gray-400 mt-0.5 line-clamp-1">{b.models}</div>
+                <div className="w-full mt-2.5">
+                  <div className="text-xs font-bold text-white group-hover:text-[#2ecc71] transition-colors tracking-wide">{b.name}</div>
+                  <div className="text-[9.5px] text-gray-400 mt-0.5 line-clamp-1">{b.models}</div>
                 </div>
               </Link>
             ))}

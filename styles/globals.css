@@ -113,6 +113,136 @@ body {
   box-shadow: 0 4px 20px rgba(18, 128, 133, 0.08);
 }
 
+/* =========================================================================
+   DARK FUTURISTIC IMMERSIVE LIQUID GLASS UI (Obsidian + Cyber Emerald)
+   ========================================================================= */
+
+.immersive-dark-canvas {
+  background-color: #060a0b;
+  background-image: 
+    radial-gradient(at 10% 20%, rgba(18, 128, 133, 0.28) 0px, transparent 45%),
+    radial-gradient(at 88% 15%, rgba(46, 204, 113, 0.22) 0px, transparent 42%),
+    radial-gradient(at 50% 55%, rgba(14, 100, 104, 0.25) 0px, transparent 55%),
+    radial-gradient(at 20% 85%, rgba(46, 204, 113, 0.18) 0px, transparent 48%),
+    radial-gradient(at 80% 90%, rgba(18, 128, 133, 0.26) 0px, transparent 50%);
+  background-attachment: fixed;
+  color: #f1f5f9;
+}
+
+/* Ambient animated liquid glow orbs */
+.liquid-glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  opacity: 0.65;
+  animation: liquidFloat 16s ease-in-out infinite alternate;
+}
+
+@keyframes liquidFloat {
+  0% { transform: translate(0px, 0px) scale(1); }
+  50% { transform: translate(30px, -40px) scale(1.15); }
+  100% { transform: translate(-25px, 25px) scale(0.95); }
+}
+
+/* Master Immersive Glass Panel */
+.glass-panel {
+  background: rgba(10, 20, 22, 0.62) !important;
+  backdrop-filter: blur(28px) saturate(210%) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(210%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 
+    0 24px 50px -12px rgba(0, 0, 0, 0.75),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 -1px 2px 0 rgba(0, 0, 0, 0.5) !important;
+  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Specular top rim shine */
+.glass-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(46, 204, 113, 0.6), rgba(255, 255, 255, 0.8), rgba(18, 128, 133, 0.6), transparent);
+  pointer-events: none;
+}
+
+/* Header Glass with cyber rim */
+.glass-header {
+  background: rgba(6, 12, 14, 0.82) !important;
+  backdrop-filter: blur(25px) saturate(200%) !important;
+  -webkit-backdrop-filter: blur(25px) saturate(200%) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Interactive Liquid Glass Cards */
+.glass-card {
+  background: rgba(14, 25, 28, 0.55) !important;
+  backdrop-filter: blur(20px) saturate(190%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(190%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 20px;
+  box-shadow: 
+    0 12px 30px -8px rgba(0, 0, 0, 0.6),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.15) !important;
+  transition: all 300ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.glass-card:hover {
+  transform: translateY(-4px) scale(1.015);
+  background: rgba(20, 36, 40, 0.78) !important;
+  border-color: rgba(46, 204, 113, 0.55) !important;
+  box-shadow: 
+    0 24px 50px -10px rgba(18, 128, 133, 0.35),
+    0 0 25px rgba(46, 204, 113, 0.22),
+    inset 0 1px 2px 0 rgba(255, 255, 255, 0.35) !important;
+}
+
+/* Liquid Neon Accent Glows */
+.neon-glow-teal {
+  box-shadow: 0 0 25px -4px rgba(18, 128, 133, 0.65);
+}
+
+.neon-glow-green {
+  box-shadow: 0 0 25px -4px rgba(46, 204, 113, 0.65);
+}
+
+/* Glass Inputs & Pill Badges */
+.glass-input {
+  background: rgba(255, 255, 255, 0.07) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  color: #ffffff !important;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4) !important;
+}
+
+.glass-input:focus {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-color: #2ecc71 !important;
+  box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.25), inset 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  color: #f1f5f9 !important;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.2);
+}
+
+.glass-pill:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border-color: rgba(46, 204, 113, 0.4) !important;
+}
+
 /* Button utility classes */
 .btn {
   @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 text-sm font-semibold;

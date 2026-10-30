@@ -2971,28 +2971,28 @@ export default function QuotePage() {
 
 {/* STAGE 10: LEAD CAPTURE MODAL */}
       {step === 10 && (
-        <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-[1000] backdrop-blur-md p-4">
-          <div className="liquid-glass text-black w-full max-w-md md:max-w-xl overflow-hidden shadow-2xl max-h-[90vh] overflow-y-auto border border-white/60">
+        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-[1000] backdrop-blur-sm p-4">
+          <div className="bg-white text-black rounded-2xl w-full max-w-md md:max-w-xl overflow-hidden shadow-2xl max-h-[90vh] overflow-y-auto border border-gray-100">
             
             {/* Modal Header */}
-            <div className="liquid-glass-teal p-6 text-white text-center relative">
+            <div className="bg-[#128085] p-6 text-white text-center relative">
               <button 
                 onClick={() => { 
                   const prevStep = asksAgeQuestion ? 9 : 8;
                   navigateToState(selectedBrand, selectedModel, selectedStorage, 'storage', prevStep); 
                   setShowOtpInput(false); 
                 }} 
-                style={{ position: 'absolute', right: '16px', top: '16px', background: 'none', border: 'none', fontSize: '1.75rem', cursor: 'pointer', color: 'rgba(255,255,255,0.85)', lineHeight: 1 }}
+                style={{ position: 'absolute', right: '16px', top: '16px', background: 'none', border: 'none', fontSize: '1.75rem', cursor: 'pointer', color: 'rgba(255,255,255,0.8)', lineHeight: 1 }}
                 aria-label="Close"
               >×</button>
-              <h2 className="text-2xl md:text-3xl font-bold mb-3 text-white drop-shadow-sm">Login/Signup</h2>
-              <div className="text-5xl md:text-6xl mb-3 drop-shadow-md">🔐</div>
-              <p className="font-medium text-sm md:text-base text-teal-50 drop-shadow-xs">Unlock the best price for your device instantly.</p>
+              <h2 className="text-2xl md:text-3xl font-bold mb-3 text-white">Login/Signup</h2>
+              <div className="text-5xl md:text-6xl mb-3">🔐</div>
+              <p className="font-medium text-sm md:text-base text-teal-50">Unlock the best price for your device instantly.</p>
             </div>
 
             <div className="p-6 md:p-8">
               {/* Device summary pill */}
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem', padding: '0.85rem 1.25rem', borderRadius: '16px' }} className="liquid-glass-card">
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem', border: '1px solid #e2e8f0', padding: '0.85rem 1.25rem', borderRadius: '12px', backgroundColor: '#fafbfc' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
                   <img src={`/images/models/${selectedModel.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.png`} alt={selectedModel} style={{ width: '36px', height: '52px', objectFit: 'contain' }} onError={(e) => { e.currentTarget.src = '/images/placeholder-phone.svg'; e.currentTarget.onerror = null; }} />
                   <div>
@@ -3002,7 +3002,7 @@ export default function QuotePage() {
                 </div>
               </div>
 
-              <div style={{ backgroundColor: 'rgba(254, 243, 199, 0.7)', color: '#b45309', padding: '0.75rem 1rem', borderRadius: '12px', textAlign: 'center', fontWeight: 600, fontSize: '0.9rem', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', border: '1px solid rgba(253, 230, 138, 0.8)', backdropFilter: 'blur(8px)' }}>
+              <div style={{ backgroundColor: '#fffbeb', color: '#b45309', padding: '0.75rem 1rem', borderRadius: '10px', textAlign: 'center', fontWeight: 600, fontSize: '0.9rem', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', border: '1px solid #fef3c7' }}>
                 <span style={{ fontSize: '1.1rem' }}>🔒</span> Login to unlock the best price
               </div>
 

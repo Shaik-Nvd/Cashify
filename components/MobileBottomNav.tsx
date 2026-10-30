@@ -17,7 +17,7 @@ export default function MobileBottomNav() {
   return (
     <nav
       aria-label="Quick navigation"
-      className="fixed bottom-0 left-0 z-50 flex w-full items-stretch justify-around liquid-glass-header px-2 pt-1.5 md:hidden"
+      className="bar-solid fixed bottom-0 left-0 z-50 flex w-full items-stretch justify-around border-t border-border bg-[color-mix(in_srgb,var(--surface)_94%,transparent)] px-2 pt-1.5 backdrop-blur-md md:hidden"
       style={{ paddingBottom: 'max(env(safe-area-inset-bottom, 0px), 8px)' }}
     >
       {NAV_ITEMS.map(({ name, path, Icon, primary }) => {

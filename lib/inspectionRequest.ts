@@ -2,7 +2,7 @@
  * same WhatsApp support number as components/WhatsAppFloatingBtn.tsx and the
  * support mailbox. Browser-safe: no imports, no customer data beyond the
  * device the customer selected. */
-export const SUPPORT_WHATSAPP_NUMBER = '919353859485';
+export const SUPPORT_WHATSAPP_NUMBER = '918296970075';
 export const SUPPORT_EMAIL = 'trustbridgepartner@gmail.com';
 
 export function inspectionRequestLinks(device: { brand: string; model: string; storage: string }) {

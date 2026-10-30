@@ -103,7 +103,7 @@ export default function WhatsAppFloatingBtn() {
               Open WhatsApp Chat
             </a>
             <a 
-              href="mailto:support@cashify.in"
+              href="mailto:trustbridgepartner@gmail.com"
               className="bg-[#f0f2f5] hover:bg-[#e4e6eb] text-gray-700 font-semibold py-1.5 px-4 text-sm rounded-full flex items-center justify-center gap-2 transition"
             >
               Email Support

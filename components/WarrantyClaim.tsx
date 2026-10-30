@@ -1,4 +1,4 @@
-import { Mail, ShieldCheck } from 'lucide-react';
+import { Mail, MessageCircle, ShieldCheck } from 'lucide-react';
 
 export default function WarrantyClaim() {
   return (
@@ -14,7 +14,11 @@ export default function WarrantyClaim() {
         <li className="flex gap-4">
           <StepNumber n={1} />
           <p className="leading-relaxed text-muted">
-            Email us at{' '}
+            Drop a &quot;Hi&quot; on WhatsApp on{' '}
+            <a href="https://wa.me/919353859485" target="_blank" rel="noopener noreferrer" className="font-semibold text-gold underline-offset-4 hover:underline">
+              +91 93538 59485
+            </a>{' '}
+            or email at{' '}
             <a href="mailto:trustbridgepartner@gmail.com" className="font-semibold text-gold underline-offset-4 hover:underline">
               trustbridgepartner@gmail.com
             </a>{' '}
@@ -37,13 +41,24 @@ export default function WarrantyClaim() {
         </li>
       </ol>
 
-      <a
-        href="mailto:trustbridgepartner@gmail.com"
-        className="btn-outline mt-7 w-full no-underline sm:w-auto"
-      >
-        <Mail aria-hidden="true" className="h-4 w-4" />
-        Email Support
-      </a>
+      <div className="mt-7 flex flex-wrap gap-3">
+        <a
+          href="https://wa.me/919353859485"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-primary w-full no-underline sm:w-auto"
+        >
+          <MessageCircle aria-hidden="true" className="h-4 w-4" />
+          Message us on WhatsApp
+        </a>
+        <a
+          href="mailto:trustbridgepartner@gmail.com"
+          className="btn-outline w-full no-underline sm:w-auto"
+        >
+          <Mail aria-hidden="true" className="h-4 w-4" />
+          Email Support
+        </a>
+      </div>
     </div>
   );
 }

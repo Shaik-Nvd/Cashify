@@ -4,6 +4,7 @@ import '@/styles/globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import MobileBottomNav from '@/components/MobileBottomNav';
+import WhatsAppFloatingBtn from '@/components/WhatsAppFloatingBtn';
 import { Analytics } from "@vercel/analytics/next";
 import KeepAlivePing from '@/components/KeepAlivePing';
 import { ThemeProvider } from '@/components/ThemeProvider';
@@ -93,6 +94,7 @@ export default function RootLayout({
             <Footer />
           </div>
           <MobileBottomNav />
+          <WhatsAppFloatingBtn />
           <Analytics />
           <KeepAlivePing />
         </ThemeProvider>

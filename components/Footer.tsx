@@ -66,12 +66,14 @@ export default function Footer() {
         <div>
           <h2 className="text-xs font-semibold uppercase tracking-[0.14em] text-muted">Talk to us</h2>
           <ul className="mt-3">
+            {/* WhatsApp & phone number temporarily hidden
             <li>
               <a href="https://wa.me/918296970075" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-[40px] items-center gap-2 text-sm text-foreground no-underline hover:text-gold">
                 <MessageCircle aria-hidden="true" className="h-4 w-4 text-gold" />
                 +91 82969 70075
               </a>
             </li>
+            */}
             <li>
               <a href="mailto:trustbridgepartner@gmail.com" className="inline-flex min-h-[40px] items-center gap-2 text-sm text-foreground no-underline hover:text-gold">
                 <Mail aria-hidden="true" className="h-4 w-4 text-gold" />

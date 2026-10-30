@@ -30,14 +30,8 @@ export default function WhatsAppFloatingBtn() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Only show the WhatsApp floating button on relevant pages
-  const isAllowedPage = pathname === '/' || pathname.startsWith('/buy') || pathname.startsWith('/quote') || pathname.startsWith('/sell');
-  
-  // On phones the quote flow's full-width action buttons sit where the
-  // floating button would; WhatsApp stays reachable from the footer there.
-  if (!isAllowedPage || (isMobile && (pathname.startsWith('/quote') || pathname.startsWith('/sell')))) {
-    return null;
-  }
+  // Temporarily hidden upon user request
+  return null;
   
   const phoneNumber = "918296970075";
   

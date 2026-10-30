@@ -14,11 +14,7 @@ export default function WarrantyClaim() {
         <li className="flex gap-4">
           <StepNumber n={1} />
           <p className="leading-relaxed text-muted">
-            Drop a &quot;Hi&quot; on WhatsApp on{' '}
-            <a href="https://wa.me/918296970075" target="_blank" rel="noopener noreferrer" className="font-semibold text-gold underline-offset-4 hover:underline">
-              +91 82969 70075
-            </a>{' '}
-            or email at{' '}
+            Email us at{' '}
             <a href="mailto:trustbridgepartner@gmail.com" className="font-semibold text-gold underline-offset-4 hover:underline">
               trustbridgepartner@gmail.com
             </a>{' '}
@@ -42,6 +38,7 @@ export default function WarrantyClaim() {
       </ol>
 
       <div className="mt-7 flex flex-wrap gap-3">
+        {/* WhatsApp button temporarily hidden
         <a
           href="https://wa.me/918296970075"
           target="_blank"
@@ -51,9 +48,10 @@ export default function WarrantyClaim() {
           <MessageCircle aria-hidden="true" className="h-4 w-4" />
           Message us on WhatsApp
         </a>
+        */}
         <a
           href="mailto:trustbridgepartner@gmail.com"
-          className="btn-outline w-full no-underline sm:w-auto"
+          className="btn-primary w-full no-underline sm:w-auto"
         >
           <Mail aria-hidden="true" className="h-4 w-4" />
           Email Support

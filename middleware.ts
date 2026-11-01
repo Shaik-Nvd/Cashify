@@ -11,7 +11,9 @@ export function middleware(request: NextRequest) {
     pathname.startsWith('/images') ||
     pathname.startsWith('/assets') ||
     pathname === '/favicon.svg' ||
-    pathname === '/icon' ||
+    pathname === '/favicon.ico' ||
+    pathname === '/favicon-32x32.png' ||
+    pathname.startsWith('/icon') ||
     pathname.includes('.')
   ) {
     return NextResponse.next();

@@ -33,7 +33,13 @@ export const metadata: Metadata = {
   },
   description: "India's largest re-commerce marketplace for selling used phones for instant cash, certified refurbished smartphones, and doorstep repairs.",
   icons: {
-    icon: '/favicon.svg',
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon-32x32.png', type: 'image/png' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/favicon-32x32.png',
   },
 };
 

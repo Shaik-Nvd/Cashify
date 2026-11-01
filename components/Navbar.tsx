@@ -113,8 +113,8 @@ export default function Navbar() {
     menuButtonRef.current?.focus();
   };
 
-  // Hide standard navbar on homepage, partner, itad, or admin pages
-  if (pathname === '/' || pathname?.startsWith('/partner') || pathname?.startsWith('/itad') || pathname?.startsWith('/admin')) {
+  // Hide standard navbar on homepage, holding, partner, itad, or admin pages
+  if (pathname === '/' || pathname?.startsWith('/holding') || pathname?.startsWith('/partner') || pathname?.startsWith('/itad') || pathname?.startsWith('/admin')) {
     return null;
   }
 

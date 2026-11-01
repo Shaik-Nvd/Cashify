@@ -14,6 +14,10 @@ const NAV_ITEMS = [
 export default function MobileBottomNav() {
   const pathname = usePathname();
 
+  if (pathname === '/' || pathname?.startsWith('/holding') || pathname?.startsWith('/partner') || pathname?.startsWith('/itad') || pathname?.startsWith('/admin')) {
+    return null;
+  }
+
   return (
     <nav
       aria-label="Quick navigation"

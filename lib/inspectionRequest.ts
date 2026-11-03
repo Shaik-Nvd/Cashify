@@ -3,7 +3,7 @@
  * support mailbox. Browser-safe: no imports, no customer data beyond the
  * device the customer selected. */
 export const SUPPORT_WHATSAPP_NUMBER = '918296970075';
-export const SUPPORT_EMAIL = 'trustbridgepartner@gmail.com';
+export const SUPPORT_EMAIL = 'support@cashify.store';
 
 export function inspectionRequestLinks(device: { brand: string; model: string; storage: string }) {
   const name = [device.model || device.brand, device.storage ? `(${device.storage})` : ''].filter(Boolean).join(' ');

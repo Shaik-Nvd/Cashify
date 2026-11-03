@@ -75,9 +75,8 @@ export default function Footer() {
             </li>
             */}
             <li>
-              <a href="mailto:trustbridgepartner@gmail.com" className="inline-flex min-h-[40px] items-center gap-2 text-sm text-foreground no-underline hover:text-gold">
-                <Mail aria-hidden="true" className="h-4 w-4 text-gold" />
-                trustbridgepartner@gmail.com
+              <a href="/quote" className="inline-flex min-h-[40px] items-center gap-2 text-sm text-foreground no-underline hover:text-gold">
+                Sell your phone online 24/7
               </a>
             </li>
           </ul>

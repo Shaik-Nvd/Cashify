@@ -28,7 +28,7 @@ const COLUMNS = [
 export default function Footer() {
   const pathname = usePathname();
   // Same exclusions as the Navbar, plus the admin console.
-  if (pathname === '/' || pathname?.startsWith('/holding') || pathname?.startsWith('/partner') || pathname?.startsWith('/itad') || pathname?.startsWith('/admin')) {
+  if (pathname?.startsWith('/partner') || pathname?.startsWith('/itad') || pathname?.startsWith('/admin')) {
     return null;
   }
 
